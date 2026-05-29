@@ -869,7 +869,7 @@ function checkWritingAnswer() {
             showMotivationalMessage();
             setTimeout(() => renderWritingExtraExercise(), 2000);
         } else {
-            setTimeout(() => renderSentence(), 500);
+            setTimeout(() => renderWriting(), 500);
         }
     } else {
         toast(`❌ Incorrecto. Respuesta: ${currentEx.correct}`);
