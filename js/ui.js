@@ -140,15 +140,34 @@ function confirmReset() {
     openModal(`<div class="mpill"></div><div class="mtitle">⚠️ ¿Reiniciar progreso?</div><p style="text-align:center;color:var(--muted);font-size:14px;font-weight:600;margin-bottom:18px">Se borrarán respuestas y estadísticas.</p><button class="btn btn-red" style="margin-bottom:9px" onclick="doReset()">🔄 Sí, reiniciar</button><button class="btn btn-s" onclick="openOptions()">← Cancelar</button>`);
 }
 function doReset() {
-    const ex = S.exercises, lv = S.levels, sd = S.storyData, am = S.audioMode, st = S.streak;
-    S = defS(); S.exercises = ex; S.levels = lv; S.storyData = sd; S.audioMode = am; S.streak = st;
-    save(); closeModal(); toast('🔄 Progreso reiniciado');
+    const ex = S.exercises, lv = S.levels, sd = S.storyData, am = S.audioMode;
+    const preservedStreak = S.streak; // ← Guardar racha
+    const preservedLastStudyDate = S.lastStudyDate; // ← Guardar fecha
+    S = defS(); 
+    S.exercises = ex; 
+    S.levels = lv; 
+    S.storyData = sd; 
+    S.audioMode = am;
+    S.streak = preservedStreak; // ← Restaurar racha
+    S.lastStudyDate = preservedLastStudyDate; // ← Restaurar fecha
+    save(); 
+    closeModal(); 
+    toast('🔄 Progreso reiniciado (racha conservada)');
     setTimeout(() => renderMap(), 400);
 }
 function confirmClear() {
     openModal(`<div class="mpill"></div><div class="mtitle">⚠️ ¿Cargar nuevos ejercicios?</div><p style="text-align:center;color:var(--muted);font-size:14px;font-weight:600;margin-bottom:18px">Se reemplazará todo el contenido.</p><button class="btn btn-red" style="margin-bottom:9px" onclick="doClear()">🗑️ Sí, reemplazar</button><button class="btn btn-s" onclick="openOptions()">← Cancelar</button>`);
 }
-function doClear() { S = defS(); save(); closeModal(); renderSetup(); }
+function doClear() { 
+    const preservedStreak = S.streak;
+    const preservedLastStudyDate = S.lastStudyDate;
+    S = defS(); 
+    S.streak = preservedStreak;
+    S.lastStudyDate = preservedLastStudyDate;
+    save(); 
+    closeModal(); 
+    renderSetup(); 
+}
 function openStats() {
     const done = totalDone(), tot = S.exercises.length;
     let exRows = '';
@@ -390,75 +409,155 @@ function loadJson() {
 function continueStudy() { checkStreak(); renderMap(); }
 
 // ════ MAP SCREEN ════
+// ════ MAP SCREEN - VERSIÓN REDISEÑADA ════
 function renderMap() {
     checkStreak();
     const nodes = buildNodes();
     const done = totalDone(), tot = S.exercises.length;
     const pct = tot > 0 ? Math.min(100, Math.round(done / tot * 100)) : 0;
-    const mc = getMascot(), al = activeNodeIdx(nodes);
-    const ALIGNS = ['margin-left:auto', 'margin:0 auto', 'margin-right:auto', 'margin:0 auto'];
+    const mc = getMascot();
+    const al = activeNodeIdx(nodes);
+    
+    // Generar HTML de los nodos con diseño moderno
     let nodesH = '';
-
+    
     nodes.forEach((node, ni) => {
-        const isDone = nodeDone(node), isOpen = nodeOpen(ni, nodes), isAct = ni === al && !isDone;
-        // Determinar clases adicionales según el tipo de nodo
-        let additionalClass = '';
-        if (node.type === 'game') additionalClass = ' gnode';
-        if (node.type === 'verbGame') additionalClass = ' gnode';
-        const cls = (isDone ? 'done' : isAct ? 'cur' : 'locked') + additionalClass;
-        const canTap = isDone || isOpen;
-        const clk = canTap ? `startNode(${ni})` : '';
-
+        const isDone = nodeDone(node);
+        const isOpen = nodeOpen(ni, nodes);
+        const isAct = ni === al && !isDone;
+        const isLocked = !isDone && !isOpen;
+        
+        // Determinar tipo de nodo
+        let nodeIcon = '', nodeTitle = '', nodeSubtitle = '', nodeColor = '';
+        
         if (node.type === 'ex') {
-            const ea = S.levels[node.li]; const c = ea.filter(i => S.responses[i] !== undefined).length;
-            const icon = isDone ? '✅' : isAct ? '🎯' : isOpen ? '🎯' : '🔒';
-            const timeStr = isDone && S.levelTimes[node.li] ? ' · ' + fmtMs(S.levelTimes[node.li]) : '';
-            nodesH += `<div class="lv-card ${cls}" style="${ALIGNS[ni % ALIGNS.length]}" onclick="${clk}">
-        <div class="lv-icon">${icon}</div>
-        <div class="lv-info"><div class="lv-title">Nivel ${node.li + 1}</div>
-        <div class="lv-sub">${c}/${ea.length} ejercicios${timeStr}</div></div></div>`;
-        }
+            const ea = S.levels[node.li];
+            const c = ea.filter(i => S.responses[i] !== undefined).length;
+            nodeIcon = isDone ? '🏆' : isAct ? '🎯' : isLocked ? '🔒' : '📚';
+            nodeTitle = `Nivel ${node.li + 1}`;
+            nodeSubtitle = isDone ? `${c}/${ea.length} completado` : (isAct ? 'En curso' : `${c}/${ea.length} ejercicios`);
+            nodeColor = isDone ? 'var(--mint)' : isAct ? 'var(--pri)' : 'var(--muted)';
+        } 
         else if (node.type === 'game') {
-            const st = S.storyData[node.si]; const p = S.gameProgress[node.si];
-            const doneEx = p ? Object.keys(p.answers || {}).length : 0; const totalEx = st?.exercises?.length || 0;
-            const corrEx = p ? Object.values(p.correct || {}).filter(Boolean).length : 0;
-            const icon = isDone ? '⭐' : isAct ? '🎮' : isOpen ? '🎮' : '🔒';
-            const timeStr = isDone && p?.timeMs ? ' · ' + fmtMs(p.timeMs) : '';
-            const subtitle = isDone ? `${corrEx}/${totalEx} correctas${timeStr}` : isOpen ? `${doneEx}/${totalEx} completados` : 'Completa el anterior';
-            nodesH += `<div class="lv-card ${cls}" style="${ALIGNS[ni % ALIGNS.length]}" onclick="${clk}">
-        <div class="lv-icon">${icon}</div>
-        <div class="lv-info"><div class="lv-title">${esc(st?.title || 'Historia')}</div>
-        <div class="lv-sub">${subtitle}</div></div></div>`;
+            const st = S.storyData[node.si];
+            nodeIcon = isDone ? '⭐' : isAct ? '🎮' : isLocked ? '🔒' : '📖';
+            nodeTitle = st?.title || 'Historia';
+            nodeSubtitle = isDone ? 'Completada' : (isAct ? 'Jugar ahora' : 'Bloqueado');
+            nodeColor = isDone ? 'var(--mint)' : isAct ? 'var(--pink)' : 'var(--muted)';
         }
         else if (node.type === 'verbGame') {
             const verbData = S.verbGamesData?.[node.vi];
-            const verbGameId = `verb_${verbData?.spanishWord}`;
-            const p = S.gameProgress[verbGameId];
-            const icon = isDone ? '🏆' : isAct ? '🎮' : isOpen ? '🎮' : '🔒';
-            const timeStr = isDone && p?.timeMs ? ' · ' + fmtMs(p.timeMs) : '';
-            nodesH += `<div class="lv-card ${cls}" style="${ALIGNS[ni % ALIGNS.length]}" onclick="${clk}">
-        <div class="lv-icon">${icon}</div>
-        <div class="lv-info"><div class="lv-title">📖 Verb Quest: ${esc(verbData?.spanishWord || 'Verbo')}</div>
-        <div class="lv-sub">Domina las 3 formas verbales${timeStr}</div></div></div>`;
+            nodeIcon = isDone ? '🏅' : isAct ? '🎮' : isLocked ? '🔒' : '📝';
+            nodeTitle = `Verb: ${verbData?.spanishWord || '?'}`;
+            nodeSubtitle = isDone ? 'Dominado' : (isAct ? 'Practicar' : 'Completa el anterior');
+            nodeColor = isDone ? 'var(--mint)' : isAct ? 'var(--yellow)' : 'var(--muted)';
         }
-
-        if (ni < nodes.length - 1) nodesH += `<div class="connector${isDone ? ' done' : ''}"></div>`;
+        
+        const canTap = isDone || isOpen;
+        const onClick = canTap ? `startNode(${ni})` : '';
+        
+        // Nodo con diseño moderno
+        nodesH += `
+            <div class="map-node ${isDone ? 'done' : isAct ? 'active' : 'locked'} ${node.type === 'verbGame' ? 'verb-node' : ''}" 
+                 style="animation-delay: ${ni * 0.05}s"
+                 onclick="${onClick}">
+                <div class="map-node-icon" style="background: ${nodeColor}20; border-color: ${nodeColor}">
+                    <span class="map-node-emoji">${nodeIcon}</span>
+                </div>
+                <div class="map-node-content">
+                    <div class="map-node-title" style="color: ${nodeColor}">${nodeTitle}</div>
+                    <div class="map-node-subtitle">${nodeSubtitle}</div>
+                </div>
+                ${!isLocked ? `<div class="map-node-arrow">→</div>` : ''}
+            </div>
+        `;
+        
+        // Conector entre nodos
+        if (ni < nodes.length - 1) {
+            nodesH += `<div class="map-connector ${isDone ? 'done' : ''}"></div>`;
+        }
     });
-
+    
+    // Mensaje emocional según el progreso
+    let emotionalMessage = '';
+    let emotionalEmoji = '';
+    if (done === 0) {
+        emotionalMessage = '¡Comienza tu aventura! 🚀';
+        emotionalEmoji = '🌱';
+    } else if (done === tot) {
+        emotionalMessage = '¡Eres una leyenda! ✨🎉';
+        emotionalEmoji = '🏆';
+    } else if (pct >= 75) {
+        emotionalMessage = '¡Estás muy cerca! 💪🔥';
+        emotionalEmoji = '🎯';
+    } else if (pct >= 50) {
+        emotionalMessage = '¡Vas excelente! Sigue así 🌟';
+        emotionalEmoji = '⚡';
+    } else if (pct >= 25) {
+        emotionalMessage = 'Buen progreso, ¡no pares! 📈';
+        emotionalEmoji = '💪';
+    } else if (done > 0) {
+        emotionalMessage = 'Cada paso cuenta, ¡sigue! 🦋';
+        emotionalEmoji = '✨';
+    }
+    
+    // Banner de racha con animación
+    const streakHtml = S.streak > 0 ? `
+        <div class="streak-card">
+            <div class="streak-flame">🔥</div>
+            <div class="streak-info">
+                <div class="streak-days">${S.streak}</div>
+                <div class="streak-label">días seguidos</div>
+            </div>
+            <div class="streak-glow"></div>
+        </div>
+    ` : '';
+    
     document.getElementById('app').innerHTML = `
-<div class="screen active" id="scr-map">
-  <div class="hdr"><span class="logo">✨ LinguaQuest</span>
-    <div class="hdr-r">${S.streak > 0 ? `<span class="badge">🔥 ${S.streak}</span>` : ''}<span class="badge">✅ ${done}/${tot}</span></div>
-  </div>
-  <div class="mascot"><span class="em ${mc.a}">${mc.e}</span><div class="bubble">${mc.m}</div></div>
-  ${S.streak >= 2 ? `<div class="streak-banner">🔥 ¡${S.streak} días seguidos estudiando!</div>` : ''}
-  <div class="prog-bar">
-    <div class="prog-hdr"><span class="prog-lbl">🎯 Progreso de traducción</span><span class="prog-cnt">${done} / ${tot} · ${pct}%</span></div>
-    <div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div>
-  </div>
-  <div class="map-body"><div class="map-path">${nodesH}</div></div>
-</div>
-<button class="fab" onclick="openOptions()">⚙️</button>`;
+        <div class="screen active" id="scr-map">
+            <!-- Header minimalista -->
+            <div class="map-header">
+                <div class="map-logo">
+                    <span class="map-logo-icon">✨</span>
+                    <span>LinguaQuest</span>
+                </div>
+                ${streakHtml}
+                <button class="map-settings" onclick="openOptions()">⚙️</button>
+            </div>
+            
+            <!-- Mascota mejorada -->
+            <div class="map-mascot-card">
+                <div class="map-mascot-emoji ${mc.a}">${mc.e}</div>
+                <div class="map-mascot-bubble">
+                    <span class="map-mascot-text">${mc.m}</span>
+                    <span class="map-mascot-emoji-small">${emotionalEmoji}</span>
+                </div>
+            </div>
+            
+            <!-- Mensaje emocional -->
+            ${emotionalMessage ? `<div class="map-emotional-msg">${emotionalMessage}</div>` : ''}
+            
+            <!-- Barra de progreso rediseñada -->
+            <div class="map-progress">
+                <div class="map-progress-header">
+                    <span class="map-progress-label">🎯 Progreso total</span>
+                    <span class="map-progress-value">${done}/${tot} · ${pct}%</span>
+                </div>
+                <div class="map-progress-bar">
+                    <div class="map-progress-fill" style="width: ${pct}%">
+                        <div class="map-progress-glint"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Camino / Mapa -->
+            <div class="map-path-container">
+                <div class="map-path">
+                    ${nodesH}
+                </div>
+            </div>
+        </div>
+    `;
 }
 function startNode(ni) {
     const nodes = buildNodes(); if (!nodes[ni]) return;
