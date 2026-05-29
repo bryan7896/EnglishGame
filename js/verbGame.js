@@ -1,29 +1,29 @@
 const MOTIVATIONAL_PHRASES = [
-  "¡Eres increíble! ✨", 
-  "¡Wow! Tu dedicación es inspiradora 💪",
-  "¡Lo estás haciendo genial! 🚀", 
-  "¡Eres una máquina de aprendizaje! 🎯",
-  "¡Qué manera tan brillante de aprender! 🌟", 
-  "¡Sigue así! Vas a dominar el inglés 💎",
-  "¡Tu esfuerzo vale la pena! 📚", 
-  "¡Eres imparable! ⚡",
-  "¡Qué orgullo verte progresar! 🥹", 
-  "¡Eres el/la mejor estudiante! 🏆",
-  "¡Cada día más cerca de la meta! 🏁",
-  "¡Tu constancia es tu superpoder! 🦸‍♂️",
-  "¡Estás construyendo un gran futuro! 🛠️",
-  "¡Nivelazo! Estás arrasando hoy 🔥",
-  "¡Un paso más cerca de hablar con fluidez! 🗣️",
-  "¡Brillante! Estás subiendo de nivel 📈",
-  "¡La práctica hace al maestro, vas volando! 🦅",
-  "¡Qué enfoque tan espectacular! 🧠",
-  "¡Nada te detiene! Sigue rompiéndola 🌪️",
-  "¡Estás dominando el juego del inglés! 🎮",
-  "¡Tu mente no tiene límites! 🌌",
-  "¡La disciplina de hoy es el éxito de mañana! ⏳",
-  "¡Estás transformando tu esfuerzo en talento! 🔮",
-  "¡Visualiza tu meta, ya casi estás ahí! 🗺️",
-  "¡Qué racha tan increíble llevas! ⚡"
+    "¡Eres increíble! ✨",
+    "¡Wow! Tu dedicación es inspiradora 💪",
+    "¡Lo estás haciendo genial! 🚀",
+    "¡Eres una máquina de aprendizaje! 🎯",
+    "¡Qué manera tan brillante de aprender! 🌟",
+    "¡Sigue así! Vas a dominar el inglés 💎",
+    "¡Tu esfuerzo vale la pena! 📚",
+    "¡Eres imparable! ⚡",
+    "¡Qué orgullo verte progresar! 🥹",
+    "¡Eres el/la mejor estudiante! 🏆",
+    "¡Cada día más cerca de la meta! 🏁",
+    "¡Tu constancia es tu superpoder! 🦸‍♂️",
+    "¡Estás construyendo un gran futuro! 🛠️",
+    "¡Nivelazo! Estás arrasando hoy 🔥",
+    "¡Un paso más cerca de hablar con fluidez! 🗣️",
+    "¡Brillante! Estás subiendo de nivel 📈",
+    "¡La práctica hace al maestro, vas volando! 🦅",
+    "¡Qué enfoque tan espectacular! 🧠",
+    "¡Nada te detiene! Sigue rompiéndola 🌪️",
+    "¡Estás dominando el juego del inglés! 🎮",
+    "¡Tu mente no tiene límites! 🌌",
+    "¡La disciplina de hoy es el éxito de mañana! ⏳",
+    "¡Estás transformando tu esfuerzo en talento! 🔮",
+    "¡Visualiza tu meta, ya casi estás ahí! 🗺️",
+    "¡Qué racha tan increíble llevas! ⚡"
 ];
 
 // ════════════════════════════════════════════
@@ -32,9 +32,9 @@ const MOTIVATIONAL_PHRASES = [
 
 // Colores por palabra (idx 0,1,2)
 const WS_COLORS = [
-  { bg: 'rgba(29,158,117,0.35)', border: '#1D9E75', found: '#9FE1CB', foundText: '#04342C', hint: 'rgba(29,158,117,0.15)', hintBorder: 'rgba(29,158,117,0.4)' },
-  { bg: 'rgba(55,138,221,0.35)', border: '#378ADD', found: '#B5D4F4', foundText: '#042C53', hint: 'rgba(55,138,221,0.15)', hintBorder: 'rgba(55,138,221,0.4)' },
-  { bg: 'rgba(186,117,23,0.35)', border: '#BA7517', found: '#FAC775', foundText: '#412402', hint: 'rgba(186,117,23,0.15)', hintBorder: 'rgba(186,117,23,0.4)' },
+    { bg: 'rgba(29,158,117,0.35)', border: '#1D9E75', found: '#9FE1CB', foundText: '#04342C', hint: 'rgba(29,158,117,0.15)', hintBorder: 'rgba(29,158,117,0.4)' },
+    { bg: 'rgba(55,138,221,0.35)', border: '#378ADD', found: '#B5D4F4', foundText: '#042C53', hint: 'rgba(55,138,221,0.15)', hintBorder: 'rgba(55,138,221,0.4)' },
+    { bg: 'rgba(186,117,23,0.35)', border: '#BA7517', found: '#FAC775', foundText: '#412402', hint: 'rgba(186,117,23,0.15)', hintBorder: 'rgba(186,117,23,0.4)' },
 ];
 
 // Estado extra en verbGameState (se agrega al startVerbGame existente)
@@ -277,11 +277,19 @@ function wsToggleHint(chipEl) {
 
 function wsApplyFoundStyles() {
     const fc = verbGameState.wsFoundColors || {};
-    for (const [word, cidx] of Object.entries(fc)) {
+    const words = [
+        verbGameState.currentVerbData.verb.toUpperCase(),
+        verbGameState.currentVerbData.past.toUpperCase(),
+        verbGameState.currentVerbData.participle.toUpperCase()
+    ];
+    
+    for (const [key, cidx] of Object.entries(fc)) {
+        // Extraer la palabra original de la clave (antes del _)
+        const word = key.split('_')[0];
         const path = verbGameState.wordSearchPaths[word] || [];
         const col = WS_COLORS[cidx];
-        path.forEach(key => {
-            const [r, c] = key.split(',').map(Number);
+        path.forEach(cellKey => {
+            const [r, c] = cellKey.split(',').map(Number);
             const el = document.querySelector(`.ws-cell[data-row="${r}"][data-col="${c}"]`);
             if (el) {
                 el.dataset.found = '1';
@@ -361,9 +369,10 @@ function initWordSearchSelection() {
 
         for (let i = 0; i < words.length; i++) {
             const w = words[i];
-            if (selected === w && (verbGameState.wsFoundColors || {})[w] === undefined) {
+            const uniqueKey = `${w}_${i}`;
+            if (selected === w && (verbGameState.wsFoundColors || {})[uniqueKey] === undefined) {
                 if (!verbGameState.wsFoundColors) verbGameState.wsFoundColors = {};
-                verbGameState.wsFoundColors[w] = i;
+                verbGameState.wsFoundColors[uniqueKey] = i;
                 if (verbGameState.wsHintWord === w) verbGameState.wsHintWord = null;
                 verbGameState.wordSearchFound.push({ word: w, cells: [...selCells] });
                 wsApplyFoundStyles();
@@ -435,13 +444,17 @@ function updateWordSearchUI() {
         verbGameState.currentVerbData.past.toUpperCase(),
         verbGameState.currentVerbData.participle.toUpperCase()
     ];
-    const allFound = words.every(w => (verbGameState.wsFoundColors || {})[w] !== undefined);
+    
+    // Verificar si todas están encontradas (usando las claves únicas)
+    const allFound = words.every((w, idx) => 
+        (verbGameState.wsFoundColors || {})[`${w}_${idx}`] !== undefined
+    );
 
     // Actualizar chips
     words.forEach((w, i) => {
         const chip = document.querySelector(`.ws-word[data-word="${w}"]`);
         if (!chip) return;
-        if ((verbGameState.wsFoundColors || {})[w] !== undefined) {
+        if ((verbGameState.wsFoundColors || {})[`${w}_${i}`] !== undefined) {
             const col = WS_COLORS[i];
             chip.style.background = col.found;
             chip.style.borderColor = col.border;
@@ -455,11 +468,11 @@ function updateWordSearchUI() {
 }
 
 function checkWordSearchComplete() {
-    const words = [verbGameState.currentVerbData.verb.toUpperCase(), 
-                  verbGameState.currentVerbData.past.toUpperCase(),
-                  verbGameState.currentVerbData.participle.toUpperCase()];
+    const words = [verbGameState.currentVerbData.verb.toUpperCase(),
+    verbGameState.currentVerbData.past.toUpperCase(),
+    verbGameState.currentVerbData.participle.toUpperCase()];
     const allFound = words.every(w => verbGameState.wordSearchFound.some(f => f.word === w));
-    
+
     if (allFound) {
         verbGameState.completedExercises[0] = true;
         showMotivationalMessage();
@@ -737,37 +750,24 @@ function initDragDropEvents() {
 
             const targetCat = cat.dataset.category;
 
-            if (
-                data.category === targetCat &&
-                !verbGameState.dragDropMatches[data.word]
-            ) {
+            // En initDragDropEvents(), dentro del evento 'drop':
 
-                verbGameState.dragDropMatches[data.word] = targetCat;
+            const uniqueKey = `${data.word}_${targetCat}`;
 
-                const draggedWord = document.querySelector(
-                    `.dd-word[data-word="${data.word}"]`
-                );
+            if (data.category === targetCat && !verbGameState.dragDropMatches[uniqueKey]) {
+                verbGameState.dragDropMatches[uniqueKey] = targetCat;
 
-                if (draggedWord) {
-                    draggedWord.remove();
-                }
+                const draggedWord = document.querySelector(`.dd-word[data-word="${data.word}"]`);
+                if (draggedWord) draggedWord.remove();
 
-                const targetContainer = document.getElementById(
-                    `cat-${targetCat}`
-                );
-
+                const targetContainer = document.getElementById(`cat-${targetCat}`);
                 const chip = document.createElement('div');
-
                 chip.className = 'dd-chip';
-
                 chip.textContent = data.word;
-
                 targetContainer.appendChild(chip);
 
                 playPing();
-
                 checkDragDropComplete();
-
             } else {
 
                 cat.animate([
@@ -788,10 +788,15 @@ function initDragDropEvents() {
 }
 
 function checkDragDropComplete() {
-    const allMatched = verbGameState.dragDropMatches[verbGameState.currentVerbData.verb] === 'verb' &&
-                      verbGameState.dragDropMatches[verbGameState.currentVerbData.past] === 'past' &&
-                      verbGameState.dragDropMatches[verbGameState.currentVerbData.participle] === 'participle';
-    
+    // Crear claves únicas para cada categoría basadas en el texto de la palabra
+    const verbKey = `${verbGameState.currentVerbData.verb}_verb`;
+    const pastKey = `${verbGameState.currentVerbData.past}_past`;
+    const participleKey = `${verbGameState.currentVerbData.participle}_participle`;
+
+    const allMatched = verbGameState.dragDropMatches[verbKey] === 'verb' &&
+        verbGameState.dragDropMatches[pastKey] === 'past' &&
+        verbGameState.dragDropMatches[participleKey] === 'participle';
+
     if (allMatched && Object.keys(verbGameState.dragDropMatches).length === 3) {
         verbGameState.completedExercises[1] = true;
         showMotivationalMessage();
@@ -814,10 +819,10 @@ function renderWriting() {
         { id: 'past', label: 'Pasado simple (Past)', placeholder: 'Ej: broke', correct: verbGameState.currentVerbData.past },
         { id: 'participle', label: 'Participio pasado', placeholder: 'Ej: broken', correct: verbGameState.currentVerbData.participle }
     ];
-    
+
     const currentEx = exercises[verbGameState.currentWritingIndex];
     const progress = `${verbGameState.currentWritingIndex + 1}/3`;
-    
+
     document.getElementById('app').innerHTML = `
         <div class="screen active" id="scr-verbgame">
             <div class="hdr"><button class="back" onclick="renderMap()">←</button>
@@ -839,7 +844,7 @@ function renderWriting() {
             </div>
         </div>
     `;
-    
+
     setTimeout(() => {
         const input = document.getElementById('write-answer');
         if (input) input.focus();
@@ -852,18 +857,18 @@ function checkWritingAnswer() {
         { id: 'past', correct: verbGameState.currentVerbData.past },
         { id: 'participle', correct: verbGameState.currentVerbData.participle }
     ];
-    
+
     const currentEx = exercises[verbGameState.currentWritingIndex];
     const answer = document.getElementById('write-answer')?.value.trim().toLowerCase();
     const isCorrect = answer === currentEx.correct.toLowerCase();
-    
+
     if (isCorrect) {
         verbGameState.writtenAnswers[verbGameState.currentWritingIndex] = answer;
         playPing();
         toast(`✅ ¡Correcto!`);
-        
+
         verbGameState.currentWritingIndex++;
-        
+
         if (verbGameState.currentWritingIndex >= 3) {
             verbGameState.completedExercises[2] = true;
             showMotivationalMessage();
@@ -908,24 +913,24 @@ function renderSentenceExercise() {
     const progress = `${sentenceIndex + 1}/3`;
     const sentenceEnglish = currentEx.english;
     const sentenceSpanish = currentEx.spanish;
-    
+
     const words = sentenceEnglish.split(' ');
     const shuffled = [...words];
     for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
-    
+
     verbGameState.originalWords = shuffled;
     verbGameState.sentenceOrder = [];
-    
+
     let wordsHtml = shuffled.map((word, idx) => `
         <div class="sentence-word" data-word="${word}" data-idx="${idx}" 
              style="background:var(--card2);border:2px solid var(--border);border-radius:16px;padding:10px 16px;margin:6px;display:inline-block;cursor:pointer;font-weight:600;">
             ${word}
         </div>
     `).join('');
-    
+
     document.getElementById('app').innerHTML = `
         <div class="screen active" id="scr-verbgame">
             <div class="hdr"><button class="back" onclick="renderMap()">←</button>
@@ -953,28 +958,28 @@ function renderSentenceExercise() {
             </div>
         </div>
     `;
-    
+
     initSentenceDragExercise();
 }
 
 function initSentenceDragExercise() {
     const words = document.querySelectorAll('.sentence-word');
     const sentenceArea = document.getElementById('sentence-area');
-    
+
     function updateButton() {
         const btn = document.getElementById('sentence-continue-btn');
         if (btn) btn.disabled = verbGameState.sentenceOrder.length !== verbGameState.originalWords.length;
     }
-    
+
     words.forEach(word => {
         const newWord = word.cloneNode(true);
         word.parentNode.replaceChild(newWord, word);
-        
+
         newWord.addEventListener('click', () => {
             const wordText = newWord.dataset.word;
             verbGameState.sentenceOrder.push(wordText);
             newWord.remove();
-            
+
             const chip = document.createElement('div');
             chip.textContent = wordText;
             chip.style.cssText = 'background:var(--pri);padding:10px 16px;border-radius:16px;margin:6px;display:inline-block;cursor:pointer;font-weight:600;';
@@ -1012,7 +1017,7 @@ function sentenceHelp() {
     const currentEx = sentenceExercises[sentenceIndex];
     const correctSentence = currentEx.english.split(' ');
     const currentOrder = verbGameState.sentenceOrder;
-    
+
     for (let i = 0; i < correctSentence.length; i++) {
         if (currentOrder[i] !== correctSentence[i]) {
             const wordToAdd = correctSentence[i];
@@ -1020,7 +1025,7 @@ function sentenceHelp() {
                 verbGameState.sentenceOrder.push(wordToAdd);
                 const wordElement = document.querySelector(`.sentence-word[data-word="${wordToAdd}"]`);
                 if (wordElement) wordElement.remove();
-                
+
                 const sentenceArea = document.getElementById('sentence-area');
                 const chip = document.createElement('div');
                 chip.textContent = wordToAdd;
@@ -1031,7 +1036,7 @@ function sentenceHelp() {
             }
         }
     }
-    
+
     const btn = document.getElementById('sentence-continue-btn');
     if (btn) btn.disabled = verbGameState.sentenceOrder.length !== verbGameState.originalWords.length;
 }
@@ -1040,15 +1045,15 @@ function checkSentenceExercise() {
     const currentEx = sentenceExercises[sentenceIndex];
     const correctSentence = currentEx.english.split(' ');
     const userSentence = verbGameState.sentenceOrder;
-    
-    const isCorrect = userSentence.length === correctSentence.length && 
-                     userSentence.every((word, idx) => word === correctSentence[idx]);
-    
+
+    const isCorrect = userSentence.length === correctSentence.length &&
+        userSentence.every((word, idx) => word === correctSentence[idx]);
+
     if (isCorrect) {
         playPing();
         toast(`✅ ¡Oración ${sentenceIndex + 1} correcta!`);
         sentenceIndex++;
-        
+
         if (sentenceIndex >= 3) {
             verbGameState.completedExercises[4] = true;
             showMotivationalMessage();
