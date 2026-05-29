@@ -2066,7 +2066,7 @@ function renderWordSearch(verbData) {
     return `
         <div class="game-card" style="padding:16px;">
             <div style="text-align:center;margin-bottom:14px;">
-                <div class="ex-tag">🔤 FASE 1 · SOPA DE LETRAS</div>
+                <div class="ex-tag">SOPA DE LETRAS</div>
                 <div style="font-size:22px;font-weight:800;color:var(--pri);margin-top:8px;">${verbData.spanishWord}</div>
                 <div style="font-size:11px;color:var(--muted);margin-top:4px;">Arrastra para seleccionar · Toca un chip para ver la pista</div>
             </div>
@@ -2470,16 +2470,31 @@ function checkWordSearchComplete() {
 }
 
 // ════════════════════════════════════════════
-// FASE 2: DRAG & DROP
+// FASE 2: DRAG & DROP - Validación simple por texto
 // ════════════════════════════════════════════
 
 function renderDragDrop() {
     const verbData = verbGameState.currentVerbData;
 
+    // Reset estado
+    verbGameState.dragDropMatches = {};
+
     const words = [
-        { text: verbData.verb, category: 'verb', label: 'Base Form' },
-        { text: verbData.past, category: 'past', label: 'Past Simple' },
-        { text: verbData.participle, category: 'participle', label: 'Past Participle' }
+        {
+            id: 'verb',
+            text: verbData.verb,
+            category: 'verb'
+        },
+        {
+            id: 'past',
+            text: verbData.past,
+            category: 'past'
+        },
+        {
+            id: 'participle',
+            text: verbData.participle,
+            category: 'participle'
+        }
     ];
 
     const shuffled = [...words];
@@ -2489,12 +2504,13 @@ function renderDragDrop() {
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
 
-    const wordsHtml = shuffled.map(w => `
+    const wordsHtml = shuffled.map(word => `
         <div 
             class="dd-word"
             draggable="true"
-            data-word="${w.text}"
-            data-category="${w.category}"
+            data-id="${word.id}"
+            data-word="${word.text}"
+            data-category="${word.category}"
             style="
                 background:linear-gradient(180deg,var(--card2),rgba(255,255,255,0.03));
                 border:1px solid rgba(255,255,255,0.08);
@@ -2511,10 +2527,9 @@ function renderDragDrop() {
                 cursor:grab;
                 user-select:none;
                 transition:all .22s ease;
-                backdrop-filter:blur(10px);
             "
         >
-            ${w.text}
+            ${word.text}
         </div>
     `).join('');
 
@@ -2522,150 +2537,130 @@ function renderDragDrop() {
         <div class="screen active" id="scr-verbgame">
 
             <style>
-                .dd-word:active {
-                    cursor:grabbing;
-                    transform:scale(0.96);
-                }
-
-                .dd-word.dragging {
+                .dd-word.dragging{
                     opacity:.5;
-                    transform:scale(1.08) rotate(-2deg);
+                    transform:scale(1.06);
                 }
 
-                .dd-zone {
-                    position:relative;
-                    overflow:hidden;
+                .dd-zone{
                     background:linear-gradient(
                         180deg,
-                        rgba(255,255,255,0.04),
-                        rgba(255,255,255,0.02)
+                        rgba(255,255,255,.04),
+                        rgba(255,255,255,.02)
                     );
-                    border:2px dashed rgba(255,255,255,0.08);
-                    border-radius:14px;
-                    padding:5px 10px;
-                    transition:all .25s ease;
-                    min-height:72px;
-                    backdrop-filter:blur(8px);
+                    border:2px dashed rgba(255,255,255,.08);
+                    border-radius:18px;
+                    padding:14px;
+                    min-height:90px;
+                    transition:.2s ease;
                 }
 
-                .dd-zone.active {
+                .dd-zone.active{
                     border-color:var(--pri);
-                    background:rgba(139,124,248,0.08);
-                    transform:scale(1.01);
+                    background:rgba(139,124,248,.08);
                 }
 
-                .dd-chip {
+                .dd-chip{
                     display:inline-flex;
                     align-items:center;
                     justify-content:center;
+                    padding:10px 16px;
+                    border-radius:14px;
                     background:linear-gradient(
                         180deg,
                         var(--pri),
-                        rgba(139,124,248,0.82)
+                        rgba(139,124,248,.82)
                     );
                     color:white;
-                    border-radius:16px;
-                    padding:10px 16px;
                     font-weight:700;
-                    font-size:15px;
-                    animation:ddPop .25s ease;
-                    box-shadow:0 10px 18px rgba(139,124,248,0.25);
+                    animation:ddPop .2s ease;
                 }
 
-                @keyframes ddPop {
-                    0% {
+                @keyframes ddPop{
+                    from{
                         opacity:0;
                         transform:scale(.7);
                     }
-                    100% {
+                    to{
                         opacity:1;
                         transform:scale(1);
                     }
                 }
 
-                .dd-title {
-                    font-size:14px;
-                    font-weight:700;
+                .dd-title{
+                    font-size:13px;
                     color:var(--muted);
-                    margin-bottom:12px;
-                    letter-spacing:.3px;
+                    font-weight:700;
+                    margin-bottom:10px;
+                    letter-spacing:.4px;
                 }
 
-                .dd-slot {
-                    min-height:42px;
+                .dd-slot{
+                    min-height:40px;
                     display:flex;
                     align-items:center;
                     flex-wrap:wrap;
                     gap:8px;
                 }
-
-                .dd-top-card {
-                    background:
-                        linear-gradient(
-                            180deg,
-                            rgba(255,255,255,0.05),
-                            rgba(255,255,255,0.02)
-                        );
-                    border-radius:28px;
-                    padding:22px;
-                    box-shadow:
-                        0 20px 40px rgba(0,0,0,0.22),
-                        inset 0 1px 0 rgba(255,255,255,0.04);
-                }
             </style>
 
             <div class="hdr">
                 <button class="back" onclick="renderMap()">←</button>
-
-                <span style="
-                    font-size:12px;
-                    font-weight:700;
-                    color:var(--muted);
-                ">
+                <span style="font-size:12px;font-weight:700;color:var(--muted);">
                     Verb Quest · 2/6
                 </span>
-
                 <button class="ico-btn" onclick="openOptions()">⚙️</button>
             </div>
 
             <div class="game-body sb">
 
-                <div class="dd-top-card">
+                <div style="
+                    background:linear-gradient(
+                        180deg,
+                        rgba(255,255,255,.05),
+                        rgba(255,255,255,.02)
+                    );
+                    border-radius:28px;
+                    padding:22px;
+                ">
 
                     <div style="
                         display:flex;
                         flex-wrap:wrap;
                         justify-content:center;
                         gap:12px;
-                        margin-bottom:26px;
+                        margin-bottom:24px;
                     ">
                         ${wordsHtml}
                     </div>
 
                     <div style="display:flex;flex-direction:column;gap:14px;">
 
-                        <div class="dd-zone dd-category" data-category="verb">
-                            <div class="dd-title">
-                                BASE FORM
-                            </div>
+                        <div class="dd-zone dd-category"
+                             data-category="verb">
+
+                            <div class="dd-title">BASE FORM</div>
 
                             <div id="cat-verb" class="dd-slot"></div>
+
                         </div>
 
-                        <div class="dd-zone dd-category" data-category="past">
-                            <div class="dd-title">
-                                PAST SIMPLE
-                            </div>
+                        <div class="dd-zone dd-category"
+                             data-category="past">
+
+                            <div class="dd-title">PAST SIMPLE</div>
 
                             <div id="cat-past" class="dd-slot"></div>
+
                         </div>
 
-                        <div class="dd-zone dd-category" data-category="participle">
-                            <div class="dd-title">
-                                PAST PARTICIPLE
-                            </div>
+                        <div class="dd-zone dd-category"
+                             data-category="participle">
+
+                            <div class="dd-title">PAST PARTICIPLE</div>
 
                             <div id="cat-participle" class="dd-slot"></div>
+
                         </div>
 
                     </div>
@@ -2675,7 +2670,7 @@ function renderDragDrop() {
                 <button
                     class="btn btn-p"
                     id="dd-continue-btn"
-                    onclick="checkDragDropComplete()"
+                    onclick="goToWritingPhase()"
                     disabled
                     style="
                         margin-top:18px;
@@ -2685,7 +2680,7 @@ function renderDragDrop() {
                         font-weight:800;
                     "
                 >
-                    Continue
+                    Continuar
                 </button>
 
             </div>
@@ -2697,28 +2692,29 @@ function renderDragDrop() {
 
 function initDragDropEvents() {
 
-    const words = document.querySelectorAll('.dd-word');
+    document.querySelectorAll('.dd-word').forEach(word => {
 
-    words.forEach(word => {
-
-        word.addEventListener('dragstart', (e) => {
+        word.addEventListener('dragstart', e => {
 
             word.classList.add('dragging');
 
-            e.dataTransfer.setData('text/plain', JSON.stringify({
+            e.dataTransfer.setData('application/json', JSON.stringify({
+                id: word.dataset.id,
                 word: word.dataset.word,
                 category: word.dataset.category
             }));
+
         });
 
         word.addEventListener('dragend', () => {
             word.classList.remove('dragging');
         });
+
     });
 
     document.querySelectorAll('.dd-category').forEach(cat => {
 
-        cat.addEventListener('dragover', (e) => {
+        cat.addEventListener('dragover', e => {
             e.preventDefault();
             cat.classList.add('active');
         });
@@ -2727,77 +2723,113 @@ function initDragDropEvents() {
             cat.classList.remove('active');
         });
 
-        cat.addEventListener('drop', (e) => {
+        cat.addEventListener('drop', e => {
 
             e.preventDefault();
 
             cat.classList.remove('active');
 
             const data = JSON.parse(
-                e.dataTransfer.getData('text/plain')
+                e.dataTransfer.getData('application/json')
             );
 
-            const targetCat = cat.dataset.category;
+            const targetCategory = cat.dataset.category;
 
-            // En initDragDropEvents(), dentro del evento 'drop':
+            // Ya usado
+            if (verbGameState.dragDropMatches[data.id]) {
+                toast('Esa palabra ya fue usada');
+                return;
+            }
 
-            const uniqueKey = `${data.word}_${targetCat}`;
+            // Correcto
+            if (data.category === targetCategory) {
 
-            if (data.category === targetCat && !verbGameState.dragDropMatches[uniqueKey]) {
-                verbGameState.dragDropMatches[uniqueKey] = targetCat;
+                verbGameState.dragDropMatches[data.id] = true;
 
-                const draggedWord = document.querySelector(`.dd-word[data-word="${data.word}"]`);
-                if (draggedWord) draggedWord.remove();
+                const draggedWord = document.querySelector(
+                    `.dd-word[data-id="${data.id}"]`
+                );
 
-                const targetContainer = document.getElementById(`cat-${targetCat}`);
+                draggedWord?.remove();
+
+                const slot = document.getElementById(
+                    `cat-${targetCategory}`
+                );
+
                 const chip = document.createElement('div');
+
                 chip.className = 'dd-chip';
+
                 chip.textContent = data.word;
-                targetContainer.appendChild(chip);
+
+                slot.appendChild(chip);
 
                 playPing();
+
                 checkDragDropComplete();
+
             } else {
 
                 cat.animate([
-                    { transform: 'translateX(0px)' },
-                    { transform: 'translateX(-6px)' },
-                    { transform: 'translateX(6px)' },
-                    { transform: 'translateX(0px)' }
+                    { transform:'translateX(0px)' },
+                    { transform:'translateX(-6px)' },
+                    { transform:'translateX(6px)' },
+                    { transform:'translateX(0px)' }
                 ], {
-                    duration: 220
+                    duration:220
                 });
 
-                toast('Incorrect category');
+                toast('Categoría incorrecta');
 
-                playPing();
             }
+
         });
+
     });
+
 }
 
 function checkDragDropComplete() {
-    // Crear claves únicas para cada categoría basadas en el texto de la palabra
-    const verbKey = `${verbGameState.currentVerbData.verb}_verb`;
-    const pastKey = `${verbGameState.currentVerbData.past}_past`;
-    const participleKey = `${verbGameState.currentVerbData.participle}_participle`;
 
-    const allMatched = verbGameState.dragDropMatches[verbKey] === 'verb' &&
-        verbGameState.dragDropMatches[pastKey] === 'past' &&
-        verbGameState.dragDropMatches[participleKey] === 'participle';
+    const completed =
+        verbGameState.dragDropMatches.verb &&
+        verbGameState.dragDropMatches.past &&
+        verbGameState.dragDropMatches.participle;
 
-    if (allMatched && Object.keys(verbGameState.dragDropMatches).length === 3) {
-        verbGameState.completedExercises[1] = true;
-        showMotivationalMessage();
-        verbGameState.writtenAnswers = [];
-        verbGameState.currentWritingIndex = 0;
-        setTimeout(() => renderWriting(), 2000);
-    } else {
-        const continueBtn = document.getElementById('dd-continue-btn');
-        if (continueBtn) continueBtn.disabled = !allMatched;
+    const btn = document.getElementById('dd-continue-btn');
+
+    if (btn) {
+
+        btn.disabled = !completed;
+
+        if (completed) {
+
+            btn.style.background =
+                'linear-gradient(135deg,var(--mint),var(--mint-d))';
+
+            btn.style.color = '#092018';
+
+        }
+
     }
+
 }
 
+function goToWritingPhase() {
+
+    verbGameState.completedExercises[1] = true;
+
+    showMotivationalMessage();
+
+    verbGameState.writtenAnswers = [];
+
+    verbGameState.currentWritingIndex = 0;
+
+    setTimeout(() => {
+        renderWriting();
+    }, 1800);
+
+}
 // ════════════════════════════════════════════
 // FASE 3: ESCRITURA (3 ejercicios)
 // ════════════════════════════════════════════
@@ -2815,12 +2847,12 @@ function renderWriting() {
     document.getElementById('app').innerHTML = `
         <div class="screen active" id="scr-verbgame">
             <div class="hdr"><button class="back" onclick="renderMap()">←</button>
-                <span style="font-size:12px;">🎮 Verb Quest · Fase 3/6 (${progress})</span>
+                <span style="font-size:12px;">🎮 Verb Quest · (${progress})</span>
                 <button class="ico-btn" onclick="openOptions()">⚙️</button></div>
             <div class="game-body sb">
                 <div class="game-card" style="padding:20px;">
                     <div style="text-align:center;margin-bottom:20px;">
-                        <div class="ex-tag">✍️ FASE 3 · ESCRIBE LA FORMA CORRECTA</div>
+                        <div class="ex-tag">✍️ ESCRIBE LA FORMA CORRECTA</div>
                         <div style="font-size:22px;font-weight:800;color:var(--pri);margin-top:10px;">${verbGameState.currentVerbData.spanishWord}</div>
                     </div>
                     <div>
@@ -2847,6 +2879,12 @@ function checkWritingAnswer() {
         { id: 'participle', correct: verbGameState.currentVerbData.participle }
     ];
 
+    // Verificar que el índice está dentro del rango
+    if (verbGameState.currentWritingIndex >= exercises.length) {
+        console.error('Índice fuera de rango en checkWritingAnswer');
+        verbGameState.currentWritingIndex = 0;
+    }
+    
     const currentEx = exercises[verbGameState.currentWritingIndex];
     const answer = document.getElementById('write-answer')?.value.trim().toLowerCase();
     const isCorrect = answer === currentEx.correct.toLowerCase();
@@ -2861,7 +2899,10 @@ function checkWritingAnswer() {
         if (verbGameState.currentWritingIndex >= 3) {
             verbGameState.completedExercises[2] = true;
             showMotivationalMessage();
-            setTimeout(() => renderWritingExtraExercise(), 2000);
+            // Reiniciar el índice
+            verbGameState.currentWritingIndex = 0;
+            // Ir DIRECTAMENTE a la fase de ordenar oraciones (FASE 4)
+            setTimeout(() => renderSentence(), 2000);
         } else {
             setTimeout(() => renderWriting(), 500);
         }
@@ -2880,7 +2921,7 @@ function checkWritingAnswer() {
 }
 
 // ════════════════════════════════════════════
-// FASE 5: ORDENAR ORACIÓN (3 ejercicios)
+// FASE 4: ORDENAR ORACIÓN (3 ejercicios)
 // ════════════════════════════════════════════
 
 let sentenceIndex = 0;
@@ -2923,7 +2964,6 @@ function renderSentenceExercise() {
     document.getElementById('app').innerHTML = `
         <div class="screen active" id="scr-verbgame">
             <div class="hdr"><button class="back" onclick="renderMap()">←</button>
-                <span style="font-size:12px;">🎮 Verb Quest · Fase 5/6 (${progress})</span>
                 <button class="ico-btn" onclick="openOptions()">⚙️</button></div>
             <div class="game-body sb">
                 <div class="game-card" style="padding:16px;">
@@ -3060,11 +3100,10 @@ function checkSentenceExercise() {
 }
 
 // ════════════════════════════════════════════
-// FASE 6: COMPLETADO
+// FASE 5: COMPLETADO
 // ════════════════════════════════════════════
-
 function renderComplete() {
-    verbGameState.completedExercises[5] = true;
+    verbGameState.completedExercises[4] = true; // Cambiado de [5] a [4]
     document.getElementById('app').innerHTML = `
         <div class="screen active" id="scr-verbgame">
             <div class="hdr"><button class="back" onclick="renderMap()">←</button>
@@ -3078,7 +3117,6 @@ function renderComplete() {
                     <div class="sc"><span class="sv">✅</span><span class="sl">Sopa de letras</span></div>
                     <div class="sc"><span class="sv">📦</span><span class="sl">Clasificación</span></div>
                     <div class="sc"><span class="sv">✍️</span><span class="sl">Escritura</span></div>
-                    <div class="sc"><span class="sv">🌎</span><span class="sl">Traducción</span></div>
                     <div class="sc"><span class="sv">📝</span><span class="sl">Ordenar</span></div>
                     <div class="sc"><span class="sv">🎉</span><span class="sl">Completado</span></div>
                 </div>
@@ -3116,7 +3154,7 @@ function startVerbGame(verbData, nodeIdx) {
         active: true,
         currentVerbData: verbData,
         currentExerciseIndex: 0,
-        completedExercises: [false, false, false, false, false, false],
+        completedExercises: [false, false, false, false, false],
         wordSearchFound: [],
         dragDropMatches: {},
         writtenAnswers: [],
