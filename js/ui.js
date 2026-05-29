@@ -50,7 +50,7 @@ ${done > 0 ? `<button class="mact acc" onclick="closeModal();copyPartial()">
   <span class="mact-ic">🗑️</span>
   <span class="mact-t">Cargar nuevos ejercicios<span class="mact-sub">Reemplaza todo</span></span>
 </button>
-<div class="msec">Version 1.0.1</div>
+<div class="msec">Version 1.0.2</div>
 `);
 }
 function openVerbGamesModal() {

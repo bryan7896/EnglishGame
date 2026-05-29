@@ -487,213 +487,81 @@ function checkWordSearchComplete() {
 function renderDragDrop() {
     const verbData = verbGameState.currentVerbData;
 
-    // Reset estado
-    verbGameState.dragDropMatches = {};
+    // Estado limpio
+    verbGameState.ddZones = { verb: null, past: null, participle: null };
+    // ddZones guarda el TEXTO que hay en cada zona, no el chip-id
 
-    const words = [
-        {
-            id: 'verb',
-            text: verbData.verb,
-            category: 'verb'
-        },
-        {
-            id: 'past',
-            text: verbData.past,
-            category: 'past'
-        },
-        {
-            id: 'participle',
-            text: verbData.participle,
-            category: 'participle'
-        }
+    // Pool: siempre 3 fichas con su texto
+    const wordPool = [
+        { id: 'chip-0', text: verbData.verb,       zone: 'verb'       },
+        { id: 'chip-1', text: verbData.past,        zone: 'past'       },
+        { id: 'chip-2', text: verbData.participle,  zone: 'participle' }
     ];
 
-    const shuffled = [...words];
-
-    for (let i = shuffled.length - 1; i > 0; i--) {
+    // Barajar
+    for (let i = wordPool.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        [wordPool[i], wordPool[j]] = [wordPool[j], wordPool[i]];
     }
+    verbGameState.wordPool = wordPool;
 
-    const wordsHtml = shuffled.map(word => `
-        <div 
-            class="dd-word"
-            draggable="true"
-            data-id="${word.id}"
-            data-word="${word.text}"
-            data-category="${word.category}"
-            style="
-                background:linear-gradient(180deg,var(--card2),rgba(255,255,255,0.03));
-                border:1px solid rgba(255,255,255,0.08);
-                border-radius:18px;
-                padding:14px 18px;
-                min-width:110px;
-                text-align:center;
-                font-weight:800;
-                font-size:17px;
-                color:var(--text);
-                box-shadow:
-                    0 10px 20px rgba(0,0,0,0.18),
-                    inset 0 1px 0 rgba(255,255,255,0.05);
-                cursor:grab;
-                user-select:none;
-                transition:all .22s ease;
-            "
-        >
-            ${word.text}
-        </div>
+    // Datos esperados por zona (para validar)
+    verbGameState.ddExpected = {
+        verb:       verbData.verb,
+        past:       verbData.past,
+        participle: verbData.participle
+    };
+
+    const chipsHtml = wordPool.map(w => `
+        <div class="kd-chip kd-chip--pool"
+             id="${w.id}"
+             data-chip-id="${w.id}"
+             data-text="${w.text}"
+             draggable="true">${w.text}</div>
     `).join('');
 
     document.getElementById('app').innerHTML = `
         <div class="screen active" id="scr-verbgame">
-
-            <style>
-                .dd-word.dragging{
-                    opacity:.5;
-                    transform:scale(1.06);
-                }
-
-                .dd-zone{
-                    background:linear-gradient(
-                        180deg,
-                        rgba(255,255,255,.04),
-                        rgba(255,255,255,.02)
-                    );
-                    border:2px dashed rgba(255,255,255,.08);
-                    border-radius:18px;
-                    padding:14px;
-                    min-height:90px;
-                    transition:.2s ease;
-                }
-
-                .dd-zone.active{
-                    border-color:var(--pri);
-                    background:rgba(139,124,248,.08);
-                }
-
-                .dd-chip{
-                    display:inline-flex;
-                    align-items:center;
-                    justify-content:center;
-                    padding:10px 16px;
-                    border-radius:14px;
-                    background:linear-gradient(
-                        180deg,
-                        var(--pri),
-                        rgba(139,124,248,.82)
-                    );
-                    color:white;
-                    font-weight:700;
-                    animation:ddPop .2s ease;
-                }
-
-                @keyframes ddPop{
-                    from{
-                        opacity:0;
-                        transform:scale(.7);
-                    }
-                    to{
-                        opacity:1;
-                        transform:scale(1);
-                    }
-                }
-
-                .dd-title{
-                    font-size:13px;
-                    color:var(--muted);
-                    font-weight:700;
-                    margin-bottom:10px;
-                    letter-spacing:.4px;
-                }
-
-                .dd-slot{
-                    min-height:40px;
-                    display:flex;
-                    align-items:center;
-                    flex-wrap:wrap;
-                    gap:8px;
-                }
-            </style>
-
             <div class="hdr">
                 <button class="back" onclick="renderMap()">←</button>
-                <span style="font-size:12px;font-weight:700;color:var(--muted);">
-                    Verb Quest · 2/6
-                </span>
+                <span style="font-size:12px;font-weight:700;color:var(--muted);">Verb Quest · 2/6</span>
                 <button class="ico-btn" onclick="openOptions()">⚙️</button>
             </div>
 
             <div class="game-body sb">
+                <div class="kd-card">
 
-                <div style="
-                    background:linear-gradient(
-                        180deg,
-                        rgba(255,255,255,.05),
-                        rgba(255,255,255,.02)
-                    );
-                    border-radius:28px;
-                    padding:22px;
-                ">
-
-                    <div style="
-                        display:flex;
-                        flex-wrap:wrap;
-                        justify-content:center;
-                        gap:12px;
-                        margin-bottom:24px;
-                    ">
-                        ${wordsHtml}
+                    <!-- Emoji decorativo + título -->
+                    <div class="kd-header">
+                        <span class="kd-emoji" aria-hidden="true">🧩</span>
+                        <p class="kd-title">Coloca cada forma<br>en su lugar</p>
                     </div>
 
-                    <div style="display:flex;flex-direction:column;gap:14px;">
+                    <!-- Pool de fichas -->
+                    <div class="kd-pool" id="kd-pool">${chipsHtml}</div>
 
-                        <div class="dd-zone dd-category"
-                             data-category="verb">
-
-                            <div class="dd-title">BASE FORM</div>
-
-                            <div id="cat-verb" class="dd-slot"></div>
-
+                    <!-- Zonas -->
+                    <div class="kd-zones">
+                        <div class="kd-zone" id="zone-verb" data-zone="verb">
+                            <div class="kd-zone-badge kd-badge--blue">Base</div>
+                            <div class="kd-zone-slot" id="slot-verb"></div>
                         </div>
-
-                        <div class="dd-zone dd-category"
-                             data-category="past">
-
-                            <div class="dd-title">PAST SIMPLE</div>
-
-                            <div id="cat-past" class="dd-slot"></div>
-
+                        <div class="kd-zone" id="zone-past" data-zone="past">
+                            <div class="kd-zone-badge kd-badge--pink">Past</div>
+                            <div class="kd-zone-slot" id="slot-past"></div>
                         </div>
-
-                        <div class="dd-zone dd-category"
-                             data-category="participle">
-
-                            <div class="dd-title">PAST PARTICIPLE</div>
-
-                            <div id="cat-participle" class="dd-slot"></div>
-
+                        <div class="kd-zone" id="zone-participle" data-zone="participle">
+                            <div class="kd-zone-badge kd-badge--amber">Participle</div>
+                            <div class="kd-zone-slot" id="slot-participle"></div>
                         </div>
-
                     </div>
 
                 </div>
 
-                <button
-                    class="btn btn-p"
-                    id="dd-continue-btn"
-                    onclick="goToWritingPhase()"
-                    disabled
-                    style="
-                        margin-top:18px;
-                        height:58px;
-                        border-radius:22px;
-                        font-size:17px;
-                        font-weight:800;
-                    "
-                >
-                    Continuar
+                <button class="btn kd-verify-btn" id="kd-verify-btn"
+                        onclick="verifyDragDrop()" disabled>
+                    ✦ Verificar
                 </button>
-
             </div>
         </div>
     `;
@@ -701,145 +569,222 @@ function renderDragDrop() {
     initDragDropEvents();
 }
 
+
+// ─────────────────────────────────────────────
+//  EVENTOS  (desktop drag + touch)
+// ─────────────────────────────────────────────
+
 function initDragDropEvents() {
+    let draggingId  = null;
+    let ghostEl     = null;
+    let offX = 0, offY = 0;
 
-    document.querySelectorAll('.dd-word').forEach(word => {
+    // ── Helpers ──────────────────────────────
 
-        word.addEventListener('dragstart', e => {
+    function chipEl(id)    { return document.getElementById(id); }
+    function slotEl(zone)  { return document.getElementById('slot-' + zone); }
 
-            word.classList.add('dragging');
+    function returnToPool(zone) {
+        // Si hay texto en esa zona, crea de nuevo la ficha en el pool
+        const text = verbGameState.ddZones[zone];
+        if (!text) return;
 
-            e.dataTransfer.setData('application/json', JSON.stringify({
-                id: word.dataset.id,
-                word: word.dataset.word,
-                category: word.dataset.category
-            }));
+        // Buscar qué chip-id original tenía ese texto
+        // (puede haber varios con el mismo texto, usamos el primero libre)
+        const chipId = 'kd-return-' + zone + '-' + Date.now();
+        verbGameState.ddZones[zone] = null;
+        slotEl(zone).innerHTML = '';
 
-        });
-
-        word.addEventListener('dragend', () => {
-            word.classList.remove('dragging');
-        });
-
-    });
-
-    document.querySelectorAll('.dd-category').forEach(cat => {
-
-        cat.addEventListener('dragover', e => {
-            e.preventDefault();
-            cat.classList.add('active');
-        });
-
-        cat.addEventListener('dragleave', () => {
-            cat.classList.remove('active');
-        });
-
-        cat.addEventListener('drop', e => {
-
-            e.preventDefault();
-
-            cat.classList.remove('active');
-
-            const data = JSON.parse(
-                e.dataTransfer.getData('application/json')
-            );
-
-            const targetCategory = cat.dataset.category;
-
-            // Ya usado
-            if (verbGameState.dragDropMatches[data.id]) {
-                toast('Esa palabra ya fue usada');
-                return;
-            }
-
-            // Correcto
-            if (data.category === targetCategory) {
-
-                verbGameState.dragDropMatches[data.id] = true;
-
-                const draggedWord = document.querySelector(
-                    `.dd-word[data-id="${data.id}"]`
-                );
-
-                draggedWord?.remove();
-
-                const slot = document.getElementById(
-                    `cat-${targetCategory}`
-                );
-
-                const chip = document.createElement('div');
-
-                chip.className = 'dd-chip';
-
-                chip.textContent = data.word;
-
-                slot.appendChild(chip);
-
-                playPing();
-
-                checkDragDropComplete();
-
-            } else {
-
-                cat.animate([
-                    { transform:'translateX(0px)' },
-                    { transform:'translateX(-6px)' },
-                    { transform:'translateX(6px)' },
-                    { transform:'translateX(0px)' }
-                ], {
-                    duration:220
-                });
-
-                toast('Categoría incorrecta');
-
-            }
-
-        });
-
-    });
-
-}
-
-function checkDragDropComplete() {
-
-    const completed =
-        verbGameState.dragDropMatches.verb &&
-        verbGameState.dragDropMatches.past &&
-        verbGameState.dragDropMatches.participle;
-
-    const btn = document.getElementById('dd-continue-btn');
-
-    if (btn) {
-
-        btn.disabled = !completed;
-
-        if (completed) {
-
-            btn.style.background =
-                'linear-gradient(135deg,var(--mint),var(--mint-d))';
-
-            btn.style.color = '#092018';
-
-        }
-
+        const pool = document.getElementById('kd-pool');
+        const el = document.createElement('div');
+        el.className  = 'kd-chip kd-chip--pool';
+        el.id         = chipId;
+        el.dataset.chipId = chipId;
+        el.dataset.text   = text;
+        el.draggable = true;
+        el.textContent = text;
+        pool.appendChild(el);
+        attachChip(el);
+        updateBtn();
     }
 
+    function placeInZone(chipId, text, zone) {
+        // Si la zona ya tiene algo, lo devuelve al pool
+        if (verbGameState.ddZones[zone]) returnToPool(zone);
+
+        // Quita el chip del pool (o de otra zona)
+        const src = document.getElementById(chipId);
+        if (src) src.remove();
+
+        // Si el chip estaba en otra zona, limpiarla
+        for (const z of ['verb','past','participle']) {
+            if (verbGameState.ddZones[z] === text && z !== zone) {
+                // Solo limpiar si el texto coincide Y es otra zona
+                // Pero puede haber repetidos, así que buscamos por chip-id en el slot
+                const existing = slotEl(z).querySelector('[data-chip-id="' + chipId + '"]');
+                if (existing) {
+                    verbGameState.ddZones[z] = null;
+                    slotEl(z).innerHTML = '';
+                }
+            }
+        }
+
+        verbGameState.ddZones[zone] = text;
+
+        const placed = document.createElement('div');
+        placed.className = 'kd-chip kd-chip--placed';
+        placed.id        = chipId;
+        placed.dataset.chipId = chipId;
+        placed.dataset.text   = text;
+        placed.draggable = true;
+        placed.textContent = text;
+        slotEl(zone).innerHTML = '';
+        slotEl(zone).appendChild(placed);
+        attachChip(placed);
+
+        playPing && playPing();
+        updateBtn();
+    }
+
+    function updateBtn() {
+        const z = verbGameState.ddZones;
+        const ok = z.verb !== null && z.past !== null && z.participle !== null;
+        const btn = document.getElementById('kd-verify-btn');
+        if (btn) btn.disabled = !ok;
+    }
+
+    // ── Attach listeners a un chip ────────────
+
+    function attachChip(el) {
+        // Desktop
+        el.addEventListener('dragstart', e => {
+            draggingId = el.dataset.chipId;
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', JSON.stringify({
+                chipId: el.dataset.chipId,
+                text:   el.dataset.text
+            }));
+            requestAnimationFrame(() => el.classList.add('kd-chip--dragging'));
+        });
+        el.addEventListener('dragend', () => {
+            el.classList.remove('kd-chip--dragging');
+            draggingId = null;
+        });
+
+        // Touch
+        el.addEventListener('touchstart', e => {
+            e.preventDefault();
+            const t = e.touches[0];
+            draggingId = el.dataset.chipId;
+
+            ghostEl = el.cloneNode(true);
+            ghostEl.classList.add('kd-chip--ghost');
+            ghostEl.removeAttribute('id');
+            document.body.appendChild(ghostEl);
+
+            const r = el.getBoundingClientRect();
+            offX = t.clientX - r.left;
+            offY = t.clientY - r.top;
+            ghostEl.style.left = (t.clientX - offX) + 'px';
+            ghostEl.style.top  = (t.clientY - offY) + 'px';
+        }, { passive: false });
+
+        el.addEventListener('touchmove', e => {
+            e.preventDefault();
+            if (!ghostEl) return;
+            const t = e.touches[0];
+            ghostEl.style.left = (t.clientX - offX) + 'px';
+            ghostEl.style.top  = (t.clientY - offY) + 'px';
+
+            ghostEl.style.display = 'none';
+            const under = document.elementFromPoint(t.clientX, t.clientY);
+            ghostEl.style.display = '';
+            document.querySelectorAll('.kd-zone').forEach(z => z.classList.remove('kd-zone--over'));
+            under?.closest('.kd-zone')?.classList.add('kd-zone--over');
+        }, { passive: false });
+
+        el.addEventListener('touchend', e => {
+            e.preventDefault();
+            if (ghostEl) { ghostEl.remove(); ghostEl = null; }
+            document.querySelectorAll('.kd-zone').forEach(z => z.classList.remove('kd-zone--over'));
+
+            if (!draggingId) return;
+            const t    = e.changedTouches[0];
+            const under = document.elementFromPoint(t.clientX, t.clientY);
+            const zone  = under?.closest('.kd-zone');
+            const srcEl = document.getElementById(draggingId);
+            if (zone && srcEl) {
+                placeInZone(draggingId, srcEl.dataset.text, zone.dataset.zone);
+            }
+            draggingId = null;
+        }, { passive: false });
+    }
+
+    // Attach chips iniciales
+    document.querySelectorAll('.kd-chip').forEach(attachChip);
+
+    // Zonas (desktop)
+    document.querySelectorAll('.kd-zone').forEach(zone => {
+        zone.addEventListener('dragover', e => {
+            e.preventDefault();
+            zone.classList.add('kd-zone--over');
+        });
+        zone.addEventListener('dragleave', () => zone.classList.remove('kd-zone--over'));
+        zone.addEventListener('drop', e => {
+            e.preventDefault();
+            zone.classList.remove('kd-zone--over');
+            const data = JSON.parse(e.dataTransfer.getData('text/plain') || '{}');
+            if (data.chipId) placeInZone(data.chipId, data.text, zone.dataset.zone);
+        });
+    });
 }
 
-function goToWritingPhase() {
 
-    verbGameState.completedExercises[1] = true;
+// ─────────────────────────────────────────────
+//  VERIFICACIÓN por TEXTO  (fix principal)
+// ─────────────────────────────────────────────
 
-    showMotivationalMessage();
+function verifyDragDrop() {
+    const btn = document.getElementById('kd-verify-btn');
+    if (btn) btn.disabled = true;
 
-    verbGameState.writtenAnswers = [];
+    const zones    = ['verb', 'past', 'participle'];
+    const expected = verbGameState.ddExpected;
+    const placed   = verbGameState.ddZones;
 
-    verbGameState.currentWritingIndex = 0;
+    function verifyZone(i) {
+        if (i >= zones.length) {
+            // ── Todo correcto ──
+            setTimeout(() => {
+                verbGameState.completedExercises[1] = true;
+                showMotivationalMessage && showMotivationalMessage();
+                verbGameState.writtenAnswers      = [];
+                verbGameState.currentWritingIndex = 0;
+                setTimeout(() => renderWriting && renderWriting(), 1800);
+            }, 600);
+            return;
+        }
 
-    setTimeout(() => {
-        renderWriting();
-    }, 1800);
+        const zone   = zones[i];
+        const chipEl = document.querySelector('#slot-' + zone + ' .kd-chip--placed');
 
+        // Comparar TEXTO (no chip-id) con el esperado para la zona
+        const isCorrect = placed[zone] === expected[zone];
+
+        if (isCorrect) {
+            chipEl?.classList.add('kd-chip--correct');
+            playPing && playPing();
+            setTimeout(() => verifyZone(i + 1), 1000);
+        } else {
+            chipEl?.classList.add('kd-chip--error');
+            setTimeout(() => {
+                verbGameState.ddZones    = { verb: null, past: null, participle: null };
+                renderDragDrop();
+            }, 2000);
+        }
+    }
+
+    verifyZone(0);
 }
 // ════════════════════════════════════════════
 // FASE 3: ESCRITURA (3 ejercicios)

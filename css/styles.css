@@ -583,3 +583,274 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text)}
 .map-fab:active {
     transform: scale(0.9);
 }
+
+
+.kd-card {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.09);
+    border-radius: 28px;
+    padding: 22px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ── Encabezado emoji + título ──────────────── */
+.kd-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.kd-emoji {
+    font-size: 36px;
+    line-height: 1;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+    animation: kd-wiggle 3s ease-in-out infinite;
+}
+
+@keyframes kd-wiggle {
+    0%, 100% { transform: rotate(-5deg) scale(1);    }
+    50%       { transform: rotate(5deg)  scale(1.08); }
+}
+
+.kd-title {
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.4;
+}
+
+/* ── Pool de fichas ─────────────────────────── */
+.kd-pool {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    min-height: 54px;
+    padding: 4px 0;
+}
+
+/* ── Chip base ──────────────────────────────── */
+.kd-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border-radius: 50px;           /* píldora redondeada = más infantil */
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+    color: var(--text);
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+    position: relative;
+}
+
+.kd-chip:active { cursor: grabbing; }
+
+/* Chip en pool: fondo con borde coloreado */
+.kd-chip--pool {
+    background: rgba(139, 124, 248, 0.15);
+    border: 2.5px solid rgba(139, 124, 248, 0.55);
+    box-shadow:
+        0 4px 0 rgba(100, 88, 210, 0.55),   /* sombra inferior = sensación 3D infantil */
+        0 6px 14px rgba(0,0,0,0.25);
+}
+
+.kd-chip--pool:hover {
+    transform: translateY(-3px);
+    background: rgba(139, 124, 248, 0.25);
+}
+
+/* Chip colocado en una zona */
+.kd-chip--placed {
+    background: rgba(93, 202, 165, 0.18);
+    border: 2.5px solid rgba(93, 202, 165, 0.55);
+    box-shadow:
+        0 4px 0 rgba(29, 158, 117, 0.5),
+        0 6px 14px rgba(0,0,0,0.2);
+    cursor: grab;
+}
+
+/* Chip siendo arrastrado */
+.kd-chip--dragging {
+    opacity: 0.4;
+    transform: scale(1.1);
+    cursor: grabbing;
+}
+
+/* Ghost táctil flotante */
+.kd-chip--ghost {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.9;
+    transform: scale(1.15) rotate(3deg);
+    background: rgba(139, 124, 248, 0.45);
+    border: 2.5px solid rgba(139, 124, 248, 0.9);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 900;
+    color: var(--text);
+    white-space: nowrap;
+}
+
+/* ── Verificación: correcto ─────────────────── */
+.kd-chip--correct {
+    background: rgba(29, 158, 117, 0.3) !important;
+    border-color: #1D9E75 !important;
+    color: #5DCAA5 !important;
+    cursor: default;
+    box-shadow:
+        0 0 0 0 rgba(29, 158, 117, 0.7),
+        0 4px 0 rgba(29,158,117,0.5),
+        0 6px 14px rgba(0,0,0,0.2) !important;
+    animation: kd-burst-correct 0.6s cubic-bezier(0.34,1.7,0.64,1) forwards;
+}
+
+@keyframes kd-burst-correct {
+    0%   { transform: scale(1);    box-shadow: 0 0 0 0   rgba(29,158,117,0.7), 0 4px 0 rgba(29,158,117,0.5); }
+    30%  { transform: scale(1.35); box-shadow: 0 0 0 10px rgba(29,158,117,0.3), 0 4px 0 rgba(29,158,117,0.5); }
+    55%  { transform: scale(0.92); box-shadow: 0 0 0 16px rgba(29,158,117,0.1), 0 4px 0 rgba(29,158,117,0.5); }
+    75%  { transform: scale(1.1);  box-shadow: 0 0 0 20px rgba(29,158,117,0.0), 0 4px 0 rgba(29,158,117,0.5); }
+    100% { transform: scale(1);    box-shadow: 0 0 0 24px rgba(29,158,117,0.0), 0 4px 0 rgba(29,158,117,0.5); }
+}
+
+/* ── Verificación: error ────────────────────── */
+.kd-chip--error {
+    background: rgba(226, 75, 74, 0.28) !important;
+    border-color: #E24B4A !important;
+    color: #F09595 !important;
+    cursor: default;
+    animation: kd-shake-error 0.5s ease forwards;
+}
+
+@keyframes kd-shake-error {
+    0%   { transform: translateX(0)    rotate(0deg);  }
+    15%  { transform: translateX(-8px) rotate(-4deg); }
+    30%  { transform: translateX(8px)  rotate(4deg);  }
+    45%  { transform: translateX(-6px) rotate(-2deg); }
+    60%  { transform: translateX(6px)  rotate(2deg);  }
+    80%  { transform: translateX(-3px) rotate(0deg);  }
+    100% { transform: translateX(0)    rotate(0deg);  }
+}
+
+/* ── Zonas ──────────────────────────────────── */
+.kd-zones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.kd-zone {
+    border-radius: 20px;
+    border: 2.5px dashed rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.03);
+    padding: 12px 14px;
+    min-height: 76px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.kd-zone--over {
+    border-style: solid;
+    border-color: rgba(139,124,248,0.8);
+    background: rgba(139,124,248,0.1);
+}
+
+/* Badge de zona */
+.kd-zone-badge {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    padding: 3px 12px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.kd-badge--blue {
+    background: rgba(55, 138, 221, 0.22);
+    color: #85B7EB;
+    border: 1.5px solid rgba(55,138,221,0.4);
+}
+
+.kd-badge--pink {
+    background: rgba(212, 83, 126, 0.22);
+    color: #ED93B1;
+    border: 1.5px solid rgba(212,83,126,0.4);
+}
+
+.kd-badge--amber {
+    background: rgba(186, 117, 23, 0.22);
+    color: #EF9F27;
+    border: 1.5px solid rgba(186,117,23,0.4);
+}
+
+/* Slot donde aparece la ficha */
+.kd-zone-slot {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* ── Botón verificar ────────────────────────── */
+.kd-verify-btn {
+    margin-top: 14px;
+    width: 100%;
+    height: 58px;
+    border-radius: 22px !important;
+    font-size: 17px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.5px;
+    transition: transform 0.15s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+    border: none !important;
+}
+
+.kd-verify-btn:not(:disabled) {
+    background: linear-gradient(135deg, #8B7CF8, #6C5CE7) !important;
+    color: #fff !important;
+    box-shadow:
+        0 6px 0 rgba(88, 70, 210, 0.7),
+        0 10px 24px rgba(139,124,248,0.4) !important;
+}
+
+.kd-verify-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 0 rgba(88,70,210,0.7),
+        0 14px 28px rgba(139,124,248,0.45) !important;
+}
+
+.kd-verify-btn:not(:disabled):active {
+    transform: translateY(3px);
+    box-shadow:
+        0 2px 0 rgba(88,70,210,0.7),
+        0 4px 10px rgba(139,124,248,0.3) !important;
+}
+
+.kd-verify-btn:disabled {
+    opacity: 0.35;
+}
+
+/* ── Entrada con fade ───────────────────────── */
+@keyframes kd-fade-in {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+.kd-card { animation: kd-fade-in 0.35s ease; }
