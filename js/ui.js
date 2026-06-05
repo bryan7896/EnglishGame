@@ -40,7 +40,7 @@ ${done > 0 ? `<button class="mact acc" onclick="closeModal();copyPartial()">
   <span class="mact-ic">🗑️</span>
   <span class="mact-t">Cargar nuevos ejercicios<span class="mact-sub">Reemplaza todo</span></span>
 </button>
-<div class="msec">Versión 1.0.2</div>
+<div class="msec">Versión 1.0.3</div>
 `);
 }
 function toggleAudio() {
