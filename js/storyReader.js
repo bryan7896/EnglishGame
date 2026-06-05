@@ -254,87 +254,72 @@ function attachTouchEvents() {
     container.style.userSelect = 'none';
     container.style.webkitUserSelect = 'none';
 
-    let selectedIndicesTemp = new Set();
-    let mouseSelecting = false;
+    // Set global para acumular clicks — se limpia al hacer commit
+    if (!window._storySelecting) window._storySelecting = new Set();
+    const sel = window._storySelecting;
 
-    // ---- TOUCH ----
+    // ---- TOUCH: arrastre ----
     container.addEventListener('touchstart', (e) => {
-        selectedIndicesTemp.clear();
+        sel.clear();
+        container.querySelectorAll('.temp-selected').forEach(el => el.classList.remove('temp-selected'));
         const target = e.target.closest('[data-idx]');
         if (target) {
             const idx = parseInt(target.dataset.idx);
-            if (!isNaN(idx)) {
-                selectedIndicesTemp.add(idx);
-                highlightTempWord(target, true);
-            }
+            if (!isNaN(idx)) { sel.add(idx); highlightTempWord(target, true); }
         }
     }, { passive: true });
 
     container.addEventListener('touchmove', (e) => {
         e.preventDefault();
-        const touch = e.touches[0];
-        const element = document.elementFromPoint(touch.clientX, touch.clientY);
-        const wordSpan = element?.closest('[data-idx]');
-        if (wordSpan) {
-            const idx = parseInt(wordSpan.dataset.idx);
-            if (!isNaN(idx) && !selectedIndicesTemp.has(idx)) {
-                selectedIndicesTemp.add(idx);
-                highlightTempWord(wordSpan, true);
-            }
+        const el = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY)?.closest('[data-idx]');
+        if (el) {
+            const idx = parseInt(el.dataset.idx);
+            if (!isNaN(idx) && !sel.has(idx)) { sel.add(idx); highlightTempWord(el, true); }
         }
     }, { passive: false });
 
     container.addEventListener('touchend', () => {
-        _commitSelection(selectedIndicesTemp);
+        _commitSelection(sel);
         container.querySelectorAll('.temp-selected').forEach(el => el.classList.remove('temp-selected'));
-        selectedIndicesTemp.clear();
+        sel.clear();
     }, { passive: true });
 
-    // ---- MOUSE ----
-    container.addEventListener('mousedown', (e) => {
-        if (e.button !== 0) return;
-        e.preventDefault();
-        mouseSelecting = true;
-        selectedIndicesTemp.clear();
-        container.querySelectorAll('.temp-selected').forEach(el => el.classList.remove('temp-selected'));
-
+    // ---- MOUSE: click acumulativo ----
+    container.addEventListener('click', (e) => {
         const target = e.target.closest('[data-idx]');
-        console.log('mousedown - target:', target, '| dataset:', target?.dataset);
-        if (target) {
-            const idx = parseInt(target.dataset.idx);
-            if (!isNaN(idx)) {
-                selectedIndicesTemp.add(idx);
-                highlightTempWord(target, true);
-                console.log('mousedown - añadido idx:', idx, '| Set ahora:', Array.from(selectedIndicesTemp));
-            }
+        if (!target) return;
+        const idx = parseInt(target.dataset.idx);
+        if (isNaN(idx)) return;
+
+        if (sel.has(idx)) {
+            sel.delete(idx);
+            target.classList.remove('temp-selected');
+        } else {
+            sel.add(idx);
+            target.classList.add('temp-selected');
         }
+
+        // Reiniciar timer de auto-commit
+        if (window._commitTimer) clearTimeout(window._commitTimer);
+        window._commitTimer = setTimeout(() => {
+            if (sel.size > 0) {
+                _commitSelection(sel);
+                container.querySelectorAll('.temp-selected').forEach(el => el.classList.remove('temp-selected'));
+                sel.clear();
+            }
+            window._commitTimer = null;
+        }, 1000);
     });
 
-    const onMouseMove = (e) => {
-        if (!mouseSelecting) return;
-        const element = document.elementFromPoint(e.clientX, e.clientY);
-        const wordSpan = element?.closest('[data-idx]');
-        if (wordSpan) {
-            const idx = parseInt(wordSpan.dataset.idx);
-            if (!isNaN(idx) && !selectedIndicesTemp.has(idx)) {
-                selectedIndicesTemp.add(idx);
-                highlightTempWord(wordSpan, true);
-                console.log('mousemove - añadido idx:', idx, '| Set ahora:', Array.from(selectedIndicesTemp));
-            }
+    // Click fuera = commit inmediato
+    document.addEventListener('click', (e) => {
+        if (!container.contains(e.target) && sel.size > 0) {
+            if (window._commitTimer) { clearTimeout(window._commitTimer); window._commitTimer = null; }
+            _commitSelection(sel);
+            container.querySelectorAll('.temp-selected').forEach(el => el.classList.remove('temp-selected'));
+            sel.clear();
         }
-    };
-
-    const onMouseUp = () => {
-        if (!mouseSelecting) return;
-        console.log('mouseup - Set final antes de commit:', Array.from(selectedIndicesTemp));
-        mouseSelecting = false;
-        _commitSelection(selectedIndicesTemp);
-        container.querySelectorAll('.temp-selected').forEach(el => el.classList.remove('temp-selected'));
-        selectedIndicesTemp.clear();
-    };
-
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseup', onMouseUp);
+    });
 }
 
 function _commitSelection(indicesSet) {
@@ -694,49 +679,86 @@ function normalizeForComparison(text) {
         .replace(/\s+/g, ' ')
         .trim();
 }
-
 function processSpokenText(spoken) {
-    const normalizedSpoken = normalizeForComparison(spoken);
-    const normalizedStory = normalizeForComparison(storyText);
-
-    const spokenWords = normalizedSpoken.split(/\s+/);
-    const storyWords = normalizedStory.split(/\s+/);
+    const spokenWords = normalizeForComparison(spoken).split(/\s+/);
+    const storyWords  = normalizeForComparison(storyText).split(/\s+/);
 
     if (spokenWords.length < MIN_WORDS_TO_MATCH) {
-        const feedback = document.getElementById('result-feedback');
-        if (feedback) {
-            feedback.innerHTML = `<span class="feedback-warning">⚠️ Dijiste solo ${spokenWords.length} palabra(s). Necesitas al menos ${MIN_WORDS_TO_MATCH} palabras para marcar progreso.</span>`;
-        }
-        toast(`📝 Mínimo ${MIN_WORDS_TO_MATCH} palabras para practicar`);
+        document.getElementById('result-feedback').innerHTML =
+            `<span class="feedback-warning">⚠️ Mínimo ${MIN_WORDS_TO_MATCH} palabras para marcar progreso.</span>`;
         return;
     }
 
-    const newMatches = findAllMatchingWords(spokenWords, storyWords);
+    const newMatchIndices = findBestMatches(spokenWords, storyWords);
 
-    if (newMatches.length > 0) {
-        newMatches.forEach(matchIdx => {
-            matchedWordsSet.add(matchIdx);
-        });
-
+    if (newMatchIndices.length >= MIN_WORDS_TO_MATCH) {
+        newMatchIndices.forEach(i => matchedWordsSet.add(i));
         saveStoryToStorage();
         renderHighlightedText();
 
-        const matchedText = newMatches.map(idx => storyWordsArray[idx]).join(', ');
-        const feedback = document.getElementById('result-feedback');
-        if (feedback) {
-            feedback.innerHTML = `<span class="feedback-success">✅ ¡Bien! Palabras correctas: ${matchedText}</span>`;
-        }
-
-        toast(`🎉 ${newMatches.length} palabra(s) correcta(s)!`);
-
+        const matchedText = newMatchIndices.map(i => storyWordsArray[i]).join(', ');
+        document.getElementById('result-feedback').innerHTML =
+            `<span class="feedback-success">✅ Palabras correctas: ${matchedText}</span>`;
+        toast(`🎉 ${newMatchIndices.length} palabra(s) correcta(s)!`);
         checkCompletion();
     } else {
-        const feedback = document.getElementById('result-feedback');
-        if (feedback) {
-            feedback.innerHTML = `<span class="feedback-error">😅 No se encontraron coincidencias. Intenta: "${storyWords.slice(0, 5).join(' ')}..."</span>`;
-        }
-        toast('😅 No se encontraron coincidencias. Sigue practicando!');
+        document.getElementById('result-feedback').innerHTML =
+            `<span class="feedback-error">😅 Pocas coincidencias. Intenta leer más despacio.</span>`;
+        toast('😅 No se encontraron coincidencias suficientes.');
     }
+}
+
+// Matching tolerante: palabra spoken coincide con story si son iguales
+// O si su distancia de edición es pequeña relativa al largo
+function _wordsMatch(a, b) {
+    if (a === b) return true;
+    const maxLen = Math.max(a.length, b.length);
+    if (maxLen <= 3) return false; // palabras cortas: solo exacto
+    const dist = _levenshtein(a, b);
+    return dist <= Math.floor(maxLen * 0.3); // 30% tolerancia
+}
+
+function _levenshtein(a, b) {
+    const m = a.length, n = b.length;
+    const dp = Array.from({length: m+1}, (_, i) => [i, ...Array(n).fill(0)]);
+    for (let j = 0; j <= n; j++) dp[0][j] = j;
+    for (let i = 1; i <= m; i++)
+        for (let j = 1; j <= n; j++)
+            dp[i][j] = a[i-1] === b[j-1] ? dp[i-1][j-1]
+                : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+    return dp[m][n];
+}
+
+function findBestMatches(spokenWords, storyWords) {
+    const matched = new Set();
+    let bestLen = 0, bestStoryStart = -1, bestSpokenStart = -1;
+
+    // Buscar la secuencia coincidente más larga (con tolerancia)
+    for (let si = 0; si <= storyWords.length - MIN_WORDS_TO_MATCH; si++) {
+        for (let pi = 0; pi <= spokenWords.length - MIN_WORDS_TO_MATCH; pi++) {
+            let len = 0;
+            while (si + len < storyWords.length &&
+                   pi + len < spokenWords.length &&
+                   _wordsMatch(storyWords[si + len], spokenWords[pi + len])) {
+                len++;
+            }
+            if (len > bestLen) {
+                bestLen = len;
+                bestStoryStart = si;
+                bestSpokenStart = pi;
+            }
+        }
+    }
+
+    if (bestLen >= MIN_WORDS_TO_MATCH) {
+        for (let k = 0; k < bestLen; k++) {
+            // Buscar este storyWord en storyWordsArray por posición exacta
+            const wordIdx = bestStoryStart + k;
+            if (!matchedWordsSet.has(wordIdx)) matched.add(wordIdx);
+        }
+    }
+
+    return Array.from(matched);
 }
 
 function findAllMatchingWords(spokenWords, storyWords) {
