@@ -728,36 +728,53 @@ function _levenshtein(a, b) {
                 : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
     return dp[m][n];
 }
-
 function findBestMatches(spokenWords, storyWords) {
     const matched = new Set();
-    let bestLen = 0, bestStoryStart = -1, bestSpokenStart = -1;
-
-    // Buscar la secuencia coincidente más larga (con tolerancia)
-    for (let si = 0; si <= storyWords.length - MIN_WORDS_TO_MATCH; si++) {
-        for (let pi = 0; pi <= spokenWords.length - MIN_WORDS_TO_MATCH; pi++) {
+    
+    const spokenUsed = new Array(spokenWords.length).fill(false);
+    
+    for (let si = 0; si < storyWords.length; si++) {
+        if (matchedWordsSet.has(si)) continue;
+        
+        for (let pi = 0; pi < spokenWords.length; pi++) {
+            if (spokenUsed[pi]) continue;
+            
             let len = 0;
-            while (si + len < storyWords.length &&
-                   pi + len < spokenWords.length &&
-                   _wordsMatch(storyWords[si + len], spokenWords[pi + len])) {
+            while (
+                si + len < storyWords.length &&
+                pi + len < spokenWords.length &&
+                !spokenUsed[pi + len] &&
+                _wordsMatch(storyWords[si + len], spokenWords[pi + len])
+            ) {
                 len++;
             }
-            if (len > bestLen) {
-                bestLen = len;
-                bestStoryStart = si;
-                bestSpokenStart = pi;
+            
+            if (len >= MIN_WORDS_TO_MATCH) {
+                for (let k = 0; k < len; k++) {
+                    if (!matchedWordsSet.has(si + k)) {
+                        matched.add(si + k);
+                    }
+                    spokenUsed[pi + k] = true;
+                }
+                break; // pasar a siguiente si
             }
         }
     }
-
-    if (bestLen >= MIN_WORDS_TO_MATCH) {
-        for (let k = 0; k < bestLen; k++) {
-            // Buscar este storyWord en storyWordsArray por posición exacta
-            const wordIdx = bestStoryStart + k;
-            if (!matchedWordsSet.has(wordIdx)) matched.add(wordIdx);
+    
+    for (let si = 0; si < storyWords.length; si++) {
+        if (matchedWordsSet.has(si) || matched.has(si)) continue;
+        
+        for (let pi = 0; pi < spokenWords.length; pi++) {
+            if (spokenUsed[pi]) continue;
+            
+            if (storyWords[si] === spokenWords[pi]) {
+                matched.add(si);
+                spokenUsed[pi] = true;
+                break;
+            }
         }
     }
-
+    
     return Array.from(matched);
 }
 
