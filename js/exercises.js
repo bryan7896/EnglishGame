@@ -123,8 +123,8 @@ function renderLvlComplete(li, animated) {
     const ea = S.levels[li], t = S.levelTimes[li] || 0;
     const done = totalDone(), tot = S.exercises.length;
     const nodes = buildNodes();
-    const nextNodeIdx = _nextGameNode();
-    const hasNext = nextNodeIdx !== null;
+    const nextNodeIdx = getNextNodeIndex();
+    const hasNext = nextNodeIdx !== null && nextNodeIdx < nodes.length;
     
     document.getElementById('app').innerHTML = `
 <div class="screen active" id="scr-lc">
@@ -140,7 +140,7 @@ function renderLvlComplete(li, animated) {
             <div class="sc"><span class="sv">${done}</span><span class="sl">Total completados</span></div>
             <div class="sc"><span class="sv">${Math.round(done / tot * 100)}%</span><span class="sl">Progreso</span></div>
         </div>
-        ${hasNext ? `<button class="btn btn-p au" style="animation-delay:.15s" onclick="startNode(${nextNodeIdx})">▶️ Siguiente</button>` : ''}
+        ${hasNext ? `<button class="btn btn-p au" style="animation-delay:.15s" onclick="startNode(${nextNodeIdx})">▶️ Siguiente nivel</button>` : ''}
         <button class="btn btn-s au" style="animation-delay:.22s" onclick="renderMap()">🗺️ Ver mapa</button>
     </div>
 </div>`;
@@ -151,12 +151,6 @@ function renderAllComplete() {
     confetti(90);
     const done = totalDone(), tot = S.exercises.length;
     const exRows = S.levels.map((ea, li) => `<div class="time-row"><span>Nivel ${li + 1}</span><span style="color:var(--pri)">${S.levelTimes[li] ? fmtMs(S.levelTimes[li]) : '—'}</span></div>`).join('');
-    const gRows = S.storyData.map((st, si) => {
-        const p = S.gameProgress[si];
-        const c = p ? Object.values(p.correct || {}).filter(Boolean).length : 0;
-        const total = st.exercises?.length || 0;
-        return `<div class="time-row"><span>${esc(st.title || 'Historia ' + (si + 1))} (${c}/${total}✅)</span><span style="color:var(--pink)">${p?.timeMs ? fmtMs(p.timeMs) : '—'}</span></div>`;
-    }).join('');
     
     document.getElementById('app').innerHTML = `
 <div class="screen active" id="scr-all">
@@ -167,14 +161,24 @@ function renderAllComplete() {
         <p class="final-msg au" style="animation-delay:.08s">Hoy entrenaste tu inglés como un campeón.<br>Tu constancia construye fluidez real 💪<br><span style="color:var(--pri);font-weight:800">¡Eres imparable!</span></p>
         <div class="sgrid au" style="animation-delay:.14s">
             <div class="sc"><span class="sv">${done}</span><span class="sl">Traducciones</span></div>
-            <div class="sc"><span class="sv">🔥 ${S.streak}</span><span class="sl">Días seguidos</span></div>
+            <div class="sc"><span class="sv">📚 ${S.totalHistorical || 0}</span><span class="sl">Total histórico</span></div>
             <div class="sc"><span class="sv">${fmtMs(S.totalMs)}</span><span class="sl">Tiempo total</span></div>
             <div class="sc"><span class="sv">${fmtAvg(S.totalMs, done)}</span><span class="sl">Prom/ejercicio</span></div>
         </div>
         ${exRows ? `<div class="time-table au" style="animation-delay:.2s;width:100%"><div class="time-table-h">📚 Niveles de traducción</div>${exRows}</div>` : ''}
-        ${gRows ? `<div class="time-table au" style="animation-delay:.23s;width:100%;border-color:rgba(240,114,182,.25)"><div class="time-table-h" style="color:var(--pink)">🎮 Historias</div>${gRows}</div>` : ''}
         <button class="btn btn-g au" style="animation-delay:.27s" onclick="copyAnswers()">📋 Copiar respuestas + estadísticas</button>
         <button class="btn btn-p au" style="animation-delay:.31s" onclick="renderMap()">🗺️ Ver mapa</button>
     </div>
 </div>`;
+}
+
+// ════ HELPER: Get next node index ════
+function getNextNodeIndex() {
+    const nodes = buildNodes();
+    for (let i = 0; i < nodes.length; i++) {
+        if (!nodeDone(nodes[i])) {
+            return i;
+        }
+    }
+    return null;
 }

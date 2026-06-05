@@ -3,21 +3,14 @@ const SK = 'lq_v5';
 function defS() {
     return {
         exercises: [], levels: [], responses: {},
-        storyData: [], gameProgress: {},
         currentLevel: 0, currentExInLevel: 0,
         levelTimes: {}, totalMs: 0,
-        streak: 0, lastStudyDate: null,
         dailyCount: 0, dailyDate: null,
         totalHistorical: 0, lastActivity: null,
         audioMode: false
     };
 }
 let S = defS(), lastMsg = -1;
-
-// Game ephemeral state
-let gStory = null, gStoryIdx = -1, gExIdx = 0, gNodeIdx = -1, gGameStart = null;
-let gWords = [], gPlaced = [];
-let gSelected = null;
 
 const MSGS = ['¡Vas increíble! 🔥', 'Ya estás dominando esto 💪', '¡No te rindas! 😄',
     'Tu inglés está mejorando mucho ✨', '¡Un ejercicio más! 💪', 'Excelente consistencia 🌟',
@@ -28,7 +21,7 @@ const MSGS = ['¡Vas increíble! 🔥', 'Ya estás dominando esto 💪', '¡No t
 const MASCOTS = {
     idle: { e: '😊', a: '', m: '¡Listo para estudiar! 🚀' },
     happy: { e: '😄', a: 'bounce', m: '¡Excelente trabajo! 👏' },
-    cool: { e: '😎', a: '', m: '¡Qué consistencia tan increíble!' },
+    cool: { e: '😎', a: '', m: '¡Qué bien estás progresando!' },
     sad: { e: '😢', a: 'sad', m: 'Te extrañé... ¡Vuelve a estudiar!' },
     sleep: { e: '😴', a: 'sleep', m: 'Zzz... despiértame cuando estudies!' },
     party: { e: '🥳', a: 'dance', m: '¡Meta cumplida! 🎉' },
@@ -39,70 +32,28 @@ const MASCOTS = {
 function save() { try { localStorage.setItem(SK, JSON.stringify(S)); } catch (e) { } }
 function load() { try { const r = localStorage.getItem(SK); if (r) S = { ...defS(), ...JSON.parse(r) }; } catch (e) { S = defS(); } }
 
-// ════ STREAK & LEVELS ════
-function checkStreak() {
-    const today = new Date().toDateString();
-    if (S.dailyDate !== today) {
-        const yest = new Date(Date.now() - 86400000).toDateString();
-        if (S.lastStudyDate === yest) S.streak = (S.streak || 0) + 1;
-        else if (S.lastStudyDate !== today) S.streak = 1;
-        S.dailyDate = today; S.dailyCount = 0;
-    }
-    S.lastStudyDate = today; save();
-}
+// ════ LEVELS ════
 function buildLevels(arr) { const r = []; for (let i = 0; i < arr.length; i += 3) r.push(arr.slice(i, i + 3).map((_, j) => i + j)); return r; }
 function lvlDone(li) { return S.levels[li]?.every(i => S.responses[i] !== undefined) ?? false; }
-function storyDone(si) {
-    const st = S.storyData[si]; const p = S.gameProgress[si];
-    if (!st || !p) return false;
-    return st.exercises.every((_, i) => p.answers && p.answers[i] !== undefined);
-}
 function totalDone() { return Object.keys(S.responses).length; }
 function allExDone() { return S.exercises.length > 0 && totalDone() >= S.exercises.length; }
 
 // ════ MAP NODES ════
 function buildNodes() {
     const nodes = [];
-    let ei = 0, gi = 0, vi = 0;
-    let lastWasVerbGame = false;
-    let verbGamesCount = 0;
-    
-    // Contar cuántos juegos de verbos hay
-    const verbGames = S.verbGamesData || [];
-    
-    while (ei < S.levels.length || gi < S.storyData.length || vi < verbGames.length) {
-        // Insertar juego de verbos cada 2 nodos (si hay disponibles)
-        if (verbGamesCount < verbGames.length && (nodes.length % 3 === 2 || (S.levels.length === 0 && S.storyData.length === 0))) {
-            nodes.push({ type: 'verbGame', vi: verbGamesCount++ });
-        }
-        // Insertar niveles de traducción
-        else if (ei < S.levels.length) {
-            nodes.push({ type: 'ex', li: ei++ });
-        }
-        // Insertar juegos de historia existentes
-        else if (gi < S.storyData.length) {
-            nodes.push({ type: 'game', si: gi++ });
-        }
-        // Si solo hay juegos de verbos
-        else if (vi < verbGames.length) {
-            nodes.push({ type: 'verbGame', vi: vi++ });
-        }
+    for (let li = 0; li < S.levels.length; li++) {
+        nodes.push({ type: 'ex', li: li });
     }
-    
     return nodes;
 }
+
 function nodeDone(n) {
     if (n.type === 'ex') return lvlDone(n.li);
-    if (n.type === 'game') return storyDone(n.si);
-    if (n.type === 'verbGame') {
-        const verbData = S.verbGamesData?.[n.vi];
-        if (!verbData) return false;
-        const verbGameId = `verb_${verbData.spanishWord}`;
-        return S.gameProgress[verbGameId]?.answers?.completed === true;
-    }
     return false;
 }
+
 function nodeOpen(ni, nodes) { return ni === 0 || nodeDone(nodes[ni - 1]); }
+
 function activeNodeIdx(nodes) {
     for (let i = 0; i < nodes.length; i++) if (!nodeDone(nodes[i]) && nodeOpen(i, nodes)) return i;
     return Math.max(0, nodes.length - 1);
@@ -114,7 +65,6 @@ function getMascot() {
     if (last) { const d = (now - last) / 60000; if (d > 180) return MASCOTS.sleep; if (d > 60) return MASCOTS.sad; }
     const nodes = buildNodes();
     if (nodes.every(n => nodeDone(n)) && nodes.length > 0) return MASCOTS.party;
-    if (S.streak >= 7) return MASCOTS.cool;
     if (totalDone() === 0) return MASCOTS.idle;
     return totalDone() < 5 ? MASCOTS.push : MASCOTS.happy;
 }
@@ -143,14 +93,6 @@ function toast(msg) {
     clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('show'), 2700);
 }
 
-function isVerbGameNode(node) {
-    return node.type === 'verbGame';
-}
-
-function getVerbGameData(verbId) {
-    return S.verbGamesData?.find(v => v.spanishWord === verbId) || null;
-}
-
 function confetti(n) {
     const ck = document.getElementById('ck'); ck.innerHTML = '';
     for (let i = 0; i < n; i++) {
@@ -164,6 +106,27 @@ function confetti(n) {
         ck.appendChild(p);
     }
     setTimeout(() => ck.innerHTML = '', 4800);
+}
+
+// ════ SOUND EFFECTS ════
+function playPing() {
+    try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.value = 880;
+        gainNode.gain.value = 0.2;
+        
+        oscillator.start();
+        gainNode.gain.exponentialRampToValueAtTime(0.00001, audioContext.currentTime + 0.3);
+        oscillator.stop(audioContext.currentTime + 0.3);
+        
+        setTimeout(() => audioContext.close(), 500);
+    } catch (e) {}
 }
 
 // ════ TIMERS FOR EXERCISES ════

@@ -21,15 +21,13 @@
 // @include js/core.js
 // @include js/ui.js
 // @include js/exercises.js
-// @include js/games.js
-// @include js/verbGame.js
+// @include js/storyReader.js
 </script>
 
 <script>
 // ════ INIT ════
 function init() {
     load();
-    checkStreak();
     if (S.exercises.length > 0) renderMap();
     else renderSetup();
 }
