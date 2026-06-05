@@ -64,6 +64,8 @@ function renderStoryReaderUI() {
                             <button class="btn-stop hidden" id="stop-btn">⏹️ Detener</button>
                         </div>
                         <div id="recording-result" class="recording-result hidden">
+                            <div class="result-title">📝 Lo que dijiste:</div>
+                            <div class="result-text" id="result-text"></div>
                             <div class="result-feedback" id="result-feedback"></div>
                         </div>
                     </div>
@@ -677,9 +679,11 @@ function stopRecording() {
 
 function showRecordingResult(transcript) {
     const resultDiv = document.getElementById('recording-result');
+    const resultText = document.getElementById('result-text');
 
     if (resultDiv) {
         resultDiv.classList.remove('hidden');
+        resultText.textContent = transcript;
     }
 }
 
