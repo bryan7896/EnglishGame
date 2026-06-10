@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
-  <title>English Trainer | Aventura de traducción</title>
+  <title>English Trainer | Version 1.0</title>
+  
   <style>
     * {
       margin: 0;
@@ -14,38 +15,36 @@
 
     body {
       background: linear-gradient(145deg, #0a0e1a 0%, #0f1422 100%);
-      font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Poppins', 'Comic Neue', cursive, sans-serif;
+      font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Poppins', sans-serif;
       min-height: 100vh;
       padding: 16px 14px 40px;
       position: relative;
     }
 
-    /* Elementos decorativos divertidos - modo oscuro */
     .cloud {
       position: fixed;
-      background: rgba(88, 166, 255, 0.08);
+      background: rgba(88, 166, 255, 0.06);
       border-radius: 1000px;
-      filter: blur(24px);
+      filter: blur(30px);
       pointer-events: none;
       z-index: 0;
     }
-    .cloud1 { width: 200px; height: 120px; top: 20px; left: -40px; }
-    .cloud2 { width: 280px; height: 160px; bottom: 20px; right: -60px; }
-    .cloud3 { width: 150px; height: 100px; top: 40%; right: 10%; }
+    .cloud1 { width: 250px; height: 150px; top: 20px; left: -60px; }
+    .cloud2 { width: 300px; height: 180px; bottom: 20px; right: -80px; }
+    .cloud3 { width: 180px; height: 120px; top: 40%; right: 10%; }
     .star {
       position: fixed;
       color: #facc15;
-      font-size: 18px;
-      opacity: 0.3;
+      font-size: 16px;
+      opacity: 0.25;
       pointer-events: none;
       animation: twinkle 4s infinite;
     }
     @keyframes twinkle {
       0%, 100% { opacity: 0.1; transform: scale(0.8);}
-      50% { opacity: 0.5; transform: scale(1.2);}
+      50% { opacity: 0.4; transform: scale(1.1);}
     }
 
-    /* contenedor principal */
     .app-container {
       max-width: 580px;
       margin: 0 auto;
@@ -53,71 +52,66 @@
       z-index: 2;
     }
 
-    /* topbar estilo lúdico oscuro */
     .play-topbar {
       background: rgba(18, 25, 45, 0.95);
-      backdrop-filter: blur(14px);
-      border-radius: 60px;
-      padding: 8px 16px 8px 20px;
-      margin-bottom: 24px;
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 10px 18px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.3), 0 1px 0 rgba(255,215,130,0.2) inset;
-      border: 1px solid rgba(250,204,21,0.3);
-      transition: all 0.2s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      border: 1px solid rgba(250,204,21,0.2);
     }
     .brand-mini {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     .badge-fun {
       background: linear-gradient(145deg, #fbbf24, #f59e0b);
-      width: 44px;
-      height: 44px;
-      border-radius: 30px;
+      width: 46px;
+      height: 46px;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
-      box-shadow: 0 6px 0 #b45309;
-      transform: translateY(-2px);
+      font-size: 1.6rem;
+      box-shadow: 0 4px 0 #b45309;
     }
     .title-fun {
-      font-size: 1.25rem;
-      font-weight: 800;
+      font-size: 1.2rem;
+      font-weight: 700;
       color: #fde68a;
-      letter-spacing: -0.3px;
     }
     .sub-fun {
       font-size: 0.7rem;
       color: #fbbf24;
-      font-weight: 600;
+      font-weight: 500;
     }
     .menu-btn {
       background: #1e293b;
       border: none;
-      width: 44px;
-      height: 44px;
-      border-radius: 30px;
-      font-size: 1.5rem;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      font-size: 1.3rem;
       cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       transition: all 0.2s;
       color: #fbbf24;
     }
-    .menu-btn:active { transform: scale(0.94); background: #334155; }
+    .menu-btn:active { transform: scale(0.95); background: #334155; }
     .topbar-expand {
       overflow: hidden;
-      transition: max-height 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transition: max-height 0.3s ease;
       max-height: 0;
     }
     .topbar-expand.open {
-      max-height: 220px;
+      max-height: 200px;
       margin-top: 12px;
-      padding-top: 8px;
-      border-top: 1px dashed #fcd34d;
+      padding-top: 12px;
+      border-top: 1px solid rgba(250,204,21,0.2);
     }
     .action-buttons {
       display: flex;
@@ -127,13 +121,12 @@
     }
     .fun-btn {
       border: none;
-      border-radius: 50px;
-      padding: 10px 18px;
-      font-weight: 700;
+      border-radius: 14px;
+      padding: 10px 16px;
+      font-weight: 600;
       font-size: 0.85rem;
       background: #1e293b;
       color: #fde68a;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       transition: all 0.2s;
       display: inline-flex;
       align-items: center;
@@ -145,46 +138,121 @@
     .primary-btn {
       background: linear-gradient(105deg, #facc15, #f59e0b);
       color: #1a120b;
-      box-shadow: 0 6px 0 #b45309;
-      transform: translateY(-2px);
-      font-weight: 800;
+      font-weight: 700;
     }
-    .primary-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #b45309; }
 
-    /* Tarjetas mágicas - modo oscuro */
     .magic-card {
       background: rgba(18, 25, 45, 0.9);
       backdrop-filter: blur(10px);
-      border-radius: 48px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(250,204,21,0.1);
-      padding: 20px 18px;
-      margin-bottom: 20px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(250,204,21,0.1);
     }
-    .magic-card:hover { transform: translateY(-3px); }
     .magic-card h2, .magic-card h3 {
       color: #fde68a;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
     }
     .magic-card p {
       color: #cbd5e1;
+      font-size: 0.9rem;
     }
 
-    /* mapa tipo aventura */
+    .login-card {
+      background: rgba(18, 25, 45, 0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 32px 24px;
+      text-align: center;
+      border: 1px solid rgba(250,204,21,0.2);
+    }
+    .login-card h1 {
+      color: #fde68a;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+    .login-card p {
+      color: #94a3b8;
+      margin-bottom: 24px;
+    }
+    .username-input {
+      width: 100%;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: #f1f5f9;
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: 0.2s;
+      margin-bottom: 16px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .username-input:focus { border-color: #f59e0b; box-shadow: 0 0 0 2px rgba(245,158,11,0.2); }
+    .login-btn {
+      background: linear-gradient(145deg, #facc15, #f59e0b);
+      color: #1a120b;
+      border: none;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .login-btn:active { transform: scale(0.98); }
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(250,204,21,0.1);
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(145deg, #facc15, #f59e0b);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    .user-name {
+      color: #fde68a;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .logout-btn {
+      background: none;
+      border: none;
+      color: #f87171;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 4px 8px;
+      border-radius: 8px;
+    }
+
     .adventure-map {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin: 10px 0 8px;
+      gap: 14px;
+      margin-top: 8px;
     }
     .node-card {
       background: linear-gradient(135deg, #1e293b, #0f172a);
-      border-radius: 44px;
-      padding: 14px 18px;
-      border: 2px solid #334155;
+      border-radius: 18px;
+      padding: 16px;
+      border: 1px solid #334155;
       transition: all 0.2s;
       cursor: pointer;
-      position: relative;
-      box-shadow: 0 6px 0 #0f172a;
+      box-shadow: 0 4px 0 #0f172a;
     }
     .node-card.locked {
       opacity: 0.6;
@@ -197,13 +265,12 @@
     .node-card.completed {
       border-color: #facc15;
       background: linear-gradient(135deg, #1e2a3a, #162030);
-      box-shadow: 0 6px 0 #ca8a04;
+      box-shadow: 0 4px 0 #ca8a04;
     }
     .node-card.current {
-      border: 3px solid #facc15;
+      border: 2px solid #facc15;
       background: linear-gradient(135deg, #2d3a4e, #1e2a3a);
-      box-shadow: 0 0 0 4px rgba(250,204,21,0.2), 0 6px 0 #ca8a04;
-      transform: scale(1.01);
+      box-shadow: 0 0 0 2px rgba(250,204,21,0.2), 0 4px 0 #ca8a04;
     }
     .node-header {
       display: flex;
@@ -213,16 +280,16 @@
       flex-wrap: wrap;
     }
     .node-title {
-      font-weight: 800;
-      font-size: 1.2rem;
+      font-weight: 700;
+      font-size: 1.1rem;
       color: #fde68a;
     }
     .pill-status {
       background: #334155;
-      border-radius: 40px;
+      border-radius: 20px;
       padding: 4px 12px;
       font-size: 0.7rem;
-      font-weight: bold;
+      font-weight: 600;
       color: #cbd5e1;
     }
     .pill-status.good { background: #4ade80; color: #064e3b; }
@@ -230,20 +297,19 @@
     .dots-progress {
       display: flex;
       gap: 6px;
-      margin: 12px 0 6px;
+      margin: 12px 0 8px;
     }
     .dot-ex {
-      width: 28px;
-      height: 10px;
-      border-radius: 20px;
-      background: #334155;
-      transition: 0.1s;
-    }
-    .dot-ex.approved { background: #facc15; box-shadow: 0 0 6px #facc15; }
-    .bar-progress {
+      width: 30px;
       height: 8px;
+      border-radius: 10px;
+      background: #334155;
+    }
+    .dot-ex.approved { background: #facc15; }
+    .bar-progress {
+      height: 6px;
       background: #1e293b;
-      border-radius: 20px;
+      border-radius: 10px;
       margin: 8px 0 4px;
       overflow: hidden;
     }
@@ -251,54 +317,52 @@
       background: linear-gradient(90deg, #facc15, #f97316);
       width: 0%;
       height: 100%;
-      border-radius: 20px;
+      border-radius: 10px;
     }
 
-    /* Ejercicio principal - modo oscuro */
     .exercise-area {
       background: rgba(18, 25, 45, 0.95);
       backdrop-filter: blur(8px);
-      border-radius: 56px;
+      border-radius: 20px;
       padding: 20px;
     }
     .question-bubble {
       background: #1e293b;
-      border-radius: 56px;
-      padding: 20px;
-      margin-bottom: 20px;
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 18px;
       text-align: center;
-      font-size: 1.35rem;
-      font-weight: 700;
+      font-size: 1.25rem;
+      font-weight: 600;
       color: #fde68a;
-      box-shadow: inset 0 -2px 0 #334155, 0 6px 12px rgba(0,0,0,0.2);
+      border: 1px solid #334155;
     }
     .answer-input {
       width: 100%;
-      border: 2px solid #334155;
+      border: 1px solid #334155;
       background: #0f172a;
       color: #f1f5f9;
-      border-radius: 56px;
-      padding: 16px 18px;
+      border-radius: 14px;
+      padding: 14px 16px;
       font-size: 1rem;
       font-family: inherit;
       resize: vertical;
       outline: none;
       transition: 0.2s;
     }
-    .answer-input:focus { border-color: #f59e0b; box-shadow: 0 0 0 3px rgba(245,158,11,0.2); }
-    .answer-input::placeholder { color: #64748b; }
+    .answer-input:focus { border-color: #f59e0b; box-shadow: 0 0 0 2px rgba(245,158,11,0.2); }
     .button-group {
       display: flex;
       gap: 12px;
-      margin: 20px 0 12px;
+      margin: 18px 0 12px;
     }
     .btn-action {
       flex: 1;
       border: none;
-      border-radius: 60px;
-      padding: 14px 0;
-      font-weight: 800;
-      font-size: 1rem;
+      border-radius: 14px;
+      padding: 12px 0;
+      font-weight: 600;
+      font-size: 0.95rem;
       background: #1e293b;
       cursor: pointer;
       transition: 0.1s linear;
@@ -311,29 +375,29 @@
     .btn-check {
       background: linear-gradient(145deg, #facc15, #f59e0b);
       color: #1a120b;
-      box-shadow: 0 5px 0 #b45309;
+      font-weight: 700;
     }
-    .btn-check:active { transform: translateY(2px); box-shadow: 0 2px 0 #b45309; }
+    .btn-check:active { transform: scale(0.98); }
     .btn-continue {
       background: #4ade80;
       color: #064e3b;
-      box-shadow: 0 5px 0 #166534;
+      font-weight: 700;
     }
     .mood-card {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       align-items: center;
       background: #1e293b;
-      border-radius: 60px;
+      border-radius: 16px;
       padding: 12px 16px;
       margin: 16px 0;
     }
     .mood-emoji {
-      font-size: 3rem;
+      font-size: 2.5rem;
       background: #0f172a;
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -341,21 +405,14 @@
     }
     @keyframes gentleBounce {
       0%,100%{ transform: translateY(0);}
-      50%{ transform: translateY(-5px);}
-    }
-    .mood-card strong {
-      color: #fde68a;
-    }
-    .mood-card span {
-      color: #94a3b8;
+      50%{ transform: translateY(-3px);}
     }
 
-    /* modal comparación - modo oscuro */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(6px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -363,45 +420,34 @@
     }
     .modal-friend {
       background: #1e293b;
-      border-radius: 68px;
+      border-radius: 24px;
       max-width: 92%;
-      width: 480px;
-      padding: 24px 22px;
+      width: 460px;
+      padding: 22px;
       text-align: center;
       animation: bounceIn 0.25s;
-      border: 3px solid #facc15;
+      border: 1px solid #facc15;
     }
-    .modal-friend h3 {
-      color: #fde68a;
-    }
+    .modal-friend h3 { color: #fde68a; margin-bottom: 12px; }
     .comparison-text-block {
       background: #0f172a;
-      border-radius: 40px;
+      border-radius: 14px;
       padding: 14px;
-      margin: 16px 0;
+      margin: 14px 0;
       text-align: left;
     }
-    .comparison-text-block strong {
-      color: #fde68a;
-    }
-    .word-correct { color: #4ade80; font-weight: bold; background: #064e3b; padding: 2px 6px; border-radius: 20px; display: inline-block; margin: 2px;}
-    .word-missing { background: #451a03; color: #fbbf24; font-weight: bold; border-radius: 20px; padding: 2px 6px; display: inline-block; margin: 2px;}
-    .word-extra { color: #f87171; text-decoration: line-through; background:#7f1d1d; border-radius: 20px; padding:2px 6px; display: inline-block; margin: 2px;}
-    .modal-buttons {
-      display: flex;
-      gap: 12px;
-      margin-top: 10px;
-    }
+    .word-correct { color: #4ade80; font-weight: 600; background: #064e3b; padding: 2px 6px; border-radius: 8px; display: inline-block; margin: 2px; font-size: 0.9rem;}
+    .word-missing { background: #451a03; color: #fbbf24; font-weight: 600; border-radius: 8px; padding: 2px 6px; display: inline-block; margin: 2px;}
+    .modal-buttons { display: flex; gap: 12px; margin-top: 16px; }
     @keyframes bounceIn {
       0%{ transform: scale(0.9); opacity: 0;}
       100%{ transform: scale(1); opacity: 1;}
     }
 
-    /* confeti */
     .confetti {
       position: fixed;
-      width: 12px;
-      height: 20px;
+      width: 10px;
+      height: 16px;
       top: -20px;
       animation: fall 1.4s linear forwards;
       pointer-events: none;
@@ -410,6 +456,7 @@
     @keyframes fall {
       to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
     }
+    
     .toast-fun {
       position: fixed;
       bottom: 20px;
@@ -417,10 +464,10 @@
       transform: translateX(-50%) translateY(20px);
       background: #1e293b;
       color: #fde68a;
-      padding: 12px 24px;
-      border-radius: 60px;
-      font-weight: bold;
-      font-size: 0.9rem;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
       opacity: 0;
       transition: 0.2s;
       z-index: 1100;
@@ -428,26 +475,24 @@
       white-space: nowrap;
       border: 1px solid #facc15;
     }
-    .toast-fun.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-    .hidden { display: none; }
+    .toast-fun.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    
     .screen { display: none; }
     .screen.active { display: block; animation: appear 0.3s; }
     @keyframes appear {
-      from { opacity: 0; transform: translateY(12px);}
+      from { opacity: 0; transform: translateY(8px);}
       to { opacity: 1; transform: translateY(0);}
     }
+    
     .stats-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      margin: 12px 0;
+      margin-top: 8px;
     }
     .stat-bubble {
       background: #0f172a;
-      border-radius: 40px;
+      border-radius: 14px;
       padding: 12px;
       text-align: center;
       color: #cbd5e1;
@@ -455,48 +500,93 @@
     .stat-bubble strong {
       color: #fde68a;
       font-size: 1.3rem;
+      display: block;
+      margin-top: 4px;
     }
     textarea.report {
       background: #0f172a;
-      border-radius: 36px;
+      border-radius: 14px;
       border: 1px solid #334155;
       width: 100%;
-      padding: 14px;
+      padding: 12px;
       font-family: monospace;
       margin-top: 12px;
       color: #cbd5e1;
+      font-size: 0.8rem;
     }
-    button.full-width { width: 100%; justify-content: center; }
+    .loading {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e293b;
+      color: #fde68a;
+      padding: 10px 20px;
+      border-radius: 40px;
+      z-index: 2000;
+      font-weight: 600;
+      font-size: 0.8rem;
+      display: none;
+      border: 1px solid #facc15;
+      white-space: nowrap;
+    }
+    .loading.show { display: block; animation: pulse 1s infinite; }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
   </style>
 </head>
 <body>
 <div class="cloud cloud1"></div><div class="cloud cloud2"></div><div class="cloud cloud3"></div>
-<div class="star" style="top: 8%; left: 85%;">⭐</div><div class="star" style="top: 22%; left: 5%;">✨</div><div class="star" style="bottom: 18%; right: 8%;">🌟</div>
+<div class="star" style="top: 8%; left: 85%;">⭐</div>
+<div class="star" style="top: 22%; left: 5%;">✨</div>
+<div class="star" style="bottom: 18%; right: 8%;">🌟</div>
 
 <div class="app-container">
-  <!-- Topbar jugueton -->
-  <div class="play-topbar">
-    <div class="brand-mini">
-      <div class="badge-fun">🐣</div>
-      <div><div class="title-fun">English Trainer</div><div class="sub-fun">aventura de palabras</div></div>
-    </div>
-    <button class="menu-btn" id="toggleMenuBtn">☁️</button>
-  </div>
-  <div class="topbar-expand" id="menuExpand">
-    <div class="action-buttons">
-      <button class="fun-btn" id="backToMapBtn">🗺️ Mapa</button>
-      <button class="fun-btn" id="copyReportBtn">📋 Copiar informe</button>
-      <button class="fun-btn" id="replaceListBtn">📥 Nueva tanda</button>
-      <button class="fun-btn danger-btn" id="resetAllBtn">🗑️ Borrar todo</button>
+  <div id="loginScreen" class="screen active">
+    <div class="login-card">
+      <div class="badge-fun" style="margin: 0 auto 20px; width: 70px; height: 70px; font-size: 2.5rem;">🐣</div>
+      <h1>English Trainer</h1>
+      <p>Aventura de traducción</p>
+      <input type="text" id="usernameInput" class="username-input" placeholder="Escribe tu nombre de usuario" maxlength="30" autocomplete="off">
+      <button id="loginBtn" class="login-btn">🚀 Comenzar aventura</button>
+      <p style="font-size: 0.75rem; margin-top: 16px; color: #64748b;">Tu progreso se guardará en la nube</p>
     </div>
   </div>
 
-  <!-- Pantalla importación -->
-  <div id="importScreen" class="screen active">
-    <div class="magic-card">
-      <h2 style="font-size:1.8rem;">📚 ¡Bienvenido!</h2>
-      <p>Pega tu lista de frases (JSON) y <strong>comienza la aventura</strong>.</p>
-      <textarea id="jsonInput" class="answer-input" rows="5" placeholder='[
+  <div id="mainScreen" class="screen">
+    <div class="play-topbar">
+      <div class="brand-mini">
+        <div class="badge-fun">🐣</div>
+        <div>
+          <div class="title-fun">English Trainer</div>
+          <div class="sub-fun">aventura de palabras</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <div class="user-info" id="userInfo">
+          <div class="user-avatar" id="userAvatar">👤</div>
+          <span class="user-name" id="userNameDisplay"></span>
+          <button id="logoutBtn" class="logout-btn" title="Cerrar sesión">🚪</button>
+        </div>
+        <button class="menu-btn" id="toggleMenuBtn">☁️</button>
+      </div>
+    </div>
+    <div class="topbar-expand" id="menuExpand">
+      <div class="action-buttons">
+        <button class="fun-btn" id="backToMapBtn">🗺️ Mapa</button>
+        <button class="fun-btn" id="copyReportBtn">📋 Copiar informe</button>
+        <button class="fun-btn" id="replaceListBtn">📥 Nueva tanda</button>
+        <button class="fun-btn danger-btn" id="resetAllBtn">🗑️ Borrar todo</button>
+      </div>
+    </div>
+
+    <div id="importScreen" class="screen active">
+      <div class="magic-card">
+        <h2>📚 ¡Hola <span id="welcomeUsername"></span>!</h2>
+        <p>Pega tu lista de frases (JSON) y comienza la aventura.</p>
+        <textarea id="jsonInput" class="answer-input" rows="5" placeholder='[
   {
     "spanishWord": "El gato está sobre la mesa",
     "englishWord": "The cat is on the table"
@@ -505,60 +595,78 @@
     "spanishWord": "Quiero aprender inglés",
     "englishWord": "I want to learn English"
   }
-]' style="border-radius:28px; margin:12px 0;"></textarea>
-      <div class="button-group">
-        <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa ✨</button>
+]' style="margin: 14px 0;"></textarea>
+        <div class="button-group">
+          <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa ✨</button>
+        </div>
+        <p class="sub-fun" style="text-align:center; margin-top: 8px;">⭐ cada nodo tiene 3 ejercicios ⭐</p>
       </div>
-      <p class="sub-fun" style="text-align:center">⭐ Versión 1 ⭐</p>
     </div>
-  </div>
 
-  <!-- Pantalla mapa -->
-  <div id="mapScreen" class="screen">
-    <div class="magic-card">
-      <h2 style="font-size:1.7rem;">🗺️ Mapa de la aventura</h2>
-      <div id="mapList" class="adventure-map"></div>
+    <div id="mapScreen" class="screen">
+      <div class="magic-card">
+        <h2>🗺️ Mapa de la aventura</h2>
+        <div id="mapList" class="adventure-map"></div>
+      </div>
+      <div class="magic-card">
+        <h3>📊 Progreso</h3>
+        <div id="statsContainer" class="stats-grid"></div>
+      </div>
+      <div class="magic-card">
+        <h3>📖 Diario del aprendiz</h3>
+        <button class="fun-btn full-width" id="openReportBtn">📄 Ver informe completo</button>
+        <textarea id="reportArea" class="report" rows="4" readonly placeholder="Aquí verás tu progreso..."></textarea>
+      </div>
     </div>
-    <div class="magic-card">
-      <h3>📊 Progreso estrella</h3>
-      <div id="statsContainer" class="stats-grid"></div>
-    </div>
-    <div class="magic-card">
-      <h3>📖 Diario del aprendiz</h3>
-      <button class="fun-btn full-width" id="openReportBtn">📄 Ver informe completo</button>
-      <textarea id="reportArea" class="report" rows="4" readonly placeholder="Aquí verás tu progreso..."></textarea>
-    </div>
-  </div>
 
-  <!-- Pantalla ejercicio -->
-  <div id="exerciseScreen" class="screen">
-    <div class="exercise-area">
-      <div class="crumb-fun" style="display: flex; gap: 12px; margin-bottom: 12px; flex-wrap:wrap;">
-        <span class="pill-status" id="nodeTag">Nodo 1</span>
-        <span class="pill-status" id="exTag">Ejercicio 1/3</span>
-        <span class="pill-status" id="attemptTag">✨ intentos: 0</span>
+    <div id="exerciseScreen" class="screen">
+      <div class="exercise-area">
+        <div style="display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+          <span class="pill-status" id="nodeTag">Nodo 1</span>
+          <span class="pill-status" id="exTag">Ejercicio 1/3</span>
+          <span class="pill-status" id="attemptTag">🎯 intentos: 0</span>
+        </div>
+        <div class="question-bubble" id="spanishPrompt">🌟 frase...</div>
+        <textarea id="answerInput" class="answer-input" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
+        <div class="button-group">
+          <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
+          <button class="btn-action btn-continue" id="continueBtn" style="display: none;">➡️ Continuar</button>
+        </div>
+        <div class="mood-card">
+          <div class="mood-emoji" id="exerciseEmoji">🧸</div>
+          <div><strong id="exerciseMoodTitle">¡A traducir!</strong><br><span id="exerciseMoodText">Escribe y comprueba</span></div>
+        </div>
+        <div id="resultLine" class="sub-fun" style="text-align:center;">✏️ Tu turno</div>
+        <div class="pill-status" style="margin-top: 12px; justify-content:center; display:flex;">✨ respuesta modelo ✨</div>
+        <div id="possibleLine" class="sub-fun" style="background:#0f172a; border-radius:12px; padding:10px; margin-top:8px; color:#94a3b8; font-size:0.85rem;"></div>
       </div>
-      <div class="question-bubble" id="spanishPrompt">🌟 frase...</div>
-      <textarea id="answerInput" class="answer-input" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
-      <div class="button-group">
-        <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
-        <button class="btn-action btn-continue" id="continueBtn" style="display: none;">➡️ Continuar</button>
-      </div>
-      <div class="mood-card">
-        <div class="mood-emoji" id="exerciseEmoji">🧸</div>
-        <div><strong id="exerciseMoodTitle">¡A traducir!</strong><br><span id="exerciseMoodText">Escribe y comprueba</span></div>
-      </div>
-      <div id="resultLine" class="sub-fun" style="text-align:center;">✏️ Tu turno</div>
-      <div class="pill-status" style="margin-top:8px; justify-content:center; display:flex;">✨ respuesta modelo ✨</div>
-      <div id="possibleLine" class="sub-fun" style="background:#0f172a; border-radius:28px; padding:10px; margin-top:4px; color:#94a3b8;"></div>
     </div>
   </div>
 </div>
 <div id="toastFun" class="toast-fun"></div>
+<div id="loadingIndicator" class="loading">✨ Conectando...</div>
 
-<script>
-  // ========================== ESTADO ==========================
-  const STORAGE_KEY = "english_kids_v5";
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+  import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDMkONDffOyVBC4JGccnoLzZIRnsMzTXa4",
+    authDomain: "englishgame-13038.firebaseapp.com",
+    projectId: "englishgame-13038",
+    storageBucket: "englishgame-13038.firebasestorage.app",
+    messagingSenderId: "1035150507706",
+    appId: "1:1035150507706:web:9f30bdf7b5ac5ed5ea4c83"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  
+  let currentUser = null;
+  let userDocRef = null;
+  let unsubscribeSnapshot = null;
+  let saveTimeout = null;
+  
   const AppState = {
     exercises: [],
     nodes: [],
@@ -566,16 +674,24 @@
     activeExerciseOffset: 0,
     attempts: {},
     results: {},
+    isSyncing: false
   };
 
-  // helpers
   function toast(msg) {
     const t = document.getElementById("toastFun");
     if(!t) return;
     t.textContent = msg;
     t.classList.add("show");
     clearTimeout(window._tt);
-    window._tt = setTimeout(() => t.classList.remove("show"), 1600);
+    window._tt = setTimeout(() => t.classList.remove("show"), 2000);
+  }
+  
+  function showLoading(show, msg = "✨ Guardando...") {
+    const loader = document.getElementById("loadingIndicator");
+    if(loader) {
+      if(show) { loader.textContent = msg; loader.classList.add("show"); }
+      else loader.classList.remove("show");
+    }
   }
 
   function normalizeEntry(item) {
@@ -587,147 +703,180 @@
 
   function chunk(arr, n) { 
     let out = []; 
-    for(let i = 0; i < arr.length; i += n) {
-      out.push(arr.slice(i, i + n));
-    }
+    for(let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n));
     return out; 
   }
 
-  function saveState() {
+  async function saveToFirebase() {
+    if(AppState.isSyncing || !currentUser) return;
+    showLoading(true, "💾 Guardando...");
+    AppState.isSyncing = true;
     try {
-      const toStore = {
-        exercises: AppState.exercises,
-        nodes: AppState.nodes,
+      // Convertir arrays a objetos planos para Firebase
+      const exercisesObj = {};
+      AppState.exercises.forEach((ex, idx) => {
+        exercisesObj[idx] = ex;
+      });
+      
+      const nodesObj = {};
+      AppState.nodes.forEach((node, idx) => {
+        nodesObj[idx] = node;
+      });
+      
+      const attemptsObj = {};
+      Object.keys(AppState.attempts).forEach(key => {
+        attemptsObj[key] = AppState.attempts[key];
+      });
+      
+      const resultsObj = {};
+      Object.keys(AppState.results).forEach(key => {
+        resultsObj[key] = AppState.results[key];
+      });
+      
+      await setDoc(userDocRef, {
+        username: currentUser,
+        exercises: exercisesObj,
+        nodes: nodesObj,
         activeNodeIndex: AppState.activeNodeIndex,
         activeExerciseOffset: AppState.activeExerciseOffset,
-        attempts: AppState.attempts,
-        results: AppState.results,
-      };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(toStore));
-      console.log("Estado guardado:", AppState.exercises.length, "ejercicios,", AppState.nodes.length, "nodos");
-    } catch(e) {
-      console.error("Error guardando estado:", e);
+        attempts: attemptsObj,
+        results: resultsObj,
+        lastUpdated: new Date().toISOString()
+      });
+      console.log("✅ Guardado en Firebase");
+    } catch (error) {
+      console.error("Error guardando:", error);
+      toast("⚠️ Error al guardar: " + error.message);
+    } finally {
+      AppState.isSyncing = false;
+      showLoading(false);
     }
   }
 
-  function loadState() {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if(!raw) return false;
+  async function loadFromFirebase(username) {
+    showLoading(true, "🌐 Cargando datos...");
     try {
-      const data = JSON.parse(raw);
-      AppState.exercises = data.exercises || [];
-      AppState.nodes = data.nodes || [];
-      AppState.activeNodeIndex = data.activeNodeIndex || 0;
-      AppState.activeExerciseOffset = data.activeExerciseOffset || 0;
-      AppState.attempts = data.attempts || {};
-      AppState.results = data.results || {};
-      
-      // Reconstruir nodos si están vacíos pero hay ejercicios
-      if((!AppState.nodes || AppState.nodes.length === 0) && AppState.exercises.length > 0) {
-        AppState.nodes = chunk(AppState.exercises, 3);
-        console.log("Nodos reconstruidos:", AppState.nodes.length);
-        saveState();
+      const userDoc = doc(db, "english_trainer_users", username);
+      const docSnap = await getDoc(userDoc);
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        
+        // Convertir objetos planos de vuelta a arrays
+        const exercises = [];
+        if(data.exercises) {
+          Object.keys(data.exercises).forEach(key => {
+            exercises[parseInt(key)] = data.exercises[key];
+          });
+        }
+        
+        const nodes = [];
+        if(data.nodes) {
+          Object.keys(data.nodes).forEach(key => {
+            nodes[parseInt(key)] = data.nodes[key];
+          });
+        }
+        
+        AppState.exercises = exercises.filter(e => e);
+        AppState.nodes = nodes.filter(n => n && n.length > 0);
+        AppState.activeNodeIndex = data.activeNodeIndex || 0;
+        AppState.activeExerciseOffset = data.activeExerciseOffset || 0;
+        AppState.attempts = data.attempts || {};
+        AppState.results = data.results || {};
+        
+        if((!AppState.nodes || AppState.nodes.length === 0) && AppState.exercises.length > 0) {
+          AppState.nodes = chunk(AppState.exercises, 3);
+        }
+        console.log("✅ Cargado:", AppState.exercises.length, "ejercicios");
+        return true;
       }
-      return true;
-    } catch(e){ 
-      console.error("Error loading state:", e);
-      return false; 
+      return false;
+    } catch (error) {
+      console.error("Error cargando:", error);
+      toast("⚠️ Error al cargar: " + error.message);
+      return false;
+    } finally {
+      showLoading(false);
     }
+  }
+
+  function setupRealtimeSync() {
+    if(unsubscribeSnapshot) unsubscribeSnapshot();
+    if(!userDocRef) return;
+    
+    unsubscribeSnapshot = onSnapshot(userDocRef, (docSnap) => {
+      if (docSnap.exists() && !AppState.isSyncing && currentUser) {
+        const data = docSnap.data();
+        
+        const exercises = [];
+        if(data.exercises) {
+          Object.keys(data.exercises).forEach(key => {
+            exercises[parseInt(key)] = data.exercises[key];
+          });
+        }
+        
+        const nodes = [];
+        if(data.nodes) {
+          Object.keys(data.nodes).forEach(key => {
+            nodes[parseInt(key)] = data.nodes[key];
+          });
+        }
+        
+        const newExercises = exercises.filter(e => e);
+        const exercisesChanged = JSON.stringify(newExercises) !== JSON.stringify(AppState.exercises);
+        
+        if (exercisesChanged) {
+          console.log("🔄 Sincronización en tiempo real");
+          AppState.exercises = newExercises;
+          AppState.nodes = nodes.filter(n => n && n.length > 0);
+          AppState.activeNodeIndex = data.activeNodeIndex || 0;
+          AppState.activeExerciseOffset = data.activeExerciseOffset || 0;
+          AppState.attempts = data.attempts || {};
+          AppState.results = data.results || {};
+          
+          if((!AppState.nodes || AppState.nodes.length === 0) && AppState.exercises.length > 0) {
+            AppState.nodes = chunk(AppState.exercises, 3);
+          }
+          
+          renderMap();
+          updateStats();
+          if(document.getElementById("exerciseScreen")?.classList.contains("active")) renderExercise();
+        }
+      }
+    }, (error) => console.error("Error en snapshot:", error));
+  }
+
+  function debounceSave() {
+    if(saveTimeout) clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(() => saveToFirebase(), 800);
   }
 
   function normalizeCompare(str) {
     return String(str || "").toLowerCase().replace(/[“”"'.!,;:?()\-]/g, " ").replace(/\s+/g, " ").trim();
   }
   
-  function isExactMatch(user, correct) { 
-    return normalizeCompare(user) === normalizeCompare(correct); 
-  }
-
-  function renderComparisonHtml(user, correct) {
-    const userNorm = normalizeCompare(user);
-    const correctNorm = normalizeCompare(correct);
-    const userWords = userNorm.split(/\s+/);
-    const correctWords = correctNorm.split(/\s+/);
-    let i = 0, j = 0;
-    const result = [];
-    while(i < userWords.length || j < correctWords.length) {
-      if(i < userWords.length && j < correctWords.length && userWords[i] === correctWords[j]) {
-        result.push({word: userWords[i], status: 'correct'});
-        i++; j++;
-      } else if(j < correctWords.length && (i >= userWords.length || userWords[i] !== correctWords[j])) {
-        result.push({word: correctWords[j], status: 'missing'});
-        j++;
-      } else if(i < userWords.length && (j >= correctWords.length || userWords[i] !== correctWords[j])) {
-        result.push({word: userWords[i], status: 'extra'});
-        i++;
-      }
-    }
-    let userHtml = "", correctHtml = "";
-    for(let w of result) {
-      if(w.status === 'correct') { 
-        userHtml += `<span class="word-correct">${escapeHtml(w.word)}</span> `; 
-        correctHtml += `<span class="word-correct">${escapeHtml(w.word)}</span> `; 
-      }
-      else if(w.status === 'missing') { 
-        userHtml += `<span class="word-missing">[${escapeHtml(w.word)}]</span> `; 
-        correctHtml += `<span class="word-correct">${escapeHtml(w.word)}</span> `; 
-      }
-      else if(w.status === 'extra') { 
-        userHtml += `<span class="word-extra">${escapeHtml(w.word)}</span> `; 
-      }
-    }
-    let fullCorrect = correctWords.map(w => `<span class="word-correct">${escapeHtml(w)}</span>`).join(" ");
-    return { userHtml: userHtml.trim() || "(vacío)", correctHtml: fullCorrect };
-  }
-
-  function escapeHtml(str) { 
-    return String(str).replace(/[&<>]/g, function(m){
-      if(m === '&') return '&amp;'; 
-      if(m === '<') return '&lt;'; 
-      if(m === '>') return '&gt;'; 
-      return m;
-    }); 
-  }
+  function isExactMatch(user, correct) { return normalizeCompare(user) === normalizeCompare(correct); }
 
   function renderMap() {
     const mapDiv = document.getElementById("mapList");
-    if(!mapDiv) {
-      console.error("mapList no encontrado");
-      return;
-    }
-    
-    console.log("Renderizando mapa. Nodos:", AppState.nodes.length, "Ejercicios:", AppState.exercises.length);
-    
+    if(!mapDiv) return;
     if(!AppState.nodes || AppState.nodes.length === 0) { 
-      mapDiv.innerHTML = "<div class='sub-fun' style='text-align:center; padding:20px;'>🌟 Aún no hay ejercicios cargados.<br>📝 Importa tu lista de frases para empezar</div>"; 
+      mapDiv.innerHTML = "<div class='sub-fun' style='text-align:center; padding:20px;'>🌟 Aún no hay ejercicios.<br>📝 Importa tu lista para empezar</div>"; 
       return; 
     }
     
-    // Calcular el primer nodo desbloqueado
     let firstUnlocked = 0;
     for(let i = 0; i < AppState.nodes.length; i++) {
       const node = AppState.nodes[i];
-      if(!node || !node.length) {
-        firstUnlocked = i;
-        break;
-      }
-      const allApproved = node.every((_, idx) => { 
-        let g = i * 3 + idx; 
-        return AppState.results[g]?.status === "approved"; 
-      });
-      if(!allApproved) { 
-        firstUnlocked = i; 
-        break; 
-      } else {
-        firstUnlocked = i + 1;
-      }
+      if(!node || !node.length) { firstUnlocked = i; break; }
+      const allApproved = node.every((_, idx) => AppState.results[i * 3 + idx]?.status === "approved");
+      if(!allApproved) { firstUnlocked = i; break; }
+      else firstUnlocked = i + 1;
     }
     
     mapDiv.innerHTML = "";
     for(let idx = 0; idx < AppState.nodes.length; idx++) {
       const node = AppState.nodes[idx];
       if(!node || !node.length) continue;
-      
       const nodeStart = idx * 3;
       const statuses = node.map((_, eidx) => AppState.results[nodeStart + eidx]?.status);
       const resolvedCount = statuses.filter(s => s === "approved").length;
@@ -746,13 +895,8 @@
         <div class="bar-progress"><div class="bar-fill" style="width:${Math.round((resolvedCount / node.length) * 100)}%"></div></div>
         <div class="sub-fun" style="margin-top:6px;">${resolvedCount}/${node.length} ejercicios</div>
       `;
-      if(unlocked) {
-        div.addEventListener("click", (function(nodeIdx) { 
-          return function() { openNode(nodeIdx); };
-        })(idx));
-      } else {
-        div.addEventListener("click", () => { toast("🔓 ¡Completa el nodo anterior primero!"); });
-      }
+      if(unlocked) div.addEventListener("click", () => openNode(idx));
+      else div.addEventListener("click", () => toast("🔓 Completa el nodo anterior primero"));
       mapDiv.appendChild(div);
     }
   }
@@ -760,9 +904,8 @@
   function updateStats() {
     const container = document.getElementById("statsContainer");
     if(!container) return;
-    
     const total = AppState.exercises.length;
-    const completed = Object.values(AppState.results).filter(r => r && r.status === "approved").length;
+    const completed = Object.values(AppState.results).filter(r => r?.status === "approved").length;
     const percent = total ? Math.round((completed / total) * 100) : 0;
     container.innerHTML = `
       <div class="stat-bubble">📚 Total<br><strong>${total}</strong></div>
@@ -773,172 +916,109 @@
   }
 
   function openNode(nodeIndex) {
-    if(!AppState.nodes[nodeIndex] || !AppState.nodes[nodeIndex].length) return;
+    if(!AppState.nodes[nodeIndex]?.length) return;
     AppState.activeNodeIndex = nodeIndex;
-    let firstPendingOffset = 0;
     const start = nodeIndex * 3;
+    let firstPending = 0;
     for(let i = 0; i < AppState.nodes[nodeIndex].length; i++) {
-      if(AppState.results[start + i]?.status !== "approved") { 
-        firstPendingOffset = i; 
-        break; 
-      }
+      if(AppState.results[start + i]?.status !== "approved") { firstPending = i; break; }
     }
-    AppState.activeExerciseOffset = firstPendingOffset;
-    saveState();
+    AppState.activeExerciseOffset = firstPending;
+    debounceSave();
     renderExercise();
-    showView("exercise");
-    toast(`📖 Abriste el nodo ${nodeIndex + 1}`);
+    showMainView("exercise");
+    toast(`📖 Nodo ${nodeIndex + 1} abierto`);
   }
 
   function renderExercise() {
-    if(!AppState.nodes || AppState.nodes.length === 0) {
-      showView("map");
-      return;
-    }
+    if(!AppState.nodes?.length) { showMainView("map"); return; }
     const node = AppState.nodes[AppState.activeNodeIndex];
-    if(!node || !node.length) { 
-      showView("map"); 
-      return; 
-    }
+    if(!node?.length) { showMainView("map"); return; }
     const exIndex = AppState.activeExerciseOffset;
-    if(exIndex >= node.length) {
-      AppState.activeExerciseOffset = 0;
-      saveState();
-      showView("map");
-      return;
-    }
+    if(exIndex >= node.length) { AppState.activeExerciseOffset = 0; debounceSave(); showMainView("map"); return; }
     const globalIndex = AppState.activeNodeIndex * 3 + exIndex;
     const exercise = node[exIndex];
-    if(!exercise) {
-      showView("map");
-      return;
-    }
-    const st = AppState.results[globalIndex] || { status: "pending" };
-    const isApproved = st.status === "approved";
+    if(!exercise) { showMainView("map"); return; }
     
+    const isApproved = AppState.results[globalIndex]?.status === "approved";
     document.getElementById("nodeTag").innerHTML = `📌 Nodo ${AppState.activeNodeIndex + 1}`;
     document.getElementById("exTag").innerHTML = `📝 ${exIndex + 1}/${node.length}`;
-    const attemptsArr = AppState.attempts[globalIndex] || [];
-    document.getElementById("attemptTag").innerHTML = `🎯 intentos: ${attemptsArr.length}`;
+    document.getElementById("attemptTag").innerHTML = `🎯 intentos: ${(AppState.attempts[globalIndex] || []).length}`;
     document.getElementById("spanishPrompt").innerHTML = exercise.spanishWords;
     document.getElementById("possibleLine").innerHTML = exercise.englishWords;
     
     const answerInp = document.getElementById("answerInput");
     const checkBtn = document.getElementById("checkBtn");
     const contBtn = document.getElementById("continueBtn");
-    const moodEmoji = document.getElementById("exerciseEmoji");
-    const moodTitle = document.getElementById("exerciseMoodTitle");
-    const moodText = document.getElementById("exerciseMoodText");
-    const resultLine = document.getElementById("resultLine");
     
     if(isApproved) {
       answerInp.style.display = "none";
       checkBtn.style.display = "none";
       contBtn.style.display = "block";
-      moodEmoji.innerHTML = "🏆";
-      moodTitle.innerText = "¡Felicidades!";
-      moodText.innerText = "Sigue avanzando campeón";
-      resultLine.innerHTML = "✅ ¡Respuesta correcta! Presiona continuar";
+      document.getElementById("exerciseEmoji").innerHTML = "🏆";
+      document.getElementById("exerciseMoodTitle").innerText = "¡Felicidades!";
+      document.getElementById("exerciseMoodText").innerText = "Sigue avanzando";
+      document.getElementById("resultLine").innerHTML = "✅ ¡Correcto! Continuar";
     } else {
       answerInp.style.display = "block";
       answerInp.value = "";
       checkBtn.style.display = "flex";
       contBtn.style.display = "none";
-      moodEmoji.innerHTML = "🧸";
-      moodTitle.innerText = "¡Traduce la frase!";
-      moodText.innerText = "Escribe tu versión en inglés.";
-      resultLine.innerHTML = "✍️ Escribe y presiona comprobar";
+      document.getElementById("exerciseEmoji").innerHTML = "🧸";
+      document.getElementById("exerciseMoodTitle").innerText = "¡Traduce!";
+      document.getElementById("exerciseMoodText").innerText = "Escribe tu versión";
+      document.getElementById("resultLine").innerHTML = "✍️ Escribe y comprueba";
     }
   }
 
-  function checkExercise() {
+  async function checkExercise() {
     const node = AppState.nodes[AppState.activeNodeIndex];
     if(!node) return;
     const exIndex = AppState.activeExerciseOffset;
     const globalIndex = AppState.activeNodeIndex * 3 + exIndex;
     const exercise = node[exIndex];
     const userAnswer = document.getElementById("answerInput").value.trim();
-    if(!userAnswer) { toast("📝 Escribe algo antes de comprobar"); return; }
+    if(!userAnswer) { toast("📝 Escribe algo"); return; }
     
-    const attemptsArr = AppState.attempts[globalIndex] || [];
-    const isFirst = attemptsArr.length === 0;
-    attemptsArr.push(userAnswer);
-    AppState.attempts[globalIndex] = attemptsArr;
+    const attempts = AppState.attempts[globalIndex] || [];
+    const isFirst = attempts.length === 0;
+    attempts.push(userAnswer);
+    AppState.attempts[globalIndex] = attempts;
     const isCorrect = isExactMatch(userAnswer, exercise.englishWords);
     
     if(isCorrect) {
       AppState.results[globalIndex] = { status: "approved", firstAttempt: isFirst ? userAnswer : (AppState.results[globalIndex]?.firstAttempt || userAnswer) };
-      saveState();
+      debounceSave();
       renderExercise();
       renderMap();
       updateStats();
       burstConfetti();
-      toast("🎉 ¡Perfecto! Haz clic en Continuar");
+      toast("🎉 ¡Correcto! Continuar");
     } else {
       if(!AppState.results[globalIndex]) AppState.results[globalIndex] = { status: "pending", firstAttempt: isFirst ? userAnswer : null };
-      saveState();
-      showComparisonModal(userAnswer, exercise.englishWords, globalIndex);
+      debounceSave();
+      showSimpleAlert("❌ Incorrecto", `La respuesta correcta es: "${exercise.englishWords}"`);
     }
   }
 
-  function showComparisonModal(userAns, correctAns, globalIdx) {
-    const comp = renderComparisonHtml(userAns, correctAns);
+  function showSimpleAlert(title, message) {
     const modal = document.createElement("div");
     modal.className = "modal-overlay";
-    modal.innerHTML = `
-      <div class="modal-friend">
-        <h3>🤔 Compara respuestas</h3>
-        <div class="comparison-text-block"><strong>📖 Correcta:</strong><br> ${comp.correctHtml}</div>
-        <div class="comparison-text-block"><strong>✏️ Tu respuesta:</strong><br> ${comp.userHtml}</div>
-        <div class="modal-buttons">
-          <button class="fun-btn" id="againBtn">🔄 Volver a intentar</button>
-          <button class="fun-btn primary-btn" id="laterBtn">⏰ Intentar después</button>
-        </div>
-      </div>
-    `;
+    modal.innerHTML = `<div class="modal-friend"><h3>${title}</h3><div class="comparison-text-block">${message}</div><div class="modal-buttons"><button class="fun-btn primary-btn" id="closeModalBtn" style="flex:1">🔄 Intentar de nuevo</button></div></div>`;
     document.body.appendChild(modal);
-    const close = () => modal.remove();
-    document.getElementById("againBtn")?.addEventListener("click", () => { close(); document.getElementById("answerInput")?.focus(); });
-    document.getElementById("laterBtn")?.addEventListener("click", () => {
-      const ex = AppState.exercises[globalIdx];
-      if(ex) {
-        AppState.exercises.splice(globalIdx, 1);
-        AppState.exercises.push(ex);
-        AppState.nodes = chunk(AppState.exercises, 3);
-        const newResults = {};
-        const newAttempts = {};
-        let newIndex = 0;
-        for(let i = 0; i < AppState.exercises.length; i++) {
-          if(AppState.results[i] && AppState.results[i].status === "approved") {
-            newResults[newIndex] = AppState.results[i];
-            newAttempts[newIndex] = AppState.attempts[i];
-          }
-          newIndex++;
-        }
-        AppState.results = newResults;
-        AppState.attempts = newAttempts;
-        AppState.activeNodeIndex = 0;
-        AppState.activeExerciseOffset = 0;
-        saveState();
-        renderMap();
-        updateStats();
-        showView("map");
-        toast("📌 Ejercicio movido al final de la lista");
-      }
-      close();
-    });
-    modal.addEventListener("click", (e) => { if(e.target === modal) close(); });
+    document.getElementById("closeModalBtn")?.addEventListener("click", () => { modal.remove(); document.getElementById("answerInput")?.focus(); });
+    modal.addEventListener("click", (e) => { if(e.target === modal) modal.remove(); });
   }
 
   function continueExercise() {
     const node = AppState.nodes[AppState.activeNodeIndex];
     if(!node) return;
     const globalIndex = AppState.activeNodeIndex * 3 + AppState.activeExerciseOffset;
-    if(AppState.results[globalIndex]?.status !== "approved") { toast("⚠️ Primero aprueba el ejercicio"); return; }
+    if(AppState.results[globalIndex]?.status !== "approved") { toast("⚠️ Aprueba el ejercicio primero"); return; }
     
     if(AppState.activeExerciseOffset < node.length - 1) {
       AppState.activeExerciseOffset++;
-      saveState();
+      debounceSave();
       renderExercise();
       toast("📚 Siguiente ejercicio");
     } else {
@@ -947,38 +1027,34 @@
       if(AppState.activeNodeIndex + 1 < AppState.nodes.length) {
         AppState.activeNodeIndex++;
         AppState.activeExerciseOffset = 0;
-        saveState();
+        debounceSave();
         renderMap();
         updateStats();
-        showView("map");
+        showMainView("map");
       } else {
-        toast("🏆 ¡Felicidades! Completaste todo el mapa");
-        showView("map");
+        toast("🏆 ¡Felicidades! Completaste todo");
+        showMainView("map");
       }
     }
   }
 
   function burstConfetti() {
-    for(let i = 0; i < 60; i++) {
+    for(let i = 0; i < 50; i++) {
       const c = document.createElement("div");
       c.classList.add("confetti");
       c.style.left = Math.random() * 100 + "vw";
       c.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
-      c.style.width = 8 + Math.random() * 12 + "px";
-      c.style.height = 12 + Math.random() * 14 + "px";
+      c.style.width = 6 + Math.random() * 10 + "px";
+      c.style.height = 10 + Math.random() * 12 + "px";
       document.body.appendChild(c);
-      setTimeout(() => c.remove(), 1500);
+      setTimeout(() => c.remove(), 1400);
     }
   }
 
-  function importExercises(list) {
+  async function importExercises(list) {
     const normalized = list.map(normalizeEntry).filter(Boolean);
-    if(!normalized.length) { 
-      toast("❌ No hay frases válidas. Asegura spanishWord y englishWord"); 
-      return; 
-    }
+    if(!normalized.length) { toast("❌ No hay frases válidas"); return; }
     
-    console.log("Importando ejercicios:", normalized.length);
     AppState.exercises = normalized;
     AppState.nodes = chunk(normalized, 3);
     AppState.activeNodeIndex = 0;
@@ -986,20 +1062,15 @@
     AppState.attempts = {};
     AppState.results = {};
     
-    console.log("Nodos creados:", AppState.nodes.length);
-    saveState();
+    await saveToFirebase();
     renderMap();
     updateStats();
-    showView("map");
-    
-    const reportArea = document.getElementById("reportArea");
-    if(reportArea) reportArea.value = buildReport();
-    
-    toast(`🎒 ¡${AppState.exercises.length} ejercicios cargados en ${AppState.nodes.length} nodos!`);
+    showMainView("map");
+    toast(`🎒 ${AppState.exercises.length} ejercicios en ${AppState.nodes.length} nodos`);
   }
 
   function buildReport() {
-    let lines = ["📘 INFORME DE APRENDIZAJE\n", "=".repeat(40) + "\n"];
+    let lines = ["📘 INFORME DE APRENDIZAJE\n" + "=".repeat(40) + "\n"];
     let approved = 0;
     for(let i = 0; i < AppState.exercises.length; i++) {
       if(AppState.results[i]?.status === "approved") {
@@ -1011,74 +1082,101 @@
         lines.push(`   📝 Primer intento: "${first}"\n`);
       }
     }
-    if(approved === 0) lines.push("🌟 Completa ejercicios para ver tu informe 🌟");
-    else lines.push(`\n🎉 Total aprobados: ${approved}/${AppState.exercises.length}`);
+    if(approved === 0) lines.push("🌟 Completa ejercicios para ver tu informe");
+    else lines.push(`\n🎉 Total: ${approved}/${AppState.exercises.length}`);
     return lines.join("\n");
   }
 
   function copyReport() {
     const report = buildReport();
-    const reportArea = document.getElementById("reportArea");
-    if(reportArea) reportArea.value = report;
+    document.getElementById("reportArea").value = report;
     navigator.clipboard?.writeText(report);
-    toast("📋 Informe copiado al portapapeles");
+    toast("📋 Informe copiado");
   }
 
   function loadFromTextarea() {
     try {
       const raw = document.getElementById("jsonInput").value.trim();
-      if(!raw) { toast("📝 Escribe o pega un JSON válido"); return; }
+      if(!raw) { toast("📝 Pega un JSON válido"); return; }
       const arr = JSON.parse(raw);
-      if(!Array.isArray(arr)) throw new Error("debe ser un array");
+      if(!Array.isArray(arr)) throw new Error("Debe ser un array");
       importExercises(arr);
-    } catch(e) { 
-      toast("❌ JSON inválido: " + e.message); 
-      console.error(e);
+    } catch(e) { toast("❌ JSON inválido: " + e.message); }
+  }
+  
+  async function resetAll() {
+    if(confirm("¿Borrar todo el progreso?")) {
+      AppState.exercises = []; AppState.nodes = []; 
+      AppState.attempts = {}; AppState.results = {};
+      AppState.activeNodeIndex = 0; AppState.activeExerciseOffset = 0;
+      await saveToFirebase();
+      renderMap(); updateStats();
+      showMainView("import");
+      toast("🗑️ Todo borrado");
     }
   }
   
-  function resetAll() {
-    if(confirm("¿Borrar todo tu progreso? Volverás a empezar")) {
-      localStorage.removeItem(STORAGE_KEY);
-      AppState.exercises = []; 
-      AppState.nodes = []; 
-      AppState.attempts = {}; 
-      AppState.results = {};
-      AppState.activeNodeIndex = 0;
-      AppState.activeExerciseOffset = 0;
-      renderMap();
-      updateStats();
-      showView("import");
-      toast("🗑️ Todo limpio. ¡Empieza una nueva aventura!");
-    }
-  }
-  
-  function replaceList() { 
-    showView("import"); 
-    toast("📥 Pega tu nueva lista de frases"); 
-  }
-  
-  function backToMap() { 
-    showView("map"); 
-    renderMap();
-    updateStats();
+  function replaceList() { showMainView("import"); toast("📥 Pega nueva lista"); }
+  function backToMap() { showMainView("map"); renderMap(); updateStats(); }
+
+  const mainScreens = { import: document.getElementById("importScreen"), map: document.getElementById("mapScreen"), exercise: document.getElementById("exerciseScreen") };
+  function showMainView(name) {
+    Object.keys(mainScreens).forEach(k => { if(mainScreens[k]) mainScreens[k].classList.toggle("active", k === name); });
   }
 
-  const screens = { 
-    import: document.getElementById("importScreen"), 
-    map: document.getElementById("mapScreen"), 
-    exercise: document.getElementById("exerciseScreen") 
-  };
-  
-  function showView(name) {
-    Object.keys(screens).forEach(k => { 
-      if(screens[k]) screens[k].classList.toggle("active", k === name);
-    });
+  async function login(username) {
+    if(!username || username.trim() === "") { toast("Por favor ingresa un nombre"); return false; }
+    username = username.trim().toLowerCase();
+    currentUser = username;
+    userDocRef = doc(db, "english_trainer_users", username);
+    
+    localStorage.setItem("english_trainer_user", username);
+    document.getElementById("userNameDisplay").innerText = username;
+    document.getElementById("userAvatar").innerHTML = username.charAt(0).toUpperCase();
+    document.getElementById("welcomeUsername").innerText = username;
+    
+    const hasData = await loadFromFirebase(username);
+    if(!hasData) {
+      AppState.exercises = []; AppState.nodes = []; AppState.attempts = {}; AppState.results = {};
+      AppState.activeNodeIndex = 0; AppState.activeExerciseOffset = 0;
+    } else {
+      if(!AppState.nodes.length && AppState.exercises.length) AppState.nodes = chunk(AppState.exercises, 3);
+    }
+    
+    renderMap(); updateStats();
+    setupRealtimeSync();
+    
+    document.getElementById("loginScreen").classList.remove("active");
+    document.getElementById("mainScreen").classList.add("active");
+    showMainView(AppState.exercises.length ? "map" : "import");
+    toast(`✨ Bienvenido ${username}!`);
+    return true;
+  }
+
+  function logout() {
+    if(unsubscribeSnapshot) unsubscribeSnapshot();
+    currentUser = null;
+    userDocRef = null;
+    localStorage.removeItem("english_trainer_user");
+    document.getElementById("loginScreen").classList.add("active");
+    document.getElementById("mainScreen").classList.remove("active");
+    toast("👋 Sesión cerrada");
   }
 
   function init() {
-    console.log("Inicializando aplicación...");
+    const savedUser = localStorage.getItem("english_trainer_user");
+    if(savedUser) {
+      login(savedUser);
+    }
     
+    document.getElementById("loginBtn")?.addEventListener("click", () => {
+      const username = document.getElementById("usernameInput").value;
+      login(username);
+    });
+    document.getElementById("usernameInput")?.addEventListener("keypress", (e) => {
+      if(e.key === "Enter") login(document.getElementById("usernameInput").value);
+    });
+    document.getElementById("logoutBtn")?.addEventListener("click", logout);
     document.getElementById("loadBtn")?.addEventListener("click", loadFromTextarea);
     document.getElementById("resetAllBtn")?.addEventListener("click", resetAll);
     document.getElementById("replaceListBtn")?.addEventListener("click", replaceList);
@@ -1087,42 +1185,12 @@
     document.getElementById("backToMapBtn")?.addEventListener("click", backToMap);
     document.getElementById("checkBtn")?.addEventListener("click", checkExercise);
     document.getElementById("continueBtn")?.addEventListener("click", continueExercise);
-    
-    const answerInp = document.getElementById("answerInput");
-    if(answerInp) {
-      answerInp.addEventListener("keydown", (e) => { 
-        if(e.key === "Enter" && !e.shiftKey) { 
-          e.preventDefault(); 
-          const checkBtn = document.getElementById("checkBtn");
-          if(checkBtn && checkBtn.style.display !== "none") {
-            checkBtn.click();
-          }
-        } 
-      });
-    }
-    
+    document.getElementById("answerInput")?.addEventListener("keydown", (e) => { 
+      if(e.key === "Enter" && !e.shiftKey) { e.preventDefault(); document.getElementById("checkBtn")?.click(); } 
+    });
     document.getElementById("toggleMenuBtn")?.addEventListener("click", () => { 
       document.getElementById("menuExpand").classList.toggle("open"); 
     });
-    
-    const restored = loadState();
-    if(restored && AppState.exercises && AppState.exercises.length > 0) {
-      console.log("Estado restaurado:", AppState.exercises.length, "ejercicios");
-      if(!AppState.nodes || AppState.nodes.length === 0) {
-        AppState.nodes = chunk(AppState.exercises, 3);
-        console.log("Nodos reconstruidos:", AppState.nodes.length);
-      }
-      renderMap();
-      updateStats();
-      showView("map");
-      const reportArea = document.getElementById("reportArea");
-      if(reportArea) reportArea.value = buildReport();
-    } else {
-      console.log("Sin datos guardados, mostrando importación");
-      showView("import");
-      renderMap();
-      updateStats();
-    }
   }
   
   init();
