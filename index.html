@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
-  <title>English Trainer | Version 1.1</title>
   
   <style>
     * {
@@ -563,7 +562,7 @@
         <div class="badge-fun">🐣</div>
         <div>
           <div class="title-fun">English Trainer</div>
-          <div class="sub-fun">aventura de palabras</div>
+          <div class="sub-fun">Version 2.0</div>
         </div>
       </div>
       <div style="display: flex; align-items: center; gap: 8px;">
@@ -945,7 +944,6 @@
     document.getElementById("exTag").innerHTML = `📝 ${exIndex + 1}/${node.length}`;
     document.getElementById("attemptTag").innerHTML = `🎯 intentos: ${(AppState.attempts[globalIndex] || []).length}`;
     document.getElementById("spanishPrompt").innerHTML = exercise.spanishWords;
-    document.getElementById("possibleLine").innerHTML = exercise.englishWords;
     
     const answerInp = document.getElementById("answerInput");
     const checkBtn = document.getElementById("checkBtn");
