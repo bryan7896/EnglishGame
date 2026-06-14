@@ -422,7 +422,7 @@
       background: #1e293b;
       border-radius: 24px;
       max-width: 92%;
-      width: 460px;
+      width: 500px;
       padding: 22px;
       text-align: center;
       animation: bounceIn 0.25s;
@@ -436,9 +436,27 @@
       margin: 14px 0;
       text-align: left;
       color: white;
+      font-size: 0.95rem;
+      line-height: 1.8;
     }
-    .word-correct { color: #4ade80; font-weight: 600; background: #064e3b; padding: 2px 6px; border-radius: 8px; display: inline-block; margin: 2px; font-size: 0.9rem;}
-    .word-missing { background: #451a03; color: #fbbf24; font-weight: 600; border-radius: 8px; padding: 2px 6px; display: inline-block; margin: 2px;}
+    .compare-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 4px;
+      margin: 8px 0;
+    }
+    .word-correct {
+      color: #4ade80;
+      font-weight: 600;
+    }
+    .word-error {
+      color: #f87171;
+      font-weight: 600;
+    }
+    .word-placeholder {
+      visibility: hidden;
+    }
     .modal-buttons { display: flex; gap: 12px; margin-top: 16px; }
     @keyframes bounceIn {
       0%{ transform: scale(0.9); opacity: 0;}
@@ -562,7 +580,7 @@
         <div class="badge-fun">🐣</div>
         <div>
           <div class="title-fun">English Trainer</div>
-          <div class="sub-fun">Version 2.0</div>
+          <div class="sub-fun">Version 2.1</div>
         </div>
       </div>
       <div style="display: flex; align-items: center; gap: 8px;">
@@ -600,7 +618,7 @@
         <div class="button-group">
           <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa ✨</button>
         </div>
-        <p class="sub-fun" style="text-align:center; margin-top: 8px;">⭐ cada nodo tiene 3 ejercicios ⭐</p>
+        <p class="sub-fun" style="text-align:center; margin-top: 8px;">⭐ cada nodo tiene 9 ejercicios ⭐</p>
       </div>
     </div>
 
@@ -624,7 +642,7 @@
       <div class="exercise-area">
         <div style="display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
           <span class="pill-status" id="nodeTag">Nodo 1</span>
-          <span class="pill-status" id="exTag">Ejercicio 1/3</span>
+          <span class="pill-status" id="exTag">Ejercicio 1/9</span>
           <span class="pill-status" id="attemptTag">🎯 intentos: 0</span>
         </div>
         <div class="question-bubble" id="spanishPrompt">🌟 frase...</div>
@@ -661,6 +679,8 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
   
+  const EXERCISES_PER_NODE = 9;
+  
   let currentUser = null;
   let userDocRef = null;
   let unsubscribeSnapshot = null;
@@ -672,7 +692,6 @@
     activeNodeIndex: 0,
     activeExerciseOffset: 0,
     attempts: {},
-    results: {},
     isSyncing: false
   };
 
@@ -711,7 +730,6 @@
     showLoading(true, "💾 Guardando...");
     AppState.isSyncing = true;
     try {
-      // Convertir arrays a objetos planos para Firebase
       const exercisesObj = {};
       AppState.exercises.forEach((ex, idx) => {
         exercisesObj[idx] = ex;
@@ -727,11 +745,6 @@
         attemptsObj[key] = AppState.attempts[key];
       });
       
-      const resultsObj = {};
-      Object.keys(AppState.results).forEach(key => {
-        resultsObj[key] = AppState.results[key];
-      });
-      
       await setDoc(userDocRef, {
         username: currentUser,
         exercises: exercisesObj,
@@ -739,7 +752,6 @@
         activeNodeIndex: AppState.activeNodeIndex,
         activeExerciseOffset: AppState.activeExerciseOffset,
         attempts: attemptsObj,
-        results: resultsObj,
         lastUpdated: new Date().toISOString()
       });
       console.log("✅ Guardado en Firebase");
@@ -760,7 +772,6 @@
       if (docSnap.exists()) {
         const data = docSnap.data();
         
-        // Convertir objetos planos de vuelta a arrays
         const exercises = [];
         if(data.exercises) {
           Object.keys(data.exercises).forEach(key => {
@@ -780,10 +791,9 @@
         AppState.activeNodeIndex = data.activeNodeIndex || 0;
         AppState.activeExerciseOffset = data.activeExerciseOffset || 0;
         AppState.attempts = data.attempts || {};
-        AppState.results = data.results || {};
         
         if((!AppState.nodes || AppState.nodes.length === 0) && AppState.exercises.length > 0) {
-          AppState.nodes = chunk(AppState.exercises, 3);
+          AppState.nodes = chunk(AppState.exercises, EXERCISES_PER_NODE);
         }
         console.log("✅ Cargado:", AppState.exercises.length, "ejercicios");
         return true;
@@ -830,10 +840,9 @@
           AppState.activeNodeIndex = data.activeNodeIndex || 0;
           AppState.activeExerciseOffset = data.activeExerciseOffset || 0;
           AppState.attempts = data.attempts || {};
-          AppState.results = data.results || {};
           
           if((!AppState.nodes || AppState.nodes.length === 0) && AppState.exercises.length > 0) {
-            AppState.nodes = chunk(AppState.exercises, 3);
+            AppState.nodes = chunk(AppState.exercises, EXERCISES_PER_NODE);
           }
           
           renderMap();
@@ -849,11 +858,45 @@
     saveTimeout = setTimeout(() => saveToFirebase(), 800);
   }
 
-  function normalizeCompare(str) {
-    return String(str || "").toLowerCase().replace(/[“”"'.!,;:?()\-]/g, " ").replace(/\s+/g, " ").trim();
+  function normalizeWord(w) {
+    return String(w || "").toLowerCase().replace(/[^a-záéíóúüñ]/g, '');
   }
-  
-  function isExactMatch(user, correct) { return normalizeCompare(user) === normalizeCompare(correct); }
+
+  function alignWords(correct, user) {
+    const n = correct.length, m = user.length;
+    const dp = Array.from({length: n+1}, () => Array(m+1).fill(0));
+    for (let i=1; i<=n; i++) {
+      for (let j=1; j<=m; j++) {
+        if (normalizeWord(correct[i-1]) === normalizeWord(user[j-1])) {
+          dp[i][j] = dp[i-1][j-1] + 1;
+        } else {
+          dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+        }
+      }
+    }
+    // Reconstruir alineación
+    let i = n, j = m;
+    const alignedCorrect = [];
+    const alignedUser = [];
+    while (i > 0 || j > 0) {
+      if (i>0 && j>0 && normalizeWord(correct[i-1]) === normalizeWord(user[j-1])) {
+        alignedCorrect.unshift({word: correct[i-1], match: true});
+        alignedUser.unshift({word: user[j-1], match: true});
+        i--; j--;
+      } else if (j>0 && (i===0 || dp[i][j-1] >= dp[i-1][j])) {
+        // palabra extra del usuario
+        alignedCorrect.unshift({word: '', placeholder: true});
+        alignedUser.unshift({word: user[j-1], match: false});
+        j--;
+      } else {
+        // palabra faltante en usuario
+        alignedCorrect.unshift({word: correct[i-1], match: false});
+        alignedUser.unshift({word: '', placeholder: true});
+        i--;
+      }
+    }
+    return { alignedCorrect, alignedUser };
+  }
 
   function renderMap() {
     const mapDiv = document.getElementById("mapList");
@@ -867,8 +910,9 @@
     for(let i = 0; i < AppState.nodes.length; i++) {
       const node = AppState.nodes[i];
       if(!node || !node.length) { firstUnlocked = i; break; }
-      const allApproved = node.every((_, idx) => AppState.results[i * 3 + idx]?.status === "approved");
-      if(!allApproved) { firstUnlocked = i; break; }
+      const nodeStart = i * EXERCISES_PER_NODE;
+      const allAttempted = node.every((_, idx) => (AppState.attempts[nodeStart + idx]?.length ?? 0) > 0);
+      if(!allAttempted) { firstUnlocked = i; break; }
       else firstUnlocked = i + 1;
     }
     
@@ -876,9 +920,9 @@
     for(let idx = 0; idx < AppState.nodes.length; idx++) {
       const node = AppState.nodes[idx];
       if(!node || !node.length) continue;
-      const nodeStart = idx * 3;
-      const statuses = node.map((_, eidx) => AppState.results[nodeStart + eidx]?.status);
-      const resolvedCount = statuses.filter(s => s === "approved").length;
+      const nodeStart = idx * EXERCISES_PER_NODE;
+      const statuses = node.map((_, eidx) => (AppState.attempts[nodeStart + eidx]?.length ?? 0) > 0);
+      const resolvedCount = statuses.filter(Boolean).length;
       const completed = resolvedCount === node.length;
       const unlocked = idx <= firstUnlocked;
       const isCurrent = (idx === firstUnlocked && !completed) || (idx === AppState.activeNodeIndex && !completed);
@@ -890,7 +934,7 @@
           <span class="node-title">📌 Nodo ${idx + 1}</span>
           <span class="pill-status ${completed ? "good" : isCurrent ? "current-pill" : ""}">${completed ? "✅ completo" : isCurrent ? "⭐ actual" : "🔒 bloqueado"}</span>
         </div>
-        <div class="dots-progress">${node.map((_, i) => `<div class="dot-ex ${statuses[i] === "approved" ? "approved" : ""}"></div>`).join("")}</div>
+        <div class="dots-progress">${node.map((_, i) => `<div class="dot-ex ${statuses[i] ? "approved" : ""}"></div>`).join("")}</div>
         <div class="bar-progress"><div class="bar-fill" style="width:${Math.round((resolvedCount / node.length) * 100)}%"></div></div>
         <div class="sub-fun" style="margin-top:6px;">${resolvedCount}/${node.length} ejercicios</div>
       `;
@@ -904,23 +948,23 @@
     const container = document.getElementById("statsContainer");
     if(!container) return;
     const total = AppState.exercises.length;
-    const completed = Object.values(AppState.results).filter(r => r?.status === "approved").length;
+    const completed = Object.values(AppState.attempts).filter(arr => arr?.length > 0).length;
     const percent = total ? Math.round((completed / total) * 100) : 0;
     container.innerHTML = `
       <div class="stat-bubble">📚 Total<br><strong>${total}</strong></div>
-      <div class="stat-bubble">✅ Completados<br><strong style="color:#4ade80">${completed}</strong></div>
+      <div class="stat-bubble">✅ Intentados<br><strong style="color:#4ade80">${completed}</strong></div>
       <div class="stat-bubble">🎯 Progreso<br><strong>${percent}%</strong></div>
-      <div class="stat-bubble">⭐ Estrellas<br><strong>${Math.floor(completed / 3)}⭐</strong></div>
+      <div class="stat-bubble">⭐ Estrellas<br><strong>${Math.floor(completed / EXERCISES_PER_NODE)}⭐</strong></div>
     `;
   }
 
   function openNode(nodeIndex) {
     if(!AppState.nodes[nodeIndex]?.length) return;
     AppState.activeNodeIndex = nodeIndex;
-    const start = nodeIndex * 3;
+    const start = nodeIndex * EXERCISES_PER_NODE;
     let firstPending = 0;
     for(let i = 0; i < AppState.nodes[nodeIndex].length; i++) {
-      if(AppState.results[start + i]?.status !== "approved") { firstPending = i; break; }
+      if(!(AppState.attempts[start + i]?.length > 0)) { firstPending = i; break; }
     }
     AppState.activeExerciseOffset = firstPending;
     debounceSave();
@@ -935,28 +979,28 @@
     if(!node?.length) { showMainView("map"); return; }
     const exIndex = AppState.activeExerciseOffset;
     if(exIndex >= node.length) { AppState.activeExerciseOffset = 0; debounceSave(); showMainView("map"); return; }
-    const globalIndex = AppState.activeNodeIndex * 3 + exIndex;
+    const globalIndex = AppState.activeNodeIndex * EXERCISES_PER_NODE + exIndex;
     const exercise = node[exIndex];
     if(!exercise) { showMainView("map"); return; }
     
-    const isApproved = AppState.results[globalIndex]?.status === "approved";
+    const isAttempted = (AppState.attempts[globalIndex]?.length ?? 0) > 0;
     document.getElementById("nodeTag").innerHTML = `📌 Nodo ${AppState.activeNodeIndex + 1}`;
     document.getElementById("exTag").innerHTML = `📝 ${exIndex + 1}/${node.length}`;
-    document.getElementById("attemptTag").innerHTML = `🎯 intentos: ${(AppState.attempts[globalIndex] || []).length}`;
+    document.getElementById("attemptTag").innerHTML = `🎯 intentos: ${AppState.attempts[globalIndex]?.length || 0}`;
     document.getElementById("spanishPrompt").innerHTML = exercise.spanishWords;
     
     const answerInp = document.getElementById("answerInput");
     const checkBtn = document.getElementById("checkBtn");
     const contBtn = document.getElementById("continueBtn");
     
-    if(isApproved) {
+    if(isAttempted) {
       answerInp.style.display = "none";
       checkBtn.style.display = "none";
       contBtn.style.display = "block";
-      document.getElementById("exerciseEmoji").innerHTML = "🏆";
-      document.getElementById("exerciseMoodTitle").innerText = "¡Felicidades!";
-      document.getElementById("exerciseMoodText").innerText = "Sigue avanzando";
-      document.getElementById("resultLine").innerHTML = "✅ ¡Correcto! Continuar";
+      document.getElementById("exerciseEmoji").innerHTML = "✅";
+      document.getElementById("exerciseMoodTitle").innerText = "¡Intentado!";
+      document.getElementById("exerciseMoodText").innerText = "Continúa al siguiente";
+      document.getElementById("resultLine").innerHTML = "✔️ Ejercicio registrado";
     } else {
       answerInp.style.display = "block";
       answerInp.value = "";
@@ -973,46 +1017,74 @@
     const node = AppState.nodes[AppState.activeNodeIndex];
     if(!node) return;
     const exIndex = AppState.activeExerciseOffset;
-    const globalIndex = AppState.activeNodeIndex * 3 + exIndex;
+    const globalIndex = AppState.activeNodeIndex * EXERCISES_PER_NODE + exIndex;
     const exercise = node[exIndex];
     const userAnswer = document.getElementById("answerInput").value.trim();
     if(!userAnswer) { toast("📝 Escribe algo"); return; }
     
+    // Almacenar el intento
     const attempts = AppState.attempts[globalIndex] || [];
-    const isFirst = attempts.length === 0;
     attempts.push(userAnswer);
     AppState.attempts[globalIndex] = attempts;
-    const isCorrect = isExactMatch(userAnswer, exercise.englishWords);
     
-    if(isCorrect) {
-      AppState.results[globalIndex] = { status: "approved", firstAttempt: isFirst ? userAnswer : (AppState.results[globalIndex]?.firstAttempt || userAnswer) };
-      debounceSave();
-      renderExercise();
-      renderMap();
-      updateStats();
-      burstConfetti();
-      toast("🎉 ¡Correcto! Continuar");
-    } else {
-      if(!AppState.results[globalIndex]) AppState.results[globalIndex] = { status: "pending", firstAttempt: isFirst ? userAnswer : null };
-      debounceSave();
-      showSimpleAlert("❌ Incorrecto", `La respuesta correcta es: "${exercise.englishWords}"`);
-    }
+    debounceSave();
+    // Mostrar modal comparativo mejorado
+    showComparativeModal(exercise, userAnswer);
   }
 
-  function showSimpleAlert(title, message) {
+  function showComparativeModal(exercise, userAnswer) {
+    const correctWords = exercise.englishWords.split(/\s+/);
+    const userWords = userAnswer.split(/\s+/);
+    
+    const { alignedCorrect, alignedUser } = alignWords(correctWords, userWords);
+    
+    let correctHtml = alignedCorrect.map(item => {
+      if (item.placeholder) return `<span class="word-placeholder">-</span>`;
+      return `<span class="${item.match ? 'word-correct' : 'word-error'}">${item.word}</span>`;
+    }).join(' ');
+    
+    let userHtml = alignedUser.map(item => {
+      if (item.placeholder) return `<span class="word-placeholder">-</span>`;
+      return `<span class="${item.match ? 'word-correct' : 'word-error'}">${item.word}</span>`;
+    }).join(' ');
+    
     const modal = document.createElement("div");
     modal.className = "modal-overlay";
-    modal.innerHTML = `<div class="modal-friend"><h3>${title}</h3><div class="comparison-text-block">${message}</div><div class="modal-buttons"><button class="fun-btn primary-btn" id="closeModalBtn" style="flex:1">🔄 Intentar de nuevo</button></div></div>`;
+    modal.innerHTML = `
+      <div class="modal-friend">
+        <h3>📊 Comparación palabra por palabra</h3>
+        <div class="comparison-text-block">
+          <p><strong>🇪🇸 Español:</strong><br>${exercise.spanishWords}</p>
+          <div class="compare-line">
+            <strong>✅ Correcto:</strong>
+            <div style="display:flex; flex-wrap:wrap; gap:4px;">${correctHtml}</div>
+          </div>
+          <div class="compare-line">
+            <strong>✏️ Tu respuesta:</strong>
+            <div style="display:flex; flex-wrap:wrap; gap:4px;">${userHtml}</div>
+          </div>
+        </div>
+        <div class="modal-buttons">
+          <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+        </div>
+      </div>
+    `;
     document.body.appendChild(modal);
-    document.getElementById("closeModalBtn")?.addEventListener("click", () => { modal.remove(); document.getElementById("answerInput")?.focus(); });
+    document.getElementById("modalContinueBtn").addEventListener("click", () => {
+      modal.remove();
+      continueExercise();
+    });
     modal.addEventListener("click", (e) => { if(e.target === modal) modal.remove(); });
   }
 
   function continueExercise() {
     const node = AppState.nodes[AppState.activeNodeIndex];
     if(!node) return;
-    const globalIndex = AppState.activeNodeIndex * 3 + AppState.activeExerciseOffset;
-    if(AppState.results[globalIndex]?.status !== "approved") { toast("⚠️ Aprueba el ejercicio primero"); return; }
+    const globalIndex = AppState.activeNodeIndex * EXERCISES_PER_NODE + AppState.activeExerciseOffset;
+    if(!((AppState.attempts[globalIndex]?.length ?? 0) > 0)) { 
+      toast("⚠️ Primero intenta el ejercicio"); 
+      return; 
+    }
     
     if(AppState.activeExerciseOffset < node.length - 1) {
       AppState.activeExerciseOffset++;
@@ -1054,11 +1126,10 @@
     if(!normalized.length) { toast("❌ No hay frases válidas"); return; }
     
     AppState.exercises = normalized;
-    AppState.nodes = chunk(normalized, 3);
+    AppState.nodes = chunk(normalized, EXERCISES_PER_NODE);
     AppState.activeNodeIndex = 0;
     AppState.activeExerciseOffset = 0;
     AppState.attempts = {};
-    AppState.results = {};
     
     await saveToFirebase();
     renderMap();
@@ -1069,19 +1140,20 @@
 
   function buildReport() {
     let lines = ["📘 INFORME DE APRENDIZAJE\n" + "=".repeat(40) + "\n"];
-    let approved = 0;
+    let attempted = 0;
     for(let i = 0; i < AppState.exercises.length; i++) {
-      if(AppState.results[i]?.status === "approved") {
-        approved++;
+      const attempts = AppState.attempts[i];
+      if(attempts && attempts.length > 0) {
+        attempted++;
         const ex = AppState.exercises[i];
-        const first = AppState.attempts[i]?.[0] || "—";
-        lines.push(`${approved}. ${ex.spanishWords}`);
+        lines.push(`${attempted}. ${ex.spanishWords}`);
         lines.push(`   ✅ ${ex.englishWords}`);
-        lines.push(`   📝 Primer intento: "${first}"\n`);
+        lines.push(`   📝 Intentos: ${attempts.join(" | ")}`);
+        lines.push("");
       }
     }
-    if(approved === 0) lines.push("🌟 Completa ejercicios para ver tu informe");
-    else lines.push(`\n🎉 Total: ${approved}/${AppState.exercises.length}`);
+    if(attempted === 0) lines.push("🌟 Intenta algunos ejercicios para ver tu informe");
+    else lines.push(`\n🎉 Total: ${attempted}/${AppState.exercises.length} ejercicios intentados`);
     return lines.join("\n");
   }
 
@@ -1105,7 +1177,7 @@
   async function resetAll() {
     if(confirm("¿Borrar todo el progreso?")) {
       AppState.exercises = []; AppState.nodes = []; 
-      AppState.attempts = {}; AppState.results = {};
+      AppState.attempts = {};
       AppState.activeNodeIndex = 0; AppState.activeExerciseOffset = 0;
       await saveToFirebase();
       renderMap(); updateStats();
@@ -1135,10 +1207,10 @@
     
     const hasData = await loadFromFirebase(username);
     if(!hasData) {
-      AppState.exercises = []; AppState.nodes = []; AppState.attempts = {}; AppState.results = {};
+      AppState.exercises = []; AppState.nodes = []; AppState.attempts = {};
       AppState.activeNodeIndex = 0; AppState.activeExerciseOffset = 0;
     } else {
-      if(!AppState.nodes.length && AppState.exercises.length) AppState.nodes = chunk(AppState.exercises, 3);
+      if(!AppState.nodes.length && AppState.exercises.length) AppState.nodes = chunk(AppState.exercises, EXERCISES_PER_NODE);
     }
     
     renderMap(); updateStats();
