@@ -3,557 +3,1968 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
-  
+  <title>English Trainer - Aventura de Traducción</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+/* styles/main.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
 
-    body {
-      background: linear-gradient(145deg, #0a0e1a 0%, #0f1422 100%);
-      font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Poppins', sans-serif;
-      min-height: 100vh;
-      padding: 16px 14px 40px;
-      position: relative;
-    }
+body {
+  background: linear-gradient(145deg, #0a0e1a 0%, #0f1422 100%);
+  font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Poppins', sans-serif;
+  min-height: 100vh;
+  padding: 16px 14px 40px;
+  position: relative;
+  overflow-x: hidden;
+}
 
-    .cloud {
-      position: fixed;
-      background: rgba(88, 166, 255, 0.06);
-      border-radius: 1000px;
-      filter: blur(30px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .cloud1 { width: 250px; height: 150px; top: 20px; left: -60px; }
-    .cloud2 { width: 300px; height: 180px; bottom: 20px; right: -80px; }
-    .cloud3 { width: 180px; height: 120px; top: 40%; right: 10%; }
-    .star {
-      position: fixed;
-      color: #facc15;
-      font-size: 16px;
-      opacity: 0.25;
-      pointer-events: none;
-      animation: twinkle 4s infinite;
-    }
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.1; transform: scale(0.8);}
-      50% { opacity: 0.4; transform: scale(1.1);}
-    }
+/* Elementos decorativos */
+.cloud {
+  position: fixed;
+  background: rgba(88, 166, 255, 0.06);
+  border-radius: 1000px;
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 0;
+}
 
-    .app-container {
-      max-width: 580px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
+.cloud1 { width: 250px; height: 150px; top: 20px; left: -60px; }
+.cloud2 { width: 300px; height: 180px; bottom: 20px; right: -80px; }
+.cloud3 { width: 180px; height: 120px; top: 40%; right: 10%; }
 
-    .play-topbar {
-      background: rgba(18, 25, 45, 0.95);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 10px 18px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      border: 1px solid rgba(250,204,21,0.2);
-    }
-    .brand-mini {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .badge-fun {
-      background: linear-gradient(145deg, #fbbf24, #f59e0b);
-      width: 46px;
-      height: 46px;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      box-shadow: 0 4px 0 #b45309;
-    }
-    .title-fun {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #fde68a;
-    }
-    .sub-fun {
-      font-size: 0.7rem;
-      color: #fbbf24;
-      font-weight: 500;
-    }
-    .menu-btn {
-      background: #1e293b;
-      border: none;
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      font-size: 1.3rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      color: #fbbf24;
-    }
-    .menu-btn:active { transform: scale(0.95); background: #334155; }
-    .topbar-expand {
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-      max-height: 0;
-    }
-    .topbar-expand.open {
-      max-height: 200px;
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(250,204,21,0.2);
-    }
-    .action-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-    }
-    .fun-btn {
-      border: none;
-      border-radius: 14px;
-      padding: 10px 16px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      background: #1e293b;
-      color: #fde68a;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-    }
-    .fun-btn:active { transform: scale(0.96); background: #334155; }
-    .danger-btn { background: #7f1d1d; color: #fecaca; }
-    .primary-btn {
-      background: linear-gradient(105deg, #facc15, #f59e0b);
-      color: #1a120b;
-      font-weight: 700;
-    }
+.star {
+  position: fixed;
+  color: #facc15;
+  font-size: 16px;
+  opacity: 0.25;
+  pointer-events: none;
+  animation: twinkle 4s infinite;
+}
 
-    .magic-card {
-      background: rgba(18, 25, 45, 0.9);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      padding: 20px;
-      margin-bottom: 18px;
-      border: 1px solid rgba(250,204,21,0.1);
-    }
-    .magic-card h2, .magic-card h3 {
-      color: #fde68a;
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-    }
-    .magic-card p {
-      color: #cbd5e1;
-      font-size: 0.9rem;
-    }
+@keyframes twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(0.8); }
+  50% { opacity: 0.4; transform: scale(1.1); }
+}
 
-    .login-card {
-      background: rgba(18, 25, 45, 0.95);
-      backdrop-filter: blur(12px);
-      border-radius: 24px;
-      padding: 32px 24px;
-      text-align: center;
-      border: 1px solid rgba(250,204,21,0.2);
-    }
-    .login-card h1 {
-      color: #fde68a;
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-    }
-    .login-card p {
-      color: #94a3b8;
-      margin-bottom: 24px;
-    }
-    .username-input {
-      width: 100%;
-      border: 1px solid #334155;
-      background: #0f172a;
-      color: #f1f5f9;
-      border-radius: 14px;
-      padding: 14px 16px;
-      font-size: 1rem;
-      font-family: inherit;
-      outline: none;
-      transition: 0.2s;
-      margin-bottom: 16px;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-    .username-input:focus { border-color: #f59e0b; box-shadow: 0 0 0 2px rgba(245,158,11,0.2); }
-    .login-btn {
-      background: linear-gradient(145deg, #facc15, #f59e0b);
-      color: #1a120b;
-      border: none;
-      border-radius: 14px;
-      padding: 14px;
-      font-size: 1rem;
-      font-weight: 700;
-      width: 100%;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-    .login-btn:active { transform: scale(0.98); }
-    .user-info {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(250,204,21,0.1);
-      padding: 6px 12px;
-      border-radius: 20px;
-    }
-    .user-avatar {
-      width: 32px;
-      height: 32px;
-      background: linear-gradient(145deg, #facc15, #f59e0b);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-    }
-    .user-name {
-      color: #fde68a;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-    .logout-btn {
-      background: none;
-      border: none;
-      color: #f87171;
-      cursor: pointer;
-      font-size: 1rem;
-      padding: 4px 8px;
-      border-radius: 8px;
-    }
+/* Contenedor principal */
+.app-container {
+  max-width: 580px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
 
-    .adventure-map {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 8px;
-    }
-    .node-card {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      border-radius: 18px;
-      padding: 16px;
-      border: 1px solid #334155;
-      transition: all 0.2s;
-      cursor: pointer;
-      box-shadow: 0 4px 0 #0f172a;
-    }
-    .node-card.locked {
-      opacity: 0.6;
-      filter: grayscale(0.2);
-      background: #1a1f2e;
-      cursor: not-allowed;
-      box-shadow: 0 2px 0 #0f172a;
-      transform: translateY(2px);
-    }
-    .node-card.completed {
-      border-color: #facc15;
-      background: linear-gradient(135deg, #1e2a3a, #162030);
-      box-shadow: 0 4px 0 #ca8a04;
-    }
-    .node-card.current {
-      border: 2px solid #facc15;
-      background: linear-gradient(135deg, #2d3a4e, #1e2a3a);
-      box-shadow: 0 0 0 2px rgba(250,204,21,0.2), 0 4px 0 #ca8a04;
-    }
-    .node-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .node-title {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #fde68a;
-    }
-    .pill-status {
-      background: #334155;
-      border-radius: 20px;
-      padding: 4px 12px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: #cbd5e1;
-    }
-    .pill-status.good { background: #4ade80; color: #064e3b; }
-    .pill-status.current-pill { background: #facc15; color: #422006; }
-    .dots-progress {
-      display: flex;
-      gap: 6px;
-      margin: 12px 0 8px;
-    }
-    .dot-ex {
-      width: 30px;
-      height: 8px;
-      border-radius: 10px;
-      background: #334155;
-    }
-    .dot-ex.approved { background: #facc15; }
-    .bar-progress {
-      height: 6px;
-      background: #1e293b;
-      border-radius: 10px;
-      margin: 8px 0 4px;
-      overflow: hidden;
-    }
-    .bar-fill {
-      background: linear-gradient(90deg, #facc15, #f97316);
-      width: 0%;
-      height: 100%;
-      border-radius: 10px;
-    }
+/* Barra superior */
+.play-topbar {
+  background: rgba(18, 25, 45, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 10px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border: 1px solid rgba(250,204,21,0.2);
+}
 
-    .exercise-area {
-      background: rgba(18, 25, 45, 0.95);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      padding: 20px;
-    }
-    .question-bubble {
-      background: #1e293b;
-      border-radius: 18px;
-      padding: 18px;
-      margin-bottom: 18px;
-      text-align: center;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #fde68a;
-      border: 1px solid #334155;
-    }
-    .answer-input {
-      width: 100%;
-      border: 1px solid #334155;
-      background: #0f172a;
-      color: #f1f5f9;
-      border-radius: 14px;
-      padding: 14px 16px;
-      font-size: 1rem;
-      font-family: inherit;
-      resize: vertical;
-      outline: none;
-      transition: 0.2s;
-    }
-    .answer-input:focus { border-color: #f59e0b; box-shadow: 0 0 0 2px rgba(245,158,11,0.2); }
-    .button-group {
-      display: flex;
-      gap: 12px;
-      margin: 18px 0 12px;
-    }
-    .btn-action {
-      flex: 1;
-      border: none;
-      border-radius: 14px;
-      padding: 12px 0;
-      font-weight: 600;
-      font-size: 0.95rem;
-      background: #1e293b;
-      cursor: pointer;
-      transition: 0.1s linear;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: #fde68a;
-    }
-    .btn-check {
-      background: linear-gradient(145deg, #facc15, #f59e0b);
-      color: #1a120b;
-      font-weight: 700;
-    }
-    .btn-check:active { transform: scale(0.98); }
-    .btn-continue {
-      background: #4ade80;
-      color: #064e3b;
-      font-weight: 700;
-    }
-    .mood-card {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      background: #1e293b;
-      border-radius: 16px;
-      padding: 12px 16px;
-      margin: 16px 0;
-      color: white;
-    }
-    .mood-emoji {
-      font-size: 2.5rem;
-      background: #0f172a;
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: gentleBounce 2s infinite;
-    }
-    @keyframes gentleBounce {
-      0%,100%{ transform: translateY(0);}
-      50%{ transform: translateY(-3px);}
-    }
+.brand-mini {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-    .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-    .modal-friend {
-      background: #1e293b;
-      border-radius: 24px;
-      max-width: 92%;
-      width: 500px;
-      padding: 22px;
-      text-align: center;
-      animation: bounceIn 0.25s;
-      border: 1px solid #facc15;
-    }
-    .modal-friend h3 { color: #fde68a; margin-bottom: 12px; }
-    .comparison-text-block {
-      background: #0f172a;
-      border-radius: 14px;
-      padding: 14px;
-      margin: 14px 0;
-      text-align: left;
-      color: white;
-      font-size: 0.95rem;
-      line-height: 1.8;
-    }
-    .compare-line {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 4px;
-      margin: 8px 0;
-    }
-    .word-correct {
-      color: #4ade80;
-      font-weight: 600;
-    }
-    .word-error {
-      color: #f87171;
-      font-weight: 600;
-    }
-    .word-placeholder {
-      visibility: hidden;
-    }
-    .modal-buttons { display: flex; gap: 12px; margin-top: 16px; }
-    @keyframes bounceIn {
-      0%{ transform: scale(0.9); opacity: 0;}
-      100%{ transform: scale(1); opacity: 1;}
-    }
+.badge-fun {
+  background: linear-gradient(145deg, #fbbf24, #f59e0b);
+  width: 46px;
+  height: 46px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 0 #b45309;
+}
 
-    .confetti {
-      position: fixed;
-      width: 10px;
-      height: 16px;
-      top: -20px;
-      animation: fall 1.4s linear forwards;
-      pointer-events: none;
-      z-index: 1001;
-    }
-    @keyframes fall {
-      to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-    }
-    
-    .toast-fun {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: #1e293b;
-      color: #fde68a;
-      padding: 10px 20px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      opacity: 0;
-      transition: 0.2s;
-      z-index: 1100;
-      pointer-events: none;
-      white-space: nowrap;
-      border: 1px solid #facc15;
-    }
-    .toast-fun.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-    
-    .screen { display: none; }
-    .screen.active { display: block; animation: appear 0.3s; }
-    @keyframes appear {
-      from { opacity: 0; transform: translateY(8px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .stat-bubble {
-      background: #0f172a;
-      border-radius: 14px;
-      padding: 12px;
-      text-align: center;
-      color: #cbd5e1;
-    }
-    .stat-bubble strong {
-      color: #fde68a;
-      font-size: 1.3rem;
-      display: block;
-      margin-top: 4px;
-    }
-    textarea.report {
-      background: #0f172a;
-      border-radius: 14px;
-      border: 1px solid #334155;
-      width: 100%;
-      padding: 12px;
-      font-family: monospace;
-      margin-top: 12px;
-      color: #cbd5e1;
-      font-size: 0.8rem;
-    }
-    .loading {
-      position: fixed;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #1e293b;
-      color: #fde68a;
-      padding: 10px 20px;
-      border-radius: 40px;
-      z-index: 2000;
-      font-weight: 600;
-      font-size: 0.8rem;
-      display: none;
-      border: 1px solid #facc15;
-      white-space: nowrap;
-    }
-    .loading.show { display: block; animation: pulse 1s infinite; }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 1; }
-    }
+.title-fun {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fde68a;
+}
+
+.sub-fun {
+  font-size: 0.7rem;
+  color: #fbbf24;
+  font-weight: 500;
+}
+
+.menu-btn {
+  background: #1e293b;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #fbbf24;
+}
+
+.menu-btn:active { transform: scale(0.95); background: #334155; }
+
+.topbar-expand {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  max-height: 0;
+}
+
+.topbar-expand.open {
+  max-height: 200px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(250,204,21,0.2);
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Botones */
+.fun-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: #1e293b;
+  color: #fde68a;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.fun-btn:active { transform: scale(0.96); background: #334155; }
+.danger-btn { background: #7f1d1d; color: #fecaca; }
+
+.primary-btn {
+  background: linear-gradient(105deg, #facc15, #f59e0b);
+  color: #1a120b;
+  font-weight: 700;
+}
+
+/* Tarjetas */
+.magic-card {
+  background: rgba(18, 25, 45, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-bottom: 18px;
+  border: 1px solid rgba(250,204,21,0.1);
+}
+
+.magic-card h2, .magic-card h3 {
+  color: #fde68a;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.magic-card p {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+/* Login */
+.login-card {
+  background: rgba(18, 25, 45, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid rgba(250,204,21,0.2);
+}
+
+.login-card h1 {
+  color: #fde68a;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.login-card p {
+  color: #94a3b8;
+  margin-bottom: 24px;
+}
+
+.username-input {
+  width: 100%;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #f1f5f9;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  outline: none;
+  transition: 0.2s;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.username-input:focus { border-color: #f59e0b; box-shadow: 0 0 0 2px rgba(245,158,11,0.2); }
+
+.login-btn {
+  background: linear-gradient(145deg, #facc15, #f59e0b);
+  color: #1a120b;
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-btn:active { transform: scale(0.98); }
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(250,204,21,0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(145deg, #facc15, #f59e0b);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.user-name {
+  color: #fde68a;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: #f87171;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+/* Mapa */
+.adventure-map {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.node-card {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid #334155;
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #0f172a;
+}
+
+.node-card.locked {
+  opacity: 0.6;
+  filter: grayscale(0.2);
+  background: #1a1f2e;
+  cursor: not-allowed;
+  box-shadow: 0 2px 0 #0f172a;
+  transform: translateY(2px);
+}
+
+.node-card.completed {
+  border-color: #4ade80;
+  background: linear-gradient(135deg, #1e2a3a, #162030);
+  box-shadow: 0 4px 0 #16a34a;
+}
+
+.node-card.current {
+  border: 2px solid #facc15;
+  background: linear-gradient(135deg, #2d3a4e, #1e2a3a);
+  box-shadow: 0 0 0 2px rgba(250,204,21,0.2), 0 4px 0 #ca8a04;
+}
+
+.node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.node-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fde68a;
+}
+
+.pill-status {
+  background: #334155;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.pill-status.good { background: #4ade80; color: #064e3b; }
+.pill-status.current-pill { background: #facc15; color: #422006; }
+
+.dots-progress {
+  display: flex;
+  gap: 6px;
+  margin: 12px 0 8px;
+  flex-wrap: wrap;
+}
+
+.dot-ex {
+  width: 30px;
+  height: 8px;
+  border-radius: 10px;
+  background: #334155;
+}
+
+.dot-ex.approved { background: #4ade80; }
+
+.bar-progress {
+  height: 6px;
+  background: #1e293b;
+  border-radius: 10px;
+  margin: 8px 0 4px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  background: linear-gradient(90deg, #4ade80, #22c55e);
+  width: 0%;
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+/* Área de ejercicios */
+.exercise-area {
+  background: rgba(18, 25, 45, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.question-bubble {
+  background: #1e293b;
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 18px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fde68a;
+  border: 1px solid #334155;
+}
+
+/* Input para completar palabras */
+.completar-input {
+  background: #0f172a;
+  border: 2px solid #334155;
+  color: #f1f5f9;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  width: 100px;
+  text-align: center;
+  transition: 0.2s;
+  margin: 0 4px;
+}
+
+.completar-input:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245,158,11,0.2);
+}
+
+.completar-input.correct {
+  border-color: #4ade80;
+  background: rgba(74,222,128,0.1);
+}
+
+.completar-input.incorrect {
+  border-color: #f87171;
+  background: rgba(248,113,113,0.1);
+}
+
+.completar-sentence {
+  line-height: 2;
+  font-size: 1.1rem;
+  color: #cbd5e1;
+}
+
+/* Columnas para seleccionar */
+.selection-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.selection-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.selection-item {
+  background: #1e293b;
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+  color: #cbd5e1;
+  font-weight: 500;
+  user-select: none;
+}
+
+.selection-item:hover {
+  background: #334155;
+}
+
+.selection-item.selected {
+  border-color: #facc15;
+  background: rgba(250,204,21,0.1);
+  color: #fde68a;
+}
+
+.selection-item.matched {
+  background: rgba(74,222,128,0.15);
+  border-color: #4ade80;
+  color: #4ade80;
+  pointer-events: none;
+}
+
+.selection-item.wrong {
+  animation: shake 0.5s;
+  border-color: #f87171;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Historia */
+.story-content {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px 0;
+  color: #cbd5e1;
+  line-height: 1.8;
+  font-size: 1rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.story-title {
+  color: #fde68a;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.story-paragraph {
+  margin-bottom: 12px;
+}
+
+.answer-input {
+  width: 100%;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #f1f5f9;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  transition: 0.2s;
+}
+
+.answer-input:focus { border-color: #f59e0b; box-shadow: 0 0 0 2px rgba(245,158,11,0.2); }
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0 12px;
+}
+
+.btn-action {
+  flex: 1;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: #1e293b;
+  cursor: pointer;
+  transition: 0.1s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #fde68a;
+}
+
+.btn-check {
+  background: linear-gradient(145deg, #facc15, #f59e0b);
+  color: #1a120b;
+  font-weight: 700;
+}
+
+.btn-check:active { transform: scale(0.98); }
+
+.btn-continue {
+  background: #4ade80;
+  color: #064e3b;
+  font-weight: 700;
+}
+
+.mood-card {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  color: white;
+}
+
+.mood-emoji {
+  font-size: 2.5rem;
+  background: #0f172a;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: gentleBounce 2s infinite;
+}
+
+@keyframes gentleBounce {
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-3px); }
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-friend {
+  background: #1e293b;
+  border-radius: 24px;
+  max-width: 92%;
+  width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 22px;
+  text-align: center;
+  animation: bounceIn 0.25s;
+  border: 1px solid #facc15;
+}
+
+.modal-friend h3 { color: #fde68a; margin-bottom: 12px; }
+
+.comparison-text-block {
+  background: #0f172a;
+  border-radius: 14px;
+  padding: 14px;
+  margin: 14px 0;
+  text-align: left;
+  color: white;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.compare-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.word-correct {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.word-error {
+  color: #f87171;
+  font-weight: 600;
+}
+
+.word-placeholder {
+  visibility: hidden;
+}
+
+.modal-buttons { display: flex; gap: 12px; margin-top: 16px; }
+
+@keyframes bounceIn {
+  0%{ transform: scale(0.9); opacity: 0; }
+  100%{ transform: scale(1); opacity: 1; }
+}
+
+/* Confeti */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 16px;
+  top: -20px;
+  animation: fall 1.4s linear forwards;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+@keyframes fall {
+  to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Toast */
+.toast-fun {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #1e293b;
+  color: #fde68a;
+  padding: 10px 20px;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: 0.2s;
+  z-index: 1100;
+  pointer-events: none;
+  white-space: nowrap;
+  border: 1px solid #facc15;
+}
+
+.toast-fun.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Pantallas */
+.screen { display: none; }
+.screen.active { display: block; animation: appear 0.3s; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estadísticas */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.stat-bubble {
+  background: #0f172a;
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.stat-bubble strong {
+  color: #fde68a;
+  font-size: 1.3rem;
+  display: block;
+  margin-top: 4px;
+}
+
+textarea.report {
+  background: #0f172a;
+  border-radius: 14px;
+  border: 1px solid #334155;
+  width: 100%;
+  padding: 12px;
+  font-family: monospace;
+  margin-top: 12px;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  resize: vertical;
+}
+
+.loading {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: #fde68a;
+  padding: 10px 20px;
+  border-radius: 40px;
+  z-index: 2000;
+  font-weight: 600;
+  font-size: 0.8rem;
+  display: none;
+  border: 1px solid #facc15;
+  white-space: nowrap;
+}
+
+.loading.show { display: block; animation: pulse 1s infinite; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Etiquetas de tipo de ejercicio */
+.exercise-type-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.type-traduccion { background: #facc15; color: #422006; }
+.type-completar { background: #60a5fa; color: #1e3a5f; }
+.type-seleccionar { background: #a78bfa; color: #2d1b69; }
+.type-historia { background: #f472b6; color: #4a0e2e; }
+
+/* Mensaje de corrección */
+.correction-notice {
+  background: rgba(248,113,113,0.15);
+  border: 1px solid #f87171;
+  border-radius: 12px;
+  padding: 8px 14px;
+  margin-bottom: 12px;
+  color: #fca5a5;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Área de múltiples inputs */
+.input-area {
+  background: #0f172a;
+  border-radius: 14px;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+/* Botón de copiar reporte */
+.copy-report-btn {
+  background: linear-gradient(145deg, #60a5fa, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.copy-report-btn:active { transform: scale(0.98); }
+
+/* Inputs múltiples para datos */
+.multi-input-section {
+  margin-bottom: 20px;
+}
+
+.multi-input-section h4 {
+  color: #fde68a;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.multi-input-section textarea {
+  width: 100%;
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #f1f5f9;
+  border-radius: 14px;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ============ NODOS CIRCULARES ============ */
+
+.node-card-circle {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-radius: 20px;
+  padding: 18px;
+  border: 1px solid #334155;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin-bottom: 14px;
+}
+
+.node-card-circle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.node-card-circle.locked {
+  opacity: 0.5;
+  filter: grayscale(0.4);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.node-card-circle.completed {
+  border-color: #4ade80;
+  background: linear-gradient(135deg, #1a2e1a, #0f1a0f);
+}
+
+.node-card-circle.current {
+  border: 2px solid #facc15;
+  box-shadow: 0 0 16px rgba(250,204,21,0.2), 0 4px 12px rgba(0,0,0,0.3);
+  animation: currentPulse 2s infinite;
+}
+
+@keyframes currentPulse {
+  0%, 100% { box-shadow: 0 0 16px rgba(250,204,21,0.2), 0 4px 12px rgba(0,0,0,0.3); }
+  50% { box-shadow: 0 0 24px rgba(250,204,21,0.4), 0 4px 12px rgba(0,0,0,0.3); }
+}
+
+.node-circle-container {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.node-circle-progress {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.node-circle-progress svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.node-circle-icon {
+  position: absolute;
+  font-size: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  z-index: 2;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.node-circle-percent {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fde68a;
+  z-index: 2;
+  background: rgba(0,0,0,0.6);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.node-circle-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.node-circle-info .node-header {
+  margin-bottom: 6px;
+}
+
+.node-circle-info .node-title {
+  font-size: 1rem;
+}
+
+/* Segmentos de lecciones */
+.lesson-segments {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.lesson-segment {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lesson-segment-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #94a3b8;
+  background: #1e293b;
+  padding: 2px 6px;
+  border-radius: 6px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.lesson-segment-bar {
+  width: 40px;
+  height: 6px;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.lesson-segment-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+  .node-circle-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .node-circle-progress {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .node-circle-progress svg {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .node-circle-info {
+    text-align: center;
+  }
+  
+  .lesson-segments {
+    justify-content: center;
+  }
+}
+
+/* ============ NUEVO DISEÑO DE NODOS ============ */
+
+.node-card-redesign {
+  background: linear-gradient(145deg, #1a1f2e 0%, #0f1422 100%);
+  border-radius: 16px;
+  padding: 16px;
+  border: 2px solid #334155;
+  margin-bottom: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.node-card-redesign::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.node-card-redesign:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.node-card-redesign.locked {
+  opacity: 0.45;
+  filter: grayscale(0.5);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.node-card-redesign.completed {
+  border-color: #4ade80 !important;
+  background: linear-gradient(145deg, #142614 0%, #0a1a0a 100%);
+}
+
+.node-card-redesign.current {
+  box-shadow: 0 0 20px rgba(250,204,21,0.15), 0 4px 12px rgba(0,0,0,0.3);
+  animation: nodeGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes nodeGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(250,204,21,0.15), 0 4px 12px rgba(0,0,0,0.3); }
+  50% { box-shadow: 0 0 30px rgba(250,204,21,0.3), 0 4px 12px rgba(0,0,0,0.3); }
+}
+
+/* Fila principal */
+.node-main-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+/* Icono del nodo */
+.node-icon-container {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.node-icon-large {
+  font-size: 1.8rem;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+}
+
+/* Área de información */
+.node-info-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.node-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.node-title-text {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #f1f5f9;
+}
+
+.type-badge {
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.type-badge.type-mixed {
+  background: rgba(250,204,21,0.15);
+  color: #fde68a;
+  border: 1px solid rgba(250,204,21,0.3);
+}
+
+.type-badge.type-story {
+  background: rgba(244,114,182,0.15);
+  color: #f9a8d4;
+  border: 1px solid rgba(244,114,182,0.3);
+}
+
+.node-progress-text {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+/* Barra de progreso */
+.node-progress-bar {
+  height: 6px;
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.node-progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease, background 0.3s ease;
+}
+
+/* Lecciones */
+.node-lessons-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lesson-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1.5px solid #334155;
+  background: rgba(30,41,59,0.5);
+  min-width: 60px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.lesson-block.lesson-completed {
+  border-color: #4ade80;
+  background: rgba(74,222,128,0.08);
+}
+
+.lesson-block.lesson-started {
+  border-color: #facc15;
+}
+
+.lesson-block.lesson-empty {
+  opacity: 0.5;
+}
+
+.lesson-block-label {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+.lesson-block-progress {
+  height: 3px;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+.lesson-block-count {
+  font-size: 0.6rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.lesson-completed .lesson-block-label,
+.lesson-completed .lesson-block-count {
+  color: #4ade80;
+}
+
+/* Indicador de historia */
+.story-indicator {
+  color: #f472b6;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Estado */
+.node-status-indicator {
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.status-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.status-pill.status-done {
+  background: rgba(74,222,128,0.15);
+  color: #4ade80;
+  border: 1px solid rgba(74,222,128,0.3);
+}
+
+.status-pill.status-active {
+  background: rgba(250,204,21,0.15);
+  color: #fde68a;
+  border: 1px solid rgba(250,204,21,0.3);
+  animation: statusPulse 2s infinite;
+}
+
+.status-pill.status-open {
+  background: rgba(148,163,184,0.1);
+  color: #94a3b8;
+  border: 1px solid rgba(148,163,184,0.2);
+}
+
+.status-pill.status-locked {
+  background: rgba(100,116,139,0.08);
+  color: #64748b;
+  border: 1px solid rgba(100,116,139,0.15);
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .node-main-row {
+    flex-wrap: wrap;
+  }
+  
+  .node-status-indicator {
+    width: 100%;
+    text-align: center;
+    margin-top: 6px;
+  }
+  
+  .node-icon-container {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+  
+  .node-icon-large {
+    font-size: 1.4rem;
+  }
+  
+  .lesson-block {
+    min-width: 50px;
+    padding: 4px 6px;
+  }
+}
+
+/* ============ MAPA DE NODOS CIRCULARES ============ */
+
+.map-circles-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 10px 0;
+}
+
+/* Nodo circular */
+.map-node-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.map-node-circle:hover {
+  transform: scale(1.05);
+}
+
+.map-node-circle.node-locked {
+  opacity: 0.4;
+  filter: grayscale(0.6);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.map-node-circle.node-current {
+  animation: nodeCirclePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes nodeCirclePulse {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(250,204,21,0.3)); }
+  50% { filter: drop-shadow(0 0 18px rgba(250,204,21,0.6)); }
+}
+
+.map-node-circle.node-completed {
+  filter: drop-shadow(0 0 8px rgba(74,222,128,0.3));
+}
+
+/* Contenedor del anillo */
+.node-ring-wrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+}
+
+.node-ring-svg {
+  display: block;
+}
+
+.node-ring-svg .ring-fill,
+.node-ring-svg .ring-segment {
+  transition: all 0.5s ease;
+}
+
+/* Icono dentro del anillo */
+.ring-icon-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(30,41,59,0.9);
+}
+
+.ring-icon-text {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
+
+.ring-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+/* Indicador de estado (puntito) */
+.node-status-dot {
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #0f1422;
+  z-index: 3;
+}
+
+.node-status-dot.completed {
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74,222,128,0.6);
+}
+
+.node-status-dot.current {
+  background: #facc15;
+  box-shadow: 0 0 8px rgba(250,204,21,0.6);
+  animation: dotPulse 1.5s infinite;
+}
+
+.node-status-dot.unlocked {
+  background: #94a3b8;
+}
+
+.node-status-dot.locked {
+  background: #475569;
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+}
+
+/* Etiqueta de tipo */
+.node-type-label {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(244,114,182,0.15);
+  border: 1px solid rgba(244,114,182,0.3);
+}
+
+/* Puntitos de lecciones */
+.node-lessons-dots {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+.lesson-mini-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1e293b;
+  border: 1px solid #334155;
+  transition: all 0.3s ease;
+}
+
+.lesson-mini-dot.dot-done {
+  border-color: #4ade80;
+  box-shadow: 0 0 4px rgba(74,222,128,0.5);
+}
+
+.lesson-mini-dot.dot-progress {
+  border-color: #facc15;
+}
+
+.lesson-mini-dot.dot-empty {
+  opacity: 0.4;
+}
+
+/* Líneas conectoras entre nodos */
+.map-circles-container {
+  position: relative;
+}
+
+/* En móviles, 2 columnas */
+@media (max-width: 480px) {
+  .map-circles-container {
+    gap: 16px;
+  }
+  
+  .node-ring-wrapper {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .node-ring-wrapper svg {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .ring-icon-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============ MAPA MINIMALISTA ============ */
+
+.map-path {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 10px 0;
+  position: relative;
+}
+
+/* Contenedor de cada nodo */
+.map-node-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 360px;
+}
+
+.map-node-wrapper.locked {
+  opacity: 0.45;
+}
+
+/* Línea conectora entre nodos */
+.map-connector {
+  width: 2px;
+  height: 28px;
+  background: #1e293b;
+  transition: background 0.5s ease;
+  border-radius: 1px;
+}
+
+/* Tarjeta del nodo */
+.map-node-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(15, 20, 34, 0.8);
+  border: 1.5px solid #1e293b;
+  border-radius: 16px;
+  padding: 12px 16px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.map-node-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at left, rgba(255,255,255,0.02) 0%, transparent 60%);
+  pointer-events: none;
+  border-radius: 16px;
+}
+
+.map-node-card:hover {
+  transform: translateX(4px);
+  border-color: #334155;
+}
+
+.map-node-card.disabled {
+  cursor: not-allowed;
+  transform: none;
+}
+
+.map-node-card.completed {
+  border-color: rgba(74, 222, 128, 0.25);
+  background: rgba(15, 25, 18, 0.8);
+}
+
+.map-node-card.current {
+  border-color: rgba(250, 204, 21, 0.4);
+  animation: cardGlow 3s ease-in-out infinite;
+}
+
+@keyframes cardGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(250, 204, 21, 0.05); }
+  50% { box-shadow: 0 0 20px rgba(250, 204, 21, 0.15); }
+}
+
+/* SVG del nodo */
+.map-node-svg {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  transition: color 0.3s ease;
+}
+
+.map-node-svg .node-ring-svg {
+  width: 70px;
+  height: 70px;
+}
+
+.map-node-svg .node-ring-svg text {
+  font-size: 24px;
+}
+
+/* Info del nodo */
+.map-node-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.map-node-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.map-node-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.map-node-meta {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+/* Dots de lecciones */
+.node-lessons-row {
+  display: flex;
+  gap: 5px;
+}
+
+.node-lesson-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1e293b;
+  transition: all 0.4s ease;
+}
+
+/* Estado del nodo */
+.map-node-status {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+.node-check {
+  font-size: 1.2rem;
+  animation: checkPop 0.4s ease;
+}
+
+@keyframes checkPop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.node-arrow {
+  font-size: 0.9rem;
+  color: #fde68a;
+  animation: arrowBounce 1.5s infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+
+.node-lock {
+  font-size: 0.9rem;
+  opacity: 0.5;
+}
+
+/* ============ ELIMINAR CARDS EXTRAS ============ */
+/* Ocultar cards de progreso y diario (se mantienen los elementos pero se esconden) */
+#statsContainer {
+  display: none;
+}
+
+/* La card de progreso se oculta completamente */
+.magic-card:has(#statsContainer) {
+  display: none;
+}
+
+/* La card de diario se convierte en solo un botón */
+.magic-card:has(#reportArea) {
+  padding: 12px 16px;
+}
+
+.magic-card:has(#reportArea) h3 {
+  display: none;
+}
+
+.magic-card:has(#reportArea) #reportArea {
+  display: none;
+}
+
+.magic-card:has(#reportArea) #openReportBtn {
+  margin: 0;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 480px) {
+  .map-node-card {
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 14px;
+  }
+  
+  .map-node-svg {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .map-node-svg .node-ring-svg {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .map-node-title {
+    font-size: 0.8rem;
+  }
+  
+  .map-connector {
+    height: 20px;
+  }
+}
+
+/* ============================================
+   MAPA DE LECCIONES — ESTILO DUOLINGO
+   Pega este bloque en tu archivo CSS principal
+   ============================================ */
+
+#mapList {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 32px 16px 80px;
+}
+
+.map-path {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* ---------- Wrapper de cada nodo ---------- */
+.map-node-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(var(--node-offset, 0px));
+  margin-top: 6px;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.map-node-wrapper.locked {
+  opacity: 0.55;
+}
+
+/* ---------- Conector tipo sendero punteado ---------- */
+.map-connector {
+  width: 10px;
+  height: 46px;
+  margin-bottom: 2px;
+  border-left: 6px dotted #334155;
+  border-radius: 4px;
+  transition: border-color 0.4s ease;
+}
+
+.map-connector.done {
+  border-left-color: #4ade80;
+}
+
+/* ---------- Botón circular del nodo ---------- */
+.map-node-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #1e293b 0%, #0f1422 100%);
+  cursor: pointer;
+  box-shadow:
+    0 6px 0 0 #0a0e1a,
+    0 10px 18px rgba(0, 0, 0, 0.45);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.map-node-card:active:not(.disabled) {
+  transform: translateY(5px);
+  box-shadow:
+    0 1px 0 0 #0a0e1a,
+    0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.map-node-card:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 0 0 #0a0e1a,
+    0 14px 22px rgba(0, 0, 0, 0.5);
+}
+
+.map-node-card.disabled {
+  cursor: not-allowed;
+  box-shadow:
+    0 4px 0 0 #060810,
+    0 6px 10px rgba(0, 0, 0, 0.35);
+}
+
+.map-node-card.current {
+  background: linear-gradient(180deg, #243049 0%, #121a2e 100%);
+  box-shadow:
+    0 6px 0 0 #0a0e1a,
+    0 0 0 4px rgba(255, 255, 255, 0.06),
+    0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+.map-node-card.completed {
+  box-shadow:
+    0 6px 0 0 #14532d,
+    0 10px 18px rgba(0, 0, 0, 0.45);
+}
+
+.map-node-svg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.node-ring-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- Aro pulsante para el nodo actual ---------- */
+.map-node-pulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: -1;
+}
+
+.map-node-card.current .map-node-pulse {
+  animation: nodePulse 2.2s ease-out infinite;
+}
+
+@keyframes nodePulse {
+  0% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+/* ---------- Badge "¡EMPIEZA AQUÍ!" ---------- */
+.current-node-badge {
+  position: absolute;
+  top: -34px;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  padding: 6px 12px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+  animation: badgeBounce 1.6s ease-in-out infinite;
+  z-index: 3;
+}
+
+.current-node-badge::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+@keyframes badgeBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ---------- Badge de estado (check / candado / flecha) ---------- */
+.node-status-badge {
+  position: absolute;
+  bottom: -6px;
+  right: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0f1422;
+  border: 2px solid #1e293b;
+  font-size: 13px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.node-status-badge:empty {
+  display: none;
+}
+
+.node-check { filter: drop-shadow(0 0 3px #4ade8080); }
+.node-arrow {
+  color: #fff;
+  font-size: 11px;
+}
+.node-lock { opacity: 0.7; }
+
+/* ---------- Info debajo del nodo ---------- */
+.map-node-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  margin-top: 10px;
+  margin-bottom: 28px;
+  text-align: center;
+  max-width: 140px;
+}
+
+.map-node-title {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.map-node-meta {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ---------- Dots de lecciones ---------- */
+.node-lessons-row {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.node-lesson-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #334155;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ---------- Estado vacío ---------- */
+#mapList .map-path:empty,
+#mapList:has(> div:only-child) {
+  /* fallback visual ya gestionado inline por JS */
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 380px) {
+  .map-node-card {
+    width: 84px;
+    height: 84px;
+  }
+  .map-node-wrapper {
+    transform: translateX(calc(var(--node-offset, 0px) * 0.7));
+  }
+}
   </style>
 </head>
 <body>
@@ -580,7 +1991,7 @@
         <div class="badge-fun">🐣</div>
         <div>
           <div class="title-fun">English Trainer</div>
-          <div class="sub-fun">Version 2.1</div>
+          <div class="sub-fun">Version 3.0 - Firebase</div>
         </div>
       </div>
       <div style="display: flex; align-items: center; gap: 8px;">
@@ -592,6 +2003,7 @@
         <button class="menu-btn" id="toggleMenuBtn">☁️</button>
       </div>
     </div>
+    
     <div class="topbar-expand" id="menuExpand">
       <div class="action-buttons">
         <button class="fun-btn" id="backToMapBtn">🗺️ Mapa</button>
@@ -604,21 +2016,32 @@
     <div id="importScreen" class="screen active">
       <div class="magic-card">
         <h2>📚 ¡Hola <span id="welcomeUsername"></span>!</h2>
-        <p>Pega tu lista de frases (JSON) y comienza la aventura.</p>
-        <textarea id="jsonInput" class="answer-input" rows="5" placeholder='[
-  {
-    "spanishWord": "El gato está sobre la mesa",
-    "englishWord": "The cat is on the table"
-  },
-  {
-    "spanishWord": "Quiero aprender inglés",
-    "englishWord": "I want to learn English"
-  }
-]' style="margin: 14px 0;"></textarea>
+        <p>Ingresa los 4 tipos de datos requeridos:</p>
+        
+        <div class="multi-input-section">
+          <h4>📝 Traducciones (71 ejercicios requeridos)</h4>
+          <textarea id="traduccionesInput" class="answer-input" rows="4" placeholder='[{"spanishWord": "...", "englishWord": "..."}]'></textarea>
+        </div>
+        
+        <div class="multi-input-section">
+          <h4>✏️ Completar palabras (32 ejercicios requeridos)</h4>
+          <textarea id="completarInput" class="answer-input" rows="4" placeholder='[{"spanishWord": "...", "englishSentence": "There is _____ ...", "options": ["word1", "word2"]}]'></textarea>
+        </div>
+        
+        <div class="multi-input-section">
+          <h4>🎯 Seleccionar palabras (13 ejercicios requeridos)</h4>
+          <textarea id="seleccionarInput" class="answer-input" rows="4" placeholder='[[{"englishWord": "...", "spanishWord": "..."}]]'></textarea>
+        </div>
+        
+        <div class="multi-input-section">
+          <h4>📖 Historias (2 historias requeridas)</h4>
+          <textarea id="historiasInput" class="answer-input" rows="4" placeholder='[{"title": "...", "paragraphs": ["..."]}]'></textarea>
+        </div>
+        
         <div class="button-group">
           <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa ✨</button>
         </div>
-        <p class="sub-fun" style="text-align:center; margin-top: 8px;">⭐ cada nodo tiene 9 ejercicios ⭐</p>
+        <p class="sub-fun" style="text-align:center; margin-top: 8px;">⭐ 6 nodos: 2 historias, 4 nodos de ejercicios mixtos ⭐</p>
       </div>
     </div>
 
@@ -635,6 +2058,7 @@
         <h3>📖 Diario del aprendiz</h3>
         <button class="fun-btn full-width" id="openReportBtn">📄 Ver informe completo</button>
         <textarea id="reportArea" class="report" rows="4" readonly placeholder="Aquí verás tu progreso..."></textarea>
+        <button class="copy-report-btn" id="copyFinalReportBtn">📋 Copiar reporte final</button>
       </div>
     </div>
 
@@ -642,24 +2066,16 @@
       <div class="exercise-area">
         <div style="display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
           <span class="pill-status" id="nodeTag">Nodo 1</span>
-          <span class="pill-status" id="exTag">Ejercicio 1/9</span>
-          <span class="pill-status" id="attemptTag">🎯 intentos: 0</span>
+          <span class="pill-status" id="exTag">Ejercicio 1/1</span>
+          <span class="pill-status" id="exTypeTag">📝 Traducción</span>
         </div>
-        <div class="question-bubble" id="spanishPrompt">🌟 frase...</div>
-        <textarea id="answerInput" class="answer-input" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
-        <div class="button-group">
-          <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
-          <button class="btn-action btn-continue" id="continueBtn" style="display: none;">➡️ Continuar</button>
-        </div>
-        <div class="mood-card">
-          <div class="mood-emoji" id="exerciseEmoji">🧸</div>
-          <div><strong id="exerciseMoodTitle">¡A traducir!</strong><br><span id="exerciseMoodText">Escribe y comprueba</span></div>
-        </div>
+        <div id="exerciseContainer"></div>
         <div id="resultLine" class="sub-fun" style="text-align:center;">✏️ Tu turno</div>
       </div>
     </div>
   </div>
 </div>
+
 <div id="toastFun" class="toast-fun"></div>
 <div id="loadingIndicator" class="loading">✨ Conectando...</div>
 
@@ -679,20 +2095,1001 @@
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
   
-  const EXERCISES_PER_NODE = 9;
+  // ==================== MÓDULO DE MAPA ====================
+// mapa/map.js
+// Estructura y configuración del mapa de nodos con diseño minimalista
+
+export const MAP_CONFIG = {
+  nodes: [
+    {
+      id: 1,
+      lessons: 5,
+      exercisesPerLesson: 10,
+      totalExercises: 50,
+      type: "mixed",
+      color: "#facc15",
+      icon: "🌟"
+    },
+    {
+      id: 2,
+      lessons: 5,
+      exercisesPerLesson: 8,
+      totalExercises: 40,
+      type: "mixed",
+      color: "#60a5fa",
+      icon: "💎"
+    },
+    {
+      id: 3,
+      lessons: 1,
+      exercisesPerLesson: 1,
+      totalExercises: 1,
+      type: "story",
+      color: "#f472b6",
+      icon: "📖"
+    },
+    {
+      id: 4,
+      lessons: 2,
+      exercisesPerLesson: 7,
+      totalExercises: 14,
+      type: "mixed",
+      color: "#a78bfa",
+      icon: "🔮"
+    },
+    {
+      id: 5,
+      lessons: 1,
+      exercisesPerLesson: 1,
+      totalExercises: 1,
+      type: "story",
+      color: "#f472b6",
+      icon: "📚"
+    },
+    {
+      id: 6,
+      lessons: 1,
+      exercisesPerLesson: 12,
+      totalExercises: 12,
+      type: "mixed",
+      color: "#34d399",
+      icon: "🏆"
+    }
+  ],
+
+  validation: {
+    traduccion: 71,
+    completar: 32,
+    seleccionar: 13,
+    historia: 2
+  }
+};
+
+function shuffleArray(arr) {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+function interleaveExercises(traducciones, completar, seleccionar) {
+  const allExercises = [
+    ...traducciones.map(e => ({ ...e, type: "traduccion" })),
+    ...completar.map(e => ({ ...e, type: "completar" })),
+    ...seleccionar.map(e => ({ pairs: e, type: "seleccionar" }))
+  ];
+  return shuffleArray(allExercises);
+}
+
+export function createNodeStructure(userData) {
+  const { traducciones, completar, seleccionar, historias } = userData;
+
+  let tradIndex = 0;
+  let compIndex = 0;
+  let selIndex = 0;
+  let histIndex = 0;
+
+  const nodes = MAP_CONFIG.nodes.map(nodeConfig => {
+    const nodeExercises = [];
+
+    if (nodeConfig.type === "story") {
+      const story = historias[histIndex];
+      if (story) {
+        nodeExercises.push({
+          type: "historia",
+          title: story.title,
+          content: story.content,
+          paragraphs: story.paragraphs
+        });
+        histIndex++;
+      }
+    } else {
+      const totalPerLesson = nodeConfig.exercisesPerLesson;
+      const totalLessons = nodeConfig.lessons;
+
+      const tradPerLesson = Math.round(totalPerLesson * 0.6);
+      const compPerLesson = Math.round(totalPerLesson * 0.25);
+      const selPerLesson = totalPerLesson - tradPerLesson - compPerLesson;
+
+      for (let lesson = 0; lesson < totalLessons; lesson++) {
+        const lessonTrad = traducciones.slice(tradIndex, tradIndex + tradPerLesson);
+        const lessonComp = completar.slice(compIndex, compIndex + compPerLesson);
+        const lessonSel = seleccionar.slice(selIndex, selIndex + selPerLesson);
+
+        const mixedExercises = interleaveExercises(lessonTrad, lessonComp, lessonSel);
+        nodeExercises.push(...mixedExercises);
+
+        tradIndex += tradPerLesson;
+        compIndex += compPerLesson;
+        selIndex += selPerLesson;
+      }
+
+      while (tradIndex < traducciones.length && nodeExercises.length < nodeConfig.totalExercises) {
+        nodeExercises.push({ type: "traduccion", ...traducciones[tradIndex] });
+        tradIndex++;
+      }
+      while (compIndex < completar.length && nodeExercises.length < nodeConfig.totalExercises) {
+        nodeExercises.push({ type: "completar", ...completar[compIndex] });
+        compIndex++;
+      }
+      while (selIndex < seleccionar.length && nodeExercises.length < nodeConfig.totalExercises) {
+        nodeExercises.push({ type: "seleccionar", pairs: seleccionar[selIndex] });
+        selIndex++;
+      }
+    }
+
+    return {
+      id: nodeConfig.id,
+      type: nodeConfig.type,
+      lessons: nodeConfig.lessons,
+      exercisesPerLesson: nodeConfig.exercisesPerLesson,
+      color: nodeConfig.color,
+      icon: nodeConfig.icon,
+      totalExercises: nodeConfig.totalExercises,
+      exercises: nodeExercises
+    };
+  });
+
+  return nodes;
+}
+
+export function validateInputData(data) {
+  const errors = [];
+  const { traducciones, completar, seleccionar, historias } = data;
+
+  if (!traducciones || traducciones.length !== MAP_CONFIG.validation.traduccion) {
+    errors.push(`Traducciones: ${MAP_CONFIG.validation.traduccion} requeridas (${traducciones?.length || 0} recibidas)`);
+  }
+  if (!completar || completar.length !== MAP_CONFIG.validation.completar) {
+    errors.push(`Completar: ${MAP_CONFIG.validation.completar} requeridas (${completar?.length || 0} recibidas)`);
+  }
+  if (!seleccionar || seleccionar.length !== MAP_CONFIG.validation.seleccionar) {
+    errors.push(`Seleccionar: ${MAP_CONFIG.validation.seleccionar} requeridas (${seleccionar?.length || 0} recibidas)`);
+  }
+  if (!historias || historias.length !== MAP_CONFIG.validation.historia) {
+    errors.push(`Historias: ${MAP_CONFIG.validation.historia} requeridas (${historias?.length || 0} recibidas)`);
+  }
+
+  return { valid: errors.length === 0, errors };
+}
+
+function createNodeSVG(node, progress) {
+  const configNode = MAP_CONFIG.nodes.find(n => n.id === node.id) || node;
+  const nodeColor = node.color || configNode.color || '#facc15';
+  const nodeIcon = node.icon || configNode.icon || '📌';
+  const totalLessons = node.lessons || configNode.lessons || 1;
+  const totalExercises = (node.exercises && node.exercises.length) || node.totalExercises || 1;
+  const exercisesPerLesson = node.exercisesPerLesson || configNode.exercisesPerLesson || 1;
+  const exercisesDone = progress.exercisesDone || 0;
+  const isCompleted = progress.completed || false;
+
+  const size = 120;
+  const strokeWidth = 5;
+  const radius = (size / 2) - strokeWidth - 2;
+  const center = size / 2;
+  const circumference = 2 * Math.PI * radius;
+
+  // Si solo 1 lección, anillo simple
+  if (totalLessons === 1) {
+    const percent = totalExercises ? (exercisesDone / totalExercises) : 0;
+    const dashOffset = circumference - (percent * circumference);
+    const ringColor = isCompleted ? '#4ade80' : nodeColor;
+
+    return `
+      <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" class="node-ring-svg">
+        <circle cx="${center}" cy="${center}" r="${radius}" 
+          fill="rgba(15,20,34,0.8)" stroke="#1e293b" stroke-width="${strokeWidth}" />
+        <circle cx="${center}" cy="${center}" r="${radius}" 
+          fill="none" stroke="${ringColor}" stroke-width="${strokeWidth + 1}" 
+          stroke-dasharray="${circumference}" stroke-dashoffset="${dashOffset}"
+          stroke-linecap="round" class="ring-fill" 
+          style="filter: drop-shadow(0 0 4px ${ringColor}40);" />
+        <text x="${center}" y="${center + 2}" text-anchor="middle" 
+          dominant-baseline="central" font-size="32" 
+          style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));">${nodeIcon}</text>
+        <text x="${center}" y="${center + 30}" text-anchor="middle" 
+          fill="${isCompleted ? '#4ade80' : '#94a3b8'}" font-size="9" font-weight="600">
+          ${exercisesDone}/${totalExercises}
+        </text>
+      </svg>
+    `;
+  }
+
+  // Múltiples lecciones: anillo segmentado
+  const gapAngle = 5;
+  const totalGapAngle = gapAngle * totalLessons;
+  const availableAngle = 360 - totalGapAngle;
+  const segmentAngle = availableAngle / totalLessons;
+
+  // Calcular segmentos
+  const segments = [];
+  for (let i = 0; i < totalLessons; i++) {
+    const lessonStart = i * exercisesPerLesson;
+    const lessonEnd = Math.min((i + 1) * exercisesPerLesson, totalExercises);
+    const results = progress.exerciseResults || [];
+    const lessonDone = results.slice(lessonStart, lessonEnd).filter(r => r).length;
+    const lessonTotal = lessonEnd - lessonStart;
+    segments.push({
+      done: lessonDone,
+      total: lessonTotal,
+      percent: lessonTotal ? (lessonDone / lessonTotal) : 0,
+      completed: lessonDone >= lessonTotal && lessonTotal > 0
+    });
+  }
+
+  let segmentsSvg = '';
+  let baseSvg = '';
+  let currentAngle = -90;
+
+  segments.forEach((seg, i) => {
+    const startAngle = currentAngle + (gapAngle / 2);
+    const endAngle = startAngle + segmentAngle;
+    const startRad = (startAngle * Math.PI) / 180;
+    const endRad = (endAngle * Math.PI) / 180;
+    const x1 = center + radius * Math.cos(startRad);
+    const y1 = center + radius * Math.sin(startRad);
+    const x2 = center + radius * Math.cos(endRad);
+    const y2 = center + radius * Math.sin(endRad);
+    const largeArc = segmentAngle > 180 ? 1 : 0;
+
+    // Base gris
+    baseSvg += `
+      <path d="M ${x1.toFixed(1)} ${y1.toFixed(1)} A ${radius} ${radius} 0 ${largeArc} 1 ${x2.toFixed(1)} ${y2.toFixed(1)}"
+        fill="none" stroke="#1e293b" stroke-width="${strokeWidth}" stroke-linecap="round" opacity="0.6" />
+    `;
+
+    // Segmento de progreso
+    if (seg.percent > 0) {
+      const segArcLength = seg.percent * segmentAngle;
+      const segEndAngle = startAngle + segArcLength;
+      const segEndRad = (segEndAngle * Math.PI) / 180;
+      const sx2 = center + radius * Math.cos(segEndRad);
+      const sy2 = center + radius * Math.sin(segEndRad);
+      const segLargeArc = segArcLength > 180 ? 1 : 0;
+
+      const segColor = seg.completed ? '#4ade80' : nodeColor;
+
+      segmentsSvg += `
+        <path d="M ${x1.toFixed(1)} ${y1.toFixed(1)} A ${radius} ${radius} 0 ${segLargeArc} 1 ${sx2.toFixed(1)} ${sy2.toFixed(1)}"
+          fill="none" stroke="${segColor}" stroke-width="${strokeWidth + 1}" 
+          stroke-linecap="round" style="filter: drop-shadow(0 0 3px ${segColor}40);" />
+      `;
+    }
+
+    currentAngle = startAngle + segmentAngle + gapAngle;
+  });
+
+  return `
+    <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" class="node-ring-svg">
+      <circle cx="${center}" cy="${center}" r="${radius - 1}" fill="rgba(15,20,34,0.9)" />
+      ${baseSvg}
+      ${segmentsSvg}
+      <text x="${center}" y="${center + 2}" text-anchor="middle" 
+        dominant-baseline="central" font-size="30" 
+        style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));">${nodeIcon}</text>
+      <text x="${center}" y="${center + 28}" text-anchor="middle" 
+        fill="${isCompleted ? '#4ade80' : '#94a3b8'}" font-size="9" font-weight="600">
+        ${exercisesDone}/${totalExercises}
+      </text>
+    </svg>
+  `;
+}
+
+export function renderMap(nodes, progress, callbacks) {
+  const mapList = document.getElementById("mapList");
+  if (!mapList) return;
+
+  if (!nodes || nodes.length === 0) {
+    mapList.innerHTML = `
+      <div style="text-align:center; padding:40px 20px; color:#94a3b8;">
+        <div style="font-size:3rem; margin-bottom:12px;">🗺️</div>
+        <p style="font-size:0.9rem;">Aún no hay ejercicios.<br>Importa tu lista para empezar</p>
+      </div>`;
+    return;
+  }
+
+  let firstUnlocked = 0;
+  for (let i = 0; i < nodes.length; i++) {
+    const nodeProgress = progress[i];
+    if (!nodeProgress || !nodeProgress.completed) {
+      firstUnlocked = i;
+      break;
+    }
+    firstUnlocked = i + 1;
+  }
+
+  mapList.innerHTML = `
+    <div class="map-path">
+      ${nodes.map((node, idx) => {
+        const nodeProgress = progress[idx] || { completed: false, exercisesDone: 0, exerciseResults: [] };
+        const configNode = MAP_CONFIG.nodes.find(n => n.id === node.id) || {};
+        const nodeColor = node.color || configNode.color || '#facc15';
+        const nodeType = node.type || configNode.type || 'mixed';
+        const totalLessons = node.lessons || configNode.lessons || 1;
+        const isCompleted = nodeProgress.completed || false;
+        const isCurrent = idx === firstUnlocked && !isCompleted;
+        const unlocked = idx <= firstUnlocked;
+        const exercisesDone = nodeProgress.exercisesDone || 0;
+        const totalExercises = (node.exercises && node.exercises.length) || node.totalExercises || 0;
+
+        const nodeSvg = createNodeSVG(node, nodeProgress);
+
+        // Posición en zigzag estilo Duolingo (offset horizontal alternante + ondulación)
+        const zigzagPattern = [0, 1, 2, 1, 0, -1, -2, -1];
+        const offsetUnit = zigzagPattern[idx % zigzagPattern.length];
+        const horizontalOffset = offsetUnit * 46; // px de desplazamiento lateral
+
+        // Determinar color del icono (sólido)
+        let iconColor = '#475569'; // gris por defecto (bloqueado)
+        if (isCompleted) iconColor = '#4ade80';
+        else if (isCurrent) iconColor = nodeColor;
+        else if (unlocked) iconColor = nodeColor + '99'; // con opacidad
+
+        // Calcular color del borde de la tarjeta
+        let cardBorderColor = '#1e293b';
+        if (isCompleted) cardBorderColor = '#4ade8040';
+        else if (isCurrent) cardBorderColor = nodeColor + '60';
+        else if (unlocked && exercisesDone > 0) cardBorderColor = nodeColor + '30';
+
+        // Tipo de ejercicio
+        const typeLabel = nodeType === 'story' ? 'Lectura' :
+                          totalLessons > 1 ? `${totalLessons} lecciones` :
+                          `${totalExercises} ejercicios`;
+
+        // Mini dots de lecciones
+        let lessonsDots = '';
+        if (totalLessons > 1) {
+          lessonsDots = `
+            <div class="node-lessons-row">
+              ${Array.from({length: totalLessons}, (_, i) => {
+                const lessonStart = i * (node.exercisesPerLesson || 1);
+                const lessonEnd = Math.min((i + 1) * (node.exercisesPerLesson || 1), totalExercises);
+                const results = nodeProgress.exerciseResults || [];
+                const lessonDone = results.slice(lessonStart, lessonEnd).filter(r => r).length;
+                const lessonTotal = lessonEnd - lessonStart;
+                const lessonCompleted = lessonDone >= lessonTotal && lessonTotal > 0;
+                return `
+                  <div class="node-lesson-dot ${lessonCompleted ? 'done' : lessonDone > 0 ? 'progress' : ''}"
+                       style="${lessonCompleted ? 'background:#4ade80;box-shadow:0 0 6px #4ade8060;' :
+                              lessonDone > 0 ? 'background:' + nodeColor + ';box-shadow:0 0 6px ' + nodeColor + '40;' : ''}">
+                  </div>`;
+              }).join('')}
+            </div>`;
+        }
+
+        const nodeTitle = nodeType === 'story' ? '📖 Historia ' + node.id :
+              totalLessons > 1 ? 'Lecciones ' + node.id :
+              'Ejercicios ' + node.id;
+
+        return `
+          <div class="map-node-wrapper ${!unlocked ? 'locked' : ''} ${isCurrent ? 'is-current' : ''}"
+               style="--node-offset: ${horizontalOffset}px; --node-color: ${nodeColor};">
+
+            <!-- Línea conectora tipo sendero -->
+            ${idx > 0 ? `<div class="map-connector ${progress[idx-1]?.completed ? 'done' : ''}"></div>` : ''}
+
+            ${isCurrent ? '<div class="current-node-badge">¡EMPIEZA AQUÍ!</div>' : ''}
+
+            <!-- Nodo circular estilo Duolingo -->
+            <button type="button"
+                 class="map-node-card ${isCompleted ? 'completed' : ''} ${isCurrent ? 'current' : ''} ${!unlocked ? 'disabled' : ''}"
+                 data-node="${idx}"
+                 aria-label="${nodeTitle}"
+                 style="border-color: ${cardBorderColor};">
+
+              <span class="map-node-pulse" style="background:${nodeColor};"></span>
+
+              <div class="map-node-svg" style="color: ${iconColor};">
+                ${nodeSvg}
+              </div>
+
+              <span class="node-status-badge">
+                ${isCompleted ? '<span class="node-check">✅</span>' :
+                  isCurrent ? '<span class="node-arrow">▶</span>' :
+                  unlocked ? '' : '<span class="node-lock">🔒</span>'}
+              </span>
+            </button>
+
+            <!-- Info debajo del nodo -->
+            <div class="map-node-info">
+              <span class="map-node-title" style="color: ${iconColor};">${nodeTitle}</span>
+              <span class="map-node-meta">${typeLabel}</span>
+              ${lessonsDots}
+            </div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+
+  // Event listeners
+  mapList.querySelectorAll('.map-node-card[data-node]').forEach(card => {
+    const nodeIdx = parseInt(card.dataset.node);
+    card.addEventListener('click', () => {
+      if (nodeIdx <= firstUnlocked) {
+        callbacks.openNode(nodeIdx);
+      } else {
+        callbacks.showToast("🔓 Completa el nodo anterior primero");
+      }
+    });
+  });
+}
+
+export function getExerciseTypeIcon(type) {
+  const icons = {
+    "traduccion": "📝",
+    "completar": "✏️",
+    "seleccionar": "🎯",
+    "historia": "📖"
+  };
+  return icons[type] || "📌";
+}
+
+export function getExerciseTypeName(type) {
+  const names = {
+    "traduccion": "Traducción",
+    "completar": "Completar",
+    "seleccionar": "Emparejar",
+    "historia": "Lectura"
+  };
+  return names[type] || type;
+}
   
+  // ==================== EJERCICIOS ====================
+// exercises/traduccion.js
+
+// Esta función se exporta para uso común
+export function normalizeWord(w) {
+  return String(w || "").toLowerCase().replace(/[^a-záéíóúüñ]/g, '');
+}
+
+export function alignWords(correct, user) {
+  const correctWords = correct.split(/\s+/);
+  const userWords = user.split(/\s+/);
+  const n = correctWords.length, m = userWords.length;
+  
+  const dp = Array.from({length: n+1}, () => Array(m+1).fill(0));
+  for (let i=1; i<=n; i++) {
+    for (let j=1; j<=m; j++) {
+      if (normalizeWord(correctWords[i-1]) === normalizeWord(userWords[j-1])) {
+        dp[i][j] = dp[i-1][j-1] + 1;
+      } else {
+        dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+      }
+    }
+  }
+  
+  let i = n, j = m;
+  const alignedCorrect = [];
+  const alignedUser = [];
+  
+  while (i > 0 || j > 0) {
+    if (i>0 && j>0 && normalizeWord(correctWords[i-1]) === normalizeWord(userWords[j-1])) {
+      alignedCorrect.unshift({word: correctWords[i-1], match: true});
+      alignedUser.unshift({word: userWords[j-1], match: true});
+      i--; j--;
+    } else if (j>0 && (i===0 || dp[i][j-1] >= dp[i-1][j])) {
+      alignedCorrect.unshift({word: '', placeholder: true});
+      alignedUser.unshift({word: userWords[j-1], match: false});
+      j--;
+    } else {
+      alignedCorrect.unshift({word: correctWords[i-1], match: false});
+      alignedUser.unshift({word: '', placeholder: true});
+      i--;
+    }
+  }
+  
+  return { alignedCorrect, alignedUser };
+}
+
+export function renderTraduccionExercise(exercise, container) {
+  container.innerHTML = `
+    <div class="question-bubble" id="spanishPrompt">${exercise.spanishWord || exercise.spanishWords}</div>
+    <textarea id="answerInput" class="answer-input" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
+    <div class="button-group">
+      <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
+      <button class="btn-action btn-continue" id="continueBtn" style="display: none;">➡️ Continuar</button>
+    </div>
+    <div class="mood-card">
+      <div class="mood-emoji" id="exerciseEmoji">🧸</div>
+      <div>
+        <strong id="exerciseMoodTitle">¡A traducir!</strong><br>
+        <span id="exerciseMoodText">Escribe y comprueba</span>
+      </div>
+    </div>
+  `;
+}
+
+export function showComparativeModal(exercise, userAnswer, onContinue) {
+  const correctWords = (exercise.englishWord || exercise.englishWords).split(/\s+/);
+  const { alignedCorrect, alignedUser } = alignWords(exercise.englishWord || exercise.englishWords, userAnswer);
+  
+  let correctHtml = alignedCorrect.map(item => {
+    if (item.placeholder) return `<span class="word-placeholder">-</span>`;
+    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${item.word}</span>`;
+  }).join(' ');
+  
+  let userHtml = alignedUser.map(item => {
+    if (item.placeholder) return `<span class="word-placeholder">-</span>`;
+    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${item.word}</span>`;
+  }).join(' ');
+  
+  const modal = document.createElement("div");
+  modal.className = "modal-overlay";
+  modal.innerHTML = `
+    <div class="modal-friend">
+      <h3>📊 Comparación palabra por palabra</h3>
+      <div class="comparison-text-block">
+        <p><strong>🇪🇸 Español:</strong><br>${exercise.spanishWord || exercise.spanishWords}</p>
+        <div class="compare-line">
+          <strong>✅ Correcto:</strong>
+          <div style="display:flex; flex-wrap:wrap; gap:4px;">${correctHtml}</div>
+        </div>
+        <div class="compare-line">
+          <strong>✏️ Tu respuesta:</strong>
+          <div style="display:flex; flex-wrap:wrap; gap:4px;">${userHtml}</div>
+        </div>
+      </div>
+      <div class="modal-buttons">
+        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  document.getElementById("modalContinueBtn").addEventListener("click", () => {
+    modal.remove();
+    if (onContinue) onContinue();
+  });
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.remove();
+      if (onContinue) onContinue();
+    }
+  });
+}
+
+export function getTraduccionReportEntry(exercise, userAnswer) {
+  return {
+    type: "traduccion",
+    original: exercise.spanishWord || exercise.spanishWords,
+    expected: exercise.englishWord || exercise.englishWords,
+    userAnswer: userAnswer
+  };
+}
+  
+// exercises/completar.js
+// NOTA: normalizeWord se importa desde traduccion.js en el build
+
+export function renderCompletarExercise(exercise, container, isRetry = false) {
+  const { spanishWord, englishSentence, options } = exercise;
+  
+  let html = englishSentence;
+  let inputIndex = 0;
+  
+  html = html.replace(/_____/g, () => {
+    const input = `<input type="text" class="completar-input" data-index="${inputIndex}" placeholder="${options[inputIndex]?.charAt(0) || ''}..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">`;
+    inputIndex++;
+    return input;
+  });
+  
+  container.innerHTML = `
+    ${isRetry ? '<div class="correction-notice">⚠️ Corrección: intenta de nuevo las palabras incorrectas</div>' : ''}
+    <div class="question-bubble">${spanishWord}</div>
+    <div class="input-area">
+      <div class="completar-sentence">${html}</div>
+    </div>
+    <div class="button-group">
+      <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
+      <button class="btn-action btn-continue" id="continueBtn" style="display: none;">➡️ Continuar</button>
+    </div>
+    <div class="mood-card">
+      <div class="mood-emoji" id="exerciseEmoji">✏️</div>
+      <div>
+        <strong id="exerciseMoodTitle">Completa las palabras</strong><br>
+        <span id="exerciseMoodText">Escribe la palabra correcta en cada espacio</span>
+      </div>
+    </div>
+  `;
+  
+  const inputs = container.querySelectorAll('.completar-input');
+  inputs.forEach((input, idx) => {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (idx < inputs.length - 1) {
+          inputs[idx + 1].focus();
+        } else {
+          document.getElementById('checkBtn')?.click();
+        }
+      }
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        if (idx < inputs.length - 1) {
+          inputs[idx + 1].focus();
+        }
+      }
+    });
+  });
+}
+
+export function checkCompletarAnswers(exercise, container) {
+  const { options } = exercise;
+  const inputs = container.querySelectorAll('.completar-input');
+  let allCorrect = true;
+  const userAnswers = [];
+  const results = [];
+  
+  inputs.forEach((input, idx) => {
+    const userAnswer = input.value.trim();
+    const correctAnswer = options[idx] || '';
+    const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase();
+    
+    userAnswers.push(userAnswer);
+    results.push({
+      index: idx,
+      userAnswer,
+      correctAnswer,
+      isCorrect
+    });
+    
+    if (isCorrect) {
+      input.classList.add('correct');
+      input.classList.remove('incorrect');
+      input.style.backgroundColor = 'rgba(74,222,128,0.1)';
+      input.readOnly = true;
+    } else {
+      input.classList.add('incorrect');
+      input.classList.remove('correct');
+      input.style.backgroundColor = 'rgba(248,113,113,0.1)';
+      allCorrect = false;
+    }
+  });
+  
+  return { allCorrect, userAnswers, results };
+}
+
+export function showCompletarModal(exercise, results, onContinue, onRetry) {
+  const { spanishWord, englishSentence, options } = exercise;
+  
+  let resultsHtml = results.map((r, idx) => {
+    const status = r.isCorrect ? '✅' : '❌';
+    const color = r.isCorrect ? '#4ade80' : '#f87171';
+    return `<div style="color:${color}; margin:4px 0;">
+      ${status} Espacio ${idx + 1}: Escribiste "${r.userAnswer || '(vacío)'}" | Correcto: "${r.correctAnswer}"
+    </div>`;
+  }).join('');
+  
+  const allCorrect = results.every(r => r.isCorrect);
+  
+  const modal = document.createElement("div");
+  modal.className = "modal-overlay";
+  modal.innerHTML = `
+    <div class="modal-friend">
+      <h3>${allCorrect ? '🎉 ¡Perfecto!' : '📝 Resultados'}</h3>
+      <div class="comparison-text-block">
+        <p><strong>🇪🇸 Español:</strong><br>${spanishWord}</p>
+        <p><strong>🇬🇧 Frase:</strong><br>${englishSentence}</p>
+        <p><strong>📊 Resultados:</strong></p>
+        ${resultsHtml}
+      </div>
+      <div class="modal-buttons">
+        ${!allCorrect ? `<button class="fun-btn" id="modalRetryBtn" style="background:#f59e0b; color:#1a120b;">🔄 Reintentar</button>` : ''}
+        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  document.getElementById("modalContinueBtn").addEventListener("click", () => {
+    modal.remove();
+    if (onContinue) onContinue(allCorrect);
+  });
+  
+  if (!allCorrect) {
+    document.getElementById("modalRetryBtn").addEventListener("click", () => {
+      modal.remove();
+      if (onRetry) onRetry();
+    });
+  }
+  
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.remove();
+      if (onContinue) onContinue(allCorrect);
+    }
+  });
+}
+
+export function getCompletarReportEntry(exercise, userAnswers) {
+  return {
+    type: "completar",
+    original: exercise.spanishWord,
+    expected: exercise.englishSentence,
+    options: exercise.options,
+    userAnswers: userAnswers
+  };
+}
+  
+// exercises/seleccionar.js
+
+export function renderSeleccionarExercise(exercise, container) {
+  const pairs = exercise.pairs || [];
+  
+  const englishWords = pairs.map(p => ({ word: p.englishWord, id: `en-${p.englishWord.replace(/\s+/g, '-')}` }));
+  const spanishWords = pairs.map(p => ({ word: p.spanishWord, id: `es-${p.spanishWord.replace(/\s+/g, '-')}` }));
+  
+  const shuffledEnglish = [...englishWords].sort(() => Math.random() - 0.5);
+  const shuffledSpanish = [...spanishWords].sort(() => Math.random() - 0.5);
+  
+  container.innerHTML = `
+    <div class="question-bubble">🎯 Empareja las palabras correctas</div>
+    <div class="selection-columns">
+      <div class="selection-column" id="englishColumn">
+        <h4 style="color:#60a5fa; text-align:center; margin-bottom:8px;">🇬🇧 Inglés</h4>
+        ${shuffledEnglish.map(w => `
+          <div class="selection-item english-item" data-id="${w.id}" data-word="${escapeHtml(w.word)}">
+            ${escapeHtml(w.word)}
+          </div>
+        `).join('')}
+      </div>
+      <div class="selection-column" id="spanishColumn">
+        <h4 style="color:#f59e0b; text-align:center; margin-bottom:8px;">🇪🇸 Español</h4>
+        ${shuffledSpanish.map(w => `
+          <div class="selection-item spanish-item" data-id="${w.id}" data-word="${escapeHtml(w.word)}">
+            ${escapeHtml(w.word)}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div class="mood-card">
+      <div class="mood-emoji" id="exerciseEmoji">🎯</div>
+      <div>
+        <strong id="exerciseMoodTitle">Selecciona los pares</strong><br>
+        <span id="exerciseMoodText">Haz clic en una palabra de cada columna</span>
+      </div>
+    </div>
+    <div id="selectionFeedback" style="text-align:center; min-height:24px; margin-top:8px;"></div>
+  `;
+  
+  // Estado de selección
+  let selectedEnglish = null;
+  let selectedSpanish = null;
+  const matchedPairs = new Set();
+  
+  const englishItems = container.querySelectorAll('.english-item');
+  const spanishItems = container.querySelectorAll('.spanish-item');
+  const feedbackEl = container.querySelector('#selectionFeedback');
+  
+  function resetSelection() {
+    if (selectedEnglish) {
+      selectedEnglish.classList.remove('selected');
+      selectedEnglish = null;
+    }
+    if (selectedSpanish) {
+      selectedSpanish.classList.remove('selected');
+      selectedSpanish = null;
+    }
+  }
+  
+  englishItems.forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      
+      // Si ya hay un inglés seleccionado, desseleccionarlo
+      if (selectedEnglish && selectedEnglish !== item) {
+        selectedEnglish.classList.remove('selected');
+      }
+      
+      // Toggle selección
+      if (selectedEnglish === item) {
+        item.classList.remove('selected');
+        selectedEnglish = null;
+      } else {
+        item.classList.add('selected');
+        selectedEnglish = item;
+      }
+      
+      // Si ambos están seleccionados, verificar par
+      if (selectedEnglish && selectedSpanish) {
+        checkPair(selectedEnglish, selectedSpanish, pairs, matchedPairs, container, feedbackEl, resetSelection);
+      }
+    });
+  });
+  
+  spanishItems.forEach(item => {
+    item.addEventListener('click', () => {
+      if (item.classList.contains('matched')) return;
+      
+      // Si ya hay un español seleccionado, desseleccionarlo
+      if (selectedSpanish && selectedSpanish !== item) {
+        selectedSpanish.classList.remove('selected');
+      }
+      
+      // Toggle selección
+      if (selectedSpanish === item) {
+        item.classList.remove('selected');
+        selectedSpanish = null;
+      } else {
+        item.classList.add('selected');
+        selectedSpanish = item;
+      }
+      
+      // Si ambos están seleccionados, verificar par
+      if (selectedEnglish && selectedSpanish) {
+        checkPair(selectedEnglish, selectedSpanish, pairs, matchedPairs, container, feedbackEl, resetSelection);
+      }
+    });
+  });
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+function checkPair(englishEl, spanishEl, pairs, matchedPairs, container, feedbackEl, resetSelection) {
+  const englishWord = englishEl.dataset.word;
+  const spanishWord = spanishEl.dataset.word;
+  
+  const isCorrectPair = pairs.some(p => 
+    p.englishWord === englishWord && p.spanishWord === spanishWord
+  );
+  
+  if (isCorrectPair) {
+    // Marcar como emparejado
+    englishEl.classList.add('matched');
+    spanishEl.classList.add('matched');
+    englishEl.classList.remove('selected');
+    spanishEl.classList.remove('selected');
+    
+    matchedPairs.add(englishWord + '|||' + spanishWord);
+    
+    // Feedback positivo
+    if (feedbackEl) {
+      feedbackEl.innerHTML = '<span style="color:#4ade80;">✅ ¡Par correcto!</span>';
+      setTimeout(() => { feedbackEl.innerHTML = ''; }, 1500);
+    }
+    
+    // Resetear selección
+    resetSelection();
+    
+    // Verificar si todos están emparejados
+    if (matchedPairs.size === pairs.length) {
+      setTimeout(() => {
+        const event = new CustomEvent('all-matched');
+        container.dispatchEvent(event);
+      }, 300);
+    }
+  } else {
+    // Marcar error temporalmente
+    englishEl.classList.add('wrong');
+    spanishEl.classList.add('wrong');
+    
+    // Feedback negativo
+    if (feedbackEl) {
+      feedbackEl.innerHTML = '<span style="color:#f87171;">❌ Par incorrecto, intenta de nuevo</span>';
+      setTimeout(() => { feedbackEl.innerHTML = ''; }, 2000);
+    }
+    
+    // Remover después de un tiempo y resetear selección
+    setTimeout(() => {
+      englishEl.classList.remove('wrong', 'selected');
+      spanishEl.classList.remove('wrong', 'selected');
+      resetSelection();
+    }, 600);
+  }
+}
+
+export function showSeleccionarCompleteModal(pairs, onContinue) {
+  const modal = document.createElement("div");
+  modal.className = "modal-overlay";
+  modal.innerHTML = `
+    <div class="modal-friend">
+      <h3>🎉 ¡Todos los pares correctos!</h3>
+      <div class="comparison-text-block">
+        <p><strong>Pares emparejados:</strong></p>
+        ${pairs.map(p => `
+          <div style="display:flex; justify-content:space-between; align-items:center; margin:6px 0; padding:8px 12px; background:rgba(74,222,128,0.1); border-radius:8px;">
+            <span style="color:#60a5fa; font-weight:600;">${escapeHtml(p.englishWord)}</span>
+            <span style="font-size:1.2rem;">↔️</span>
+            <span style="color:#f59e0b; font-weight:600;">${escapeHtml(p.spanishWord)}</span>
+          </div>
+        `).join('')}
+      </div>
+      <div class="modal-buttons">
+        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  const continueHandler = () => {
+    modal.remove();
+    if (onContinue) onContinue();
+  };
+  
+  document.getElementById("modalContinueBtn").addEventListener("click", continueHandler);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) continueHandler();
+  });
+}
+  
+// exercises/historia.js
+
+export function renderHistoriaExercise(exercise, container) {
+  const { title, content, paragraphs } = exercise;
+  
+  const paragraphsHtml = (paragraphs || [content]).map(p => 
+    `<p class="story-paragraph">${p}</p>`
+  ).join('');
+  
+  container.innerHTML = `
+    <div class="story-content">
+      <div class="story-title">📖 ${title}</div>
+      ${paragraphsHtml}
+    </div>
+    <div class="button-group">
+      <button class="btn-action btn-continue" id="markReadBtn" style="flex:1; background: #4ade80; color: #064e3b;">
+        ✅ Marcar como leído
+      </button>
+    </div>
+    <div class="mood-card">
+      <div class="mood-emoji">📚</div>
+      <div>
+        <strong>Lectura</strong><br>
+        <span>Lee y comprende la historia. Marca como leído para continuar.</span>
+      </div>
+    </div>
+  `;
+  
+  container.querySelector('#markReadBtn').addEventListener('click', () => {
+    const event = new CustomEvent('story-read');
+    container.dispatchEvent(event);
+  });
+}
+  
+  // ==================== LÓGICA PRINCIPAL ====================
+  
+
   let currentUser = null;
   let userDocRef = null;
   let unsubscribeSnapshot = null;
   let saveTimeout = null;
   
   const AppState = {
-    exercises: [],
     nodes: [],
+    progress: {},
     activeNodeIndex: 0,
-    activeExerciseOffset: 0,
-    attempts: {},
-    isSyncing: false
+    activeExerciseIndex: 0,
+    failedExercises: [],
+    isSyncing: false,
+    reportEntries: []
   };
 
   function toast(msg) {
@@ -712,96 +3109,44 @@
     }
   }
 
-  function normalizeEntry(item) {
-    const spanish = item.spanishWord ?? item.spanish ?? "";
-    const english = item.englishWord ?? item.english ?? "";
-    if(!spanish.trim() || !english.trim()) return null;
-    return { spanishWords: String(spanish).trim(), englishWords: String(english).trim() };
-  }
-
-  function chunk(arr, n) { 
-    let out = []; 
-    for(let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i + n));
-    return out; 
-  }
-
   async function saveToFirebase() {
     if(AppState.isSyncing || !currentUser) return;
-    showLoading(true, "💾 Guardando...");
     AppState.isSyncing = true;
     try {
-      const exercisesObj = {};
-      AppState.exercises.forEach((ex, idx) => {
-        exercisesObj[idx] = ex;
-      });
-      
-      const nodesObj = {};
-      AppState.nodes.forEach((node, idx) => {
-        nodesObj[idx] = node;
-      });
-      
-      const attemptsObj = {};
-      Object.keys(AppState.attempts).forEach(key => {
-        attemptsObj[key] = AppState.attempts[key];
-      });
-      
       await setDoc(userDocRef, {
         username: currentUser,
-        exercises: exercisesObj,
-        nodes: nodesObj,
+        nodes: JSON.stringify(AppState.nodes),
+        progress: JSON.stringify(AppState.progress),
         activeNodeIndex: AppState.activeNodeIndex,
-        activeExerciseOffset: AppState.activeExerciseOffset,
-        attempts: attemptsObj,
+        activeExerciseIndex: AppState.activeExerciseIndex,
+        reportEntries: JSON.stringify(AppState.reportEntries),
         lastUpdated: new Date().toISOString()
       });
-      console.log("✅ Guardado en Firebase");
     } catch (error) {
       console.error("Error guardando:", error);
-      toast("⚠️ Error al guardar: " + error.message);
+      toast("⚠️ Error al guardar");
     } finally {
       AppState.isSyncing = false;
-      showLoading(false);
     }
   }
 
   async function loadFromFirebase(username) {
     showLoading(true, "🌐 Cargando datos...");
     try {
-      const userDoc = doc(db, "english_trainer_users", username);
+      const userDoc = doc(db, "english_trainer_users_v3", username);
       const docSnap = await getDoc(userDoc);
       if (docSnap.exists()) {
         const data = docSnap.data();
-        
-        const exercises = [];
-        if(data.exercises) {
-          Object.keys(data.exercises).forEach(key => {
-            exercises[parseInt(key)] = data.exercises[key];
-          });
-        }
-        
-        const nodes = [];
-        if(data.nodes) {
-          Object.keys(data.nodes).forEach(key => {
-            nodes[parseInt(key)] = data.nodes[key];
-          });
-        }
-        
-        AppState.exercises = exercises.filter(e => e);
-        AppState.nodes = nodes.filter(n => n && n.length > 0);
+        AppState.nodes = JSON.parse(data.nodes || '[]');
+        AppState.progress = JSON.parse(data.progress || '{}');
         AppState.activeNodeIndex = data.activeNodeIndex || 0;
-        AppState.activeExerciseOffset = data.activeExerciseOffset || 0;
-        AppState.attempts = data.attempts || {};
-        
-        if((!AppState.nodes || AppState.nodes.length === 0) && AppState.exercises.length > 0) {
-          AppState.nodes = chunk(AppState.exercises, EXERCISES_PER_NODE);
-        }
-        console.log("✅ Cargado:", AppState.exercises.length, "ejercicios");
+        AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
+        AppState.reportEntries = JSON.parse(data.reportEntries || '[]');
         return true;
       }
       return false;
     } catch (error) {
       console.error("Error cargando:", error);
-      toast("⚠️ Error al cargar: " + error.message);
       return false;
     } finally {
       showLoading(false);
@@ -815,42 +3160,17 @@
     unsubscribeSnapshot = onSnapshot(userDocRef, (docSnap) => {
       if (docSnap.exists() && !AppState.isSyncing && currentUser) {
         const data = docSnap.data();
-        
-        const exercises = [];
-        if(data.exercises) {
-          Object.keys(data.exercises).forEach(key => {
-            exercises[parseInt(key)] = data.exercises[key];
-          });
-        }
-        
-        const nodes = [];
-        if(data.nodes) {
-          Object.keys(data.nodes).forEach(key => {
-            nodes[parseInt(key)] = data.nodes[key];
-          });
-        }
-        
-        const newExercises = exercises.filter(e => e);
-        const exercisesChanged = JSON.stringify(newExercises) !== JSON.stringify(AppState.exercises);
-        
-        if (exercisesChanged) {
-          console.log("🔄 Sincronización en tiempo real");
-          AppState.exercises = newExercises;
-          AppState.nodes = nodes.filter(n => n && n.length > 0);
+        const remoteNodes = JSON.parse(data.nodes || '[]');
+        if (JSON.stringify(remoteNodes) !== JSON.stringify(AppState.nodes)) {
+          AppState.nodes = remoteNodes;
+          AppState.progress = JSON.parse(data.progress || '{}');
           AppState.activeNodeIndex = data.activeNodeIndex || 0;
-          AppState.activeExerciseOffset = data.activeExerciseOffset || 0;
-          AppState.attempts = data.attempts || {};
-          
-          if((!AppState.nodes || AppState.nodes.length === 0) && AppState.exercises.length > 0) {
-            AppState.nodes = chunk(AppState.exercises, EXERCISES_PER_NODE);
-          }
-          
-          renderMap();
+          AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
+          renderMapView();
           updateStats();
-          if(document.getElementById("exerciseScreen")?.classList.contains("active")) renderExercise();
         }
       }
-    }, (error) => console.error("Error en snapshot:", error));
+    });
   }
 
   function debounceSave() {
@@ -858,254 +3178,312 @@
     saveTimeout = setTimeout(() => saveToFirebase(), 800);
   }
 
-  function normalizeWord(w) {
-    return String(w || "").toLowerCase().replace(/[^a-záéíóúüñ]/g, '');
+  const mainScreens = {
+    import: document.getElementById("importScreen"),
+    map: document.getElementById("mapScreen"),
+    exercise: document.getElementById("exerciseScreen")
+  };
+  
+  function showMainView(name) {
+    Object.keys(mainScreens).forEach(k => {
+      if(mainScreens[k]) mainScreens[k].classList.toggle("active", k === name);
+    });
   }
 
-  function alignWords(correct, user) {
-    const n = correct.length, m = user.length;
-    const dp = Array.from({length: n+1}, () => Array(m+1).fill(0));
-    for (let i=1; i<=n; i++) {
-      for (let j=1; j<=m; j++) {
-        if (normalizeWord(correct[i-1]) === normalizeWord(user[j-1])) {
-          dp[i][j] = dp[i-1][j-1] + 1;
-        } else {
-          dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
-        }
-      }
-    }
-    // Reconstruir alineación
-    let i = n, j = m;
-    const alignedCorrect = [];
-    const alignedUser = [];
-    while (i > 0 || j > 0) {
-      if (i>0 && j>0 && normalizeWord(correct[i-1]) === normalizeWord(user[j-1])) {
-        alignedCorrect.unshift({word: correct[i-1], match: true});
-        alignedUser.unshift({word: user[j-1], match: true});
-        i--; j--;
-      } else if (j>0 && (i===0 || dp[i][j-1] >= dp[i-1][j])) {
-        // palabra extra del usuario
-        alignedCorrect.unshift({word: '', placeholder: true});
-        alignedUser.unshift({word: user[j-1], match: false});
-        j--;
-      } else {
-        // palabra faltante en usuario
-        alignedCorrect.unshift({word: correct[i-1], match: false});
-        alignedUser.unshift({word: '', placeholder: true});
-        i--;
-      }
-    }
-    return { alignedCorrect, alignedUser };
-  }
-
-  function renderMap() {
-    const mapDiv = document.getElementById("mapList");
-    if(!mapDiv) return;
-    if(!AppState.nodes || AppState.nodes.length === 0) { 
-      mapDiv.innerHTML = "<div class='sub-fun' style='text-align:center; padding:20px;'>🌟 Aún no hay ejercicios.<br>📝 Importa tu lista para empezar</div>"; 
-      return; 
-    }
-    
-    let firstUnlocked = 0;
-    for(let i = 0; i < AppState.nodes.length; i++) {
-      const node = AppState.nodes[i];
-      if(!node || !node.length) { firstUnlocked = i; break; }
-      const nodeStart = i * EXERCISES_PER_NODE;
-      const allAttempted = node.every((_, idx) => (AppState.attempts[nodeStart + idx]?.length ?? 0) > 0);
-      if(!allAttempted) { firstUnlocked = i; break; }
-      else firstUnlocked = i + 1;
-    }
-    
-    mapDiv.innerHTML = "";
-    for(let idx = 0; idx < AppState.nodes.length; idx++) {
-      const node = AppState.nodes[idx];
-      if(!node || !node.length) continue;
-      const nodeStart = idx * EXERCISES_PER_NODE;
-      const statuses = node.map((_, eidx) => (AppState.attempts[nodeStart + eidx]?.length ?? 0) > 0);
-      const resolvedCount = statuses.filter(Boolean).length;
-      const completed = resolvedCount === node.length;
-      const unlocked = idx <= firstUnlocked;
-      const isCurrent = (idx === firstUnlocked && !completed) || (idx === AppState.activeNodeIndex && !completed);
+  function loadAllData() {
+    try {
+      const traducciones = JSON.parse(document.getElementById("traduccionesInput").value.trim() || '[]');
+      const completar = JSON.parse(document.getElementById("completarInput").value.trim() || '[]');
+      const seleccionar = JSON.parse(document.getElementById("seleccionarInput").value.trim() || '[]');
+      const historias = JSON.parse(document.getElementById("historiasInput").value.trim() || '[]');
       
-      const div = document.createElement("div");
-      div.className = `node-card ${completed ? "completed" : ""} ${isCurrent ? "current" : ""} ${unlocked ? "" : "locked"}`;
-      div.innerHTML = `
-        <div class="node-header">
-          <span class="node-title">📌 Nodo ${idx + 1}</span>
-          <span class="pill-status ${completed ? "good" : isCurrent ? "current-pill" : ""}">${completed ? "✅ completo" : isCurrent ? "⭐ actual" : "🔒 bloqueado"}</span>
-        </div>
-        <div class="dots-progress">${node.map((_, i) => `<div class="dot-ex ${statuses[i] ? "approved" : ""}"></div>`).join("")}</div>
-        <div class="bar-progress"><div class="bar-fill" style="width:${Math.round((resolvedCount / node.length) * 100)}%"></div></div>
-        <div class="sub-fun" style="margin-top:6px;">${resolvedCount}/${node.length} ejercicios</div>
-      `;
-      if(unlocked) div.addEventListener("click", () => openNode(idx));
-      else div.addEventListener("click", () => toast("🔓 Completa el nodo anterior primero"));
-      mapDiv.appendChild(div);
+      const validation = validateInputData({ traducciones, completar, seleccionar, historias });
+      
+      if (!validation.valid) {
+        toast("❌ " + validation.errors.join(" | "));
+        return;
+      }
+      
+      AppState.nodes = createNodeStructure({ traducciones, completar, seleccionar, historias });
+      AppState.progress = {};
+      AppState.activeNodeIndex = 0;
+      AppState.activeExerciseIndex = 0;
+      AppState.failedExercises = [];
+      AppState.reportEntries = [];
+      
+      AppState.nodes.forEach((node, idx) => {
+        AppState.progress[idx] = {
+          completed: false,
+          exercisesDone: 0,
+          exerciseResults: []
+        };
+      });
+      
+      debounceSave();
+      renderMapView();
+      updateStats();
+      showMainView("map");
+      toast("🎒 " + AppState.nodes.length + " nodos creados exitosamente");
+    } catch(e) {
+      toast("❌ JSON inválido: " + e.message);
     }
+  }
+
+  function renderMapView() {
+    const callbacks = {
+      openNode: openNode,
+      showToast: toast
+    };
+    renderMap(AppState.nodes, AppState.progress, callbacks);
   }
 
   function updateStats() {
     const container = document.getElementById("statsContainer");
     if(!container) return;
-    const total = AppState.exercises.length;
-    const completed = Object.values(AppState.attempts).filter(arr => arr?.length > 0).length;
-    const percent = total ? Math.round((completed / total) * 100) : 0;
+    
+    let totalExercises = 0;
+    let completedExercises = 0;
+    
+    AppState.nodes.forEach((node, idx) => {
+      totalExercises += node.exercises.length;
+      completedExercises += (AppState.progress[idx]?.exercisesDone || 0);
+    });
+    
+    const percent = totalExercises ? Math.round((completedExercises / totalExercises) * 100) : 0;
+    const completedNodes = Object.values(AppState.progress).filter(p => p.completed).length;
+    
     container.innerHTML = `
-      <div class="stat-bubble">📚 Total<br><strong>${total}</strong></div>
-      <div class="stat-bubble">✅ Intentados<br><strong style="color:#4ade80">${completed}</strong></div>
+      <div class="stat-bubble">📚 Total<br><strong>${totalExercises}</strong></div>
+      <div class="stat-bubble">✅ Completados<br><strong style="color:#4ade80">${completedExercises}</strong></div>
       <div class="stat-bubble">🎯 Progreso<br><strong>${percent}%</strong></div>
-      <div class="stat-bubble">⭐ Estrellas<br><strong>${Math.floor(completed / EXERCISES_PER_NODE)}⭐</strong></div>
+      <div class="stat-bubble">⭐ Nodos<br><strong>${completedNodes}/${AppState.nodes.length}</strong></div>
     `;
   }
 
   function openNode(nodeIndex) {
-    if(!AppState.nodes[nodeIndex]?.length) return;
+    if (!AppState.nodes[nodeIndex]?.exercises?.length) return;
+    
     AppState.activeNodeIndex = nodeIndex;
-    const start = nodeIndex * EXERCISES_PER_NODE;
-    let firstPending = 0;
-    for(let i = 0; i < AppState.nodes[nodeIndex].length; i++) {
-      if(!(AppState.attempts[start + i]?.length > 0)) { firstPending = i; break; }
+    AppState.activeExerciseIndex = 0;
+    AppState.failedExercises = [];
+    
+    const nodeProgress = AppState.progress[nodeIndex] || { exercisesDone: 0, exerciseResults: [] };
+    const results = nodeProgress.exerciseResults || [];
+    
+    for (let i = 0; i < AppState.nodes[nodeIndex].exercises.length; i++) {
+      if (!results[i]) {
+        AppState.activeExerciseIndex = i;
+        break;
+      }
     }
-    AppState.activeExerciseOffset = firstPending;
+    
     debounceSave();
     renderExercise();
     showMainView("exercise");
-    toast(`📖 Nodo ${nodeIndex + 1} abierto`);
+    toast("📖 " + AppState.nodes[nodeIndex].name + " abierto");
   }
 
   function renderExercise() {
-    if(!AppState.nodes?.length) { showMainView("map"); return; }
     const node = AppState.nodes[AppState.activeNodeIndex];
-    if(!node?.length) { showMainView("map"); return; }
-    const exIndex = AppState.activeExerciseOffset;
-    if(exIndex >= node.length) { AppState.activeExerciseOffset = 0; debounceSave(); showMainView("map"); return; }
-    const globalIndex = AppState.activeNodeIndex * EXERCISES_PER_NODE + exIndex;
-    const exercise = node[exIndex];
-    if(!exercise) { showMainView("map"); return; }
+    if (!node?.exercises?.length) {
+      showMainView("map");
+      return;
+    }
     
-    const isAttempted = (AppState.attempts[globalIndex]?.length ?? 0) > 0;
-    document.getElementById("nodeTag").innerHTML = `📌 Nodo ${AppState.activeNodeIndex + 1}`;
-    document.getElementById("exTag").innerHTML = `📝 ${exIndex + 1}/${node.length}`;
-    document.getElementById("attemptTag").innerHTML = `🎯 intentos: ${AppState.attempts[globalIndex]?.length || 0}`;
-    document.getElementById("spanishPrompt").innerHTML = exercise.spanishWords;
+    const exIndex = AppState.activeExerciseIndex;
+    if (exIndex >= node.exercises.length) {
+      AppState.progress[AppState.activeNodeIndex].completed = true;
+      debounceSave();
+      renderMapView();
+      updateStats();
+      showMainView("map");
+      burstConfetti();
+      toast("🎉 ¡" + node.name + " completado!");
+      return;
+    }
     
-    const answerInp = document.getElementById("answerInput");
+    const exercise = node.exercises[exIndex];
+    const container = document.getElementById("exerciseContainer");
+    
+    document.getElementById("nodeTag").innerHTML = "📌 " + node.name;
+    document.getElementById("exTag").innerHTML = "📝 " + (exIndex + 1) + "/" + node.exercises.length;
+    document.getElementById("exTypeTag").innerHTML = getExerciseTypeIcon(exercise.type) + " " + getExerciseTypeName(exercise.type);
+    
+    const isRetry = AppState.failedExercises.includes(exIndex);
+    
+    switch(exercise.type) {
+      case "traduccion":
+        renderTraduccionExercise(exercise, container);
+        setupTraduccionListeners(exercise);
+        break;
+      case "completar":
+        renderCompletarExercise(exercise, container, isRetry);
+        setupCompletarListeners(exercise);
+        break;
+      case "seleccionar":
+        renderSeleccionarExercise(exercise, container);
+        setupSeleccionarListeners(exercise);
+        break;
+      case "historia":
+        renderHistoriaExercise(exercise, container);
+        setupHistoriaListeners();
+        break;
+    }
+    
+    document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Corrección de error" : "✏️ Tu turno";
+  }
+
+  function setupTraduccionListeners(exercise) {
     const checkBtn = document.getElementById("checkBtn");
-    const contBtn = document.getElementById("continueBtn");
+    if (checkBtn) {
+      checkBtn.onclick = () => {
+        const answerInput = document.getElementById("answerInput");
+        if (!answerInput) return;
+        const userAnswer = answerInput.value.trim();
+        if (!userAnswer) {
+          toast("📝 Escribe algo");
+          return;
+        }
+        
+        AppState.reportEntries.push(getTraduccionReportEntry(exercise, userAnswer));
+        
+        showComparativeModal(exercise, userAnswer, () => {
+          advanceExercise();
+        });
+      };
+    }
     
-    if(isAttempted) {
-      answerInp.style.display = "none";
-      checkBtn.style.display = "none";
-      contBtn.style.display = "block";
-      document.getElementById("exerciseEmoji").innerHTML = "✅";
-      document.getElementById("exerciseMoodTitle").innerText = "¡Intentado!";
-      document.getElementById("exerciseMoodText").innerText = "Continúa al siguiente";
-      document.getElementById("resultLine").innerHTML = "✔️ Ejercicio registrado";
-    } else {
-      answerInp.style.display = "block";
-      answerInp.value = "";
-      checkBtn.style.display = "flex";
-      contBtn.style.display = "none";
-      document.getElementById("exerciseEmoji").innerHTML = "🧸";
-      document.getElementById("exerciseMoodTitle").innerText = "¡Traduce!";
-      document.getElementById("exerciseMoodText").innerText = "Escribe tu versión";
-      document.getElementById("resultLine").innerHTML = "✍️ Escribe y comprueba";
+    const answerInput = document.getElementById("answerInput");
+    if (answerInput) {
+      answerInput.onkeydown = (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          document.getElementById("checkBtn")?.click();
+        }
+      };
     }
   }
 
-  async function checkExercise() {
-    const node = AppState.nodes[AppState.activeNodeIndex];
-    if(!node) return;
-    const exIndex = AppState.activeExerciseOffset;
-    const globalIndex = AppState.activeNodeIndex * EXERCISES_PER_NODE + exIndex;
-    const exercise = node[exIndex];
-    const userAnswer = document.getElementById("answerInput").value.trim();
-    if(!userAnswer) { toast("📝 Escribe algo"); return; }
+  function setupCompletarListeners(exercise) {
+    const checkBtn = document.getElementById("checkBtn");
+    if (checkBtn) {
+      checkBtn.onclick = () => {
+        const container = document.getElementById("exerciseContainer");
+        const result = checkCompletarAnswers(exercise, container);
+        const { allCorrect, userAnswers, results } = result;
+        
+        AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers));
+        
+        showCompletarModal(exercise, results, 
+          (success) => {
+            if (success || !allCorrect) {
+              advanceExercise();
+            }
+          },
+          () => {
+            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
+              AppState.failedExercises.push(AppState.activeExerciseIndex);
+            }
+            renderExercise();
+          }
+        );
+        
+        if (allCorrect) {
+          document.getElementById("checkBtn").style.display = "none";
+          const continueBtn = document.getElementById("continueBtn");
+          if (continueBtn) continueBtn.style.display = "flex";
+        }
+      };
+    }
     
-    // Almacenar el intento
-    const attempts = AppState.attempts[globalIndex] || [];
-    attempts.push(userAnswer);
-    AppState.attempts[globalIndex] = attempts;
+    const continueBtn = document.getElementById("continueBtn");
+    if (continueBtn) {
+      continueBtn.onclick = () => {
+        advanceExercise();
+      };
+    }
+  }
+
+  function setupSeleccionarListeners(exercise) {
+    const container = document.getElementById("exerciseContainer");
+    if (container) {
+      container.addEventListener("all-matched", () => {
+        showSeleccionarCompleteModal(exercise.pairs, () => {
+          advanceExercise();
+        });
+      });
+    }
+  }
+
+  function setupHistoriaListeners() {
+    const container = document.getElementById("exerciseContainer");
+    if (container) {
+      container.addEventListener("story-read", () => {
+        advanceExercise();
+      });
+    }
+  }
+
+  function advanceExercise() {
+    const node = AppState.nodes[AppState.activeNodeIndex];
+    const exIndex = AppState.activeExerciseIndex;
+    
+    if (!AppState.progress[AppState.activeNodeIndex]) {
+      AppState.progress[AppState.activeNodeIndex] = { completed: false, exercisesDone: 0, exerciseResults: [] };
+    }
+    
+    if (!AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex]) {
+      AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex] = true;
+      AppState.progress[AppState.activeNodeIndex].exercisesDone = 
+        (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
+    }
+    
+    AppState.failedExercises = AppState.failedExercises.filter(i => i !== exIndex);
+    
+    if (AppState.failedExercises.length > 0) {
+      AppState.activeExerciseIndex = AppState.failedExercises[0];
+    } else {
+      AppState.activeExerciseIndex++;
+    }
     
     debounceSave();
-    // Mostrar modal comparativo mejorado
-    showComparativeModal(exercise, userAnswer);
+    renderExercise();
   }
 
-  function showComparativeModal(exercise, userAnswer) {
-    const correctWords = exercise.englishWords.split(/\s+/);
-    const userWords = userAnswer.split(/\s+/);
+  function buildReport() {
+    let lines = ["📘 INFORME DE APRENDIZAJE\n" + "=".repeat(50) + "\n"];
     
-    const { alignedCorrect, alignedUser } = alignWords(correctWords, userWords);
-    
-    let correctHtml = alignedCorrect.map(item => {
-      if (item.placeholder) return `<span class="word-placeholder">-</span>`;
-      return `<span class="${item.match ? 'word-correct' : 'word-error'}">${item.word}</span>`;
-    }).join(' ');
-    
-    let userHtml = alignedUser.map(item => {
-      if (item.placeholder) return `<span class="word-placeholder">-</span>`;
-      return `<span class="${item.match ? 'word-correct' : 'word-error'}">${item.word}</span>`;
-    }).join(' ');
-    
-    const modal = document.createElement("div");
-    modal.className = "modal-overlay";
-    modal.innerHTML = `
-      <div class="modal-friend">
-        <h3>📊 Comparación palabra por palabra</h3>
-        <div class="comparison-text-block">
-          <p><strong>🇪🇸 Español:</strong><br>${exercise.spanishWords}</p>
-          <div class="compare-line">
-            <strong>✅ Correcto:</strong>
-            <div style="display:flex; flex-wrap:wrap; gap:4px;">${correctHtml}</div>
-          </div>
-          <div class="compare-line">
-            <strong>✏️ Tu respuesta:</strong>
-            <div style="display:flex; flex-wrap:wrap; gap:4px;">${userHtml}</div>
-          </div>
-        </div>
-        <div class="modal-buttons">
-          <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-    document.getElementById("modalContinueBtn").addEventListener("click", () => {
-      modal.remove();
-      continueExercise();
-    });
-    modal.addEventListener("click", (e) => { if(e.target === modal) modal.remove(); });
-  }
-
-  function continueExercise() {
-    const node = AppState.nodes[AppState.activeNodeIndex];
-    if(!node) return;
-    const globalIndex = AppState.activeNodeIndex * EXERCISES_PER_NODE + AppState.activeExerciseOffset;
-    if(!((AppState.attempts[globalIndex]?.length ?? 0) > 0)) { 
-      toast("⚠️ Primero intenta el ejercicio"); 
-      return; 
-    }
-    
-    if(AppState.activeExerciseOffset < node.length - 1) {
-      AppState.activeExerciseOffset++;
-      debounceSave();
-      renderExercise();
-      toast("📚 Siguiente ejercicio");
-    } else {
-      burstConfetti();
-      toast(`🎉 ¡Nodo ${AppState.activeNodeIndex + 1} completado!`);
-      if(AppState.activeNodeIndex + 1 < AppState.nodes.length) {
-        AppState.activeNodeIndex++;
-        AppState.activeExerciseOffset = 0;
-        debounceSave();
-        renderMap();
-        updateStats();
-        showMainView("map");
-      } else {
-        toast("🏆 ¡Felicidades! Completaste todo");
-        showMainView("map");
+    AppState.reportEntries.forEach((entry, idx) => {
+      if (entry.type === "traduccion") {
+        lines.push((idx + 1) + ". [Traducción] " + entry.original);
+        lines.push("   ✅ Esperado: " + entry.expected);
+        lines.push("   ✏️ Usuario: " + entry.userAnswer);
+        lines.push("");
+      } else if (entry.type === "completar") {
+        lines.push((idx + 1) + ". [Completar] " + entry.original);
+        lines.push("   ✅ Frase: " + entry.expected);
+        lines.push("   ✏️ Respuestas: " + entry.userAnswers.join(", "));
+        lines.push("   📝 Opciones: " + entry.options.join(", "));
+        lines.push("");
       }
+    });
+    
+    if (AppState.reportEntries.length === 0) {
+      lines.push("🌟 Intenta algunos ejercicios para ver tu informe");
     }
+    
+    return lines.join("\n");
+  }
+
+  function copyReport() {
+    const report = buildReport();
+    document.getElementById("reportArea").value = report;
+    
+    navigator.clipboard?.writeText(report).then(() => {
+      toast("📋 Informe copiado al portapapeles");
+    }).catch(() => {
+      toast("📋 Informe generado (copia manualmente)");
+    });
   }
 
   function burstConfetti() {
@@ -1121,105 +3499,38 @@
     }
   }
 
-  async function importExercises(list) {
-    const normalized = list.map(normalizeEntry).filter(Boolean);
-    if(!normalized.length) { toast("❌ No hay frases válidas"); return; }
-    
-    AppState.exercises = normalized;
-    AppState.nodes = chunk(normalized, EXERCISES_PER_NODE);
-    AppState.activeNodeIndex = 0;
-    AppState.activeExerciseOffset = 0;
-    AppState.attempts = {};
-    
-    await saveToFirebase();
-    renderMap();
-    updateStats();
-    showMainView("map");
-    toast(`🎒 ${AppState.exercises.length} ejercicios en ${AppState.nodes.length} nodos`);
-  }
-
-  function buildReport() {
-    let lines = ["📘 INFORME DE APRENDIZAJE\n" + "=".repeat(40) + "\n"];
-    let attempted = 0;
-    for(let i = 0; i < AppState.exercises.length; i++) {
-      const attempts = AppState.attempts[i];
-      if(attempts && attempts.length > 0) {
-        attempted++;
-        const ex = AppState.exercises[i];
-        lines.push(`${attempted}. ${ex.spanishWords}`);
-        lines.push(`   ✅ ${ex.englishWords}`);
-        lines.push(`   📝 Intentos: ${attempts.join(" | ")}`);
-        lines.push("");
-      }
-    }
-    if(attempted === 0) lines.push("🌟 Intenta algunos ejercicios para ver tu informe");
-    else lines.push(`\n🎉 Total: ${attempted}/${AppState.exercises.length} ejercicios intentados`);
-    return lines.join("\n");
-  }
-
-  function copyReport() {
-    const report = buildReport();
-    document.getElementById("reportArea").value = report;
-    navigator.clipboard?.writeText(report);
-    toast("📋 Informe copiado");
-  }
-
-  function loadFromTextarea() {
-    try {
-      const raw = document.getElementById("jsonInput").value.trim();
-      if(!raw) { toast("📝 Pega un JSON válido"); return; }
-      const arr = JSON.parse(raw);
-      if(!Array.isArray(arr)) throw new Error("Debe ser un array");
-      importExercises(arr);
-    } catch(e) { toast("❌ JSON inválido: " + e.message); }
-  }
-  
-  async function resetAll() {
-    if(confirm("¿Borrar todo el progreso?")) {
-      AppState.exercises = []; AppState.nodes = []; 
-      AppState.attempts = {};
-      AppState.activeNodeIndex = 0; AppState.activeExerciseOffset = 0;
-      await saveToFirebase();
-      renderMap(); updateStats();
-      showMainView("import");
-      toast("🗑️ Todo borrado");
-    }
-  }
-  
-  function replaceList() { showMainView("import"); toast("📥 Pega nueva lista"); }
-  function backToMap() { showMainView("map"); renderMap(); updateStats(); }
-
-  const mainScreens = { import: document.getElementById("importScreen"), map: document.getElementById("mapScreen"), exercise: document.getElementById("exerciseScreen") };
-  function showMainView(name) {
-    Object.keys(mainScreens).forEach(k => { if(mainScreens[k]) mainScreens[k].classList.toggle("active", k === name); });
-  }
-
   async function login(username) {
-    if(!username || username.trim() === "") { toast("Por favor ingresa un nombre"); return false; }
+    if(!username || username.trim() === "") {
+      toast("Por favor ingresa un nombre");
+      return false;
+    }
+    
     username = username.trim().toLowerCase();
     currentUser = username;
-    userDocRef = doc(db, "english_trainer_users", username);
+    userDocRef = doc(db, "english_trainer_users_v3", username);
     
-    localStorage.setItem("english_trainer_user", username);
+    localStorage.setItem("english_trainer_user_v3", username);
     document.getElementById("userNameDisplay").innerText = username;
     document.getElementById("userAvatar").innerHTML = username.charAt(0).toUpperCase();
     document.getElementById("welcomeUsername").innerText = username;
     
     const hasData = await loadFromFirebase(username);
-    if(!hasData) {
-      AppState.exercises = []; AppState.nodes = []; AppState.attempts = {};
-      AppState.activeNodeIndex = 0; AppState.activeExerciseOffset = 0;
-    } else {
-      if(!AppState.nodes.length && AppState.exercises.length) AppState.nodes = chunk(AppState.exercises, EXERCISES_PER_NODE);
+    if (!hasData) {
+      AppState.nodes = [];
+      AppState.progress = {};
+      AppState.activeNodeIndex = 0;
+      AppState.activeExerciseIndex = 0;
+      AppState.reportEntries = [];
     }
     
-    renderMap(); updateStats();
+    renderMapView();
+    updateStats();
     setupRealtimeSync();
     
     document.getElementById("loginScreen").classList.remove("active");
     document.getElementById("mainScreen").classList.add("active");
-    showMainView(AppState.exercises.length ? "map" : "import");
-    toast(`✨ Bienvenido ${username}!`);
+    showMainView(AppState.nodes.length ? "map" : "import");
+    toast("✨ Bienvenido " + username + "!");
     return true;
   }
 
@@ -1227,14 +3538,30 @@
     if(unsubscribeSnapshot) unsubscribeSnapshot();
     currentUser = null;
     userDocRef = null;
-    localStorage.removeItem("english_trainer_user");
+    localStorage.removeItem("english_trainer_user_v3");
     document.getElementById("loginScreen").classList.add("active");
     document.getElementById("mainScreen").classList.remove("active");
     toast("👋 Sesión cerrada");
   }
 
+  async function resetAll() {
+    if(confirm("¿Borrar todo el progreso?")) {
+      AppState.nodes = [];
+      AppState.progress = {};
+      AppState.activeNodeIndex = 0;
+      AppState.activeExerciseIndex = 0;
+      AppState.failedExercises = [];
+      AppState.reportEntries = [];
+      await saveToFirebase();
+      renderMapView();
+      updateStats();
+      showMainView("import");
+      toast("🗑️ Todo borrado");
+    }
+  }
+
   function init() {
-    const savedUser = localStorage.getItem("english_trainer_user");
+    const savedUser = localStorage.getItem("english_trainer_user_v3");
     if(savedUser) {
       login(savedUser);
     }
@@ -1243,23 +3570,28 @@
       const username = document.getElementById("usernameInput").value;
       login(username);
     });
+    
     document.getElementById("usernameInput")?.addEventListener("keypress", (e) => {
       if(e.key === "Enter") login(document.getElementById("usernameInput").value);
     });
+    
     document.getElementById("logoutBtn")?.addEventListener("click", logout);
-    document.getElementById("loadBtn")?.addEventListener("click", loadFromTextarea);
+    document.getElementById("loadBtn")?.addEventListener("click", loadAllData);
     document.getElementById("resetAllBtn")?.addEventListener("click", resetAll);
-    document.getElementById("replaceListBtn")?.addEventListener("click", replaceList);
-    document.getElementById("copyReportBtn")?.addEventListener("click", copyReport);
-    document.getElementById("openReportBtn")?.addEventListener("click", copyReport);
-    document.getElementById("backToMapBtn")?.addEventListener("click", backToMap);
-    document.getElementById("checkBtn")?.addEventListener("click", checkExercise);
-    document.getElementById("continueBtn")?.addEventListener("click", continueExercise);
-    document.getElementById("answerInput")?.addEventListener("keydown", (e) => { 
-      if(e.key === "Enter" && !e.shiftKey) { e.preventDefault(); document.getElementById("checkBtn")?.click(); } 
+    document.getElementById("replaceListBtn")?.addEventListener("click", () => {
+      showMainView("import");
+      toast("📥 Ingresa nuevos datos");
     });
-    document.getElementById("toggleMenuBtn")?.addEventListener("click", () => { 
-      document.getElementById("menuExpand").classList.toggle("open"); 
+    document.getElementById("copyReportBtn")?.addEventListener("click", copyReport);
+    document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
+    document.getElementById("openReportBtn")?.addEventListener("click", copyReport);
+    document.getElementById("backToMapBtn")?.addEventListener("click", () => {
+      renderMapView();
+      updateStats();
+      showMainView("map");
+    });
+    document.getElementById("toggleMenuBtn")?.addEventListener("click", () => {
+      document.getElementById("menuExpand").classList.toggle("open");
     });
   }
   
