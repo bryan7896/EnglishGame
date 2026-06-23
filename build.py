@@ -554,14 +554,12 @@ def build_html(styles, map_js, traduccion_js, completar_js, seleccionar_js, hist
     AppState.reportEntries.forEach((entry, idx) => {
       if (entry.type === "traduccion") {
         lines.push((idx + 1) + ". [Traducción] " + entry.original);
-        lines.push("   ✅ Esperado: " + entry.expected);
         lines.push("   ✏️ Usuario: " + entry.userAnswer);
         lines.push("");
       } else if (entry.type === "completar") {
         lines.push((idx + 1) + ". [Completar] " + entry.original);
         lines.push("   ✅ Frase: " + entry.expected);
         lines.push("   ✏️ Respuestas: " + entry.userAnswers.join(", "));
-        lines.push("   📝 Opciones: " + entry.options.join(", "));
         lines.push("");
       }
     });
