@@ -1991,7 +1991,7 @@ textarea.report {
         <div class="badge-fun">🐣</div>
         <div>
           <div class="title-fun">English Trainer</div>
-          <div class="sub-fun">Version 3.0 - Firebase</div>
+          <div class="sub-fun">Version 4.0 - Firebase</div>
         </div>
       </div>
       <div style="display: flex; align-items: center; gap: 8px;">
@@ -2016,32 +2016,42 @@ textarea.report {
     <div id="importScreen" class="screen active">
       <div class="magic-card">
         <h2>📚 ¡Hola <span id="welcomeUsername"></span>!</h2>
-        <p>Ingresa los 4 tipos de datos requeridos:</p>
+        <p>Ingresa los 6 tipos de datos requeridos:</p>
         
         <div class="multi-input-section">
           <h4>📝 Traducciones (71 ejercicios requeridos)</h4>
-          <textarea id="traduccionesInput" class="answer-input" rows="4" placeholder='[{"spanishWord": "...", "englishWord": "..."}]'></textarea>
+          <textarea id="traduccionesInput" class="answer-input" rows="3" placeholder='[{"spanishWord": "...", "englishWord": "..."}]'></textarea>
         </div>
         
         <div class="multi-input-section">
           <h4>✏️ Completar palabras (32 ejercicios requeridos)</h4>
-          <textarea id="completarInput" class="answer-input" rows="4" placeholder='[{"spanishWord": "...", "englishSentence": "There is _____ ...", "options": ["word1", "word2"]}]'></textarea>
+          <textarea id="completarInput" class="answer-input" rows="3" placeholder='[{"spanishWord": "...", "englishSentence": "There is _____ ...", "options": ["word1", "word2"]}]'></textarea>
         </div>
         
         <div class="multi-input-section">
           <h4>🎯 Seleccionar palabras (13 ejercicios requeridos)</h4>
-          <textarea id="seleccionarInput" class="answer-input" rows="4" placeholder='[[{"englishWord": "...", "spanishWord": "..."}]]'></textarea>
+          <textarea id="seleccionarInput" class="answer-input" rows="3" placeholder='[[{"englishWord": "...", "spanishWord": "..."}]]'></textarea>
         </div>
         
         <div class="multi-input-section">
-          <h4>📖 Historias (2 historias requeridas)</h4>
-          <textarea id="historiasInput" class="answer-input" rows="4" placeholder='[{"title": "...", "paragraphs": ["..."]}]'></textarea>
+          <h4>🔍 Corregir frases (50 ejercicios requeridos)</h4>
+          <textarea id="corregirInput" class="answer-input" rows="3" placeholder='[{"fraseConError": "She go to school", "fraseCorrecta": "She goes to school"}]'></textarea>
+        </div>
+        
+        <div class="multi-input-section">
+          <h4>📖 Historias de lectura (2 historias requeridas)</h4>
+          <textarea id="historiasInput" class="answer-input" rows="3" placeholder='[{"title": "...", "paragraphs": ["..."]}]'></textarea>
+        </div>
+        
+        <div class="multi-input-section">
+          <h4>🤔 Historias con preguntas (4 ejercicios requeridos)</h4>
+          <textarea id="historiaPreguntasInput" class="answer-input" rows="3" placeholder='[{"shortStory": "...", "pregunta1": "...", "pregunta2": "..."}]'></textarea>
         </div>
         
         <div class="button-group">
           <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa ✨</button>
         </div>
-        <p class="sub-fun" style="text-align:center; margin-top: 8px;">⭐ 6 nodos: 2 historias, 4 nodos de ejercicios mixtos ⭐</p>
+        <p class="sub-fun" style="text-align:center; margin-top: 8px;">⭐ 6 nodos: 2 de historia, 4 de ejercicios mixtos ⭐</p>
       </div>
     </div>
 
@@ -2050,14 +2060,9 @@ textarea.report {
         <h2>🗺️ Mapa de la aventura</h2>
         <div id="mapList" class="adventure-map"></div>
       </div>
-      <div class="magic-card">
-        <h3>📊 Progreso</h3>
-        <div id="statsContainer" class="stats-grid"></div>
-      </div>
-      <div class="magic-card">
-        <h3>📖 Diario del aprendiz</h3>
-        <button class="fun-btn full-width" id="openReportBtn">📄 Ver informe completo</button>
-        <textarea id="reportArea" class="report" rows="4" readonly placeholder="Aquí verás tu progreso..."></textarea>
+      <div class="magic-card" style="padding: 14px 18px;">
+        <button class="fun-btn full-width" id="openReportBtn" style="width:100%;">📄 Ver informe completo</button>
+        <textarea id="reportArea" class="report" rows="4" readonly placeholder="Aquí verás tu progreso..." style="display:none;"></textarea>
         <button class="copy-report-btn" id="copyFinalReportBtn">📋 Copiar reporte final</button>
       </div>
     </div>
@@ -2122,8 +2127,8 @@ export const MAP_CONFIG = {
     {
       id: 3,
       lessons: 1,
-      exercisesPerLesson: 1,
-      totalExercises: 1,
+      exercisesPerLesson: 3,
+      totalExercises: 3,  // 1 historia + 2 historia_preguntas
       type: "story",
       color: "#f472b6",
       icon: "📖"
@@ -2140,8 +2145,8 @@ export const MAP_CONFIG = {
     {
       id: 5,
       lessons: 1,
-      exercisesPerLesson: 1,
-      totalExercises: 1,
+      exercisesPerLesson: 3,
+      totalExercises: 3,  // 1 historia + 2 historia_preguntas
       type: "story",
       color: "#f472b6",
       icon: "📚"
@@ -2161,7 +2166,9 @@ export const MAP_CONFIG = {
     traduccion: 71,
     completar: 32,
     seleccionar: 13,
-    historia: 2
+    corregir: 50,
+    historia: 2,
+    historiaPreguntas: 4
   }
 };
 
@@ -2174,27 +2181,31 @@ function shuffleArray(arr) {
   return shuffled;
 }
 
-function interleaveExercises(traducciones, completar, seleccionar) {
+function interleaveAllExercises(traducciones, completar, seleccionar, corregir) {
   const allExercises = [
     ...traducciones.map(e => ({ ...e, type: "traduccion" })),
     ...completar.map(e => ({ ...e, type: "completar" })),
-    ...seleccionar.map(e => ({ pairs: e, type: "seleccionar" }))
+    ...seleccionar.map(e => ({ pairs: e, type: "seleccionar" })),
+    ...corregir.map(e => ({ ...e, type: "corregir" }))
   ];
   return shuffleArray(allExercises);
 }
 
 export function createNodeStructure(userData) {
-  const { traducciones, completar, seleccionar, historias } = userData;
+  const { traducciones, completar, seleccionar, corregir, historias, historiaPreguntas } = userData;
 
   let tradIndex = 0;
   let compIndex = 0;
   let selIndex = 0;
+  let corrIndex = 0;
   let histIndex = 0;
+  let histPregIndex = 0;
 
   const nodes = MAP_CONFIG.nodes.map(nodeConfig => {
     const nodeExercises = [];
 
     if (nodeConfig.type === "story") {
+      // Agregar historia de lectura
       const story = historias[histIndex];
       if (story) {
         nodeExercises.push({
@@ -2205,38 +2216,61 @@ export function createNodeStructure(userData) {
         });
         histIndex++;
       }
+
+      // Agregar 2 ejercicios de historia con preguntas por cada nodo de historia
+      for (let i = 0; i < 2 && histPregIndex < (historiaPreguntas?.length || 0); i++) {
+        const histPreg = historiaPreguntas[histPregIndex];
+        if (histPreg) {
+          nodeExercises.push({
+            type: "historia_preguntas",
+            shortStory: histPreg.shortStory,
+            pregunta1: histPreg.pregunta1,
+            pregunta2: histPreg.pregunta2
+          });
+          histPregIndex++;
+        }
+      }
     } else {
       const totalPerLesson = nodeConfig.exercisesPerLesson;
       const totalLessons = nodeConfig.lessons;
 
-      const tradPerLesson = Math.round(totalPerLesson * 0.6);
-      const compPerLesson = Math.round(totalPerLesson * 0.25);
-      const selPerLesson = totalPerLesson - tradPerLesson - compPerLesson;
+      // Distribución: 45% traducción, 20% completar, 10% seleccionar, 25% corregir
+      const tradPerLesson = Math.round(totalPerLesson * 0.45);
+      const compPerLesson = Math.round(totalPerLesson * 0.20);
+      const selPerLesson = Math.round(totalPerLesson * 0.10);
+      const corrPerLesson = totalPerLesson - tradPerLesson - compPerLesson - selPerLesson;
 
       for (let lesson = 0; lesson < totalLessons; lesson++) {
-        const lessonTrad = traducciones.slice(tradIndex, tradIndex + tradPerLesson);
-        const lessonComp = completar.slice(compIndex, compIndex + compPerLesson);
-        const lessonSel = seleccionar.slice(selIndex, selIndex + selPerLesson);
+        const lessonTrad = (traducciones || []).slice(tradIndex, tradIndex + tradPerLesson);
+        const lessonComp = (completar || []).slice(compIndex, compIndex + compPerLesson);
+        const lessonSel = (seleccionar || []).slice(selIndex, selIndex + selPerLesson);
+        const lessonCorr = (corregir || []).slice(corrIndex, corrIndex + corrPerLesson);
 
-        const mixedExercises = interleaveExercises(lessonTrad, lessonComp, lessonSel);
+        const mixedExercises = interleaveAllExercises(lessonTrad, lessonComp, lessonSel, lessonCorr);
         nodeExercises.push(...mixedExercises);
 
         tradIndex += tradPerLesson;
         compIndex += compPerLesson;
         selIndex += selPerLesson;
+        corrIndex += corrPerLesson;
       }
 
-      while (tradIndex < traducciones.length && nodeExercises.length < nodeConfig.totalExercises) {
+      // Ajustar sobrantes por redondeo
+      while (tradIndex < (traducciones?.length || 0) && nodeExercises.length < nodeConfig.totalExercises) {
         nodeExercises.push({ type: "traduccion", ...traducciones[tradIndex] });
         tradIndex++;
       }
-      while (compIndex < completar.length && nodeExercises.length < nodeConfig.totalExercises) {
+      while (compIndex < (completar?.length || 0) && nodeExercises.length < nodeConfig.totalExercises) {
         nodeExercises.push({ type: "completar", ...completar[compIndex] });
         compIndex++;
       }
-      while (selIndex < seleccionar.length && nodeExercises.length < nodeConfig.totalExercises) {
+      while (selIndex < (seleccionar?.length || 0) && nodeExercises.length < nodeConfig.totalExercises) {
         nodeExercises.push({ type: "seleccionar", pairs: seleccionar[selIndex] });
         selIndex++;
+      }
+      while (corrIndex < (corregir?.length || 0) && nodeExercises.length < nodeConfig.totalExercises) {
+        nodeExercises.push({ type: "corregir", ...corregir[corrIndex] });
+        corrIndex++;
       }
     }
 
@@ -2257,7 +2291,7 @@ export function createNodeStructure(userData) {
 
 export function validateInputData(data) {
   const errors = [];
-  const { traducciones, completar, seleccionar, historias } = data;
+  const { traducciones, completar, seleccionar, corregir, historias, historiaPreguntas } = data;
 
   if (!traducciones || traducciones.length !== MAP_CONFIG.validation.traduccion) {
     errors.push(`Traducciones: ${MAP_CONFIG.validation.traduccion} requeridas (${traducciones?.length || 0} recibidas)`);
@@ -2268,8 +2302,14 @@ export function validateInputData(data) {
   if (!seleccionar || seleccionar.length !== MAP_CONFIG.validation.seleccionar) {
     errors.push(`Seleccionar: ${MAP_CONFIG.validation.seleccionar} requeridas (${seleccionar?.length || 0} recibidas)`);
   }
+  if (!corregir || corregir.length !== MAP_CONFIG.validation.corregir) {
+    errors.push(`Corregir: ${MAP_CONFIG.validation.corregir} requeridas (${corregir?.length || 0} recibidas)`);
+  }
   if (!historias || historias.length !== MAP_CONFIG.validation.historia) {
     errors.push(`Historias: ${MAP_CONFIG.validation.historia} requeridas (${historias?.length || 0} recibidas)`);
+  }
+  if (!historiaPreguntas || historiaPreguntas.length !== MAP_CONFIG.validation.historiaPreguntas) {
+    errors.push(`Historia con preguntas: ${MAP_CONFIG.validation.historiaPreguntas} requeridas (${historiaPreguntas?.length || 0} recibidas)`);
   }
 
   return { valid: errors.length === 0, errors };
@@ -2323,7 +2363,6 @@ function createNodeSVG(node, progress) {
   const availableAngle = 360 - totalGapAngle;
   const segmentAngle = availableAngle / totalLessons;
 
-  // Calcular segmentos
   const segments = [];
   for (let i = 0; i < totalLessons; i++) {
     const lessonStart = i * exercisesPerLesson;
@@ -2354,13 +2393,11 @@ function createNodeSVG(node, progress) {
     const y2 = center + radius * Math.sin(endRad);
     const largeArc = segmentAngle > 180 ? 1 : 0;
 
-    // Base gris
     baseSvg += `
       <path d="M ${x1.toFixed(1)} ${y1.toFixed(1)} A ${radius} ${radius} 0 ${largeArc} 1 ${x2.toFixed(1)} ${y2.toFixed(1)}"
         fill="none" stroke="#1e293b" stroke-width="${strokeWidth}" stroke-linecap="round" opacity="0.6" />
     `;
 
-    // Segmento de progreso
     if (seg.percent > 0) {
       const segArcLength = seg.percent * segmentAngle;
       const segEndAngle = startAngle + segArcLength;
@@ -2436,29 +2473,22 @@ export function renderMap(nodes, progress, callbacks) {
 
         const nodeSvg = createNodeSVG(node, nodeProgress);
 
-        // Posición en zigzag estilo Duolingo (offset horizontal alternante + ondulación)
-        const zigzagPattern = [0, 1, 2, 1, 0, -1, -2, -1];
-        const offsetUnit = zigzagPattern[idx % zigzagPattern.length];
-        const horizontalOffset = offsetUnit * 46; // px de desplazamiento lateral
-
-        // Determinar color del icono (sólido)
-        let iconColor = '#475569'; // gris por defecto (bloqueado)
+        let iconColor = '#475569';
         if (isCompleted) iconColor = '#4ade80';
         else if (isCurrent) iconColor = nodeColor;
-        else if (unlocked) iconColor = nodeColor + '99'; // con opacidad
+        else if (unlocked) iconColor = nodeColor + '99';
 
-        // Calcular color del borde de la tarjeta
         let cardBorderColor = '#1e293b';
         if (isCompleted) cardBorderColor = '#4ade8040';
         else if (isCurrent) cardBorderColor = nodeColor + '60';
         else if (unlocked && exercisesDone > 0) cardBorderColor = nodeColor + '30';
 
-        // Tipo de ejercicio
-        const typeLabel = nodeType === 'story' ? 'Lectura' :
-                          totalLessons > 1 ? `${totalLessons} lecciones` :
-                          `${totalExercises} ejercicios`;
+        const typeLabel = nodeType === 'story' 
+          ? 'Lectura + Preguntas' 
+          : totalLessons > 1 
+            ? `${totalLessons} lecciones` 
+            : `${totalExercises} ejercicios`;
 
-        // Mini dots de lecciones
         let lessonsDots = '';
         if (totalLessons > 1) {
           lessonsDots = `
@@ -2479,20 +2509,17 @@ export function renderMap(nodes, progress, callbacks) {
             </div>`;
         }
 
-        const nodeTitle = nodeType === 'story' ? '📖 Historia ' + node.id :
-              totalLessons > 1 ? 'Lecciones ' + node.id :
-              'Ejercicios ' + node.id;
+        const nodeTitle = nodeType === 'story' 
+          ? '📖 Historia ' + node.id
+          : totalLessons > 1 
+            ? 'Lecciones ' + node.id 
+            : 'Ejercicios ' + node.id;
 
         return `
-          <div class="map-node-wrapper ${!unlocked ? 'locked' : ''} ${isCurrent ? 'is-current' : ''}"
-               style="--node-offset: ${horizontalOffset}px; --node-color: ${nodeColor};">
-
-            <!-- Línea conectora tipo sendero -->
+          <div class="map-node-wrapper ${!unlocked ? 'locked' : ''} ${isCurrent ? 'is-current' : ''}">
             ${idx > 0 ? `<div class="map-connector ${progress[idx-1]?.completed ? 'done' : ''}"></div>` : ''}
-
             ${isCurrent ? '<div class="current-node-badge">¡EMPIEZA AQUÍ!</div>' : ''}
 
-            <!-- Nodo circular estilo Duolingo -->
             <button type="button"
                  class="map-node-card ${isCompleted ? 'completed' : ''} ${isCurrent ? 'current' : ''} ${!unlocked ? 'disabled' : ''}"
                  data-node="${idx}"
@@ -2512,7 +2539,6 @@ export function renderMap(nodes, progress, callbacks) {
               </span>
             </button>
 
-            <!-- Info debajo del nodo -->
             <div class="map-node-info">
               <span class="map-node-title" style="color: ${iconColor};">${nodeTitle}</span>
               <span class="map-node-meta">${typeLabel}</span>
@@ -2524,7 +2550,6 @@ export function renderMap(nodes, progress, callbacks) {
     </div>
   `;
 
-  // Event listeners
   mapList.querySelectorAll('.map-node-card[data-node]').forEach(card => {
     const nodeIdx = parseInt(card.dataset.node);
     card.addEventListener('click', () => {
@@ -2542,7 +2567,9 @@ export function getExerciseTypeIcon(type) {
     "traduccion": "📝",
     "completar": "✏️",
     "seleccionar": "🎯",
-    "historia": "📖"
+    "corregir": "🔍",
+    "historia": "📖",
+    "historia_preguntas": "🤔"
   };
   return icons[type] || "📌";
 }
@@ -2552,7 +2579,9 @@ export function getExerciseTypeName(type) {
     "traduccion": "Traducción",
     "completar": "Completar",
     "seleccionar": "Emparejar",
-    "historia": "Lectura"
+    "corregir": "Corregir frase",
+    "historia": "Lectura",
+    "historia_preguntas": "Comprensión"
   };
   return names[type] || type;
 }
@@ -3040,6 +3069,198 @@ export function showSeleccionarCompleteModal(pairs, onContinue) {
   });
 }
   
+// exercises/corregir.js
+// Ejercicio de corregir frase con error
+
+export function renderCorregirExercise(exercise, container, isRetry = false) {
+  const { fraseConError, fraseCorrecta } = exercise;
+  
+  container.innerHTML = `
+    ${isRetry ? '<div class="correction-notice">⚠️ Corrección: intenta escribir la frase correcta</div>' : ''}
+    <div class="question-bubble">
+      <span style="font-size:0.85rem; color:#94a3b8; display:block; margin-bottom:6px;">🔍 Encuentra el error y corrige la frase:</span>
+      <span style="color:#f87171; text-decoration:line-through; text-decoration-color:#f87171; margin-right:8px;">${fraseConError}</span>
+    </div>
+    <div class="input-area">
+      <p style="color:#94a3b8; margin-bottom:8px;">✏️ Escribe la frase corregida:</p>
+      <textarea id="answerInput" class="answer-input" rows="2" placeholder="Escribe la frase correcta aquí..."></textarea>
+    </div>
+    <div class="button-group">
+      <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
+      <button class="btn-action btn-continue" id="continueBtn" style="display: none;">➡️ Continuar</button>
+    </div>
+    <div class="mood-card">
+      <div class="mood-emoji" id="exerciseEmoji">🔍</div>
+      <div>
+        <strong id="exerciseMoodTitle">Corrige la frase</strong><br>
+        <span id="exerciseMoodText">Encuentra el error y escribe la versión correcta</span>
+      </div>
+    </div>
+    <!-- Campo de duda opcional -->
+    <div class="doubt-section" id="doubtSection" style="margin-top:12px; display:none;">
+      <label style="color:#94a3b8; font-size:0.8rem; display:block; margin-bottom:4px;">
+        💭 ¿Tienes alguna duda sobre este ejercicio? (opcional)
+      </label>
+      <textarea id="doubtInput" class="answer-input" rows="2" 
+        placeholder="Escribe tu duda o consulta aquí..." 
+        style="font-size:0.85rem; min-height:50px;"></textarea>
+    </div>
+  `;
+  
+  // Eventos
+  document.getElementById("checkBtn")?.addEventListener("click", () => {
+    const userAnswer = document.getElementById("answerInput").value.trim();
+    if (!userAnswer) {
+      // Mostrar toast
+      const toast = document.getElementById("toastFun");
+      if (toast) {
+        toast.textContent = "📝 Escribe una respuesta";
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
+      }
+      return;
+    }
+    
+    // Mostrar sección de duda después de comprobar
+    const doubtSection = document.getElementById("doubtSection");
+    if (doubtSection) doubtSection.style.display = "block";
+    
+    const container = document.getElementById("exerciseContainer");
+    const event = new CustomEvent('corregir-checked', { 
+      detail: { userAnswer, exercise } 
+    });
+    container.dispatchEvent(event);
+  });
+  
+  document.getElementById("continueBtn")?.addEventListener("click", () => {
+    const container = document.getElementById("exerciseContainer");
+    const doubtInput = document.getElementById("doubtInput");
+    const duda = doubtInput ? doubtInput.value.trim() : '';
+    const event = new CustomEvent('corregir-continue', { detail: { duda } });
+    container.dispatchEvent(event);
+  });
+  
+  document.getElementById("answerInput")?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      document.getElementById("checkBtn")?.click();
+    }
+  });
+}
+
+export function checkCorregirAnswer(exercise, userAnswer) {
+  const correctAnswer = exercise.fraseCorrecta.trim();
+  const userClean = userAnswer.trim();
+  
+  // Comparar normalizando espacios y puntuación
+  const normalize = (str) => str.toLowerCase()
+    .replace(/\s+/g, ' ')
+    .replace(/[.,!?;:]/g, '')
+    .trim();
+  
+  const isCorrect = normalize(userClean) === normalize(correctAnswer);
+  
+  // Encontrar diferencias palabra por palabra
+  const correctWords = correctAnswer.split(/\s+/);
+  const userWords = userClean.split(/\s+/);
+  const maxLen = Math.max(correctWords.length, userWords.length);
+  
+  const comparison = [];
+  for (let i = 0; i < maxLen; i++) {
+    const cw = correctWords[i] || '';
+    const uw = userWords[i] || '';
+    const cwClean = normalize(cw);
+    const uwClean = normalize(uw);
+    
+    comparison.push({
+      correct: cw,
+      user: uw,
+      match: cwClean === uwClean && cwClean !== ''
+    });
+  }
+  
+  return { isCorrect, comparison };
+}
+
+export function showCorregirModal(exercise, result, userAnswer, onContinue, onRetry) {
+  const { fraseConError, fraseCorrecta } = exercise;
+  const { isCorrect, comparison } = result;
+  
+  // Construir visualización de comparación
+  let comparisonHtml = comparison.map(c => {
+    if (!c.correct && !c.user) return '';
+    const correctClass = c.match ? 'word-correct' : 'word-error';
+    const userClass = c.match ? 'word-correct' : 'word-error';
+    return `
+      <div style="display:inline-flex; flex-direction:column; align-items:center; margin:2px 4px;">
+        <span class="${userClass}" style="font-size:0.85rem;">${c.user || '—'}</span>
+        ${!c.match ? `<span class="${correctClass}" style="font-size:0.75rem; opacity:0.8;">${c.correct || '—'}</span>` : ''}
+      </div>
+    `;
+  }).join('');
+  
+  const modal = document.createElement("div");
+  modal.className = "modal-overlay";
+  modal.innerHTML = `
+    <div class="modal-friend">
+      <h3>${isCorrect ? '🎉 ¡Correcto!' : '📝 Revisa la diferencia'}</h3>
+      <div class="comparison-text-block">
+        <p><strong>❌ Frase con error:</strong><br>
+          <span style="color:#f87171; text-decoration:line-through;">${fraseConError}</span></p>
+        <p><strong>✅ Frase correcta:</strong><br>
+          <span style="color:#4ade80;">${fraseCorrecta}</span></p>
+        <p><strong>✏️ Tu respuesta:</strong><br>
+          <span style="color:${isCorrect ? '#4ade80' : '#fbbf24'};">${userAnswer}</span></p>
+        <div class="compare-line" style="margin-top:12px;">
+          <strong>🔍 Comparación:</strong>
+          <div style="display:flex; flex-wrap:wrap; align-items:flex-end; gap:2px; margin-top:6px;">
+            ${comparisonHtml}
+          </div>
+        </div>
+        <div style="margin-top:12px; color:#fbbf24; font-size:0.8rem;">
+          💡 <strong>Diferencia:</strong> Las palabras en <span style="color:#f87171;">rojo</span> son incorrectas, 
+          las palabras en <span style="color:#4ade80;">verde</span> son correctas.
+        </div>
+      </div>
+      <div class="modal-buttons">
+        ${!isCorrect ? `<button class="fun-btn" id="modalRetryBtn" style="background:#f59e0b; color:#1a120b;">🔄 Reintentar</button>` : ''}
+        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  document.getElementById("modalContinueBtn").addEventListener("click", () => {
+    modal.remove();
+    if (onContinue) onContinue();
+  });
+  
+  if (!isCorrect) {
+    document.getElementById("modalRetryBtn").addEventListener("click", () => {
+      modal.remove();
+      if (onRetry) onRetry();
+    });
+  }
+  
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.remove();
+      if (onContinue) onContinue();
+    }
+  });
+}
+
+export function getCorregirReportEntry(exercise, userAnswer, duda) {
+  return {
+    type: "corregir",
+    original: exercise.fraseConError,
+    expected: exercise.fraseCorrecta,
+    userAnswer: userAnswer,
+    duda: duda || ''
+  };
+}
+  
 // exercises/historia.js
 
 export function renderHistoriaExercise(exercise, container) {
@@ -3072,6 +3293,144 @@ export function renderHistoriaExercise(exercise, container) {
     const event = new CustomEvent('story-read');
     container.dispatchEvent(event);
   });
+}
+  
+// exercises/historiaPreguntas.js
+// Ejercicio de historia corta con preguntas abiertas
+
+export function renderHistoriaPreguntasExercise(exercise, container) {
+  const { shortStory, pregunta1, pregunta2 } = exercise;
+  
+  container.innerHTML = `
+    <div class="story-content">
+      <div class="story-title">📖 Historia corta</div>
+      <div class="story-paragraph">${shortStory}</div>
+    </div>
+    
+    <div style="margin-top:16px;">
+      <p style="color:#fde68a; font-weight:600; margin-bottom:8px;">📝 Responde las siguientes preguntas:</p>
+      
+      <div style="margin-bottom:14px;">
+        <label style="color:#94a3b8; font-size:0.85rem; display:block; margin-bottom:4px;">
+          1️⃣ ${pregunta1}
+        </label>
+        <textarea id="answerInput1" class="answer-input" rows="2" 
+          placeholder="Escribe tu respuesta aquí..."></textarea>
+      </div>
+      
+      <div style="margin-bottom:14px;">
+        <label style="color:#94a3b8; font-size:0.85rem; display:block; margin-bottom:4px;">
+          2️⃣ ${pregunta2}
+        </label>
+        <textarea id="answerInput2" class="answer-input" rows="2" 
+          placeholder="Escribe tu respuesta aquí..."></textarea>
+      </div>
+    </div>
+    
+    <div class="button-group">
+      <button class="btn-action btn-continue" id="submitAnswersBtn" style="flex:1; background: #4ade80; color: #064e3b; font-weight:700;">
+        ✅ Enviar respuestas
+      </button>
+    </div>
+    
+    <div class="mood-card">
+      <div class="mood-emoji">🤔</div>
+      <div>
+        <strong>Comprensión lectora</strong><br>
+        <span>Lee la historia y responde las preguntas con tus propias palabras</span>
+      </div>
+    </div>
+    
+    <!-- Campo de duda opcional -->
+    <div class="doubt-section" id="doubtSectionHP" style="margin-top:12px;">
+      <label style="color:#94a3b8; font-size:0.8rem; display:block; margin-bottom:4px;">
+        💭 ¿Tienes alguna duda sobre este ejercicio? (opcional)
+      </label>
+      <textarea id="doubtInputHP" class="answer-input" rows="2" 
+        placeholder="Escribe tu duda o consulta aquí..." 
+        style="font-size:0.85rem; min-height:50px;"></textarea>
+    </div>
+  `;
+  
+  document.getElementById("submitAnswersBtn")?.addEventListener("click", () => {
+    const answer1 = document.getElementById("answerInput1").value.trim();
+    const answer2 = document.getElementById("answerInput2").value.trim();
+    
+    if (!answer1 || !answer2) {
+      const toast = document.getElementById("toastFun");
+      if (toast) {
+        toast.textContent = "📝 Responde ambas preguntas";
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
+      }
+      return;
+    }
+    
+    const doubtInput = document.getElementById("doubtInputHP");
+    const duda = doubtInput ? doubtInput.value.trim() : '';
+    
+    const event = new CustomEvent('historia-answered', { 
+      detail: { 
+        answer1, 
+        answer2,
+        duda 
+      } 
+    });
+    container.dispatchEvent(event);
+  });
+}
+
+export function showHistoriaPreguntasModal(exercise, answers, onContinue) {
+  const { shortStory, pregunta1, pregunta2 } = exercise;
+  
+  const modal = document.createElement("div");
+  modal.className = "modal-overlay";
+  modal.innerHTML = `
+    <div class="modal-friend">
+      <h3>📋 Respuestas enviadas</h3>
+      <div class="comparison-text-block">
+        <p><strong>📖 Historia:</strong><br>
+          <span style="color:#cbd5e1; font-size:0.9rem;">${shortStory.substring(0, 150)}...</span></p>
+        <hr style="border-color:#334155; margin:12px 0;">
+        <p><strong>1️⃣ ${pregunta1}</strong><br>
+          <span style="color:#fde68a;">${answers.answer1}</span></p>
+        <p><strong>2️⃣ ${pregunta2}</strong><br>
+          <span style="color:#fde68a;">${answers.answer2}</span></p>
+      </div>
+      <p style="color:#94a3b8; font-size:0.8rem; margin-top:8px;">
+        ✅ Tus respuestas han sido registradas para el reporte final.
+      </p>
+      <div class="modal-buttons">
+        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  document.getElementById("modalContinueBtn").addEventListener("click", () => {
+    modal.remove();
+    if (onContinue) onContinue();
+  });
+  
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.remove();
+      if (onContinue) onContinue();
+    }
+  });
+}
+
+export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
+  return {
+    type: "historia_preguntas",
+    story: exercise.shortStory,
+    pregunta1: exercise.pregunta1,
+    respuesta1: answers.answer1,
+    pregunta2: exercise.pregunta2,
+    respuesta2: answers.answer2,
+    duda: duda || ''
+  };
 }
   
   // ==================== LÓGICA PRINCIPAL ====================
@@ -3133,7 +3492,7 @@ export function renderHistoriaExercise(exercise, container) {
   async function loadFromFirebase(username) {
     showLoading(true, "🌐 Cargando datos...");
     try {
-      const userDoc = doc(db, "english_trainer_users_v3", username);
+      const userDoc = doc(db, "english_trainer_users_v4", username);
       const docSnap = await getDoc(userDoc);
       if (docSnap.exists()) {
         const data = docSnap.data();
@@ -3167,7 +3526,6 @@ export function renderHistoriaExercise(exercise, container) {
           AppState.activeNodeIndex = data.activeNodeIndex || 0;
           AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
           renderMapView();
-          updateStats();
         }
       }
     });
@@ -3195,16 +3553,22 @@ export function renderHistoriaExercise(exercise, container) {
       const traducciones = JSON.parse(document.getElementById("traduccionesInput").value.trim() || '[]');
       const completar = JSON.parse(document.getElementById("completarInput").value.trim() || '[]');
       const seleccionar = JSON.parse(document.getElementById("seleccionarInput").value.trim() || '[]');
+      const corregir = JSON.parse(document.getElementById("corregirInput").value.trim() || '[]');
       const historias = JSON.parse(document.getElementById("historiasInput").value.trim() || '[]');
+      const historiaPreguntas = JSON.parse(document.getElementById("historiaPreguntasInput").value.trim() || '[]');
       
-      const validation = validateInputData({ traducciones, completar, seleccionar, historias });
+      const validation = validateInputData({ 
+        traducciones, completar, seleccionar, corregir, historias, historiaPreguntas 
+      });
       
       if (!validation.valid) {
         toast("❌ " + validation.errors.join(" | "));
         return;
       }
       
-      AppState.nodes = createNodeStructure({ traducciones, completar, seleccionar, historias });
+      AppState.nodes = createNodeStructure({ 
+        traducciones, completar, seleccionar, corregir, historias, historiaPreguntas 
+      });
       AppState.progress = {};
       AppState.activeNodeIndex = 0;
       AppState.activeExerciseIndex = 0;
@@ -3221,7 +3585,6 @@ export function renderHistoriaExercise(exercise, container) {
       
       debounceSave();
       renderMapView();
-      updateStats();
       showMainView("map");
       toast("🎒 " + AppState.nodes.length + " nodos creados exitosamente");
     } catch(e) {
@@ -3235,29 +3598,6 @@ export function renderHistoriaExercise(exercise, container) {
       showToast: toast
     };
     renderMap(AppState.nodes, AppState.progress, callbacks);
-  }
-
-  function updateStats() {
-    const container = document.getElementById("statsContainer");
-    if(!container) return;
-    
-    let totalExercises = 0;
-    let completedExercises = 0;
-    
-    AppState.nodes.forEach((node, idx) => {
-      totalExercises += node.exercises.length;
-      completedExercises += (AppState.progress[idx]?.exercisesDone || 0);
-    });
-    
-    const percent = totalExercises ? Math.round((completedExercises / totalExercises) * 100) : 0;
-    const completedNodes = Object.values(AppState.progress).filter(p => p.completed).length;
-    
-    container.innerHTML = `
-      <div class="stat-bubble">📚 Total<br><strong>${totalExercises}</strong></div>
-      <div class="stat-bubble">✅ Completados<br><strong style="color:#4ade80">${completedExercises}</strong></div>
-      <div class="stat-bubble">🎯 Progreso<br><strong>${percent}%</strong></div>
-      <div class="stat-bubble">⭐ Nodos<br><strong>${completedNodes}/${AppState.nodes.length}</strong></div>
-    `;
   }
 
   function openNode(nodeIndex) {
@@ -3280,7 +3620,7 @@ export function renderHistoriaExercise(exercise, container) {
     debounceSave();
     renderExercise();
     showMainView("exercise");
-    toast("📖 " + AppState.nodes[nodeIndex].name + " abierto");
+    toast("📖 " + (AppState.nodes[nodeIndex].id ? "Nodo " + AppState.nodes[nodeIndex].id : "") + " abierto");
   }
 
   function renderExercise() {
@@ -3295,17 +3635,16 @@ export function renderHistoriaExercise(exercise, container) {
       AppState.progress[AppState.activeNodeIndex].completed = true;
       debounceSave();
       renderMapView();
-      updateStats();
       showMainView("map");
       burstConfetti();
-      toast("🎉 ¡" + node.name + " completado!");
+      toast("🎉 Nodo completado!");
       return;
     }
     
     const exercise = node.exercises[exIndex];
     const container = document.getElementById("exerciseContainer");
     
-    document.getElementById("nodeTag").innerHTML = "📌 " + node.name;
+    document.getElementById("nodeTag").innerHTML = "📌 Nodo " + (node.id || (AppState.activeNodeIndex + 1));
     document.getElementById("exTag").innerHTML = "📝 " + (exIndex + 1) + "/" + node.exercises.length;
     document.getElementById("exTypeTag").innerHTML = getExerciseTypeIcon(exercise.type) + " " + getExerciseTypeName(exercise.type);
     
@@ -3324,9 +3663,17 @@ export function renderHistoriaExercise(exercise, container) {
         renderSeleccionarExercise(exercise, container);
         setupSeleccionarListeners(exercise);
         break;
+      case "corregir":
+        renderCorregirExercise(exercise, container, isRetry);
+        setupCorregirListeners(exercise);
+        break;
       case "historia":
         renderHistoriaExercise(exercise, container);
         setupHistoriaListeners();
+        break;
+      case "historia_preguntas":
+        renderHistoriaPreguntasExercise(exercise, container);
+        setupHistoriaPreguntasListeners();
         break;
     }
     
@@ -3345,7 +3692,10 @@ export function renderHistoriaExercise(exercise, container) {
           return;
         }
         
-        AppState.reportEntries.push(getTraduccionReportEntry(exercise, userAnswer));
+        const doubtInput = document.getElementById("doubtInputTra");
+        const duda = doubtInput ? doubtInput.value.trim() : '';
+        
+        AppState.reportEntries.push(getTraduccionReportEntry(exercise, userAnswer, duda));
         
         showComparativeModal(exercise, userAnswer, () => {
           advanceExercise();
@@ -3372,13 +3722,14 @@ export function renderHistoriaExercise(exercise, container) {
         const result = checkCompletarAnswers(exercise, container);
         const { allCorrect, userAnswers, results } = result;
         
-        AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers));
+        const doubtInput = document.getElementById("doubtInputCom");
+        const duda = doubtInput ? doubtInput.value.trim() : '';
+        
+        AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda));
         
         showCompletarModal(exercise, results, 
           (success) => {
-            if (success || !allCorrect) {
-              advanceExercise();
-            }
+            advanceExercise();
           },
           () => {
             if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
@@ -3415,11 +3766,65 @@ export function renderHistoriaExercise(exercise, container) {
     }
   }
 
+  function setupCorregirListeners(exercise) {
+    const container = document.getElementById("exerciseContainer");
+    if (!container) return;
+    
+    container.addEventListener("corregir-checked", (e) => {
+      const { userAnswer, exercise: ex } = e.detail;
+      const result = checkCorregirAnswer(ex, userAnswer);
+      
+      showCorregirModal(ex, result, userAnswer, 
+        () => {
+          const doubtInput = document.getElementById("doubtInput");
+          const duda = doubtInput ? doubtInput.value.trim() : '';
+          AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda));
+          advanceExercise();
+        },
+        () => {
+          if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
+            AppState.failedExercises.push(AppState.activeExerciseIndex);
+          }
+          renderExercise();
+        }
+      );
+      
+      if (result.isCorrect) {
+        document.getElementById("checkBtn").style.display = "none";
+        const continueBtn = document.getElementById("continueBtn");
+        if (continueBtn) continueBtn.style.display = "flex";
+      }
+    });
+    
+    container.addEventListener("corregir-continue", (e) => {
+      const { duda } = e.detail;
+      const userAnswer = document.getElementById("answerInput")?.value.trim() || '';
+      AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda));
+      advanceExercise();
+    });
+  }
+
   function setupHistoriaListeners() {
     const container = document.getElementById("exerciseContainer");
     if (container) {
       container.addEventListener("story-read", () => {
         advanceExercise();
+      });
+    }
+  }
+
+  function setupHistoriaPreguntasListeners() {
+    const container = document.getElementById("exerciseContainer");
+    if (container) {
+      container.addEventListener("historia-answered", (e) => {
+        const { answer1, answer2, duda } = e.detail;
+        const exercise = AppState.nodes[AppState.activeNodeIndex].exercises[AppState.activeExerciseIndex];
+        
+        AppState.reportEntries.push(getHistoriaPreguntasReportEntry(exercise, { answer1, answer2 }, duda));
+        
+        showHistoriaPreguntasModal(exercise, { answer1, answer2 }, () => {
+          advanceExercise();
+        });
       });
     }
   }
@@ -3454,16 +3859,35 @@ export function renderHistoriaExercise(exercise, container) {
     let lines = ["📘 INFORME DE APRENDIZAJE\n" + "=".repeat(50) + "\n"];
     
     AppState.reportEntries.forEach((entry, idx) => {
+      const num = idx + 1;
+      
       if (entry.type === "traduccion") {
-        lines.push((idx + 1) + ". [Traducción] " + entry.original);
+        lines.push(num + ". [Traducción] " + entry.original);
+        lines.push("   ✅ Esperado: " + entry.expected);
         lines.push("   ✏️ Usuario: " + entry.userAnswer);
-        lines.push("");
       } else if (entry.type === "completar") {
-        lines.push((idx + 1) + ". [Completar] " + entry.original);
+        lines.push(num + ". [Completar] " + entry.original);
         lines.push("   ✅ Frase: " + entry.expected);
-        lines.push("   ✏️ Respuestas: " + entry.userAnswers.join(", "));
-        lines.push("");
+        lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", "));
+      } else if (entry.type === "corregir") {
+        lines.push(num + ". [Corregir]");
+        lines.push("   ❌ Frase error: " + entry.original);
+        lines.push("   ✅ Correcto: " + entry.expected);
+        lines.push("   ✏️ Usuario: " + entry.userAnswer);
+      } else if (entry.type === "historia_preguntas") {
+        lines.push(num + ". [Comprensión]");
+        lines.push("   📖 Historia: " + (entry.story || '').substring(0, 100) + "...");
+        lines.push("   1️⃣ " + entry.pregunta1);
+        lines.push("   ✏️ " + entry.respuesta1);
+        lines.push("   2️⃣ " + entry.pregunta2);
+        lines.push("   ✏️ " + entry.respuesta2);
       }
+      
+      if (entry.duda) {
+        lines.push("   💭 Duda del usuario: " + entry.duda);
+      }
+      
+      lines.push("");
     });
     
     if (AppState.reportEntries.length === 0) {
@@ -3475,7 +3899,11 @@ export function renderHistoriaExercise(exercise, container) {
 
   function copyReport() {
     const report = buildReport();
-    document.getElementById("reportArea").value = report;
+    const reportArea = document.getElementById("reportArea");
+    if (reportArea) {
+      reportArea.style.display = "block";
+      reportArea.value = report;
+    }
     
     navigator.clipboard?.writeText(report).then(() => {
       toast("📋 Informe copiado al portapapeles");
@@ -3489,9 +3917,9 @@ export function renderHistoriaExercise(exercise, container) {
       const c = document.createElement("div");
       c.classList.add("confetti");
       c.style.left = Math.random() * 100 + "vw";
-      c.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
-      c.style.width = 6 + Math.random() * 10 + "px";
-      c.style.height = 10 + Math.random() * 12 + "px";
+      c.style.backgroundColor = "hsl(" + (Math.random() * 360) + ", 70%, 60%)";
+      c.style.width = (6 + Math.random() * 10) + "px";
+      c.style.height = (10 + Math.random() * 12) + "px";
       document.body.appendChild(c);
       setTimeout(() => c.remove(), 1400);
     }
@@ -3505,9 +3933,9 @@ export function renderHistoriaExercise(exercise, container) {
     
     username = username.trim().toLowerCase();
     currentUser = username;
-    userDocRef = doc(db, "english_trainer_users_v3", username);
+    userDocRef = doc(db, "english_trainer_users_v4", username);
     
-    localStorage.setItem("english_trainer_user_v3", username);
+    localStorage.setItem("english_trainer_user_v4", username);
     document.getElementById("userNameDisplay").innerText = username;
     document.getElementById("userAvatar").innerHTML = username.charAt(0).toUpperCase();
     document.getElementById("welcomeUsername").innerText = username;
@@ -3522,7 +3950,6 @@ export function renderHistoriaExercise(exercise, container) {
     }
     
     renderMapView();
-    updateStats();
     setupRealtimeSync();
     
     document.getElementById("loginScreen").classList.remove("active");
@@ -3536,7 +3963,7 @@ export function renderHistoriaExercise(exercise, container) {
     if(unsubscribeSnapshot) unsubscribeSnapshot();
     currentUser = null;
     userDocRef = null;
-    localStorage.removeItem("english_trainer_user_v3");
+    localStorage.removeItem("english_trainer_user_v4");
     document.getElementById("loginScreen").classList.add("active");
     document.getElementById("mainScreen").classList.remove("active");
     toast("👋 Sesión cerrada");
@@ -3552,14 +3979,13 @@ export function renderHistoriaExercise(exercise, container) {
       AppState.reportEntries = [];
       await saveToFirebase();
       renderMapView();
-      updateStats();
       showMainView("import");
       toast("🗑️ Todo borrado");
     }
   }
 
   function init() {
-    const savedUser = localStorage.getItem("english_trainer_user_v3");
+    const savedUser = localStorage.getItem("english_trainer_user_v4");
     if(savedUser) {
       login(savedUser);
     }
@@ -3585,7 +4011,6 @@ export function renderHistoriaExercise(exercise, container) {
     document.getElementById("openReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("backToMapBtn")?.addEventListener("click", () => {
       renderMapView();
-      updateStats();
       showMainView("map");
     });
     document.getElementById("toggleMenuBtn")?.addEventListener("click", () => {
