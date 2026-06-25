@@ -1,6 +1,5 @@
 // exercises/traduccion.js
 
-// Esta función se exporta para uso común
 export function normalizeWord(w) {
   return String(w || "").toLowerCase().replace(/[^a-záéíóúüñ]/g, '');
 }
@@ -92,6 +91,14 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
           <div style="display:flex; flex-wrap:wrap; gap:4px;">${userHtml}</div>
         </div>
       </div>
+      <div class="doubt-field" style="margin-top:12px; text-align:left;">
+        <label style="color:#94a3b8; font-size:0.8rem; display:block; margin-bottom:4px;">
+          💭 Consulta o duda sobre este ejercicio (opcional)
+        </label>
+        <textarea id="modalDoubtInput" class="answer-input" rows="2" 
+          placeholder="Escribe tu consulta aquí..." 
+          style="font-size:0.85rem; min-height:45px; width:100%;"></textarea>
+      </div>
       <div class="modal-buttons">
         <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
       </div>
@@ -99,23 +106,28 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   `;
   
   document.body.appendChild(modal);
+  
   document.getElementById("modalContinueBtn").addEventListener("click", () => {
+    const duda = document.getElementById("modalDoubtInput").value.trim();
     modal.remove();
-    if (onContinue) onContinue();
+    if (onContinue) onContinue(duda);
   });
+  
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
+      const duda = document.getElementById("modalDoubtInput")?.value?.trim() || '';
       modal.remove();
-      if (onContinue) onContinue();
+      if (onContinue) onContinue(duda);
     }
   });
 }
 
-export function getTraduccionReportEntry(exercise, userAnswer) {
+export function getTraduccionReportEntry(exercise, userAnswer, duda) {
   return {
     type: "traduccion",
     original: exercise.spanishWord || exercise.spanishWords,
     expected: exercise.englishWord || exercise.englishWords,
-    userAnswer: userAnswer
+    userAnswer: userAnswer,
+    duda: duda || ''
   };
 }

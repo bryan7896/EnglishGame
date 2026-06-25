@@ -1,5 +1,4 @@
 // exercises/completar.js
-// NOTA: normalizeWord se importa desde traduccion.js en el build
 
 export function renderCompletarExercise(exercise, container, isRetry = false) {
   const { spanishWord, englishSentence, options } = exercise;
@@ -17,7 +16,9 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
     ${isRetry ? '<div class="correction-notice">⚠️ Corrección: intenta de nuevo las palabras incorrectas</div>' : ''}
     <div class="question-bubble">${spanishWord}</div>
     <div class="input-area">
+      <p style="color:#94a3b8; margin-bottom:12px;">Completa la frase en inglés:</p>
       <div class="completar-sentence">${html}</div>
+      ${options.length > 0 ? `<p style="color:#64748b; font-size:0.8rem; margin-top:8px;">Palabras disponibles: ${options.join(', ')}</p>` : ''}
     </div>
     <div class="button-group">
       <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
@@ -113,6 +114,14 @@ export function showCompletarModal(exercise, results, onContinue, onRetry) {
         <p><strong>📊 Resultados:</strong></p>
         ${resultsHtml}
       </div>
+      <div class="doubt-field" style="margin-top:12px; text-align:left;">
+        <label style="color:#94a3b8; font-size:0.8rem; display:block; margin-bottom:4px;">
+          💭 Consulta o duda sobre este ejercicio (opcional)
+        </label>
+        <textarea id="modalDoubtInput" class="answer-input" rows="2" 
+          placeholder="Escribe tu consulta aquí..." 
+          style="font-size:0.85rem; min-height:45px; width:100%;"></textarea>
+      </div>
       <div class="modal-buttons">
         ${!allCorrect ? `<button class="fun-btn" id="modalRetryBtn" style="background:#f59e0b; color:#1a120b;">🔄 Reintentar</button>` : ''}
         <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
@@ -122,32 +131,38 @@ export function showCompletarModal(exercise, results, onContinue, onRetry) {
   
   document.body.appendChild(modal);
   
+  const getDuda = () => document.getElementById("modalDoubtInput")?.value?.trim() || '';
+  
   document.getElementById("modalContinueBtn").addEventListener("click", () => {
+    const duda = getDuda();
     modal.remove();
-    if (onContinue) onContinue(allCorrect);
+    if (onContinue) onContinue(allCorrect, duda);
   });
   
   if (!allCorrect) {
     document.getElementById("modalRetryBtn").addEventListener("click", () => {
+      const duda = getDuda();
       modal.remove();
-      if (onRetry) onRetry();
+      if (onRetry) onRetry(duda);
     });
   }
   
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
+      const duda = getDuda();
       modal.remove();
-      if (onContinue) onContinue(allCorrect);
+      if (onContinue) onContinue(allCorrect, duda);
     }
   });
 }
 
-export function getCompletarReportEntry(exercise, userAnswers) {
+export function getCompletarReportEntry(exercise, userAnswers, duda) {
   return {
     type: "completar",
     original: exercise.spanishWord,
     expected: exercise.englishSentence,
     options: exercise.options,
-    userAnswers: userAnswers
+    userAnswers: userAnswers,
+    duda: duda || ''
   };
 }

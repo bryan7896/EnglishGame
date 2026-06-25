@@ -1,5 +1,4 @@
 // exercises/corregir.js
-// Ejercicio de corregir frase con error
 
 export function renderCorregirExercise(exercise, container, isRetry = false) {
   const { fraseConError, fraseCorrecta } = exercise;
@@ -25,22 +24,11 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
         <span id="exerciseMoodText">Encuentra el error y escribe la versión correcta</span>
       </div>
     </div>
-    <!-- Campo de duda opcional -->
-    <div class="doubt-section" id="doubtSection" style="margin-top:12px; display:none;">
-      <label style="color:#94a3b8; font-size:0.8rem; display:block; margin-bottom:4px;">
-        💭 ¿Tienes alguna duda sobre este ejercicio? (opcional)
-      </label>
-      <textarea id="doubtInput" class="answer-input" rows="2" 
-        placeholder="Escribe tu duda o consulta aquí..." 
-        style="font-size:0.85rem; min-height:50px;"></textarea>
-    </div>
   `;
   
-  // Eventos
   document.getElementById("checkBtn")?.addEventListener("click", () => {
     const userAnswer = document.getElementById("answerInput").value.trim();
     if (!userAnswer) {
-      // Mostrar toast
       const toast = document.getElementById("toastFun");
       if (toast) {
         toast.textContent = "📝 Escribe una respuesta";
@@ -50,22 +38,10 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
       return;
     }
     
-    // Mostrar sección de duda después de comprobar
-    const doubtSection = document.getElementById("doubtSection");
-    if (doubtSection) doubtSection.style.display = "block";
-    
     const container = document.getElementById("exerciseContainer");
     const event = new CustomEvent('corregir-checked', { 
       detail: { userAnswer, exercise } 
     });
-    container.dispatchEvent(event);
-  });
-  
-  document.getElementById("continueBtn")?.addEventListener("click", () => {
-    const container = document.getElementById("exerciseContainer");
-    const doubtInput = document.getElementById("doubtInput");
-    const duda = doubtInput ? doubtInput.value.trim() : '';
-    const event = new CustomEvent('corregir-continue', { detail: { duda } });
     container.dispatchEvent(event);
   });
   
@@ -81,7 +57,6 @@ export function checkCorregirAnswer(exercise, userAnswer) {
   const correctAnswer = exercise.fraseCorrecta.trim();
   const userClean = userAnswer.trim();
   
-  // Comparar normalizando espacios y puntuación
   const normalize = (str) => str.toLowerCase()
     .replace(/\s+/g, ' ')
     .replace(/[.,!?;:]/g, '')
@@ -89,7 +64,6 @@ export function checkCorregirAnswer(exercise, userAnswer) {
   
   const isCorrect = normalize(userClean) === normalize(correctAnswer);
   
-  // Encontrar diferencias palabra por palabra
   const correctWords = correctAnswer.split(/\s+/);
   const userWords = userClean.split(/\s+/);
   const maxLen = Math.max(correctWords.length, userWords.length);
@@ -115,7 +89,6 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
   const { fraseConError, fraseCorrecta } = exercise;
   const { isCorrect, comparison } = result;
   
-  // Construir visualización de comparación
   let comparisonHtml = comparison.map(c => {
     if (!c.correct && !c.user) return '';
     const correctClass = c.match ? 'word-correct' : 'word-error';
@@ -146,10 +119,14 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
             ${comparisonHtml}
           </div>
         </div>
-        <div style="margin-top:12px; color:#fbbf24; font-size:0.8rem;">
-          💡 <strong>Diferencia:</strong> Las palabras en <span style="color:#f87171;">rojo</span> son incorrectas, 
-          las palabras en <span style="color:#4ade80;">verde</span> son correctas.
-        </div>
+      </div>
+      <div class="doubt-field" style="margin-top:12px; text-align:left;">
+        <label style="color:#94a3b8; font-size:0.8rem; display:block; margin-bottom:4px;">
+          💭 Consulta o duda sobre este ejercicio (opcional)
+        </label>
+        <textarea id="modalDoubtInput" class="answer-input" rows="2" 
+          placeholder="Escribe tu consulta aquí..." 
+          style="font-size:0.85rem; min-height:45px; width:100%;"></textarea>
       </div>
       <div class="modal-buttons">
         ${!isCorrect ? `<button class="fun-btn" id="modalRetryBtn" style="background:#f59e0b; color:#1a120b;">🔄 Reintentar</button>` : ''}
@@ -160,22 +137,27 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
   
   document.body.appendChild(modal);
   
+  const getDuda = () => document.getElementById("modalDoubtInput")?.value?.trim() || '';
+  
   document.getElementById("modalContinueBtn").addEventListener("click", () => {
+    const duda = getDuda();
     modal.remove();
-    if (onContinue) onContinue();
+    if (onContinue) onContinue(duda);
   });
   
   if (!isCorrect) {
     document.getElementById("modalRetryBtn").addEventListener("click", () => {
+      const duda = getDuda();
       modal.remove();
-      if (onRetry) onRetry();
+      if (onRetry) onRetry(duda);
     });
   }
   
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
+      const duda = getDuda();
       modal.remove();
-      if (onContinue) onContinue();
+      if (onContinue) onContinue(duda);
     }
   });
 }

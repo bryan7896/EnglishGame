@@ -54,7 +54,7 @@ def build_html(styles, map_js, traduccion_js, completar_js, seleccionar_js, hist
     template += '        <div class="badge-fun">🐣</div>\n'
     template += '        <div>\n'
     template += '          <div class="title-fun">English Trainer</div>\n'
-    template += '          <div class="sub-fun">Version 4.0 - Firebase</div>\n'
+    template += '          <div class="sub-fun">Version 4.1 - Firebase</div>\n'
     template += '        </div>\n'
     template += '      </div>\n'
     template += '      <div style="display: flex; align-items: center; gap: 8px;">\n'
@@ -439,12 +439,8 @@ def build_html(styles, map_js, traduccion_js, completar_js, seleccionar_js, hist
           return;
         }
         
-        const doubtInput = document.getElementById("doubtInputTra");
-        const duda = doubtInput ? doubtInput.value.trim() : '';
-        
-        AppState.reportEntries.push(getTraduccionReportEntry(exercise, userAnswer, duda));
-        
-        showComparativeModal(exercise, userAnswer, () => {
+        showComparativeModal(exercise, userAnswer, (duda) => {
+          AppState.reportEntries.push(getTraduccionReportEntry(exercise, userAnswer, duda));
           advanceExercise();
         });
       };
@@ -469,16 +465,13 @@ def build_html(styles, map_js, traduccion_js, completar_js, seleccionar_js, hist
         const result = checkCompletarAnswers(exercise, container);
         const { allCorrect, userAnswers, results } = result;
         
-        const doubtInput = document.getElementById("doubtInputCom");
-        const duda = doubtInput ? doubtInput.value.trim() : '';
-        
-        AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda));
-        
         showCompletarModal(exercise, results, 
-          (success) => {
+          (success, duda) => {
+            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda));
             advanceExercise();
           },
-          () => {
+          (duda) => {
+            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda));
             if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
               AppState.failedExercises.push(AppState.activeExerciseIndex);
             }
@@ -502,17 +495,6 @@ def build_html(styles, map_js, traduccion_js, completar_js, seleccionar_js, hist
     }
   }
 
-  function setupSeleccionarListeners(exercise) {
-    const container = document.getElementById("exerciseContainer");
-    if (container) {
-      container.addEventListener("all-matched", () => {
-        showSeleccionarCompleteModal(exercise.pairs, () => {
-          advanceExercise();
-        });
-      });
-    }
-  }
-
   function setupCorregirListeners(exercise) {
     const container = document.getElementById("exerciseContainer");
     if (!container) return;
@@ -522,13 +504,12 @@ def build_html(styles, map_js, traduccion_js, completar_js, seleccionar_js, hist
       const result = checkCorregirAnswer(ex, userAnswer);
       
       showCorregirModal(ex, result, userAnswer, 
-        () => {
-          const doubtInput = document.getElementById("doubtInput");
-          const duda = doubtInput ? doubtInput.value.trim() : '';
+        (duda) => {
           AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda));
           advanceExercise();
         },
-        () => {
+        (duda) => {
+          AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda));
           if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
             AppState.failedExercises.push(AppState.activeExerciseIndex);
           }
@@ -542,13 +523,17 @@ def build_html(styles, map_js, traduccion_js, completar_js, seleccionar_js, hist
         if (continueBtn) continueBtn.style.display = "flex";
       }
     });
-    
-    container.addEventListener("corregir-continue", (e) => {
-      const { duda } = e.detail;
-      const userAnswer = document.getElementById("answerInput")?.value.trim() || '';
-      AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda));
-      advanceExercise();
-    });
+  }
+
+  function setupSeleccionarListeners(exercise) {
+    const container = document.getElementById("exerciseContainer");
+    if (container) {
+      container.addEventListener("all-matched", () => {
+        showSeleccionarCompleteModal(exercise.pairs, () => {
+          advanceExercise();
+        });
+      });
+    }
   }
 
   function setupHistoriaListeners() {
