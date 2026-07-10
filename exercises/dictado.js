@@ -1,70 +1,59 @@
 // exercises/dictado.js
-// Ejercicio de dictado: escuchar y escribir
 
 const VOICES = [
-  { name: "Google US English", lang: "en-US", rate: 0.75 },
-  { name: "Google UK English Female", lang: "en-GB", rate: 0.75 },
-  { name: "Google UK English Male", lang: "en-GB", rate: 0.75 },
-  { name: "Samantha", lang: "en-US", rate: 0.8 },
-  { name: "Daniel", lang: "en-GB", rate: 0.75 },
-  { name: "Karen", lang: "en-AU", rate: 0.75 },
-  { name: "Moira", lang: "en-IE", rate: 0.75 },
-  { name: "Fiona", lang: "en-US", rate: 0.78 },
+  { lang: "en-US", rate: 0.75 },
+  { lang: "en-GB", rate: 0.75 },
+  { lang: "en-AU", rate: 0.78 },
+  { lang: "en-IE", rate: 0.75 },
 ];
 
-let lastVoiceIndex = -1;
+let lastVoiceIdx = -1;
+let currentUtterance = null; // Para tracking
 
 function getRandomVoice() {
-  let index;
-  do {
-    index = Math.floor(Math.random() * VOICES.length);
-  } while (index === lastVoiceIndex && VOICES.length > 1);
-  lastVoiceIndex = index;
-  return VOICES[index];
+  let idx;
+  do { idx = Math.floor(Math.random() * VOICES.length); }
+  while (idx === lastVoiceIdx && VOICES.length > 1);
+  lastVoiceIdx = idx;
+  return VOICES[idx];
 }
 
 function speakDictado(text) {
   if (!('speechSynthesis' in window)) return;
+  
+  // Cancelar cualquier audio previo
   window.speechSynthesis.cancel();
   
-  const utterance = new SpeechSynthesisUtterance(text);
-  const voiceConfig = getRandomVoice();
+  const u = new SpeechSynthesisUtterance(text);
+  currentUtterance = u;
   
-  utterance.lang = voiceConfig.lang;
-  utterance.rate = voiceConfig.rate;
-  utterance.pitch = 1;
-  utterance.volume = 1;
+  const vc = getRandomVoice();
+  u.lang = vc.lang;
+  u.rate = vc.rate;
+  u.pitch = 1;
+  u.volume = 1;
   
-  const voices = window.speechSynthesis.getVoices();
-  if (voices.length === 0) {
-    window.speechSynthesis.onvoiceschanged = () => {
-      const updatedVoices = window.speechSynthesis.getVoices();
-      const matchingVoices = updatedVoices.filter(v => v.lang.startsWith('en'));
-      if (matchingVoices.length > 0) {
-        utterance.voice = matchingVoices[Math.floor(Math.random() * matchingVoices.length)];
-      }
-      window.speechSynthesis.speak(utterance);
-    };
-  } else {
-    const matchingVoices = voices.filter(v => v.lang.startsWith('en'));
-    if (matchingVoices.length > 0) {
-      utterance.voice = matchingVoices[Math.floor(Math.random() * matchingVoices.length)];
+  // Pequeño delay para asegurar que el cancel se procesó
+  setTimeout(() => {
+    const voices = window.speechSynthesis.getVoices();
+    const enVoices = voices.filter(v => v.lang.startsWith('en'));
+    if (enVoices.length > 0) {
+      u.voice = enVoices[Math.floor(Math.random() * enVoices.length)];
     }
-    window.speechSynthesis.speak(utterance);
-  }
+    window.speechSynthesis.speak(u);
+  }, 100);
 }
 
-// Función auxiliar para obtener el texto del ejercicio
-function getExerciseText(exercise) {
-  if (typeof exercise === 'string') return exercise;
-  if (exercise && exercise.text) return exercise.text;
-  if (exercise && exercise.phrase) return exercise.phrase;
-  if (exercise && exercise.original) return exercise.original;
-  return '';
+function getText(ex) {
+  if (typeof ex === 'string') return ex;
+  return ex?.text || ex?.phrase || ex?.original || '';
 }
 
 export function renderDictadoExercise(exercise, container) {
-  const text = getExerciseText(exercise);
+  // Cancelar audio previo
+  window.speechSynthesis.cancel();
+  
+  const text = getText(exercise);
   
   container.innerHTML = `
     <div class="dictado-container">
@@ -72,105 +61,124 @@ export function renderDictadoExercise(exercise, container) {
         <div class="dictado-audio-icon">🎧</div>
         <div class="dictado-audio-info">
           <div class="dictado-audio-title">Escucha y escribe</div>
-          <div class="dictado-audio-subtitle">Reproduce el audio y escribe exactamente lo que escuchas</div>
+          <div class="dictado-audio-subtitle">Reproduce el audio y escribe lo que escuchas</div>
         </div>
-        <button class="dictado-play-btn" id="dictadoPlayBtn" title="Reproducir audio" type="button">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
+        <button class="dictado-play-btn dictado-play" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
           <span>Reproducir</span>
         </button>
       </div>
-      
-      <div class="dictado-progress-bar">
-        <div class="dictado-progress-fill" id="dictadoProgressFill"></div>
-      </div>
-      
-      <div class="dictado-play-count">
-        Reproducciones: <span id="dictadoPlayCountSpan">0</span>
-      </div>
-      
-      <div class="dictado-input-area">
-        <textarea 
-          id="dictadoInput" 
-          class="dictado-textarea" 
-          rows="3" 
-          placeholder="Escribe aquí lo que escuchaste..."
-          autocomplete="off"
-          autocorrect="off"
-          autocapitalize="off"
-          spellcheck="false"
-        ></textarea>
-        <div class="dictado-input-footer">
-          <span class="dictado-char-count" id="dictadoCharCount">0 caracteres</span>
-        </div>
-      </div>
-      
+      <div class="dictado-progress-bar"><div class="dictado-progress-fill dictado-progress"></div></div>
+      <div class="dictado-play-count">Reproducciones: <span class="dictado-count">0</span></div>
+      <textarea class="dictado-textarea dictado-input" rows="3" placeholder="Escribe aquí lo que escuchaste..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+      <div class="dictado-input-footer"><span class="dictado-chars">0 caracteres</span></div>
       <div class="dictado-actions">
-        <button class="dictado-btn dictado-btn-outline" id="dictadoClearBtn" type="button">
-          🗑️ Limpiar
-        </button>
-        <button class="dictado-btn dictado-btn-primary" id="checkDictadoBtn" type="button">
-          ✅ Comprobar
-        </button>
+        <button class="dictado-btn dictado-btn-outline dictado-clear" type="button">🗑️ Limpiar</button>
+        <button class="dictado-btn dictado-btn-primary dictado-check" type="button">✅ Comprobar</button>
       </div>
     </div>
   `;
   
   let playCount = 0;
-  const progressFill = document.getElementById("dictadoProgressFill");
-  const playCountSpan = document.getElementById("dictadoPlayCountSpan");
-  const playBtn = document.getElementById("dictadoPlayBtn");
-  const textarea = document.getElementById("dictadoInput");
-  const charCount = document.getElementById("dictadoCharCount");
-  const checkBtn = document.getElementById("checkDictadoBtn");
+  let autoPlayTimer = null;
   
-  function animateProgress() {
-    if (progressFill) {
-      progressFill.style.transition = 'none';
-      progressFill.style.width = '0%';
+  const progressBar = container.querySelector('.dictado-progress');
+  const countSpan = container.querySelector('.dictado-count');
+  const textarea = container.querySelector('.dictado-input');
+  const charSpan = container.querySelector('.dictado-chars');
+  const playBtn = container.querySelector('.dictado-play');
+  const clearBtn = container.querySelector('.dictado-clear');
+  const checkBtn = container.querySelector('.dictado-check');
+  
+  function animate() {
+    if (progressBar) {
+      progressBar.style.transition = 'none';
+      progressBar.style.width = '0%';
       setTimeout(() => {
-        progressFill.style.transition = 'width 2s ease';
-        progressFill.style.width = '100%';
+        if (progressBar) {
+          progressBar.style.transition = 'width 2s ease';
+          progressBar.style.width = '100%';
+        }
       }, 50);
     }
   }
   
-  // Auto reproducir al cargar
-  setTimeout(() => {
-    speakDictado(text);
-    playCount++;
-    if (playCountSpan) playCountSpan.textContent = playCount;
-    animateProgress();
+  // Auto reproducir con delay (guardar referencia para posible cancelación)
+  autoPlayTimer = setTimeout(() => {
+    if (document.body.contains(container)) { // Verificar que el container sigue en el DOM
+      speakDictado(text);
+      playCount++;
+      if (countSpan) countSpan.textContent = playCount;
+      animate();
+    }
   }, 600);
+  
+  // Guardar el timer para limpiarlo si es necesario
+  container._autoPlayTimer = autoPlayTimer;
   
   // Botón de play
   if (playBtn) {
     playBtn.addEventListener("click", () => {
       speakDictado(text);
       playCount++;
-      if (playCountSpan) playCountSpan.textContent = playCount;
-      animateProgress();
-      playBtn.classList.add('playing');
-      setTimeout(() => playBtn.classList.remove('playing'), 500);
+      if (countSpan) countSpan.textContent = playCount;
+      animate();
     });
   }
   
   // Contador de caracteres
   if (textarea) {
     textarea.addEventListener("input", () => {
-      if (charCount) charCount.textContent = textarea.value.length + " caracteres";
+      if (charSpan) charSpan.textContent = textarea.value.length + " caracteres";
     });
   }
   
   // Botón limpiar
-  document.getElementById("dictadoClearBtn")?.addEventListener("click", () => {
-    if (textarea) {
-      textarea.value = '';
-      if (charCount) charCount.textContent = '0 caracteres';
-      textarea.focus();
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      if (textarea) {
+        textarea.value = '';
+        if (charSpan) charSpan.textContent = '0 caracteres';
+        textarea.focus();
+      }
+    });
+  }
+  
+  // Comprobar - handler NOMBRADO para poder removerlo
+  const checkHandler = function() {
+    const userAnswer = textarea ? textarea.value.trim() : '';
+    
+    if (!userAnswer) {
+      if (textarea) {
+        textarea.style.borderColor = '#e50914';
+        textarea.placeholder = '⚠️ Por favor escribe lo que escuchaste...';
+        setTimeout(() => {
+          if (textarea) {
+            textarea.style.borderColor = '';
+            textarea.placeholder = 'Escribe aquí lo que escuchaste...';
+          }
+        }, 2000);
+      }
+      return;
     }
-  });
+    
+    // Cancelar audio al comprobar
+    window.speechSynthesis.cancel();
+    
+    const result = checkDictadoAnswer(text, userAnswer);
+    showDictadoModal(text, result, userAnswer, (duda) => {
+      // Limpiar timer antes de avanzar
+      if (container._autoPlayTimer) clearTimeout(container._autoPlayTimer);
+      container.dispatchEvent(new CustomEvent('dictado-done', { 
+        detail: { originalText: text, userAnswer, result, duda } 
+      }));
+    });
+  };
+  
+  if (checkBtn) {
+    checkBtn.addEventListener("click", checkHandler);
+    container._checkHandler = checkHandler;
+  }
   
   // Enter para comprobar
   if (textarea) {
@@ -182,165 +190,110 @@ export function renderDictadoExercise(exercise, container) {
     });
   }
   
-  // ============ COMPROBAR ============
-  if (checkBtn) {
-    checkBtn.onclick = function() {
-      const userAnswer = textarea ? textarea.value.trim() : '';
-      
-      if (!userAnswer) {
-        if (textarea) {
-          textarea.style.borderColor = '#e50914';
-          textarea.placeholder = '⚠️ Por favor escribe lo que escuchaste...';
-          setTimeout(() => {
-            if (textarea) {
-              textarea.style.borderColor = '';
-              textarea.placeholder = 'Escribe aquí lo que escuchaste...';
-            }
-          }, 2000);
-        }
-        return;
-      }
-      
-      const result = checkDictadoAnswer(text, userAnswer);
-      
-      showDictadoModal(text, result, userAnswer, function(duda) {
-        const event = new CustomEvent('dictado-done', {
-          detail: { 
-            originalText: text,
-            userAnswer: userAnswer, 
-            result: result, 
-            duda: duda 
-          }
-        });
-        container.dispatchEvent(event);
-      });
-    };
-  }
-  
-  if (textarea) textarea.focus();
+  // Focus en el textarea
+  setTimeout(() => textarea?.focus(), 200);
 }
 
 export function checkDictadoAnswer(correctText, userAnswer) {
-  const normalize = (str) => String(str || '').toLowerCase()
-    .replace(/\s+/g, ' ')
-    .replace(/[.,!?;:'"]/g, '')
-    .trim();
-  
-  const normalizedCorrect = normalize(correctText);
-  const normalizedUser = normalize(userAnswer);
-  
-  const isExact = normalizedUser === normalizedCorrect;
-  
-  const correctWords = correctText.toLowerCase().replace(/[.,!?;:'"]/g, '').split(/\s+/);
-  const userWords = userAnswer.toLowerCase().replace(/[.,!?;:'"]/g, '').split(/\s+/);
-  
-  let matchedWords = 0;
-  const comparison = [];
-  const maxLen = Math.max(correctWords.length, userWords.length);
-  
-  for (let i = 0; i < maxLen; i++) {
-    const cw = correctWords[i] || '';
-    const uw = userWords[i] || '';
-    const match = cw === uw && cw !== '';
-    if (match) matchedWords++;
-    comparison.push({ correct: cw, user: uw, match });
+  const norm = (s) => String(s||'').toLowerCase().replace(/\s+/g,' ').replace(/[.,!?;:'"]/g,'').trim();
+  const isExact = norm(userAnswer) === norm(correctText);
+  const cw = correctText.toLowerCase().replace(/[.,!?;:'"]/g,'').split(/\s+/);
+  const uw = userAnswer.toLowerCase().replace(/[.,!?;:'"]/g,'').split(/\s+/);
+  let matched = 0;
+  const comp = [];
+  for (let i=0; i<Math.max(cw.length, uw.length); i++) {
+    const c = cw[i]||'', u = uw[i]||'';
+    const m = c===u && c!=='';
+    if (m) matched++;
+    comp.push({correct:c, user:u, match:m});
   }
-  
-  const accuracy = correctWords.length > 0 ? matchedWords / correctWords.length : 0;
-  
-  return { isExact, accuracy, matchedWords, totalWords: correctWords.length, comparison };
+  return { isExact, accuracy: cw.length ? matched/cw.length : 0, matchedWords: matched, totalWords: cw.length, comparison: comp };
 }
 
 export function showDictadoModal(correctText, result, userAnswer, onContinue) {
+  // Cancelar audio
+  window.speechSynthesis.cancel();
+  
+  // Eliminar modal existente
+  const existing = document.querySelector('.modal-overlay');
+  if (existing) existing.remove();
+  
   const { isExact, accuracy, matchedWords, totalWords, comparison } = result;
+  const accColor = accuracy >= 0.9 ? '#2ecc71' : accuracy >= 0.7 ? '#f39c12' : '#e50914';
   
-  let accuracyColor = '#e50914';
-  if (accuracy >= 0.9) accuracyColor = '#2ecc71';
-  else if (accuracy >= 0.7) accuracyColor = '#f39c12';
-  
-  const comparisonHtml = comparison.map(c => {
+  const compHtml = comparison.map(c => {
     if (!c.correct && !c.user) return '';
-    const cls = c.match ? 'word-correct' : 'word-error';
-    return `<span class="${cls}">${c.user || '—'}</span>`;
+    return `<span class="${c.match?'word-correct':'word-error'}">${window._escHTML(c.user||'—')}</span>`;
   }).join(' ');
   
   const modal = document.createElement("div");
-  modal.className = "modal-overlay";
+  modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
-    <div class="modal-friend dictado-modal">
-      <div class="dictado-modal-header" style="background:${accuracyColor}">
-        <span class="dictado-modal-icon">${isExact ? '🏆' : accuracy >= 0.7 ? '📝' : '🎧'}</span>
-        <h3>${isExact ? '¡Perfecto!' : 'Resultado del dictado'}</h3>
+    <div class="modal-friend dictado-modal" style="padding:0;overflow:hidden;">
+      <div style="padding:20px 24px;background:${accColor};color:#fff;display:flex;align-items:center;gap:12px;">
+        <span style="font-size:2rem;">${isExact?'🏆':accuracy>=0.7?'📝':'🎧'}</span>
+        <h3 style="color:#fff;margin:0;">${isExact?'¡Perfecto!':'Resultado'}</h3>
       </div>
-      
-      <div class="dictado-modal-body">
-        <div class="dictado-modal-section correct-section">
-          <div class="dictado-modal-label">✅ Frase correcta</div>
-          <div class="dictado-modal-text correct-text">${escapeHTML(correctText)}</div>
+      <div style="padding:20px 24px;">
+        <div style="background:#111;border-radius:8px;padding:14px;margin-bottom:12px;">
+          <div style="color:#888;font-size:0.75rem;margin-bottom:4px;">✅ Frase correcta</div>
+          <div style="color:#2ecc71;font-size:1rem;">${window._escHTML(correctText)}</div>
         </div>
-        
-        <div class="dictado-modal-section user-section">
-          <div class="dictado-modal-label">✏️ Tu respuesta</div>
-          <div class="dictado-modal-text user-text">${escapeHTML(userAnswer) || '(vacío)'}</div>
+        <div style="background:#111;border-radius:8px;padding:14px;margin-bottom:12px;">
+          <div style="color:#888;font-size:0.75rem;margin-bottom:4px;">✏️ Tu respuesta</div>
+          <div style="color:#fbbf24;font-size:1rem;">${window._escHTML(userAnswer)||'(vacío)'}</div>
         </div>
-        
-        <div class="dictado-modal-stats">
-          <div class="dictado-stat" style="border-color:${accuracyColor}">
-            <div class="dictado-stat-value" style="color:${accuracyColor}">${Math.round(accuracy * 100)}%</div>
-            <div class="dictado-stat-label">Precisión</div>
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="flex:1;background:#111;border:1px solid ${accColor};border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:1.3rem;font-weight:700;color:${accColor};">${Math.round(accuracy*100)}%</div>
+            <div style="font-size:0.65rem;color:#666;">Precisión</div>
           </div>
-          <div class="dictado-stat">
-            <div class="dictado-stat-value">${matchedWords}</div>
-            <div class="dictado-stat-label">Aciertos</div>
+          <div style="flex:1;background:#111;border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:1.3rem;font-weight:700;color:#fff;">${matchedWords}</div>
+            <div style="font-size:0.65rem;color:#666;">Aciertos</div>
           </div>
-          <div class="dictado-stat">
-            <div class="dictado-stat-value">${totalWords}</div>
-            <div class="dictado-stat-label">Palabras</div>
+          <div style="flex:1;background:#111;border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:1.3rem;font-weight:700;color:#fff;">${totalWords}</div>
+            <div style="font-size:0.65rem;color:#666;">Palabras</div>
           </div>
         </div>
-        
-        <div class="dictado-modal-comparison">
-          <div class="dictado-modal-label">🔍 Comparación palabra por palabra</div>
-          <div class="dictado-comparison-words">${comparisonHtml}</div>
+        <div style="background:#111;border-radius:8px;padding:14px;margin-bottom:12px;">
+          <div style="color:#888;font-size:0.75rem;margin-bottom:6px;">🔍 Comparación</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;">${compHtml}</div>
         </div>
-        
-        <div class="dictado-modal-doubt">
-          <label>💭 Consulta o duda (opcional)</label>
-          <textarea id="modalDoubtInput" rows="2" placeholder="Anota tu consulta sobre este ejercicio..."></textarea>
+        <div style="background:#111;border-radius:8px;padding:14px;margin-bottom:12px;">
+          <label style="color:#888;font-size:0.8rem;">💭 Consulta (opcional)</label>
+          <textarea class="answer-input dictado-modal-doubt" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
         </div>
       </div>
-      
-      <div class="dictado-modal-footer">
-        <button class="dictado-modal-btn" id="modalContinueBtn" type="button">▶️ Continuar</button>
+      <div style="padding:16px 24px;border-top:1px solid #222;">
+        <button class="dictado-modal-btn dictado-modal-continue" style="width:100%;background:#e50914;color:#fff;border:none;border-radius:8px;padding:14px;font-size:0.9rem;font-weight:600;cursor:pointer;">▶️ Continuar</button>
       </div>
     </div>
   `;
   
   document.body.appendChild(modal);
   
-  const continueHandler = () => {
-    const duda = document.getElementById("modalDoubtInput")?.value?.trim() || '';
+  const continueBtn = modal.querySelector('.dictado-modal-continue');
+  const doubtInput = modal.querySelector('.dictado-modal-doubt');
+  
+  const close = () => {
+    const duda = doubtInput?.value?.trim() || '';
     modal.remove();
+    window.speechSynthesis.cancel(); // Cancelar audio al cerrar
     if (onContinue) onContinue(duda);
   };
   
-  document.getElementById("modalContinueBtn").addEventListener("click", continueHandler);
+  continueBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    close();
+  });
+  
   modal.addEventListener("click", (e) => {
-    if (e.target === modal) continueHandler();
+    if (e.target === modal) close();
   });
 }
 
-function escapeHTML(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
-}
-
 export function getDictadoReportEntry(originalText, userAnswer, duda) {
-  return {
-    type: "dictado",
-    original: originalText,
-    userAnswer: userAnswer,
-    duda: duda || ''
-  };
+  return { type:"dictado", original:originalText, userAnswer, duda:duda||'' };
 }

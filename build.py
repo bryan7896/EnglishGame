@@ -6,10 +6,9 @@ import sys
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "6.0 - Local Storage"
+VERSION = "6.2 - Local Storage"
 LS_KEY = "english_trainer_v6"
 
-# Tipos de datos de entrada
 INPUT_TYPES = [
     {"id": "traducciones", "label": "📝 Traducciones", "placeholder": '[{"spanishWord": "...", "englishWord": "..."}]'},
     {"id": "completar", "label": "✏️ Completar palabras", "placeholder": '[{"spanishWord": "...", "englishSentence": "... _____ ...", "options": ["word1"]}]'},
@@ -19,7 +18,6 @@ INPUT_TYPES = [
     {"id": "conversacion", "label": "💬 Conversación", "placeholder": '[{"messages":[{"name":"Ana","avatar":"👩","color":"#f472b6","text":"Hello!"}]}]'},
 ]
 
-# Archivos de ejercicios
 EXERCISE_FILES = {
     "exercises/traduccion.js": "__TRADUCCION_JS__",
     "exercises/completar.js": "__COMPLETAR_JS__",
@@ -215,6 +213,20 @@ def get_main_logic():
   }
   window._toast = toast;
   
+  window._escHTML = function(str) {
+    const div = document.createElement('div');
+    div.textContent = String(str || '');
+    return div.innerHTML;
+  };
+  
+  function cleanupAudio() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    const existingModal = document.querySelector('.modal-overlay');
+    if (existingModal) existingModal.remove();
+  }
+  
   function debounceSave() {
     clearTimeout(window._saveTimeout);
     window._saveTimeout = setTimeout(() => saveToStorage(), 500);
@@ -270,10 +282,12 @@ def get_main_logic():
   }
 
   function renderMapView() {
+    cleanupAudio();
     renderMap(AppState.nodes, AppState.progress, { openNode, showToast: toast });
   }
 
   function openNode(nodeIndex) {
+    cleanupAudio();
     if (!AppState.nodes[nodeIndex]?.exercises?.length) return;
     AppState.activeNodeIndex = nodeIndex;
     AppState.activeExerciseIndex = 0;
@@ -291,6 +305,8 @@ def get_main_logic():
   }
 
   function renderExercise() {
+    cleanupAudio();
+    
     const node = AppState.nodes[AppState.activeNodeIndex];
     if (!node?.exercises?.length) { showMainView("map"); return; }
     
@@ -315,23 +331,40 @@ def get_main_logic():
     const isRetry = AppState.failedExercises.includes(exIndex);
     
     switch(exercise.type) {
-      case "traduccion": renderTraduccionExercise(exercise, container); setupTraduccionListeners(exercise); break;
-      case "completar": renderCompletarExercise(exercise, container, isRetry); setupCompletarListeners(exercise); break;
-      case "seleccionar": renderSeleccionarExercise(exercise, container); setupSeleccionarListeners(exercise); break;
-      case "corregir": renderCorregirExercise(exercise, container, isRetry); setupCorregirListeners(exercise); break;
-      case "dictado": renderDictadoExercise(exercise, container); setupDictadoListeners(exercise); break;
-      case "conversacion": renderConversacionExercise(exercise, container); setupConversacionMainListeners(); break;
+      case "traduccion": 
+        renderTraduccionExercise(exercise, container); 
+        setupTraduccionListeners(exercise, container); 
+        break;
+      case "completar": 
+        renderCompletarExercise(exercise, container, isRetry); 
+        setupCompletarListeners(exercise, container); 
+        break;
+      case "seleccionar": 
+        renderSeleccionarExercise(exercise, container); 
+        setupSeleccionarListeners(exercise); 
+        break;
+      case "corregir": 
+        renderCorregirExercise(exercise, container, isRetry); 
+        setupCorregirListeners(exercise, container); 
+        break;
+      case "dictado": 
+        renderDictadoExercise(exercise, container); 
+        setupDictadoListeners(exercise, container); 
+        break;
+      case "conversacion": 
+        renderConversacionExercise(exercise, container); 
+        setupConversacionMainListeners(); 
+        break;
     }
     
     document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Correccion de error" : "✏️ Tu turno";
   }
 
-  function setupTraduccionListeners(exercise) {
-    const checkBtn = document.getElementById("checkBtn");
-    if (checkBtn) {
+  function setupTraduccionListeners(exercise, container) {
+    const checkBtn = container.querySelector('.traduccion-check');
+    const answerInput = container.querySelector('.traduccion-answer');
+    if (checkBtn && answerInput) {
       checkBtn.onclick = () => {
-        const answerInput = document.getElementById("answerInput");
-        if (!answerInput) return;
         const userAnswer = answerInput.value.trim();
         if (!userAnswer) { toast("📝 Escribe algo"); return; }
         showComparativeModal(exercise, userAnswer, (duda) => {
@@ -342,53 +375,70 @@ def get_main_logic():
     }
   }
 
-  function setupCompletarListeners(exercise) {
-    const checkBtn = document.getElementById("checkBtn");
+  function setupCompletarListeners(exercise, container) {
+    const checkBtn = container.querySelector('.completar-check');
     if (checkBtn) {
       checkBtn.onclick = () => {
-        const c = document.getElementById("exerciseContainer");
-        const result = checkCompletarAnswers(exercise, c);
+        const result = checkCompletarAnswers(exercise, container);
         const { allCorrect, userAnswers, results } = result;
         showCompletarModal(exercise, results, 
-          (success, duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); advanceExercise(); },
-          (duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
+          (success, duda) => { 
+            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
+            advanceExercise(); 
+          },
+          (duda) => { 
+            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
+            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
+              AppState.failedExercises.push(AppState.activeExerciseIndex);
+            }
+            renderExercise(); 
+          }
         );
-        if (allCorrect) { document.getElementById("checkBtn").style.display = "none"; const cb = document.getElementById("continueBtn"); if (cb) cb.style.display = "flex"; }
       };
     }
-    const cb = document.getElementById("continueBtn"); if (cb) cb.onclick = () => advanceExercise();
   }
 
-  function setupCorregirListeners(exercise) {
-    const container = document.getElementById("exerciseContainer");
-    if (!container) return;
-    container.addEventListener("corregir-checked", (e) => {
-      const { userAnswer, exercise: ex } = e.detail;
-      const result = checkCorregirAnswer(ex, userAnswer);
-      showCorregirModal(ex, result, userAnswer, 
-        (duda) => { AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); advanceExercise(); },
-        (duda) => { AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
-      );
-      if (result.isCorrect) { document.getElementById("checkBtn").style.display = "none"; const cb = document.getElementById("continueBtn"); if (cb) cb.style.display = "flex"; }
-    });
+  function setupCorregirListeners(exercise, container) {
+    const checkBtn = container.querySelector('.corregir-check');
+    const answerInput = container.querySelector('.corregir-answer');
+    if (checkBtn && answerInput) {
+      checkBtn.onclick = () => {
+        const userAnswer = answerInput.value.trim();
+        if (!userAnswer) { toast("📝 Escribe algo"); return; }
+        const result = checkCorregirAnswer(exercise, userAnswer);
+        showCorregirModal(exercise, result, userAnswer, 
+          (duda) => { 
+            AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); 
+            advanceExercise(); 
+          },
+          (duda) => { 
+            AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); 
+            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
+              AppState.failedExercises.push(AppState.activeExerciseIndex);
+            }
+            renderExercise(); 
+          }
+        );
+      };
+    }
   }
 
   function setupSeleccionarListeners(exercise) {
     const container = document.getElementById("exerciseContainer");
-    if (container) container.addEventListener("all-matched", () => { showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); });
+    if (container) {
+      container.addEventListener("all-matched", () => { 
+        showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); 
+      });
+    }
   }
 
-  // ============ DICTADO: USAR onclick DIRECTO (NO EventListener en container) ============
-  function setupDictadoListeners(exercise) {
-    const container = document.getElementById("exerciseContainer");
-    if (!container) return;
-    
+  function setupDictadoListeners(exercise, container) {
     const handler = function(e) {
+      cleanupAudio();
       const { originalText, userAnswer, result, duda } = e.detail;
       AppState.reportEntries.push(getDictadoReportEntry(originalText, userAnswer, duda));
       advanceExercise();
     };
-    
     container.removeEventListener("dictado-done", handler);
     container.addEventListener("dictado-done", handler);
   }
@@ -396,22 +446,34 @@ def get_main_logic():
   function setupConversacionMainListeners() {
     const container = document.getElementById("exerciseContainer");
     if (!container) return;
-    container.addEventListener("conversacion-answer", (e) => { AppState.reportEntries.push(getConversacionReportEntry(e.detail)); });
-    container.addEventListener("conversacion-completed", () => advanceExercise());
+    container.addEventListener("conversacion-answer", (e) => { 
+      AppState.reportEntries.push(getConversacionReportEntry(e.detail)); 
+    });
+    container.addEventListener("conversacion-completed", () => {
+      cleanupAudio();
+      advanceExercise();
+    });
   }
 
   function advanceExercise() {
+    cleanupAudio();
+    
     const node = AppState.nodes[AppState.activeNodeIndex];
     const exIndex = AppState.activeExerciseIndex;
     if (!AppState.progress[AppState.activeNodeIndex]) {
-      AppState.progress[AppState.activeNodeIndex] = { completed: false, exercisesDone: 0, exerciseResults: Array(node.exercises.length).fill(false) };
+      AppState.progress[AppState.activeNodeIndex] = { 
+        completed: false, exercisesDone: 0, 
+        exerciseResults: Array(node.exercises.length).fill(false) 
+      };
     }
     if (!AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex]) {
       AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex] = true;
-      AppState.progress[AppState.activeNodeIndex].exercisesDone = (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
+      AppState.progress[AppState.activeNodeIndex].exercisesDone = 
+        (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
     }
     AppState.failedExercises = AppState.failedExercises.filter(i => i !== exIndex);
-    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 ? AppState.failedExercises[0] : AppState.activeExerciseIndex + 1;
+    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 
+      ? AppState.failedExercises[0] : AppState.activeExerciseIndex + 1;
     saveToStorage();
     renderExercise();
   }
@@ -421,7 +483,10 @@ def get_main_logic():
     lines.push("📘 INFORME DE APRENDIZAJE");
     lines.push("=".repeat(40));
     lines.push("");
-    if (AppState.reportEntries.length === 0) { lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); return lines.join("\\n"); }
+    if (AppState.reportEntries.length === 0) { 
+      lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); 
+      return lines.join("\\n"); 
+    }
     
     const byType = {};
     AppState.reportEntries.forEach(entry => {
@@ -430,7 +495,10 @@ def get_main_logic():
     });
     
     let counter = 0;
-    const typeNames = { traduccion:"TRADUCCIÓN", completar:"COMPLETAR", seleccionar:"EMPAREJAR", corregir:"CORREGIR", dictado:"DICTADO", conversacion:"CONVERSACIÓN" };
+    const typeNames = { 
+      traduccion:"TRADUCCIÓN", completar:"COMPLETAR", seleccionar:"EMPAREJAR",
+      corregir:"CORREGIR", dictado:"DICTADO", conversacion:"CONVERSACIÓN" 
+    };
     
     Object.keys(typeNames).forEach(type => {
       const entries = byType[type] || [];
@@ -440,11 +508,23 @@ def get_main_logic():
       entries.forEach(entry => {
         counter++;
         lines.push(counter + ". " + (entry.original || entry.messageText || "").substring(0, 80));
-        if (entry.type === "traduccion") { lines.push("   ✅ Esperado: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
-        else if (entry.type === "completar") { lines.push("   ✅ Frase: " + entry.expected); lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); }
-        else if (entry.type === "corregir") { lines.push("   ❌ Error: " + entry.original); lines.push("   ✅ Correcto: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
-        else if (entry.type === "dictado") { lines.push("   🎧 Correcto: " + entry.original); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
-        else if (entry.type === "conversacion") { if (entry.removedWord) { lines.push("   🔤 Falta: " + entry.removedWord); lines.push("   ✏️ Usuario: " + entry.userAnswer); } if (entry.selectedOption !== undefined) lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); }
+        if (entry.type === "traduccion") { 
+          lines.push("   ✅ Esperado: " + entry.expected); 
+          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+        } else if (entry.type === "completar") { 
+          lines.push("   ✅ Frase: " + entry.expected); 
+          lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); 
+        } else if (entry.type === "corregir") { 
+          lines.push("   ❌ Error: " + entry.original); 
+          lines.push("   ✅ Correcto: " + entry.expected); 
+          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+        } else if (entry.type === "dictado") { 
+          lines.push("   🎧 Correcto: " + entry.original); 
+          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+        } else if (entry.type === "conversacion") { 
+          if (entry.removedWord) { lines.push("   🔤 Falta: " + entry.removedWord); lines.push("   ✏️ Usuario: " + entry.userAnswer); } 
+          if (entry.selectedOption !== undefined) lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); 
+        }
         if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
         lines.push("");
       });
@@ -464,8 +544,10 @@ def get_main_logic():
     const colors = ["#e50914", "#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"];
     for(let i = 0; i < 40; i++) {
       const c = document.createElement("div"); c.classList.add("confetti");
-      c.style.left = Math.random() * 100 + "vw"; c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      c.style.width = (5 + Math.random() * 8) + "px"; c.style.height = (8 + Math.random() * 10) + "px";
+      c.style.left = Math.random() * 100 + "vw"; 
+      c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      c.style.width = (5 + Math.random() * 8) + "px"; 
+      c.style.height = (8 + Math.random() * 10) + "px";
       c.style.animationDuration = (1 + Math.random() * 2) + "s";
       document.body.appendChild(c); setTimeout(() => c.remove(), 3000);
     }
@@ -479,7 +561,10 @@ def get_main_logic():
     document.getElementById("userNameDisplay").innerText = username;
     document.getElementById("welcomeUsername").innerText = username;
     const hasData = loadFromStorage(username);
-    if (!hasData) { AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; }
+    if (!hasData) { 
+      AppState.nodes = []; AppState.progress = {}; 
+      AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; 
+    }
     renderMapView();
     document.getElementById("loginScreen").classList.remove("active");
     document.getElementById("mainScreen").classList.add("active");
@@ -498,7 +583,9 @@ def get_main_logic():
 
   async function resetAll() {
     if(confirm("¿Borrar todo el progreso?")) {
-      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = [];
+      AppState.nodes = []; AppState.progress = {}; 
+      AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; 
+      AppState.failedExercises = []; AppState.reportEntries = [];
       saveToStorage(); renderMapView(); showMainView("import"); toast("🗑️ Todo borrado");
     }
   }

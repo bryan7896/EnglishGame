@@ -2828,7 +2828,7 @@ body {
     <div class="play-topbar">
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
-        <div class="sub-fun">6.0 - Local Storage</div>
+        <div class="sub-fun">6.2 - Local Storage</div>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
         <div class="user-info" id="userInfo">
@@ -3098,8 +3098,7 @@ export function alignWords(correct, user) {
   }
   
   let i = n, j = m;
-  const alignedCorrect = [];
-  const alignedUser = [];
+  const alignedCorrect = [], alignedUser = [];
   
   while (i > 0 || j > 0) {
     if (i>0 && j>0 && normalizeWord(correctWords[i-1]) === normalizeWord(userWords[j-1])) {
@@ -3122,81 +3121,61 @@ export function alignWords(correct, user) {
 
 export function renderTraduccionExercise(exercise, container) {
   container.innerHTML = `
-    <div class="question-bubble" id="spanishPrompt">${exercise.spanishWord || exercise.spanishWords}</div>
-    <textarea id="answerInput" class="answer-input" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
+    <div class="question-bubble">${exercise.spanishWord || exercise.spanishWords}</div>
+    <textarea class="answer-input traduccion-answer" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
     <div class="button-group">
-      <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
-      <button class="btn-action btn-continue" id="continueBtn" style="display: none;">➡️ Continuar</button>
-    </div>
-    <div class="mood-card">
-      <div class="mood-emoji" id="exerciseEmoji">🧸</div>
-      <div>
-        <strong id="exerciseMoodTitle">¡A traducir!</strong><br>
-        <span id="exerciseMoodText">Escribe y comprueba</span>
-      </div>
+      <button class="btn-action btn-check traduccion-check">✅ Comprobar</button>
     </div>
   `;
 }
 
 export function showComparativeModal(exercise, userAnswer, onContinue) {
-  const correctWords = (exercise.englishWord || exercise.englishWords).split(/\s+/);
-  const { alignedCorrect, alignedUser } = alignWords(exercise.englishWord || exercise.englishWords, userAnswer);
+  const existingModal = document.querySelector('.modal-overlay');
+  if (existingModal) existingModal.remove();
+  
+  const correctText = exercise.englishWord || exercise.englishWords;
+  const { alignedCorrect, alignedUser } = alignWords(correctText, userAnswer);
   
   let correctHtml = alignedCorrect.map(item => {
     if (item.placeholder) return `<span class="word-placeholder">-</span>`;
-    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${item.word}</span>`;
+    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${window._escHTML(item.word)}</span>`;
   }).join(' ');
   
   let userHtml = alignedUser.map(item => {
     if (item.placeholder) return `<span class="word-placeholder">-</span>`;
-    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${item.word}</span>`;
+    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${window._escHTML(item.word)}</span>`;
   }).join(' ');
   
   const modal = document.createElement("div");
-  modal.className = "modal-overlay";
+  modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>📊 Comparación palabra por palabra</h3>
+      <h3>📊 Comparación</h3>
       <div class="comparison-text-block">
-        <p><strong>🇪🇸 Español:</strong><br>${exercise.spanishWord || exercise.spanishWords}</p>
-        <div class="compare-line">
-          <strong>✅ Correcto:</strong>
-          <div style="display:flex; flex-wrap:wrap; gap:4px;">${correctHtml}</div>
-        </div>
-        <div class="compare-line">
-          <strong>✏️ Tu respuesta:</strong>
-          <div style="display:flex; flex-wrap:wrap; gap:4px;">${userHtml}</div>
-        </div>
+        <p><strong>🇪🇸 Español:</strong><br>${window._escHTML(exercise.spanishWord || exercise.spanishWords)}</p>
+        <div class="compare-line"><strong>✅ Correcto:</strong> ${correctHtml}</div>
+        <div class="compare-line"><strong>✏️ Tu respuesta:</strong> ${userHtml}</div>
       </div>
-      <div class="doubt-field" style="margin-top:12px; text-align:left;">
-        <label style="color:#94a3b8; font-size:0.8rem; display:block; margin-bottom:4px;">
-          💭 Consulta o duda sobre este ejercicio (opcional)
-        </label>
-        <textarea id="modalDoubtInput" class="answer-input" rows="2" 
-          placeholder="Escribe tu consulta aquí..." 
-          style="font-size:0.85rem; min-height:45px; width:100%;"></textarea>
+      <div style="margin-top:12px;text-align:left;">
+        <label style="color:#94a3b8;font-size:0.8rem;">💭 Consulta (opcional)</label>
+        <textarea class="answer-input modal-doubt" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
       </div>
       <div class="modal-buttons">
-        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+        <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
       </div>
     </div>
   `;
   
   document.body.appendChild(modal);
   
-  document.getElementById("modalContinueBtn").addEventListener("click", () => {
-    const duda = document.getElementById("modalDoubtInput").value.trim();
+  const close = () => {
+    const duda = modal.querySelector('.modal-doubt')?.value?.trim() || '';
     modal.remove();
     if (onContinue) onContinue(duda);
-  });
+  };
   
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      const duda = document.getElementById("modalDoubtInput")?.value?.trim() || '';
-      modal.remove();
-      if (onContinue) onContinue(duda);
-    }
-  });
+  modal.querySelector('.modal-continue').addEventListener("click", close);
+  modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
 }
 
 export function getTraduccionReportEntry(exercise, userAnswer, duda) {
@@ -3217,28 +3196,21 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
   let inputIndex = 0;
   
   html = html.replace(/_____/g, () => {
-    const input = `<input type="text" class="completar-input" data-index="${inputIndex}" placeholder="${options[inputIndex]?.charAt(0) || ''}..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">`;
+    const input = `<input type="text" class="completar-input" data-idx="${inputIndex}" placeholder="?" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">`;
     inputIndex++;
     return input;
   });
   
   container.innerHTML = `
-    ${isRetry ? '<div class="correction-notice">⚠️ Corrección: intenta de nuevo las palabras incorrectas</div>' : ''}
+    ${isRetry ? '<div class="correction-notice">⚠️ Corrección: intenta de nuevo</div>' : ''}
     <div class="question-bubble">${spanishWord}</div>
     <div class="input-area">
-      <p style="color:#94a3b8; margin-bottom:12px;">Completa la frase en inglés:</p>
+      <p style="color:#94a3b8;margin-bottom:12px;">Completa la frase:</p>
       <div class="completar-sentence">${html}</div>
+      ${options.length > 0 ? `<p style="color:#64748b;font-size:0.8rem;margin-top:8px;">Palabras: ${options.join(', ')}</p>` : ''}
     </div>
     <div class="button-group">
-      <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
-      <button class="btn-action btn-continue" id="continueBtn" style="display: none;">➡️ Continuar</button>
-    </div>
-    <div class="mood-card">
-      <div class="mood-emoji" id="exerciseEmoji">✏️</div>
-      <div>
-        <strong id="exerciseMoodTitle">Completa las palabras</strong><br>
-        <span id="exerciseMoodText">Escribe la palabra correcta en cada espacio</span>
-      </div>
+      <button class="btn-action btn-check completar-check">✅ Comprobar</button>
     </div>
   `;
   
@@ -3247,17 +3219,8 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
-        if (idx < inputs.length - 1) {
-          inputs[idx + 1].focus();
-        } else {
-          document.getElementById('checkBtn')?.click();
-        }
-      }
-      if (e.key === 'Tab') {
-        e.preventDefault();
-        if (idx < inputs.length - 1) {
-          inputs[idx + 1].focus();
-        }
+        if (idx < inputs.length - 1) inputs[idx + 1].focus();
+        else container.querySelector('.completar-check')?.click();
       }
     });
   });
@@ -3276,22 +3239,15 @@ export function checkCompletarAnswers(exercise, container) {
     const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase();
     
     userAnswers.push(userAnswer);
-    results.push({
-      index: idx,
-      userAnswer,
-      correctAnswer,
-      isCorrect
-    });
+    results.push({ index: idx, userAnswer, correctAnswer, isCorrect });
     
     if (isCorrect) {
-      input.classList.add('correct');
-      input.classList.remove('incorrect');
       input.style.backgroundColor = 'rgba(74,222,128,0.1)';
+      input.style.borderColor = '#4ade80';
       input.readOnly = true;
     } else {
-      input.classList.add('incorrect');
-      input.classList.remove('correct');
       input.style.backgroundColor = 'rgba(248,113,113,0.1)';
+      input.style.borderColor = '#f87171';
       allCorrect = false;
     }
   });
@@ -3300,67 +3256,61 @@ export function checkCompletarAnswers(exercise, container) {
 }
 
 export function showCompletarModal(exercise, results, onContinue, onRetry) {
-  const { spanishWord, englishSentence, options } = exercise;
+  const existingModal = document.querySelector('.modal-overlay');
+  if (existingModal) existingModal.remove();
+  
+  const { spanishWord, englishSentence } = exercise;
+  const allCorrect = results.every(r => r.isCorrect);
   
   let resultsHtml = results.map((r, idx) => {
     const status = r.isCorrect ? '✅' : '❌';
     const color = r.isCorrect ? '#4ade80' : '#f87171';
-    return `<div style="color:${color}; margin:4px 0;">
-      ${status} Espacio ${idx + 1}: Escribiste "${r.userAnswer || '(vacío)'}" | Correcto: "${r.correctAnswer}"
-    </div>`;
+    return `<div style="color:${color};margin:4px 0;">${status} Espacio ${idx+1}: "${r.userAnswer||'(vacío)'}" → "${r.correctAnswer}"</div>`;
   }).join('');
   
-  const allCorrect = results.every(r => r.isCorrect);
-  
   const modal = document.createElement("div");
-  modal.className = "modal-overlay";
+  modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
       <h3>${allCorrect ? '🎉 ¡Perfecto!' : '📝 Resultados'}</h3>
       <div class="comparison-text-block">
         <p><strong>🇪🇸 Español:</strong><br>${spanishWord}</p>
         <p><strong>🇬🇧 Frase:</strong><br>${englishSentence}</p>
-        <p><strong>📊 Resultados:</strong></p>
-        ${resultsHtml}
+        <p><strong>📊 Resultados:</strong></p>${resultsHtml}
       </div>
-      <div class="doubt-field" style="margin-top:12px; text-align:left;">
-        <label style="color:#94a3b8; font-size:0.8rem; display:block; margin-bottom:4px;">
-          💭 Consulta o duda sobre este ejercicio (opcional)
-        </label>
-        <textarea id="modalDoubtInput" class="answer-input" rows="2" 
-          placeholder="Escribe tu consulta aquí..." 
-          style="font-size:0.85rem; min-height:45px; width:100%;"></textarea>
+      <div style="margin-top:12px;text-align:left;">
+        <label style="color:#94a3b8;font-size:0.8rem;">💭 Consulta (opcional)</label>
+        <textarea class="answer-input modal-doubt" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
       </div>
       <div class="modal-buttons">
-        ${!allCorrect ? `<button class="fun-btn" id="modalRetryBtn" style="background:#f59e0b; color:#1a120b;">🔄 Reintentar</button>` : ''}
-        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+        ${!allCorrect ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
+        <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
       </div>
     </div>
   `;
   
   document.body.appendChild(modal);
   
-  const getDuda = () => document.getElementById("modalDoubtInput")?.value?.trim() || '';
+  const doubtInput = modal.querySelector('.modal-doubt');
+  const getDuda = () => doubtInput?.value?.trim() || '';
   
-  document.getElementById("modalContinueBtn").addEventListener("click", () => {
-    const duda = getDuda();
+  modal.querySelector('.modal-continue').addEventListener("click", () => {
     modal.remove();
-    if (onContinue) onContinue(allCorrect, duda);
+    if (onContinue) onContinue(allCorrect, getDuda());
   });
   
-  if (!allCorrect) {
-    document.getElementById("modalRetryBtn").addEventListener("click", () => {
-      const duda = getDuda();
+  const retryBtn = modal.querySelector('.modal-retry');
+  if (retryBtn) {
+    retryBtn.addEventListener("click", () => {
       modal.remove();
-      if (onRetry) onRetry(duda);
+      if (onRetry) onRetry(getDuda());
     });
   }
   
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
-      const duda = getDuda();
       modal.remove();
-      if (onContinue) onContinue(allCorrect, duda);
+      if (onContinue) onContinue(allCorrect, getDuda());
     }
   });
 }
@@ -3389,63 +3339,52 @@ export function renderSeleccionarExercise(exercise, container) {
   container.innerHTML = `
     <div class="question-bubble">🎯 Empareja las palabras correctas</div>
     <div class="selection-columns">
-      <div class="selection-column" id="englishColumn">
-        <h4 style="color:#60a5fa; text-align:center; margin-bottom:8px;">🇬🇧 Inglés</h4>
+      <div class="selection-column">
+        <h4 style="color:#60a5fa;text-align:center;margin-bottom:8px;">🇬🇧 Inglés</h4>
         ${shuffledEnglish.map(w => `
-          <div class="selection-item english-item" data-id="${w.id}" data-word="${escapeHtml(w.word)}">
-            ${escapeHtml(w.word)}
+          <div class="selection-item english-item" data-id="${w.id}" data-word="${window._escHTML(w.word)}">
+            ${window._escHTML(w.word)}
           </div>
         `).join('')}
       </div>
-      <div class="selection-column" id="spanishColumn">
-        <h4 style="color:#f59e0b; text-align:center; margin-bottom:8px;">🇪🇸 Español</h4>
+      <div class="selection-column">
+        <h4 style="color:#f59e0b;text-align:center;margin-bottom:8px;">🇪🇸 Español</h4>
         ${shuffledSpanish.map(w => `
-          <div class="selection-item spanish-item" data-id="${w.id}" data-word="${escapeHtml(w.word)}">
-            ${escapeHtml(w.word)}
+          <div class="selection-item spanish-item" data-id="${w.id}" data-word="${window._escHTML(w.word)}">
+            ${window._escHTML(w.word)}
           </div>
         `).join('')}
       </div>
     </div>
     <div class="mood-card">
-      <div class="mood-emoji" id="exerciseEmoji">🎯</div>
+      <div class="mood-emoji">🎯</div>
       <div>
-        <strong id="exerciseMoodTitle">Selecciona los pares</strong><br>
-        <span id="exerciseMoodText">Haz clic en una palabra de cada columna</span>
+        <strong>Selecciona los pares</strong><br>
+        <span>Haz clic en una palabra de cada columna</span>
       </div>
     </div>
-    <div id="selectionFeedback" style="text-align:center; min-height:24px; margin-top:8px;"></div>
+    <div class="selection-feedback" style="text-align:center;min-height:24px;margin-top:8px;"></div>
   `;
   
-  // Estado de selección
   let selectedEnglish = null;
   let selectedSpanish = null;
   const matchedPairs = new Set();
   
   const englishItems = container.querySelectorAll('.english-item');
   const spanishItems = container.querySelectorAll('.spanish-item');
-  const feedbackEl = container.querySelector('#selectionFeedback');
+  const feedbackEl = container.querySelector('.selection-feedback');
   
   function resetSelection() {
-    if (selectedEnglish) {
-      selectedEnglish.classList.remove('selected');
-      selectedEnglish = null;
-    }
-    if (selectedSpanish) {
-      selectedSpanish.classList.remove('selected');
-      selectedSpanish = null;
-    }
+    if (selectedEnglish) { selectedEnglish.classList.remove('selected'); selectedEnglish = null; }
+    if (selectedSpanish) { selectedSpanish.classList.remove('selected'); selectedSpanish = null; }
   }
   
   englishItems.forEach(item => {
     item.addEventListener('click', () => {
       if (item.classList.contains('matched')) return;
       
-      // Si ya hay un inglés seleccionado, desseleccionarlo
-      if (selectedEnglish && selectedEnglish !== item) {
-        selectedEnglish.classList.remove('selected');
-      }
+      if (selectedEnglish && selectedEnglish !== item) selectedEnglish.classList.remove('selected');
       
-      // Toggle selección
       if (selectedEnglish === item) {
         item.classList.remove('selected');
         selectedEnglish = null;
@@ -3454,7 +3393,6 @@ export function renderSeleccionarExercise(exercise, container) {
         selectedEnglish = item;
       }
       
-      // Si ambos están seleccionados, verificar par
       if (selectedEnglish && selectedSpanish) {
         checkPair(selectedEnglish, selectedSpanish, pairs, matchedPairs, container, feedbackEl, resetSelection);
       }
@@ -3465,12 +3403,8 @@ export function renderSeleccionarExercise(exercise, container) {
     item.addEventListener('click', () => {
       if (item.classList.contains('matched')) return;
       
-      // Si ya hay un español seleccionado, desseleccionarlo
-      if (selectedSpanish && selectedSpanish !== item) {
-        selectedSpanish.classList.remove('selected');
-      }
+      if (selectedSpanish && selectedSpanish !== item) selectedSpanish.classList.remove('selected');
       
-      // Toggle selección
       if (selectedSpanish === item) {
         item.classList.remove('selected');
         selectedSpanish = null;
@@ -3479,18 +3413,11 @@ export function renderSeleccionarExercise(exercise, container) {
         selectedSpanish = item;
       }
       
-      // Si ambos están seleccionados, verificar par
       if (selectedEnglish && selectedSpanish) {
         checkPair(selectedEnglish, selectedSpanish, pairs, matchedPairs, container, feedbackEl, resetSelection);
       }
     });
   });
-}
-
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
 }
 
 function checkPair(englishEl, spanishEl, pairs, matchedPairs, container, feedbackEl, resetSelection) {
@@ -3502,7 +3429,6 @@ function checkPair(englishEl, spanishEl, pairs, matchedPairs, container, feedbac
   );
   
   if (isCorrectPair) {
-    // Marcar como emparejado
     englishEl.classList.add('matched');
     spanishEl.classList.add('matched');
     englishEl.classList.remove('selected');
@@ -3510,34 +3436,27 @@ function checkPair(englishEl, spanishEl, pairs, matchedPairs, container, feedbac
     
     matchedPairs.add(englishWord + '|||' + spanishWord);
     
-    // Feedback positivo
     if (feedbackEl) {
       feedbackEl.innerHTML = '<span style="color:#4ade80;">✅ ¡Par correcto!</span>';
       setTimeout(() => { feedbackEl.innerHTML = ''; }, 1500);
     }
     
-    // Resetear selección
     resetSelection();
     
-    // Verificar si todos están emparejados
     if (matchedPairs.size === pairs.length) {
       setTimeout(() => {
-        const event = new CustomEvent('all-matched');
-        container.dispatchEvent(event);
+        container.dispatchEvent(new CustomEvent('all-matched'));
       }, 300);
     }
   } else {
-    // Marcar error temporalmente
     englishEl.classList.add('wrong');
     spanishEl.classList.add('wrong');
     
-    // Feedback negativo
     if (feedbackEl) {
-      feedbackEl.innerHTML = '<span style="color:#f87171;">❌ Par incorrecto, intenta de nuevo</span>';
+      feedbackEl.innerHTML = '<span style="color:#f87171;">❌ Par incorrecto</span>';
       setTimeout(() => { feedbackEl.innerHTML = ''; }, 2000);
     }
     
-    // Remover después de un tiempo y resetear selección
     setTimeout(() => {
       englishEl.classList.remove('wrong', 'selected');
       spanishEl.classList.remove('wrong', 'selected');
@@ -3547,199 +3466,144 @@ function checkPair(englishEl, spanishEl, pairs, matchedPairs, container, feedbac
 }
 
 export function showSeleccionarCompleteModal(pairs, onContinue) {
+  // Eliminar cualquier modal existente primero
+  const existing = document.querySelector('.modal-overlay');
+  if (existing) existing.remove();
+  
   const modal = document.createElement("div");
-  modal.className = "modal-overlay";
+  modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
       <h3>🎉 ¡Todos los pares correctos!</h3>
       <div class="comparison-text-block">
         <p><strong>Pares emparejados:</strong></p>
         ${pairs.map(p => `
-          <div style="display:flex; justify-content:space-between; align-items:center; margin:6px 0; padding:8px 12px; background:rgba(74,222,128,0.1); border-radius:8px;">
-            <span style="color:#60a5fa; font-weight:600;">${escapeHtml(p.englishWord)}</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:6px 0;padding:8px 12px;background:rgba(74,222,128,0.1);border-radius:8px;">
+            <span style="color:#60a5fa;font-weight:600;">${window._escHTML(p.englishWord)}</span>
             <span style="font-size:1.2rem;">↔️</span>
-            <span style="color:#f59e0b; font-weight:600;">${escapeHtml(p.spanishWord)}</span>
+            <span style="color:#f59e0b;font-weight:600;">${window._escHTML(p.spanishWord)}</span>
           </div>
         `).join('')}
       </div>
       <div class="modal-buttons">
-        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+        <button class="fun-btn primary-btn seleccionar-continue">▶️ Continuar</button>
       </div>
     </div>
   `;
   
   document.body.appendChild(modal);
   
-  const continueHandler = () => {
+  // Usar clase en lugar de ID, y querySelector dentro del modal
+  const continueBtn = modal.querySelector('.seleccionar-continue');
+  
+  const close = () => {
     modal.remove();
     if (onContinue) onContinue();
   };
   
-  document.getElementById("modalContinueBtn").addEventListener("click", continueHandler);
+  continueBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // Evitar que el click se propague al overlay
+    close();
+  });
+  
   modal.addEventListener("click", (e) => {
-    if (e.target === modal) continueHandler();
+    if (e.target === modal) close();
   });
 }
   // exercises/corregir.js
 
 export function renderCorregirExercise(exercise, container, isRetry = false) {
-  const { fraseConError, fraseCorrecta } = exercise;
+  const { fraseConError } = exercise;
   
   container.innerHTML = `
-    ${isRetry ? '<div class="correction-notice">⚠️ Corrección: intenta escribir la frase correcta</div>' : ''}
+    ${isRetry ? '<div class="correction-notice">⚠️ Corrección: intenta de nuevo</div>' : ''}
     <div class="question-bubble">
-      <span style="font-size:0.85rem; color:#94a3b8; display:block; margin-bottom:6px;">🔍 Encuentra el error y corrige la frase:</span>
-      <span style="color:#f87171; text-decoration:line-through; text-decoration-color:#f87171; margin-right:8px;">${fraseConError}</span>
+      <span style="font-size:0.85rem;color:#94a3b8;">🔍 Corrige la frase:</span><br>
+      <span style="color:#f87171;text-decoration:line-through;">${fraseConError}</span>
     </div>
-    <div class="input-area">
-      <p style="color:#94a3b8; margin-bottom:8px;">✏️ Escribe la frase corregida:</p>
-      <textarea id="answerInput" class="answer-input" rows="2" placeholder="Escribe la frase correcta aquí..."></textarea>
-    </div>
+    <textarea class="answer-input corregir-answer" rows="2" placeholder="Escribe la frase corregida..."></textarea>
     <div class="button-group">
-      <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
-      <button class="btn-action btn-continue" id="continueBtn" style="display: none;">➡️ Continuar</button>
-    </div>
-    <div class="mood-card">
-      <div class="mood-emoji" id="exerciseEmoji">🔍</div>
-      <div>
-        <strong id="exerciseMoodTitle">Corrige la frase</strong><br>
-        <span id="exerciseMoodText">Encuentra el error y escribe la versión correcta</span>
-      </div>
+      <button class="btn-action btn-check corregir-check">✅ Comprobar</button>
     </div>
   `;
-  
-  document.getElementById("checkBtn")?.addEventListener("click", () => {
-    const userAnswer = document.getElementById("answerInput").value.trim();
-    if (!userAnswer) {
-      const toast = document.getElementById("toastFun");
-      if (toast) {
-        toast.textContent = "📝 Escribe una respuesta";
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2000);
-      }
-      return;
-    }
-    
-    const container = document.getElementById("exerciseContainer");
-    const event = new CustomEvent('corregir-checked', { 
-      detail: { userAnswer, exercise } 
-    });
-    container.dispatchEvent(event);
-  });
-  
-  document.getElementById("answerInput")?.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      document.getElementById("checkBtn")?.click();
-    }
-  });
 }
 
 export function checkCorregirAnswer(exercise, userAnswer) {
   const correctAnswer = exercise.fraseCorrecta.trim();
-  const userClean = userAnswer.trim();
+  const normalize = (str) => str.toLowerCase().replace(/\s+/g, ' ').replace(/[.,!?;:]/g, '').trim();
   
-  const normalize = (str) => str.toLowerCase()
-    .replace(/\s+/g, ' ')
-    .replace(/[.,!?;:]/g, '')
-    .trim();
-  
-  const isCorrect = normalize(userClean) === normalize(correctAnswer);
+  const isCorrect = normalize(userAnswer) === normalize(correctAnswer);
   
   const correctWords = correctAnswer.split(/\s+/);
-  const userWords = userClean.split(/\s+/);
+  const userWords = userAnswer.split(/\s+/);
   const maxLen = Math.max(correctWords.length, userWords.length);
-  
   const comparison = [];
+  
   for (let i = 0; i < maxLen; i++) {
     const cw = correctWords[i] || '';
     const uw = userWords[i] || '';
-    const cwClean = normalize(cw);
-    const uwClean = normalize(uw);
-    
-    comparison.push({
-      correct: cw,
-      user: uw,
-      match: cwClean === uwClean && cwClean !== ''
-    });
+    comparison.push({ correct: cw, user: uw, match: normalize(cw) === normalize(uw) && cw !== '' });
   }
   
   return { isCorrect, comparison };
 }
 
 export function showCorregirModal(exercise, result, userAnswer, onContinue, onRetry) {
+  const existingModal = document.querySelector('.modal-overlay');
+  if (existingModal) existingModal.remove();
+  
   const { fraseConError, fraseCorrecta } = exercise;
   const { isCorrect, comparison } = result;
   
   let comparisonHtml = comparison.map(c => {
     if (!c.correct && !c.user) return '';
-    const correctClass = c.match ? 'word-correct' : 'word-error';
-    const userClass = c.match ? 'word-correct' : 'word-error';
-    return `
-      <div style="display:inline-flex; flex-direction:column; align-items:center; margin:2px 4px;">
-        <span class="${userClass}" style="font-size:0.85rem;">${c.user || '—'}</span>
-        ${!c.match ? `<span class="${correctClass}" style="font-size:0.75rem; opacity:0.8;">${c.correct || '—'}</span>` : ''}
-      </div>
-    `;
-  }).join('');
+    const cls = c.match ? 'word-correct' : 'word-error';
+    return `<span class="${cls}" style="font-size:0.85rem;">${window._escHTML(c.user || '—')}</span>`;
+  }).join(' ');
   
   const modal = document.createElement("div");
-  modal.className = "modal-overlay";
+  modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>${isCorrect ? '🎉 ¡Correcto!' : '📝 Revisa la diferencia'}</h3>
+      <h3>${isCorrect ? '🎉 ¡Correcto!' : '📝 Revisa'}</h3>
       <div class="comparison-text-block">
-        <p><strong>❌ Frase con error:</strong><br>
-          <span style="color:#f87171; text-decoration:line-through;">${fraseConError}</span></p>
-        <p><strong>✅ Frase correcta:</strong><br>
-          <span style="color:#4ade80;">${fraseCorrecta}</span></p>
-        <p><strong>✏️ Tu respuesta:</strong><br>
-          <span style="color:${isCorrect ? '#4ade80' : '#fbbf24'};">${userAnswer}</span></p>
-        <div class="compare-line" style="margin-top:12px;">
-          <strong>🔍 Comparación:</strong>
-          <div style="display:flex; flex-wrap:wrap; align-items:flex-end; gap:2px; margin-top:6px;">
-            ${comparisonHtml}
-          </div>
-        </div>
+        <p><strong>❌ Frase error:</strong><br><span style="color:#f87171;text-decoration:line-through;">${fraseConError}</span></p>
+        <p><strong>✅ Correcta:</strong><br><span style="color:#4ade80;">${fraseCorrecta}</span></p>
+        <p><strong>✏️ Tu respuesta:</strong><br><span style="color:${isCorrect?'#4ade80':'#fbbf24'};">${window._escHTML(userAnswer)}</span></p>
+        <div style="margin-top:12px;"><strong>🔍 Comparación:</strong> ${comparisonHtml}</div>
       </div>
-      <div class="doubt-field" style="margin-top:12px; text-align:left;">
-        <label style="color:#94a3b8; font-size:0.8rem; display:block; margin-bottom:4px;">
-          💭 Consulta o duda sobre este ejercicio (opcional)
-        </label>
-        <textarea id="modalDoubtInput" class="answer-input" rows="2" 
-          placeholder="Escribe tu consulta aquí..." 
-          style="font-size:0.85rem; min-height:45px; width:100%;"></textarea>
+      <div style="margin-top:12px;text-align:left;">
+        <label style="color:#94a3b8;font-size:0.8rem;">💭 Consulta (opcional)</label>
+        <textarea class="answer-input modal-doubt" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
       </div>
       <div class="modal-buttons">
-        ${!isCorrect ? `<button class="fun-btn" id="modalRetryBtn" style="background:#f59e0b; color:#1a120b;">🔄 Reintentar</button>` : ''}
-        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+        ${!isCorrect ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
+        <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
       </div>
     </div>
   `;
   
   document.body.appendChild(modal);
   
-  const getDuda = () => document.getElementById("modalDoubtInput")?.value?.trim() || '';
+  const getDuda = () => modal.querySelector('.modal-doubt')?.value?.trim() || '';
   
-  document.getElementById("modalContinueBtn").addEventListener("click", () => {
-    const duda = getDuda();
+  modal.querySelector('.modal-continue').addEventListener("click", () => {
     modal.remove();
-    if (onContinue) onContinue(duda);
+    if (onContinue) onContinue(getDuda());
   });
   
-  if (!isCorrect) {
-    document.getElementById("modalRetryBtn").addEventListener("click", () => {
-      const duda = getDuda();
+  const retryBtn = modal.querySelector('.modal-retry');
+  if (retryBtn) {
+    retryBtn.addEventListener("click", () => {
       modal.remove();
-      if (onRetry) onRetry(duda);
+      if (onRetry) onRetry(getDuda());
     });
   }
   
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
-      const duda = getDuda();
       modal.remove();
-      if (onContinue) onContinue(duda);
+      if (onContinue) onContinue(getDuda());
     }
   });
 }
@@ -3754,72 +3618,61 @@ export function getCorregirReportEntry(exercise, userAnswer, duda) {
   };
 }
   // exercises/dictado.js
-// Ejercicio de dictado: escuchar y escribir
 
 const VOICES = [
-  { name: "Google US English", lang: "en-US", rate: 0.75 },
-  { name: "Google UK English Female", lang: "en-GB", rate: 0.75 },
-  { name: "Google UK English Male", lang: "en-GB", rate: 0.75 },
-  { name: "Samantha", lang: "en-US", rate: 0.8 },
-  { name: "Daniel", lang: "en-GB", rate: 0.75 },
-  { name: "Karen", lang: "en-AU", rate: 0.75 },
-  { name: "Moira", lang: "en-IE", rate: 0.75 },
-  { name: "Fiona", lang: "en-US", rate: 0.78 },
+  { lang: "en-US", rate: 0.75 },
+  { lang: "en-GB", rate: 0.75 },
+  { lang: "en-AU", rate: 0.78 },
+  { lang: "en-IE", rate: 0.75 },
 ];
 
-let lastVoiceIndex = -1;
+let lastVoiceIdx = -1;
+let currentUtterance = null; // Para tracking
 
 function getRandomVoice() {
-  let index;
-  do {
-    index = Math.floor(Math.random() * VOICES.length);
-  } while (index === lastVoiceIndex && VOICES.length > 1);
-  lastVoiceIndex = index;
-  return VOICES[index];
+  let idx;
+  do { idx = Math.floor(Math.random() * VOICES.length); }
+  while (idx === lastVoiceIdx && VOICES.length > 1);
+  lastVoiceIdx = idx;
+  return VOICES[idx];
 }
 
 function speakDictado(text) {
   if (!('speechSynthesis' in window)) return;
+  
+  // Cancelar cualquier audio previo
   window.speechSynthesis.cancel();
   
-  const utterance = new SpeechSynthesisUtterance(text);
-  const voiceConfig = getRandomVoice();
+  const u = new SpeechSynthesisUtterance(text);
+  currentUtterance = u;
   
-  utterance.lang = voiceConfig.lang;
-  utterance.rate = voiceConfig.rate;
-  utterance.pitch = 1;
-  utterance.volume = 1;
+  const vc = getRandomVoice();
+  u.lang = vc.lang;
+  u.rate = vc.rate;
+  u.pitch = 1;
+  u.volume = 1;
   
-  const voices = window.speechSynthesis.getVoices();
-  if (voices.length === 0) {
-    window.speechSynthesis.onvoiceschanged = () => {
-      const updatedVoices = window.speechSynthesis.getVoices();
-      const matchingVoices = updatedVoices.filter(v => v.lang.startsWith('en'));
-      if (matchingVoices.length > 0) {
-        utterance.voice = matchingVoices[Math.floor(Math.random() * matchingVoices.length)];
-      }
-      window.speechSynthesis.speak(utterance);
-    };
-  } else {
-    const matchingVoices = voices.filter(v => v.lang.startsWith('en'));
-    if (matchingVoices.length > 0) {
-      utterance.voice = matchingVoices[Math.floor(Math.random() * matchingVoices.length)];
+  // Pequeño delay para asegurar que el cancel se procesó
+  setTimeout(() => {
+    const voices = window.speechSynthesis.getVoices();
+    const enVoices = voices.filter(v => v.lang.startsWith('en'));
+    if (enVoices.length > 0) {
+      u.voice = enVoices[Math.floor(Math.random() * enVoices.length)];
     }
-    window.speechSynthesis.speak(utterance);
-  }
+    window.speechSynthesis.speak(u);
+  }, 100);
 }
 
-// Función auxiliar para obtener el texto del ejercicio
-function getExerciseText(exercise) {
-  if (typeof exercise === 'string') return exercise;
-  if (exercise && exercise.text) return exercise.text;
-  if (exercise && exercise.phrase) return exercise.phrase;
-  if (exercise && exercise.original) return exercise.original;
-  return '';
+function getText(ex) {
+  if (typeof ex === 'string') return ex;
+  return ex?.text || ex?.phrase || ex?.original || '';
 }
 
 export function renderDictadoExercise(exercise, container) {
-  const text = getExerciseText(exercise);
+  // Cancelar audio previo
+  window.speechSynthesis.cancel();
+  
+  const text = getText(exercise);
   
   container.innerHTML = `
     <div class="dictado-container">
@@ -3827,105 +3680,124 @@ export function renderDictadoExercise(exercise, container) {
         <div class="dictado-audio-icon">🎧</div>
         <div class="dictado-audio-info">
           <div class="dictado-audio-title">Escucha y escribe</div>
-          <div class="dictado-audio-subtitle">Reproduce el audio y escribe exactamente lo que escuchas</div>
+          <div class="dictado-audio-subtitle">Reproduce el audio y escribe lo que escuchas</div>
         </div>
-        <button class="dictado-play-btn" id="dictadoPlayBtn" title="Reproducir audio" type="button">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
+        <button class="dictado-play-btn dictado-play" type="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
           <span>Reproducir</span>
         </button>
       </div>
-      
-      <div class="dictado-progress-bar">
-        <div class="dictado-progress-fill" id="dictadoProgressFill"></div>
-      </div>
-      
-      <div class="dictado-play-count">
-        Reproducciones: <span id="dictadoPlayCountSpan">0</span>
-      </div>
-      
-      <div class="dictado-input-area">
-        <textarea 
-          id="dictadoInput" 
-          class="dictado-textarea" 
-          rows="3" 
-          placeholder="Escribe aquí lo que escuchaste..."
-          autocomplete="off"
-          autocorrect="off"
-          autocapitalize="off"
-          spellcheck="false"
-        ></textarea>
-        <div class="dictado-input-footer">
-          <span class="dictado-char-count" id="dictadoCharCount">0 caracteres</span>
-        </div>
-      </div>
-      
+      <div class="dictado-progress-bar"><div class="dictado-progress-fill dictado-progress"></div></div>
+      <div class="dictado-play-count">Reproducciones: <span class="dictado-count">0</span></div>
+      <textarea class="dictado-textarea dictado-input" rows="3" placeholder="Escribe aquí lo que escuchaste..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+      <div class="dictado-input-footer"><span class="dictado-chars">0 caracteres</span></div>
       <div class="dictado-actions">
-        <button class="dictado-btn dictado-btn-outline" id="dictadoClearBtn" type="button">
-          🗑️ Limpiar
-        </button>
-        <button class="dictado-btn dictado-btn-primary" id="checkDictadoBtn" type="button">
-          ✅ Comprobar
-        </button>
+        <button class="dictado-btn dictado-btn-outline dictado-clear" type="button">🗑️ Limpiar</button>
+        <button class="dictado-btn dictado-btn-primary dictado-check" type="button">✅ Comprobar</button>
       </div>
     </div>
   `;
   
   let playCount = 0;
-  const progressFill = document.getElementById("dictadoProgressFill");
-  const playCountSpan = document.getElementById("dictadoPlayCountSpan");
-  const playBtn = document.getElementById("dictadoPlayBtn");
-  const textarea = document.getElementById("dictadoInput");
-  const charCount = document.getElementById("dictadoCharCount");
-  const checkBtn = document.getElementById("checkDictadoBtn");
+  let autoPlayTimer = null;
   
-  function animateProgress() {
-    if (progressFill) {
-      progressFill.style.transition = 'none';
-      progressFill.style.width = '0%';
+  const progressBar = container.querySelector('.dictado-progress');
+  const countSpan = container.querySelector('.dictado-count');
+  const textarea = container.querySelector('.dictado-input');
+  const charSpan = container.querySelector('.dictado-chars');
+  const playBtn = container.querySelector('.dictado-play');
+  const clearBtn = container.querySelector('.dictado-clear');
+  const checkBtn = container.querySelector('.dictado-check');
+  
+  function animate() {
+    if (progressBar) {
+      progressBar.style.transition = 'none';
+      progressBar.style.width = '0%';
       setTimeout(() => {
-        progressFill.style.transition = 'width 2s ease';
-        progressFill.style.width = '100%';
+        if (progressBar) {
+          progressBar.style.transition = 'width 2s ease';
+          progressBar.style.width = '100%';
+        }
       }, 50);
     }
   }
   
-  // Auto reproducir al cargar
-  setTimeout(() => {
-    speakDictado(text);
-    playCount++;
-    if (playCountSpan) playCountSpan.textContent = playCount;
-    animateProgress();
+  // Auto reproducir con delay (guardar referencia para posible cancelación)
+  autoPlayTimer = setTimeout(() => {
+    if (document.body.contains(container)) { // Verificar que el container sigue en el DOM
+      speakDictado(text);
+      playCount++;
+      if (countSpan) countSpan.textContent = playCount;
+      animate();
+    }
   }, 600);
+  
+  // Guardar el timer para limpiarlo si es necesario
+  container._autoPlayTimer = autoPlayTimer;
   
   // Botón de play
   if (playBtn) {
     playBtn.addEventListener("click", () => {
       speakDictado(text);
       playCount++;
-      if (playCountSpan) playCountSpan.textContent = playCount;
-      animateProgress();
-      playBtn.classList.add('playing');
-      setTimeout(() => playBtn.classList.remove('playing'), 500);
+      if (countSpan) countSpan.textContent = playCount;
+      animate();
     });
   }
   
   // Contador de caracteres
   if (textarea) {
     textarea.addEventListener("input", () => {
-      if (charCount) charCount.textContent = textarea.value.length + " caracteres";
+      if (charSpan) charSpan.textContent = textarea.value.length + " caracteres";
     });
   }
   
   // Botón limpiar
-  document.getElementById("dictadoClearBtn")?.addEventListener("click", () => {
-    if (textarea) {
-      textarea.value = '';
-      if (charCount) charCount.textContent = '0 caracteres';
-      textarea.focus();
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      if (textarea) {
+        textarea.value = '';
+        if (charSpan) charSpan.textContent = '0 caracteres';
+        textarea.focus();
+      }
+    });
+  }
+  
+  // Comprobar - handler NOMBRADO para poder removerlo
+  const checkHandler = function() {
+    const userAnswer = textarea ? textarea.value.trim() : '';
+    
+    if (!userAnswer) {
+      if (textarea) {
+        textarea.style.borderColor = '#e50914';
+        textarea.placeholder = '⚠️ Por favor escribe lo que escuchaste...';
+        setTimeout(() => {
+          if (textarea) {
+            textarea.style.borderColor = '';
+            textarea.placeholder = 'Escribe aquí lo que escuchaste...';
+          }
+        }, 2000);
+      }
+      return;
     }
-  });
+    
+    // Cancelar audio al comprobar
+    window.speechSynthesis.cancel();
+    
+    const result = checkDictadoAnswer(text, userAnswer);
+    showDictadoModal(text, result, userAnswer, (duda) => {
+      // Limpiar timer antes de avanzar
+      if (container._autoPlayTimer) clearTimeout(container._autoPlayTimer);
+      container.dispatchEvent(new CustomEvent('dictado-done', { 
+        detail: { originalText: text, userAnswer, result, duda } 
+      }));
+    });
+  };
+  
+  if (checkBtn) {
+    checkBtn.addEventListener("click", checkHandler);
+    container._checkHandler = checkHandler;
+  }
   
   // Enter para comprobar
   if (textarea) {
@@ -3937,167 +3809,112 @@ export function renderDictadoExercise(exercise, container) {
     });
   }
   
-  // ============ COMPROBAR ============
-  if (checkBtn) {
-    checkBtn.onclick = function() {
-      const userAnswer = textarea ? textarea.value.trim() : '';
-      
-      if (!userAnswer) {
-        if (textarea) {
-          textarea.style.borderColor = '#e50914';
-          textarea.placeholder = '⚠️ Por favor escribe lo que escuchaste...';
-          setTimeout(() => {
-            if (textarea) {
-              textarea.style.borderColor = '';
-              textarea.placeholder = 'Escribe aquí lo que escuchaste...';
-            }
-          }, 2000);
-        }
-        return;
-      }
-      
-      const result = checkDictadoAnswer(text, userAnswer);
-      
-      showDictadoModal(text, result, userAnswer, function(duda) {
-        const event = new CustomEvent('dictado-done', {
-          detail: { 
-            originalText: text,
-            userAnswer: userAnswer, 
-            result: result, 
-            duda: duda 
-          }
-        });
-        container.dispatchEvent(event);
-      });
-    };
-  }
-  
-  if (textarea) textarea.focus();
+  // Focus en el textarea
+  setTimeout(() => textarea?.focus(), 200);
 }
 
 export function checkDictadoAnswer(correctText, userAnswer) {
-  const normalize = (str) => String(str || '').toLowerCase()
-    .replace(/\s+/g, ' ')
-    .replace(/[.,!?;:'"]/g, '')
-    .trim();
-  
-  const normalizedCorrect = normalize(correctText);
-  const normalizedUser = normalize(userAnswer);
-  
-  const isExact = normalizedUser === normalizedCorrect;
-  
-  const correctWords = correctText.toLowerCase().replace(/[.,!?;:'"]/g, '').split(/\s+/);
-  const userWords = userAnswer.toLowerCase().replace(/[.,!?;:'"]/g, '').split(/\s+/);
-  
-  let matchedWords = 0;
-  const comparison = [];
-  const maxLen = Math.max(correctWords.length, userWords.length);
-  
-  for (let i = 0; i < maxLen; i++) {
-    const cw = correctWords[i] || '';
-    const uw = userWords[i] || '';
-    const match = cw === uw && cw !== '';
-    if (match) matchedWords++;
-    comparison.push({ correct: cw, user: uw, match });
+  const norm = (s) => String(s||'').toLowerCase().replace(/\s+/g,' ').replace(/[.,!?;:'"]/g,'').trim();
+  const isExact = norm(userAnswer) === norm(correctText);
+  const cw = correctText.toLowerCase().replace(/[.,!?;:'"]/g,'').split(/\s+/);
+  const uw = userAnswer.toLowerCase().replace(/[.,!?;:'"]/g,'').split(/\s+/);
+  let matched = 0;
+  const comp = [];
+  for (let i=0; i<Math.max(cw.length, uw.length); i++) {
+    const c = cw[i]||'', u = uw[i]||'';
+    const m = c===u && c!=='';
+    if (m) matched++;
+    comp.push({correct:c, user:u, match:m});
   }
-  
-  const accuracy = correctWords.length > 0 ? matchedWords / correctWords.length : 0;
-  
-  return { isExact, accuracy, matchedWords, totalWords: correctWords.length, comparison };
+  return { isExact, accuracy: cw.length ? matched/cw.length : 0, matchedWords: matched, totalWords: cw.length, comparison: comp };
 }
 
 export function showDictadoModal(correctText, result, userAnswer, onContinue) {
+  // Cancelar audio
+  window.speechSynthesis.cancel();
+  
+  // Eliminar modal existente
+  const existing = document.querySelector('.modal-overlay');
+  if (existing) existing.remove();
+  
   const { isExact, accuracy, matchedWords, totalWords, comparison } = result;
+  const accColor = accuracy >= 0.9 ? '#2ecc71' : accuracy >= 0.7 ? '#f39c12' : '#e50914';
   
-  let accuracyColor = '#e50914';
-  if (accuracy >= 0.9) accuracyColor = '#2ecc71';
-  else if (accuracy >= 0.7) accuracyColor = '#f39c12';
-  
-  const comparisonHtml = comparison.map(c => {
+  const compHtml = comparison.map(c => {
     if (!c.correct && !c.user) return '';
-    const cls = c.match ? 'word-correct' : 'word-error';
-    return `<span class="${cls}">${c.user || '—'}</span>`;
+    return `<span class="${c.match?'word-correct':'word-error'}">${window._escHTML(c.user||'—')}</span>`;
   }).join(' ');
   
   const modal = document.createElement("div");
-  modal.className = "modal-overlay";
+  modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
-    <div class="modal-friend dictado-modal">
-      <div class="dictado-modal-header" style="background:${accuracyColor}">
-        <span class="dictado-modal-icon">${isExact ? '🏆' : accuracy >= 0.7 ? '📝' : '🎧'}</span>
-        <h3>${isExact ? '¡Perfecto!' : 'Resultado del dictado'}</h3>
+    <div class="modal-friend dictado-modal" style="padding:0;overflow:hidden;">
+      <div style="padding:20px 24px;background:${accColor};color:#fff;display:flex;align-items:center;gap:12px;">
+        <span style="font-size:2rem;">${isExact?'🏆':accuracy>=0.7?'📝':'🎧'}</span>
+        <h3 style="color:#fff;margin:0;">${isExact?'¡Perfecto!':'Resultado'}</h3>
       </div>
-      
-      <div class="dictado-modal-body">
-        <div class="dictado-modal-section correct-section">
-          <div class="dictado-modal-label">✅ Frase correcta</div>
-          <div class="dictado-modal-text correct-text">${escapeHTML(correctText)}</div>
+      <div style="padding:20px 24px;">
+        <div style="background:#111;border-radius:8px;padding:14px;margin-bottom:12px;">
+          <div style="color:#888;font-size:0.75rem;margin-bottom:4px;">✅ Frase correcta</div>
+          <div style="color:#2ecc71;font-size:1rem;">${window._escHTML(correctText)}</div>
         </div>
-        
-        <div class="dictado-modal-section user-section">
-          <div class="dictado-modal-label">✏️ Tu respuesta</div>
-          <div class="dictado-modal-text user-text">${escapeHTML(userAnswer) || '(vacío)'}</div>
+        <div style="background:#111;border-radius:8px;padding:14px;margin-bottom:12px;">
+          <div style="color:#888;font-size:0.75rem;margin-bottom:4px;">✏️ Tu respuesta</div>
+          <div style="color:#fbbf24;font-size:1rem;">${window._escHTML(userAnswer)||'(vacío)'}</div>
         </div>
-        
-        <div class="dictado-modal-stats">
-          <div class="dictado-stat" style="border-color:${accuracyColor}">
-            <div class="dictado-stat-value" style="color:${accuracyColor}">${Math.round(accuracy * 100)}%</div>
-            <div class="dictado-stat-label">Precisión</div>
+        <div style="display:flex;gap:10px;margin-bottom:12px;">
+          <div style="flex:1;background:#111;border:1px solid ${accColor};border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:1.3rem;font-weight:700;color:${accColor};">${Math.round(accuracy*100)}%</div>
+            <div style="font-size:0.65rem;color:#666;">Precisión</div>
           </div>
-          <div class="dictado-stat">
-            <div class="dictado-stat-value">${matchedWords}</div>
-            <div class="dictado-stat-label">Aciertos</div>
+          <div style="flex:1;background:#111;border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:1.3rem;font-weight:700;color:#fff;">${matchedWords}</div>
+            <div style="font-size:0.65rem;color:#666;">Aciertos</div>
           </div>
-          <div class="dictado-stat">
-            <div class="dictado-stat-value">${totalWords}</div>
-            <div class="dictado-stat-label">Palabras</div>
+          <div style="flex:1;background:#111;border-radius:8px;padding:12px;text-align:center;">
+            <div style="font-size:1.3rem;font-weight:700;color:#fff;">${totalWords}</div>
+            <div style="font-size:0.65rem;color:#666;">Palabras</div>
           </div>
         </div>
-        
-        <div class="dictado-modal-comparison">
-          <div class="dictado-modal-label">🔍 Comparación palabra por palabra</div>
-          <div class="dictado-comparison-words">${comparisonHtml}</div>
+        <div style="background:#111;border-radius:8px;padding:14px;margin-bottom:12px;">
+          <div style="color:#888;font-size:0.75rem;margin-bottom:6px;">🔍 Comparación</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;">${compHtml}</div>
         </div>
-        
-        <div class="dictado-modal-doubt">
-          <label>💭 Consulta o duda (opcional)</label>
-          <textarea id="modalDoubtInput" rows="2" placeholder="Anota tu consulta sobre este ejercicio..."></textarea>
+        <div style="background:#111;border-radius:8px;padding:14px;margin-bottom:12px;">
+          <label style="color:#888;font-size:0.8rem;">💭 Consulta (opcional)</label>
+          <textarea class="answer-input dictado-modal-doubt" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
         </div>
       </div>
-      
-      <div class="dictado-modal-footer">
-        <button class="dictado-modal-btn" id="modalContinueBtn" type="button">▶️ Continuar</button>
+      <div style="padding:16px 24px;border-top:1px solid #222;">
+        <button class="dictado-modal-btn dictado-modal-continue" style="width:100%;background:#e50914;color:#fff;border:none;border-radius:8px;padding:14px;font-size:0.9rem;font-weight:600;cursor:pointer;">▶️ Continuar</button>
       </div>
     </div>
   `;
   
   document.body.appendChild(modal);
   
-  const continueHandler = () => {
-    const duda = document.getElementById("modalDoubtInput")?.value?.trim() || '';
+  const continueBtn = modal.querySelector('.dictado-modal-continue');
+  const doubtInput = modal.querySelector('.dictado-modal-doubt');
+  
+  const close = () => {
+    const duda = doubtInput?.value?.trim() || '';
     modal.remove();
+    window.speechSynthesis.cancel(); // Cancelar audio al cerrar
     if (onContinue) onContinue(duda);
   };
   
-  document.getElementById("modalContinueBtn").addEventListener("click", continueHandler);
+  continueBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    close();
+  });
+  
   modal.addEventListener("click", (e) => {
-    if (e.target === modal) continueHandler();
+    if (e.target === modal) close();
   });
 }
 
-function escapeHTML(str) {
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
-}
-
 export function getDictadoReportEntry(originalText, userAnswer, duda) {
-  return {
-    type: "dictado",
-    original: originalText,
-    userAnswer: userAnswer,
-    duda: duda || ''
-  };
+  return { type:"dictado", original:originalText, userAnswer, duda:duda||'' };
 }
   // exercises/conversacion.js
 // Ejercicio de conversación con audio y completar espacios
@@ -4120,12 +3937,16 @@ let conversationState = {
 function speakText(text, onEnd) {
   if (!('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'en-US';
-  utterance.rate = 0.85;
-  utterance.pitch = 1;
-  if (onEnd) utterance.onend = onEnd;
-  window.speechSynthesis.speak(utterance);
+  
+  // Pequeño delay para asegurar limpieza
+  setTimeout(() => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.85;
+    utterance.pitch = 1;
+    if (onEnd) utterance.onend = onEnd;
+    window.speechSynthesis.speak(utterance);
+  }, 80);
 }
 
 function isAudioSelection(message) {
@@ -4145,12 +3966,10 @@ function createCompletionText(text) {
 }
 
 function getAvatar(message) {
-  // Si es narrador (boolean true o string "narrador")
   if (message.isNarrador === true || (message.character || '').toLowerCase() === 'narrador') {
     return { ...AVATARS.narrador, nombre: 'Narrador' };
   }
   
-  // Si tiene nombre personalizado
   const name = message.name || message.character || 'Persona';
   const color = message.color || AVATARS.default1.color;
   const emoji = message.avatar || AVATARS.default1.emoji;
@@ -4159,6 +3978,9 @@ function getAvatar(message) {
 }
 
 export function renderConversacionExercise(exercise, container) {
+  // Cancelar audio previo
+  window.speechSynthesis.cancel();
+  
   const messages = exercise.messages || exercise.conversacion || [];
   
   conversationState = {
@@ -4179,15 +4001,16 @@ function renderMessage(index, container, messages) {
         <div style="font-size:4rem; margin-bottom:16px;">🎉</div>
         <h3 style="color:#4ade80; margin-bottom:8px;">¡Conversación completada!</h3>
         <p style="color:#94a3b8;">Has terminado todos los mensajes.</p>
-        <button class="btn-action btn-continue" id="finishConvBtn" style="margin-top:16px; background:#4ade80; color:#064e3b; font-weight:700; width:100%;">
+        <button class="btn-action btn-continue conv-finish-btn" style="margin-top:16px; background:#4ade80; color:#064e3b; font-weight:700; width:100%;">
           ✅ Finalizar
         </button>
       </div>
     `;
     
-    document.getElementById("finishConvBtn")?.addEventListener("click", () => {
-      const event = new CustomEvent('conversacion-completed');
-      container.dispatchEvent(event);
+    container.querySelector('.conv-finish-btn')?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      window.speechSynthesis.cancel();
+      container.dispatchEvent(new CustomEvent('conversacion-completed'));
     });
     return;
   }
@@ -4244,7 +4067,7 @@ function renderMessage(index, container, messages) {
               <div class="conv-completion-text">
                 ${completionData.displayText.split(' ').map(word => {
                   if (word === '_____') {
-                    return `<input type="text" class="completar-input conv-input" id="convCompleteInput" 
+                    return `<input type="text" class="completar-input conv-complete-input" 
                       placeholder="?" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
                       style="width:80px; display:inline-block;">`;
                   }
@@ -4256,11 +4079,11 @@ function renderMessage(index, container, messages) {
             `}
           </div>
           
-          <button class="conv-play-btn" id="convPlayBtn" title="Reproducir audio">🔊 Reproducir</button>
+          <button class="conv-play-btn conv-play" title="Reproducir audio">🔊 Reproducir</button>
         </div>
       </div>
       
-      <button class="btn-action btn-continue" id="convContinueBtn" 
+      <button class="btn-action btn-continue conv-continue-btn" 
         style="width:100%; margin-top:16px; background:${isAudioSel && conversationState.selectedOption === null ? '#334155' : '#4ade80'}; color:#064e3b; font-weight:700;">
         ${index < messages.length - 1 ? '▶️ Continuar' : '✅ Terminar conversación'}
       </button>
@@ -4271,9 +4094,10 @@ function renderMessage(index, container, messages) {
 }
 
 function setupConversacionListeners(message, index, container, messages, completionData, isAudioSel, isRetry) {
-  const playBtn = document.getElementById("convPlayBtn");
+  const playBtn = container.querySelector('.conv-play');
   if (playBtn) {
-    playBtn.addEventListener("click", () => {
+    playBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (conversationState.isPlaying) {
         window.speechSynthesis.cancel();
         conversationState.isPlaying = false;
@@ -4300,7 +4124,8 @@ function setupConversacionListeners(message, index, container, messages, complet
   if (isAudioSel) {
     const audioBtns = container.querySelectorAll('.conv-audio-btn');
     audioBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
         const optionIndex = parseInt(btn.dataset.option);
         conversationState.selectedOption = optionIndex;
         audioBtns.forEach(b => b.classList.remove('selected'));
@@ -4308,22 +4133,24 @@ function setupConversacionListeners(message, index, container, messages, complet
         if (message.audioOptions[optionIndex]) {
           speakText(message.audioOptions[optionIndex]);
         }
-        const continueBtn = document.getElementById("convContinueBtn");
+        const continueBtn = container.querySelector('.conv-continue-btn');
         if (continueBtn) continueBtn.style.background = '#4ade80';
       });
     });
   }
   
-  const continueBtn = document.getElementById("convContinueBtn");
+  const continueBtn = container.querySelector('.conv-continue-btn');
   if (continueBtn) {
-    continueBtn.addEventListener("click", () => {
+    continueBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      
       if (isAudioSel && conversationState.selectedOption === null) {
         window._toast && window._toast("🎧 Selecciona una opción de audio primero");
         return;
       }
       
       if (completionData && !isRetry) {
-        const input = document.getElementById("convCompleteInput");
+        const input = container.querySelector('.conv-complete-input');
         if (!input || !input.value.trim()) {
           window._toast && window._toast("✏️ Completa la palabra faltante");
           return;
@@ -4363,15 +4190,17 @@ function setupConversacionListeners(message, index, container, messages, complet
         }));
       }
       
-      conversationState.currentIndex = index + 1;
-      conversationState.selectedOption = null;
+      // Cancelar audio antes de avanzar
       window.speechSynthesis.cancel();
       conversationState.isPlaying = false;
+      
+      conversationState.currentIndex = index + 1;
+      conversationState.selectedOption = null;
       
       if (index + 1 < messages.length) {
         renderMessage(index + 1, container, messages);
         setTimeout(() => {
-          const nextPlayBtn = document.getElementById("convPlayBtn");
+          const nextPlayBtn = container.querySelector('.conv-play');
           if (nextPlayBtn && messages[index + 1]) nextPlayBtn.click();
         }, 500);
       } else {
@@ -4446,6 +4275,20 @@ export function getConversacionReportEntry(messageData) {
   }
   window._toast = toast;
   
+  window._escHTML = function(str) {
+    const div = document.createElement('div');
+    div.textContent = String(str || '');
+    return div.innerHTML;
+  };
+  
+  function cleanupAudio() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    const existingModal = document.querySelector('.modal-overlay');
+    if (existingModal) existingModal.remove();
+  }
+  
   function debounceSave() {
     clearTimeout(window._saveTimeout);
     window._saveTimeout = setTimeout(() => saveToStorage(), 500);
@@ -4506,10 +4349,12 @@ export function getConversacionReportEntry(messageData) {
   }
 
   function renderMapView() {
+    cleanupAudio();
     renderMap(AppState.nodes, AppState.progress, { openNode, showToast: toast });
   }
 
   function openNode(nodeIndex) {
+    cleanupAudio();
     if (!AppState.nodes[nodeIndex]?.exercises?.length) return;
     AppState.activeNodeIndex = nodeIndex;
     AppState.activeExerciseIndex = 0;
@@ -4527,6 +4372,8 @@ export function getConversacionReportEntry(messageData) {
   }
 
   function renderExercise() {
+    cleanupAudio();
+    
     const node = AppState.nodes[AppState.activeNodeIndex];
     if (!node?.exercises?.length) { showMainView("map"); return; }
     
@@ -4551,23 +4398,40 @@ export function getConversacionReportEntry(messageData) {
     const isRetry = AppState.failedExercises.includes(exIndex);
     
     switch(exercise.type) {
-      case "traduccion": renderTraduccionExercise(exercise, container); setupTraduccionListeners(exercise); break;
-      case "completar": renderCompletarExercise(exercise, container, isRetry); setupCompletarListeners(exercise); break;
-      case "seleccionar": renderSeleccionarExercise(exercise, container); setupSeleccionarListeners(exercise); break;
-      case "corregir": renderCorregirExercise(exercise, container, isRetry); setupCorregirListeners(exercise); break;
-      case "dictado": renderDictadoExercise(exercise, container); setupDictadoListeners(exercise); break;
-      case "conversacion": renderConversacionExercise(exercise, container); setupConversacionMainListeners(); break;
+      case "traduccion": 
+        renderTraduccionExercise(exercise, container); 
+        setupTraduccionListeners(exercise, container); 
+        break;
+      case "completar": 
+        renderCompletarExercise(exercise, container, isRetry); 
+        setupCompletarListeners(exercise, container); 
+        break;
+      case "seleccionar": 
+        renderSeleccionarExercise(exercise, container); 
+        setupSeleccionarListeners(exercise); 
+        break;
+      case "corregir": 
+        renderCorregirExercise(exercise, container, isRetry); 
+        setupCorregirListeners(exercise, container); 
+        break;
+      case "dictado": 
+        renderDictadoExercise(exercise, container); 
+        setupDictadoListeners(exercise, container); 
+        break;
+      case "conversacion": 
+        renderConversacionExercise(exercise, container); 
+        setupConversacionMainListeners(); 
+        break;
     }
     
     document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Correccion de error" : "✏️ Tu turno";
   }
 
-  function setupTraduccionListeners(exercise) {
-    const checkBtn = document.getElementById("checkBtn");
-    if (checkBtn) {
+  function setupTraduccionListeners(exercise, container) {
+    const checkBtn = container.querySelector('.traduccion-check');
+    const answerInput = container.querySelector('.traduccion-answer');
+    if (checkBtn && answerInput) {
       checkBtn.onclick = () => {
-        const answerInput = document.getElementById("answerInput");
-        if (!answerInput) return;
         const userAnswer = answerInput.value.trim();
         if (!userAnswer) { toast("📝 Escribe algo"); return; }
         showComparativeModal(exercise, userAnswer, (duda) => {
@@ -4578,53 +4442,70 @@ export function getConversacionReportEntry(messageData) {
     }
   }
 
-  function setupCompletarListeners(exercise) {
-    const checkBtn = document.getElementById("checkBtn");
+  function setupCompletarListeners(exercise, container) {
+    const checkBtn = container.querySelector('.completar-check');
     if (checkBtn) {
       checkBtn.onclick = () => {
-        const c = document.getElementById("exerciseContainer");
-        const result = checkCompletarAnswers(exercise, c);
+        const result = checkCompletarAnswers(exercise, container);
         const { allCorrect, userAnswers, results } = result;
         showCompletarModal(exercise, results, 
-          (success, duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); advanceExercise(); },
-          (duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
+          (success, duda) => { 
+            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
+            advanceExercise(); 
+          },
+          (duda) => { 
+            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
+            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
+              AppState.failedExercises.push(AppState.activeExerciseIndex);
+            }
+            renderExercise(); 
+          }
         );
-        if (allCorrect) { document.getElementById("checkBtn").style.display = "none"; const cb = document.getElementById("continueBtn"); if (cb) cb.style.display = "flex"; }
       };
     }
-    const cb = document.getElementById("continueBtn"); if (cb) cb.onclick = () => advanceExercise();
   }
 
-  function setupCorregirListeners(exercise) {
-    const container = document.getElementById("exerciseContainer");
-    if (!container) return;
-    container.addEventListener("corregir-checked", (e) => {
-      const { userAnswer, exercise: ex } = e.detail;
-      const result = checkCorregirAnswer(ex, userAnswer);
-      showCorregirModal(ex, result, userAnswer, 
-        (duda) => { AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); advanceExercise(); },
-        (duda) => { AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
-      );
-      if (result.isCorrect) { document.getElementById("checkBtn").style.display = "none"; const cb = document.getElementById("continueBtn"); if (cb) cb.style.display = "flex"; }
-    });
+  function setupCorregirListeners(exercise, container) {
+    const checkBtn = container.querySelector('.corregir-check');
+    const answerInput = container.querySelector('.corregir-answer');
+    if (checkBtn && answerInput) {
+      checkBtn.onclick = () => {
+        const userAnswer = answerInput.value.trim();
+        if (!userAnswer) { toast("📝 Escribe algo"); return; }
+        const result = checkCorregirAnswer(exercise, userAnswer);
+        showCorregirModal(exercise, result, userAnswer, 
+          (duda) => { 
+            AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); 
+            advanceExercise(); 
+          },
+          (duda) => { 
+            AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); 
+            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
+              AppState.failedExercises.push(AppState.activeExerciseIndex);
+            }
+            renderExercise(); 
+          }
+        );
+      };
+    }
   }
 
   function setupSeleccionarListeners(exercise) {
     const container = document.getElementById("exerciseContainer");
-    if (container) container.addEventListener("all-matched", () => { showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); });
+    if (container) {
+      container.addEventListener("all-matched", () => { 
+        showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); 
+      });
+    }
   }
 
-  // ============ DICTADO: USAR onclick DIRECTO (NO EventListener en container) ============
-  function setupDictadoListeners(exercise) {
-    const container = document.getElementById("exerciseContainer");
-    if (!container) return;
-    
+  function setupDictadoListeners(exercise, container) {
     const handler = function(e) {
+      cleanupAudio();
       const { originalText, userAnswer, result, duda } = e.detail;
       AppState.reportEntries.push(getDictadoReportEntry(originalText, userAnswer, duda));
       advanceExercise();
     };
-    
     container.removeEventListener("dictado-done", handler);
     container.addEventListener("dictado-done", handler);
   }
@@ -4632,22 +4513,34 @@ export function getConversacionReportEntry(messageData) {
   function setupConversacionMainListeners() {
     const container = document.getElementById("exerciseContainer");
     if (!container) return;
-    container.addEventListener("conversacion-answer", (e) => { AppState.reportEntries.push(getConversacionReportEntry(e.detail)); });
-    container.addEventListener("conversacion-completed", () => advanceExercise());
+    container.addEventListener("conversacion-answer", (e) => { 
+      AppState.reportEntries.push(getConversacionReportEntry(e.detail)); 
+    });
+    container.addEventListener("conversacion-completed", () => {
+      cleanupAudio();
+      advanceExercise();
+    });
   }
 
   function advanceExercise() {
+    cleanupAudio();
+    
     const node = AppState.nodes[AppState.activeNodeIndex];
     const exIndex = AppState.activeExerciseIndex;
     if (!AppState.progress[AppState.activeNodeIndex]) {
-      AppState.progress[AppState.activeNodeIndex] = { completed: false, exercisesDone: 0, exerciseResults: Array(node.exercises.length).fill(false) };
+      AppState.progress[AppState.activeNodeIndex] = { 
+        completed: false, exercisesDone: 0, 
+        exerciseResults: Array(node.exercises.length).fill(false) 
+      };
     }
     if (!AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex]) {
       AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex] = true;
-      AppState.progress[AppState.activeNodeIndex].exercisesDone = (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
+      AppState.progress[AppState.activeNodeIndex].exercisesDone = 
+        (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
     }
     AppState.failedExercises = AppState.failedExercises.filter(i => i !== exIndex);
-    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 ? AppState.failedExercises[0] : AppState.activeExerciseIndex + 1;
+    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 
+      ? AppState.failedExercises[0] : AppState.activeExerciseIndex + 1;
     saveToStorage();
     renderExercise();
   }
@@ -4657,7 +4550,10 @@ export function getConversacionReportEntry(messageData) {
     lines.push("📘 INFORME DE APRENDIZAJE");
     lines.push("=".repeat(40));
     lines.push("");
-    if (AppState.reportEntries.length === 0) { lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); return lines.join("\\n"); }
+    if (AppState.reportEntries.length === 0) { 
+      lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); 
+      return lines.join("\\n"); 
+    }
     
     const byType = {};
     AppState.reportEntries.forEach(entry => {
@@ -4666,7 +4562,10 @@ export function getConversacionReportEntry(messageData) {
     });
     
     let counter = 0;
-    const typeNames = { traduccion:"TRADUCCIÓN", completar:"COMPLETAR", seleccionar:"EMPAREJAR", corregir:"CORREGIR", dictado:"DICTADO", conversacion:"CONVERSACIÓN" };
+    const typeNames = { 
+      traduccion:"TRADUCCIÓN", completar:"COMPLETAR", seleccionar:"EMPAREJAR",
+      corregir:"CORREGIR", dictado:"DICTADO", conversacion:"CONVERSACIÓN" 
+    };
     
     Object.keys(typeNames).forEach(type => {
       const entries = byType[type] || [];
@@ -4676,11 +4575,23 @@ export function getConversacionReportEntry(messageData) {
       entries.forEach(entry => {
         counter++;
         lines.push(counter + ". " + (entry.original || entry.messageText || "").substring(0, 80));
-        if (entry.type === "traduccion") { lines.push("   ✅ Esperado: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
-        else if (entry.type === "completar") { lines.push("   ✅ Frase: " + entry.expected); lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); }
-        else if (entry.type === "corregir") { lines.push("   ❌ Error: " + entry.original); lines.push("   ✅ Correcto: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
-        else if (entry.type === "dictado") { lines.push("   🎧 Correcto: " + entry.original); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
-        else if (entry.type === "conversacion") { if (entry.removedWord) { lines.push("   🔤 Falta: " + entry.removedWord); lines.push("   ✏️ Usuario: " + entry.userAnswer); } if (entry.selectedOption !== undefined) lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); }
+        if (entry.type === "traduccion") { 
+          lines.push("   ✅ Esperado: " + entry.expected); 
+          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+        } else if (entry.type === "completar") { 
+          lines.push("   ✅ Frase: " + entry.expected); 
+          lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); 
+        } else if (entry.type === "corregir") { 
+          lines.push("   ❌ Error: " + entry.original); 
+          lines.push("   ✅ Correcto: " + entry.expected); 
+          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+        } else if (entry.type === "dictado") { 
+          lines.push("   🎧 Correcto: " + entry.original); 
+          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+        } else if (entry.type === "conversacion") { 
+          if (entry.removedWord) { lines.push("   🔤 Falta: " + entry.removedWord); lines.push("   ✏️ Usuario: " + entry.userAnswer); } 
+          if (entry.selectedOption !== undefined) lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); 
+        }
         if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
         lines.push("");
       });
@@ -4700,8 +4611,10 @@ export function getConversacionReportEntry(messageData) {
     const colors = ["#e50914", "#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"];
     for(let i = 0; i < 40; i++) {
       const c = document.createElement("div"); c.classList.add("confetti");
-      c.style.left = Math.random() * 100 + "vw"; c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      c.style.width = (5 + Math.random() * 8) + "px"; c.style.height = (8 + Math.random() * 10) + "px";
+      c.style.left = Math.random() * 100 + "vw"; 
+      c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      c.style.width = (5 + Math.random() * 8) + "px"; 
+      c.style.height = (8 + Math.random() * 10) + "px";
       c.style.animationDuration = (1 + Math.random() * 2) + "s";
       document.body.appendChild(c); setTimeout(() => c.remove(), 3000);
     }
@@ -4715,7 +4628,10 @@ export function getConversacionReportEntry(messageData) {
     document.getElementById("userNameDisplay").innerText = username;
     document.getElementById("welcomeUsername").innerText = username;
     const hasData = loadFromStorage(username);
-    if (!hasData) { AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; }
+    if (!hasData) { 
+      AppState.nodes = []; AppState.progress = {}; 
+      AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; 
+    }
     renderMapView();
     document.getElementById("loginScreen").classList.remove("active");
     document.getElementById("mainScreen").classList.add("active");
@@ -4734,7 +4650,9 @@ export function getConversacionReportEntry(messageData) {
 
   async function resetAll() {
     if(confirm("¿Borrar todo el progreso?")) {
-      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = [];
+      AppState.nodes = []; AppState.progress = {}; 
+      AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; 
+      AppState.failedExercises = []; AppState.reportEntries = [];
       saveToStorage(); renderMapView(); showMainView("import"); toast("🗑️ Todo borrado");
     }
   }

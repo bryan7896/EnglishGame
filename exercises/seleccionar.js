@@ -12,63 +12,52 @@ export function renderSeleccionarExercise(exercise, container) {
   container.innerHTML = `
     <div class="question-bubble">🎯 Empareja las palabras correctas</div>
     <div class="selection-columns">
-      <div class="selection-column" id="englishColumn">
-        <h4 style="color:#60a5fa; text-align:center; margin-bottom:8px;">🇬🇧 Inglés</h4>
+      <div class="selection-column">
+        <h4 style="color:#60a5fa;text-align:center;margin-bottom:8px;">🇬🇧 Inglés</h4>
         ${shuffledEnglish.map(w => `
-          <div class="selection-item english-item" data-id="${w.id}" data-word="${escapeHtml(w.word)}">
-            ${escapeHtml(w.word)}
+          <div class="selection-item english-item" data-id="${w.id}" data-word="${window._escHTML(w.word)}">
+            ${window._escHTML(w.word)}
           </div>
         `).join('')}
       </div>
-      <div class="selection-column" id="spanishColumn">
-        <h4 style="color:#f59e0b; text-align:center; margin-bottom:8px;">🇪🇸 Español</h4>
+      <div class="selection-column">
+        <h4 style="color:#f59e0b;text-align:center;margin-bottom:8px;">🇪🇸 Español</h4>
         ${shuffledSpanish.map(w => `
-          <div class="selection-item spanish-item" data-id="${w.id}" data-word="${escapeHtml(w.word)}">
-            ${escapeHtml(w.word)}
+          <div class="selection-item spanish-item" data-id="${w.id}" data-word="${window._escHTML(w.word)}">
+            ${window._escHTML(w.word)}
           </div>
         `).join('')}
       </div>
     </div>
     <div class="mood-card">
-      <div class="mood-emoji" id="exerciseEmoji">🎯</div>
+      <div class="mood-emoji">🎯</div>
       <div>
-        <strong id="exerciseMoodTitle">Selecciona los pares</strong><br>
-        <span id="exerciseMoodText">Haz clic en una palabra de cada columna</span>
+        <strong>Selecciona los pares</strong><br>
+        <span>Haz clic en una palabra de cada columna</span>
       </div>
     </div>
-    <div id="selectionFeedback" style="text-align:center; min-height:24px; margin-top:8px;"></div>
+    <div class="selection-feedback" style="text-align:center;min-height:24px;margin-top:8px;"></div>
   `;
   
-  // Estado de selección
   let selectedEnglish = null;
   let selectedSpanish = null;
   const matchedPairs = new Set();
   
   const englishItems = container.querySelectorAll('.english-item');
   const spanishItems = container.querySelectorAll('.spanish-item');
-  const feedbackEl = container.querySelector('#selectionFeedback');
+  const feedbackEl = container.querySelector('.selection-feedback');
   
   function resetSelection() {
-    if (selectedEnglish) {
-      selectedEnglish.classList.remove('selected');
-      selectedEnglish = null;
-    }
-    if (selectedSpanish) {
-      selectedSpanish.classList.remove('selected');
-      selectedSpanish = null;
-    }
+    if (selectedEnglish) { selectedEnglish.classList.remove('selected'); selectedEnglish = null; }
+    if (selectedSpanish) { selectedSpanish.classList.remove('selected'); selectedSpanish = null; }
   }
   
   englishItems.forEach(item => {
     item.addEventListener('click', () => {
       if (item.classList.contains('matched')) return;
       
-      // Si ya hay un inglés seleccionado, desseleccionarlo
-      if (selectedEnglish && selectedEnglish !== item) {
-        selectedEnglish.classList.remove('selected');
-      }
+      if (selectedEnglish && selectedEnglish !== item) selectedEnglish.classList.remove('selected');
       
-      // Toggle selección
       if (selectedEnglish === item) {
         item.classList.remove('selected');
         selectedEnglish = null;
@@ -77,7 +66,6 @@ export function renderSeleccionarExercise(exercise, container) {
         selectedEnglish = item;
       }
       
-      // Si ambos están seleccionados, verificar par
       if (selectedEnglish && selectedSpanish) {
         checkPair(selectedEnglish, selectedSpanish, pairs, matchedPairs, container, feedbackEl, resetSelection);
       }
@@ -88,12 +76,8 @@ export function renderSeleccionarExercise(exercise, container) {
     item.addEventListener('click', () => {
       if (item.classList.contains('matched')) return;
       
-      // Si ya hay un español seleccionado, desseleccionarlo
-      if (selectedSpanish && selectedSpanish !== item) {
-        selectedSpanish.classList.remove('selected');
-      }
+      if (selectedSpanish && selectedSpanish !== item) selectedSpanish.classList.remove('selected');
       
-      // Toggle selección
       if (selectedSpanish === item) {
         item.classList.remove('selected');
         selectedSpanish = null;
@@ -102,18 +86,11 @@ export function renderSeleccionarExercise(exercise, container) {
         selectedSpanish = item;
       }
       
-      // Si ambos están seleccionados, verificar par
       if (selectedEnglish && selectedSpanish) {
         checkPair(selectedEnglish, selectedSpanish, pairs, matchedPairs, container, feedbackEl, resetSelection);
       }
     });
   });
-}
-
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
 }
 
 function checkPair(englishEl, spanishEl, pairs, matchedPairs, container, feedbackEl, resetSelection) {
@@ -125,7 +102,6 @@ function checkPair(englishEl, spanishEl, pairs, matchedPairs, container, feedbac
   );
   
   if (isCorrectPair) {
-    // Marcar como emparejado
     englishEl.classList.add('matched');
     spanishEl.classList.add('matched');
     englishEl.classList.remove('selected');
@@ -133,34 +109,27 @@ function checkPair(englishEl, spanishEl, pairs, matchedPairs, container, feedbac
     
     matchedPairs.add(englishWord + '|||' + spanishWord);
     
-    // Feedback positivo
     if (feedbackEl) {
       feedbackEl.innerHTML = '<span style="color:#4ade80;">✅ ¡Par correcto!</span>';
       setTimeout(() => { feedbackEl.innerHTML = ''; }, 1500);
     }
     
-    // Resetear selección
     resetSelection();
     
-    // Verificar si todos están emparejados
     if (matchedPairs.size === pairs.length) {
       setTimeout(() => {
-        const event = new CustomEvent('all-matched');
-        container.dispatchEvent(event);
+        container.dispatchEvent(new CustomEvent('all-matched'));
       }, 300);
     }
   } else {
-    // Marcar error temporalmente
     englishEl.classList.add('wrong');
     spanishEl.classList.add('wrong');
     
-    // Feedback negativo
     if (feedbackEl) {
-      feedbackEl.innerHTML = '<span style="color:#f87171;">❌ Par incorrecto, intenta de nuevo</span>';
+      feedbackEl.innerHTML = '<span style="color:#f87171;">❌ Par incorrecto</span>';
       setTimeout(() => { feedbackEl.innerHTML = ''; }, 2000);
     }
     
-    // Remover después de un tiempo y resetear selección
     setTimeout(() => {
       englishEl.classList.remove('wrong', 'selected');
       spanishEl.classList.remove('wrong', 'selected');
@@ -170,36 +139,47 @@ function checkPair(englishEl, spanishEl, pairs, matchedPairs, container, feedbac
 }
 
 export function showSeleccionarCompleteModal(pairs, onContinue) {
+  // Eliminar cualquier modal existente primero
+  const existing = document.querySelector('.modal-overlay');
+  if (existing) existing.remove();
+  
   const modal = document.createElement("div");
-  modal.className = "modal-overlay";
+  modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
       <h3>🎉 ¡Todos los pares correctos!</h3>
       <div class="comparison-text-block">
         <p><strong>Pares emparejados:</strong></p>
         ${pairs.map(p => `
-          <div style="display:flex; justify-content:space-between; align-items:center; margin:6px 0; padding:8px 12px; background:rgba(74,222,128,0.1); border-radius:8px;">
-            <span style="color:#60a5fa; font-weight:600;">${escapeHtml(p.englishWord)}</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:6px 0;padding:8px 12px;background:rgba(74,222,128,0.1);border-radius:8px;">
+            <span style="color:#60a5fa;font-weight:600;">${window._escHTML(p.englishWord)}</span>
             <span style="font-size:1.2rem;">↔️</span>
-            <span style="color:#f59e0b; font-weight:600;">${escapeHtml(p.spanishWord)}</span>
+            <span style="color:#f59e0b;font-weight:600;">${window._escHTML(p.spanishWord)}</span>
           </div>
         `).join('')}
       </div>
       <div class="modal-buttons">
-        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+        <button class="fun-btn primary-btn seleccionar-continue">▶️ Continuar</button>
       </div>
     </div>
   `;
   
   document.body.appendChild(modal);
   
-  const continueHandler = () => {
+  // Usar clase en lugar de ID, y querySelector dentro del modal
+  const continueBtn = modal.querySelector('.seleccionar-continue');
+  
+  const close = () => {
     modal.remove();
     if (onContinue) onContinue();
   };
   
-  document.getElementById("modalContinueBtn").addEventListener("click", continueHandler);
+  continueBtn.addEventListener("click", (e) => {
+    e.stopPropagation(); // Evitar que el click se propague al overlay
+    close();
+  });
+  
   modal.addEventListener("click", (e) => {
-    if (e.target === modal) continueHandler();
+    if (e.target === modal) close();
   });
 }

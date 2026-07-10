@@ -19,12 +19,16 @@ let conversationState = {
 function speakText(text, onEnd) {
   if (!('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'en-US';
-  utterance.rate = 0.85;
-  utterance.pitch = 1;
-  if (onEnd) utterance.onend = onEnd;
-  window.speechSynthesis.speak(utterance);
+  
+  // Pequeño delay para asegurar limpieza
+  setTimeout(() => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.85;
+    utterance.pitch = 1;
+    if (onEnd) utterance.onend = onEnd;
+    window.speechSynthesis.speak(utterance);
+  }, 80);
 }
 
 function isAudioSelection(message) {
@@ -44,12 +48,10 @@ function createCompletionText(text) {
 }
 
 function getAvatar(message) {
-  // Si es narrador (boolean true o string "narrador")
   if (message.isNarrador === true || (message.character || '').toLowerCase() === 'narrador') {
     return { ...AVATARS.narrador, nombre: 'Narrador' };
   }
   
-  // Si tiene nombre personalizado
   const name = message.name || message.character || 'Persona';
   const color = message.color || AVATARS.default1.color;
   const emoji = message.avatar || AVATARS.default1.emoji;
@@ -58,6 +60,9 @@ function getAvatar(message) {
 }
 
 export function renderConversacionExercise(exercise, container) {
+  // Cancelar audio previo
+  window.speechSynthesis.cancel();
+  
   const messages = exercise.messages || exercise.conversacion || [];
   
   conversationState = {
@@ -78,15 +83,16 @@ function renderMessage(index, container, messages) {
         <div style="font-size:4rem; margin-bottom:16px;">🎉</div>
         <h3 style="color:#4ade80; margin-bottom:8px;">¡Conversación completada!</h3>
         <p style="color:#94a3b8;">Has terminado todos los mensajes.</p>
-        <button class="btn-action btn-continue" id="finishConvBtn" style="margin-top:16px; background:#4ade80; color:#064e3b; font-weight:700; width:100%;">
+        <button class="btn-action btn-continue conv-finish-btn" style="margin-top:16px; background:#4ade80; color:#064e3b; font-weight:700; width:100%;">
           ✅ Finalizar
         </button>
       </div>
     `;
     
-    document.getElementById("finishConvBtn")?.addEventListener("click", () => {
-      const event = new CustomEvent('conversacion-completed');
-      container.dispatchEvent(event);
+    container.querySelector('.conv-finish-btn')?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      window.speechSynthesis.cancel();
+      container.dispatchEvent(new CustomEvent('conversacion-completed'));
     });
     return;
   }
@@ -143,7 +149,7 @@ function renderMessage(index, container, messages) {
               <div class="conv-completion-text">
                 ${completionData.displayText.split(' ').map(word => {
                   if (word === '_____') {
-                    return `<input type="text" class="completar-input conv-input" id="convCompleteInput" 
+                    return `<input type="text" class="completar-input conv-complete-input" 
                       placeholder="?" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
                       style="width:80px; display:inline-block;">`;
                   }
@@ -155,11 +161,11 @@ function renderMessage(index, container, messages) {
             `}
           </div>
           
-          <button class="conv-play-btn" id="convPlayBtn" title="Reproducir audio">🔊 Reproducir</button>
+          <button class="conv-play-btn conv-play" title="Reproducir audio">🔊 Reproducir</button>
         </div>
       </div>
       
-      <button class="btn-action btn-continue" id="convContinueBtn" 
+      <button class="btn-action btn-continue conv-continue-btn" 
         style="width:100%; margin-top:16px; background:${isAudioSel && conversationState.selectedOption === null ? '#334155' : '#4ade80'}; color:#064e3b; font-weight:700;">
         ${index < messages.length - 1 ? '▶️ Continuar' : '✅ Terminar conversación'}
       </button>
@@ -170,9 +176,10 @@ function renderMessage(index, container, messages) {
 }
 
 function setupConversacionListeners(message, index, container, messages, completionData, isAudioSel, isRetry) {
-  const playBtn = document.getElementById("convPlayBtn");
+  const playBtn = container.querySelector('.conv-play');
   if (playBtn) {
-    playBtn.addEventListener("click", () => {
+    playBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       if (conversationState.isPlaying) {
         window.speechSynthesis.cancel();
         conversationState.isPlaying = false;
@@ -199,7 +206,8 @@ function setupConversacionListeners(message, index, container, messages, complet
   if (isAudioSel) {
     const audioBtns = container.querySelectorAll('.conv-audio-btn');
     audioBtns.forEach(btn => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
         const optionIndex = parseInt(btn.dataset.option);
         conversationState.selectedOption = optionIndex;
         audioBtns.forEach(b => b.classList.remove('selected'));
@@ -207,22 +215,24 @@ function setupConversacionListeners(message, index, container, messages, complet
         if (message.audioOptions[optionIndex]) {
           speakText(message.audioOptions[optionIndex]);
         }
-        const continueBtn = document.getElementById("convContinueBtn");
+        const continueBtn = container.querySelector('.conv-continue-btn');
         if (continueBtn) continueBtn.style.background = '#4ade80';
       });
     });
   }
   
-  const continueBtn = document.getElementById("convContinueBtn");
+  const continueBtn = container.querySelector('.conv-continue-btn');
   if (continueBtn) {
-    continueBtn.addEventListener("click", () => {
+    continueBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      
       if (isAudioSel && conversationState.selectedOption === null) {
         window._toast && window._toast("🎧 Selecciona una opción de audio primero");
         return;
       }
       
       if (completionData && !isRetry) {
-        const input = document.getElementById("convCompleteInput");
+        const input = container.querySelector('.conv-complete-input');
         if (!input || !input.value.trim()) {
           window._toast && window._toast("✏️ Completa la palabra faltante");
           return;
@@ -262,15 +272,17 @@ function setupConversacionListeners(message, index, container, messages, complet
         }));
       }
       
-      conversationState.currentIndex = index + 1;
-      conversationState.selectedOption = null;
+      // Cancelar audio antes de avanzar
       window.speechSynthesis.cancel();
       conversationState.isPlaying = false;
+      
+      conversationState.currentIndex = index + 1;
+      conversationState.selectedOption = null;
       
       if (index + 1 < messages.length) {
         renderMessage(index + 1, container, messages);
         setTimeout(() => {
-          const nextPlayBtn = document.getElementById("convPlayBtn");
+          const nextPlayBtn = container.querySelector('.conv-play');
           if (nextPlayBtn && messages[index + 1]) nextPlayBtn.click();
         }, 500);
       } else {

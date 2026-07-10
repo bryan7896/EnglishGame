@@ -21,8 +21,7 @@ export function alignWords(correct, user) {
   }
   
   let i = n, j = m;
-  const alignedCorrect = [];
-  const alignedUser = [];
+  const alignedCorrect = [], alignedUser = [];
   
   while (i > 0 || j > 0) {
     if (i>0 && j>0 && normalizeWord(correctWords[i-1]) === normalizeWord(userWords[j-1])) {
@@ -45,81 +44,61 @@ export function alignWords(correct, user) {
 
 export function renderTraduccionExercise(exercise, container) {
   container.innerHTML = `
-    <div class="question-bubble" id="spanishPrompt">${exercise.spanishWord || exercise.spanishWords}</div>
-    <textarea id="answerInput" class="answer-input" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
+    <div class="question-bubble">${exercise.spanishWord || exercise.spanishWords}</div>
+    <textarea class="answer-input traduccion-answer" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
     <div class="button-group">
-      <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
-      <button class="btn-action btn-continue" id="continueBtn" style="display: none;">➡️ Continuar</button>
-    </div>
-    <div class="mood-card">
-      <div class="mood-emoji" id="exerciseEmoji">🧸</div>
-      <div>
-        <strong id="exerciseMoodTitle">¡A traducir!</strong><br>
-        <span id="exerciseMoodText">Escribe y comprueba</span>
-      </div>
+      <button class="btn-action btn-check traduccion-check">✅ Comprobar</button>
     </div>
   `;
 }
 
 export function showComparativeModal(exercise, userAnswer, onContinue) {
-  const correctWords = (exercise.englishWord || exercise.englishWords).split(/\s+/);
-  const { alignedCorrect, alignedUser } = alignWords(exercise.englishWord || exercise.englishWords, userAnswer);
+  const existingModal = document.querySelector('.modal-overlay');
+  if (existingModal) existingModal.remove();
+  
+  const correctText = exercise.englishWord || exercise.englishWords;
+  const { alignedCorrect, alignedUser } = alignWords(correctText, userAnswer);
   
   let correctHtml = alignedCorrect.map(item => {
     if (item.placeholder) return `<span class="word-placeholder">-</span>`;
-    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${item.word}</span>`;
+    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${window._escHTML(item.word)}</span>`;
   }).join(' ');
   
   let userHtml = alignedUser.map(item => {
     if (item.placeholder) return `<span class="word-placeholder">-</span>`;
-    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${item.word}</span>`;
+    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${window._escHTML(item.word)}</span>`;
   }).join(' ');
   
   const modal = document.createElement("div");
-  modal.className = "modal-overlay";
+  modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>📊 Comparación palabra por palabra</h3>
+      <h3>📊 Comparación</h3>
       <div class="comparison-text-block">
-        <p><strong>🇪🇸 Español:</strong><br>${exercise.spanishWord || exercise.spanishWords}</p>
-        <div class="compare-line">
-          <strong>✅ Correcto:</strong>
-          <div style="display:flex; flex-wrap:wrap; gap:4px;">${correctHtml}</div>
-        </div>
-        <div class="compare-line">
-          <strong>✏️ Tu respuesta:</strong>
-          <div style="display:flex; flex-wrap:wrap; gap:4px;">${userHtml}</div>
-        </div>
+        <p><strong>🇪🇸 Español:</strong><br>${window._escHTML(exercise.spanishWord || exercise.spanishWords)}</p>
+        <div class="compare-line"><strong>✅ Correcto:</strong> ${correctHtml}</div>
+        <div class="compare-line"><strong>✏️ Tu respuesta:</strong> ${userHtml}</div>
       </div>
-      <div class="doubt-field" style="margin-top:12px; text-align:left;">
-        <label style="color:#94a3b8; font-size:0.8rem; display:block; margin-bottom:4px;">
-          💭 Consulta o duda sobre este ejercicio (opcional)
-        </label>
-        <textarea id="modalDoubtInput" class="answer-input" rows="2" 
-          placeholder="Escribe tu consulta aquí..." 
-          style="font-size:0.85rem; min-height:45px; width:100%;"></textarea>
+      <div style="margin-top:12px;text-align:left;">
+        <label style="color:#94a3b8;font-size:0.8rem;">💭 Consulta (opcional)</label>
+        <textarea class="answer-input modal-doubt" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
       </div>
       <div class="modal-buttons">
-        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+        <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
       </div>
     </div>
   `;
   
   document.body.appendChild(modal);
   
-  document.getElementById("modalContinueBtn").addEventListener("click", () => {
-    const duda = document.getElementById("modalDoubtInput").value.trim();
+  const close = () => {
+    const duda = modal.querySelector('.modal-doubt')?.value?.trim() || '';
     modal.remove();
     if (onContinue) onContinue(duda);
-  });
+  };
   
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      const duda = document.getElementById("modalDoubtInput")?.value?.trim() || '';
-      modal.remove();
-      if (onContinue) onContinue(duda);
-    }
-  });
+  modal.querySelector('.modal-continue').addEventListener("click", close);
+  modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
 }
 
 export function getTraduccionReportEntry(exercise, userAnswer, duda) {
