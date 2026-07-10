@@ -11,14 +11,21 @@ export const MAP_CONFIG = {
     { id: 6, percent: 5, type: "mixed" }
   ],
   // Imágenes de fondo estilo Netflix (unsplash random)
+  // En MAP_CONFIG, reemplazar el array backgrounds:
   backgrounds: [
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop",
-  ]
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",  // código en pantalla
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",  // líneas de código
+      "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=300&fit=crop",  // matrix código
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",  // pantalla con HTML
+      "https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400&h=300&fit=crop",  // setup desarrollo
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop",  // laptop con código
+      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&h=300&fit=crop",  // código oscuro
+      "https://images.unsplash.com/photo-1515879218367-8466d910auj7?w=400&h=300&fit=crop",  // terminal
+      "https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?w=400&h=300&fit=crop",  // escribiendo código
+      "https://images.unsplash.com/photo-1534665482403-a909d0d97c67?w=400&h=300&fit=crop",  // desarrollador
+      "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&h=300&fit=crop",  // pantallas
+      "https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=400&h=300&fit=crop",  // código colorido
+    ],
 };
 
 function shuffleArray(arr) {
