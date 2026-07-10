@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
-# build.py - Script para generar index.html
+# build.py - Script para generar index.html (con PWA)
 
 import os
 import sys
+import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "6.2 - Local Storage"
+VERSION = "6.3 - PWA"
 LS_KEY = "english_trainer_v6"
+
+# URL del icono (Flaticon CDN - icono de idioma/inglés)
+ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
 
 INPUT_TYPES = [
     {"id": "traducciones", "label": "📝 Traducciones", "placeholder": '[{"spanishWord": "...", "englishWord": "..."}]'},
@@ -62,12 +66,104 @@ def build_create_node_args():
     return '{ ' + ', '.join([t["id"] for t in INPUT_TYPES]) + ' }'
 
 
+def create_manifest():
+    """Crea el archivo manifest.json"""
+    manifest = {
+        "name": "English Trainer",
+        "short_name": "EnglishTrainer",
+        "description": "Mejora tu inglés con práctica diaria",
+        "start_url": "./index.html",
+        "display": "standalone",
+        "background_color": "#0a0a0a",
+        "theme_color": "#e50914",
+        "orientation": "portrait-primary",
+        "icons": [
+            {
+                "src": ICON_URL,
+                "sizes": "192x192",
+                "type": "image/png",
+                "purpose": "any maskable"
+            },
+            {
+                "src": ICON_URL,
+                "sizes": "512x512",
+                "type": "image/png",
+                "purpose": "any maskable"
+            }
+        ]
+    }
+    with open('output/manifest.json', 'w', encoding='utf-8') as f:
+        json.dump(manifest, f, indent=2)
+    print(f"  ✅ manifest.json creado")
+
+
+def create_service_worker():
+    """Crea el archivo service-worker.js"""
+    sw_code = '''// service-worker.js
+const CACHE_NAME = 'english-trainer-v1';
+const ASSETS = [
+  './',
+  './index.html',
+  './manifest.json',
+  'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap',
+  'https://cdn-icons-png.flaticon.com/512/3898/3898082.png',
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(ASSETS);
+    })
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.method !== 'GET') return;
+  
+  event.respondWith(
+    fetch(event.request)
+      .then((response) => {
+        const clonedResponse = response.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, clonedResponse);
+        });
+        return response;
+      })
+      .catch(() => {
+        return caches.match(event.request);
+      })
+  );
+});
+'''
+    with open('output/service-worker.js', 'w', encoding='utf-8') as f:
+        f.write(sw_code)
+    print(f"  ✅ service-worker.js creado")
+
+
 def get_html_template():
     return '''<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="English Trainer" />
+  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3898/3898082.png" />
+  <link rel="manifest" href="./manifest.json" />
   <title>English Trainer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -82,6 +178,7 @@ def get_html_template():
       <p>Mejora tu inglés con práctica diaria</p>
       <input type="text" id="usernameInput" class="username-input" placeholder="Nombre de usuario" maxlength="30" autocomplete="off">
       <button id="loginBtn" class="login-btn">Comenzar</button>
+      <p class="pwa-hint">📱 También funciona sin conexión</p>
     </div>
   </div>
 
@@ -147,6 +244,15 @@ def get_html_template():
 <div id="toastFun" class="toast-fun"></div>
 
 <script type="module">
+  // ==================== PWA REGISTRATION ====================
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then((reg) => console.log('✅ SW registrado:', reg.scope))
+        .catch((err) => console.log('⚠️ SW falló:', err));
+    });
+  }
+
   __MAP_JS__
   __TRADUCCION_JS__
   __COMPLETAR_JS__
@@ -645,7 +751,7 @@ def build_html():
 
 def main():
     print("=" * 60)
-    print("🔨 English Trainer Builder")
+    print("🔨 English Trainer Builder (PWA)")
     print(f"📦 Version: {VERSION}")
     print("=" * 60)
     
@@ -659,9 +765,19 @@ def main():
     
     print(f"✅ {len(required_files)} archivos encontrados\n")
     
+    # Crear directorio output
+    os.makedirs('output', exist_ok=True)
+    
+    # Crear archivos PWA
+    print("📱 Creando archivos PWA...")
+    create_manifest()
+    create_service_worker()
+    print()
+    
+    # Construir HTML
     html = build_html()
     
-    output_path = 'index.html'
+    output_path = 'output/index.html'
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html)
     
@@ -672,9 +788,16 @@ def main():
     print(f"📦 Tamano: {file_size:,} bytes")
     print(f"📅 Fecha: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
-    print("🎉 ¡Build completado!")
-    print(f"\n🌐 python -m http.server 8000")
+    print("🎉 ¡Build PWA completado!")
+    print(f"\n📱 Archivos generados en /output/:")
+    print(f"   - index.html")
+    print(f"   - manifest.json")
+    print(f"   - service-worker.js")
+    print(f"\n🌐 Para probar la PWA:")
+    print(f"   cd output && python -m http.server 8000")
     print(f"   Luego abre: http://localhost:8000")
+    print(f"\n📲 Para instalar en el celular:")
+    print(f"   Abre la URL en Chrome Android y usa 'Agregar a pantalla de inicio'")
 
 
 if __name__ == "__main__":
