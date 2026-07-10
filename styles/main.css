@@ -2272,7 +2272,7 @@ textarea.report {
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 
 body {
-  background: #0a0a0a;
+  background: #2d2d2d;
   font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
   min-height: 100vh;
   padding: 0;
@@ -2329,7 +2329,7 @@ body {
 
 /* ============ CARDS ============ */
 .magic-card {
-  background: #111; border: 1px solid #222; border-radius: 8px; padding: 20px; margin: 16px 20px;
+  background: #353535; border: 1px solid #222; border-radius: 8px; padding: 20px; margin: 16px 20px;
 }
 .magic-card h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
 .magic-card p { color: #888; font-size: 0.85rem; }
