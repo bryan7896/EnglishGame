@@ -125,12 +125,10 @@ export function renderMap(nodes, progress, callbacks) {
         <div class="netflix-node-content">
           <div class="netflix-node-number">${String(idx + 1).padStart(2, '0')}</div>
           <div class="netflix-node-title">Nodo ${idx + 1}</div>
-          <div class="netflix-node-meta">${node.percent}% del contenido</div>
           <div class="netflix-node-progress">
             <div class="netflix-progress-bar">
               <div class="netflix-progress-fill" style="width:${pct}%"></div>
             </div>
-            <span class="netflix-progress-text">${done}/${total}</span>
           </div>
           <div class="netflix-node-status">
             ${isDone ? '✅ COMPLETADO' : isCur ? '▶ REPRODUCIR' : unlocked ? '🔓 DISPONIBLE' : '🔒 BLOQUEADO'}
