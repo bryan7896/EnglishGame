@@ -2814,8 +2814,6 @@ body {
 </head>
 <body>
 <div class="app-container">
-
-  <!-- LOGIN -->
   <div id="loginScreen" class="screen active">
     <div class="login-card">
       <div class="login-logo">EN</div>
@@ -2826,9 +2824,7 @@ body {
     </div>
   </div>
 
-  <!-- MAIN -->
   <div id="mainScreen" class="screen">
-    <!-- TOPBAR -->
     <div class="play-topbar">
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
@@ -2842,8 +2838,6 @@ body {
         <button class="menu-btn" id="toggleMenuBtn">☰</button>
       </div>
     </div>
-    
-    <!-- MENU EXPAND -->
     <div class="topbar-expand" id="menuExpand">
       <div class="action-buttons">
         <button class="fun-btn" id="backToMapBtn">🗺️ Mapa</button>
@@ -2853,7 +2847,6 @@ body {
       </div>
     </div>
 
-    <!-- IMPORT -->
     <div id="importScreen" class="screen active">
       <div class="magic-card">
         <h2>📚 ¡Hola <span id="welcomeUsername"></span>!</h2>
@@ -2889,7 +2882,6 @@ body {
       </div>
     </div>
 
-    <!-- MAP -->
     <div id="mapScreen" class="screen">
       <div class="magic-card">
         <div id="mapList" class="adventure-map"></div>
@@ -2901,7 +2893,6 @@ body {
       </div>
     </div>
 
-    <!-- EXERCISE -->
     <div id="exerciseScreen" class="screen">
       <div class="exercise-area">
         <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
@@ -2919,7 +2910,6 @@ body {
 <div id="toastFun" class="toast-fun"></div>
 
 <script type="module">
-  // ==================== MAPA ====================
   // mapa/map.js
 // Mapa de nodos con distribución por porcentaje y diseño contemporáneo
 
@@ -3085,8 +3075,6 @@ export function getExerciseTypeName(type) {
   const n = { traduccion:"Traducción", completar:"Completar", seleccionar:"Emparejar", corregir:"Corregir", dictado:"Dictado", conversacion:"Conversación" };
   return n[type] || type;
 }
-
-  // ==================== EJERCICIOS ====================
   // exercises/traduccion.js
 
 export function normalizeWord(w) {
@@ -3220,7 +3208,6 @@ export function getTraduccionReportEntry(exercise, userAnswer, duda) {
     duda: duda || ''
   };
 }
-
   // exercises/completar.js
 
 export function renderCompletarExercise(exercise, container, isRetry = false) {
@@ -3388,7 +3375,6 @@ export function getCompletarReportEntry(exercise, userAnswers, duda) {
     duda: duda || ''
   };
 }
-
   // exercises/seleccionar.js
 
 export function renderSeleccionarExercise(exercise, container) {
@@ -3594,7 +3580,6 @@ export function showSeleccionarCompleteModal(pairs, onContinue) {
     if (e.target === modal) continueHandler();
   });
 }
-
   // exercises/corregir.js
 
 export function renderCorregirExercise(exercise, container, isRetry = false) {
@@ -3768,7 +3753,6 @@ export function getCorregirReportEntry(exercise, userAnswer, duda) {
     duda: duda || ''
   };
 }
-
   // exercises/dictado.js
 // Ejercicio de dictado: escuchar y escribir
 
@@ -4092,7 +4076,6 @@ export function getDictadoReportEntry(exercise, userAnswer, duda) {
     duda: duda || ''
   };
 }
-
   // exercises/conversacion.js
 // Ejercicio de conversación con audio y completar espacios
 
@@ -4388,10 +4371,7 @@ export function getConversacionReportEntry(messageData) {
     attempts: messageData.attempts || 1
   };
 }
-
-  // ==================== LÓGICA PRINCIPAL ====================
   
-  // ==================== STORAGE ====================
   const STORAGE_KEY = "english_trainer_v6";
   
   function saveToStorage() {
@@ -4404,11 +4384,7 @@ export function getConversacionReportEntry(messageData) {
       reportEntries: AppState.reportEntries,
       lastUpdated: new Date().toISOString()
     };
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    } catch(e) {
-      console.error("Error guardando:", e);
-    }
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
   }
   
   function loadFromStorage(username) {
@@ -4423,13 +4399,9 @@ export function getConversacionReportEntry(messageData) {
       AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
       AppState.reportEntries = data.reportEntries || [];
       return AppState.nodes.length > 0;
-    } catch(e) {
-      console.error("Error cargando:", e);
-      return false;
-    }
+    } catch(e) { return false; }
   }
 
-  // ==================== APP STATE ====================
   let currentUser = null;
   
   const AppState = {
@@ -4456,7 +4428,6 @@ export function getConversacionReportEntry(messageData) {
     window._saveTimeout = setTimeout(() => saveToStorage(), 500);
   }
 
-  // ==================== SCREENS ====================
   const mainScreens = {
     import: document.getElementById("importScreen"),
     map: document.getElementById("mapScreen"),
@@ -4469,7 +4440,6 @@ export function getConversacionReportEntry(messageData) {
     });
   }
 
-  // ==================== LOAD DATA ====================
   function loadAllData() {
     try {
       const traducciones = JSON.parse(document.getElementById("traduccionesInput").value.trim() || '[]');
@@ -4507,12 +4477,11 @@ export function getConversacionReportEntry(messageData) {
       const totalEj = AppState.nodes.reduce((sum, n) => sum + n.exercises.length, 0);
       toast("🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos");
     } catch(e) {
-      toast("❌ JSON inválido: " + e.message);
+      toast("❌ JSON invalido: " + e.message);
       console.error(e);
     }
   }
 
-  // ==================== MAP ====================
   function renderMapView() {
     renderMap(AppState.nodes, AppState.progress, { openNode, showToast: toast });
   }
@@ -4534,7 +4503,6 @@ export function getConversacionReportEntry(messageData) {
     showMainView("exercise");
   }
 
-  // ==================== EXERCISE ====================
   function renderExercise() {
     const node = AppState.nodes[AppState.activeNodeIndex];
     if (!node?.exercises?.length) { showMainView("map"); return; }
@@ -4568,10 +4536,9 @@ export function getConversacionReportEntry(messageData) {
       case "conversacion": renderConversacionExercise(exercise, container); setupConversacionMainListeners(); break;
     }
     
-    document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Corrección de error" : "✏️ Tu turno";
+    document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Correccion de error" : "✏️ Tu turno";
   }
 
-  // ==================== LISTENERS ====================
   function setupTraduccionListeners(exercise) {
     const checkBtn = document.getElementById("checkBtn");
     if (checkBtn) {
@@ -4586,41 +4553,23 @@ export function getConversacionReportEntry(messageData) {
         });
       };
     }
-    const answerInput = document.getElementById("answerInput");
-    if (answerInput) {
-      answerInput.onkeydown = (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); document.getElementById("checkBtn")?.click(); } };
-    }
   }
 
   function setupCompletarListeners(exercise) {
     const checkBtn = document.getElementById("checkBtn");
     if (checkBtn) {
       checkBtn.onclick = () => {
-        const container = document.getElementById("exerciseContainer");
-        const result = checkCompletarAnswers(exercise, container);
+        const c = document.getElementById("exerciseContainer");
+        const result = checkCompletarAnswers(exercise, c);
         const { allCorrect, userAnswers, results } = result;
         showCompletarModal(exercise, results, 
-          (success, duda) => { 
-            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
-            advanceExercise(); 
-          },
-          (duda) => { 
-            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
-            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
-              AppState.failedExercises.push(AppState.activeExerciseIndex);
-            }
-            renderExercise(); 
-          }
+          (success, duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); advanceExercise(); },
+          (duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
-        if (allCorrect) { 
-          document.getElementById("checkBtn").style.display = "none"; 
-          const cb = document.getElementById("continueBtn"); 
-          if (cb) cb.style.display = "flex"; 
-        }
+        if (allCorrect) { document.getElementById("checkBtn").style.display = "none"; const cb = document.getElementById("continueBtn"); if (cb) cb.style.display = "flex"; }
       };
     }
-    const cb = document.getElementById("continueBtn"); 
-    if (cb) cb.onclick = () => advanceExercise();
+    const cb = document.getElementById("continueBtn"); if (cb) cb.onclick = () => advanceExercise();
   }
 
   function setupCorregirListeners(exercise) {
@@ -4630,99 +4579,70 @@ export function getConversacionReportEntry(messageData) {
       const { userAnswer, exercise: ex } = e.detail;
       const result = checkCorregirAnswer(ex, userAnswer);
       showCorregirModal(ex, result, userAnswer, 
-        (duda) => { 
-          AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); 
-          advanceExercise(); 
-        },
-        (duda) => { 
-          AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); 
-          if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
-            AppState.failedExercises.push(AppState.activeExerciseIndex);
-          }
-          renderExercise(); 
-        }
+        (duda) => { AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); advanceExercise(); },
+        (duda) => { AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
       );
-      if (result.isCorrect) { 
-        document.getElementById("checkBtn").style.display = "none"; 
-        const cb = document.getElementById("continueBtn"); 
-        if (cb) cb.style.display = "flex"; 
-      }
+      if (result.isCorrect) { document.getElementById("checkBtn").style.display = "none"; const cb = document.getElementById("continueBtn"); if (cb) cb.style.display = "flex"; }
     });
   }
 
   function setupSeleccionarListeners(exercise) {
     const container = document.getElementById("exerciseContainer");
-    if (container) {
-      container.addEventListener("all-matched", () => { 
-        showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); 
-      });
-    }
+    if (container) container.addEventListener("all-matched", () => { showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); });
   }
 
-  // En get_main_logic(), reemplazar setupDictadoListeners:
+  // ============ DICTADO: USAR onclick DIRECTO (NO EventListener en container) ============
   function setupDictadoListeners(exercise) {
-    const container = document.getElementById("exerciseContainer");
-    if (!container) return;
-    
-    container.addEventListener("dictado-checked", (e) => {
-      const { exercise: ex, userAnswer, result } = e.detail;
-      showDictadoModal(ex, result, userAnswer, (duda) => {
-        AppState.reportEntries.push(getDictadoReportEntry(ex, userAnswer, duda));
-        advanceExercise();
-      });
-    });
+    // El boton "checkDictadoBtn" se crea en renderDictadoExercise
+    // Usamos un pequeño delay para asegurar que el DOM existe
+    setTimeout(() => {
+      const checkBtn = document.getElementById("checkDictadoBtn");
+      if (checkBtn) {
+        checkBtn.onclick = () => {
+          const textarea = document.getElementById("dictadoInput");
+          if (!textarea) return;
+          const userAnswer = textarea.value.trim();
+          if (!userAnswer) { toast("📝 Escribe lo que escuchaste"); return; }
+          const result = checkDictadoAnswer(exercise, userAnswer);
+          showDictadoModal(exercise, result, userAnswer, (duda) => {
+            AppState.reportEntries.push(getDictadoReportEntry(exercise, userAnswer, duda));
+            advanceExercise();
+          });
+        };
+      }
+    }, 100);
   }
 
   function setupConversacionMainListeners() {
     const container = document.getElementById("exerciseContainer");
     if (!container) return;
-    container.addEventListener("conversacion-answer", (e) => { 
-      AppState.reportEntries.push(getConversacionReportEntry(e.detail)); 
-    });
+    container.addEventListener("conversacion-answer", (e) => { AppState.reportEntries.push(getConversacionReportEntry(e.detail)); });
     container.addEventListener("conversacion-completed", () => advanceExercise());
   }
 
-  // ==================== ADVANCE ====================
   function advanceExercise() {
     const node = AppState.nodes[AppState.activeNodeIndex];
     const exIndex = AppState.activeExerciseIndex;
-    
     if (!AppState.progress[AppState.activeNodeIndex]) {
-      AppState.progress[AppState.activeNodeIndex] = { 
-        completed: false, 
-        exercisesDone: 0, 
-        exerciseResults: Array(node.exercises.length).fill(false) 
-      };
+      AppState.progress[AppState.activeNodeIndex] = { completed: false, exercisesDone: 0, exerciseResults: Array(node.exercises.length).fill(false) };
     }
-    
     if (!AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex]) {
       AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex] = true;
-      AppState.progress[AppState.activeNodeIndex].exercisesDone = 
-        (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
+      AppState.progress[AppState.activeNodeIndex].exercisesDone = (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
     }
-    
     AppState.failedExercises = AppState.failedExercises.filter(i => i !== exIndex);
-    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 
-      ? AppState.failedExercises[0] 
-      : AppState.activeExerciseIndex + 1;
-    
+    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 ? AppState.failedExercises[0] : AppState.activeExerciseIndex + 1;
     saveToStorage();
     renderExercise();
   }
 
-  // ==================== REPORT ====================
   function buildReport() {
     let lines = [];
     lines.push("📘 INFORME DE APRENDIZAJE");
     lines.push("=".repeat(40));
     lines.push("");
+    if (AppState.reportEntries.length === 0) { lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); return lines.join("\\n"); }
     
-    if (AppState.reportEntries.length === 0) {
-      lines.push("🌟 Intenta algunos ejercicios para ver tu informe");
-      return lines.join("\n");
-    }
-    
-    // Agrupar por tipo
     const byType = {};
     AppState.reportEntries.forEach(entry => {
       if (!byType[entry.type]) byType[entry.type] = [];
@@ -4730,109 +4650,57 @@ export function getConversacionReportEntry(messageData) {
     });
     
     let counter = 0;
-    const typeNames = {
-      traduccion: "TRADUCCIÓN", completar: "COMPLETAR", seleccionar: "EMPAREJAR",
-      corregir: "CORREGIR", dictado: "DICTADO", conversacion: "CONVERSACIÓN"
-    };
+    const typeNames = { traduccion:"TRADUCCIÓN", completar:"COMPLETAR", seleccionar:"EMPAREJAR", corregir:"CORREGIR", dictado:"DICTADO", conversacion:"CONVERSACIÓN" };
     
     Object.keys(typeNames).forEach(type => {
       const entries = byType[type] || [];
       if (entries.length === 0) return;
-      
       lines.push("📌 " + typeNames[type] + " (" + entries.length + " ejercicios)");
       lines.push("-".repeat(30));
-      
       entries.forEach(entry => {
         counter++;
-        lines.push(counter + ". " + (entry.type === "dictado" ? "🎧 " : "") + (entry.original || entry.messageText || "").substring(0, 80));
-        
-        if (entry.type === "traduccion") {
-          lines.push("   ✅ Esperado: " + entry.expected);
-          lines.push("   ✏️ Usuario: " + entry.userAnswer);
-        } else if (entry.type === "completar") {
-          lines.push("   ✅ Frase: " + entry.expected);
-          lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", "));
-        } else if (entry.type === "corregir") {
-          lines.push("   ❌ Error: " + entry.original);
-          lines.push("   ✅ Correcto: " + entry.expected);
-          lines.push("   ✏️ Usuario: " + entry.userAnswer);
-        } else if (entry.type === "dictado") {
-          lines.push("   🎧 Correcto: " + entry.original);
-          lines.push("   ✏️ Usuario: " + entry.userAnswer);
-        } else if (entry.type === "conversacion") {
-          if (entry.removedWord) {
-            lines.push("   🔤 Falta: " + entry.removedWord);
-            lines.push("   ✏️ Usuario: " + entry.userAnswer);
-          }
-          if (entry.selectedOption !== undefined) {
-            lines.push("   🎧 Opción: " + (entry.selectedOption + 1) + "/3");
-          }
-        }
-        
-        if (entry.duda) {
-          lines.push("   💭 Consulta: " + entry.duda);
-        }
+        lines.push(counter + ". " + (entry.original || entry.messageText || "").substring(0, 80));
+        if (entry.type === "traduccion") { lines.push("   ✅ Esperado: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
+        else if (entry.type === "completar") { lines.push("   ✅ Frase: " + entry.expected); lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); }
+        else if (entry.type === "corregir") { lines.push("   ❌ Error: " + entry.original); lines.push("   ✅ Correcto: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
+        else if (entry.type === "dictado") { lines.push("   🎧 Correcto: " + entry.original); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
+        else if (entry.type === "conversacion") { if (entry.removedWord) { lines.push("   🔤 Falta: " + entry.removedWord); lines.push("   ✏️ Usuario: " + entry.userAnswer); } if (entry.selectedOption !== undefined) lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); }
+        if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
         lines.push("");
       });
       lines.push("");
     });
-    
-    return lines.join("\n");
+    return lines.join("\\n");
   }
 
   function copyReport() {
     const report = buildReport();
     const reportArea = document.getElementById("reportArea");
-    if (reportArea) { 
-      reportArea.style.display = "block"; 
-      reportArea.value = report; 
-    }
-    navigator.clipboard?.writeText(report)
-      .then(() => toast("📋 Informe copiado al portapapeles"))
-      .catch(() => toast("📋 Copia manualmente el informe"));
+    if (reportArea) { reportArea.style.display = "block"; reportArea.value = report; }
+    navigator.clipboard?.writeText(report).then(() => toast("📋 Informe copiado")).catch(() => toast("📋 Copia manualmente"));
   }
 
-  // ==================== UTILS ====================
   function burstConfetti() {
     const colors = ["#e50914", "#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"];
     for(let i = 0; i < 40; i++) {
-      const c = document.createElement("div"); 
-      c.classList.add("confetti");
-      c.style.left = Math.random() * 100 + "vw";
-      c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      c.style.width = (5 + Math.random() * 8) + "px";
-      c.style.height = (8 + Math.random() * 10) + "px";
+      const c = document.createElement("div"); c.classList.add("confetti");
+      c.style.left = Math.random() * 100 + "vw"; c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      c.style.width = (5 + Math.random() * 8) + "px"; c.style.height = (8 + Math.random() * 10) + "px";
       c.style.animationDuration = (1 + Math.random() * 2) + "s";
-      document.body.appendChild(c); 
-      setTimeout(() => c.remove(), 3000);
+      document.body.appendChild(c); setTimeout(() => c.remove(), 3000);
     }
   }
 
-  // ==================== AUTH ====================
   function login(username) {
-    if(!username || !username.trim()) { 
-      toast("Por favor ingresa un nombre"); 
-      return false; 
-    }
-    
+    if(!username || !username.trim()) { toast("Por favor ingresa un nombre"); return false; }
     username = username.trim().toLowerCase();
     currentUser = username;
     localStorage.setItem("english_trainer_v6_user", username);
-    
     document.getElementById("userNameDisplay").innerText = username;
     document.getElementById("welcomeUsername").innerText = username;
-    
     const hasData = loadFromStorage(username);
-    if (!hasData) {
-      AppState.nodes = []; 
-      AppState.progress = {}; 
-      AppState.activeNodeIndex = 0; 
-      AppState.activeExerciseIndex = 0; 
-      AppState.reportEntries = [];
-    }
-    
+    if (!hasData) { AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; }
     renderMapView();
-    
     document.getElementById("loginScreen").classList.remove("active");
     document.getElementById("mainScreen").classList.add("active");
     showMainView(AppState.nodes.length ? "map" : "import");
@@ -4845,53 +4713,30 @@ export function getConversacionReportEntry(messageData) {
     localStorage.removeItem("english_trainer_v6_user");
     document.getElementById("loginScreen").classList.add("active");
     document.getElementById("mainScreen").classList.remove("active");
-    toast("👋 Sesión cerrada");
+    toast("👋 Sesion cerrada");
   }
 
   async function resetAll() {
-    if(confirm("¿Borrar todo el progreso? Esta acción no se puede deshacer.")) {
-      AppState.nodes = []; 
-      AppState.progress = {}; 
-      AppState.activeNodeIndex = 0; 
-      AppState.activeExerciseIndex = 0; 
-      AppState.failedExercises = []; 
-      AppState.reportEntries = [];
-      saveToStorage(); 
-      renderMapView(); 
-      showMainView("import"); 
-      toast("🗑️ Todo borrado");
+    if(confirm("¿Borrar todo el progreso?")) {
+      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = [];
+      saveToStorage(); renderMapView(); showMainView("import"); toast("🗑️ Todo borrado");
     }
   }
 
-  // ==================== INIT ====================
   function init() {
     const savedUser = localStorage.getItem("english_trainer_v6_user");
     if(savedUser) login(savedUser);
-    
-    document.getElementById("loginBtn")?.addEventListener("click", () => 
-      login(document.getElementById("usernameInput").value)
-    );
-    document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { 
-      if(e.key === "Enter") login(document.getElementById("usernameInput").value); 
-    });
-    
+    document.getElementById("loginBtn")?.addEventListener("click", () => login(document.getElementById("usernameInput").value));
+    document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { if(e.key === "Enter") login(document.getElementById("usernameInput").value); });
     document.getElementById("logoutBtn")?.addEventListener("click", logout);
     document.getElementById("loadBtn")?.addEventListener("click", loadAllData);
     document.getElementById("resetAllBtn")?.addEventListener("click", resetAll);
-    document.getElementById("replaceListBtn")?.addEventListener("click", () => { 
-      showMainView("import"); 
-      toast("📥 Ingresa nuevos datos"); 
-    });
+    document.getElementById("replaceListBtn")?.addEventListener("click", () => { showMainView("import"); toast("📥 Ingresa nuevos datos"); });
     document.getElementById("copyReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("openReportBtn")?.addEventListener("click", copyReport);
-    document.getElementById("backToMapBtn")?.addEventListener("click", () => { 
-      renderMapView(); 
-      showMainView("map"); 
-    });
-    document.getElementById("toggleMenuBtn")?.addEventListener("click", () => { 
-      document.getElementById("menuExpand").classList.toggle("open"); 
-    });
+    document.getElementById("backToMapBtn")?.addEventListener("click", () => { renderMapView(); showMainView("map"); });
+    document.getElementById("toggleMenuBtn")?.addEventListener("click", () => { document.getElementById("menuExpand").classList.toggle("open"); });
   }
   
   init();

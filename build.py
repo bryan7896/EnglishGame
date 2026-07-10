@@ -30,23 +30,16 @@ EXERCISE_FILES = {
 }
 
 
-# ==================== FUNCIONES ====================
-
 def read_file(filepath):
-    """Lee un archivo y devuelve su contenido"""
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             return f.read()
     except FileNotFoundError:
         print(f"❌ No encontrado: {filepath}")
         sys.exit(1)
-    except Exception as e:
-        print(f"❌ Error al leer {filepath}: {e}")
-        sys.exit(1)
 
 
 def build_import_fields():
-    """Genera los campos de importación dinámicamente"""
     fields = []
     for t in INPUT_TYPES:
         fields.append(f'        <div class="multi-input-section">\n')
@@ -57,7 +50,6 @@ def build_import_fields():
 
 
 def build_load_data_fields():
-    """Genera las líneas de carga de datos para el script"""
     lines = []
     for t in INPUT_TYPES:
         lines.append(f'const {t["id"]} = JSON.parse(document.getElementById("{t["id"]}Input").value.trim() || \'[]\');')
@@ -65,17 +57,14 @@ def build_load_data_fields():
 
 
 def build_validation_args():
-    """Genera los argumentos de validación"""
     return '{ ' + ', '.join([t["id"] for t in INPUT_TYPES]) + ' }'
 
 
 def build_create_node_args():
-    """Genera los argumentos para createNodeStructure"""
     return '{ ' + ', '.join([t["id"] for t in INPUT_TYPES]) + ' }'
 
 
 def get_html_template():
-    """Template HTML completo"""
     return '''<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -88,8 +77,6 @@ def get_html_template():
 </head>
 <body>
 <div class="app-container">
-
-  <!-- LOGIN -->
   <div id="loginScreen" class="screen active">
     <div class="login-card">
       <div class="login-logo">EN</div>
@@ -100,9 +87,7 @@ def get_html_template():
     </div>
   </div>
 
-  <!-- MAIN -->
   <div id="mainScreen" class="screen">
-    <!-- TOPBAR -->
     <div class="play-topbar">
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
@@ -116,8 +101,6 @@ def get_html_template():
         <button class="menu-btn" id="toggleMenuBtn">☰</button>
       </div>
     </div>
-    
-    <!-- MENU EXPAND -->
     <div class="topbar-expand" id="menuExpand">
       <div class="action-buttons">
         <button class="fun-btn" id="backToMapBtn">🗺️ Mapa</button>
@@ -127,7 +110,6 @@ def get_html_template():
       </div>
     </div>
 
-    <!-- IMPORT -->
     <div id="importScreen" class="screen active">
       <div class="magic-card">
         <h2>📚 ¡Hola <span id="welcomeUsername"></span>!</h2>
@@ -139,7 +121,6 @@ def get_html_template():
       </div>
     </div>
 
-    <!-- MAP -->
     <div id="mapScreen" class="screen">
       <div class="magic-card">
         <div id="mapList" class="adventure-map"></div>
@@ -151,7 +132,6 @@ def get_html_template():
       </div>
     </div>
 
-    <!-- EXERCISE -->
     <div id="exerciseScreen" class="screen">
       <div class="exercise-area">
         <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
@@ -169,23 +149,13 @@ def get_html_template():
 <div id="toastFun" class="toast-fun"></div>
 
 <script type="module">
-  // ==================== MAPA ====================
   __MAP_JS__
-
-  // ==================== EJERCICIOS ====================
   __TRADUCCION_JS__
-
   __COMPLETAR_JS__
-
   __SELECCIONAR_JS__
-
   __CORREGIR_JS__
-
   __DICTADO_JS__
-
   __CONVERSACION_JS__
-
-  // ==================== LÓGICA PRINCIPAL ====================
   __MAIN_LOGIC__
 </script>
 </body>
@@ -193,9 +163,7 @@ def get_html_template():
 
 
 def get_main_logic():
-    """Lógica principal de la aplicación"""
-    return '''
-  // ==================== STORAGE ====================
+    return r'''
   const STORAGE_KEY = "__LS_KEY__";
   
   function saveToStorage() {
@@ -208,11 +176,7 @@ def get_main_logic():
       reportEntries: AppState.reportEntries,
       lastUpdated: new Date().toISOString()
     };
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    } catch(e) {
-      console.error("Error guardando:", e);
-    }
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
   }
   
   function loadFromStorage(username) {
@@ -227,13 +191,9 @@ def get_main_logic():
       AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
       AppState.reportEntries = data.reportEntries || [];
       return AppState.nodes.length > 0;
-    } catch(e) {
-      console.error("Error cargando:", e);
-      return false;
-    }
+    } catch(e) { return false; }
   }
 
-  // ==================== APP STATE ====================
   let currentUser = null;
   
   const AppState = {
@@ -260,7 +220,6 @@ def get_main_logic():
     window._saveTimeout = setTimeout(() => saveToStorage(), 500);
   }
 
-  // ==================== SCREENS ====================
   const mainScreens = {
     import: document.getElementById("importScreen"),
     map: document.getElementById("mapScreen"),
@@ -273,7 +232,6 @@ def get_main_logic():
     });
   }
 
-  // ==================== LOAD DATA ====================
   function loadAllData() {
     try {
       __LOAD_DATA_FIELDS__
@@ -306,12 +264,11 @@ def get_main_logic():
       const totalEj = AppState.nodes.reduce((sum, n) => sum + n.exercises.length, 0);
       toast("🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos");
     } catch(e) {
-      toast("❌ JSON inválido: " + e.message);
+      toast("❌ JSON invalido: " + e.message);
       console.error(e);
     }
   }
 
-  // ==================== MAP ====================
   function renderMapView() {
     renderMap(AppState.nodes, AppState.progress, { openNode, showToast: toast });
   }
@@ -333,7 +290,6 @@ def get_main_logic():
     showMainView("exercise");
   }
 
-  // ==================== EXERCISE ====================
   function renderExercise() {
     const node = AppState.nodes[AppState.activeNodeIndex];
     if (!node?.exercises?.length) { showMainView("map"); return; }
@@ -367,10 +323,9 @@ def get_main_logic():
       case "conversacion": renderConversacionExercise(exercise, container); setupConversacionMainListeners(); break;
     }
     
-    document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Corrección de error" : "✏️ Tu turno";
+    document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Correccion de error" : "✏️ Tu turno";
   }
 
-  // ==================== LISTENERS ====================
   function setupTraduccionListeners(exercise) {
     const checkBtn = document.getElementById("checkBtn");
     if (checkBtn) {
@@ -385,41 +340,23 @@ def get_main_logic():
         });
       };
     }
-    const answerInput = document.getElementById("answerInput");
-    if (answerInput) {
-      answerInput.onkeydown = (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); document.getElementById("checkBtn")?.click(); } };
-    }
   }
 
   function setupCompletarListeners(exercise) {
     const checkBtn = document.getElementById("checkBtn");
     if (checkBtn) {
       checkBtn.onclick = () => {
-        const container = document.getElementById("exerciseContainer");
-        const result = checkCompletarAnswers(exercise, container);
+        const c = document.getElementById("exerciseContainer");
+        const result = checkCompletarAnswers(exercise, c);
         const { allCorrect, userAnswers, results } = result;
         showCompletarModal(exercise, results, 
-          (success, duda) => { 
-            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
-            advanceExercise(); 
-          },
-          (duda) => { 
-            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
-            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
-              AppState.failedExercises.push(AppState.activeExerciseIndex);
-            }
-            renderExercise(); 
-          }
+          (success, duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); advanceExercise(); },
+          (duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
-        if (allCorrect) { 
-          document.getElementById("checkBtn").style.display = "none"; 
-          const cb = document.getElementById("continueBtn"); 
-          if (cb) cb.style.display = "flex"; 
-        }
+        if (allCorrect) { document.getElementById("checkBtn").style.display = "none"; const cb = document.getElementById("continueBtn"); if (cb) cb.style.display = "flex"; }
       };
     }
-    const cb = document.getElementById("continueBtn"); 
-    if (cb) cb.onclick = () => advanceExercise();
+    const cb = document.getElementById("continueBtn"); if (cb) cb.onclick = () => advanceExercise();
   }
 
   function setupCorregirListeners(exercise) {
@@ -429,99 +366,70 @@ def get_main_logic():
       const { userAnswer, exercise: ex } = e.detail;
       const result = checkCorregirAnswer(ex, userAnswer);
       showCorregirModal(ex, result, userAnswer, 
-        (duda) => { 
-          AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); 
-          advanceExercise(); 
-        },
-        (duda) => { 
-          AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); 
-          if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
-            AppState.failedExercises.push(AppState.activeExerciseIndex);
-          }
-          renderExercise(); 
-        }
+        (duda) => { AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); advanceExercise(); },
+        (duda) => { AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
       );
-      if (result.isCorrect) { 
-        document.getElementById("checkBtn").style.display = "none"; 
-        const cb = document.getElementById("continueBtn"); 
-        if (cb) cb.style.display = "flex"; 
-      }
+      if (result.isCorrect) { document.getElementById("checkBtn").style.display = "none"; const cb = document.getElementById("continueBtn"); if (cb) cb.style.display = "flex"; }
     });
   }
 
   function setupSeleccionarListeners(exercise) {
     const container = document.getElementById("exerciseContainer");
-    if (container) {
-      container.addEventListener("all-matched", () => { 
-        showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); 
-      });
-    }
+    if (container) container.addEventListener("all-matched", () => { showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); });
   }
 
-  // En get_main_logic(), reemplazar setupDictadoListeners:
+  // ============ DICTADO: USAR onclick DIRECTO (NO EventListener en container) ============
   function setupDictadoListeners(exercise) {
-    const container = document.getElementById("exerciseContainer");
-    if (!container) return;
-    
-    container.addEventListener("dictado-checked", (e) => {
-      const { exercise: ex, userAnswer, result } = e.detail;
-      showDictadoModal(ex, result, userAnswer, (duda) => {
-        AppState.reportEntries.push(getDictadoReportEntry(ex, userAnswer, duda));
-        advanceExercise();
-      });
-    });
+    // El boton "checkDictadoBtn" se crea en renderDictadoExercise
+    // Usamos un pequeño delay para asegurar que el DOM existe
+    setTimeout(() => {
+      const checkBtn = document.getElementById("checkDictadoBtn");
+      if (checkBtn) {
+        checkBtn.onclick = () => {
+          const textarea = document.getElementById("dictadoInput");
+          if (!textarea) return;
+          const userAnswer = textarea.value.trim();
+          if (!userAnswer) { toast("📝 Escribe lo que escuchaste"); return; }
+          const result = checkDictadoAnswer(exercise, userAnswer);
+          showDictadoModal(exercise, result, userAnswer, (duda) => {
+            AppState.reportEntries.push(getDictadoReportEntry(exercise, userAnswer, duda));
+            advanceExercise();
+          });
+        };
+      }
+    }, 100);
   }
 
   function setupConversacionMainListeners() {
     const container = document.getElementById("exerciseContainer");
     if (!container) return;
-    container.addEventListener("conversacion-answer", (e) => { 
-      AppState.reportEntries.push(getConversacionReportEntry(e.detail)); 
-    });
+    container.addEventListener("conversacion-answer", (e) => { AppState.reportEntries.push(getConversacionReportEntry(e.detail)); });
     container.addEventListener("conversacion-completed", () => advanceExercise());
   }
 
-  // ==================== ADVANCE ====================
   function advanceExercise() {
     const node = AppState.nodes[AppState.activeNodeIndex];
     const exIndex = AppState.activeExerciseIndex;
-    
     if (!AppState.progress[AppState.activeNodeIndex]) {
-      AppState.progress[AppState.activeNodeIndex] = { 
-        completed: false, 
-        exercisesDone: 0, 
-        exerciseResults: Array(node.exercises.length).fill(false) 
-      };
+      AppState.progress[AppState.activeNodeIndex] = { completed: false, exercisesDone: 0, exerciseResults: Array(node.exercises.length).fill(false) };
     }
-    
     if (!AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex]) {
       AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex] = true;
-      AppState.progress[AppState.activeNodeIndex].exercisesDone = 
-        (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
+      AppState.progress[AppState.activeNodeIndex].exercisesDone = (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
     }
-    
     AppState.failedExercises = AppState.failedExercises.filter(i => i !== exIndex);
-    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 
-      ? AppState.failedExercises[0] 
-      : AppState.activeExerciseIndex + 1;
-    
+    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 ? AppState.failedExercises[0] : AppState.activeExerciseIndex + 1;
     saveToStorage();
     renderExercise();
   }
 
-  // ==================== REPORT ====================
   function buildReport() {
     let lines = [];
     lines.push("📘 INFORME DE APRENDIZAJE");
     lines.push("=".repeat(40));
     lines.push("");
+    if (AppState.reportEntries.length === 0) { lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); return lines.join("\\n"); }
     
-    if (AppState.reportEntries.length === 0) {
-      lines.push("🌟 Intenta algunos ejercicios para ver tu informe");
-      return lines.join("\\n");
-    }
-    
-    // Agrupar por tipo
     const byType = {};
     AppState.reportEntries.forEach(entry => {
       if (!byType[entry.type]) byType[entry.type] = [];
@@ -529,109 +437,57 @@ def get_main_logic():
     });
     
     let counter = 0;
-    const typeNames = {
-      traduccion: "TRADUCCIÓN", completar: "COMPLETAR", seleccionar: "EMPAREJAR",
-      corregir: "CORREGIR", dictado: "DICTADO", conversacion: "CONVERSACIÓN"
-    };
+    const typeNames = { traduccion:"TRADUCCIÓN", completar:"COMPLETAR", seleccionar:"EMPAREJAR", corregir:"CORREGIR", dictado:"DICTADO", conversacion:"CONVERSACIÓN" };
     
     Object.keys(typeNames).forEach(type => {
       const entries = byType[type] || [];
       if (entries.length === 0) return;
-      
       lines.push("📌 " + typeNames[type] + " (" + entries.length + " ejercicios)");
       lines.push("-".repeat(30));
-      
       entries.forEach(entry => {
         counter++;
-        lines.push(counter + ". " + (entry.type === "dictado" ? "🎧 " : "") + (entry.original || entry.messageText || "").substring(0, 80));
-        
-        if (entry.type === "traduccion") {
-          lines.push("   ✅ Esperado: " + entry.expected);
-          lines.push("   ✏️ Usuario: " + entry.userAnswer);
-        } else if (entry.type === "completar") {
-          lines.push("   ✅ Frase: " + entry.expected);
-          lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", "));
-        } else if (entry.type === "corregir") {
-          lines.push("   ❌ Error: " + entry.original);
-          lines.push("   ✅ Correcto: " + entry.expected);
-          lines.push("   ✏️ Usuario: " + entry.userAnswer);
-        } else if (entry.type === "dictado") {
-          lines.push("   🎧 Correcto: " + entry.original);
-          lines.push("   ✏️ Usuario: " + entry.userAnswer);
-        } else if (entry.type === "conversacion") {
-          if (entry.removedWord) {
-            lines.push("   🔤 Falta: " + entry.removedWord);
-            lines.push("   ✏️ Usuario: " + entry.userAnswer);
-          }
-          if (entry.selectedOption !== undefined) {
-            lines.push("   🎧 Opción: " + (entry.selectedOption + 1) + "/3");
-          }
-        }
-        
-        if (entry.duda) {
-          lines.push("   💭 Consulta: " + entry.duda);
-        }
+        lines.push(counter + ". " + (entry.original || entry.messageText || "").substring(0, 80));
+        if (entry.type === "traduccion") { lines.push("   ✅ Esperado: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
+        else if (entry.type === "completar") { lines.push("   ✅ Frase: " + entry.expected); lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); }
+        else if (entry.type === "corregir") { lines.push("   ❌ Error: " + entry.original); lines.push("   ✅ Correcto: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
+        else if (entry.type === "dictado") { lines.push("   🎧 Correcto: " + entry.original); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
+        else if (entry.type === "conversacion") { if (entry.removedWord) { lines.push("   🔤 Falta: " + entry.removedWord); lines.push("   ✏️ Usuario: " + entry.userAnswer); } if (entry.selectedOption !== undefined) lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); }
+        if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
         lines.push("");
       });
       lines.push("");
     });
-    
     return lines.join("\\n");
   }
 
   function copyReport() {
     const report = buildReport();
     const reportArea = document.getElementById("reportArea");
-    if (reportArea) { 
-      reportArea.style.display = "block"; 
-      reportArea.value = report; 
-    }
-    navigator.clipboard?.writeText(report)
-      .then(() => toast("📋 Informe copiado al portapapeles"))
-      .catch(() => toast("📋 Copia manualmente el informe"));
+    if (reportArea) { reportArea.style.display = "block"; reportArea.value = report; }
+    navigator.clipboard?.writeText(report).then(() => toast("📋 Informe copiado")).catch(() => toast("📋 Copia manualmente"));
   }
 
-  // ==================== UTILS ====================
   function burstConfetti() {
     const colors = ["#e50914", "#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"];
     for(let i = 0; i < 40; i++) {
-      const c = document.createElement("div"); 
-      c.classList.add("confetti");
-      c.style.left = Math.random() * 100 + "vw";
-      c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      c.style.width = (5 + Math.random() * 8) + "px";
-      c.style.height = (8 + Math.random() * 10) + "px";
+      const c = document.createElement("div"); c.classList.add("confetti");
+      c.style.left = Math.random() * 100 + "vw"; c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      c.style.width = (5 + Math.random() * 8) + "px"; c.style.height = (8 + Math.random() * 10) + "px";
       c.style.animationDuration = (1 + Math.random() * 2) + "s";
-      document.body.appendChild(c); 
-      setTimeout(() => c.remove(), 3000);
+      document.body.appendChild(c); setTimeout(() => c.remove(), 3000);
     }
   }
 
-  // ==================== AUTH ====================
   function login(username) {
-    if(!username || !username.trim()) { 
-      toast("Por favor ingresa un nombre"); 
-      return false; 
-    }
-    
+    if(!username || !username.trim()) { toast("Por favor ingresa un nombre"); return false; }
     username = username.trim().toLowerCase();
     currentUser = username;
     localStorage.setItem("__LS_KEY___user", username);
-    
     document.getElementById("userNameDisplay").innerText = username;
     document.getElementById("welcomeUsername").innerText = username;
-    
     const hasData = loadFromStorage(username);
-    if (!hasData) {
-      AppState.nodes = []; 
-      AppState.progress = {}; 
-      AppState.activeNodeIndex = 0; 
-      AppState.activeExerciseIndex = 0; 
-      AppState.reportEntries = [];
-    }
-    
+    if (!hasData) { AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; }
     renderMapView();
-    
     document.getElementById("loginScreen").classList.remove("active");
     document.getElementById("mainScreen").classList.add("active");
     showMainView(AppState.nodes.length ? "map" : "import");
@@ -644,53 +500,30 @@ def get_main_logic():
     localStorage.removeItem("__LS_KEY___user");
     document.getElementById("loginScreen").classList.add("active");
     document.getElementById("mainScreen").classList.remove("active");
-    toast("👋 Sesión cerrada");
+    toast("👋 Sesion cerrada");
   }
 
   async function resetAll() {
-    if(confirm("¿Borrar todo el progreso? Esta acción no se puede deshacer.")) {
-      AppState.nodes = []; 
-      AppState.progress = {}; 
-      AppState.activeNodeIndex = 0; 
-      AppState.activeExerciseIndex = 0; 
-      AppState.failedExercises = []; 
-      AppState.reportEntries = [];
-      saveToStorage(); 
-      renderMapView(); 
-      showMainView("import"); 
-      toast("🗑️ Todo borrado");
+    if(confirm("¿Borrar todo el progreso?")) {
+      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = [];
+      saveToStorage(); renderMapView(); showMainView("import"); toast("🗑️ Todo borrado");
     }
   }
 
-  // ==================== INIT ====================
   function init() {
     const savedUser = localStorage.getItem("__LS_KEY___user");
     if(savedUser) login(savedUser);
-    
-    document.getElementById("loginBtn")?.addEventListener("click", () => 
-      login(document.getElementById("usernameInput").value)
-    );
-    document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { 
-      if(e.key === "Enter") login(document.getElementById("usernameInput").value); 
-    });
-    
+    document.getElementById("loginBtn")?.addEventListener("click", () => login(document.getElementById("usernameInput").value));
+    document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { if(e.key === "Enter") login(document.getElementById("usernameInput").value); });
     document.getElementById("logoutBtn")?.addEventListener("click", logout);
     document.getElementById("loadBtn")?.addEventListener("click", loadAllData);
     document.getElementById("resetAllBtn")?.addEventListener("click", resetAll);
-    document.getElementById("replaceListBtn")?.addEventListener("click", () => { 
-      showMainView("import"); 
-      toast("📥 Ingresa nuevos datos"); 
-    });
+    document.getElementById("replaceListBtn")?.addEventListener("click", () => { showMainView("import"); toast("📥 Ingresa nuevos datos"); });
     document.getElementById("copyReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("openReportBtn")?.addEventListener("click", copyReport);
-    document.getElementById("backToMapBtn")?.addEventListener("click", () => { 
-      renderMapView(); 
-      showMainView("map"); 
-    });
-    document.getElementById("toggleMenuBtn")?.addEventListener("click", () => { 
-      document.getElementById("menuExpand").classList.toggle("open"); 
-    });
+    document.getElementById("backToMapBtn")?.addEventListener("click", () => { renderMapView(); showMainView("map"); });
+    document.getElementById("toggleMenuBtn")?.addEventListener("click", () => { document.getElementById("menuExpand").classList.toggle("open"); });
   }
   
   init();
@@ -698,7 +531,6 @@ def get_main_logic():
 
 
 def build_html():
-    """Construye el HTML completo"""
     print("📂 Leyendo archivos...")
     
     styles = read_file('styles/main.css')
@@ -712,7 +544,6 @@ def build_html():
     
     template = get_html_template()
     
-    # Reemplazar marcadores en template
     html = template.replace('__STYLES__', styles)
     html = html.replace('__VERSION__', VERSION)
     html = html.replace('__IMPORT_FIELDS__', build_import_fields())
@@ -721,7 +552,6 @@ def build_html():
     for marker, content in exercise_modules.items():
         html = html.replace(marker, content)
     
-    # Insertar lógica principal
     main_logic = get_main_logic()
     main_logic = main_logic.replace('__LS_KEY__', LS_KEY)
     main_logic = main_logic.replace('__LOAD_DATA_FIELDS__', build_load_data_fields())
@@ -730,29 +560,15 @@ def build_html():
     
     html = html.replace('__MAIN_LOGIC__', main_logic)
     
-    # Verificar marcadores sin reemplazar
-    remaining = []
-    for line in html.split('\n'):
-        if '__' in line and '___' not in line and '_____' not in line:
-            stripped = line.strip()
-            if stripped and not stripped.startswith('//') and not stripped.startswith('/*'):
-                remaining.append(stripped[:100])
-    
-    if remaining:
-        print(f"\n⚠️  Quedaron {len(remaining)} marcadores sin reemplazar:")
-        for r in remaining[:5]:
-            print(f"    {r}")
-    
     return html
 
 
 def main():
     print("=" * 60)
     print("🔨 English Trainer Builder")
-    print(f"📦 Versión: {VERSION}")
+    print(f"📦 Version: {VERSION}")
     print("=" * 60)
     
-    # Verificar archivos necesarios
     required_files = ['styles/main.css', 'mapa/map.js'] + list(EXERCISE_FILES.keys())
     missing = [f for f in required_files if not os.path.exists(f)]
     if missing:
@@ -761,13 +577,10 @@ def main():
             print(f"   - {f}")
         sys.exit(1)
     
-    print(f"✅ {len(required_files)} archivos encontrados")
-    print()
+    print(f"✅ {len(required_files)} archivos encontrados\n")
     
-    # Construir HTML
     html = build_html()
     
-    # Guardar archivo
     output_path = 'index.html'
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html)
@@ -776,12 +589,11 @@ def main():
     
     print("\n" + "=" * 60)
     print(f"✅ Archivo generado: {output_path}")
-    print(f"📦 Tamaño: {file_size:,} bytes")
+    print(f"📦 Tamano: {file_size:,} bytes")
     print(f"📅 Fecha: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
-    print("🎉 ¡Build completado exitosamente!")
-    print(f"\n🌐 Para probar, usa un servidor local:")
-    print(f"   python -m http.server 8000")
+    print("🎉 ¡Build completado!")
+    print(f"\n🌐 python -m http.server 8000")
     print(f"   Luego abre: http://localhost:8000")
 
 
