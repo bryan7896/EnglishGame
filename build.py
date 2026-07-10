@@ -92,7 +92,7 @@ def create_manifest():
             }
         ]
     }
-    with open('output/manifest.json', 'w', encoding='utf-8') as f:
+    with open('manifest.json', 'w', encoding='utf-8') as f:
         json.dump(manifest, f, indent=2)
     print(f"  ✅ manifest.json creado")
 
@@ -147,7 +147,7 @@ self.addEventListener('fetch', (event) => {
   );
 });
 '''
-    with open('output/service-worker.js', 'w', encoding='utf-8') as f:
+    with open('service-worker.js', 'w', encoding='utf-8') as f:
         f.write(sw_code)
     print(f"  ✅ service-worker.js creado")
 
@@ -764,10 +764,8 @@ def main():
         sys.exit(1)
     
     print(f"✅ {len(required_files)} archivos encontrados\n")
-    
-    # Crear directorio output
-    os.makedirs('output', exist_ok=True)
-    
+
+
     # Crear archivos PWA
     print("📱 Creando archivos PWA...")
     create_manifest()
@@ -777,7 +775,7 @@ def main():
     # Construir HTML
     html = build_html()
     
-    output_path = 'output/index.html'
+    output_path = 'index.html'
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html)
     

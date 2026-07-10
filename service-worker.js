@@ -8,7 +8,6 @@ const ASSETS = [
   'https://cdn-icons-png.flaticon.com/512/3898/3898082.png',
 ];
 
-// Instalar Service Worker
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -18,7 +17,6 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-// Activar Service Worker
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -30,7 +28,6 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Estrategia: Network First, fallback a cache
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   

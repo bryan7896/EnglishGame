@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="English Trainer" />
+  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3898/3898082.png" />
+  <link rel="manifest" href="./manifest.json" />
   <title>English Trainer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -2821,6 +2827,7 @@ body {
       <p>Mejora tu inglés con práctica diaria</p>
       <input type="text" id="usernameInput" class="username-input" placeholder="Nombre de usuario" maxlength="30" autocomplete="off">
       <button id="loginBtn" class="login-btn">Comenzar</button>
+      <p class="pwa-hint">📱 También funciona sin conexión</p>
     </div>
   </div>
 
@@ -2828,7 +2835,7 @@ body {
     <div class="play-topbar">
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
-        <div class="sub-fun">6.2 - Local Storage</div>
+        <div class="sub-fun">6.3 - PWA</div>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
         <div class="user-info" id="userInfo">
@@ -2910,6 +2917,15 @@ body {
 <div id="toastFun" class="toast-fun"></div>
 
 <script type="module">
+  // ==================== PWA REGISTRATION ====================
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then((reg) => console.log('✅ SW registrado:', reg.scope))
+        .catch((err) => console.log('⚠️ SW falló:', err));
+    });
+  }
+
   // mapa/map.js
 // Mapa de nodos con distribución por porcentaje y diseño contemporáneo
 
