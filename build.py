@@ -380,24 +380,18 @@ def get_main_logic():
 
   // ============ DICTADO: USAR onclick DIRECTO (NO EventListener en container) ============
   function setupDictadoListeners(exercise) {
-    // El boton "checkDictadoBtn" se crea en renderDictadoExercise
-    // Usamos un pequeño delay para asegurar que el DOM existe
-    setTimeout(() => {
-      const checkBtn = document.getElementById("checkDictadoBtn");
-      if (checkBtn) {
-        checkBtn.onclick = () => {
-          const textarea = document.getElementById("dictadoInput");
-          if (!textarea) return;
-          const userAnswer = textarea.value.trim();
-          if (!userAnswer) { toast("📝 Escribe lo que escuchaste"); return; }
-          const result = checkDictadoAnswer(exercise, userAnswer);
-          showDictadoModal(exercise, result, userAnswer, (duda) => {
-            AppState.reportEntries.push(getDictadoReportEntry(exercise, userAnswer, duda));
-            advanceExercise();
-          });
-        };
-      }
-    }, 100);
+    const container = document.getElementById("exerciseContainer");
+    if (!container) return;
+    
+    // Remover listener anterior si existe
+    const handler = function(e) {
+      const { exercise: ex, userAnswer, result, duda } = e.detail;
+      AppState.reportEntries.push(getDictadoReportEntry(ex, userAnswer, duda));
+      advanceExercise();
+    };
+    
+    container.removeEventListener("dictado-done", handler);
+    container.addEventListener("dictado-done", handler);
   }
 
   function setupConversacionMainListeners() {

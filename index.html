@@ -3778,7 +3778,7 @@ function getRandomVoice() {
   return VOICES[index];
 }
 
-function speakDictado(text, onEnd) {
+function speakDictado(text) {
   if (!('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
   
@@ -3790,7 +3790,6 @@ function speakDictado(text, onEnd) {
   utterance.pitch = 1;
   utterance.volume = 1;
   
-  // Cargar voces si es necesario
   const voices = window.speechSynthesis.getVoices();
   if (voices.length === 0) {
     window.speechSynthesis.onvoiceschanged = () => {
@@ -3808,10 +3807,6 @@ function speakDictado(text, onEnd) {
     }
     window.speechSynthesis.speak(utterance);
   }
-  
-  if (onEnd) utterance.onend = onEnd;
-  
-  return utterance;
 }
 
 export function renderDictadoExercise(exercise, container) {
@@ -3819,14 +3814,13 @@ export function renderDictadoExercise(exercise, container) {
   
   container.innerHTML = `
     <div class="dictado-container">
-      <!-- Área de audio mejorada -->
       <div class="dictado-audio-area">
         <div class="dictado-audio-icon">🎧</div>
         <div class="dictado-audio-info">
           <div class="dictado-audio-title">Escucha y escribe</div>
           <div class="dictado-audio-subtitle">Reproduce el audio y escribe exactamente lo que escuchas</div>
         </div>
-        <button class="dictado-play-btn" id="dictadoPlayBtn" title="Reproducir audio">
+        <button class="dictado-play-btn" id="dictadoPlayBtn" title="Reproducir audio" type="button">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8 5v14l11-7z"/>
           </svg>
@@ -3834,17 +3828,14 @@ export function renderDictadoExercise(exercise, container) {
         </button>
       </div>
       
-      <!-- Barra de progreso del audio -->
-      <div class="dictado-progress-bar" id="dictadoProgressBar">
+      <div class="dictado-progress-bar">
         <div class="dictado-progress-fill" id="dictadoProgressFill"></div>
       </div>
       
-      <!-- Contador de reproducciones -->
-      <div class="dictado-play-count" id="dictadoPlayCount">
-        Reproducciones: <span>0</span>
+      <div class="dictado-play-count">
+        Reproducciones: <span id="dictadoPlayCountSpan">0</span>
       </div>
       
-      <!-- Área de escritura -->
       <div class="dictado-input-area">
         <textarea 
           id="dictadoInput" 
@@ -3861,12 +3852,11 @@ export function renderDictadoExercise(exercise, container) {
         </div>
       </div>
       
-      <!-- Botones de acción -->
       <div class="dictado-actions">
-        <button class="dictado-btn dictado-btn-outline" id="dictadoClearBtn">
+        <button class="dictado-btn dictado-btn-outline" id="dictadoClearBtn" type="button">
           🗑️ Limpiar
         </button>
-        <button class="dictado-btn dictado-btn-primary" id="checkDictadoBtn">
+        <button class="dictado-btn dictado-btn-primary" id="checkDictadoBtn" type="button">
           ✅ Comprobar
         </button>
       </div>
@@ -3875,18 +3865,11 @@ export function renderDictadoExercise(exercise, container) {
   
   let playCount = 0;
   const progressFill = document.getElementById("dictadoProgressFill");
-  const playCountEl = document.getElementById("dictadoPlayCount").querySelector("span");
+  const playCountSpan = document.getElementById("dictadoPlayCountSpan");
   const playBtn = document.getElementById("dictadoPlayBtn");
   const textarea = document.getElementById("dictadoInput");
   const charCount = document.getElementById("dictadoCharCount");
-  
-  // Auto reproducir al cargar
-  setTimeout(() => {
-    speakDictado(text);
-    playCount++;
-    playCountEl.textContent = playCount;
-    animateProgress();
-  }, 600);
+  const checkBtn = document.getElementById("checkDictadoBtn");
   
   function animateProgress() {
     if (progressFill) {
@@ -3899,62 +3882,85 @@ export function renderDictadoExercise(exercise, container) {
     }
   }
   
-  // Botón de play
-  playBtn?.addEventListener("click", () => {
+  // Auto reproducir al cargar
+  setTimeout(() => {
     speakDictado(text);
     playCount++;
-    playCountEl.textContent = playCount;
+    if (playCountSpan) playCountSpan.textContent = playCount;
     animateProgress();
-    
-    // Efecto visual en el botón
-    playBtn.classList.add('playing');
-    setTimeout(() => playBtn.classList.remove('playing'), 500);
-  });
+  }, 600);
+  
+  // Botón de play
+  if (playBtn) {
+    playBtn.addEventListener("click", () => {
+      speakDictado(text);
+      playCount++;
+      if (playCountSpan) playCountSpan.textContent = playCount;
+      animateProgress();
+      playBtn.classList.add('playing');
+      setTimeout(() => playBtn.classList.remove('playing'), 500);
+    });
+  }
   
   // Contador de caracteres
-  textarea?.addEventListener("input", () => {
-    charCount.textContent = textarea.value.length + " caracteres";
-  });
+  if (textarea) {
+    textarea.addEventListener("input", () => {
+      if (charCount) charCount.textContent = textarea.value.length + " caracteres";
+    });
+  }
   
   // Botón limpiar
   document.getElementById("dictadoClearBtn")?.addEventListener("click", () => {
-    textarea.value = '';
-    charCount.textContent = '0 caracteres';
-    textarea.focus();
+    if (textarea) {
+      textarea.value = '';
+      if (charCount) charCount.textContent = '0 caracteres';
+      textarea.focus();
+    }
   });
   
   // Enter para comprobar
-  textarea?.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      document.getElementById("checkDictadoBtn")?.click();
-    }
-  });
-  
-  // Comprobar respuesta
-  document.getElementById("checkDictadoBtn")?.addEventListener("click", () => {
-    const userAnswer = textarea?.value?.trim() || '';
-    if (!userAnswer) {
-      // Mostrar mini toast en el textarea
-      textarea.style.borderColor = '#e50914';
-      textarea.placeholder = 'Por favor escribe lo que escuchaste...';
-      setTimeout(() => {
-        textarea.style.borderColor = '';
-        textarea.placeholder = 'Escribe aquí lo que escuchaste...';
-      }, 2000);
-      return;
-    }
-    
-    const result = checkDictadoAnswer(exercise, userAnswer);
-    
-    // Despachar evento para que la lógica principal lo maneje
-    const event = new CustomEvent('dictado-checked', {
-      detail: { exercise, userAnswer, result }
+  if (textarea) {
+    textarea.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        checkBtn?.click();
+      }
     });
-    container.dispatchEvent(event);
-  });
+  }
   
-  textarea?.focus();
+  // ============ COMPROBAR - ACCIÓN DIRECTA ============
+  if (checkBtn) {
+    checkBtn.onclick = function() {
+      const userAnswer = textarea ? textarea.value.trim() : '';
+      
+      if (!userAnswer) {
+        if (textarea) {
+          textarea.style.borderColor = '#e50914';
+          textarea.placeholder = '⚠️ Por favor escribe lo que escuchaste...';
+          setTimeout(() => {
+            if (textarea) {
+              textarea.style.borderColor = '';
+              textarea.placeholder = 'Escribe aquí lo que escuchaste...';
+            }
+          }, 2000);
+        }
+        return;
+      }
+      
+      const result = checkDictadoAnswer(exercise, userAnswer);
+      
+      showDictadoModal(exercise, result, userAnswer, function(duda) {
+        // Esta función onContinue será reemplazada por setupDictadoListeners
+        // Usamos un evento custom como fallback
+        const event = new CustomEvent('dictado-done', {
+          detail: { exercise, userAnswer, result, duda }
+        });
+        container.dispatchEvent(event);
+      });
+    };
+  }
+  
+  if (textarea) textarea.focus();
 }
 
 export function checkDictadoAnswer(exercise, userAnswer) {
@@ -3990,7 +3996,6 @@ export function showDictadoModal(exercise, result, userAnswer, onContinue) {
   const correctText = typeof exercise === 'string' ? exercise : exercise.text || exercise.phrase || '';
   const { isExact, accuracy, matchedWords, totalWords, comparison } = result;
   
-  // Determinar color según precisión
   let accuracyColor = '#e50914';
   if (accuracy >= 0.9) accuracyColor = '#2ecc71';
   else if (accuracy >= 0.7) accuracyColor = '#f39c12';
@@ -4048,7 +4053,7 @@ export function showDictadoModal(exercise, result, userAnswer, onContinue) {
       </div>
       
       <div class="dictado-modal-footer">
-        <button class="dictado-modal-btn" id="modalContinueBtn">▶️ Continuar</button>
+        <button class="dictado-modal-btn" id="modalContinueBtn" type="button">▶️ Continuar</button>
       </div>
     </div>
   `;
@@ -4593,24 +4598,18 @@ export function getConversacionReportEntry(messageData) {
 
   // ============ DICTADO: USAR onclick DIRECTO (NO EventListener en container) ============
   function setupDictadoListeners(exercise) {
-    // El boton "checkDictadoBtn" se crea en renderDictadoExercise
-    // Usamos un pequeño delay para asegurar que el DOM existe
-    setTimeout(() => {
-      const checkBtn = document.getElementById("checkDictadoBtn");
-      if (checkBtn) {
-        checkBtn.onclick = () => {
-          const textarea = document.getElementById("dictadoInput");
-          if (!textarea) return;
-          const userAnswer = textarea.value.trim();
-          if (!userAnswer) { toast("📝 Escribe lo que escuchaste"); return; }
-          const result = checkDictadoAnswer(exercise, userAnswer);
-          showDictadoModal(exercise, result, userAnswer, (duda) => {
-            AppState.reportEntries.push(getDictadoReportEntry(exercise, userAnswer, duda));
-            advanceExercise();
-          });
-        };
-      }
-    }, 100);
+    const container = document.getElementById("exerciseContainer");
+    if (!container) return;
+    
+    // Remover listener anterior si existe
+    const handler = function(e) {
+      const { exercise: ex, userAnswer, result, duda } = e.detail;
+      AppState.reportEntries.push(getDictadoReportEntry(ex, userAnswer, duda));
+      advanceExercise();
+    };
+    
+    container.removeEventListener("dictado-done", handler);
+    container.addEventListener("dictado-done", handler);
   }
 
   function setupConversacionMainListeners() {
