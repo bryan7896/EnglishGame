@@ -142,7 +142,6 @@ def get_html_template():
     <!-- MAP -->
     <div id="mapScreen" class="screen">
       <div class="magic-card">
-        <h2>🗺️ Mapa de progreso</h2>
         <div id="mapList" class="adventure-map"></div>
       </div>
       <div class="magic-card" style="padding:14px 18px;">
