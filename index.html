@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
-  <title>English Trainer - Aventura de Traducción</title>
-  <style>
-/* styles/main.css */
+  <title>English Trainer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>/* styles/main.css */
 * {
   margin: 0;
   padding: 0;
@@ -1965,45 +1966,513 @@ textarea.report {
     transform: translateX(calc(var(--node-offset, 0px) * 0.7));
   }
 }
-  </style>
+
+/* ============ CONVERSACIÓN ============ */
+
+.conversation-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.conv-progress {
+  margin-bottom: 8px;
+}
+
+.conv-progress-text {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.conv-progress-bar {
+  height: 4px;
+  background: #1e293b;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.conv-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f97316, #fbbf24);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+.conv-message-wrapper {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.conv-message-wrapper.narrador {
+  justify-content: center;
+}
+
+.conv-avatar {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.conv-bubble {
+  flex: 1;
+  background: rgba(30, 41, 59, 0.8);
+  border-radius: 16px;
+  padding: 14px 16px;
+  position: relative;
+}
+
+.conv-bubble.narrador-bubble {
+  background: rgba(148, 163, 184, 0.1);
+  text-align: center;
+  font-style: italic;
+  max-width: 90%;
+}
+
+.conv-character-name {
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.conv-text {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.conv-completion-text {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  line-height: 2;
+}
+
+.conv-completion-text span {
+  color: #e2e8f0;
+}
+
+.conv-input {
+  width: 80px !important;
+  display: inline-block !important;
+  margin: 0 2px;
+}
+
+.conv-play-btn {
+  margin-top: 10px;
+  background: rgba(250, 204, 21, 0.1);
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  color: #fde68a;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.conv-play-btn:hover {
+  background: rgba(250, 204, 21, 0.2);
+}
+
+.conv-audio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.conv-audio-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(30, 41, 59, 0.6);
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.conv-audio-btn:hover {
+  background: rgba(51, 65, 85, 0.6);
+}
+
+.conv-audio-btn.selected {
+  border-color: #facc15;
+  background: rgba(250, 204, 21, 0.1);
+  color: #fde68a;
+}
+
+.conv-audio-icon {
+  font-size: 1.2rem;
+}
+
+/* ============ MAPA TIMELINE MINIMALISTA ============ */
+
+.map-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 8px 0;
+}
+
+.map-node-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.map-node-row.locked {
+  opacity: 0.4;
+  filter: grayscale(0.5);
+}
+
+.map-node-row.active .map-node-card {
+  animation: softGlow 3s ease-in-out infinite;
+}
+
+@keyframes softGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(250,204,21,0.05); }
+  50% { box-shadow: 0 0 16px rgba(250,204,21,0.12); }
+}
+
+/* Línea conectora */
+.map-line {
+  width: 2px;
+  height: 20px;
+  background: #1e293b;
+  transition: background 0.5s;
+}
+
+.map-line.done {
+  background: #4ade8040;
+}
+
+/* Tarjeta del nodo */
+.map-node-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15,20,34,0.85);
+  border: 1.5px solid #1e293b;
+  border-radius: 14px;
+  padding: 10px 14px;
+  width: 100%;
+  max-width: 380px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+
+.map-node-card:hover {
+  transform: translateX(3px);
+}
+
+.map-node-card.disabled {
+  cursor: not-allowed;
+  transform: none;
+}
+
+.map-node-card.done {
+  border-color: rgba(74,222,128,0.25);
+  background: rgba(15,25,18,0.85);
+}
+
+/* SVG */
+.map-node-svg {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.map-node-svg svg {
+  width: 60px;
+  height: 60px;
+}
+
+/* Contenido */
+.map-node-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.map-node-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 1px;
+}
+
+.map-node-meta {
+  font-size: 0.68rem;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+/* Barra de progreso */
+.map-node-bar {
+  height: 3px;
+  background: #1e293b;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.map-node-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+/* Dots de lecciones */
+.node-lessons-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.node-lesson-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1e293b;
+  transition: all 0.3s;
+}
+
+/* Estado */
+.map-node-status {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+  .map-node-card {
+    padding: 8px 10px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+  .map-node-svg {
+    width: 48px;
+    height: 48px;
+  }
+  .map-node-svg svg {
+    width: 48px;
+    height: 48px;
+  }
+  .map-node-title {
+    font-size: 0.78rem;
+  }
+}
+
+/* ============ RESET & BASE ============ */
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+body {
+  background: #0a0a0a;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+  padding: 0;
+  color: #e5e5e5;
+}
+
+.app-container {
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* ============ LOGIN ============ */
+.login-card {
+  text-align: center;
+  padding: 60px 24px;
+}
+.login-card h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
+.login-card p { color: #888; margin-bottom: 24px; }
+.username-input {
+  width: 100%; border: 1px solid #333; background: #1a1a1a; color: #fff;
+  border-radius: 8px; padding: 14px; font-size: 1rem; text-align: center; outline: none;
+}
+.username-input:focus { border-color: #e50914; }
+.login-btn {
+  background: #e50914; color: #fff; border: none; border-radius: 8px;
+  padding: 14px; font-size: 1rem; font-weight: 600; width: 100%; cursor: pointer; margin-top: 16px;
+}
+.login-btn:hover { background: #f40612; }
+
+/* ============ TOPBAR ============ */
+.play-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; background: rgba(0,0,0,0.9); position: sticky; top: 0; z-index: 100;
+}
+.title-fun { font-size: 1.1rem; font-weight: 700; color: #e50914; }
+.sub-fun { font-size: 0.7rem; color: #666; }
+.user-info { display: flex; align-items: center; gap: 8px; }
+.user-name { color: #ccc; font-size: 0.85rem; }
+.logout-btn { background: none; border: 1px solid #333; color: #888; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; }
+.menu-btn { background: none; border: none; color: #ccc; font-size: 1.2rem; cursor: pointer; }
+
+.topbar-expand { max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+.topbar-expand.open { max-height: 200px; padding: 12px 20px; }
+.action-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.fun-btn {
+  border: 1px solid #333; background: #1a1a1a; color: #ccc;
+  border-radius: 6px; padding: 8px 14px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s;
+}
+.fun-btn:hover { background: #333; }
+.danger-btn { border-color: #e50914; color: #e50914; }
+.primary-btn { background: #e50914; border-color: #e50914; color: #fff; }
+
+/* ============ CARDS ============ */
+.magic-card {
+  background: #111; border: 1px solid #222; border-radius: 8px; padding: 20px; margin: 16px 20px;
+}
+.magic-card h2 { color: #fff; font-size: 1.2rem; margin-bottom: 12px; }
+.magic-card p { color: #888; font-size: 0.85rem; }
+
+.multi-input-section { margin-bottom: 16px; }
+.multi-input-section h4 { color: #ccc; font-size: 0.85rem; margin-bottom: 6px; }
+.answer-input {
+  width: 100%; border: 1px solid #333; background: #1a1a1a; color: #fff;
+  border-radius: 6px; padding: 10px; font-family: monospace; font-size: 0.8rem; resize: vertical;
+}
+.answer-input:focus { border-color: #e50914; outline: none; }
+
+.button-group { display: flex; gap: 10px; margin: 12px 0; }
+.btn-action {
+  flex: 1; border: none; border-radius: 6px; padding: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer;
+}
+.btn-check { background: #e50914; color: #fff; }
+.btn-continue { background: #333; color: #fff; }
+
+/* ============ MAPA NETFLIX ============ */
+.adventure-map { padding: 0 20px 20px; }
+
+.netflix-node {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 180px;
+}
+.netflix-node:hover { transform: scale(1.02); }
+.netflix-node.locked { opacity: 0.5; cursor: not-allowed; transform: none; }
+.netflix-node.current { box-shadow: 0 0 0 2px #e50914; }
+.netflix-node.done { box-shadow: 0 0 0 2px #2ecc71; }
+
+.netflix-node-bg {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover; background-position: center; filter: brightness(0.3);
+}
+.netflix-node-overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.7) 100%);
+}
+
+.netflix-node-content {
+  position: relative; z-index: 2; padding: 24px;
+  display: flex; flex-direction: column; justify-content: flex-end; min-height: 180px;
+}
+
+.netflix-node-number { font-size: 3rem; font-weight: 900; color: rgba(255,255,255,0.1); position: absolute; top: 12px; right: 20px; }
+.netflix-node-title { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.netflix-node-meta { font-size: 0.75rem; color: #888; margin-bottom: 12px; }
+.netflix-node-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.netflix-progress-bar { flex: 1; height: 4px; background: rgba(255,255,255,0.15); border-radius: 2px; overflow: hidden; }
+.netflix-progress-fill { height: 100%; background: #e50914; border-radius: 2px; transition: width 0.5s ease; }
+.netflix-progress-text { font-size: 0.75rem; color: #888; white-space: nowrap; }
+.netflix-node-status { font-size: 0.7rem; font-weight: 600; color: #e50914; letter-spacing: 1px; }
+.netflix-node.done .netflix-node-status { color: #2ecc71; }
+
+/* ============ EXERCISE ============ */
+.exercise-area { padding: 20px; }
+.pill-status {
+  background: #1a1a1a; border: 1px solid #333; padding: 4px 10px; border-radius: 20px;
+  font-size: 0.7rem; color: #888;
+}
+.question-bubble {
+  background: #1a1a1a; border: 1px solid #333; border-radius: 8px;
+  padding: 16px; margin-bottom: 16px; font-size: 1.1rem; color: #fff;
+}
+
+/* ============ TOAST ============ */
+.toast-fun {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  background: #333; color: #fff; padding: 10px 20px; border-radius: 8px;
+  font-size: 0.85rem; opacity: 0; transition: opacity 0.2s; z-index: 1000; pointer-events: none;
+}
+.toast-fun.show { opacity: 1; }
+
+/* ============ MODAL ============ */
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center;
+  z-index: 1000; padding: 20px;
+}
+.modal-friend {
+  background: #1a1a1a; border: 1px solid #333; border-radius: 12px;
+  max-width: 500px; width: 100%; padding: 24px; max-height: 90vh; overflow-y: auto;
+}
+.modal-friend h3 { color: #fff; margin-bottom: 12px; }
+.comparison-text-block { background: #111; border-radius: 8px; padding: 14px; margin: 12px 0; }
+.word-correct { color: #2ecc71; font-weight: 600; }
+.word-error { color: #e74c3c; font-weight: 600; }
+.modal-buttons { display: flex; gap: 10px; margin-top: 16px; }
+
+/* ============ SCREENS ============ */
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* ============ CONFETTI ============ */
+.confetti { position: fixed; pointer-events: none; z-index: 999; animation: fall 1.4s linear forwards; }
+@keyframes fall { to { transform: translateY(100vh) rotate(720deg); opacity: 0; } }</style>
 </head>
 <body>
-<div class="cloud cloud1"></div><div class="cloud cloud2"></div><div class="cloud cloud3"></div>
-<div class="star" style="top: 8%; left: 85%;">⭐</div>
-<div class="star" style="top: 22%; left: 5%;">✨</div>
-<div class="star" style="bottom: 18%; right: 8%;">🌟</div>
-
 <div class="app-container">
+
+  <!-- LOGIN -->
   <div id="loginScreen" class="screen active">
     <div class="login-card">
-      <div class="badge-fun" style="margin: 0 auto 20px; width: 70px; height: 70px; font-size: 2.5rem;">🐣</div>
+      <div class="login-logo">EN</div>
       <h1>English Trainer</h1>
-      <p>Aventura de traducción</p>
-      <input type="text" id="usernameInput" class="username-input" placeholder="Escribe tu nombre de usuario" maxlength="30" autocomplete="off">
-      <button id="loginBtn" class="login-btn">🚀 Comenzar aventura</button>
-      <p style="font-size: 0.75rem; margin-top: 16px; color: #64748b;">Tu progreso se guardará en la nube</p>
+      <p>Mejora tu inglés con práctica diaria</p>
+      <input type="text" id="usernameInput" class="username-input" placeholder="Nombre de usuario" maxlength="30" autocomplete="off">
+      <button id="loginBtn" class="login-btn">Comenzar</button>
     </div>
   </div>
 
+  <!-- MAIN -->
   <div id="mainScreen" class="screen">
+    <!-- TOPBAR -->
     <div class="play-topbar">
       <div class="brand-mini">
-        <div class="badge-fun">🐣</div>
-        <div>
-          <div class="title-fun">English Trainer</div>
-          <div class="sub-fun">Version 4.1 - Firebase</div>
-        </div>
+        <div class="title-fun">English Trainer</div>
+        <div class="sub-fun">6.0 - Local Storage</div>
       </div>
-      <div style="display: flex; align-items: center; gap: 8px;">
+      <div style="display:flex;align-items:center;gap:8px;">
         <div class="user-info" id="userInfo">
-          <div class="user-avatar" id="userAvatar">👤</div>
           <span class="user-name" id="userNameDisplay"></span>
-          <button id="logoutBtn" class="logout-btn" title="Cerrar sesión">🚪</button>
+          <button id="logoutBtn" class="logout-btn">Salir</button>
         </div>
-        <button class="menu-btn" id="toggleMenuBtn">☁️</button>
+        <button class="menu-btn" id="toggleMenuBtn">☰</button>
       </div>
     </div>
     
+    <!-- MENU EXPAND -->
     <div class="topbar-expand" id="menuExpand">
       <div class="action-buttons">
         <button class="fun-btn" id="backToMapBtn">🗺️ Mapa</button>
@@ -2013,66 +2482,62 @@ textarea.report {
       </div>
     </div>
 
+    <!-- IMPORT -->
     <div id="importScreen" class="screen active">
       <div class="magic-card">
         <h2>📚 ¡Hola <span id="welcomeUsername"></span>!</h2>
-        <p>Ingresa los 6 tipos de datos requeridos:</p>
-        
-        <div class="multi-input-section">
-          <h4>📝 Traducciones (71 ejercicios requeridos)</h4>
+        <p>Ingresa los datos para cada tipo de ejercicio:</p>
+                <div class="multi-input-section">
+          <h4>📝 Traducciones</h4>
           <textarea id="traduccionesInput" class="answer-input" rows="3" placeholder='[{"spanishWord": "...", "englishWord": "..."}]'></textarea>
         </div>
-        
         <div class="multi-input-section">
-          <h4>✏️ Completar palabras (32 ejercicios requeridos)</h4>
-          <textarea id="completarInput" class="answer-input" rows="3" placeholder='[{"spanishWord": "...", "englishSentence": "There is _____ ...", "options": ["word1", "word2"]}]'></textarea>
+          <h4>✏️ Completar palabras</h4>
+          <textarea id="completarInput" class="answer-input" rows="3" placeholder='[{"spanishWord": "...", "englishSentence": "... _____ ...", "options": ["word1"]}]'></textarea>
         </div>
-        
         <div class="multi-input-section">
-          <h4>🎯 Seleccionar palabras (13 ejercicios requeridos)</h4>
+          <h4>🎯 Seleccionar palabras</h4>
           <textarea id="seleccionarInput" class="answer-input" rows="3" placeholder='[[{"englishWord": "...", "spanishWord": "..."}]]'></textarea>
         </div>
-        
         <div class="multi-input-section">
-          <h4>🔍 Corregir frases (50 ejercicios requeridos)</h4>
-          <textarea id="corregirInput" class="answer-input" rows="3" placeholder='[{"fraseConError": "She go to school", "fraseCorrecta": "She goes to school"}]'></textarea>
+          <h4>🔍 Corregir frases</h4>
+          <textarea id="corregirInput" class="answer-input" rows="3" placeholder='[{"fraseConError": "...", "fraseCorrecta": "..."}]'></textarea>
         </div>
-        
         <div class="multi-input-section">
-          <h4>📖 Historias de lectura (2 historias requeridas)</h4>
-          <textarea id="historiasInput" class="answer-input" rows="3" placeholder='[{"title": "...", "paragraphs": ["..."]}]'></textarea>
+          <h4>🎧 Dictado (frases en inglés)</h4>
+          <textarea id="dictadoInput" class="answer-input" rows="3" placeholder='["The cat is on the table", "She goes to school every day"]'></textarea>
         </div>
-        
         <div class="multi-input-section">
-          <h4>🤔 Historias con preguntas (4 ejercicios requeridos)</h4>
-          <textarea id="historiaPreguntasInput" class="answer-input" rows="3" placeholder='[{"shortStory": "...", "pregunta1": "...", "pregunta2": "..."}]'></textarea>
+          <h4>💬 Conversación</h4>
+          <textarea id="conversacionInput" class="answer-input" rows="3" placeholder='[{"messages":[{"name":"Ana","avatar":"👩","color":"#f472b6","text":"Hello!"}]}]'></textarea>
         </div>
-        
+
         <div class="button-group">
-          <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa ✨</button>
+          <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa</button>
         </div>
-        <p class="sub-fun" style="text-align:center; margin-top: 8px;">⭐ 6 nodos: 2 de historia, 4 de ejercicios mixtos ⭐</p>
       </div>
     </div>
 
+    <!-- MAP -->
     <div id="mapScreen" class="screen">
       <div class="magic-card">
-        <h2>🗺️ Mapa de la aventura</h2>
+        <h2>🗺️ Mapa de progreso</h2>
         <div id="mapList" class="adventure-map"></div>
       </div>
-      <div class="magic-card" style="padding: 14px 18px;">
+      <div class="magic-card" style="padding:14px 18px;">
         <button class="fun-btn full-width" id="openReportBtn" style="width:100%;">📄 Ver informe completo</button>
-        <textarea id="reportArea" class="report" rows="4" readonly placeholder="Aquí verás tu progreso..." style="display:none;"></textarea>
-        <button class="copy-report-btn" id="copyFinalReportBtn">📋 Copiar reporte final</button>
+        <textarea id="reportArea" class="report" rows="4" readonly style="display:none;"></textarea>
+        <button class="copy-report-btn" id="copyFinalReportBtn">📋 Copiar reporte</button>
       </div>
     </div>
 
+    <!-- EXERCISE -->
     <div id="exerciseScreen" class="screen">
       <div class="exercise-area">
-        <div style="display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
+        <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
           <span class="pill-status" id="nodeTag">Nodo 1</span>
           <span class="pill-status" id="exTag">Ejercicio 1/1</span>
-          <span class="pill-status" id="exTypeTag">📝 Traducción</span>
+          <span class="pill-status" id="exTypeTag">📝</span>
         </div>
         <div id="exerciseContainer"></div>
         <div id="resultLine" class="sub-fun" style="text-align:center;">✏️ Tu turno</div>
@@ -2082,94 +2547,30 @@ textarea.report {
 </div>
 
 <div id="toastFun" class="toast-fun"></div>
-<div id="loadingIndicator" class="loading">✨ Conectando...</div>
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-  import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyDMkONDffOyVBC4JGccnoLzZIRnsMzTXa4",
-    authDomain: "englishgame-13038.firebaseapp.com",
-    projectId: "englishgame-13038",
-    storageBucket: "englishgame-13038.firebasestorage.app",
-    messagingSenderId: "1035150507706",
-    appId: "1:1035150507706:web:9f30bdf7b5ac5ed5ea4c83"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  
-  // ==================== MÓDULO DE MAPA ====================
-// mapa/map.js
-// Estructura y configuración del mapa de nodos con diseño minimalista
+  // ==================== MAPA ====================
+  // mapa/map.js
+// Mapa de nodos con distribución por porcentaje y diseño contemporáneo
 
 export const MAP_CONFIG = {
   nodes: [
-    {
-      id: 1,
-      lessons: 5,
-      exercisesPerLesson: 10,
-      totalExercises: 50,
-      type: "mixed",
-      color: "#facc15",
-      icon: "🌟"
-    },
-    {
-      id: 2,
-      lessons: 5,
-      exercisesPerLesson: 8,
-      totalExercises: 40,
-      type: "mixed",
-      color: "#60a5fa",
-      icon: "💎"
-    },
-    {
-      id: 3,
-      lessons: 1,
-      exercisesPerLesson: 3,
-      totalExercises: 3,  // 1 historia + 2 historia_preguntas
-      type: "story",
-      color: "#f472b6",
-      icon: "📖"
-    },
-    {
-      id: 4,
-      lessons: 2,
-      exercisesPerLesson: 7,
-      totalExercises: 14,
-      type: "mixed",
-      color: "#a78bfa",
-      icon: "🔮"
-    },
-    {
-      id: 5,
-      lessons: 1,
-      exercisesPerLesson: 3,
-      totalExercises: 3,  // 1 historia + 2 historia_preguntas
-      type: "story",
-      color: "#f472b6",
-      icon: "📚"
-    },
-    {
-      id: 6,
-      lessons: 1,
-      exercisesPerLesson: 12,
-      totalExercises: 12,
-      type: "mixed",
-      color: "#34d399",
-      icon: "🏆"
-    }
+    { id: 1, percent: 40, type: "mixed" },
+    { id: 2, percent: 20, type: "mixed" },
+    { id: 3, percent: 5, type: "mixed" },
+    { id: 4, percent: 10, type: "mixed" },
+    { id: 5, percent: 20, type: "mixed" },
+    { id: 6, percent: 5, type: "mixed" }
   ],
-
-  validation: {
-    traduccion: 71,
-    completar: 32,
-    seleccionar: 13,
-    corregir: 50,
-    historia: 2,
-    historiaPreguntas: 4
-  }
+  // Imágenes de fondo estilo Netflix (unsplash random)
+  backgrounds: [
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&h=300&fit=crop",
+  ]
 };
 
 function shuffleArray(arr) {
@@ -2181,413 +2582,137 @@ function shuffleArray(arr) {
   return shuffled;
 }
 
-function interleaveAllExercises(traducciones, completar, seleccionar, corregir) {
-  const allExercises = [
-    ...traducciones.map(e => ({ ...e, type: "traduccion" })),
-    ...completar.map(e => ({ ...e, type: "completar" })),
-    ...seleccionar.map(e => ({ pairs: e, type: "seleccionar" })),
-    ...corregir.map(e => ({ ...e, type: "corregir" }))
-  ];
-  return shuffleArray(allExercises);
-}
-
 export function createNodeStructure(userData) {
-  const { traducciones, completar, seleccionar, corregir, historias, historiaPreguntas } = userData;
-
-  let tradIndex = 0;
-  let compIndex = 0;
-  let selIndex = 0;
-  let corrIndex = 0;
-  let histIndex = 0;
-  let histPregIndex = 0;
-
-  const nodes = MAP_CONFIG.nodes.map(nodeConfig => {
-    const nodeExercises = [];
-
-    if (nodeConfig.type === "story") {
-      // Agregar historia de lectura
-      const story = historias[histIndex];
-      if (story) {
-        nodeExercises.push({
-          type: "historia",
-          title: story.title,
-          content: story.content,
-          paragraphs: story.paragraphs
-        });
-        histIndex++;
-      }
-
-      // Agregar 2 ejercicios de historia con preguntas por cada nodo de historia
-      for (let i = 0; i < 2 && histPregIndex < (historiaPreguntas?.length || 0); i++) {
-        const histPreg = historiaPreguntas[histPregIndex];
-        if (histPreg) {
-          nodeExercises.push({
-            type: "historia_preguntas",
-            shortStory: histPreg.shortStory,
-            pregunta1: histPreg.pregunta1,
-            pregunta2: histPreg.pregunta2
-          });
-          histPregIndex++;
-        }
-      }
-    } else {
-      const totalPerLesson = nodeConfig.exercisesPerLesson;
-      const totalLessons = nodeConfig.lessons;
-
-      // Distribución: 45% traducción, 20% completar, 10% seleccionar, 25% corregir
-      const tradPerLesson = Math.round(totalPerLesson * 0.45);
-      const compPerLesson = Math.round(totalPerLesson * 0.20);
-      const selPerLesson = Math.round(totalPerLesson * 0.10);
-      const corrPerLesson = totalPerLesson - tradPerLesson - compPerLesson - selPerLesson;
-
-      for (let lesson = 0; lesson < totalLessons; lesson++) {
-        const lessonTrad = (traducciones || []).slice(tradIndex, tradIndex + tradPerLesson);
-        const lessonComp = (completar || []).slice(compIndex, compIndex + compPerLesson);
-        const lessonSel = (seleccionar || []).slice(selIndex, selIndex + selPerLesson);
-        const lessonCorr = (corregir || []).slice(corrIndex, corrIndex + corrPerLesson);
-
-        const mixedExercises = interleaveAllExercises(lessonTrad, lessonComp, lessonSel, lessonCorr);
-        nodeExercises.push(...mixedExercises);
-
-        tradIndex += tradPerLesson;
-        compIndex += compPerLesson;
-        selIndex += selPerLesson;
-        corrIndex += corrPerLesson;
-      }
-
-      // Ajustar sobrantes por redondeo
-      while (tradIndex < (traducciones?.length || 0) && nodeExercises.length < nodeConfig.totalExercises) {
-        nodeExercises.push({ type: "traduccion", ...traducciones[tradIndex] });
-        tradIndex++;
-      }
-      while (compIndex < (completar?.length || 0) && nodeExercises.length < nodeConfig.totalExercises) {
-        nodeExercises.push({ type: "completar", ...completar[compIndex] });
-        compIndex++;
-      }
-      while (selIndex < (seleccionar?.length || 0) && nodeExercises.length < nodeConfig.totalExercises) {
-        nodeExercises.push({ type: "seleccionar", pairs: seleccionar[selIndex] });
-        selIndex++;
-      }
-      while (corrIndex < (corregir?.length || 0) && nodeExercises.length < nodeConfig.totalExercises) {
-        nodeExercises.push({ type: "corregir", ...corregir[corrIndex] });
-        corrIndex++;
-      }
+  const { traducciones, completar, seleccionar, corregir, dictado, conversacion } = userData;
+  
+  // Recolectar todos los ejercicios
+  const allExercises = [
+    ...(traducciones || []).map(e => ({ ...e, type: "traduccion" })),
+    ...(completar || []).map(e => ({ ...e, type: "completar" })),
+    ...(seleccionar || []).map(e => ({ pairs: e, type: "seleccionar" })),
+    ...(corregir || []).map(e => ({ ...e, type: "corregir" })),
+    ...(dictado || []).map(e => ({ text: typeof e === 'string' ? e : e.text || e, type: "dictado" })),
+  ];
+  
+  // Mezclar aleatoriamente
+  const shuffled = shuffleArray(allExercises);
+  
+  // Distribuir según porcentajes
+  const nodes = MAP_CONFIG.nodes.map((config, idx) => {
+    const totalExercises = shuffled.length;
+    const nodeSize = Math.round(totalExercises * config.percent / 100);
+    
+    // Calcular inicio para este nodo
+    let startIndex = 0;
+    for (let i = 0; i < idx; i++) {
+      startIndex += Math.round(totalExercises * MAP_CONFIG.nodes[i].percent / 100);
     }
-
+    
+    const nodeExercises = shuffled.slice(startIndex, startIndex + nodeSize);
+    
     return {
-      id: nodeConfig.id,
-      type: nodeConfig.type,
-      lessons: nodeConfig.lessons,
-      exercisesPerLesson: nodeConfig.exercisesPerLesson,
-      color: nodeConfig.color,
-      icon: nodeConfig.icon,
-      totalExercises: nodeConfig.totalExercises,
+      id: config.id,
+      type: config.type,
+      percent: config.percent,
+      background: MAP_CONFIG.backgrounds[idx],
+      totalExercises: nodeExercises.length,
       exercises: nodeExercises
     };
   });
-
+  
+  // Agregar conversación al último nodo si existe
+  if (conversacion && conversacion.length > 0) {
+    const conv = conversacion[0];
+    nodes[nodes.length - 1].exercises.push({
+      type: "conversacion",
+      messages: conv.messages || conv
+    });
+    nodes[nodes.length - 1].totalExercises++;
+  }
+  
   return nodes;
 }
 
 export function validateInputData(data) {
   const errors = [];
-  const { traducciones, completar, seleccionar, corregir, historias, historiaPreguntas } = data;
-
-  if (!traducciones || traducciones.length !== MAP_CONFIG.validation.traduccion) {
-    errors.push(`Traducciones: ${MAP_CONFIG.validation.traduccion} requeridas (${traducciones?.length || 0} recibidas)`);
-  }
-  if (!completar || completar.length !== MAP_CONFIG.validation.completar) {
-    errors.push(`Completar: ${MAP_CONFIG.validation.completar} requeridas (${completar?.length || 0} recibidas)`);
-  }
-  if (!seleccionar || seleccionar.length !== MAP_CONFIG.validation.seleccionar) {
-    errors.push(`Seleccionar: ${MAP_CONFIG.validation.seleccionar} requeridas (${seleccionar?.length || 0} recibidas)`);
-  }
-  if (!corregir || corregir.length !== MAP_CONFIG.validation.corregir) {
-    errors.push(`Corregir: ${MAP_CONFIG.validation.corregir} requeridas (${corregir?.length || 0} recibidas)`);
-  }
-  if (!historias || historias.length !== MAP_CONFIG.validation.historia) {
-    errors.push(`Historias: ${MAP_CONFIG.validation.historia} requeridas (${historias?.length || 0} recibidas)`);
-  }
-  if (!historiaPreguntas || historiaPreguntas.length !== MAP_CONFIG.validation.historiaPreguntas) {
-    errors.push(`Historia con preguntas: ${MAP_CONFIG.validation.historiaPreguntas} requeridas (${historiaPreguntas?.length || 0} recibidas)`);
-  }
-
+  if (!data.traducciones?.length) errors.push("Traducciones: required");
+  if (!data.completar?.length) errors.push("Completar: required");
+  if (!data.seleccionar?.length) errors.push("Seleccionar: required");
+  if (!data.corregir?.length) errors.push("Corregir: required");
+  if (!data.dictado?.length) errors.push("Dictado: required");
+  if (!data.conversacion?.length) errors.push("Conversación: required");
   return { valid: errors.length === 0, errors };
-}
-
-function createNodeSVG(node, progress) {
-  const configNode = MAP_CONFIG.nodes.find(n => n.id === node.id) || node;
-  const nodeColor = node.color || configNode.color || '#facc15';
-  const nodeIcon = node.icon || configNode.icon || '📌';
-  const totalLessons = node.lessons || configNode.lessons || 1;
-  const totalExercises = (node.exercises && node.exercises.length) || node.totalExercises || 1;
-  const exercisesPerLesson = node.exercisesPerLesson || configNode.exercisesPerLesson || 1;
-  const exercisesDone = progress.exercisesDone || 0;
-  const isCompleted = progress.completed || false;
-
-  const size = 120;
-  const strokeWidth = 5;
-  const radius = (size / 2) - strokeWidth - 2;
-  const center = size / 2;
-  const circumference = 2 * Math.PI * radius;
-
-  // Si solo 1 lección, anillo simple
-  if (totalLessons === 1) {
-    const percent = totalExercises ? (exercisesDone / totalExercises) : 0;
-    const dashOffset = circumference - (percent * circumference);
-    const ringColor = isCompleted ? '#4ade80' : nodeColor;
-
-    return `
-      <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" class="node-ring-svg">
-        <circle cx="${center}" cy="${center}" r="${radius}" 
-          fill="rgba(15,20,34,0.8)" stroke="#1e293b" stroke-width="${strokeWidth}" />
-        <circle cx="${center}" cy="${center}" r="${radius}" 
-          fill="none" stroke="${ringColor}" stroke-width="${strokeWidth + 1}" 
-          stroke-dasharray="${circumference}" stroke-dashoffset="${dashOffset}"
-          stroke-linecap="round" class="ring-fill" 
-          style="filter: drop-shadow(0 0 4px ${ringColor}40);" />
-        <text x="${center}" y="${center + 2}" text-anchor="middle" 
-          dominant-baseline="central" font-size="32" 
-          style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));">${nodeIcon}</text>
-        <text x="${center}" y="${center + 30}" text-anchor="middle" 
-          fill="${isCompleted ? '#4ade80' : '#94a3b8'}" font-size="9" font-weight="600">
-          ${exercisesDone}/${totalExercises}
-        </text>
-      </svg>
-    `;
-  }
-
-  // Múltiples lecciones: anillo segmentado
-  const gapAngle = 5;
-  const totalGapAngle = gapAngle * totalLessons;
-  const availableAngle = 360 - totalGapAngle;
-  const segmentAngle = availableAngle / totalLessons;
-
-  const segments = [];
-  for (let i = 0; i < totalLessons; i++) {
-    const lessonStart = i * exercisesPerLesson;
-    const lessonEnd = Math.min((i + 1) * exercisesPerLesson, totalExercises);
-    const results = progress.exerciseResults || [];
-    const lessonDone = results.slice(lessonStart, lessonEnd).filter(r => r).length;
-    const lessonTotal = lessonEnd - lessonStart;
-    segments.push({
-      done: lessonDone,
-      total: lessonTotal,
-      percent: lessonTotal ? (lessonDone / lessonTotal) : 0,
-      completed: lessonDone >= lessonTotal && lessonTotal > 0
-    });
-  }
-
-  let segmentsSvg = '';
-  let baseSvg = '';
-  let currentAngle = -90;
-
-  segments.forEach((seg, i) => {
-    const startAngle = currentAngle + (gapAngle / 2);
-    const endAngle = startAngle + segmentAngle;
-    const startRad = (startAngle * Math.PI) / 180;
-    const endRad = (endAngle * Math.PI) / 180;
-    const x1 = center + radius * Math.cos(startRad);
-    const y1 = center + radius * Math.sin(startRad);
-    const x2 = center + radius * Math.cos(endRad);
-    const y2 = center + radius * Math.sin(endRad);
-    const largeArc = segmentAngle > 180 ? 1 : 0;
-
-    baseSvg += `
-      <path d="M ${x1.toFixed(1)} ${y1.toFixed(1)} A ${radius} ${radius} 0 ${largeArc} 1 ${x2.toFixed(1)} ${y2.toFixed(1)}"
-        fill="none" stroke="#1e293b" stroke-width="${strokeWidth}" stroke-linecap="round" opacity="0.6" />
-    `;
-
-    if (seg.percent > 0) {
-      const segArcLength = seg.percent * segmentAngle;
-      const segEndAngle = startAngle + segArcLength;
-      const segEndRad = (segEndAngle * Math.PI) / 180;
-      const sx2 = center + radius * Math.cos(segEndRad);
-      const sy2 = center + radius * Math.sin(segEndRad);
-      const segLargeArc = segArcLength > 180 ? 1 : 0;
-
-      const segColor = seg.completed ? '#4ade80' : nodeColor;
-
-      segmentsSvg += `
-        <path d="M ${x1.toFixed(1)} ${y1.toFixed(1)} A ${radius} ${radius} 0 ${segLargeArc} 1 ${sx2.toFixed(1)} ${sy2.toFixed(1)}"
-          fill="none" stroke="${segColor}" stroke-width="${strokeWidth + 1}" 
-          stroke-linecap="round" style="filter: drop-shadow(0 0 3px ${segColor}40);" />
-      `;
-    }
-
-    currentAngle = startAngle + segmentAngle + gapAngle;
-  });
-
-  return `
-    <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" class="node-ring-svg">
-      <circle cx="${center}" cy="${center}" r="${radius - 1}" fill="rgba(15,20,34,0.9)" />
-      ${baseSvg}
-      ${segmentsSvg}
-      <text x="${center}" y="${center + 2}" text-anchor="middle" 
-        dominant-baseline="central" font-size="30" 
-        style="filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));">${nodeIcon}</text>
-      <text x="${center}" y="${center + 28}" text-anchor="middle" 
-        fill="${isCompleted ? '#4ade80' : '#94a3b8'}" font-size="9" font-weight="600">
-        ${exercisesDone}/${totalExercises}
-      </text>
-    </svg>
-  `;
 }
 
 export function renderMap(nodes, progress, callbacks) {
   const mapList = document.getElementById("mapList");
   if (!mapList) return;
-
-  if (!nodes || nodes.length === 0) {
-    mapList.innerHTML = `
-      <div style="text-align:center; padding:40px 20px; color:#94a3b8;">
-        <div style="font-size:3rem; margin-bottom:12px;">🗺️</div>
-        <p style="font-size:0.9rem;">Aún no hay ejercicios.<br>Importa tu lista para empezar</p>
-      </div>`;
+  
+  if (!nodes?.length) {
+    mapList.innerHTML = `<div style="text-align:center;padding:40px;color:#94a3b8;"><p>Carga tus ejercicios para ver el mapa</p></div>`;
     return;
   }
-
+  
   let firstUnlocked = 0;
   for (let i = 0; i < nodes.length; i++) {
-    const nodeProgress = progress[i];
-    if (!nodeProgress || !nodeProgress.completed) {
-      firstUnlocked = i;
-      break;
-    }
+    if (!progress[i]?.completed) { firstUnlocked = i; break; }
     firstUnlocked = i + 1;
   }
-
-  mapList.innerHTML = `
-    <div class="map-path">
-      ${nodes.map((node, idx) => {
-        const nodeProgress = progress[idx] || { completed: false, exercisesDone: 0, exerciseResults: [] };
-        const configNode = MAP_CONFIG.nodes.find(n => n.id === node.id) || {};
-        const nodeColor = node.color || configNode.color || '#facc15';
-        const nodeType = node.type || configNode.type || 'mixed';
-        const totalLessons = node.lessons || configNode.lessons || 1;
-        const isCompleted = nodeProgress.completed || false;
-        const isCurrent = idx === firstUnlocked && !isCompleted;
-        const unlocked = idx <= firstUnlocked;
-        const exercisesDone = nodeProgress.exercisesDone || 0;
-        const totalExercises = (node.exercises && node.exercises.length) || node.totalExercises || 0;
-
-        const nodeSvg = createNodeSVG(node, nodeProgress);
-
-        let iconColor = '#475569';
-        if (isCompleted) iconColor = '#4ade80';
-        else if (isCurrent) iconColor = nodeColor;
-        else if (unlocked) iconColor = nodeColor + '99';
-
-        let cardBorderColor = '#1e293b';
-        if (isCompleted) cardBorderColor = '#4ade8040';
-        else if (isCurrent) cardBorderColor = nodeColor + '60';
-        else if (unlocked && exercisesDone > 0) cardBorderColor = nodeColor + '30';
-
-        const typeLabel = nodeType === 'story' 
-          ? 'Lectura + Preguntas' 
-          : totalLessons > 1 
-            ? `${totalLessons} lecciones` 
-            : `${totalExercises} ejercicios`;
-
-        let lessonsDots = '';
-        if (totalLessons > 1) {
-          lessonsDots = `
-            <div class="node-lessons-row">
-              ${Array.from({length: totalLessons}, (_, i) => {
-                const lessonStart = i * (node.exercisesPerLesson || 1);
-                const lessonEnd = Math.min((i + 1) * (node.exercisesPerLesson || 1), totalExercises);
-                const results = nodeProgress.exerciseResults || [];
-                const lessonDone = results.slice(lessonStart, lessonEnd).filter(r => r).length;
-                const lessonTotal = lessonEnd - lessonStart;
-                const lessonCompleted = lessonDone >= lessonTotal && lessonTotal > 0;
-                return `
-                  <div class="node-lesson-dot ${lessonCompleted ? 'done' : lessonDone > 0 ? 'progress' : ''}"
-                       style="${lessonCompleted ? 'background:#4ade80;box-shadow:0 0 6px #4ade8060;' :
-                              lessonDone > 0 ? 'background:' + nodeColor + ';box-shadow:0 0 6px ' + nodeColor + '40;' : ''}">
-                  </div>`;
-              }).join('')}
-            </div>`;
-        }
-
-        const nodeTitle = nodeType === 'story' 
-          ? '📖 Historia ' + node.id
-          : totalLessons > 1 
-            ? 'Lecciones ' + node.id 
-            : 'Ejercicios ' + node.id;
-
-        return `
-          <div class="map-node-wrapper ${!unlocked ? 'locked' : ''} ${isCurrent ? 'is-current' : ''}">
-            ${idx > 0 ? `<div class="map-connector ${progress[idx-1]?.completed ? 'done' : ''}"></div>` : ''}
-            ${isCurrent ? '<div class="current-node-badge">¡EMPIEZA AQUÍ!</div>' : ''}
-
-            <button type="button"
-                 class="map-node-card ${isCompleted ? 'completed' : ''} ${isCurrent ? 'current' : ''} ${!unlocked ? 'disabled' : ''}"
-                 data-node="${idx}"
-                 aria-label="${nodeTitle}"
-                 style="border-color: ${cardBorderColor};">
-
-              <span class="map-node-pulse" style="background:${nodeColor};"></span>
-
-              <div class="map-node-svg" style="color: ${iconColor};">
-                ${nodeSvg}
-              </div>
-
-              <span class="node-status-badge">
-                ${isCompleted ? '<span class="node-check">✅</span>' :
-                  isCurrent ? '<span class="node-arrow">▶</span>' :
-                  unlocked ? '' : '<span class="node-lock">🔒</span>'}
-              </span>
-            </button>
-
-            <div class="map-node-info">
-              <span class="map-node-title" style="color: ${iconColor};">${nodeTitle}</span>
-              <span class="map-node-meta">${typeLabel}</span>
-              ${lessonsDots}
+  
+  mapList.innerHTML = nodes.map((node, idx) => {
+    const prog = progress[idx] || { completed: false, exercisesDone: 0 };
+    const total = node.totalExercises || node.exercises?.length || 1;
+    const done = Math.min(prog.exercisesDone || 0, total);
+    const pct = total ? Math.round(done / total * 100) : 0;
+    const isDone = prog.completed || false;
+    const isCur = idx === firstUnlocked && !isDone;
+    const unlocked = idx <= firstUnlocked;
+    
+    return `
+      <div class="netflix-node ${!unlocked ? 'locked' : ''} ${isCur ? 'current' : ''} ${isDone ? 'done' : ''}"
+           data-node="${idx}" style="${!unlocked ? 'pointer-events:none;' : ''}">
+        <div class="netflix-node-bg" style="background-image:url('${node.background}')">
+          <div class="netflix-node-overlay"></div>
+        </div>
+        <div class="netflix-node-content">
+          <div class="netflix-node-number">${String(idx + 1).padStart(2, '0')}</div>
+          <div class="netflix-node-title">Nodo ${idx + 1}</div>
+          <div class="netflix-node-meta">${node.percent}% del contenido</div>
+          <div class="netflix-node-progress">
+            <div class="netflix-progress-bar">
+              <div class="netflix-progress-fill" style="width:${pct}%"></div>
             </div>
+            <span class="netflix-progress-text">${done}/${total}</span>
           </div>
-        `;
-      }).join('')}
-    </div>
-  `;
-
-  mapList.querySelectorAll('.map-node-card[data-node]').forEach(card => {
-    const nodeIdx = parseInt(card.dataset.node);
+          <div class="netflix-node-status">
+            ${isDone ? '✅ COMPLETADO' : isCur ? '▶ REPRODUCIR' : unlocked ? '🔓 DISPONIBLE' : '🔒 BLOQUEADO'}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+  
+  mapList.querySelectorAll('.netflix-node[data-node]').forEach(card => {
     card.addEventListener('click', () => {
-      if (nodeIdx <= firstUnlocked) {
-        callbacks.openNode(nodeIdx);
-      } else {
-        callbacks.showToast("🔓 Completa el nodo anterior primero");
-      }
+      const idx = parseInt(card.dataset.node);
+      if (idx <= firstUnlocked) callbacks.openNode(idx);
+      else callbacks.showToast("Completa el nodo anterior");
     });
   });
 }
 
 export function getExerciseTypeIcon(type) {
-  const icons = {
-    "traduccion": "📝",
-    "completar": "✏️",
-    "seleccionar": "🎯",
-    "corregir": "🔍",
-    "historia": "📖",
-    "historia_preguntas": "🤔"
-  };
-  return icons[type] || "📌";
+  const i = { traduccion:"📝", completar:"✏️", seleccionar:"🎯", corregir:"🔍", dictado:"🎧", conversacion:"💬" };
+  return i[type] || "📌";
 }
 
 export function getExerciseTypeName(type) {
-  const names = {
-    "traduccion": "Traducción",
-    "completar": "Completar",
-    "seleccionar": "Emparejar",
-    "corregir": "Corregir frase",
-    "historia": "Lectura",
-    "historia_preguntas": "Comprensión"
-  };
-  return names[type] || type;
+  const n = { traduccion:"Traducción", completar:"Completar", seleccionar:"Emparejar", corregir:"Corregir", dictado:"Dictado", conversacion:"Conversación" };
+  return n[type] || type;
 }
-  
+
   // ==================== EJERCICIOS ====================
-// exercises/traduccion.js
+  // exercises/traduccion.js
 
 export function normalizeWord(w) {
   return String(w || "").toLowerCase().replace(/[^a-záéíóúüñ]/g, '');
@@ -2720,8 +2845,8 @@ export function getTraduccionReportEntry(exercise, userAnswer, duda) {
     duda: duda || ''
   };
 }
-  
-// exercises/completar.js
+
+  // exercises/completar.js
 
 export function renderCompletarExercise(exercise, container, isRetry = false) {
   const { spanishWord, englishSentence, options } = exercise;
@@ -2889,8 +3014,8 @@ export function getCompletarReportEntry(exercise, userAnswers, duda) {
     duda: duda || ''
   };
 }
-  
-// exercises/seleccionar.js
+
+  // exercises/seleccionar.js
 
 export function renderSeleccionarExercise(exercise, container) {
   const pairs = exercise.pairs || [];
@@ -3095,8 +3220,8 @@ export function showSeleccionarCompleteModal(pairs, onContinue) {
     if (e.target === modal) continueHandler();
   });
 }
-  
-// exercises/corregir.js
+
+  // exercises/corregir.js
 
 export function renderCorregirExercise(exercise, container, isRetry = false) {
   const { fraseConError, fraseCorrecta } = exercise;
@@ -3269,146 +3394,162 @@ export function getCorregirReportEntry(exercise, userAnswer, duda) {
     duda: duda || ''
   };
 }
-  
-// exercises/historia.js
 
-export function renderHistoriaExercise(exercise, container) {
-  const { title, content, paragraphs } = exercise;
-  
-  const paragraphsHtml = (paragraphs || [content]).map(p => 
-    `<p class="story-paragraph">${p}</p>`
-  ).join('');
-  
-  container.innerHTML = `
-    <div class="story-content">
-      <div class="story-title">📖 ${title}</div>
-      ${paragraphsHtml}
-    </div>
-    <div class="button-group">
-      <button class="btn-action btn-continue" id="markReadBtn" style="flex:1; background: #4ade80; color: #064e3b;">
-        ✅ Marcar como leído
-      </button>
-    </div>
-    <div class="mood-card">
-      <div class="mood-emoji">📚</div>
-      <div>
-        <strong>Lectura</strong><br>
-        <span>Lee y comprende la historia. Marca como leído para continuar.</span>
-      </div>
-    </div>
-  `;
-  
-  container.querySelector('#markReadBtn').addEventListener('click', () => {
-    const event = new CustomEvent('story-read');
-    container.dispatchEvent(event);
-  });
+  // exercises/dictado.js
+// Ejercicio de dictado: escuchar y escribir
+
+const VOICES = [
+  { name: "Google US English", lang: "en-US", rate: 0.75 },
+  { name: "Google UK English Female", lang: "en-GB", rate: 0.75 },
+  { name: "Google UK English Male", lang: "en-GB", rate: 0.75 },
+  { name: "Samantha", lang: "en-US", rate: 0.8 },
+  { name: "Daniel", lang: "en-GB", rate: 0.75 },
+  { name: "Karen", lang: "en-AU", rate: 0.75 },
+  { name: "Moira", lang: "en-IE", rate: 0.75 },
+  { name: "Fiona", lang: "en-US", rate: 0.78 },
+];
+
+function getRandomVoice() {
+  return VOICES[Math.floor(Math.random() * VOICES.length)];
 }
-  
-// exercises/historiaPreguntas.js
-// Ejercicio de historia corta con preguntas abiertas
 
-export function renderHistoriaPreguntasExercise(exercise, container) {
-  const { shortStory, pregunta1, pregunta2 } = exercise;
+function speakDictado(text, onEnd) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
   
-  container.innerHTML = `
-    <div class="story-content">
-      <div class="story-title">📖 Historia corta</div>
-      <div class="story-paragraph">${shortStory}</div>
-    </div>
-    
-    <div style="margin-top:16px;">
-      <p style="color:#fde68a; font-weight:600; margin-bottom:8px;">📝 Responde las siguientes preguntas:</p>
-      
-      <div style="margin-bottom:14px;">
-        <label style="color:#94a3b8; font-size:0.85rem; display:block; margin-bottom:4px;">
-          1️⃣ ${pregunta1}
-        </label>
-        <textarea id="answerInput1" class="answer-input" rows="2" 
-          placeholder="Escribe tu respuesta aquí..."></textarea>
-      </div>
-      
-      <div style="margin-bottom:14px;">
-        <label style="color:#94a3b8; font-size:0.85rem; display:block; margin-bottom:4px;">
-          2️⃣ ${pregunta2}
-        </label>
-        <textarea id="answerInput2" class="answer-input" rows="2" 
-          placeholder="Escribe tu respuesta aquí..."></textarea>
-      </div>
-    </div>
-    
-    <div class="button-group">
-      <button class="btn-action btn-continue" id="submitAnswersBtn" style="flex:1; background: #4ade80; color: #064e3b; font-weight:700;">
-        ✅ Enviar respuestas
-      </button>
-    </div>
-    
-    <div class="mood-card">
-      <div class="mood-emoji">🤔</div>
-      <div>
-        <strong>Comprensión lectora</strong><br>
-        <span>Lee la historia y responde las preguntas con tus propias palabras</span>
-      </div>
-    </div>
-    
-    <!-- Campo de duda opcional -->
-    <div class="doubt-section" id="doubtSectionHP" style="margin-top:12px;">
-      <label style="color:#94a3b8; font-size:0.8rem; display:block; margin-bottom:4px;">
-        💭 ¿Tienes alguna duda sobre este ejercicio? (opcional)
-      </label>
-      <textarea id="doubtInputHP" class="answer-input" rows="2" 
-        placeholder="Escribe tu duda o consulta aquí..." 
-        style="font-size:0.85rem; min-height:50px;"></textarea>
-    </div>
-  `;
+  const utterance = new SpeechSynthesisUtterance(text);
+  const voiceConfig = getRandomVoice();
   
-  document.getElementById("submitAnswersBtn")?.addEventListener("click", () => {
-    const answer1 = document.getElementById("answerInput1").value.trim();
-    const answer2 = document.getElementById("answerInput2").value.trim();
-    
-    if (!answer1 || !answer2) {
-      const toast = document.getElementById("toastFun");
-      if (toast) {
-        toast.textContent = "📝 Responde ambas preguntas";
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2000);
-      }
-      return;
+  utterance.lang = voiceConfig.lang;
+  utterance.rate = voiceConfig.rate;
+  utterance.pitch = 1;
+  
+  // Intentar encontrar una voz específica
+  const voices = window.speechSynthesis.getVoices();
+  if (voices.length > 0) {
+    const matchingVoices = voices.filter(v => v.lang.startsWith('en'));
+    if (matchingVoices.length > 0) {
+      utterance.voice = matchingVoices[Math.floor(Math.random() * matchingVoices.length)];
     }
-    
-    const doubtInput = document.getElementById("doubtInputHP");
-    const duda = doubtInput ? doubtInput.value.trim() : '';
-    
-    const event = new CustomEvent('historia-answered', { 
-      detail: { 
-        answer1, 
-        answer2,
-        duda 
-      } 
-    });
-    container.dispatchEvent(event);
+  }
+  
+  if (onEnd) utterance.onend = onEnd;
+  window.speechSynthesis.speak(utterance);
+}
+
+export function renderDictadoExercise(exercise, container) {
+  const text = typeof exercise === 'string' ? exercise : exercise.text || exercise.phrase || '';
+  
+  container.innerHTML = `
+    <div class="dictado-container">
+      <div class="dictado-header">
+        <p style="color:#94a3b8; margin-bottom:12px;">🎧 Escucha el audio y escribe lo que escuchas:</p>
+        <button class="dictado-play-btn" id="dictadoPlayBtn">
+          <span class="dictado-play-icon">🔊</span>
+          Reproducir audio
+        </button>
+        <p style="color:#64748b; font-size:0.75rem; margin-top:6px;">Puedes reproducir el audio las veces que necesites</p>
+      </div>
+      
+      <div class="input-area" style="margin-top:16px;">
+        <textarea id="dictadoInput" class="answer-input" rows="3" 
+          placeholder="Escribe aquí lo que escuchaste..." 
+          style="font-size:1rem;"></textarea>
+      </div>
+      
+      <div class="button-group" style="margin-top:16px;">
+        <button class="btn-action btn-check" id="checkDictadoBtn">✅ Comprobar</button>
+      </div>
+      
+      <div class="mood-card" style="margin-top:12px;">
+        <div class="mood-emoji">🎧</div>
+        <div>
+          <strong>Dictado</strong><br>
+          <span>Escucha atentamente y escribe la frase</span>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  // Reproducir automáticamente al cargar
+  setTimeout(() => speakDictado(text), 500);
+  
+  // Botón de play
+  document.getElementById("dictadoPlayBtn")?.addEventListener("click", () => {
+    speakDictado(text);
+  });
+  
+  // Enter para comprobar
+  document.getElementById("dictadoInput")?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      document.getElementById("checkDictadoBtn")?.click();
+    }
   });
 }
 
-export function showHistoriaPreguntasModal(exercise, answers, onContinue) {
-  const { shortStory, pregunta1, pregunta2 } = exercise;
+export function checkDictadoAnswer(exercise, userAnswer) {
+  const correctText = typeof exercise === 'string' ? exercise : exercise.text || exercise.phrase || '';
+  
+  const normalize = (str) => str.toLowerCase()
+    .replace(/\s+/g, ' ')
+    .replace(/[.,!?;:'"]/g, '')
+    .trim();
+  
+  const isExact = normalize(userAnswer) === normalize(correctText);
+  
+  // Calcular precisión por palabras
+  const correctWords = correctText.toLowerCase().replace(/[.,!?;:'"]/g, '').split(/\s+/);
+  const userWords = userAnswer.toLowerCase().replace(/[.,!?;:'"]/g, '').split(/\s+/);
+  
+  let matchedWords = 0;
+  const maxLen = Math.max(correctWords.length, userWords.length);
+  const comparison = [];
+  
+  for (let i = 0; i < maxLen; i++) {
+    const cw = correctWords[i] || '';
+    const uw = userWords[i] || '';
+    const match = cw === uw && cw !== '';
+    if (match) matchedWords++;
+    comparison.push({ correct: cw, user: uw, match });
+  }
+  
+  const accuracy = correctWords.length > 0 ? matchedWords / correctWords.length : 0;
+  
+  return { isExact, accuracy, matchedWords, totalWords: correctWords.length, comparison };
+}
+
+export function showDictadoModal(exercise, result, userAnswer, onContinue) {
+  const correctText = typeof exercise === 'string' ? exercise : exercise.text || exercise.phrase || '';
+  const { isExact, accuracy, matchedWords, totalWords, comparison } = result;
+  
+  const comparisonHtml = comparison.map(c => {
+    if (!c.correct && !c.user) return '';
+    const cls = c.match ? 'word-correct' : 'word-error';
+    return `<span class="${cls}" style="margin:2px 3px;">${c.user || '—'}</span>`;
+  }).join('');
   
   const modal = document.createElement("div");
   modal.className = "modal-overlay";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>📋 Respuestas enviadas</h3>
+      <h3>${isExact ? '🎉 ¡Perfecto!' : '📝 Resultado del dictado'}</h3>
       <div class="comparison-text-block">
-        <p><strong>📖 Historia:</strong><br>
-          <span style="color:#cbd5e1; font-size:0.9rem;">${shortStory.substring(0, 150)}...</span></p>
-        <hr style="border-color:#334155; margin:12px 0;">
-        <p><strong>1️⃣ ${pregunta1}</strong><br>
-          <span style="color:#fde68a;">${answers.answer1}</span></p>
-        <p><strong>2️⃣ ${pregunta2}</strong><br>
-          <span style="color:#fde68a;">${answers.answer2}</span></p>
+        <p><strong>🎧 Frase correcta:</strong><br>
+          <span style="color:#4ade80; font-size:1.1rem;">${correctText}</span></p>
+        <p><strong>✏️ Tu respuesta:</strong><br>
+          <span style="color:${isExact ? '#4ade80' : '#fbbf24'};">${userAnswer}</span></p>
+        <div style="margin-top:12px;">
+          <strong>📊 Precisión: ${Math.round(accuracy * 100)}%</strong> (${matchedWords}/${totalWords} palabras)
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:2px;margin-top:8px;">
+          ${comparisonHtml}
+        </div>
       </div>
-      <p style="color:#94a3b8; font-size:0.8rem; margin-top:8px;">
-        ✅ Tus respuestas han sido registradas para el reporte final.
-      </p>
+      <div class="doubt-field" style="margin-top:12px;text-align:left;">
+        <label style="color:#94a3b8;font-size:0.8rem;">💭 Consulta (opcional)</label>
+        <textarea id="modalDoubtInput" class="answer-input" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
+      </div>
       <div class="modal-buttons">
         <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
       </div>
@@ -3418,37 +3559,368 @@ export function showHistoriaPreguntasModal(exercise, answers, onContinue) {
   document.body.appendChild(modal);
   
   document.getElementById("modalContinueBtn").addEventListener("click", () => {
+    const duda = document.getElementById("modalDoubtInput")?.value?.trim() || '';
     modal.remove();
-    if (onContinue) onContinue();
+    if (onContinue) onContinue(duda);
   });
   
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
+      const duda = document.getElementById("modalDoubtInput")?.value?.trim() || '';
       modal.remove();
-      if (onContinue) onContinue();
+      if (onContinue) onContinue(duda);
     }
   });
 }
 
-export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
+export function getDictadoReportEntry(exercise, userAnswer, duda) {
+  const correctText = typeof exercise === 'string' ? exercise : exercise.text || exercise.phrase || '';
   return {
-    type: "historia_preguntas",
-    story: exercise.shortStory,
-    pregunta1: exercise.pregunta1,
-    respuesta1: answers.answer1,
-    pregunta2: exercise.pregunta2,
-    respuesta2: answers.answer2,
+    type: "dictado",
+    original: correctText,
+    userAnswer: userAnswer,
     duda: duda || ''
   };
 }
+
+  // exercises/conversacion.js
+// Ejercicio de conversación con audio y completar espacios
+
+const AVATARS = {
+  default1: { emoji: '👩', color: '#f472b6' },
+  default2: { emoji: '👨', color: '#60a5fa' },
+  default3: { emoji: '👩‍🦰', color: '#fbbf24' },
+  narrador: { emoji: '', color: '#94a3b8' }
+};
+
+let conversationState = {
+  messages: [],
+  currentIndex: 0,
+  attempts: {},
+  isPlaying: false,
+  selectedOption: null
+};
+
+function speakText(text, onEnd) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US';
+  utterance.rate = 0.85;
+  utterance.pitch = 1;
+  if (onEnd) utterance.onend = onEnd;
+  window.speechSynthesis.speak(utterance);
+}
+
+function isAudioSelection(message) {
+  return message.audioOptions && Array.isArray(message.audioOptions) && message.audioOptions.length === 3;
+}
+
+function needsCompletion(text) {
+  return text.split(/\s+/).length >= 4;
+}
+
+function createCompletionText(text) {
+  const words = text.split(/\s+/);
+  const randomIndex = Math.floor(Math.random() * words.length);
+  const removedWord = words[randomIndex];
+  words[randomIndex] = '_____';
+  return { displayText: words.join(' '), removedWord, removedIndex: randomIndex };
+}
+
+function getAvatar(message) {
+  // Si es narrador (boolean true o string "narrador")
+  if (message.isNarrador === true || (message.character || '').toLowerCase() === 'narrador') {
+    return { ...AVATARS.narrador, nombre: 'Narrador' };
+  }
   
+  // Si tiene nombre personalizado
+  const name = message.name || message.character || 'Persona';
+  const color = message.color || AVATARS.default1.color;
+  const emoji = message.avatar || AVATARS.default1.emoji;
+  
+  return { emoji, color, nombre: name };
+}
+
+export function renderConversacionExercise(exercise, container) {
+  const messages = exercise.messages || exercise.conversacion || [];
+  
+  conversationState = {
+    messages,
+    currentIndex: 0,
+    attempts: {},
+    isPlaying: false,
+    selectedOption: null
+  };
+  
+  renderMessage(0, container, messages);
+}
+
+function renderMessage(index, container, messages) {
+  if (index >= messages.length) {
+    container.innerHTML = `
+      <div style="text-align:center; padding:30px 20px;">
+        <div style="font-size:4rem; margin-bottom:16px;">🎉</div>
+        <h3 style="color:#4ade80; margin-bottom:8px;">¡Conversación completada!</h3>
+        <p style="color:#94a3b8;">Has terminado todos los mensajes.</p>
+        <button class="btn-action btn-continue" id="finishConvBtn" style="margin-top:16px; background:#4ade80; color:#064e3b; font-weight:700; width:100%;">
+          ✅ Finalizar
+        </button>
+      </div>
+    `;
+    
+    document.getElementById("finishConvBtn")?.addEventListener("click", () => {
+      const event = new CustomEvent('conversacion-completed');
+      container.dispatchEvent(event);
+    });
+    return;
+  }
+  
+  const message = messages[index];
+  const avatar = getAvatar(message);
+  const isNarrador = message.isNarrador === true || (message.character || '').toLowerCase() === 'narrador';
+  const needsComp = needsCompletion(message.text);
+  const isAudioSel = isAudioSelection(message);
+  
+  let completionData = null;
+  if (needsComp && !isAudioSel) {
+    completionData = createCompletionText(message.text);
+  }
+  
+  const isRetry = conversationState.attempts[index] >= 2;
+  
+  container.innerHTML = `
+    <div class="conversation-container">
+      <div class="conv-progress">
+        <span class="conv-progress-text">Mensaje ${index + 1} de ${messages.length}</span>
+        <div class="conv-progress-bar">
+          <div class="conv-progress-fill" style="width:${((index + 1) / messages.length) * 100}%"></div>
+        </div>
+      </div>
+      
+      <div class="conv-message-wrapper ${isNarrador ? 'narrador' : ''}">
+        ${!isNarrador ? `
+          <div class="conv-avatar" style="background:${avatar.color}20; border:2px solid ${avatar.color};">
+            <span class="conv-avatar-emoji">${avatar.emoji}</span>
+          </div>
+        ` : ''}
+        
+        <div class="conv-bubble ${isNarrador ? 'narrador-bubble' : ''}" style="${!isNarrador ? 'border-left:3px solid ' + avatar.color : ''}">
+          <div class="conv-character-name" style="color:${avatar.color};">
+            ${avatar.nombre}
+          </div>
+          
+          ${isRetry ? '<div class="correction-notice" style="margin-bottom:8px;">⚠️ Se completó automáticamente después de 2 intentos</div>' : ''}
+          
+          <div class="conv-text">
+            ${isAudioSel ? `
+              <p style="color:#fde68a; margin-bottom:12px;">🎧 Escucha y selecciona la opción correcta:</p>
+              <div class="conv-audio-options">
+                ${message.audioOptions.map((opt, i) => `
+                  <button class="conv-audio-btn ${conversationState.selectedOption === i ? 'selected' : ''}" 
+                    data-option="${i}" style="border-color:${['#facc15','#60a5fa','#f472b6'][i]};">
+                    <span class="conv-audio-icon">🔊</span>
+                    <span class="conv-audio-label">Opción ${i + 1}</span>
+                  </button>
+                `).join('')}
+              </div>
+            ` : completionData && !isRetry ? `
+              <div class="conv-completion-text">
+                ${completionData.displayText.split(' ').map(word => {
+                  if (word === '_____') {
+                    return `<input type="text" class="completar-input conv-input" id="convCompleteInput" 
+                      placeholder="?" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                      style="width:80px; display:inline-block;">`;
+                  }
+                  return `<span>${word}</span>`;
+                }).join(' ')}
+              </div>
+            ` : `
+              <p>${message.text}</p>
+            `}
+          </div>
+          
+          <button class="conv-play-btn" id="convPlayBtn" title="Reproducir audio">🔊 Reproducir</button>
+        </div>
+      </div>
+      
+      <button class="btn-action btn-continue" id="convContinueBtn" 
+        style="width:100%; margin-top:16px; background:${isAudioSel && conversationState.selectedOption === null ? '#334155' : '#4ade80'}; color:#064e3b; font-weight:700;">
+        ${index < messages.length - 1 ? '▶️ Continuar' : '✅ Terminar conversación'}
+      </button>
+    </div>
+  `;
+  
+  setupConversacionListeners(message, index, container, messages, completionData, isAudioSel, isRetry);
+}
+
+function setupConversacionListeners(message, index, container, messages, completionData, isAudioSel, isRetry) {
+  const playBtn = document.getElementById("convPlayBtn");
+  if (playBtn) {
+    playBtn.addEventListener("click", () => {
+      if (conversationState.isPlaying) {
+        window.speechSynthesis.cancel();
+        conversationState.isPlaying = false;
+        playBtn.textContent = '🔊 Reproducir';
+        playBtn.style.background = '';
+        playBtn.style.color = '';
+        return;
+      }
+      
+      conversationState.isPlaying = true;
+      playBtn.textContent = '⏹ Detener';
+      playBtn.style.background = '#ef4444';
+      playBtn.style.color = 'white';
+      
+      speakText(message.text, () => {
+        conversationState.isPlaying = false;
+        playBtn.textContent = '🔊 Reproducir';
+        playBtn.style.background = '';
+        playBtn.style.color = '';
+      });
+    });
+  }
+  
+  if (isAudioSel) {
+    const audioBtns = container.querySelectorAll('.conv-audio-btn');
+    audioBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const optionIndex = parseInt(btn.dataset.option);
+        conversationState.selectedOption = optionIndex;
+        audioBtns.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        if (message.audioOptions[optionIndex]) {
+          speakText(message.audioOptions[optionIndex]);
+        }
+        const continueBtn = document.getElementById("convContinueBtn");
+        if (continueBtn) continueBtn.style.background = '#4ade80';
+      });
+    });
+  }
+  
+  const continueBtn = document.getElementById("convContinueBtn");
+  if (continueBtn) {
+    continueBtn.addEventListener("click", () => {
+      if (isAudioSel && conversationState.selectedOption === null) {
+        window._toast && window._toast("🎧 Selecciona una opción de audio primero");
+        return;
+      }
+      
+      if (completionData && !isRetry) {
+        const input = document.getElementById("convCompleteInput");
+        if (!input || !input.value.trim()) {
+          window._toast && window._toast("✏️ Completa la palabra faltante");
+          return;
+        }
+        
+        const userAnswer = input.value.trim();
+        const isCorrect = userAnswer.toLowerCase() === completionData.removedWord.toLowerCase();
+        conversationState.attempts[index] = (conversationState.attempts[index] || 0) + 1;
+        
+        container.dispatchEvent(new CustomEvent('conversacion-answer', {
+          detail: {
+            messageIndex: index,
+            messageText: message.text,
+            removedWord: completionData.removedWord,
+            userAnswer: userAnswer,
+            isCorrect: isCorrect,
+            attempts: conversationState.attempts[index]
+          }
+        }));
+        
+        if (!isCorrect && conversationState.attempts[index] < 2) {
+          window._toast && window._toast("❌ Incorrecto. Intenta de nuevo.");
+          renderMessage(index, container, messages);
+          return;
+        }
+      }
+      
+      if (isAudioSel) {
+        container.dispatchEvent(new CustomEvent('conversacion-answer', {
+          detail: {
+            messageIndex: index,
+            messageText: message.text,
+            selectedOption: conversationState.selectedOption,
+            correctOption: message.correctOption || 0,
+            isCorrect: conversationState.selectedOption === (message.correctOption || 0)
+          }
+        }));
+      }
+      
+      conversationState.currentIndex = index + 1;
+      conversationState.selectedOption = null;
+      window.speechSynthesis.cancel();
+      conversationState.isPlaying = false;
+      
+      if (index + 1 < messages.length) {
+        renderMessage(index + 1, container, messages);
+        setTimeout(() => {
+          const nextPlayBtn = document.getElementById("convPlayBtn");
+          if (nextPlayBtn && messages[index + 1]) nextPlayBtn.click();
+        }, 500);
+      } else {
+        renderMessage(messages.length, container, messages);
+      }
+    });
+  }
+}
+
+export function getConversacionReportEntry(messageData) {
+  return {
+    type: "conversacion",
+    messageIndex: messageData.messageIndex,
+    messageText: messageData.messageText,
+    removedWord: messageData.removedWord || '',
+    userAnswer: messageData.userAnswer || '',
+    selectedOption: messageData.selectedOption,
+    correctOption: messageData.correctOption,
+    isCorrect: messageData.isCorrect,
+    attempts: messageData.attempts || 1
+  };
+}
+
   // ==================== LÓGICA PRINCIPAL ====================
   
+  // ==================== STORAGE ====================
+  const STORAGE_KEY = "english_trainer_v6";
+  
+  function saveToStorage() {
+    const data = {
+      username: currentUser,
+      nodes: AppState.nodes,
+      progress: AppState.progress,
+      activeNodeIndex: AppState.activeNodeIndex,
+      activeExerciseIndex: AppState.activeExerciseIndex,
+      reportEntries: AppState.reportEntries,
+      lastUpdated: new Date().toISOString()
+    };
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch(e) {
+      console.error("Error guardando:", e);
+    }
+  }
+  
+  function loadFromStorage(username) {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return false;
+      const data = JSON.parse(raw);
+      if (data.username !== username) return false;
+      AppState.nodes = data.nodes || [];
+      AppState.progress = data.progress || {};
+      AppState.activeNodeIndex = data.activeNodeIndex || 0;
+      AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
+      AppState.reportEntries = data.reportEntries || [];
+      return AppState.nodes.length > 0;
+    } catch(e) {
+      console.error("Error cargando:", e);
+      return false;
+    }
+  }
 
+  // ==================== APP STATE ====================
   let currentUser = null;
-  let userDocRef = null;
-  let unsubscribeSnapshot = null;
-  let saveTimeout = null;
   
   const AppState = {
     nodes: [],
@@ -3456,7 +3928,6 @@ export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
     activeNodeIndex: 0,
     activeExerciseIndex: 0,
     failedExercises: [],
-    isSyncing: false,
     reportEntries: []
   };
 
@@ -3466,85 +3937,16 @@ export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
     t.textContent = msg;
     t.classList.add("show");
     clearTimeout(window._tt);
-    window._tt = setTimeout(() => t.classList.remove("show"), 2000);
+    window._tt = setTimeout(() => t.classList.remove("show"), 2500);
   }
+  window._toast = toast;
   
-  function showLoading(show, msg = "✨ Guardando...") {
-    const loader = document.getElementById("loadingIndicator");
-    if(loader) {
-      if(show) { loader.textContent = msg; loader.classList.add("show"); }
-      else loader.classList.remove("show");
-    }
-  }
-
-  async function saveToFirebase() {
-    if(AppState.isSyncing || !currentUser) return;
-    AppState.isSyncing = true;
-    try {
-      await setDoc(userDocRef, {
-        username: currentUser,
-        nodes: JSON.stringify(AppState.nodes),
-        progress: JSON.stringify(AppState.progress),
-        activeNodeIndex: AppState.activeNodeIndex,
-        activeExerciseIndex: AppState.activeExerciseIndex,
-        reportEntries: JSON.stringify(AppState.reportEntries),
-        lastUpdated: new Date().toISOString()
-      });
-    } catch (error) {
-      console.error("Error guardando:", error);
-      toast("⚠️ Error al guardar");
-    } finally {
-      AppState.isSyncing = false;
-    }
-  }
-
-  async function loadFromFirebase(username) {
-    showLoading(true, "🌐 Cargando datos...");
-    try {
-      const userDoc = doc(db, "english_trainer_users_v4", username);
-      const docSnap = await getDoc(userDoc);
-      if (docSnap.exists()) {
-        const data = docSnap.data();
-        AppState.nodes = JSON.parse(data.nodes || '[]');
-        AppState.progress = JSON.parse(data.progress || '{}');
-        AppState.activeNodeIndex = data.activeNodeIndex || 0;
-        AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
-        AppState.reportEntries = JSON.parse(data.reportEntries || '[]');
-        return true;
-      }
-      return false;
-    } catch (error) {
-      console.error("Error cargando:", error);
-      return false;
-    } finally {
-      showLoading(false);
-    }
-  }
-
-  function setupRealtimeSync() {
-    if(unsubscribeSnapshot) unsubscribeSnapshot();
-    if(!userDocRef) return;
-    
-    unsubscribeSnapshot = onSnapshot(userDocRef, (docSnap) => {
-      if (docSnap.exists() && !AppState.isSyncing && currentUser) {
-        const data = docSnap.data();
-        const remoteNodes = JSON.parse(data.nodes || '[]');
-        if (JSON.stringify(remoteNodes) !== JSON.stringify(AppState.nodes)) {
-          AppState.nodes = remoteNodes;
-          AppState.progress = JSON.parse(data.progress || '{}');
-          AppState.activeNodeIndex = data.activeNodeIndex || 0;
-          AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
-          renderMapView();
-        }
-      }
-    });
-  }
-
   function debounceSave() {
-    if(saveTimeout) clearTimeout(saveTimeout);
-    saveTimeout = setTimeout(() => saveToFirebase(), 800);
+    clearTimeout(window._saveTimeout);
+    window._saveTimeout = setTimeout(() => saveToStorage(), 500);
   }
 
+  // ==================== SCREENS ====================
   const mainScreens = {
     import: document.getElementById("importScreen"),
     map: document.getElementById("mapScreen"),
@@ -3557,27 +3959,24 @@ export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
     });
   }
 
+  // ==================== LOAD DATA ====================
   function loadAllData() {
     try {
       const traducciones = JSON.parse(document.getElementById("traduccionesInput").value.trim() || '[]');
       const completar = JSON.parse(document.getElementById("completarInput").value.trim() || '[]');
       const seleccionar = JSON.parse(document.getElementById("seleccionarInput").value.trim() || '[]');
       const corregir = JSON.parse(document.getElementById("corregirInput").value.trim() || '[]');
-      const historias = JSON.parse(document.getElementById("historiasInput").value.trim() || '[]');
-      const historiaPreguntas = JSON.parse(document.getElementById("historiaPreguntasInput").value.trim() || '[]');
+      const dictado = JSON.parse(document.getElementById("dictadoInput").value.trim() || '[]');
+      const conversacion = JSON.parse(document.getElementById("conversacionInput").value.trim() || '[]');
       
-      const validation = validateInputData({ 
-        traducciones, completar, seleccionar, corregir, historias, historiaPreguntas 
-      });
+      const validation = validateInputData({ traducciones, completar, seleccionar, corregir, dictado, conversacion });
       
       if (!validation.valid) {
         toast("❌ " + validation.errors.join(" | "));
         return;
       }
       
-      AppState.nodes = createNodeStructure({ 
-        traducciones, completar, seleccionar, corregir, historias, historiaPreguntas 
-      });
+      AppState.nodes = createNodeStructure({ traducciones, completar, seleccionar, corregir, dictado, conversacion });
       AppState.progress = {};
       AppState.activeNodeIndex = 0;
       AppState.activeExerciseIndex = 0;
@@ -3588,107 +3987,81 @@ export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
         AppState.progress[idx] = {
           completed: false,
           exercisesDone: 0,
-          exerciseResults: []
+          exerciseResults: Array(node.exercises.length).fill(false)
         };
       });
       
-      debounceSave();
+      saveToStorage();
       renderMapView();
       showMainView("map");
-      toast("🎒 " + AppState.nodes.length + " nodos creados exitosamente");
+      const totalEj = AppState.nodes.reduce((sum, n) => sum + n.exercises.length, 0);
+      toast("🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos");
     } catch(e) {
       toast("❌ JSON inválido: " + e.message);
+      console.error(e);
     }
   }
 
+  // ==================== MAP ====================
   function renderMapView() {
-    const callbacks = {
-      openNode: openNode,
-      showToast: toast
-    };
-    renderMap(AppState.nodes, AppState.progress, callbacks);
+    renderMap(AppState.nodes, AppState.progress, { openNode, showToast: toast });
   }
 
   function openNode(nodeIndex) {
     if (!AppState.nodes[nodeIndex]?.exercises?.length) return;
-    
     AppState.activeNodeIndex = nodeIndex;
     AppState.activeExerciseIndex = 0;
     AppState.failedExercises = [];
     
-    const nodeProgress = AppState.progress[nodeIndex] || { exercisesDone: 0, exerciseResults: [] };
-    const results = nodeProgress.exerciseResults || [];
-    
+    const prog = AppState.progress[nodeIndex] || { exerciseResults: [] };
+    const results = prog.exerciseResults || [];
     for (let i = 0; i < AppState.nodes[nodeIndex].exercises.length; i++) {
-      if (!results[i]) {
-        AppState.activeExerciseIndex = i;
-        break;
-      }
+      if (!results[i]) { AppState.activeExerciseIndex = i; break; }
     }
     
-    debounceSave();
+    saveToStorage();
     renderExercise();
     showMainView("exercise");
-    toast("📖 " + (AppState.nodes[nodeIndex].id ? "Nodo " + AppState.nodes[nodeIndex].id : "") + " abierto");
   }
 
+  // ==================== EXERCISE ====================
   function renderExercise() {
     const node = AppState.nodes[AppState.activeNodeIndex];
-    if (!node?.exercises?.length) {
-      showMainView("map");
-      return;
-    }
+    if (!node?.exercises?.length) { showMainView("map"); return; }
     
     const exIndex = AppState.activeExerciseIndex;
     if (exIndex >= node.exercises.length) {
       AppState.progress[AppState.activeNodeIndex].completed = true;
-      debounceSave();
+      saveToStorage();
       renderMapView();
       showMainView("map");
       burstConfetti();
-      toast("🎉 Nodo completado!");
+      toast("🎉 Nodo " + (AppState.activeNodeIndex + 1) + " completado!");
       return;
     }
     
     const exercise = node.exercises[exIndex];
     const container = document.getElementById("exerciseContainer");
     
-    document.getElementById("nodeTag").innerHTML = "📌 Nodo " + (node.id || (AppState.activeNodeIndex + 1));
+    document.getElementById("nodeTag").innerHTML = "📌 Nodo " + (AppState.activeNodeIndex + 1);
     document.getElementById("exTag").innerHTML = "📝 " + (exIndex + 1) + "/" + node.exercises.length;
     document.getElementById("exTypeTag").innerHTML = getExerciseTypeIcon(exercise.type) + " " + getExerciseTypeName(exercise.type);
     
     const isRetry = AppState.failedExercises.includes(exIndex);
     
     switch(exercise.type) {
-      case "traduccion":
-        renderTraduccionExercise(exercise, container);
-        setupTraduccionListeners(exercise);
-        break;
-      case "completar":
-        renderCompletarExercise(exercise, container, isRetry);
-        setupCompletarListeners(exercise);
-        break;
-      case "seleccionar":
-        renderSeleccionarExercise(exercise, container);
-        setupSeleccionarListeners(exercise);
-        break;
-      case "corregir":
-        renderCorregirExercise(exercise, container, isRetry);
-        setupCorregirListeners(exercise);
-        break;
-      case "historia":
-        renderHistoriaExercise(exercise, container);
-        setupHistoriaListeners();
-        break;
-      case "historia_preguntas":
-        renderHistoriaPreguntasExercise(exercise, container);
-        setupHistoriaPreguntasListeners();
-        break;
+      case "traduccion": renderTraduccionExercise(exercise, container); setupTraduccionListeners(exercise); break;
+      case "completar": renderCompletarExercise(exercise, container, isRetry); setupCompletarListeners(exercise); break;
+      case "seleccionar": renderSeleccionarExercise(exercise, container); setupSeleccionarListeners(exercise); break;
+      case "corregir": renderCorregirExercise(exercise, container, isRetry); setupCorregirListeners(exercise); break;
+      case "dictado": renderDictadoExercise(exercise, container); setupDictadoListeners(exercise); break;
+      case "conversacion": renderConversacionExercise(exercise, container); setupConversacionMainListeners(); break;
     }
     
     document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Corrección de error" : "✏️ Tu turno";
   }
 
+  // ==================== LISTENERS ====================
   function setupTraduccionListeners(exercise) {
     const checkBtn = document.getElementById("checkBtn");
     if (checkBtn) {
@@ -3696,26 +4069,16 @@ export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
         const answerInput = document.getElementById("answerInput");
         if (!answerInput) return;
         const userAnswer = answerInput.value.trim();
-        if (!userAnswer) {
-          toast("📝 Escribe algo");
-          return;
-        }
-        
+        if (!userAnswer) { toast("📝 Escribe algo"); return; }
         showComparativeModal(exercise, userAnswer, (duda) => {
           AppState.reportEntries.push(getTraduccionReportEntry(exercise, userAnswer, duda));
           advanceExercise();
         });
       };
     }
-    
     const answerInput = document.getElementById("answerInput");
     if (answerInput) {
-      answerInput.onkeydown = (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-          e.preventDefault();
-          document.getElementById("checkBtn")?.click();
-        }
-      };
+      answerInput.onkeydown = (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); document.getElementById("checkBtn")?.click(); } };
     }
   }
 
@@ -3726,63 +4089,53 @@ export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
         const container = document.getElementById("exerciseContainer");
         const result = checkCompletarAnswers(exercise, container);
         const { allCorrect, userAnswers, results } = result;
-        
         showCompletarModal(exercise, results, 
-          (success, duda) => {
-            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda));
-            advanceExercise();
+          (success, duda) => { 
+            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
+            advanceExercise(); 
           },
-          (duda) => {
-            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda));
+          (duda) => { 
+            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
             if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
               AppState.failedExercises.push(AppState.activeExerciseIndex);
             }
-            renderExercise();
+            renderExercise(); 
           }
         );
-        
-        if (allCorrect) {
-          document.getElementById("checkBtn").style.display = "none";
-          const continueBtn = document.getElementById("continueBtn");
-          if (continueBtn) continueBtn.style.display = "flex";
+        if (allCorrect) { 
+          document.getElementById("checkBtn").style.display = "none"; 
+          const cb = document.getElementById("continueBtn"); 
+          if (cb) cb.style.display = "flex"; 
         }
       };
     }
-    
-    const continueBtn = document.getElementById("continueBtn");
-    if (continueBtn) {
-      continueBtn.onclick = () => {
-        advanceExercise();
-      };
-    }
+    const cb = document.getElementById("continueBtn"); 
+    if (cb) cb.onclick = () => advanceExercise();
   }
 
   function setupCorregirListeners(exercise) {
     const container = document.getElementById("exerciseContainer");
     if (!container) return;
-    
     container.addEventListener("corregir-checked", (e) => {
       const { userAnswer, exercise: ex } = e.detail;
       const result = checkCorregirAnswer(ex, userAnswer);
-      
       showCorregirModal(ex, result, userAnswer, 
-        (duda) => {
-          AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda));
-          advanceExercise();
+        (duda) => { 
+          AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); 
+          advanceExercise(); 
         },
-        (duda) => {
-          AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda));
+        (duda) => { 
+          AppState.reportEntries.push(getCorregirReportEntry(ex, userAnswer, duda)); 
           if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
             AppState.failedExercises.push(AppState.activeExerciseIndex);
           }
-          renderExercise();
+          renderExercise(); 
         }
       );
-      
-      if (result.isCorrect) {
-        document.getElementById("checkBtn").style.display = "none";
-        const continueBtn = document.getElementById("continueBtn");
-        if (continueBtn) continueBtn.style.display = "flex";
+      if (result.isCorrect) { 
+        document.getElementById("checkBtn").style.display = "none"; 
+        const cb = document.getElementById("continueBtn"); 
+        if (cb) cb.style.display = "flex"; 
       }
     });
   }
@@ -3790,45 +4143,49 @@ export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
   function setupSeleccionarListeners(exercise) {
     const container = document.getElementById("exerciseContainer");
     if (container) {
-      container.addEventListener("all-matched", () => {
-        showSeleccionarCompleteModal(exercise.pairs, () => {
+      container.addEventListener("all-matched", () => { 
+        showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); 
+      });
+    }
+  }
+
+  function setupDictadoListeners(exercise) {
+    const checkBtn = document.getElementById("checkDictadoBtn");
+    if (checkBtn) {
+      checkBtn.onclick = () => {
+        const answerInput = document.getElementById("dictadoInput");
+        if (!answerInput) return;
+        const userAnswer = answerInput.value.trim();
+        if (!userAnswer) { toast("📝 Escribe lo que escuchaste"); return; }
+        const result = checkDictadoAnswer(exercise, userAnswer);
+        showDictadoModal(exercise, result, userAnswer, (duda) => {
+          AppState.reportEntries.push(getDictadoReportEntry(exercise, userAnswer, duda));
           advanceExercise();
         });
-      });
+      };
     }
   }
 
-  function setupHistoriaListeners() {
+  function setupConversacionMainListeners() {
     const container = document.getElementById("exerciseContainer");
-    if (container) {
-      container.addEventListener("story-read", () => {
-        advanceExercise();
-      });
-    }
+    if (!container) return;
+    container.addEventListener("conversacion-answer", (e) => { 
+      AppState.reportEntries.push(getConversacionReportEntry(e.detail)); 
+    });
+    container.addEventListener("conversacion-completed", () => advanceExercise());
   }
 
-  function setupHistoriaPreguntasListeners() {
-    const container = document.getElementById("exerciseContainer");
-    if (container) {
-      container.addEventListener("historia-answered", (e) => {
-        const { answer1, answer2, duda } = e.detail;
-        const exercise = AppState.nodes[AppState.activeNodeIndex].exercises[AppState.activeExerciseIndex];
-        
-        AppState.reportEntries.push(getHistoriaPreguntasReportEntry(exercise, { answer1, answer2 }, duda));
-        
-        showHistoriaPreguntasModal(exercise, { answer1, answer2 }, () => {
-          advanceExercise();
-        });
-      });
-    }
-  }
-
+  // ==================== ADVANCE ====================
   function advanceExercise() {
     const node = AppState.nodes[AppState.activeNodeIndex];
     const exIndex = AppState.activeExerciseIndex;
     
     if (!AppState.progress[AppState.activeNodeIndex]) {
-      AppState.progress[AppState.activeNodeIndex] = { completed: false, exercisesDone: 0, exerciseResults: [] };
+      AppState.progress[AppState.activeNodeIndex] = { 
+        completed: false, 
+        exercisesDone: 0, 
+        exerciseResults: Array(node.exercises.length).fill(false) 
+      };
     }
     
     if (!AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex]) {
@@ -3838,55 +4195,80 @@ export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
     }
     
     AppState.failedExercises = AppState.failedExercises.filter(i => i !== exIndex);
+    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 
+      ? AppState.failedExercises[0] 
+      : AppState.activeExerciseIndex + 1;
     
-    if (AppState.failedExercises.length > 0) {
-      AppState.activeExerciseIndex = AppState.failedExercises[0];
-    } else {
-      AppState.activeExerciseIndex++;
-    }
-    
-    debounceSave();
+    saveToStorage();
     renderExercise();
   }
 
+  // ==================== REPORT ====================
   function buildReport() {
-    let lines = ["📘 INFORME DE APRENDIZAJE\n" + "=".repeat(50) + "\n"];
-    
-    AppState.reportEntries.forEach((entry, idx) => {
-      const num = idx + 1;
-      
-      if (entry.type === "traduccion") {
-        lines.push(num + ". [Traducción] " + entry.original);
-        lines.push("   ✅ Esperado: " + entry.expected);
-        lines.push("   ✏️ Usuario: " + entry.userAnswer);
-      } else if (entry.type === "completar") {
-        lines.push(num + ". [Completar] " + entry.original);
-        lines.push("   ✅ Frase: " + entry.expected);
-        lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", "));
-      } else if (entry.type === "corregir") {
-        lines.push(num + ". [Corregir]");
-        lines.push("   ❌ Frase error: " + entry.original);
-        lines.push("   ✅ Correcto: " + entry.expected);
-        lines.push("   ✏️ Usuario: " + entry.userAnswer);
-      } else if (entry.type === "historia_preguntas") {
-        lines.push(num + ". [Comprensión]");
-        lines.push("   📖 Historia: " + (entry.story || '').substring(0, 100) + "...");
-        lines.push("   1️⃣ " + entry.pregunta1);
-        lines.push("   ✏️ " + entry.respuesta1);
-        lines.push("   2️⃣ " + entry.pregunta2);
-        lines.push("   ✏️ " + entry.respuesta2);
-      }
-      
-      if (entry.duda) {
-        lines.push("   💭 Duda del usuario: " + entry.duda);
-      }
-      
-      lines.push("");
-    });
+    let lines = [];
+    lines.push("📘 INFORME DE APRENDIZAJE");
+    lines.push("=".repeat(40));
+    lines.push("");
     
     if (AppState.reportEntries.length === 0) {
       lines.push("🌟 Intenta algunos ejercicios para ver tu informe");
+      return lines.join("\n");
     }
+    
+    // Agrupar por tipo
+    const byType = {};
+    AppState.reportEntries.forEach(entry => {
+      if (!byType[entry.type]) byType[entry.type] = [];
+      byType[entry.type].push(entry);
+    });
+    
+    let counter = 0;
+    const typeNames = {
+      traduccion: "TRADUCCIÓN", completar: "COMPLETAR", seleccionar: "EMPAREJAR",
+      corregir: "CORREGIR", dictado: "DICTADO", conversacion: "CONVERSACIÓN"
+    };
+    
+    Object.keys(typeNames).forEach(type => {
+      const entries = byType[type] || [];
+      if (entries.length === 0) return;
+      
+      lines.push("📌 " + typeNames[type] + " (" + entries.length + " ejercicios)");
+      lines.push("-".repeat(30));
+      
+      entries.forEach(entry => {
+        counter++;
+        lines.push(counter + ". " + (entry.type === "dictado" ? "🎧 " : "") + (entry.original || entry.messageText || "").substring(0, 80));
+        
+        if (entry.type === "traduccion") {
+          lines.push("   ✅ Esperado: " + entry.expected);
+          lines.push("   ✏️ Usuario: " + entry.userAnswer);
+        } else if (entry.type === "completar") {
+          lines.push("   ✅ Frase: " + entry.expected);
+          lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", "));
+        } else if (entry.type === "corregir") {
+          lines.push("   ❌ Error: " + entry.original);
+          lines.push("   ✅ Correcto: " + entry.expected);
+          lines.push("   ✏️ Usuario: " + entry.userAnswer);
+        } else if (entry.type === "dictado") {
+          lines.push("   🎧 Correcto: " + entry.original);
+          lines.push("   ✏️ Usuario: " + entry.userAnswer);
+        } else if (entry.type === "conversacion") {
+          if (entry.removedWord) {
+            lines.push("   🔤 Falta: " + entry.removedWord);
+            lines.push("   ✏️ Usuario: " + entry.userAnswer);
+          }
+          if (entry.selectedOption !== undefined) {
+            lines.push("   🎧 Opción: " + (entry.selectedOption + 1) + "/3");
+          }
+        }
+        
+        if (entry.duda) {
+          lines.push("   💭 Consulta: " + entry.duda);
+        }
+        lines.push("");
+      });
+      lines.push("");
+    });
     
     return lines.join("\n");
   }
@@ -3894,57 +4276,55 @@ export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
   function copyReport() {
     const report = buildReport();
     const reportArea = document.getElementById("reportArea");
-    if (reportArea) {
-      reportArea.style.display = "block";
-      reportArea.value = report;
+    if (reportArea) { 
+      reportArea.style.display = "block"; 
+      reportArea.value = report; 
     }
-    
-    navigator.clipboard?.writeText(report).then(() => {
-      toast("📋 Informe copiado al portapapeles");
-    }).catch(() => {
-      toast("📋 Informe generado (copia manualmente)");
-    });
+    navigator.clipboard?.writeText(report)
+      .then(() => toast("📋 Informe copiado al portapapeles"))
+      .catch(() => toast("📋 Copia manualmente el informe"));
   }
 
+  // ==================== UTILS ====================
   function burstConfetti() {
-    for(let i = 0; i < 50; i++) {
-      const c = document.createElement("div");
+    const colors = ["#e50914", "#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"];
+    for(let i = 0; i < 40; i++) {
+      const c = document.createElement("div"); 
       c.classList.add("confetti");
       c.style.left = Math.random() * 100 + "vw";
-      c.style.backgroundColor = "hsl(" + (Math.random() * 360) + ", 70%, 60%)";
-      c.style.width = (6 + Math.random() * 10) + "px";
-      c.style.height = (10 + Math.random() * 12) + "px";
-      document.body.appendChild(c);
-      setTimeout(() => c.remove(), 1400);
+      c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      c.style.width = (5 + Math.random() * 8) + "px";
+      c.style.height = (8 + Math.random() * 10) + "px";
+      c.style.animationDuration = (1 + Math.random() * 2) + "s";
+      document.body.appendChild(c); 
+      setTimeout(() => c.remove(), 3000);
     }
   }
 
-  async function login(username) {
-    if(!username || username.trim() === "") {
-      toast("Por favor ingresa un nombre");
-      return false;
+  // ==================== AUTH ====================
+  function login(username) {
+    if(!username || !username.trim()) { 
+      toast("Por favor ingresa un nombre"); 
+      return false; 
     }
     
     username = username.trim().toLowerCase();
     currentUser = username;
-    userDocRef = doc(db, "english_trainer_users_v4", username);
+    localStorage.setItem("english_trainer_v6_user", username);
     
-    localStorage.setItem("english_trainer_user_v4", username);
     document.getElementById("userNameDisplay").innerText = username;
-    document.getElementById("userAvatar").innerHTML = username.charAt(0).toUpperCase();
     document.getElementById("welcomeUsername").innerText = username;
     
-    const hasData = await loadFromFirebase(username);
+    const hasData = loadFromStorage(username);
     if (!hasData) {
-      AppState.nodes = [];
-      AppState.progress = {};
-      AppState.activeNodeIndex = 0;
-      AppState.activeExerciseIndex = 0;
+      AppState.nodes = []; 
+      AppState.progress = {}; 
+      AppState.activeNodeIndex = 0; 
+      AppState.activeExerciseIndex = 0; 
       AppState.reportEntries = [];
     }
     
     renderMapView();
-    setupRealtimeSync();
     
     document.getElementById("loginScreen").classList.remove("active");
     document.getElementById("mainScreen").classList.add("active");
@@ -3954,65 +4334,61 @@ export function getHistoriaPreguntasReportEntry(exercise, answers, duda) {
   }
 
   function logout() {
-    if(unsubscribeSnapshot) unsubscribeSnapshot();
     currentUser = null;
-    userDocRef = null;
-    localStorage.removeItem("english_trainer_user_v4");
+    localStorage.removeItem("english_trainer_v6_user");
     document.getElementById("loginScreen").classList.add("active");
     document.getElementById("mainScreen").classList.remove("active");
     toast("👋 Sesión cerrada");
   }
 
   async function resetAll() {
-    if(confirm("¿Borrar todo el progreso?")) {
-      AppState.nodes = [];
-      AppState.progress = {};
-      AppState.activeNodeIndex = 0;
-      AppState.activeExerciseIndex = 0;
-      AppState.failedExercises = [];
+    if(confirm("¿Borrar todo el progreso? Esta acción no se puede deshacer.")) {
+      AppState.nodes = []; 
+      AppState.progress = {}; 
+      AppState.activeNodeIndex = 0; 
+      AppState.activeExerciseIndex = 0; 
+      AppState.failedExercises = []; 
       AppState.reportEntries = [];
-      await saveToFirebase();
-      renderMapView();
-      showMainView("import");
+      saveToStorage(); 
+      renderMapView(); 
+      showMainView("import"); 
       toast("🗑️ Todo borrado");
     }
   }
 
+  // ==================== INIT ====================
   function init() {
-    const savedUser = localStorage.getItem("english_trainer_user_v4");
-    if(savedUser) {
-      login(savedUser);
-    }
+    const savedUser = localStorage.getItem("english_trainer_v6_user");
+    if(savedUser) login(savedUser);
     
-    document.getElementById("loginBtn")?.addEventListener("click", () => {
-      const username = document.getElementById("usernameInput").value;
-      login(username);
-    });
-    
-    document.getElementById("usernameInput")?.addEventListener("keypress", (e) => {
-      if(e.key === "Enter") login(document.getElementById("usernameInput").value);
+    document.getElementById("loginBtn")?.addEventListener("click", () => 
+      login(document.getElementById("usernameInput").value)
+    );
+    document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { 
+      if(e.key === "Enter") login(document.getElementById("usernameInput").value); 
     });
     
     document.getElementById("logoutBtn")?.addEventListener("click", logout);
     document.getElementById("loadBtn")?.addEventListener("click", loadAllData);
     document.getElementById("resetAllBtn")?.addEventListener("click", resetAll);
-    document.getElementById("replaceListBtn")?.addEventListener("click", () => {
-      showMainView("import");
-      toast("📥 Ingresa nuevos datos");
+    document.getElementById("replaceListBtn")?.addEventListener("click", () => { 
+      showMainView("import"); 
+      toast("📥 Ingresa nuevos datos"); 
     });
     document.getElementById("copyReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("openReportBtn")?.addEventListener("click", copyReport);
-    document.getElementById("backToMapBtn")?.addEventListener("click", () => {
-      renderMapView();
-      showMainView("map");
+    document.getElementById("backToMapBtn")?.addEventListener("click", () => { 
+      renderMapView(); 
+      showMainView("map"); 
     });
-    document.getElementById("toggleMenuBtn")?.addEventListener("click", () => {
-      document.getElementById("menuExpand").classList.toggle("open");
+    document.getElementById("toggleMenuBtn")?.addEventListener("click", () => { 
+      document.getElementById("menuExpand").classList.toggle("open"); 
     });
   }
   
   init();
+
 </script>
 </body>
 </html>
