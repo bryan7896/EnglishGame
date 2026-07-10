@@ -2432,3 +2432,374 @@ body {
 /* ============ CONFETTI ============ */
 .confetti { position: fixed; pointer-events: none; z-index: 999; animation: fall 1.4s linear forwards; }
 @keyframes fall { to { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+
+/* ============ DICTADO ============ */
+
+.dictado-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Área de audio */
+.dictado-audio-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.dictado-audio-icon {
+  font-size: 2.5rem;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(229,9,20,0.1);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.dictado-audio-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dictado-audio-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.dictado-audio-subtitle {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.dictado-play-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #e50914;
+  border: none;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.dictado-play-btn:hover {
+  background: #f40612;
+  transform: scale(1.05);
+}
+
+.dictado-play-btn:active {
+  transform: scale(0.95);
+}
+
+.dictado-play-btn.playing {
+  animation: playPulse 0.5s ease;
+}
+
+@keyframes playPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); background: #ff4444; }
+}
+
+/* Barra de progreso */
+.dictado-progress-bar {
+  height: 3px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.dictado-progress-fill {
+  height: 100%;
+  background: #e50914;
+  border-radius: 2px;
+  width: 0%;
+}
+
+/* Contador */
+.dictado-play-count {
+  text-align: right;
+  font-size: 0.7rem;
+  color: #666;
+}
+
+.dictado-play-count span {
+  color: #e50914;
+  font-weight: 600;
+}
+
+/* Área de escritura */
+.dictado-input-area {
+  position: relative;
+}
+
+.dictado-textarea {
+  width: 100%;
+  border: 2px solid #333;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-family: 'Inter', sans-serif;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.dictado-textarea:focus {
+  border-color: #e50914;
+}
+
+.dictado-textarea::placeholder {
+  color: #555;
+}
+
+.dictado-input-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.dictado-char-count {
+  font-size: 0.7rem;
+  color: #666;
+}
+
+/* Botones de acción */
+.dictado-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.dictado-btn {
+  flex: 1;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dictado-btn-primary {
+  background: #e50914;
+  color: #fff;
+}
+
+.dictado-btn-primary:hover {
+  background: #f40612;
+}
+
+.dictado-btn-outline {
+  background: transparent;
+  border: 1px solid #333;
+  color: #888;
+}
+
+.dictado-btn-outline:hover {
+  border-color: #555;
+  color: #ccc;
+}
+
+/* ============ MODAL DICTADO ============ */
+.dictado-modal {
+  padding: 0;
+  overflow: hidden;
+}
+
+.dictado-modal-header {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+}
+
+.dictado-modal-header h3 {
+  color: #fff;
+  margin: 0;
+}
+
+.dictado-modal-icon {
+  font-size: 2rem;
+}
+
+.dictado-modal-body {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dictado-modal-section {
+  background: #111;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.dictado-modal-label {
+  font-size: 0.75rem;
+  color: #888;
+  margin-bottom: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dictado-modal-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.correct-text {
+  color: #2ecc71;
+  font-weight: 500;
+}
+
+.user-text {
+  color: #fbbf24;
+}
+
+.dictado-modal-stats {
+  display: flex;
+  gap: 10px;
+}
+
+.dictado-stat {
+  flex: 1;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+.dictado-stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.dictado-stat-label {
+  font-size: 0.65rem;
+  color: #666;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dictado-modal-comparison {
+  background: #111;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.dictado-comparison-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.dictado-comparison-words .word-correct {
+  background: rgba(46,204,113,0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.dictado-comparison-words .word-error {
+  background: rgba(231,76,60,0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-decoration: line-through;
+}
+
+.dictado-modal-doubt {
+  background: #111;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.dictado-modal-doubt label {
+  display: block;
+  color: #888;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.dictado-modal-doubt textarea {
+  width: 100%;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  resize: vertical;
+  min-height: 50px;
+  outline: none;
+}
+
+.dictado-modal-doubt textarea:focus {
+  border-color: #e50914;
+}
+
+.dictado-modal-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #222;
+}
+
+.dictado-modal-btn {
+  width: 100%;
+  background: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dictado-modal-btn:hover {
+  background: #f40612;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 480px) {
+  .dictado-audio-area {
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+  
+  .dictado-play-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  
+  .dictado-modal-stats {
+    flex-direction: row;
+  }
+}

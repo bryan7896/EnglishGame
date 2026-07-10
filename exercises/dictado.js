@@ -12,8 +12,15 @@ const VOICES = [
   { name: "Fiona", lang: "en-US", rate: 0.78 },
 ];
 
+let lastVoiceIndex = -1;
+
 function getRandomVoice() {
-  return VOICES[Math.floor(Math.random() * VOICES.length)];
+  let index;
+  do {
+    index = Math.floor(Math.random() * VOICES.length);
+  } while (index === lastVoiceIndex && VOICES.length > 1);
+  lastVoiceIndex = index;
+  return VOICES[index];
 }
 
 function speakDictado(text, onEnd) {
@@ -26,18 +33,30 @@ function speakDictado(text, onEnd) {
   utterance.lang = voiceConfig.lang;
   utterance.rate = voiceConfig.rate;
   utterance.pitch = 1;
+  utterance.volume = 1;
   
-  // Intentar encontrar una voz específica
+  // Cargar voces si es necesario
   const voices = window.speechSynthesis.getVoices();
-  if (voices.length > 0) {
+  if (voices.length === 0) {
+    window.speechSynthesis.onvoiceschanged = () => {
+      const updatedVoices = window.speechSynthesis.getVoices();
+      const matchingVoices = updatedVoices.filter(v => v.lang.startsWith('en'));
+      if (matchingVoices.length > 0) {
+        utterance.voice = matchingVoices[Math.floor(Math.random() * matchingVoices.length)];
+      }
+      window.speechSynthesis.speak(utterance);
+    };
+  } else {
     const matchingVoices = voices.filter(v => v.lang.startsWith('en'));
     if (matchingVoices.length > 0) {
       utterance.voice = matchingVoices[Math.floor(Math.random() * matchingVoices.length)];
     }
+    window.speechSynthesis.speak(utterance);
   }
   
   if (onEnd) utterance.onend = onEnd;
-  window.speechSynthesis.speak(utterance);
+  
+  return utterance;
 }
 
 export function renderDictadoExercise(exercise, container) {
@@ -45,50 +64,142 @@ export function renderDictadoExercise(exercise, container) {
   
   container.innerHTML = `
     <div class="dictado-container">
-      <div class="dictado-header">
-        <p style="color:#94a3b8; margin-bottom:12px;">🎧 Escucha el audio y escribe lo que escuchas:</p>
-        <button class="dictado-play-btn" id="dictadoPlayBtn">
-          <span class="dictado-play-icon">🔊</span>
-          Reproducir audio
-        </button>
-        <p style="color:#64748b; font-size:0.75rem; margin-top:6px;">Puedes reproducir el audio las veces que necesites</p>
-      </div>
-      
-      <div class="input-area" style="margin-top:16px;">
-        <textarea id="dictadoInput" class="answer-input" rows="3" 
-          placeholder="Escribe aquí lo que escuchaste..." 
-          style="font-size:1rem;"></textarea>
-      </div>
-      
-      <div class="button-group" style="margin-top:16px;">
-        <button class="btn-action btn-check" id="checkDictadoBtn">✅ Comprobar</button>
-      </div>
-      
-      <div class="mood-card" style="margin-top:12px;">
-        <div class="mood-emoji">🎧</div>
-        <div>
-          <strong>Dictado</strong><br>
-          <span>Escucha atentamente y escribe la frase</span>
+      <!-- Área de audio mejorada -->
+      <div class="dictado-audio-area">
+        <div class="dictado-audio-icon">🎧</div>
+        <div class="dictado-audio-info">
+          <div class="dictado-audio-title">Escucha y escribe</div>
+          <div class="dictado-audio-subtitle">Reproduce el audio y escribe exactamente lo que escuchas</div>
         </div>
+        <button class="dictado-play-btn" id="dictadoPlayBtn" title="Reproducir audio">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <span>Reproducir</span>
+        </button>
+      </div>
+      
+      <!-- Barra de progreso del audio -->
+      <div class="dictado-progress-bar" id="dictadoProgressBar">
+        <div class="dictado-progress-fill" id="dictadoProgressFill"></div>
+      </div>
+      
+      <!-- Contador de reproducciones -->
+      <div class="dictado-play-count" id="dictadoPlayCount">
+        Reproducciones: <span>0</span>
+      </div>
+      
+      <!-- Área de escritura -->
+      <div class="dictado-input-area">
+        <textarea 
+          id="dictadoInput" 
+          class="dictado-textarea" 
+          rows="3" 
+          placeholder="Escribe aquí lo que escuchaste..."
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+        ></textarea>
+        <div class="dictado-input-footer">
+          <span class="dictado-char-count" id="dictadoCharCount">0 caracteres</span>
+        </div>
+      </div>
+      
+      <!-- Botones de acción -->
+      <div class="dictado-actions">
+        <button class="dictado-btn dictado-btn-outline" id="dictadoClearBtn">
+          🗑️ Limpiar
+        </button>
+        <button class="dictado-btn dictado-btn-primary" id="checkDictadoBtn">
+          ✅ Comprobar
+        </button>
       </div>
     </div>
   `;
   
-  // Reproducir automáticamente al cargar
-  setTimeout(() => speakDictado(text), 500);
+  let playCount = 0;
+  const progressFill = document.getElementById("dictadoProgressFill");
+  const playCountEl = document.getElementById("dictadoPlayCount").querySelector("span");
+  const playBtn = document.getElementById("dictadoPlayBtn");
+  const textarea = document.getElementById("dictadoInput");
+  const charCount = document.getElementById("dictadoCharCount");
+  
+  // Auto reproducir al cargar
+  setTimeout(() => {
+    speakDictado(text);
+    playCount++;
+    playCountEl.textContent = playCount;
+    animateProgress();
+  }, 600);
+  
+  function animateProgress() {
+    if (progressFill) {
+      progressFill.style.transition = 'none';
+      progressFill.style.width = '0%';
+      setTimeout(() => {
+        progressFill.style.transition = 'width 2s ease';
+        progressFill.style.width = '100%';
+      }, 50);
+    }
+  }
   
   // Botón de play
-  document.getElementById("dictadoPlayBtn")?.addEventListener("click", () => {
+  playBtn?.addEventListener("click", () => {
     speakDictado(text);
+    playCount++;
+    playCountEl.textContent = playCount;
+    animateProgress();
+    
+    // Efecto visual en el botón
+    playBtn.classList.add('playing');
+    setTimeout(() => playBtn.classList.remove('playing'), 500);
+  });
+  
+  // Contador de caracteres
+  textarea?.addEventListener("input", () => {
+    charCount.textContent = textarea.value.length + " caracteres";
+  });
+  
+  // Botón limpiar
+  document.getElementById("dictadoClearBtn")?.addEventListener("click", () => {
+    textarea.value = '';
+    charCount.textContent = '0 caracteres';
+    textarea.focus();
   });
   
   // Enter para comprobar
-  document.getElementById("dictadoInput")?.addEventListener("keydown", (e) => {
+  textarea?.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       document.getElementById("checkDictadoBtn")?.click();
     }
   });
+  
+  // Comprobar respuesta
+  document.getElementById("checkDictadoBtn")?.addEventListener("click", () => {
+    const userAnswer = textarea?.value?.trim() || '';
+    if (!userAnswer) {
+      // Mostrar mini toast en el textarea
+      textarea.style.borderColor = '#e50914';
+      textarea.placeholder = 'Por favor escribe lo que escuchaste...';
+      setTimeout(() => {
+        textarea.style.borderColor = '';
+        textarea.placeholder = 'Escribe aquí lo que escuchaste...';
+      }, 2000);
+      return;
+    }
+    
+    const result = checkDictadoAnswer(exercise, userAnswer);
+    
+    // Despachar evento para que la lógica principal lo maneje
+    const event = new CustomEvent('dictado-checked', {
+      detail: { exercise, userAnswer, result }
+    });
+    container.dispatchEvent(event);
+  });
+  
+  textarea?.focus();
 }
 
 export function checkDictadoAnswer(exercise, userAnswer) {
@@ -101,15 +212,13 @@ export function checkDictadoAnswer(exercise, userAnswer) {
   
   const isExact = normalize(userAnswer) === normalize(correctText);
   
-  // Calcular precisión por palabras
   const correctWords = correctText.toLowerCase().replace(/[.,!?;:'"]/g, '').split(/\s+/);
   const userWords = userAnswer.toLowerCase().replace(/[.,!?;:'"]/g, '').split(/\s+/);
   
   let matchedWords = 0;
-  const maxLen = Math.max(correctWords.length, userWords.length);
   const comparison = [];
   
-  for (let i = 0; i < maxLen; i++) {
+  for (let i = 0; i < Math.max(correctWords.length, userWords.length); i++) {
     const cw = correctWords[i] || '';
     const uw = userWords[i] || '';
     const match = cw === uw && cw !== '';
@@ -126,53 +235,80 @@ export function showDictadoModal(exercise, result, userAnswer, onContinue) {
   const correctText = typeof exercise === 'string' ? exercise : exercise.text || exercise.phrase || '';
   const { isExact, accuracy, matchedWords, totalWords, comparison } = result;
   
+  // Determinar color según precisión
+  let accuracyColor = '#e50914';
+  if (accuracy >= 0.9) accuracyColor = '#2ecc71';
+  else if (accuracy >= 0.7) accuracyColor = '#f39c12';
+  
   const comparisonHtml = comparison.map(c => {
     if (!c.correct && !c.user) return '';
     const cls = c.match ? 'word-correct' : 'word-error';
-    return `<span class="${cls}" style="margin:2px 3px;">${c.user || '—'}</span>`;
-  }).join('');
+    return `<span class="${cls}">${c.user || '—'}</span>`;
+  }).join(' ');
   
   const modal = document.createElement("div");
   modal.className = "modal-overlay";
   modal.innerHTML = `
-    <div class="modal-friend">
-      <h3>${isExact ? '🎉 ¡Perfecto!' : '📝 Resultado del dictado'}</h3>
-      <div class="comparison-text-block">
-        <p><strong>🎧 Frase correcta:</strong><br>
-          <span style="color:#4ade80; font-size:1.1rem;">${correctText}</span></p>
-        <p><strong>✏️ Tu respuesta:</strong><br>
-          <span style="color:${isExact ? '#4ade80' : '#fbbf24'};">${userAnswer}</span></p>
-        <div style="margin-top:12px;">
-          <strong>📊 Precisión: ${Math.round(accuracy * 100)}%</strong> (${matchedWords}/${totalWords} palabras)
+    <div class="modal-friend dictado-modal">
+      <div class="dictado-modal-header" style="background:${accuracyColor}">
+        <span class="dictado-modal-icon">${isExact ? '🏆' : accuracy >= 0.7 ? '📝' : '🎧'}</span>
+        <h3>${isExact ? '¡Perfecto!' : 'Resultado del dictado'}</h3>
+      </div>
+      
+      <div class="dictado-modal-body">
+        <div class="dictado-modal-section correct-section">
+          <div class="dictado-modal-label">✅ Frase correcta</div>
+          <div class="dictado-modal-text correct-text">${correctText}</div>
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:2px;margin-top:8px;">
-          ${comparisonHtml}
+        
+        <div class="dictado-modal-section user-section">
+          <div class="dictado-modal-label">✏️ Tu respuesta</div>
+          <div class="dictado-modal-text user-text">${userAnswer || '(vacío)'}</div>
+        </div>
+        
+        <div class="dictado-modal-stats">
+          <div class="dictado-stat" style="border-color:${accuracyColor}">
+            <div class="dictado-stat-value" style="color:${accuracyColor}">${Math.round(accuracy * 100)}%</div>
+            <div class="dictado-stat-label">Precisión</div>
+          </div>
+          <div class="dictado-stat">
+            <div class="dictado-stat-value">${matchedWords}</div>
+            <div class="dictado-stat-label">Aciertos</div>
+          </div>
+          <div class="dictado-stat">
+            <div class="dictado-stat-value">${totalWords}</div>
+            <div class="dictado-stat-label">Palabras</div>
+          </div>
+        </div>
+        
+        <div class="dictado-modal-comparison">
+          <div class="dictado-modal-label">🔍 Comparación palabra por palabra</div>
+          <div class="dictado-comparison-words">${comparisonHtml}</div>
+        </div>
+        
+        <div class="dictado-modal-doubt">
+          <label>💭 Consulta o duda (opcional)</label>
+          <textarea id="modalDoubtInput" rows="2" placeholder="Anota tu consulta sobre este ejercicio..."></textarea>
         </div>
       </div>
-      <div class="doubt-field" style="margin-top:12px;text-align:left;">
-        <label style="color:#94a3b8;font-size:0.8rem;">💭 Consulta (opcional)</label>
-        <textarea id="modalDoubtInput" class="answer-input" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
-      </div>
-      <div class="modal-buttons">
-        <button class="fun-btn primary-btn" id="modalContinueBtn" style="flex:1">▶️ Continuar</button>
+      
+      <div class="dictado-modal-footer">
+        <button class="dictado-modal-btn" id="modalContinueBtn">▶️ Continuar</button>
       </div>
     </div>
   `;
   
   document.body.appendChild(modal);
   
-  document.getElementById("modalContinueBtn").addEventListener("click", () => {
+  const continueHandler = () => {
     const duda = document.getElementById("modalDoubtInput")?.value?.trim() || '';
     modal.remove();
     if (onContinue) onContinue(duda);
-  });
+  };
   
+  document.getElementById("modalContinueBtn").addEventListener("click", continueHandler);
   modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      const duda = document.getElementById("modalDoubtInput")?.value?.trim() || '';
-      modal.remove();
-      if (onContinue) onContinue(duda);
-    }
+    if (e.target === modal) continueHandler();
   });
 }
 

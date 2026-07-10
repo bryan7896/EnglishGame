@@ -458,21 +458,18 @@ def get_main_logic():
     }
   }
 
+  // En get_main_logic(), reemplazar setupDictadoListeners:
   function setupDictadoListeners(exercise) {
-    const checkBtn = document.getElementById("checkDictadoBtn");
-    if (checkBtn) {
-      checkBtn.onclick = () => {
-        const answerInput = document.getElementById("dictadoInput");
-        if (!answerInput) return;
-        const userAnswer = answerInput.value.trim();
-        if (!userAnswer) { toast("📝 Escribe lo que escuchaste"); return; }
-        const result = checkDictadoAnswer(exercise, userAnswer);
-        showDictadoModal(exercise, result, userAnswer, (duda) => {
-          AppState.reportEntries.push(getDictadoReportEntry(exercise, userAnswer, duda));
-          advanceExercise();
-        });
-      };
-    }
+    const container = document.getElementById("exerciseContainer");
+    if (!container) return;
+    
+    container.addEventListener("dictado-checked", (e) => {
+      const { exercise: ex, userAnswer, result } = e.detail;
+      showDictadoModal(ex, result, userAnswer, (duda) => {
+        AppState.reportEntries.push(getDictadoReportEntry(ex, userAnswer, duda));
+        advanceExercise();
+      });
+    });
   }
 
   function setupConversacionMainListeners() {
