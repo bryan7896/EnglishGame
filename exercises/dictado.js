@@ -54,8 +54,17 @@ function speakDictado(text) {
   }
 }
 
+// Función auxiliar para obtener el texto del ejercicio
+function getExerciseText(exercise) {
+  if (typeof exercise === 'string') return exercise;
+  if (exercise && exercise.text) return exercise.text;
+  if (exercise && exercise.phrase) return exercise.phrase;
+  if (exercise && exercise.original) return exercise.original;
+  return '';
+}
+
 export function renderDictadoExercise(exercise, container) {
-  const text = typeof exercise === 'string' ? exercise : exercise.text || exercise.phrase || '';
+  const text = getExerciseText(exercise);
   
   container.innerHTML = `
     <div class="dictado-container">
@@ -173,7 +182,7 @@ export function renderDictadoExercise(exercise, container) {
     });
   }
   
-  // ============ COMPROBAR - ACCIÓN DIRECTA ============
+  // ============ COMPROBAR ============
   if (checkBtn) {
     checkBtn.onclick = function() {
       const userAnswer = textarea ? textarea.value.trim() : '';
@@ -192,13 +201,16 @@ export function renderDictadoExercise(exercise, container) {
         return;
       }
       
-      const result = checkDictadoAnswer(exercise, userAnswer);
+      const result = checkDictadoAnswer(text, userAnswer);
       
-      showDictadoModal(exercise, result, userAnswer, function(duda) {
-        // Esta función onContinue será reemplazada por setupDictadoListeners
-        // Usamos un evento custom como fallback
+      showDictadoModal(text, result, userAnswer, function(duda) {
         const event = new CustomEvent('dictado-done', {
-          detail: { exercise, userAnswer, result, duda }
+          detail: { 
+            originalText: text,
+            userAnswer: userAnswer, 
+            result: result, 
+            duda: duda 
+          }
         });
         container.dispatchEvent(event);
       });
@@ -208,23 +220,25 @@ export function renderDictadoExercise(exercise, container) {
   if (textarea) textarea.focus();
 }
 
-export function checkDictadoAnswer(exercise, userAnswer) {
-  const correctText = typeof exercise === 'string' ? exercise : exercise.text || exercise.phrase || '';
-  
-  const normalize = (str) => str.toLowerCase()
+export function checkDictadoAnswer(correctText, userAnswer) {
+  const normalize = (str) => String(str || '').toLowerCase()
     .replace(/\s+/g, ' ')
     .replace(/[.,!?;:'"]/g, '')
     .trim();
   
-  const isExact = normalize(userAnswer) === normalize(correctText);
+  const normalizedCorrect = normalize(correctText);
+  const normalizedUser = normalize(userAnswer);
+  
+  const isExact = normalizedUser === normalizedCorrect;
   
   const correctWords = correctText.toLowerCase().replace(/[.,!?;:'"]/g, '').split(/\s+/);
   const userWords = userAnswer.toLowerCase().replace(/[.,!?;:'"]/g, '').split(/\s+/);
   
   let matchedWords = 0;
   const comparison = [];
+  const maxLen = Math.max(correctWords.length, userWords.length);
   
-  for (let i = 0; i < Math.max(correctWords.length, userWords.length); i++) {
+  for (let i = 0; i < maxLen; i++) {
     const cw = correctWords[i] || '';
     const uw = userWords[i] || '';
     const match = cw === uw && cw !== '';
@@ -237,8 +251,7 @@ export function checkDictadoAnswer(exercise, userAnswer) {
   return { isExact, accuracy, matchedWords, totalWords: correctWords.length, comparison };
 }
 
-export function showDictadoModal(exercise, result, userAnswer, onContinue) {
-  const correctText = typeof exercise === 'string' ? exercise : exercise.text || exercise.phrase || '';
+export function showDictadoModal(correctText, result, userAnswer, onContinue) {
   const { isExact, accuracy, matchedWords, totalWords, comparison } = result;
   
   let accuracyColor = '#e50914';
@@ -263,12 +276,12 @@ export function showDictadoModal(exercise, result, userAnswer, onContinue) {
       <div class="dictado-modal-body">
         <div class="dictado-modal-section correct-section">
           <div class="dictado-modal-label">✅ Frase correcta</div>
-          <div class="dictado-modal-text correct-text">${correctText}</div>
+          <div class="dictado-modal-text correct-text">${escapeHTML(correctText)}</div>
         </div>
         
         <div class="dictado-modal-section user-section">
           <div class="dictado-modal-label">✏️ Tu respuesta</div>
-          <div class="dictado-modal-text user-text">${userAnswer || '(vacío)'}</div>
+          <div class="dictado-modal-text user-text">${escapeHTML(userAnswer) || '(vacío)'}</div>
         </div>
         
         <div class="dictado-modal-stats">
@@ -317,11 +330,16 @@ export function showDictadoModal(exercise, result, userAnswer, onContinue) {
   });
 }
 
-export function getDictadoReportEntry(exercise, userAnswer, duda) {
-  const correctText = typeof exercise === 'string' ? exercise : exercise.text || exercise.phrase || '';
+function escapeHTML(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+export function getDictadoReportEntry(originalText, userAnswer, duda) {
   return {
     type: "dictado",
-    original: correctText,
+    original: originalText,
     userAnswer: userAnswer,
     duda: duda || ''
   };
