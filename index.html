@@ -4619,10 +4619,9 @@ export function getConversacionReportEntry(messageData) {
     const container = document.getElementById("exerciseContainer");
     if (!container) return;
     
-    // Remover listener anterior si existe
     const handler = function(e) {
-      const { exercise: ex, userAnswer, result, duda } = e.detail;
-      AppState.reportEntries.push(getDictadoReportEntry(ex, userAnswer, duda));
+      const { originalText, userAnswer, result, duda } = e.detail;
+      AppState.reportEntries.push(getDictadoReportEntry(originalText, userAnswer, duda));
       advanceExercise();
     };
     
