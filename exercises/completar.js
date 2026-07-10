@@ -18,7 +18,6 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
     <div class="input-area">
       <p style="color:#94a3b8; margin-bottom:12px;">Completa la frase en inglés:</p>
       <div class="completar-sentence">${html}</div>
-      ${options.length > 0 ? `<p style="color:#64748b; font-size:0.8rem; margin-top:8px;">Palabras disponibles: ${options.join(', ')}</p>` : ''}
     </div>
     <div class="button-group">
       <button class="btn-action btn-check" id="checkBtn">✅ Comprobar</button>
