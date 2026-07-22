@@ -7,19 +7,18 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "6.3 - PWA"
+VERSION = "6.4 - PWA (Flexible)"
 LS_KEY = "english_trainer_v6"
 
-# URL del icono (Flaticon CDN - icono de idioma/inglés)
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
 
 INPUT_TYPES = [
-    {"id": "traducciones", "label": "📝 Traducciones", "placeholder": '[{"spanishWord": "...", "englishWord": "..."}]'},
-    {"id": "completar", "label": "✏️ Completar palabras", "placeholder": '[{"spanishWord": "...", "englishSentence": "... _____ ...", "options": ["word1"]}]'},
-    {"id": "seleccionar", "label": "🎯 Seleccionar palabras", "placeholder": '[[{"englishWord": "...", "spanishWord": "..."}]]'},
-    {"id": "corregir", "label": "🔍 Corregir frases", "placeholder": '[{"fraseConError": "...", "fraseCorrecta": "..."}]'},
-    {"id": "dictado", "label": "🎧 Dictado (frases en inglés)", "placeholder": '["The cat is on the table", "She goes to school every day"]'},
-    {"id": "conversacion", "label": "💬 Conversación", "placeholder": '[{"messages":[{"name":"Ana","avatar":"👩","color":"#f472b6","text":"Hello!"}]}]'},
+    {"id": "traducciones", "label": "📝 Traducciones (opcional)", "placeholder": '[{"spanishWord": "...", "englishWord": "..."}]'},
+    {"id": "completar", "label": "✏️ Completar palabras (opcional)", "placeholder": '[{"spanishWord": "...", "englishSentence": "... _____ ...", "options": ["word1"]}]'},
+    {"id": "seleccionar", "label": "🎯 Seleccionar palabras (opcional)", "placeholder": '[[{"englishWord": "...", "spanishWord": "..."}]]'},
+    {"id": "corregir", "label": "🔍 Corregir frases (opcional)", "placeholder": '[{"fraseConError": "...", "fraseCorrecta": "..."}]'},
+    {"id": "dictado", "label": "🎧 Dictado - frases en inglés (opcional)", "placeholder": '["The cat is on the table", "She goes to school every day"]'},
+    {"id": "conversacion", "label": "💬 Conversación (opcional)", "placeholder": '[{"messages":[{"name":"Ana","avatar":"👩","color":"#f472b6","text":"Hello!"}]}]'},
 ]
 
 EXERCISE_FILES = {
@@ -67,7 +66,6 @@ def build_create_node_args():
 
 
 def create_manifest():
-    """Crea el archivo manifest.json"""
     manifest = {
         "name": "English Trainer",
         "short_name": "EnglishTrainer",
@@ -78,18 +76,8 @@ def create_manifest():
         "theme_color": "#e50914",
         "orientation": "portrait-primary",
         "icons": [
-            {
-                "src": ICON_URL,
-                "sizes": "192x192",
-                "type": "image/png",
-                "purpose": "any maskable"
-            },
-            {
-                "src": ICON_URL,
-                "sizes": "512x512",
-                "type": "image/png",
-                "purpose": "any maskable"
-            }
+            {"src": ICON_URL, "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+            {"src": ICON_URL, "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
         ]
     }
     with open('manifest.json', 'w', encoding='utf-8') as f:
@@ -98,7 +86,6 @@ def create_manifest():
 
 
 def create_service_worker():
-    """Crea el archivo service-worker.js"""
     sw_code = '''// service-worker.js
 const CACHE_NAME = 'english-trainer-v1';
 const ASSETS = [
@@ -110,40 +97,29 @@ const ASSETS = [
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS);
-    })
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((keys) => {
-      return Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
-      );
-    })
+    caches.keys().then((keys) => Promise.all(
+      keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+    ))
   );
   self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
-  
   event.respondWith(
     fetch(event.request)
       .then((response) => {
-        const clonedResponse = response.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, clonedResponse);
-        });
+        const cloned = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, cloned));
         return response;
       })
-      .catch(() => {
-        return caches.match(event.request);
-      })
+      .catch(() => caches.match(event.request))
   );
 });
 '''
@@ -208,7 +184,7 @@ def get_html_template():
     <div id="importScreen" class="screen active">
       <div class="magic-card">
         <h2>📚 ¡Hola <span id="welcomeUsername"></span>!</h2>
-        <p>Ingresa los datos para cada tipo de ejercicio:</p>
+        <p>Todos los campos son opcionales. Ingresa los que quieras:</p>
         __IMPORT_FIELDS__
         <div class="button-group">
           <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa</button>
@@ -244,7 +220,6 @@ def get_html_template():
 <div id="toastFun" class="toast-fun"></div>
 
 <script type="module">
-  // ==================== PWA REGISTRATION ====================
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./service-worker.js')
@@ -326,9 +301,7 @@ def get_main_logic():
   };
   
   function cleanupAudio() {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     const existingModal = document.querySelector('.modal-overlay');
     if (existingModal) existingModal.remove();
   }
@@ -354,13 +327,7 @@ def get_main_logic():
     try {
       __LOAD_DATA_FIELDS__
       
-      const validation = validateInputData(__VALIDATION_ARGS__);
-      
-      if (!validation.valid) {
-        toast("❌ " + validation.errors.join(" | "));
-        return;
-      }
-      
+      // Sin validación - todo es opcional
       AppState.nodes = createNodeStructure(__CREATE_NODE_ARGS__);
       AppState.progress = {};
       AppState.activeNodeIndex = 0;
@@ -380,7 +347,11 @@ def get_main_logic():
       renderMapView();
       showMainView("map");
       const totalEj = AppState.nodes.reduce((sum, n) => sum + n.exercises.length, 0);
-      toast("🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos");
+      if (totalEj > 0) {
+        toast("🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos");
+      } else {
+        toast("⚠️ No se encontraron ejercicios. Agrega al menos uno.");
+      }
     } catch(e) {
       toast("❌ JSON invalido: " + e.message);
       console.error(e);
@@ -394,7 +365,10 @@ def get_main_logic():
 
   function openNode(nodeIndex) {
     cleanupAudio();
-    if (!AppState.nodes[nodeIndex]?.exercises?.length) return;
+    if (!AppState.nodes[nodeIndex]?.exercises?.length) {
+      toast("📭 Este nodo está vacío");
+      return;
+    }
     AppState.activeNodeIndex = nodeIndex;
     AppState.activeExerciseIndex = 0;
     AppState.failedExercises = [];
@@ -437,30 +411,12 @@ def get_main_logic():
     const isRetry = AppState.failedExercises.includes(exIndex);
     
     switch(exercise.type) {
-      case "traduccion": 
-        renderTraduccionExercise(exercise, container); 
-        setupTraduccionListeners(exercise, container); 
-        break;
-      case "completar": 
-        renderCompletarExercise(exercise, container, isRetry); 
-        setupCompletarListeners(exercise, container); 
-        break;
-      case "seleccionar": 
-        renderSeleccionarExercise(exercise, container); 
-        setupSeleccionarListeners(exercise); 
-        break;
-      case "corregir": 
-        renderCorregirExercise(exercise, container, isRetry); 
-        setupCorregirListeners(exercise, container); 
-        break;
-      case "dictado": 
-        renderDictadoExercise(exercise, container); 
-        setupDictadoListeners(exercise, container); 
-        break;
-      case "conversacion": 
-        renderConversacionExercise(exercise, container); 
-        setupConversacionMainListeners(); 
-        break;
+      case "traduccion": renderTraduccionExercise(exercise, container); setupTraduccionListeners(exercise, container); break;
+      case "completar": renderCompletarExercise(exercise, container, isRetry); setupCompletarListeners(exercise, container); break;
+      case "seleccionar": renderSeleccionarExercise(exercise, container); setupSeleccionarListeners(exercise); break;
+      case "corregir": renderCorregirExercise(exercise, container, isRetry); setupCorregirListeners(exercise, container); break;
+      case "dictado": renderDictadoExercise(exercise, container); setupDictadoListeners(exercise, container); break;
+      case "conversacion": renderConversacionExercise(exercise, container); setupConversacionMainListeners(); break;
     }
     
     document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Correccion de error" : "✏️ Tu turno";
@@ -488,17 +444,8 @@ def get_main_logic():
         const result = checkCompletarAnswers(exercise, container);
         const { allCorrect, userAnswers, results } = result;
         showCompletarModal(exercise, results, 
-          (success, duda) => { 
-            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
-            advanceExercise(); 
-          },
-          (duda) => { 
-            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
-            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
-              AppState.failedExercises.push(AppState.activeExerciseIndex);
-            }
-            renderExercise(); 
-          }
+          (success, duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); advanceExercise(); },
+          (duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
       };
     }
@@ -513,17 +460,8 @@ def get_main_logic():
         if (!userAnswer) { toast("📝 Escribe algo"); return; }
         const result = checkCorregirAnswer(exercise, userAnswer);
         showCorregirModal(exercise, result, userAnswer, 
-          (duda) => { 
-            AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); 
-            advanceExercise(); 
-          },
-          (duda) => { 
-            AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); 
-            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
-              AppState.failedExercises.push(AppState.activeExerciseIndex);
-            }
-            renderExercise(); 
-          }
+          (duda) => { AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); advanceExercise(); },
+          (duda) => { AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
       };
     }
@@ -531,11 +469,7 @@ def get_main_logic():
 
   function setupSeleccionarListeners(exercise) {
     const container = document.getElementById("exerciseContainer");
-    if (container) {
-      container.addEventListener("all-matched", () => { 
-        showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); 
-      });
-    }
+    if (container) container.addEventListener("all-matched", () => { showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); });
   }
 
   function setupDictadoListeners(exercise, container) {
@@ -552,34 +486,23 @@ def get_main_logic():
   function setupConversacionMainListeners() {
     const container = document.getElementById("exerciseContainer");
     if (!container) return;
-    container.addEventListener("conversacion-answer", (e) => { 
-      AppState.reportEntries.push(getConversacionReportEntry(e.detail)); 
-    });
-    container.addEventListener("conversacion-completed", () => {
-      cleanupAudio();
-      advanceExercise();
-    });
+    container.addEventListener("conversacion-answer", (e) => { AppState.reportEntries.push(getConversacionReportEntry(e.detail)); });
+    container.addEventListener("conversacion-completed", () => { cleanupAudio(); advanceExercise(); });
   }
 
   function advanceExercise() {
     cleanupAudio();
-    
     const node = AppState.nodes[AppState.activeNodeIndex];
     const exIndex = AppState.activeExerciseIndex;
     if (!AppState.progress[AppState.activeNodeIndex]) {
-      AppState.progress[AppState.activeNodeIndex] = { 
-        completed: false, exercisesDone: 0, 
-        exerciseResults: Array(node.exercises.length).fill(false) 
-      };
+      AppState.progress[AppState.activeNodeIndex] = { completed: false, exercisesDone: 0, exerciseResults: Array(node.exercises.length).fill(false) };
     }
     if (!AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex]) {
       AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex] = true;
-      AppState.progress[AppState.activeNodeIndex].exercisesDone = 
-        (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
+      AppState.progress[AppState.activeNodeIndex].exercisesDone = (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
     }
     AppState.failedExercises = AppState.failedExercises.filter(i => i !== exIndex);
-    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 
-      ? AppState.failedExercises[0] : AppState.activeExerciseIndex + 1;
+    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 ? AppState.failedExercises[0] : AppState.activeExerciseIndex + 1;
     saveToStorage();
     renderExercise();
   }
@@ -589,10 +512,7 @@ def get_main_logic():
     lines.push("📘 INFORME DE APRENDIZAJE");
     lines.push("=".repeat(40));
     lines.push("");
-    if (AppState.reportEntries.length === 0) { 
-      lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); 
-      return lines.join("\\n"); 
-    }
+    if (AppState.reportEntries.length === 0) { lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); return lines.join("\\n"); }
     
     const byType = {};
     AppState.reportEntries.forEach(entry => {
@@ -601,10 +521,7 @@ def get_main_logic():
     });
     
     let counter = 0;
-    const typeNames = { 
-      traduccion:"TRADUCCIÓN", completar:"COMPLETAR", seleccionar:"EMPAREJAR",
-      corregir:"CORREGIR", dictado:"DICTADO", conversacion:"CONVERSACIÓN" 
-    };
+    const typeNames = { traduccion:"TRADUCCIÓN", completar:"COMPLETAR", seleccionar:"EMPAREJAR", corregir:"CORREGIR", dictado:"DICTADO", conversacion:"CONVERSACIÓN" };
     
     Object.keys(typeNames).forEach(type => {
       const entries = byType[type] || [];
@@ -614,23 +531,11 @@ def get_main_logic():
       entries.forEach(entry => {
         counter++;
         lines.push(counter + ". " + (entry.original || entry.messageText || "").substring(0, 80));
-        if (entry.type === "traduccion") { 
-          lines.push("   ✅ Esperado: " + entry.expected); 
-          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
-        } else if (entry.type === "completar") { 
-          lines.push("   ✅ Frase: " + entry.expected); 
-          lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); 
-        } else if (entry.type === "corregir") { 
-          lines.push("   ❌ Error: " + entry.original); 
-          lines.push("   ✅ Correcto: " + entry.expected); 
-          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
-        } else if (entry.type === "dictado") { 
-          lines.push("   🎧 Correcto: " + entry.original); 
-          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
-        } else if (entry.type === "conversacion") { 
-          if (entry.removedWord) { lines.push("   🔤 Falta: " + entry.removedWord); lines.push("   ✏️ Usuario: " + entry.userAnswer); } 
-          if (entry.selectedOption !== undefined) lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); 
-        }
+        if (entry.type === "traduccion") { lines.push("   ✅ Esperado: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
+        else if (entry.type === "completar") { lines.push("   ✅ Frase: " + entry.expected); lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); }
+        else if (entry.type === "corregir") { lines.push("   ❌ Error: " + entry.original); lines.push("   ✅ Correcto: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
+        else if (entry.type === "dictado") { lines.push("   🎧 Correcto: " + entry.original); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
+        else if (entry.type === "conversacion") { if (entry.removedWord) { lines.push("   🔤 Falta: " + entry.removedWord); lines.push("   ✏️ Usuario: " + entry.userAnswer); } if (entry.selectedOption !== undefined) lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); }
         if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
         lines.push("");
       });
@@ -650,10 +555,8 @@ def get_main_logic():
     const colors = ["#e50914", "#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"];
     for(let i = 0; i < 40; i++) {
       const c = document.createElement("div"); c.classList.add("confetti");
-      c.style.left = Math.random() * 100 + "vw"; 
-      c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      c.style.width = (5 + Math.random() * 8) + "px"; 
-      c.style.height = (8 + Math.random() * 10) + "px";
+      c.style.left = Math.random() * 100 + "vw"; c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      c.style.width = (5 + Math.random() * 8) + "px"; c.style.height = (8 + Math.random() * 10) + "px";
       c.style.animationDuration = (1 + Math.random() * 2) + "s";
       document.body.appendChild(c); setTimeout(() => c.remove(), 3000);
     }
@@ -667,10 +570,7 @@ def get_main_logic():
     document.getElementById("userNameDisplay").innerText = username;
     document.getElementById("welcomeUsername").innerText = username;
     const hasData = loadFromStorage(username);
-    if (!hasData) { 
-      AppState.nodes = []; AppState.progress = {}; 
-      AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; 
-    }
+    if (!hasData) { AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; }
     renderMapView();
     document.getElementById("loginScreen").classList.remove("active");
     document.getElementById("mainScreen").classList.add("active");
@@ -689,9 +589,7 @@ def get_main_logic():
 
   async function resetAll() {
     if(confirm("¿Borrar todo el progreso?")) {
-      AppState.nodes = []; AppState.progress = {}; 
-      AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; 
-      AppState.failedExercises = []; AppState.reportEntries = [];
+      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = [];
       saveToStorage(); renderMapView(); showMainView("import"); toast("🗑️ Todo borrado");
     }
   }
@@ -718,7 +616,6 @@ def get_main_logic():
 
 def build_html():
     print("📂 Leyendo archivos...")
-    
     styles = read_file('styles/main.css')
     map_js = read_file('mapa/map.js')
     
@@ -729,7 +626,6 @@ def build_html():
         print(f"  ✅ {filepath} -> {marker} ({len(content):,} bytes)")
     
     template = get_html_template()
-    
     html = template.replace('__STYLES__', styles)
     html = html.replace('__VERSION__', VERSION)
     html = html.replace('__IMPORT_FIELDS__', build_import_fields())
@@ -743,7 +639,6 @@ def build_html():
     main_logic = main_logic.replace('__LOAD_DATA_FIELDS__', build_load_data_fields())
     main_logic = main_logic.replace('__VALIDATION_ARGS__', build_validation_args())
     main_logic = main_logic.replace('__CREATE_NODE_ARGS__', build_create_node_args())
-    
     html = html.replace('__MAIN_LOGIC__', main_logic)
     
     return html
@@ -759,43 +654,33 @@ def main():
     missing = [f for f in required_files if not os.path.exists(f)]
     if missing:
         print("❌ Faltan archivos:")
-        for f in missing:
-            print(f"   - {f}")
+        for f in missing: print(f"   - {f}")
         sys.exit(1)
     
     print(f"✅ {len(required_files)} archivos encontrados\n")
-
-
-    # Crear archivos PWA
     print("📱 Creando archivos PWA...")
     create_manifest()
     create_service_worker()
     print()
     
-    # Construir HTML
     html = build_html()
-    
     output_path = 'index.html'
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html)
     
     file_size = os.path.getsize(output_path)
-    
     print("\n" + "=" * 60)
     print(f"✅ Archivo generado: {output_path}")
     print(f"📦 Tamano: {file_size:,} bytes")
     print(f"📅 Fecha: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
     print("🎉 ¡Build PWA completado!")
-    print(f"\n📱 Archivos generados en /output/:")
+    print(f"\n📱 Archivos generados:")
     print(f"   - index.html")
     print(f"   - manifest.json")
     print(f"   - service-worker.js")
-    print(f"\n🌐 Para probar la PWA:")
-    print(f"   cd output && python -m http.server 8000")
-    print(f"   Luego abre: http://localhost:8000")
-    print(f"\n📲 Para instalar en el celular:")
-    print(f"   Abre la URL en Chrome Android y usa 'Agregar a pantalla de inicio'")
+    print(f"\n🌐 python -m http.server 8000")
+    print(f"📲 Abre en Chrome Android y usa 'Agregar a pantalla de inicio'")
 
 
 if __name__ == "__main__":

@@ -40,7 +40,6 @@ function shuffleArray(arr) {
 export function createNodeStructure(userData) {
   const { traducciones, completar, seleccionar, corregir, dictado, conversacion } = userData;
   
-  // Recolectar todos los ejercicios
   const allExercises = [
     ...(traducciones || []).map(e => ({ ...e, type: "traduccion" })),
     ...(completar || []).map(e => ({ ...e, type: "completar" })),
@@ -49,21 +48,31 @@ export function createNodeStructure(userData) {
     ...(dictado || []).map(e => ({ text: typeof e === 'string' ? e : e.text || e, type: "dictado" })),
   ];
   
-  // Mezclar aleatoriamente
+  if (allExercises.length === 0) {
+    return MAP_CONFIG.nodes.map((config, idx) => ({
+      id: config.id,
+      type: config.type,
+      percent: config.percent,
+      background: MAP_CONFIG.backgrounds[idx],
+      totalExercises: 0,
+      exercises: []
+    }));
+  }
+  
   const shuffled = shuffleArray(allExercises);
   
-  // Distribuir según porcentajes
   const nodes = MAP_CONFIG.nodes.map((config, idx) => {
     const totalExercises = shuffled.length;
-    const nodeSize = Math.round(totalExercises * config.percent / 100);
+    const nodeSize = Math.max(1, Math.round(totalExercises * config.percent / 100));
     
-    // Calcular inicio para este nodo
     let startIndex = 0;
     for (let i = 0; i < idx; i++) {
-      startIndex += Math.round(totalExercises * MAP_CONFIG.nodes[i].percent / 100);
+      startIndex += Math.max(1, Math.round(totalExercises * MAP_CONFIG.nodes[i].percent / 100));
     }
     
-    const nodeExercises = shuffled.slice(startIndex, startIndex + nodeSize);
+    const safeStart = Math.min(startIndex, shuffled.length);
+    const safeEnd = Math.min(safeStart + nodeSize, shuffled.length);
+    const nodeExercises = shuffled.slice(safeStart, safeEnd);
     
     return {
       id: config.id,
@@ -75,35 +84,28 @@ export function createNodeStructure(userData) {
     };
   });
   
-  // Agregar conversación al último nodo si existe
   if (conversacion && conversacion.length > 0) {
-    const conv = conversacion[0];
-    nodes[nodes.length - 1].exercises.push({
-      type: "conversacion",
-      messages: conv.messages || conv
-    });
-    nodes[nodes.length - 1].totalExercises++;
+    for (const conv of conversacion) {
+      nodes[nodes.length - 1].exercises.push({
+        type: "conversacion",
+        messages: conv.messages || conv
+      });
+      nodes[nodes.length - 1].totalExercises++;
+    }
   }
   
   return nodes;
 }
 
 export function validateInputData(data) {
-  const errors = [];
-  if (!data.traducciones?.length) errors.push("Traducciones: required");
-  if (!data.completar?.length) errors.push("Completar: required");
-  if (!data.seleccionar?.length) errors.push("Seleccionar: required");
-  if (!data.corregir?.length) errors.push("Corregir: required");
-  if (!data.dictado?.length) errors.push("Dictado: required");
-  if (!data.conversacion?.length) errors.push("Conversación: required");
-  return { valid: errors.length === 0, errors };
+  return { valid: true, errors: [] };
 }
 
 export function renderMap(nodes, progress, callbacks) {
   const mapList = document.getElementById("mapList");
   if (!mapList) return;
   
-  if (!nodes?.length) {
+  if (!nodes?.length || nodes.every(n => n.exercises.length === 0)) {
     mapList.innerHTML = `<div style="text-align:center;padding:40px;color:#94a3b8;"><p>Carga tus ejercicios para ver el mapa</p></div>`;
     return;
   }
@@ -122,10 +124,11 @@ export function renderMap(nodes, progress, callbacks) {
     const isDone = prog.completed || false;
     const isCur = idx === firstUnlocked && !isDone;
     const unlocked = idx <= firstUnlocked;
+    const isEmpty = total === 0;
     
     return `
-      <div class="netflix-node ${!unlocked ? 'locked' : ''} ${isCur ? 'current' : ''} ${isDone ? 'done' : ''}"
-           data-node="${idx}" style="${!unlocked ? 'pointer-events:none;' : ''}">
+      <div class="netflix-node ${!unlocked ? 'locked' : ''} ${isCur ? 'current' : ''} ${isDone ? 'done' : ''} ${isEmpty ? 'empty' : ''}"
+           data-node="${idx}" style="${!unlocked || isEmpty ? 'pointer-events:none;' : ''}">
         <div class="netflix-node-bg" style="background-image:url('${node.background}')">
           <div class="netflix-node-overlay"></div>
         </div>
@@ -138,7 +141,7 @@ export function renderMap(nodes, progress, callbacks) {
             </div>
           </div>
           <div class="netflix-node-status">
-            ${isDone ? '✅ COMPLETADO' : isCur ? '▶ REPRODUCIR' : unlocked ? '🔓 DISPONIBLE' : '🔒 BLOQUEADO'}
+            ${isEmpty ? '📭 SIN EJERCICIOS' : isDone ? '✅ COMPLETADO' : isCur ? '▶ REPRODUCIR' : unlocked ? '🔓 DISPONIBLE' : '🔒 BLOQUEADO'}
           </div>
         </div>
       </div>
@@ -148,6 +151,11 @@ export function renderMap(nodes, progress, callbacks) {
   mapList.querySelectorAll('.netflix-node[data-node]').forEach(card => {
     card.addEventListener('click', () => {
       const idx = parseInt(card.dataset.node);
+      const node = nodes[idx];
+      if (!node || node.exercises.length === 0) {
+        callbacks.showToast("📭 Este nodo no tiene ejercicios");
+        return;
+      }
       if (idx <= firstUnlocked) callbacks.openNode(idx);
       else callbacks.showToast("Completa el nodo anterior");
     });
