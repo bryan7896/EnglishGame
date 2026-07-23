@@ -3562,6 +3562,171 @@ body {
   justify-content: flex-end;
   gap: 10px;
   margin-top: 18px;
+}
+
+
+/* ============ CORREGIR ============ */
+
+.corregir-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.corregir-correction-notice {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #fca5a5;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.corregir-spanish-section {
+  background: rgba(96, 165, 250, 0.05);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.corregir-spanish-text {
+  color: #93c5fd;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.corregir-error-section {
+  background: rgba(248, 113, 113, 0.05);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.corregir-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.error-highlight {
+  color: #f87171;
+  text-decoration: line-through;
+  text-decoration-color: #f87171;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.correct-highlight {
+  color: #4ade80;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.spanish-reference {
+  color: #93c5fd;
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ============ COMPARISON ROWS ============ */
+
+.comparison-row {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.comparison-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.comparison-row-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.comparison-row-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ============ WORD DIFF ============ */
+
+.word-diff-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.word-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.word-pill.word-correct {
+  background: rgba(74, 222, 128, 0.12);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.word-pill.word-error {
+  background: rgba(248, 113, 113, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+/* ============ MODAL DOUBT ============ */
+
+.modal-doubt-wrap {
+  background: #111;
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 12px;
+}
+
+.modal-doubt-label {
+  display: block;
+  color: #888;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.modal-doubt {
+  width: 100%;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  resize: vertical;
+  min-height: 45px;
+  outline: none;
+}
+
+.modal-doubt:focus {
+  border-color: #e50914;
 }</style>
 </head>
 <body>
@@ -3581,7 +3746,7 @@ body {
     <div class="play-topbar">
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
-        <div class="sub-fun">7.0 optional</div>
+        <div class="sub-fun">7.1 optional</div>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
         <div class="user-info" id="userInfo">
@@ -4278,78 +4443,98 @@ export function showSeleccionarCompleteModal(pairs, onContinue) {
     if (e.target === modal) close();
   });
 }
-  
+  // exercises/corregir.js
+
 export function renderCorregirExercise(exercise, container, isRetry = false) {
-  const { fraseConError } = exercise;
- 
+  const { fraseConError, spanishPhrase } = exercise;
+  
   container.innerHTML = `
     <div class="corregir-card">
       ${isRetry ? '<div class="corregir-correction-notice">⚠️ Corrección: intenta de nuevo</div>' : ''}
-      <div class="corregir-eyebrow">🔍 Corrige la frase</div>
-      <div class="error-highlight">${fraseConError}</div>
-      <textarea class="answer-input corregir-answer" rows="2" placeholder="Escribe la frase corregida..."></textarea>
+      
+      ${spanishPhrase ? `
+        <div class="corregir-spanish-section">
+          <div class="corregir-eyebrow">🇪🇸 Frase en español</div>
+          <div class="corregir-spanish-text">${window._escHTML(spanishPhrase)}</div>
+        </div>
+      ` : ''}
+      
+      <div class="corregir-error-section">
+        <div class="corregir-eyebrow">🔍 Encuentra el error y corrige la frase en inglés</div>
+        <div class="error-highlight">${window._escHTML(fraseConError)}</div>
+      </div>
+      
+      <textarea class="answer-input corregir-answer" rows="2" placeholder="Escribe la frase corregida en inglés..."></textarea>
       <div class="button-group">
         <button class="btn-action btn-check corregir-check">✅ Comprobar</button>
       </div>
     </div>
   `;
 }
- 
+
 export function checkCorregirAnswer(exercise, userAnswer) {
   const correctAnswer = exercise.fraseCorrecta.trim();
   const normalize = (str) => str.toLowerCase().replace(/\s+/g, ' ').replace(/[.,!?;:]/g, '').trim();
- 
+
   const isCorrect = normalize(userAnswer) === normalize(correctAnswer);
- 
+
   const correctWords = correctAnswer.split(/\s+/);
   const userWords = userAnswer.split(/\s+/);
   const maxLen = Math.max(correctWords.length, userWords.length);
   const comparison = [];
- 
+
   for (let i = 0; i < maxLen; i++) {
     const cw = correctWords[i] || '';
     const uw = userWords[i] || '';
     comparison.push({ correct: cw, user: uw, match: normalize(cw) === normalize(uw) && cw !== '' });
   }
- 
+
   return { isCorrect, comparison };
 }
- 
+
 export function showCorregirModal(exercise, result, userAnswer, onContinue, onRetry) {
   const existingModal = document.querySelector('.modal-overlay');
   if (existingModal) existingModal.remove();
- 
-  const { fraseConError, fraseCorrecta } = exercise;
+
+  const { fraseConError, fraseCorrecta, spanishPhrase } = exercise;
   const { isCorrect, comparison } = result;
- 
+
   const comparisonHtml = comparison.map(c => {
     if (!c.correct && !c.user) return '';
     const cls = c.match ? 'word-correct' : 'word-error';
     const icon = c.match ? '✓' : '✗';
     return `<span class="word-pill ${cls}">${icon} ${window._escHTML(c.user || '—')}</span>`;
   }).join('');
- 
+
   const modal = document.createElement("div");
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>${isCorrect ? '🎉 ¡Correcto!' : '📝 Revisa'}</h3>
+      <h3>${isCorrect ? '🎉 ¡Correcto!' : '📝 Revisa la corrección'}</h3>
       <div class="comparison-text-block">
+        
+        ${spanishPhrase ? `
+          <div class="comparison-row">
+            <span class="comparison-row-label">🇪🇸 Frase en español</span>
+            <div class="comparison-row-text spanish-reference">${window._escHTML(spanishPhrase)}</div>
+          </div>
+        ` : ''}
+        
         <div class="comparison-row">
           <span class="comparison-row-label">❌ Frase con error</span>
-          <div class="comparison-row-text error-highlight">${fraseConError}</div>
+          <div class="comparison-row-text error-highlight">${window._escHTML(fraseConError)}</div>
         </div>
         <div class="comparison-row">
           <span class="comparison-row-label">✅ Frase correcta</span>
-          <div class="comparison-row-text correct-highlight">${fraseCorrecta}</div>
+          <div class="comparison-row-text correct-highlight">${window._escHTML(fraseCorrecta)}</div>
         </div>
         <div class="comparison-row">
           <span class="comparison-row-label">✏️ Tu respuesta</span>
-          <div class="comparison-row-text ${isCorrect ? 'correct-highlight' : ''}" style="${isCorrect ? '' : 'color:#fbbf24;'}">${window._escHTML(userAnswer)}</div>
+          <div class="comparison-row-text ${isCorrect ? 'correct-highlight' : ''}" style="${isCorrect ? '' : 'color:#fbbf24;'}">${window._escHTML(userAnswer) || '(vacío)'}</div>
         </div>
         <div class="comparison-row">
           <span class="comparison-row-label">🔍 Comparación palabra a palabra</span>
-          <div class="word-diff-wrap">${comparisonHtml}</div>
+          <div class="word-diff-wrap">${comparisonHtml || '—'}</div>
         </div>
       </div>
       <div class="modal-doubt-wrap">
@@ -4362,24 +4547,26 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
       </div>
     </div>
   `;
- 
+
   document.body.appendChild(modal);
- 
+
   const getDuda = () => modal.querySelector('.modal-doubt')?.value?.trim() || '';
- 
-  modal.querySelector('.modal-continue').addEventListener("click", () => {
+
+  modal.querySelector('.modal-continue').addEventListener("click", (e) => {
+    e.stopPropagation();
     modal.remove();
     if (onContinue) onContinue(getDuda());
   });
- 
+
   const retryBtn = modal.querySelector('.modal-retry');
   if (retryBtn) {
-    retryBtn.addEventListener("click", () => {
+    retryBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       modal.remove();
       if (onRetry) onRetry(getDuda());
     });
   }
- 
+
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.remove();
@@ -4387,17 +4574,17 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
     }
   });
 }
- 
+
 export function getCorregirReportEntry(exercise, userAnswer, duda) {
   return {
     type: "corregir",
     original: exercise.fraseConError,
     expected: exercise.fraseCorrecta,
+    spanishPhrase: exercise.spanishPhrase || '',
     userAnswer: userAnswer,
     duda: duda || ''
   };
 }
- 
   // exercises/dictado.js
 
 const VOICES = [

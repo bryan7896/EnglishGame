@@ -3549,3 +3549,168 @@ body {
   gap: 10px;
   margin-top: 18px;
 }
+
+
+/* ============ CORREGIR ============ */
+
+.corregir-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.corregir-correction-notice {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #fca5a5;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.corregir-spanish-section {
+  background: rgba(96, 165, 250, 0.05);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.corregir-spanish-text {
+  color: #93c5fd;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.corregir-error-section {
+  background: rgba(248, 113, 113, 0.05);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.corregir-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.error-highlight {
+  color: #f87171;
+  text-decoration: line-through;
+  text-decoration-color: #f87171;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.correct-highlight {
+  color: #4ade80;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.spanish-reference {
+  color: #93c5fd;
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ============ COMPARISON ROWS ============ */
+
+.comparison-row {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.comparison-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.comparison-row-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.comparison-row-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ============ WORD DIFF ============ */
+
+.word-diff-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.word-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.word-pill.word-correct {
+  background: rgba(74, 222, 128, 0.12);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.word-pill.word-error {
+  background: rgba(248, 113, 113, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+/* ============ MODAL DOUBT ============ */
+
+.modal-doubt-wrap {
+  background: #111;
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 12px;
+}
+
+.modal-doubt-label {
+  display: block;
+  color: #888;
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.modal-doubt {
+  width: 100%;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  resize: vertical;
+  min-height: 45px;
+  outline: none;
+}
+
+.modal-doubt:focus {
+  border-color: #e50914;
+}
