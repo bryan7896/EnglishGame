@@ -3746,7 +3746,7 @@ body {
     <div class="play-topbar">
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
-        <div class="sub-fun">7.3 (2024-06-15)</div>
+        <div class="sub-fun">7.4 (24-07-2024)</div>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
         <div class="user-info" id="userInfo">
@@ -5457,8 +5457,16 @@ export function getConversacionReportEntry(messageData) {
         const result = checkCompletarAnswers(exercise, container);
         const { allCorrect, userAnswers, results } = result;
         showCompletarModal(exercise, results, 
-          (success, duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); advanceExercise(); },
-          (duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
+          (success, duda) => { 
+            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
+            advanceExercise(); 
+          },
+          (duda) => { 
+            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
+              AppState.failedExercises.push(AppState.activeExerciseIndex);
+            }
+            renderExercise(); 
+          }
         );
       };
     }
@@ -5486,13 +5494,19 @@ export function getConversacionReportEntry(messageData) {
   }
 
   function setupDictadoListeners(exercise, container) {
+    // Guardar referencia en el container para poder removerla después
+    if (container._dictadoHandler) {
+      container.removeEventListener("dictado-done", container._dictadoHandler);
+    }
+    
     const handler = function(e) {
       cleanupAudio();
       const { originalText, userAnswer, result, duda } = e.detail;
       AppState.reportEntries.push(getDictadoReportEntry(originalText, userAnswer, duda));
       advanceExercise();
     };
-    container.removeEventListener("dictado-done", handler);
+    
+    container._dictadoHandler = handler;
     container.addEventListener("dictado-done", handler);
   }
 

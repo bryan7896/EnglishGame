@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "7.3 (2024-06-15)"
+VERSION = "7.4 (24-07-2024)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -444,8 +444,16 @@ def get_main_logic():
         const result = checkCompletarAnswers(exercise, container);
         const { allCorrect, userAnswers, results } = result;
         showCompletarModal(exercise, results, 
-          (success, duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); advanceExercise(); },
-          (duda) => { AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
+          (success, duda) => { 
+            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
+            advanceExercise(); 
+          },
+          (duda) => { 
+            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
+              AppState.failedExercises.push(AppState.activeExerciseIndex);
+            }
+            renderExercise(); 
+          }
         );
       };
     }
@@ -473,13 +481,19 @@ def get_main_logic():
   }
 
   function setupDictadoListeners(exercise, container) {
+    // Guardar referencia en el container para poder removerla después
+    if (container._dictadoHandler) {
+      container.removeEventListener("dictado-done", container._dictadoHandler);
+    }
+    
     const handler = function(e) {
       cleanupAudio();
       const { originalText, userAnswer, result, duda } = e.detail;
       AppState.reportEntries.push(getDictadoReportEntry(originalText, userAnswer, duda));
       advanceExercise();
     };
-    container.removeEventListener("dictado-done", handler);
+    
+    container._dictadoHandler = handler;
     container.addEventListener("dictado-done", handler);
   }
 
