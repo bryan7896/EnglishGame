@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "7.1 optional"
+VERSION = "7.2"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -512,7 +512,11 @@ def get_main_logic():
     lines.push("📘 INFORME DE APRENDIZAJE");
     lines.push("=".repeat(40));
     lines.push("");
-    if (AppState.reportEntries.length === 0) { lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); return lines.join("\\n"); }
+    
+    if (AppState.reportEntries.length === 0) { 
+      lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); 
+      return lines.join("\n");
+    }
     
     const byType = {};
     AppState.reportEntries.forEach(entry => {
@@ -521,7 +525,14 @@ def get_main_logic():
     });
     
     let counter = 0;
-    const typeNames = { traduccion:"TRADUCCIÓN", completar:"COMPLETAR", seleccionar:"EMPAREJAR", corregir:"CORREGIR", dictado:"DICTADO", conversacion:"CONVERSACIÓN" };
+    const typeNames = { 
+      traduccion:"TRADUCCIÓN", 
+      completar:"COMPLETAR", 
+      seleccionar:"EMPAREJAR", 
+      corregir:"CORREGIR", 
+      dictado:"DICTADO", 
+      conversacion:"CONVERSACIÓN" 
+    };
     
     Object.keys(typeNames).forEach(type => {
       const entries = byType[type] || [];
@@ -531,17 +542,38 @@ def get_main_logic():
       entries.forEach(entry => {
         counter++;
         lines.push(counter + ". " + (entry.original || entry.messageText || "").substring(0, 80));
-        if (entry.type === "traduccion") { lines.push("   ✅ Esperado: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
-        else if (entry.type === "completar") { lines.push("   ✅ Frase: " + entry.expected); lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); }
-        else if (entry.type === "corregir") { lines.push("   ❌ Error: " + entry.original); lines.push("   ✅ Correcto: " + entry.expected); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
-        else if (entry.type === "dictado") { lines.push("   🎧 Correcto: " + entry.original); lines.push("   ✏️ Usuario: " + entry.userAnswer); }
-        else if (entry.type === "conversacion") { if (entry.removedWord) { lines.push("   🔤 Falta: " + entry.removedWord); lines.push("   ✏️ Usuario: " + entry.userAnswer); } if (entry.selectedOption !== undefined) lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); }
+        if (entry.type === "traduccion") { 
+          lines.push("   ✅ Esperado: " + entry.expected); 
+          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+        }
+        else if (entry.type === "completar") { 
+          lines.push("   ✅ Frase: " + entry.expected); 
+          lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); 
+        }
+        else if (entry.type === "corregir") { 
+          lines.push("   ❌ Error: " + entry.original); 
+          lines.push("   ✅ Correcto: " + entry.expected); 
+          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+        }
+        else if (entry.type === "dictado") { 
+          lines.push("   🎧 Correcto: " + entry.original); 
+          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+        }
+        else if (entry.type === "conversacion") { 
+          if (entry.removedWord) { 
+            lines.push("   🔤 Falta: " + entry.removedWord); 
+            lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+          } 
+          if (entry.selectedOption !== undefined) 
+            lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); 
+        }
         if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
         lines.push("");
       });
       lines.push("");
     });
-    return lines.join("\\n");
+    
+    return lines.join("\n");
   }
 
   function copyReport() {
