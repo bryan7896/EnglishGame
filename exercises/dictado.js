@@ -1,45 +1,104 @@
 // exercises/dictado.js
 
-const VOICES = [
-  { lang: "en-US", rate: 0.75 },
-  { lang: "en-GB", rate: 0.75 },
-  { lang: "en-AU", rate: 0.78 },
-  { lang: "en-IE", rate: 0.75 },
+const DICTADO_LANG = "en-US";
+const DICTADO_RATE = 0.73;
+
+// Mapa "best-effort" nombre de voz -> género. El navegador no expone un
+// campo de género real (SpeechSynthesisVoice no lo tiene), así que
+// detectamos por el nombre. Cubre las voces en-US más comunes de Chrome,
+// Edge/Windows y Safari/macOS. Si una voz no matchea, se trata como
+// "unknown" y simplemente entra al pool general.
+const VOICE_GENDER_MAP = [
+  // típicamente femeninas
+  { match: /samantha/i, gender: "female" },
+  { match: /victoria/i, gender: "female" },
+  { match: /susan/i, gender: "female" },
+  { match: /zira/i, gender: "female" },
+  { match: /aria/i, gender: "female" },
+  { match: /jenny/i, gender: "female" },
+  { match: /allison/i, gender: "female" },
+  { match: /^google us english$/i, gender: "female" }, // voz por defecto en Chrome
+  // típicamente masculinas
+  { match: /alex/i, gender: "male" },
+  { match: /fred/i, gender: "male" },
+  { match: /david/i, gender: "male" },
+  { match: /guy/i, gender: "male" },
+  { match: /mark/i, gender: "male" },
+  { match: /tom/i, gender: "male" },
+  { match: /eric/i, gender: "male" },
 ];
 
-let lastVoiceIdx = -1;
-let currentUtterance = null; // Para tracking
+function classifyVoiceGender(voice) {
+  const found = VOICE_GENDER_MAP.find((v) => v.match.test(voice.name));
+  return found ? found.gender : "unknown";
+}
 
-function getRandomVoice() {
-  let idx;
-  do { idx = Math.floor(Math.random() * VOICES.length); }
-  while (idx === lastVoiceIdx && VOICES.length > 1);
-  lastVoiceIdx = idx;
-  return VOICES[idx];
+let currentUtterance = null; // Para tracking
+let lastVoiceURI = null; // Evita repetir literalmente la misma voz
+let lastGender = null; // Para alternar género cuando hay ambos disponibles
+
+// Pre-cargar la lista de voces del sistema apenas se pueda. En Chrome,
+// getVoices() suele devolver [] hasta que dispara "voiceschanged".
+if ("speechSynthesis" in window) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.addEventListener("voiceschanged", () => {
+    window.speechSynthesis.getVoices();
+  });
+}
+
+/**
+ * Elige una voz en inglés estadounidense (en-US), alternando entre
+ * masculina y femenina cuando el sistema tiene ambas disponibles, y
+ * evitando repetir la misma voz dos veces seguidas.
+ *
+ * Se restringe a en-US (en vez de mezclar en-GB/en-AU/en-IE) porque el
+ * objetivo es practicar específicamente la pronunciación estadounidense:
+ * mezclar acentos es variedad, pero no ayuda a fijar el oído en un
+ * único estándar mientras se está aprendiendo.
+ */
+function pickUSVoice() {
+  const voices = window.speechSynthesis.getVoices();
+  const usVoices = voices.filter((v) => v.lang === "en-US" || v.lang === "en_US");
+  if (usVoices.length === 0) return null;
+
+  const classified = usVoices.map((v) => ({ voice: v, gender: classifyVoiceGender(v) }));
+  const females = classified.filter((v) => v.gender === "female");
+  const males = classified.filter((v) => v.gender === "male");
+
+  let pool = classified;
+  if (females.length && males.length) {
+    // Alterna respecto al género anterior; si no sabemos el anterior, usa todo el pool
+    if (lastGender === "female") pool = males;
+    else if (lastGender === "male") pool = females;
+  }
+
+  let candidates = pool.filter((v) => v.voice.voiceURI !== lastVoiceURI);
+  if (candidates.length === 0) candidates = pool.length ? pool : classified;
+
+  const chosen = candidates[Math.floor(Math.random() * candidates.length)];
+  lastVoiceURI = chosen.voice.voiceURI;
+  if (chosen.gender !== "unknown") lastGender = chosen.gender;
+  return chosen.voice;
 }
 
 function speakDictado(text) {
-  if (!('speechSynthesis' in window)) return;
-  
+  if (!("speechSynthesis" in window)) return;
+
   // Cancelar cualquier audio previo
   window.speechSynthesis.cancel();
-  
+
   const u = new SpeechSynthesisUtterance(text);
   currentUtterance = u;
-  
-  const vc = getRandomVoice();
-  u.lang = vc.lang;
-  u.rate = vc.rate;
+
+  u.lang = DICTADO_LANG;
+  u.rate = DICTADO_RATE;
   u.pitch = 1;
   u.volume = 1;
-  
+
   // Pequeño delay para asegurar que el cancel se procesó
   setTimeout(() => {
-    const voices = window.speechSynthesis.getVoices();
-    const enVoices = voices.filter(v => v.lang.startsWith('en'));
-    if (enVoices.length > 0) {
-      u.voice = enVoices[Math.floor(Math.random() * enVoices.length)];
-    }
+    const voice = pickUSVoice();
+    if (voice) u.voice = voice;
     window.speechSynthesis.speak(u);
   }, 100);
 }
