@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "7.4 (24-07-2024)"
+VERSION = "8.0 (26-07-2024)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"

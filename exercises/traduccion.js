@@ -52,11 +52,36 @@ export function renderTraduccionExercise(exercise, container) {
   `;
 }
 
+function normalizeFullAnswer(str) {
+  return String(str || "")
+    .toLowerCase()
+    .replace(/[.,!?;:]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function isFullyCorrectAnswer(correctText, userAnswer) {
+  return normalizeFullAnswer(correctText) === normalizeFullAnswer(userAnswer);
+}
+
+function speakTraduccionText(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  setTimeout(() => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.9;
+    window.speechSynthesis.speak(utterance);
+  }, 100);
+}
+
 export function showComparativeModal(exercise, userAnswer, onContinue) {
   const existingModal = document.querySelector('.modal-overlay');
   if (existingModal) existingModal.remove();
+  window.speechSynthesis?.cancel();
   
   const correctText = exercise.englishWord || exercise.englishWords;
+  const isCorrect = isFullyCorrectAnswer(correctText, userAnswer);
   const { alignedCorrect, alignedUser } = alignWords(correctText, userAnswer);
   
   let correctHtml = alignedCorrect.map(item => {
@@ -73,7 +98,8 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>📊 Comparación</h3>
+      <h3>${isCorrect ? '🎉 ¡Perfecto!' : '📊 Comparación'}</h3>
+      ${isCorrect ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
       <div class="comparison-text-block">
         <p><strong>🇪🇸 Español:</strong><br>${window._escHTML(exercise.spanishWord || exercise.spanishWords)}</p>
         <div class="compare-line"><strong>✅ Correcto:</strong> ${correctHtml}</div>
@@ -91,8 +117,13 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   
   document.body.appendChild(modal);
   
+  if (isCorrect) {
+    speakTraduccionText(correctText);
+  }
+  
   const close = () => {
     const duda = modal.querySelector('.modal-doubt')?.value?.trim() || '';
+    window.speechSynthesis?.cancel();
     modal.remove();
     if (onContinue) onContinue(duda);
   };

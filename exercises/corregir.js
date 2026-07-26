@@ -16,7 +16,17 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
       
       <div class="corregir-error-section">
         <div class="corregir-eyebrow">🔍 Encuentra el error y corrige la frase en inglés</div>
-        <div class="error-highlight">${window._escHTML(fraseConError)}</div>
+        <div class="corregir-flipcard" tabindex="0" role="button" aria-pressed="false" aria-label="Toca para revelar la frase con error">
+          <div class="corregir-flipcard-inner">
+            <div class="corregir-flipcard-face corregir-flipcard-front">
+              <span class="corregir-flipcard-icon">🃏</span>
+              <span class="corregir-flipcard-hint">Toca para revelar</span>
+            </div>
+            <div class="corregir-flipcard-face corregir-flipcard-back">
+              <div class="error-highlight">${window._escHTML(fraseConError)}</div>
+            </div>
+          </div>
+        </div>
       </div>
       
       <textarea class="answer-input corregir-answer" rows="2" placeholder="Escribe la frase corregida en inglés..."></textarea>
@@ -25,6 +35,21 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
       </div>
     </div>
   `;
+  
+  const flipCard = container.querySelector('.corregir-flipcard');
+  if (flipCard) {
+    const toggleFlip = () => {
+      const flipped = flipCard.classList.toggle('is-flipped');
+      flipCard.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+    };
+    flipCard.addEventListener('click', toggleFlip);
+    flipCard.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleFlip();
+      }
+    });
+  }
 }
 
 export function checkCorregirAnswer(exercise, userAnswer) {
@@ -47,9 +72,21 @@ export function checkCorregirAnswer(exercise, userAnswer) {
   return { isCorrect, comparison };
 }
 
+function speakCorregirText(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  setTimeout(() => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    utterance.rate = 0.9;
+    window.speechSynthesis.speak(utterance);
+  }, 100);
+}
+
 export function showCorregirModal(exercise, result, userAnswer, onContinue, onRetry) {
   const existingModal = document.querySelector('.modal-overlay');
   if (existingModal) existingModal.remove();
+  window.speechSynthesis?.cancel();
 
   const { fraseConError, fraseCorrecta, spanishPhrase } = exercise;
   const { isCorrect, comparison } = result;
@@ -66,6 +103,7 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
   modal.innerHTML = `
     <div class="modal-friend">
       <h3>${isCorrect ? '🎉 ¡Correcto!' : '📝 Revisa la corrección'}</h3>
+      ${isCorrect ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
       <div class="comparison-text-block">
         
         ${spanishPhrase ? `
@@ -105,11 +143,20 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
 
   document.body.appendChild(modal);
 
+  if (isCorrect) {
+    speakCorregirText(fraseCorrecta);
+  }
+
   const getDuda = () => modal.querySelector('.modal-doubt')?.value?.trim() || '';
+
+  const closeModal = () => {
+    window.speechSynthesis?.cancel();
+    modal.remove();
+  };
 
   modal.querySelector('.modal-continue').addEventListener("click", (e) => {
     e.stopPropagation();
-    modal.remove();
+    closeModal();
     if (onContinue) onContinue(getDuda());
   });
 
@@ -117,14 +164,14 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
   if (retryBtn) {
     retryBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      modal.remove();
+      closeModal();
       if (onRetry) onRetry(getDuda());
     });
   }
 
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
-      modal.remove();
+      closeModal();
       if (onContinue) onContinue(getDuda());
     }
   });

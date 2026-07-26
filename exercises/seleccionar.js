@@ -1,6 +1,55 @@
 // exercises/seleccionar.js
 
+// ---- Voz: precarga del motor para que no haya retraso la primera vez ----
+// El retraso de ~2-3s que se siente al tocar una palabra la primera vez no lo
+// causa nuestro código: lo causa el motor de speechSynthesis del navegador,
+// que "despierta" recién con su primera utterance. Por eso, apenas se abre
+// este ejercicio (antes de que el usuario llegue a tocar nada), disparamos
+// una utterance silenciosa que fuerza esa inicialización de una vez.
+let speechWarmedUp = false;
+let cachedEnglishVoice = null;
+
+function warmUpSpeech() {
+  if (!('speechSynthesis' in window)) return;
+
+  // Fuerza la carga de la lista de voces (en Chrome suele llegar async).
+  const tryCacheVoice = () => {
+    const voices = window.speechSynthesis.getVoices();
+    if (voices.length) {
+      cachedEnglishVoice = voices.find(v => v.lang === 'en-US') || voices.find(v => /^en/i.test(v.lang)) || null;
+    }
+  };
+  tryCacheVoice();
+
+  if (!window._seleccionarVoicesHandlerAttached) {
+    window.speechSynthesis.addEventListener('voiceschanged', tryCacheVoice);
+    window._seleccionarVoicesHandlerAttached = true;
+  }
+
+  if (speechWarmedUp) return;
+  speechWarmedUp = true;
+
+  try {
+    const warm = new SpeechSynthesisUtterance(' ');
+    warm.volume = 0; // inaudible, solo "despierta" el motor
+    warm.rate = 10;
+    window.speechSynthesis.speak(warm);
+  } catch (e) { /* noop */ }
+}
+
+function speakSeleccionarWord(text) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US';
+  utterance.rate = 0.95;
+  if (cachedEnglishVoice) utterance.voice = cachedEnglishVoice;
+  window.speechSynthesis.speak(utterance);
+}
+
 export function renderSeleccionarExercise(exercise, container) {
+  warmUpSpeech();
+
   const pairs = exercise.pairs || [];
   
   const englishWords = pairs.map(p => ({ word: p.englishWord, id: `en-${p.englishWord.replace(/\s+/g, '-')}` }));
@@ -54,6 +103,7 @@ export function renderSeleccionarExercise(exercise, container) {
   
   englishItems.forEach(item => {
     item.addEventListener('click', () => {
+      speakSeleccionarWord(item.dataset.word);
       if (item.classList.contains('matched')) return;
       
       if (selectedEnglish && selectedEnglish !== item) selectedEnglish.classList.remove('selected');
@@ -142,6 +192,7 @@ export function showSeleccionarCompleteModal(pairs, onContinue) {
   // Eliminar cualquier modal existente primero
   const existing = document.querySelector('.modal-overlay');
   if (existing) existing.remove();
+  window.speechSynthesis?.cancel();
   
   const modal = document.createElement("div");
   modal.className = "modal-overlay modal-active";
