@@ -266,7 +266,11 @@ export function checkDictadoAnswer(correctText, userAnswer) {
     if (m) matched++;
     comp.push({correct:c, user:u, match:m});
   }
-  return { isExact, accuracy: cw.length ? matched/cw.length : 0, matchedWords: matched, totalWords: cw.length, comparison: comp };
+  const accuracy = cw.length ? matched/cw.length : 0;
+  // Igual que en traducción/corrección: se acepta (sin necesidad de ser
+  // 100% exacto) si la precisión llega al 80%.
+  const passed = isExact || accuracy >= 0.8;
+  return { isExact, accuracy, matchedWords: matched, totalWords: cw.length, passed, comparison: comp };
 }
 
 export function showDictadoModal(correctText, result, userAnswer, onContinue) {
@@ -277,7 +281,7 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
   const existing = document.querySelector('.modal-overlay');
   if (existing) existing.remove();
   
-  const { isExact, accuracy, matchedWords, totalWords, comparison } = result;
+  const { isExact, accuracy, matchedWords, totalWords, passed, comparison } = result;
   const accColor = accuracy >= 0.9 ? '#2ecc71' : accuracy >= 0.7 ? '#f39c12' : '#e50914';
   
   const compHtml = comparison.map(c => {
@@ -290,8 +294,8 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
   modal.innerHTML = `
     <div class="modal-friend dictado-modal" style="padding:0;overflow:hidden;">
       <div style="padding:20px 24px;background:${accColor};color:#fff;display:flex;align-items:center;gap:12px;">
-        <span style="font-size:2rem;">${isExact?'🏆':accuracy>=0.7?'📝':'🎧'}</span>
-        <h3 style="color:#fff;margin:0;">${isExact?'¡Perfecto!':'Resultado'}</h3>
+        <span style="font-size:2rem;">${isExact?'🏆':passed?'✅':'📝'}</span>
+        <h3 style="color:#fff;margin:0;">${isExact?'¡Perfecto!':passed?'¡Aceptado! (80%+)':'Sigue practicando'}</h3>
       </div>
       <div style="padding:20px 24px;">
         <div style="background:#111;border-radius:8px;padding:14px;margin-bottom:12px;">

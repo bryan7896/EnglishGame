@@ -69,7 +69,14 @@ export function checkCorregirAnswer(exercise, userAnswer) {
     comparison.push({ correct: cw, user: uw, match: normalize(cw) === normalize(uw) && cw !== '' });
   }
 
-  return { isCorrect, comparison };
+  const matchedWords = comparison.filter(c => c.match).length;
+  const totalWords = correctWords.length;
+  // % de acierto palabra a palabra. Igual que en dictado: se acepta la
+  // respuesta (aunque no sea 100% exacta) si la precisión llega al 80%.
+  const accuracy = totalWords ? matchedWords / totalWords : 0;
+  const passed = isCorrect || accuracy >= 0.8;
+
+  return { isCorrect, accuracy, matchedWords, totalWords, passed, comparison };
 }
 
 function speakCorregirText(text) {
@@ -89,7 +96,8 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
   window.speechSynthesis?.cancel();
 
   const { fraseConError, fraseCorrecta, spanishPhrase } = exercise;
-  const { isCorrect, comparison } = result;
+  const { isCorrect, accuracy, matchedWords, totalWords, passed, comparison } = result;
+  const accuracyPct = Math.round((accuracy || 0) * 100);
 
   const comparisonHtml = comparison.map(c => {
     if (!c.correct && !c.user) return '';
@@ -102,8 +110,8 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>${isCorrect ? '🎉 ¡Correcto!' : '📝 Revisa la corrección'}</h3>
-      ${isCorrect ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
+      <h3>${isCorrect ? '🎉 ¡Perfecto!' : passed ? '✅ ¡Aceptado!' : '📝 Revisa la corrección'}</h3>
+      ${passed ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
       <div class="comparison-text-block">
         
         ${spanishPhrase ? `
@@ -126,6 +134,12 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
           <div class="comparison-row-text ${isCorrect ? 'correct-highlight' : ''}" style="${isCorrect ? '' : 'color:#fbbf24;'}">${window._escHTML(userAnswer) || '(vacío)'}</div>
         </div>
         <div class="comparison-row">
+          <span class="comparison-row-label">🎯 Precisión (mínimo 80% para aprobar)</span>
+          <div class="word-diff-wrap">
+            <span class="word-pill ${passed ? 'word-correct' : 'word-error'}">${accuracyPct}% · ${matchedWords}/${totalWords} palabras</span>
+          </div>
+        </div>
+        <div class="comparison-row">
           <span class="comparison-row-label">🔍 Comparación palabra a palabra</span>
           <div class="word-diff-wrap">${comparisonHtml || '—'}</div>
         </div>
@@ -135,7 +149,7 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
         <textarea class="answer-input modal-doubt" rows="2" placeholder="Tu consulta..."></textarea>
       </div>
       <div class="modal-buttons">
-        ${!isCorrect ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
+        ${!passed ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
         <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
       </div>
     </div>
@@ -143,7 +157,7 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
 
   document.body.appendChild(modal);
 
-  if (isCorrect) {
+  if (passed) {
     speakCorregirText(fraseCorrecta);
   }
 

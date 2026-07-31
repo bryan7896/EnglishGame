@@ -969,83 +969,63 @@ textarea:focus-visible,
 .dictado-modal { border-radius: var(--radius-lg); }
 .dictado-modal-btn { cursor: pointer; }
 
-/* ============ 16. CONVERSACIÓN ============ */
-.conversation-container { display: flex; flex-direction: column; gap: 14px; }
-
-.conv-progress { display: flex; flex-direction: column; gap: 6px; }
-.conv-progress-text { font-size: 0.74rem; color: var(--ink-faint); font-weight: 600; }
-.conv-progress-bar {
-  height: 4px;
-  border-radius: var(--radius-pill);
-  background: var(--surface-3);
-  overflow: hidden;
+/* ============ 16. NODO 6 · REPASO ============ */
+.netflix-node.repaso-node {
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  background: linear-gradient(135deg, var(--gold-wash), var(--surface));
+  border-color: rgba(245, 197, 24, 0.35);
 }
-.conv-progress-fill { height: 100%; background: var(--brand); transition: width 0.3s var(--ease); }
 
-.conv-message-wrapper { display: flex; gap: 10px; align-items: flex-start; }
-.conv-message-wrapper.narrador { justify-content: center; }
+.netflix-node.repaso-node:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
 
-.conv-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
+.netflix-node.repaso-node.empty {
+  opacity: 0.65;
+  background: var(--surface);
+  border-color: var(--line);
+  cursor: default;
+}
+
+.repaso-node-icon {
+  font-size: 1.7rem;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--gold-wash);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.conv-avatar-emoji { font-size: 1.3rem; }
-
-.conv-bubble {
+.repaso-node-content {
   flex: 1;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-}
-
-.conv-bubble.narrador-bubble {
-  background: transparent;
-  border: none;
-  text-align: center;
-  color: var(--ink-faint);
-  font-style: italic;
-  font-size: 0.85rem;
-}
-
-.conv-character-name { font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; }
-.conv-text { font-size: 0.95rem; line-height: 1.6; }
-.conv-completion-text { line-height: 2.4; }
-
-.conv-audio-options { display: flex; flex-direction: column; gap: 8px; }
-
-.conv-audio-btn {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--surface-2);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-sm);
-  padding: 10px 14px;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.repaso-node-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   color: var(--ink);
-  font-size: 0.85rem;
-  font-weight: 600;
 }
 
-.conv-audio-btn.selected { background: var(--gold-wash); color: var(--gold); }
-.conv-audio-icon { font-size: 1.1rem; }
-
-.conv-play-btn {
-  margin-top: 10px;
-  background: var(--surface-3);
-  border: 1px solid var(--line);
-  color: var(--ink-dim);
-  border-radius: var(--radius-pill);
-  padding: 8px 14px;
-  font-size: 0.78rem;
+.repaso-node-desc {
+  font-size: 0.8rem;
   font-weight: 600;
+  color: var(--gold);
 }
+
+.netflix-node.repaso-node.empty .repaso-node-desc { color: var(--ink-dim); }
 
 /* ============ 17. MODAL ============ */
 .modal-overlay {

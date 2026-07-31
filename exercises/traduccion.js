@@ -64,6 +64,16 @@ function isFullyCorrectAnswer(correctText, userAnswer) {
   return normalizeFullAnswer(correctText) === normalizeFullAnswer(userAnswer);
 }
 
+// % de acierto palabra a palabra (a partir del alineamiento tipo diff).
+// Igual que en corregir/dictado: se acepta la respuesta aunque no sea
+// 100% exacta si la precisión llega al 80%.
+function computeAccuracy(alignedCorrect) {
+  const realWords = alignedCorrect.filter(item => !item.placeholder);
+  if (realWords.length === 0) return 0;
+  const matched = realWords.filter(item => item.match).length;
+  return matched / realWords.length;
+}
+
 function speakTraduccionText(text) {
   if (!('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
@@ -83,6 +93,9 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   const correctText = exercise.englishWord || exercise.englishWords;
   const isCorrect = isFullyCorrectAnswer(correctText, userAnswer);
   const { alignedCorrect, alignedUser } = alignWords(correctText, userAnswer);
+  const accuracy = computeAccuracy(alignedCorrect);
+  const accuracyPct = Math.round(accuracy * 100);
+  const passed = isCorrect || accuracy >= 0.8;
   
   let correctHtml = alignedCorrect.map(item => {
     if (item.placeholder) return `<span class="word-placeholder">-</span>`;
@@ -98,12 +111,18 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>${isCorrect ? '🎉 ¡Perfecto!' : '📊 Comparación'}</h3>
-      ${isCorrect ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
+      <h3>${isCorrect ? '🎉 ¡Perfecto!' : passed ? '✅ ¡Aceptado!' : '📊 Comparación'}</h3>
+      ${passed ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
       <div class="comparison-text-block">
         <p><strong>🇪🇸 Español:</strong><br>${window._escHTML(exercise.spanishWord || exercise.spanishWords)}</p>
         <div class="compare-line"><strong>✅ Correcto:</strong> ${correctHtml}</div>
         <div class="compare-line"><strong>✏️ Tu respuesta:</strong> ${userHtml}</div>
+        <div class="comparison-row">
+          <span class="comparison-row-label">🎯 Precisión (mínimo 80% para aprobar)</span>
+          <div class="word-diff-wrap">
+            <span class="word-pill ${passed ? 'word-correct' : 'word-error'}">${accuracyPct}%</span>
+          </div>
+        </div>
       </div>
       <div style="margin-top:12px;text-align:left;">
         <label style="color:#94a3b8;font-size:0.8rem;">💭 Consulta (opcional)</label>
@@ -117,7 +136,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   
   document.body.appendChild(modal);
   
-  if (isCorrect) {
+  if (passed) {
     speakTraduccionText(correctText);
   }
   
@@ -125,7 +144,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
     const duda = modal.querySelector('.modal-doubt')?.value?.trim() || '';
     window.speechSynthesis?.cancel();
     modal.remove();
-    if (onContinue) onContinue(duda);
+    if (onContinue) onContinue(duda, passed);
   };
   
   modal.querySelector('.modal-continue').addEventListener("click", close);

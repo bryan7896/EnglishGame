@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "8.0 (26-07-2024)"
+VERSION = "8.1 (30-07-2024)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -18,7 +18,6 @@ INPUT_TYPES = [
     {"id": "seleccionar", "label": "🎯 Seleccionar palabras (opcional)", "placeholder": '[[{"englishWord": "...", "spanishWord": "..."}]]'},
     {"id": "corregir", "label": "🔍 Corregir frases (opcional)", "placeholder": '[{"fraseConError": "...", "fraseCorrecta": "..."}]'},
     {"id": "dictado", "label": "🎧 Dictado - frases en inglés (opcional)", "placeholder": '["The cat is on the table", "She goes to school every day"]'},
-    {"id": "conversacion", "label": "💬 Conversación (opcional)", "placeholder": '[{"messages":[{"name":"Ana","avatar":"👩","color":"#f472b6","text":"Hello!"}]}]'},
 ]
 
 EXERCISE_FILES = {
@@ -27,7 +26,6 @@ EXERCISE_FILES = {
     "exercises/seleccionar.js": "__SELECCIONAR_JS__",
     "exercises/corregir.js": "__CORREGIR_JS__",
     "exercises/dictado.js": "__DICTADO_JS__",
-    "exercises/conversacion.js": "__CONVERSACION_JS__",
 }
 
 
@@ -234,7 +232,6 @@ def get_html_template():
   __SELECCIONAR_JS__
   __CORREGIR_JS__
   __DICTADO_JS__
-  __CONVERSACION_JS__
   __MAIN_LOGIC__
 </script>
 </body>
@@ -253,6 +250,7 @@ def get_main_logic():
       activeNodeIndex: AppState.activeNodeIndex,
       activeExerciseIndex: AppState.activeExerciseIndex,
       reportEntries: AppState.reportEntries,
+      reviewPool: AppState.reviewPool,
       lastUpdated: new Date().toISOString()
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
@@ -269,6 +267,7 @@ def get_main_logic():
       AppState.activeNodeIndex = data.activeNodeIndex || 0;
       AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
       AppState.reportEntries = data.reportEntries || [];
+      AppState.reviewPool = data.reviewPool || [];
       return AppState.nodes.length > 0;
     } catch(e) { return false; }
   }
@@ -281,7 +280,9 @@ def get_main_logic():
     activeNodeIndex: 0,
     activeExerciseIndex: 0,
     failedExercises: [],
-    reportEntries: []
+    reportEntries: [],
+    reviewPool: [],
+    sessionCorrectness: {}
   };
 
   function toast(msg) {
@@ -334,6 +335,8 @@ def get_main_logic():
       AppState.activeExerciseIndex = 0;
       AppState.failedExercises = [];
       AppState.reportEntries = [];
+      AppState.reviewPool = [];
+      AppState.sessionCorrectness = {};
       
       AppState.nodes.forEach((node, idx) => {
         AppState.progress[idx] = {
@@ -363,15 +366,35 @@ def get_main_logic():
     renderMap(AppState.nodes, AppState.progress, { openNode, showToast: toast });
   }
 
+  const REPASO_NODE_INDEX = 5;
+  const PASS_THRESHOLD = 0.8;
+
+  function refreshRepasoNode() {
+    const node = AppState.nodes[REPASO_NODE_INDEX];
+    if (!node || node.type !== 'repaso') return;
+    node.exercises = AppState.reviewPool.slice();
+    node.totalExercises = node.exercises.length;
+    AppState.progress[REPASO_NODE_INDEX] = {
+      completed: node.exercises.length === 0,
+      exercisesDone: 0,
+      exerciseResults: Array(node.exercises.length).fill(false)
+    };
+  }
+
+  function recordExerciseResult(isCorrect) {
+    AppState.sessionCorrectness[AppState.activeExerciseIndex] = !!isCorrect;
+  }
+
   function openNode(nodeIndex) {
     cleanupAudio();
     if (!AppState.nodes[nodeIndex]?.exercises?.length) {
-      toast("📭 Este nodo está vacío");
+      toast(nodeIndex === REPASO_NODE_INDEX ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo está vacío");
       return;
     }
     AppState.activeNodeIndex = nodeIndex;
     AppState.activeExerciseIndex = 0;
     AppState.failedExercises = [];
+    AppState.sessionCorrectness = {};
     
     const prog = AppState.progress[nodeIndex] || { exerciseResults: [] };
     const results = prog.exerciseResults || [];
@@ -393,6 +416,31 @@ def get_main_logic():
     const exIndex = AppState.activeExerciseIndex;
     if (exIndex >= node.exercises.length) {
       AppState.progress[AppState.activeNodeIndex].completed = true;
+
+      if (node.type === 'repaso') {
+        // Los ejercicios que se acertaron esta vez salen de la pool de repaso
+        node.exercises.forEach((ex, i) => {
+          if (AppState.sessionCorrectness[i]) {
+            const poolIdx = AppState.reviewPool.indexOf(ex);
+            if (poolIdx !== -1) AppState.reviewPool.splice(poolIdx, 1);
+          }
+        });
+      } else {
+        const total = node.exercises.length;
+        let correctCount = 0;
+        node.exercises.forEach((ex, i) => { if (AppState.sessionCorrectness[i]) correctCount++; });
+        const score = total ? correctCount / total : 1;
+        if (score < PASS_THRESHOLD) {
+          node.exercises.forEach((ex, i) => {
+            if (!AppState.sessionCorrectness[i] && !AppState.reviewPool.includes(ex)) {
+              AppState.reviewPool.push(ex);
+            }
+          });
+        }
+      }
+      refreshRepasoNode();
+      AppState.sessionCorrectness = {};
+
       saveToStorage();
       renderMapView();
       showMainView("map");
@@ -416,7 +464,6 @@ def get_main_logic():
       case "seleccionar": renderSeleccionarExercise(exercise, container); setupSeleccionarListeners(exercise); break;
       case "corregir": renderCorregirExercise(exercise, container, isRetry); setupCorregirListeners(exercise, container); break;
       case "dictado": renderDictadoExercise(exercise, container); setupDictadoListeners(exercise, container); break;
-      case "conversacion": renderConversacionExercise(exercise, container); setupConversacionMainListeners(); break;
     }
     
     document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Correccion de error" : "✏️ Tu turno";
@@ -429,7 +476,8 @@ def get_main_logic():
       checkBtn.onclick = () => {
         const userAnswer = answerInput.value.trim();
         if (!userAnswer) { toast("📝 Escribe algo"); return; }
-        showComparativeModal(exercise, userAnswer, (duda) => {
+        showComparativeModal(exercise, userAnswer, (duda, passed) => {
+          recordExerciseResult(passed);
           AppState.reportEntries.push(getTraduccionReportEntry(exercise, userAnswer, duda));
           advanceExercise();
         });
@@ -445,6 +493,7 @@ def get_main_logic():
         const { allCorrect, userAnswers, results } = result;
         showCompletarModal(exercise, results, 
           (success, duda) => { 
+            recordExerciseResult(success);
             AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
             advanceExercise(); 
           },
@@ -468,7 +517,7 @@ def get_main_logic():
         if (!userAnswer) { toast("📝 Escribe algo"); return; }
         const result = checkCorregirAnswer(exercise, userAnswer);
         showCorregirModal(exercise, result, userAnswer, 
-          (duda) => { AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); advanceExercise(); },
+          (duda) => { recordExerciseResult(result.passed); AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); advanceExercise(); },
           (duda) => { AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
       };
@@ -477,7 +526,7 @@ def get_main_logic():
 
   function setupSeleccionarListeners(exercise) {
     const container = document.getElementById("exerciseContainer");
-    if (container) container.addEventListener("all-matched", () => { showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); });
+    if (container) container.addEventListener("all-matched", () => { showSeleccionarCompleteModal(exercise.pairs, () => { recordExerciseResult(true); advanceExercise(); }); });
   }
 
   function setupDictadoListeners(exercise, container) {
@@ -489,19 +538,13 @@ def get_main_logic():
     const handler = function(e) {
       cleanupAudio();
       const { originalText, userAnswer, result, duda } = e.detail;
+      recordExerciseResult(!!result?.passed);
       AppState.reportEntries.push(getDictadoReportEntry(originalText, userAnswer, duda));
       advanceExercise();
     };
     
     container._dictadoHandler = handler;
     container.addEventListener("dictado-done", handler);
-  }
-
-  function setupConversacionMainListeners() {
-    const container = document.getElementById("exerciseContainer");
-    if (!container) return;
-    container.addEventListener("conversacion-answer", (e) => { AppState.reportEntries.push(getConversacionReportEntry(e.detail)); });
-    container.addEventListener("conversacion-completed", () => { cleanupAudio(); advanceExercise(); });
   }
 
   function advanceExercise() {
@@ -544,8 +587,7 @@ def get_main_logic():
       completar:"COMPLETAR", 
       seleccionar:"EMPAREJAR", 
       corregir:"CORREGIR", 
-      dictado:"DICTADO", 
-      conversacion:"CONVERSACIÓN" 
+      dictado:"DICTADO" 
     };
     
     Object.keys(typeNames).forEach(type => {
@@ -572,14 +614,6 @@ def get_main_logic():
         else if (entry.type === "dictado") { 
           lines.push("   🎧 Correcto: " + entry.original); 
           lines.push("   ✏️ Usuario: " + entry.userAnswer); 
-        }
-        else if (entry.type === "conversacion") { 
-          if (entry.removedWord) { 
-            lines.push("   🔤 Falta: " + entry.removedWord); 
-            lines.push("   ✏️ Usuario: " + entry.userAnswer); 
-          } 
-          if (entry.selectedOption !== undefined) 
-            lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); 
         }
         if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
         lines.push("");
@@ -635,7 +669,7 @@ def get_main_logic():
 
   async function resetAll() {
     if(confirm("¿Borrar todo el progreso?")) {
-      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = [];
+      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = []; AppState.reviewPool = []; AppState.sessionCorrectness = {};
       saveToStorage(); renderMapView(); showMainView("import"); toast("🗑️ Todo borrado");
     }
   }

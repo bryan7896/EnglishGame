@@ -1,31 +1,18 @@
 // mapa/map.js
-// Mapa de nodos con distribución por porcentaje y diseño contemporáneo
+// Mapa de 5 nodos principales (reparto equitativo, el residuo va al nodo 1)
+// + 1 nodo especial de repaso (nodo 6) que se llena dinámicamente con los
+// ejercicios de los nodos que no se aprueben con 80% o más.
 
 export const MAP_CONFIG = {
-  nodes: [
-    { id: 1, percent: 40, type: "mixed" },
-    { id: 2, percent: 20, type: "mixed" },
-    { id: 3, percent: 5, type: "mixed" },
-    { id: 4, percent: 10, type: "mixed" },
-    { id: 5, percent: 20, type: "mixed" },
-    { id: 6, percent: 5, type: "mixed" }
-  ],
-  // Imágenes de fondo estilo Netflix (unsplash random)
-  // En MAP_CONFIG, reemplazar el array backgrounds:
+  totalMainNodes: 5,
+  // Imágenes de fondo estilo "carátula de episodio" para los 5 nodos principales
   backgrounds: [
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",  // código en pantalla
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",  // líneas de código
-      "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=300&fit=crop",  // matrix código
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",  // pantalla con HTML
-      "https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400&h=300&fit=crop",  // setup desarrollo
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop",  // laptop con código
-      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&h=300&fit=crop",  // código oscuro
-      "https://images.unsplash.com/photo-1515879218367-8466d910auj7?w=400&h=300&fit=crop",  // terminal
-      "https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?w=400&h=300&fit=crop",  // escribiendo código
-      "https://images.unsplash.com/photo-1534665482403-a909d0d97c67?w=400&h=300&fit=crop",  // desarrollador
-      "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&h=300&fit=crop",  // pantallas
-      "https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=400&h=300&fit=crop",  // código colorido
-    ],
+    "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400&h=300&fit=crop",
+  ],
 };
 
 function shuffleArray(arr) {
@@ -37,9 +24,16 @@ function shuffleArray(arr) {
   return shuffled;
 }
 
+/**
+ * Construye 6 nodos: 5 principales con reparto equitativo de todos los
+ * ejercicios (si sobran ejercicios al dividir entre 5, el sobrante se suma
+ * al nodo 1) y un 6to nodo de repaso que arranca vacío — se llena en
+ * tiempo de ejecución (ver refreshRepasoNode en el motor principal) con
+ * los ejercicios de nodos que no se aprobaron con 80% o más.
+ */
 export function createNodeStructure(userData) {
-  const { traducciones, completar, seleccionar, corregir, dictado, conversacion } = userData;
-  
+  const { traducciones, completar, seleccionar, corregir, dictado } = userData;
+
   const allExercises = [
     ...(traducciones || []).map(e => ({ ...e, type: "traduccion" })),
     ...(completar || []).map(e => ({ ...e, type: "completar" })),
@@ -47,53 +41,38 @@ export function createNodeStructure(userData) {
     ...(corregir || []).map(e => ({ ...e, type: "corregir" })),
     ...(dictado || []).map(e => ({ text: typeof e === 'string' ? e : e.text || e, type: "dictado" })),
   ];
-  
-  if (allExercises.length === 0) {
-    return MAP_CONFIG.nodes.map((config, idx) => ({
-      id: config.id,
-      type: config.type,
-      percent: config.percent,
-      background: MAP_CONFIG.backgrounds[idx],
-      totalExercises: 0,
-      exercises: []
-    }));
-  }
-  
+
+  const totalMainNodes = MAP_CONFIG.totalMainNodes;
+  const total = allExercises.length;
+  const base = Math.floor(total / totalMainNodes);
+  const remainder = total % totalMainNodes;
+
   const shuffled = shuffleArray(allExercises);
-  
-  const nodes = MAP_CONFIG.nodes.map((config, idx) => {
-    const totalExercises = shuffled.length;
-    const nodeSize = Math.max(1, Math.round(totalExercises * config.percent / 100));
-    
-    let startIndex = 0;
-    for (let i = 0; i < idx; i++) {
-      startIndex += Math.max(1, Math.round(totalExercises * MAP_CONFIG.nodes[i].percent / 100));
-    }
-    
-    const safeStart = Math.min(startIndex, shuffled.length);
-    const safeEnd = Math.min(safeStart + nodeSize, shuffled.length);
-    const nodeExercises = shuffled.slice(safeStart, safeEnd);
-    
-    return {
-      id: config.id,
-      type: config.type,
-      percent: config.percent,
-      background: MAP_CONFIG.backgrounds[idx],
+
+  const nodes = [];
+  let cursor = 0;
+  for (let i = 0; i < totalMainNodes; i++) {
+    const size = base + (i === 0 ? remainder : 0);
+    const nodeExercises = shuffled.slice(cursor, cursor + size);
+    cursor += size;
+    nodes.push({
+      id: i + 1,
+      type: "main",
+      background: MAP_CONFIG.backgrounds[i % MAP_CONFIG.backgrounds.length],
       totalExercises: nodeExercises.length,
-      exercises: nodeExercises
-    };
-  });
-  
-  if (conversacion && conversacion.length > 0) {
-    for (const conv of conversacion) {
-      nodes[nodes.length - 1].exercises.push({
-        type: "conversacion",
-        messages: conv.messages || conv
-      });
-      nodes[nodes.length - 1].totalExercises++;
-    }
+      exercises: nodeExercises,
+    });
   }
-  
+
+  // Nodo 6 — repaso: arranca vacío, se sincroniza dinámicamente con la
+  // "pool" de repaso mientras el usuario juega (ver refreshRepasoNode()).
+  nodes.push({
+    id: totalMainNodes + 1,
+    type: "repaso",
+    totalExercises: 0,
+    exercises: [],
+  });
+
   return nodes;
 }
 
@@ -104,19 +83,23 @@ export function validateInputData(data) {
 export function renderMap(nodes, progress, callbacks) {
   const mapList = document.getElementById("mapList");
   if (!mapList) return;
-  
-  if (!nodes?.length || nodes.every(n => n.exercises.length === 0)) {
+
+  const mainNodes = nodes.slice(0, 5);
+  const repasoNode = nodes[5];
+  const hasAnyMain = mainNodes.some(n => (n.exercises?.length || 0) > 0);
+
+  if (!nodes?.length || !hasAnyMain) {
     mapList.innerHTML = `<div style="text-align:center;padding:40px;color:#94a3b8;"><p>Carga tus ejercicios para ver el mapa</p></div>`;
     return;
   }
-  
+
   let firstUnlocked = 0;
-  for (let i = 0; i < nodes.length; i++) {
+  for (let i = 0; i < mainNodes.length; i++) {
     if (!progress[i]?.completed) { firstUnlocked = i; break; }
     firstUnlocked = i + 1;
   }
-  
-  mapList.innerHTML = nodes.map((node, idx) => {
+
+  const mainNodesHtml = mainNodes.map((node, idx) => {
     const prog = progress[idx] || { completed: false, exercisesDone: 0 };
     const total = node.totalExercises || node.exercises?.length || 1;
     const done = Math.min(prog.exercisesDone || 0, total);
@@ -124,10 +107,10 @@ export function renderMap(nodes, progress, callbacks) {
     const isDone = prog.completed || false;
     const isCur = idx === firstUnlocked && !isDone;
     const unlocked = idx <= firstUnlocked;
-    const isEmpty = total === 0;
-    
+    const isEmpty = (node.exercises?.length || 0) === 0;
+
     return `
-      <div class="netflix-node ${!unlocked ? 'locked' : ''} ${isCur ? 'current' : ''} ${isDone ? 'done' : ''} ${isEmpty ? 'empty' : ''}"
+      <div class="netflix-node ${!unlocked || isEmpty ? 'locked' : ''} ${isCur ? 'current' : ''} ${isDone ? 'done' : ''} ${isEmpty ? 'empty' : ''}"
            data-node="${idx}" style="${!unlocked || isEmpty ? 'pointer-events:none;' : ''}">
         <div class="netflix-node-bg" style="background-image:url('${node.background}')">
           <div class="netflix-node-overlay"></div>
@@ -147,15 +130,49 @@ export function renderMap(nodes, progress, callbacks) {
       </div>
     `;
   }).join('');
-  
+
+  let repasoHtml = '';
+  if (repasoNode) {
+    const idx = 5;
+    const prog = progress[idx] || { completed: true, exercisesDone: 0 };
+    const total = repasoNode.exercises?.length || 0;
+    const done = Math.min(prog.exercisesDone || 0, total);
+    const pct = total ? Math.round(done / total * 100) : 0;
+    const isEmpty = total === 0;
+
+    repasoHtml = `
+      <div class="netflix-node repaso-node ${isEmpty ? 'empty' : ''}" data-node="${idx}" style="${isEmpty ? 'pointer-events:none;' : ''}">
+        <div class="repaso-node-icon">🧠</div>
+        <div class="repaso-node-content">
+          <div class="repaso-node-title">Nodo 6 · Repaso</div>
+          <div class="repaso-node-desc">
+            ${isEmpty ? '🎉 No tienes ejercicios pendientes' : total + (total === 1 ? ' ejercicio por repasar' : ' ejercicios por repasar')}
+          </div>
+          ${!isEmpty ? `
+            <div class="netflix-node-progress">
+              <div class="netflix-progress-bar">
+                <div class="netflix-progress-fill" style="width:${pct}%"></div>
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  }
+
+  mapList.innerHTML = mainNodesHtml + repasoHtml;
+
   mapList.querySelectorAll('.netflix-node[data-node]').forEach(card => {
     card.addEventListener('click', () => {
       const idx = parseInt(card.dataset.node);
       const node = nodes[idx];
-      if (!node || node.exercises.length === 0) {
-        callbacks.showToast("📭 Este nodo no tiene ejercicios");
+      const isRepaso = idx === 5;
+
+      if (!node || !node.exercises || node.exercises.length === 0) {
+        callbacks.showToast(isRepaso ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo no tiene ejercicios");
         return;
       }
+      if (isRepaso) { callbacks.openNode(idx); return; }
       if (idx <= firstUnlocked) callbacks.openNode(idx);
       else callbacks.showToast("Completa el nodo anterior");
     });
@@ -163,11 +180,11 @@ export function renderMap(nodes, progress, callbacks) {
 }
 
 export function getExerciseTypeIcon(type) {
-  const i = { traduccion:"📝", completar:"✏️", seleccionar:"🎯", corregir:"🔍", dictado:"🎧", conversacion:"💬" };
+  const i = { traduccion: "📝", completar: "✏️", seleccionar: "🎯", corregir: "🔍", dictado: "🎧" };
   return i[type] || "📌";
 }
 
 export function getExerciseTypeName(type) {
-  const n = { traduccion:"Traducción", completar:"Completar", seleccionar:"Emparejar", corregir:"Corregir", dictado:"Dictado", conversacion:"Conversación" };
+  const n = { traduccion: "Traducción", completar: "Completar", seleccionar: "Emparejar", corregir: "Corregir", dictado: "Dictado" };
   return n[type] || type;
 }

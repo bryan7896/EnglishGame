@@ -983,83 +983,63 @@ textarea:focus-visible,
 .dictado-modal { border-radius: var(--radius-lg); }
 .dictado-modal-btn { cursor: pointer; }
 
-/* ============ 16. CONVERSACIÓN ============ */
-.conversation-container { display: flex; flex-direction: column; gap: 14px; }
-
-.conv-progress { display: flex; flex-direction: column; gap: 6px; }
-.conv-progress-text { font-size: 0.74rem; color: var(--ink-faint); font-weight: 600; }
-.conv-progress-bar {
-  height: 4px;
-  border-radius: var(--radius-pill);
-  background: var(--surface-3);
-  overflow: hidden;
+/* ============ 16. NODO 6 · REPASO ============ */
+.netflix-node.repaso-node {
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  background: linear-gradient(135deg, var(--gold-wash), var(--surface));
+  border-color: rgba(245, 197, 24, 0.35);
 }
-.conv-progress-fill { height: 100%; background: var(--brand); transition: width 0.3s var(--ease); }
 
-.conv-message-wrapper { display: flex; gap: 10px; align-items: flex-start; }
-.conv-message-wrapper.narrador { justify-content: center; }
+.netflix-node.repaso-node:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
 
-.conv-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
+.netflix-node.repaso-node.empty {
+  opacity: 0.65;
+  background: var(--surface);
+  border-color: var(--line);
+  cursor: default;
+}
+
+.repaso-node-icon {
+  font-size: 1.7rem;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--gold-wash);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.conv-avatar-emoji { font-size: 1.3rem; }
-
-.conv-bubble {
+.repaso-node-content {
   flex: 1;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  padding: 14px 16px;
-}
-
-.conv-bubble.narrador-bubble {
-  background: transparent;
-  border: none;
-  text-align: center;
-  color: var(--ink-faint);
-  font-style: italic;
-  font-size: 0.85rem;
-}
-
-.conv-character-name { font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; }
-.conv-text { font-size: 0.95rem; line-height: 1.6; }
-.conv-completion-text { line-height: 2.4; }
-
-.conv-audio-options { display: flex; flex-direction: column; gap: 8px; }
-
-.conv-audio-btn {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--surface-2);
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius-sm);
-  padding: 10px 14px;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.repaso-node-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
   color: var(--ink);
-  font-size: 0.85rem;
-  font-weight: 600;
 }
 
-.conv-audio-btn.selected { background: var(--gold-wash); color: var(--gold); }
-.conv-audio-icon { font-size: 1.1rem; }
-
-.conv-play-btn {
-  margin-top: 10px;
-  background: var(--surface-3);
-  border: 1px solid var(--line);
-  color: var(--ink-dim);
-  border-radius: var(--radius-pill);
-  padding: 8px 14px;
-  font-size: 0.78rem;
+.repaso-node-desc {
+  font-size: 0.8rem;
   font-weight: 600;
+  color: var(--gold);
 }
+
+.netflix-node.repaso-node.empty .repaso-node-desc { color: var(--ink-dim); }
 
 /* ============ 17. MODAL ============ */
 .modal-overlay {
@@ -1190,7 +1170,7 @@ textarea:focus-visible,
     <div class="play-topbar">
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
-        <div class="sub-fun">8.0 (26-07-2024)</div>
+        <div class="sub-fun">7.4 (24-07-2024)</div>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
         <div class="user-info" id="userInfo">
@@ -1232,10 +1212,6 @@ textarea:focus-visible,
         <div class="multi-input-section">
           <h4>🎧 Dictado - frases en inglés (opcional)</h4>
           <textarea id="dictadoInput" class="answer-input" rows="3" placeholder='["The cat is on the table", "She goes to school every day"]'></textarea>
-        </div>
-        <div class="multi-input-section">
-          <h4>💬 Conversación (opcional)</h4>
-          <textarea id="conversacionInput" class="answer-input" rows="3" placeholder='[{"messages":[{"name":"Ana","avatar":"👩","color":"#f472b6","text":"Hello!"}]}]'></textarea>
         </div>
 
         <div class="button-group">
@@ -1281,33 +1257,20 @@ textarea:focus-visible,
   }
 
   // mapa/map.js
-// Mapa de nodos con distribución por porcentaje y diseño contemporáneo
+// Mapa de 5 nodos principales (reparto equitativo, el residuo va al nodo 1)
+// + 1 nodo especial de repaso (nodo 6) que se llena dinámicamente con los
+// ejercicios de los nodos que no se aprueben con 80% o más.
 
 export const MAP_CONFIG = {
-  nodes: [
-    { id: 1, percent: 40, type: "mixed" },
-    { id: 2, percent: 20, type: "mixed" },
-    { id: 3, percent: 5, type: "mixed" },
-    { id: 4, percent: 10, type: "mixed" },
-    { id: 5, percent: 20, type: "mixed" },
-    { id: 6, percent: 5, type: "mixed" }
-  ],
-  // Imágenes de fondo estilo Netflix (unsplash random)
-  // En MAP_CONFIG, reemplazar el array backgrounds:
+  totalMainNodes: 5,
+  // Imágenes de fondo estilo "carátula de episodio" para los 5 nodos principales
   backgrounds: [
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",  // código en pantalla
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",  // líneas de código
-      "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=300&fit=crop",  // matrix código
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",  // pantalla con HTML
-      "https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400&h=300&fit=crop",  // setup desarrollo
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop",  // laptop con código
-      "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&h=300&fit=crop",  // código oscuro
-      "https://images.unsplash.com/photo-1515879218367-8466d910auj7?w=400&h=300&fit=crop",  // terminal
-      "https://images.unsplash.com/photo-1523800503107-5bc3ba2a6f81?w=400&h=300&fit=crop",  // escribiendo código
-      "https://images.unsplash.com/photo-1534665482403-a909d0d97c67?w=400&h=300&fit=crop",  // desarrollador
-      "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&h=300&fit=crop",  // pantallas
-      "https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=400&h=300&fit=crop",  // código colorido
-    ],
+    "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400&h=300&fit=crop",
+  ],
 };
 
 function shuffleArray(arr) {
@@ -1319,9 +1282,16 @@ function shuffleArray(arr) {
   return shuffled;
 }
 
+/**
+ * Construye 6 nodos: 5 principales con reparto equitativo de todos los
+ * ejercicios (si sobran ejercicios al dividir entre 5, el sobrante se suma
+ * al nodo 1) y un 6to nodo de repaso que arranca vacío — se llena en
+ * tiempo de ejecución (ver refreshRepasoNode en el motor principal) con
+ * los ejercicios de nodos que no se aprobaron con 80% o más.
+ */
 export function createNodeStructure(userData) {
-  const { traducciones, completar, seleccionar, corregir, dictado, conversacion } = userData;
-  
+  const { traducciones, completar, seleccionar, corregir, dictado } = userData;
+
   const allExercises = [
     ...(traducciones || []).map(e => ({ ...e, type: "traduccion" })),
     ...(completar || []).map(e => ({ ...e, type: "completar" })),
@@ -1329,53 +1299,38 @@ export function createNodeStructure(userData) {
     ...(corregir || []).map(e => ({ ...e, type: "corregir" })),
     ...(dictado || []).map(e => ({ text: typeof e === 'string' ? e : e.text || e, type: "dictado" })),
   ];
-  
-  if (allExercises.length === 0) {
-    return MAP_CONFIG.nodes.map((config, idx) => ({
-      id: config.id,
-      type: config.type,
-      percent: config.percent,
-      background: MAP_CONFIG.backgrounds[idx],
-      totalExercises: 0,
-      exercises: []
-    }));
-  }
-  
+
+  const totalMainNodes = MAP_CONFIG.totalMainNodes;
+  const total = allExercises.length;
+  const base = Math.floor(total / totalMainNodes);
+  const remainder = total % totalMainNodes;
+
   const shuffled = shuffleArray(allExercises);
-  
-  const nodes = MAP_CONFIG.nodes.map((config, idx) => {
-    const totalExercises = shuffled.length;
-    const nodeSize = Math.max(1, Math.round(totalExercises * config.percent / 100));
-    
-    let startIndex = 0;
-    for (let i = 0; i < idx; i++) {
-      startIndex += Math.max(1, Math.round(totalExercises * MAP_CONFIG.nodes[i].percent / 100));
-    }
-    
-    const safeStart = Math.min(startIndex, shuffled.length);
-    const safeEnd = Math.min(safeStart + nodeSize, shuffled.length);
-    const nodeExercises = shuffled.slice(safeStart, safeEnd);
-    
-    return {
-      id: config.id,
-      type: config.type,
-      percent: config.percent,
-      background: MAP_CONFIG.backgrounds[idx],
+
+  const nodes = [];
+  let cursor = 0;
+  for (let i = 0; i < totalMainNodes; i++) {
+    const size = base + (i === 0 ? remainder : 0);
+    const nodeExercises = shuffled.slice(cursor, cursor + size);
+    cursor += size;
+    nodes.push({
+      id: i + 1,
+      type: "main",
+      background: MAP_CONFIG.backgrounds[i % MAP_CONFIG.backgrounds.length],
       totalExercises: nodeExercises.length,
-      exercises: nodeExercises
-    };
-  });
-  
-  if (conversacion && conversacion.length > 0) {
-    for (const conv of conversacion) {
-      nodes[nodes.length - 1].exercises.push({
-        type: "conversacion",
-        messages: conv.messages || conv
-      });
-      nodes[nodes.length - 1].totalExercises++;
-    }
+      exercises: nodeExercises,
+    });
   }
-  
+
+  // Nodo 6 — repaso: arranca vacío, se sincroniza dinámicamente con la
+  // "pool" de repaso mientras el usuario juega (ver refreshRepasoNode()).
+  nodes.push({
+    id: totalMainNodes + 1,
+    type: "repaso",
+    totalExercises: 0,
+    exercises: [],
+  });
+
   return nodes;
 }
 
@@ -1386,19 +1341,23 @@ export function validateInputData(data) {
 export function renderMap(nodes, progress, callbacks) {
   const mapList = document.getElementById("mapList");
   if (!mapList) return;
-  
-  if (!nodes?.length || nodes.every(n => n.exercises.length === 0)) {
+
+  const mainNodes = nodes.slice(0, 5);
+  const repasoNode = nodes[5];
+  const hasAnyMain = mainNodes.some(n => (n.exercises?.length || 0) > 0);
+
+  if (!nodes?.length || !hasAnyMain) {
     mapList.innerHTML = `<div style="text-align:center;padding:40px;color:#94a3b8;"><p>Carga tus ejercicios para ver el mapa</p></div>`;
     return;
   }
-  
+
   let firstUnlocked = 0;
-  for (let i = 0; i < nodes.length; i++) {
+  for (let i = 0; i < mainNodes.length; i++) {
     if (!progress[i]?.completed) { firstUnlocked = i; break; }
     firstUnlocked = i + 1;
   }
-  
-  mapList.innerHTML = nodes.map((node, idx) => {
+
+  const mainNodesHtml = mainNodes.map((node, idx) => {
     const prog = progress[idx] || { completed: false, exercisesDone: 0 };
     const total = node.totalExercises || node.exercises?.length || 1;
     const done = Math.min(prog.exercisesDone || 0, total);
@@ -1406,10 +1365,10 @@ export function renderMap(nodes, progress, callbacks) {
     const isDone = prog.completed || false;
     const isCur = idx === firstUnlocked && !isDone;
     const unlocked = idx <= firstUnlocked;
-    const isEmpty = total === 0;
-    
+    const isEmpty = (node.exercises?.length || 0) === 0;
+
     return `
-      <div class="netflix-node ${!unlocked ? 'locked' : ''} ${isCur ? 'current' : ''} ${isDone ? 'done' : ''} ${isEmpty ? 'empty' : ''}"
+      <div class="netflix-node ${!unlocked || isEmpty ? 'locked' : ''} ${isCur ? 'current' : ''} ${isDone ? 'done' : ''} ${isEmpty ? 'empty' : ''}"
            data-node="${idx}" style="${!unlocked || isEmpty ? 'pointer-events:none;' : ''}">
         <div class="netflix-node-bg" style="background-image:url('${node.background}')">
           <div class="netflix-node-overlay"></div>
@@ -1429,15 +1388,49 @@ export function renderMap(nodes, progress, callbacks) {
       </div>
     `;
   }).join('');
-  
+
+  let repasoHtml = '';
+  if (repasoNode) {
+    const idx = 5;
+    const prog = progress[idx] || { completed: true, exercisesDone: 0 };
+    const total = repasoNode.exercises?.length || 0;
+    const done = Math.min(prog.exercisesDone || 0, total);
+    const pct = total ? Math.round(done / total * 100) : 0;
+    const isEmpty = total === 0;
+
+    repasoHtml = `
+      <div class="netflix-node repaso-node ${isEmpty ? 'empty' : ''}" data-node="${idx}" style="${isEmpty ? 'pointer-events:none;' : ''}">
+        <div class="repaso-node-icon">🧠</div>
+        <div class="repaso-node-content">
+          <div class="repaso-node-title">Nodo 6 · Repaso</div>
+          <div class="repaso-node-desc">
+            ${isEmpty ? '🎉 No tienes ejercicios pendientes' : total + (total === 1 ? ' ejercicio por repasar' : ' ejercicios por repasar')}
+          </div>
+          ${!isEmpty ? `
+            <div class="netflix-node-progress">
+              <div class="netflix-progress-bar">
+                <div class="netflix-progress-fill" style="width:${pct}%"></div>
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  }
+
+  mapList.innerHTML = mainNodesHtml + repasoHtml;
+
   mapList.querySelectorAll('.netflix-node[data-node]').forEach(card => {
     card.addEventListener('click', () => {
       const idx = parseInt(card.dataset.node);
       const node = nodes[idx];
-      if (!node || node.exercises.length === 0) {
-        callbacks.showToast("📭 Este nodo no tiene ejercicios");
+      const isRepaso = idx === 5;
+
+      if (!node || !node.exercises || node.exercises.length === 0) {
+        callbacks.showToast(isRepaso ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo no tiene ejercicios");
         return;
       }
+      if (isRepaso) { callbacks.openNode(idx); return; }
       if (idx <= firstUnlocked) callbacks.openNode(idx);
       else callbacks.showToast("Completa el nodo anterior");
     });
@@ -1445,12 +1438,12 @@ export function renderMap(nodes, progress, callbacks) {
 }
 
 export function getExerciseTypeIcon(type) {
-  const i = { traduccion:"📝", completar:"✏️", seleccionar:"🎯", corregir:"🔍", dictado:"🎧", conversacion:"💬" };
+  const i = { traduccion: "📝", completar: "✏️", seleccionar: "🎯", corregir: "🔍", dictado: "🎧" };
   return i[type] || "📌";
 }
 
 export function getExerciseTypeName(type) {
-  const n = { traduccion:"Traducción", completar:"Completar", seleccionar:"Emparejar", corregir:"Corregir", dictado:"Dictado", conversacion:"Conversación" };
+  const n = { traduccion: "Traducción", completar: "Completar", seleccionar: "Emparejar", corregir: "Corregir", dictado: "Dictado" };
   return n[type] || type;
 }
   // exercises/traduccion.js
@@ -1519,6 +1512,16 @@ function isFullyCorrectAnswer(correctText, userAnswer) {
   return normalizeFullAnswer(correctText) === normalizeFullAnswer(userAnswer);
 }
 
+// % de acierto palabra a palabra (a partir del alineamiento tipo diff).
+// Igual que en corregir/dictado: se acepta la respuesta aunque no sea
+// 100% exacta si la precisión llega al 80%.
+function computeAccuracy(alignedCorrect) {
+  const realWords = alignedCorrect.filter(item => !item.placeholder);
+  if (realWords.length === 0) return 0;
+  const matched = realWords.filter(item => item.match).length;
+  return matched / realWords.length;
+}
+
 function speakTraduccionText(text) {
   if (!('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
@@ -1538,6 +1541,9 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   const correctText = exercise.englishWord || exercise.englishWords;
   const isCorrect = isFullyCorrectAnswer(correctText, userAnswer);
   const { alignedCorrect, alignedUser } = alignWords(correctText, userAnswer);
+  const accuracy = computeAccuracy(alignedCorrect);
+  const accuracyPct = Math.round(accuracy * 100);
+  const passed = isCorrect || accuracy >= 0.8;
   
   let correctHtml = alignedCorrect.map(item => {
     if (item.placeholder) return `<span class="word-placeholder">-</span>`;
@@ -1553,12 +1559,18 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>${isCorrect ? '🎉 ¡Perfecto!' : '📊 Comparación'}</h3>
-      ${isCorrect ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
+      <h3>${isCorrect ? '🎉 ¡Perfecto!' : passed ? '✅ ¡Aceptado!' : '📊 Comparación'}</h3>
+      ${passed ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
       <div class="comparison-text-block">
         <p><strong>🇪🇸 Español:</strong><br>${window._escHTML(exercise.spanishWord || exercise.spanishWords)}</p>
         <div class="compare-line"><strong>✅ Correcto:</strong> ${correctHtml}</div>
         <div class="compare-line"><strong>✏️ Tu respuesta:</strong> ${userHtml}</div>
+        <div class="comparison-row">
+          <span class="comparison-row-label">🎯 Precisión (mínimo 80% para aprobar)</span>
+          <div class="word-diff-wrap">
+            <span class="word-pill ${passed ? 'word-correct' : 'word-error'}">${accuracyPct}%</span>
+          </div>
+        </div>
       </div>
       <div style="margin-top:12px;text-align:left;">
         <label style="color:#94a3b8;font-size:0.8rem;">💭 Consulta (opcional)</label>
@@ -1572,7 +1584,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   
   document.body.appendChild(modal);
   
-  if (isCorrect) {
+  if (passed) {
     speakTraduccionText(correctText);
   }
   
@@ -1580,7 +1592,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
     const duda = modal.querySelector('.modal-doubt')?.value?.trim() || '';
     window.speechSynthesis?.cancel();
     modal.remove();
-    if (onContinue) onContinue(duda);
+    if (onContinue) onContinue(duda, passed);
   };
   
   modal.querySelector('.modal-continue').addEventListener("click", close);
@@ -2040,7 +2052,14 @@ export function checkCorregirAnswer(exercise, userAnswer) {
     comparison.push({ correct: cw, user: uw, match: normalize(cw) === normalize(uw) && cw !== '' });
   }
 
-  return { isCorrect, comparison };
+  const matchedWords = comparison.filter(c => c.match).length;
+  const totalWords = correctWords.length;
+  // % de acierto palabra a palabra. Igual que en dictado: se acepta la
+  // respuesta (aunque no sea 100% exacta) si la precisión llega al 80%.
+  const accuracy = totalWords ? matchedWords / totalWords : 0;
+  const passed = isCorrect || accuracy >= 0.8;
+
+  return { isCorrect, accuracy, matchedWords, totalWords, passed, comparison };
 }
 
 function speakCorregirText(text) {
@@ -2060,7 +2079,8 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
   window.speechSynthesis?.cancel();
 
   const { fraseConError, fraseCorrecta, spanishPhrase } = exercise;
-  const { isCorrect, comparison } = result;
+  const { isCorrect, accuracy, matchedWords, totalWords, passed, comparison } = result;
+  const accuracyPct = Math.round((accuracy || 0) * 100);
 
   const comparisonHtml = comparison.map(c => {
     if (!c.correct && !c.user) return '';
@@ -2073,8 +2093,8 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>${isCorrect ? '🎉 ¡Correcto!' : '📝 Revisa la corrección'}</h3>
-      ${isCorrect ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
+      <h3>${isCorrect ? '🎉 ¡Perfecto!' : passed ? '✅ ¡Aceptado!' : '📝 Revisa la corrección'}</h3>
+      ${passed ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
       <div class="comparison-text-block">
         
         ${spanishPhrase ? `
@@ -2097,6 +2117,12 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
           <div class="comparison-row-text ${isCorrect ? 'correct-highlight' : ''}" style="${isCorrect ? '' : 'color:#fbbf24;'}">${window._escHTML(userAnswer) || '(vacío)'}</div>
         </div>
         <div class="comparison-row">
+          <span class="comparison-row-label">🎯 Precisión (mínimo 80% para aprobar)</span>
+          <div class="word-diff-wrap">
+            <span class="word-pill ${passed ? 'word-correct' : 'word-error'}">${accuracyPct}% · ${matchedWords}/${totalWords} palabras</span>
+          </div>
+        </div>
+        <div class="comparison-row">
           <span class="comparison-row-label">🔍 Comparación palabra a palabra</span>
           <div class="word-diff-wrap">${comparisonHtml || '—'}</div>
         </div>
@@ -2106,7 +2132,7 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
         <textarea class="answer-input modal-doubt" rows="2" placeholder="Tu consulta..."></textarea>
       </div>
       <div class="modal-buttons">
-        ${!isCorrect ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
+        ${!passed ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
         <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
       </div>
     </div>
@@ -2114,7 +2140,7 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
 
   document.body.appendChild(modal);
 
-  if (isCorrect) {
+  if (passed) {
     speakCorregirText(fraseCorrecta);
   }
 
@@ -2426,7 +2452,11 @@ export function checkDictadoAnswer(correctText, userAnswer) {
     if (m) matched++;
     comp.push({correct:c, user:u, match:m});
   }
-  return { isExact, accuracy: cw.length ? matched/cw.length : 0, matchedWords: matched, totalWords: cw.length, comparison: comp };
+  const accuracy = cw.length ? matched/cw.length : 0;
+  // Igual que en traducción/corrección: se acepta (sin necesidad de ser
+  // 100% exacto) si la precisión llega al 80%.
+  const passed = isExact || accuracy >= 0.8;
+  return { isExact, accuracy, matchedWords: matched, totalWords: cw.length, passed, comparison: comp };
 }
 
 export function showDictadoModal(correctText, result, userAnswer, onContinue) {
@@ -2437,7 +2467,7 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
   const existing = document.querySelector('.modal-overlay');
   if (existing) existing.remove();
   
-  const { isExact, accuracy, matchedWords, totalWords, comparison } = result;
+  const { isExact, accuracy, matchedWords, totalWords, passed, comparison } = result;
   const accColor = accuracy >= 0.9 ? '#2ecc71' : accuracy >= 0.7 ? '#f39c12' : '#e50914';
   
   const compHtml = comparison.map(c => {
@@ -2450,8 +2480,8 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
   modal.innerHTML = `
     <div class="modal-friend dictado-modal" style="padding:0;overflow:hidden;">
       <div style="padding:20px 24px;background:${accColor};color:#fff;display:flex;align-items:center;gap:12px;">
-        <span style="font-size:2rem;">${isExact?'🏆':accuracy>=0.7?'📝':'🎧'}</span>
-        <h3 style="color:#fff;margin:0;">${isExact?'¡Perfecto!':'Resultado'}</h3>
+        <span style="font-size:2rem;">${isExact?'🏆':passed?'✅':'📝'}</span>
+        <h3 style="color:#fff;margin:0;">${isExact?'¡Perfecto!':passed?'¡Aceptado! (80%+)':'Sigue practicando'}</h3>
       </div>
       <div style="padding:20px 24px;">
         <div style="background:#111;border-radius:8px;padding:14px;margin-bottom:12px;">
@@ -2516,313 +2546,6 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
 export function getDictadoReportEntry(originalText, userAnswer, duda) {
   return { type:"dictado", original:originalText, userAnswer, duda:duda||'' };
 }
-  // exercises/conversacion.js
-// Ejercicio de conversación con audio y completar espacios
-
-const AVATARS = {
-  default1: { emoji: '👩', color: '#f472b6' },
-  default2: { emoji: '👨', color: '#60a5fa' },
-  default3: { emoji: '👩‍🦰', color: '#fbbf24' },
-  narrador: { emoji: '', color: '#94a3b8' }
-};
-
-let conversationState = {
-  messages: [],
-  currentIndex: 0,
-  attempts: {},
-  isPlaying: false,
-  selectedOption: null
-};
-
-function speakText(text, onEnd) {
-  if (!('speechSynthesis' in window)) return;
-  window.speechSynthesis.cancel();
-  
-  // Pequeño delay para asegurar limpieza
-  setTimeout(() => {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
-    utterance.rate = 0.85;
-    utterance.pitch = 1;
-    if (onEnd) utterance.onend = onEnd;
-    window.speechSynthesis.speak(utterance);
-  }, 80);
-}
-
-function isAudioSelection(message) {
-  return message.audioOptions && Array.isArray(message.audioOptions) && message.audioOptions.length === 3;
-}
-
-function needsCompletion(text) {
-  return text.split(/\s+/).length >= 4;
-}
-
-function createCompletionText(text) {
-  const words = text.split(/\s+/);
-  const randomIndex = Math.floor(Math.random() * words.length);
-  const removedWord = words[randomIndex];
-  words[randomIndex] = '_____';
-  return { displayText: words.join(' '), removedWord, removedIndex: randomIndex };
-}
-
-function getAvatar(message) {
-  if (message.isNarrador === true || (message.character || '').toLowerCase() === 'narrador') {
-    return { ...AVATARS.narrador, nombre: 'Narrador' };
-  }
-  
-  const name = message.name || message.character || 'Persona';
-  const color = message.color || AVATARS.default1.color;
-  const emoji = message.avatar || AVATARS.default1.emoji;
-  
-  return { emoji, color, nombre: name };
-}
-
-export function renderConversacionExercise(exercise, container) {
-  // Cancelar audio previo
-  window.speechSynthesis.cancel();
-  
-  const messages = exercise.messages || exercise.conversacion || [];
-  
-  conversationState = {
-    messages,
-    currentIndex: 0,
-    attempts: {},
-    isPlaying: false,
-    selectedOption: null
-  };
-  
-  renderMessage(0, container, messages);
-}
-
-function renderMessage(index, container, messages) {
-  if (index >= messages.length) {
-    container.innerHTML = `
-      <div style="text-align:center; padding:30px 20px;">
-        <div style="font-size:4rem; margin-bottom:16px;">🎉</div>
-        <h3 style="color:#4ade80; margin-bottom:8px;">¡Conversación completada!</h3>
-        <p style="color:#94a3b8;">Has terminado todos los mensajes.</p>
-        <button class="btn-action btn-continue conv-finish-btn" style="margin-top:16px; background:#4ade80; color:#064e3b; font-weight:700; width:100%;">
-          ✅ Finalizar
-        </button>
-      </div>
-    `;
-    
-    container.querySelector('.conv-finish-btn')?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      window.speechSynthesis.cancel();
-      container.dispatchEvent(new CustomEvent('conversacion-completed'));
-    });
-    return;
-  }
-  
-  const message = messages[index];
-  const avatar = getAvatar(message);
-  const isNarrador = message.isNarrador === true || (message.character || '').toLowerCase() === 'narrador';
-  const needsComp = needsCompletion(message.text);
-  const isAudioSel = isAudioSelection(message);
-  
-  let completionData = null;
-  if (needsComp && !isAudioSel) {
-    completionData = createCompletionText(message.text);
-  }
-  
-  const isRetry = conversationState.attempts[index] >= 2;
-  
-  container.innerHTML = `
-    <div class="conversation-container">
-      <div class="conv-progress">
-        <span class="conv-progress-text">Mensaje ${index + 1} de ${messages.length}</span>
-        <div class="conv-progress-bar">
-          <div class="conv-progress-fill" style="width:${((index + 1) / messages.length) * 100}%"></div>
-        </div>
-      </div>
-      
-      <div class="conv-message-wrapper ${isNarrador ? 'narrador' : ''}">
-        ${!isNarrador ? `
-          <div class="conv-avatar" style="background:${avatar.color}20; border:2px solid ${avatar.color};">
-            <span class="conv-avatar-emoji">${avatar.emoji}</span>
-          </div>
-        ` : ''}
-        
-        <div class="conv-bubble ${isNarrador ? 'narrador-bubble' : ''}" style="${!isNarrador ? 'border-left:3px solid ' + avatar.color : ''}">
-          <div class="conv-character-name" style="color:${avatar.color};">
-            ${avatar.nombre}
-          </div>
-          
-          ${isRetry ? '<div class="correction-notice" style="margin-bottom:8px;">⚠️ Se completó automáticamente después de 2 intentos</div>' : ''}
-          
-          <div class="conv-text">
-            ${isAudioSel ? `
-              <p style="color:#fde68a; margin-bottom:12px;">🎧 Escucha y selecciona la opción correcta:</p>
-              <div class="conv-audio-options">
-                ${message.audioOptions.map((opt, i) => `
-                  <button class="conv-audio-btn ${conversationState.selectedOption === i ? 'selected' : ''}" 
-                    data-option="${i}" style="border-color:${['#facc15','#60a5fa','#f472b6'][i]};">
-                    <span class="conv-audio-icon">🔊</span>
-                    <span class="conv-audio-label">Opción ${i + 1}</span>
-                  </button>
-                `).join('')}
-              </div>
-            ` : completionData && !isRetry ? `
-              <div class="conv-completion-text">
-                ${completionData.displayText.split(' ').map(word => {
-                  if (word === '_____') {
-                    return `<input type="text" class="completar-input conv-complete-input" 
-                      placeholder="?" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-                      style="width:80px; display:inline-block;">`;
-                  }
-                  return `<span>${word}</span>`;
-                }).join(' ')}
-              </div>
-            ` : `
-              <p>${message.text}</p>
-            `}
-          </div>
-          
-          <button class="conv-play-btn conv-play" title="Reproducir audio">🔊 Reproducir</button>
-        </div>
-      </div>
-      
-      <button class="btn-action btn-continue conv-continue-btn" 
-        style="width:100%; margin-top:16px; background:${isAudioSel && conversationState.selectedOption === null ? '#334155' : '#4ade80'}; color:#064e3b; font-weight:700;">
-        ${index < messages.length - 1 ? '▶️ Continuar' : '✅ Terminar conversación'}
-      </button>
-    </div>
-  `;
-  
-  setupConversacionListeners(message, index, container, messages, completionData, isAudioSel, isRetry);
-}
-
-function setupConversacionListeners(message, index, container, messages, completionData, isAudioSel, isRetry) {
-  const playBtn = container.querySelector('.conv-play');
-  if (playBtn) {
-    playBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (conversationState.isPlaying) {
-        window.speechSynthesis.cancel();
-        conversationState.isPlaying = false;
-        playBtn.textContent = '🔊 Reproducir';
-        playBtn.style.background = '';
-        playBtn.style.color = '';
-        return;
-      }
-      
-      conversationState.isPlaying = true;
-      playBtn.textContent = '⏹ Detener';
-      playBtn.style.background = '#ef4444';
-      playBtn.style.color = 'white';
-      
-      speakText(message.text, () => {
-        conversationState.isPlaying = false;
-        playBtn.textContent = '🔊 Reproducir';
-        playBtn.style.background = '';
-        playBtn.style.color = '';
-      });
-    });
-  }
-  
-  if (isAudioSel) {
-    const audioBtns = container.querySelectorAll('.conv-audio-btn');
-    audioBtns.forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        const optionIndex = parseInt(btn.dataset.option);
-        conversationState.selectedOption = optionIndex;
-        audioBtns.forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        if (message.audioOptions[optionIndex]) {
-          speakText(message.audioOptions[optionIndex]);
-        }
-        const continueBtn = container.querySelector('.conv-continue-btn');
-        if (continueBtn) continueBtn.style.background = '#4ade80';
-      });
-    });
-  }
-  
-  const continueBtn = container.querySelector('.conv-continue-btn');
-  if (continueBtn) {
-    continueBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      
-      if (isAudioSel && conversationState.selectedOption === null) {
-        window._toast && window._toast("🎧 Selecciona una opción de audio primero");
-        return;
-      }
-      
-      if (completionData && !isRetry) {
-        const input = container.querySelector('.conv-complete-input');
-        if (!input || !input.value.trim()) {
-          window._toast && window._toast("✏️ Completa la palabra faltante");
-          return;
-        }
-        
-        const userAnswer = input.value.trim();
-        const isCorrect = userAnswer.toLowerCase() === completionData.removedWord.toLowerCase();
-        conversationState.attempts[index] = (conversationState.attempts[index] || 0) + 1;
-        
-        container.dispatchEvent(new CustomEvent('conversacion-answer', {
-          detail: {
-            messageIndex: index,
-            messageText: message.text,
-            removedWord: completionData.removedWord,
-            userAnswer: userAnswer,
-            isCorrect: isCorrect,
-            attempts: conversationState.attempts[index]
-          }
-        }));
-        
-        if (!isCorrect && conversationState.attempts[index] < 2) {
-          window._toast && window._toast("❌ Incorrecto. Intenta de nuevo.");
-          renderMessage(index, container, messages);
-          return;
-        }
-      }
-      
-      if (isAudioSel) {
-        container.dispatchEvent(new CustomEvent('conversacion-answer', {
-          detail: {
-            messageIndex: index,
-            messageText: message.text,
-            selectedOption: conversationState.selectedOption,
-            correctOption: message.correctOption || 0,
-            isCorrect: conversationState.selectedOption === (message.correctOption || 0)
-          }
-        }));
-      }
-      
-      // Cancelar audio antes de avanzar
-      window.speechSynthesis.cancel();
-      conversationState.isPlaying = false;
-      
-      conversationState.currentIndex = index + 1;
-      conversationState.selectedOption = null;
-      
-      if (index + 1 < messages.length) {
-        renderMessage(index + 1, container, messages);
-        setTimeout(() => {
-          const nextPlayBtn = container.querySelector('.conv-play');
-          if (nextPlayBtn && messages[index + 1]) nextPlayBtn.click();
-        }, 500);
-      } else {
-        renderMessage(messages.length, container, messages);
-      }
-    });
-  }
-}
-
-export function getConversacionReportEntry(messageData) {
-  return {
-    type: "conversacion",
-    messageIndex: messageData.messageIndex,
-    messageText: messageData.messageText,
-    removedWord: messageData.removedWord || '',
-    userAnswer: messageData.userAnswer || '',
-    selectedOption: messageData.selectedOption,
-    correctOption: messageData.correctOption,
-    isCorrect: messageData.isCorrect,
-    attempts: messageData.attempts || 1
-  };
-}
   
   const STORAGE_KEY = "english_trainer_v6";
   
@@ -2834,6 +2557,7 @@ export function getConversacionReportEntry(messageData) {
       activeNodeIndex: AppState.activeNodeIndex,
       activeExerciseIndex: AppState.activeExerciseIndex,
       reportEntries: AppState.reportEntries,
+      reviewPool: AppState.reviewPool,
       lastUpdated: new Date().toISOString()
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
@@ -2850,6 +2574,7 @@ export function getConversacionReportEntry(messageData) {
       AppState.activeNodeIndex = data.activeNodeIndex || 0;
       AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
       AppState.reportEntries = data.reportEntries || [];
+      AppState.reviewPool = data.reviewPool || [];
       return AppState.nodes.length > 0;
     } catch(e) { return false; }
   }
@@ -2862,7 +2587,9 @@ export function getConversacionReportEntry(messageData) {
     activeNodeIndex: 0,
     activeExerciseIndex: 0,
     failedExercises: [],
-    reportEntries: []
+    reportEntries: [],
+    reviewPool: [],
+    sessionCorrectness: {}
   };
 
   function toast(msg) {
@@ -2911,15 +2638,16 @@ export function getConversacionReportEntry(messageData) {
       const seleccionar = JSON.parse(document.getElementById("seleccionarInput").value.trim() || '[]');
       const corregir = JSON.parse(document.getElementById("corregirInput").value.trim() || '[]');
       const dictado = JSON.parse(document.getElementById("dictadoInput").value.trim() || '[]');
-      const conversacion = JSON.parse(document.getElementById("conversacionInput").value.trim() || '[]');
       
       // Sin validación - todo es opcional
-      AppState.nodes = createNodeStructure({ traducciones, completar, seleccionar, corregir, dictado, conversacion });
+      AppState.nodes = createNodeStructure({ traducciones, completar, seleccionar, corregir, dictado });
       AppState.progress = {};
       AppState.activeNodeIndex = 0;
       AppState.activeExerciseIndex = 0;
       AppState.failedExercises = [];
       AppState.reportEntries = [];
+      AppState.reviewPool = [];
+      AppState.sessionCorrectness = {};
       
       AppState.nodes.forEach((node, idx) => {
         AppState.progress[idx] = {
@@ -2949,15 +2677,35 @@ export function getConversacionReportEntry(messageData) {
     renderMap(AppState.nodes, AppState.progress, { openNode, showToast: toast });
   }
 
+  const REPASO_NODE_INDEX = 5;
+  const PASS_THRESHOLD = 0.8;
+
+  function refreshRepasoNode() {
+    const node = AppState.nodes[REPASO_NODE_INDEX];
+    if (!node || node.type !== 'repaso') return;
+    node.exercises = AppState.reviewPool.slice();
+    node.totalExercises = node.exercises.length;
+    AppState.progress[REPASO_NODE_INDEX] = {
+      completed: node.exercises.length === 0,
+      exercisesDone: 0,
+      exerciseResults: Array(node.exercises.length).fill(false)
+    };
+  }
+
+  function recordExerciseResult(isCorrect) {
+    AppState.sessionCorrectness[AppState.activeExerciseIndex] = !!isCorrect;
+  }
+
   function openNode(nodeIndex) {
     cleanupAudio();
     if (!AppState.nodes[nodeIndex]?.exercises?.length) {
-      toast("📭 Este nodo está vacío");
+      toast(nodeIndex === REPASO_NODE_INDEX ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo está vacío");
       return;
     }
     AppState.activeNodeIndex = nodeIndex;
     AppState.activeExerciseIndex = 0;
     AppState.failedExercises = [];
+    AppState.sessionCorrectness = {};
     
     const prog = AppState.progress[nodeIndex] || { exerciseResults: [] };
     const results = prog.exerciseResults || [];
@@ -2979,6 +2727,31 @@ export function getConversacionReportEntry(messageData) {
     const exIndex = AppState.activeExerciseIndex;
     if (exIndex >= node.exercises.length) {
       AppState.progress[AppState.activeNodeIndex].completed = true;
+
+      if (node.type === 'repaso') {
+        // Los ejercicios que se acertaron esta vez salen de la pool de repaso
+        node.exercises.forEach((ex, i) => {
+          if (AppState.sessionCorrectness[i]) {
+            const poolIdx = AppState.reviewPool.indexOf(ex);
+            if (poolIdx !== -1) AppState.reviewPool.splice(poolIdx, 1);
+          }
+        });
+      } else {
+        const total = node.exercises.length;
+        let correctCount = 0;
+        node.exercises.forEach((ex, i) => { if (AppState.sessionCorrectness[i]) correctCount++; });
+        const score = total ? correctCount / total : 1;
+        if (score < PASS_THRESHOLD) {
+          node.exercises.forEach((ex, i) => {
+            if (!AppState.sessionCorrectness[i] && !AppState.reviewPool.includes(ex)) {
+              AppState.reviewPool.push(ex);
+            }
+          });
+        }
+      }
+      refreshRepasoNode();
+      AppState.sessionCorrectness = {};
+
       saveToStorage();
       renderMapView();
       showMainView("map");
@@ -3002,7 +2775,6 @@ export function getConversacionReportEntry(messageData) {
       case "seleccionar": renderSeleccionarExercise(exercise, container); setupSeleccionarListeners(exercise); break;
       case "corregir": renderCorregirExercise(exercise, container, isRetry); setupCorregirListeners(exercise, container); break;
       case "dictado": renderDictadoExercise(exercise, container); setupDictadoListeners(exercise, container); break;
-      case "conversacion": renderConversacionExercise(exercise, container); setupConversacionMainListeners(); break;
     }
     
     document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Correccion de error" : "✏️ Tu turno";
@@ -3015,7 +2787,8 @@ export function getConversacionReportEntry(messageData) {
       checkBtn.onclick = () => {
         const userAnswer = answerInput.value.trim();
         if (!userAnswer) { toast("📝 Escribe algo"); return; }
-        showComparativeModal(exercise, userAnswer, (duda) => {
+        showComparativeModal(exercise, userAnswer, (duda, passed) => {
+          recordExerciseResult(passed);
           AppState.reportEntries.push(getTraduccionReportEntry(exercise, userAnswer, duda));
           advanceExercise();
         });
@@ -3031,6 +2804,7 @@ export function getConversacionReportEntry(messageData) {
         const { allCorrect, userAnswers, results } = result;
         showCompletarModal(exercise, results, 
           (success, duda) => { 
+            recordExerciseResult(success);
             AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
             advanceExercise(); 
           },
@@ -3054,7 +2828,7 @@ export function getConversacionReportEntry(messageData) {
         if (!userAnswer) { toast("📝 Escribe algo"); return; }
         const result = checkCorregirAnswer(exercise, userAnswer);
         showCorregirModal(exercise, result, userAnswer, 
-          (duda) => { AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); advanceExercise(); },
+          (duda) => { recordExerciseResult(result.passed); AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); advanceExercise(); },
           (duda) => { AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
       };
@@ -3063,7 +2837,7 @@ export function getConversacionReportEntry(messageData) {
 
   function setupSeleccionarListeners(exercise) {
     const container = document.getElementById("exerciseContainer");
-    if (container) container.addEventListener("all-matched", () => { showSeleccionarCompleteModal(exercise.pairs, () => advanceExercise()); });
+    if (container) container.addEventListener("all-matched", () => { showSeleccionarCompleteModal(exercise.pairs, () => { recordExerciseResult(true); advanceExercise(); }); });
   }
 
   function setupDictadoListeners(exercise, container) {
@@ -3075,19 +2849,13 @@ export function getConversacionReportEntry(messageData) {
     const handler = function(e) {
       cleanupAudio();
       const { originalText, userAnswer, result, duda } = e.detail;
+      recordExerciseResult(!!result?.passed);
       AppState.reportEntries.push(getDictadoReportEntry(originalText, userAnswer, duda));
       advanceExercise();
     };
     
     container._dictadoHandler = handler;
     container.addEventListener("dictado-done", handler);
-  }
-
-  function setupConversacionMainListeners() {
-    const container = document.getElementById("exerciseContainer");
-    if (!container) return;
-    container.addEventListener("conversacion-answer", (e) => { AppState.reportEntries.push(getConversacionReportEntry(e.detail)); });
-    container.addEventListener("conversacion-completed", () => { cleanupAudio(); advanceExercise(); });
   }
 
   function advanceExercise() {
@@ -3130,8 +2898,7 @@ export function getConversacionReportEntry(messageData) {
       completar:"COMPLETAR", 
       seleccionar:"EMPAREJAR", 
       corregir:"CORREGIR", 
-      dictado:"DICTADO", 
-      conversacion:"CONVERSACIÓN" 
+      dictado:"DICTADO" 
     };
     
     Object.keys(typeNames).forEach(type => {
@@ -3158,14 +2925,6 @@ export function getConversacionReportEntry(messageData) {
         else if (entry.type === "dictado") { 
           lines.push("   🎧 Correcto: " + entry.original); 
           lines.push("   ✏️ Usuario: " + entry.userAnswer); 
-        }
-        else if (entry.type === "conversacion") { 
-          if (entry.removedWord) { 
-            lines.push("   🔤 Falta: " + entry.removedWord); 
-            lines.push("   ✏️ Usuario: " + entry.userAnswer); 
-          } 
-          if (entry.selectedOption !== undefined) 
-            lines.push("   🎧 Opcion: " + (entry.selectedOption + 1) + "/3"); 
         }
         if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
         lines.push("");
@@ -3221,7 +2980,7 @@ export function getConversacionReportEntry(messageData) {
 
   async function resetAll() {
     if(confirm("¿Borrar todo el progreso?")) {
-      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = [];
+      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = []; AppState.reviewPool = []; AppState.sessionCorrectness = {};
       saveToStorage(); renderMapView(); showMainView("import"); toast("🗑️ Todo borrado");
     }
   }
