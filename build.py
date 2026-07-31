@@ -282,7 +282,8 @@ def get_main_logic():
     failedExercises: [],
     reportEntries: [],
     reviewPool: [],
-    sessionCorrectness: {}
+    sessionCorrectness: {},
+    sessionAnswers: {}
   };
 
   function toast(msg) {
@@ -337,6 +338,7 @@ def get_main_logic():
       AppState.reportEntries = [];
       AppState.reviewPool = [];
       AppState.sessionCorrectness = {};
+      AppState.sessionAnswers = {};
       
       AppState.nodes.forEach((node, idx) => {
         AppState.progress[idx] = {
@@ -381,8 +383,69 @@ def get_main_logic():
     };
   }
 
+  // Convierte un ejercicio fallado (de un nodo principal) en la forma en la
+  // que debe aparecer dentro del nodo 6 (repaso). Traducción y Corregir se
+  // convierten siempre en ejercicios de tipo "corregir":
+  //  - Traducción: "spanishWord/spanishWords" pasa a ser "fraseConError" y
+  //    "englishWord/englishWords" pasa a ser "fraseCorrecta".
+  //  - Corregir: se conserva igual, pero "fraseConError" se reemplaza por el
+  //    error que el propio usuario escribió al fallar.
+  // El resto de tipos (completar, seleccionar, dictado) entran sin cambios.
+  function buildRepasoExercise(ex, userAnswer) {
+    if (!ex.__repasoId) {
+      AppState._repasoSeq = (AppState._repasoSeq || 0) + 1;
+      ex.__repasoId = "rp" + AppState._repasoSeq;
+    }
+    let converted;
+    if (ex.type === "traduccion") {
+      converted = {
+        type: "corregir",
+        fraseConError: ex.spanishWord || ex.spanishWords || "",
+        fraseCorrecta: ex.englishWord || ex.englishWords || ""
+      };
+    } else if (ex.type === "corregir") {
+      converted = { ...ex };
+      if (userAnswer && userAnswer.trim()) converted.fraseConError = userAnswer.trim();
+    } else {
+      converted = { ...ex };
+    }
+    converted.__repasoId = ex.__repasoId;
+    return converted;
+  }
+
+  // Marca cada entrada del informe según si sucedió dentro del nodo 6
+  // (repaso) o en un nodo principal, para poder agruparlas por separado.
+  function tagOrigin(entry) {
+    const node = AppState.nodes[AppState.activeNodeIndex];
+    entry.origin = (node && node.type === "repaso") ? "repaso" : "main";
+    return entry;
+  }
+
   function recordExerciseResult(isCorrect) {
-    AppState.sessionCorrectness[AppState.activeExerciseIndex] = !!isCorrect;
+    const node = AppState.nodes[AppState.activeNodeIndex];
+    const exIndex = AppState.activeExerciseIndex;
+    AppState.sessionCorrectness[exIndex] = !!isCorrect;
+
+    if (node && node.type === "repaso") {
+      const current = node.exercises[exIndex];
+      if (!current) return;
+      if (isCorrect) {
+        // Aprobado de verdad: sale definitivamente de la pool de repaso
+        if (current.__repasoId) {
+          AppState.reviewPool = AppState.reviewPool.filter(p => p.__repasoId !== current.__repasoId);
+        }
+      } else {
+        // Sigue sin superar el 80%: se reencola al FINAL del nodo 6,
+        // refrescando el error con la última respuesta del usuario, hasta
+        // que realmente lo apruebe.
+        const clone = { ...current };
+        const userAnswer = AppState.sessionAnswers[exIndex];
+        if (clone.type === "corregir" && userAnswer && userAnswer.trim()) {
+          clone.fraseConError = userAnswer.trim();
+        }
+        node.exercises.push(clone);
+      }
+    }
   }
 
   function openNode(nodeIndex) {
@@ -395,6 +458,7 @@ def get_main_logic():
     AppState.activeExerciseIndex = 0;
     AppState.failedExercises = [];
     AppState.sessionCorrectness = {};
+    AppState.sessionAnswers = {};
     
     const prog = AppState.progress[nodeIndex] || { exerciseResults: [] };
     const results = prog.exerciseResults || [];
@@ -417,29 +481,27 @@ def get_main_logic():
     if (exIndex >= node.exercises.length) {
       AppState.progress[AppState.activeNodeIndex].completed = true;
 
-      if (node.type === 'repaso') {
-        // Los ejercicios que se acertaron esta vez salen de la pool de repaso
-        node.exercises.forEach((ex, i) => {
-          if (AppState.sessionCorrectness[i]) {
-            const poolIdx = AppState.reviewPool.indexOf(ex);
-            if (poolIdx !== -1) AppState.reviewPool.splice(poolIdx, 1);
-          }
-        });
-      } else {
+      if (node.type !== 'repaso') {
+        // El nodo 6 resuelve su propia pool ejercicio a ejercicio (ver
+        // recordExerciseResult), así que aquí solo evaluamos nodos principales.
         const total = node.exercises.length;
         let correctCount = 0;
         node.exercises.forEach((ex, i) => { if (AppState.sessionCorrectness[i]) correctCount++; });
         const score = total ? correctCount / total : 1;
         if (score < PASS_THRESHOLD) {
           node.exercises.forEach((ex, i) => {
-            if (!AppState.sessionCorrectness[i] && !AppState.reviewPool.includes(ex)) {
-              AppState.reviewPool.push(ex);
+            if (!AppState.sessionCorrectness[i]) {
+              const alreadyQueued = ex.__repasoId && AppState.reviewPool.some(p => p.__repasoId === ex.__repasoId);
+              if (!alreadyQueued) {
+                AppState.reviewPool.push(buildRepasoExercise(ex, AppState.sessionAnswers[i]));
+              }
             }
           });
         }
       }
       refreshRepasoNode();
       AppState.sessionCorrectness = {};
+      AppState.sessionAnswers = {};
 
       saveToStorage();
       renderMapView();
@@ -477,8 +539,9 @@ def get_main_logic():
         const userAnswer = answerInput.value.trim();
         if (!userAnswer) { toast("📝 Escribe algo"); return; }
         showComparativeModal(exercise, userAnswer, (duda, passed) => {
+          AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
           recordExerciseResult(passed);
-          AppState.reportEntries.push(getTraduccionReportEntry(exercise, userAnswer, duda));
+          AppState.reportEntries.push(tagOrigin(getTraduccionReportEntry(exercise, userAnswer, duda)));
           advanceExercise();
         });
       };
@@ -494,7 +557,7 @@ def get_main_logic():
         showCompletarModal(exercise, results, 
           (success, duda) => { 
             recordExerciseResult(success);
-            AppState.reportEntries.push(getCompletarReportEntry(exercise, userAnswers, duda)); 
+            AppState.reportEntries.push(tagOrigin(getCompletarReportEntry(exercise, userAnswers, duda))); 
             advanceExercise(); 
           },
           (duda) => { 
@@ -515,10 +578,11 @@ def get_main_logic():
       checkBtn.onclick = () => {
         const userAnswer = answerInput.value.trim();
         if (!userAnswer) { toast("📝 Escribe algo"); return; }
+        AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
         const result = checkCorregirAnswer(exercise, userAnswer);
         showCorregirModal(exercise, result, userAnswer, 
-          (duda) => { recordExerciseResult(result.passed); AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); advanceExercise(); },
-          (duda) => { AppState.reportEntries.push(getCorregirReportEntry(exercise, userAnswer, duda)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
+          (duda) => { recordExerciseResult(result.passed); AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); advanceExercise(); },
+          (duda) => { AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
       };
     }
@@ -538,8 +602,9 @@ def get_main_logic():
     const handler = function(e) {
       cleanupAudio();
       const { originalText, userAnswer, result, duda } = e.detail;
+      AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
       recordExerciseResult(!!result?.passed);
-      AppState.reportEntries.push(getDictadoReportEntry(originalText, userAnswer, duda));
+      AppState.reportEntries.push(tagOrigin(getDictadoReportEntry(originalText, userAnswer, duda)));
       advanceExercise();
     };
     
@@ -564,6 +629,33 @@ def get_main_logic():
     renderExercise();
   }
 
+  // Formatea una sola entrada del informe (usado tanto en las secciones
+  // por tipo como en la sección de repaso).
+  function formatReportEntryLines(counter, entry) {
+    const lines = [];
+    lines.push(counter + ". " + (entry.original || entry.messageText || "").substring(0, 80));
+    if (entry.type === "traduccion") { 
+      lines.push("   ✅ Esperado: " + entry.expected); 
+      lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+    }
+    else if (entry.type === "completar") { 
+      lines.push("   ✅ Frase: " + entry.expected); 
+      lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); 
+    }
+    else if (entry.type === "corregir") { 
+      lines.push("   ❌ Error: " + entry.original); 
+      lines.push("   ✅ Correcto: " + entry.expected); 
+      lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+    }
+    else if (entry.type === "dictado") { 
+      lines.push("   🎧 Correcto: " + entry.original); 
+      lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+    }
+    if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
+    lines.push("");
+    return lines;
+  }
+
   function buildReport() {
     let lines = [];
     lines.push("📘 INFORME DE APRENDIZAJE");
@@ -575,8 +667,14 @@ def get_main_logic():
       return lines.join("\n");
     }
     
+    // Todo lo ocurrido dentro del nodo 6 (repaso) se separa del resto para
+    // que quede claro en el informe que esa parte fue donde el usuario
+    // estuvo practicando hasta lograr superar su error.
+    const mainEntries = AppState.reportEntries.filter(e => e.origin !== "repaso");
+    const repasoEntries = AppState.reportEntries.filter(e => e.origin === "repaso");
+
     const byType = {};
-    AppState.reportEntries.forEach(entry => {
+    mainEntries.forEach(entry => {
       if (!byType[entry.type]) byType[entry.type] = [];
       byType[entry.type].push(entry);
     });
@@ -597,29 +695,23 @@ def get_main_logic():
       lines.push("-".repeat(30));
       entries.forEach(entry => {
         counter++;
-        lines.push(counter + ". " + (entry.original || entry.messageText || "").substring(0, 80));
-        if (entry.type === "traduccion") { 
-          lines.push("   ✅ Esperado: " + entry.expected); 
-          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
-        }
-        else if (entry.type === "completar") { 
-          lines.push("   ✅ Frase: " + entry.expected); 
-          lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); 
-        }
-        else if (entry.type === "corregir") { 
-          lines.push("   ❌ Error: " + entry.original); 
-          lines.push("   ✅ Correcto: " + entry.expected); 
-          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
-        }
-        else if (entry.type === "dictado") { 
-          lines.push("   🎧 Correcto: " + entry.original); 
-          lines.push("   ✏️ Usuario: " + entry.userAnswer); 
-        }
-        if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
-        lines.push("");
+        lines.push(...formatReportEntryLines(counter, entry));
       });
       lines.push("");
     });
+
+    if (repasoEntries.length > 0) {
+      lines.push("🔁 SECCIÓN DE REPASO — Practicando hasta superar tus errores");
+      lines.push("=".repeat(40));
+      lines.push("Aquí queda registrado todo lo ocurrido en el Nodo 6 (repaso),");
+      lines.push("donde cada ejercicio fallado se repite hasta que se aprueba de verdad.");
+      lines.push("-".repeat(30));
+      repasoEntries.forEach(entry => {
+        counter++;
+        lines.push(...formatReportEntryLines(counter, entry));
+      });
+      lines.push("");
+    }
     
     return lines.join("\n");
   }
@@ -669,7 +761,7 @@ def get_main_logic():
 
   async function resetAll() {
     if(confirm("¿Borrar todo el progreso?")) {
-      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = []; AppState.reviewPool = []; AppState.sessionCorrectness = {};
+      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = []; AppState.reviewPool = []; AppState.sessionCorrectness = {}; AppState.sessionAnswers = {};
       saveToStorage(); renderMapView(); showMainView("import"); toast("🗑️ Todo borrado");
     }
   }
