@@ -2697,8 +2697,10 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
   // Convierte un ejercicio fallado (de un nodo principal) en la forma en la
   // que debe aparecer dentro del nodo 6 (repaso). Traducción y Corregir se
   // convierten siempre en ejercicios de tipo "corregir":
-  //  - Traducción: "spanishWord/spanishWords" pasa a ser "fraseConError" y
-  //    "englishWord/englishWords" pasa a ser "fraseCorrecta".
+  //  - Traducción: "spanishWord/spanishWords" pasa a mostrarse arriba como
+  //    "spanishPhrase" (🇪🇸 Frase en español), "englishWord/englishWords"
+  //    pasa a ser "fraseCorrecta", y la tarjeta de error ("fraseConError")
+  //    muestra lo que el propio usuario escribió mal.
   //  - Corregir: se conserva igual, pero "fraseConError" se reemplaza por el
   //    error que el propio usuario escribió al fallar.
   // El resto de tipos (completar, seleccionar, dictado) entran sin cambios.
@@ -2711,7 +2713,8 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
     if (ex.type === "traduccion") {
       converted = {
         type: "corregir",
-        fraseConError: ex.spanishWord || ex.spanishWords || "",
+        spanishPhrase: ex.spanishWord || ex.spanishWords || "",
+        fraseConError: (userAnswer && userAnswer.trim()) ? userAnswer.trim() : (ex.spanishWord || ex.spanishWords || ""),
         fraseCorrecta: ex.englishWord || ex.englishWords || ""
       };
     } else if (ex.type === "corregir") {
