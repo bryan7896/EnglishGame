@@ -1047,6 +1047,7 @@ textarea:focus-visible,
 .modal-friend {
   width: 100%;
   max-width: 420px;
+  min-height: 320px;
   max-height: 86vh;
   overflow-y: auto;
   background: var(--surface);
@@ -1056,6 +1057,9 @@ textarea:focus-visible,
   text-align: center;
   box-shadow: var(--shadow-md);
   animation: modal-pop 0.28s var(--ease);
+  display: flex;          
+  flex-direction: column; 
+  justify-content: center; 
 }
 
 @keyframes modal-pop {
