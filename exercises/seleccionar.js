@@ -71,7 +71,12 @@ function speakSeleccionarWord(text) {
   window.speechSynthesis.speak(utterance);
 }
 
-function shuffleArray(arr) {
+// Nombre propio (no "shuffleArray") a propósito: build.py/build_template.py
+// concatenan todos los archivos de exercises/ y mapa/map.js dentro de un
+// único <script type="module">, y map.js ya define su propio shuffleArray
+// en ese mismo scope. Redeclarar el mismo nombre ahí sería un
+// "Identifier already declared" que rompe TODO el script.
+function shuffleSeleccionarList(arr) {
   const shuffled = [...arr];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -98,7 +103,7 @@ export function renderSeleccionarExercise(exercise, container) {
   }
 
   if (practiceCount > 0) {
-    const practicePairs = shuffleArray(pairs).slice(0, practiceCount);
+    const practicePairs = shuffleSeleccionarList(pairs).slice(0, practiceCount);
     renderListeningPractice(practicePairs, container, () => {
       const hiddenWords = new Set(practicePairs.map(p => p.englishWord));
       renderMatchingGame(exercise, container, hiddenWords);
