@@ -36,6 +36,7 @@ function classifyVoiceGender(voice) {
 let currentUtterance = null; // Para tracking
 let lastVoiceURI = null; // Evita repetir literalmente la misma voz
 let lastGender = null; // Para alternar género cuando hay ambos disponibles
+let voicesReadyPromise = null; // Cachea la espera de getVoices() poblado
 
 // Pre-cargar la lista de voces del sistema apenas se pueda. En Chrome,
 // getVoices() suele devolver [] hasta que dispara "voiceschanged".
@@ -47,33 +48,73 @@ if ("speechSynthesis" in window) {
 }
 
 /**
- * Elige una voz en inglés estadounidense (en-US), alternando entre
- * masculina y femenina cuando el sistema tiene ambas disponibles, y
- * evitando repetir la misma voz dos veces seguidas.
- *
- * Se restringe a en-US (en vez de mezclar en-GB/en-AU/en-IE) porque el
- * objetivo es practicar específicamente la pronunciación estadounidense:
- * mezclar acentos es variedad, pero no ayuda a fijar el oído en un
- * único estándar mientras se está aprendiendo.
+ * Devuelve una promesa que resuelve con la lista de voces del sistema en
+ * cuanto esté realmente poblada. En Chrome, la primera llamada a
+ * getVoices() en la vida de la página casi siempre devuelve [] porque el
+ * motor de voces carga de forma asíncrona; hay que esperar el evento
+ * "voiceschanged" (o, como red de seguridad por si algún WebView nunca lo
+ * dispara, un timeout corto).
  */
-function pickUSVoice() {
-  const voices = window.speechSynthesis.getVoices();
-  const usVoices = voices.filter((v) => v.lang === "en-US" || v.lang === "en_US");
-  if (usVoices.length === 0) return null;
+function waitForVoices() {
+  if (!("speechSynthesis" in window)) return Promise.resolve([]);
 
-  const classified = usVoices.map((v) => ({ voice: v, gender: classifyVoiceGender(v) }));
+  const existing = window.speechSynthesis.getVoices();
+  if (existing.length) return Promise.resolve(existing);
+
+  if (voicesReadyPromise) return voicesReadyPromise;
+
+  voicesReadyPromise = new Promise((resolve) => {
+    let resolved = false;
+    const finish = (voices) => {
+      if (resolved) return;
+      resolved = true;
+      resolve(voices);
+    };
+    const onChange = () => {
+      const voices = window.speechSynthesis.getVoices();
+      if (voices.length) {
+        window.speechSynthesis.removeEventListener("voiceschanged", onChange);
+        finish(voices);
+      }
+    };
+    window.speechSynthesis.addEventListener("voiceschanged", onChange);
+    setTimeout(() => finish(window.speechSynthesis.getVoices()), 1200);
+  });
+
+  return voicesReadyPromise;
+}
+
+/**
+ * Elige una voz en inglés, alternando entre masculina y femenina cuando el
+ * sistema tiene ambas disponibles, y evitando SIEMPRE repetir la misma voz
+ * dos veces seguidas (si hay más de una candidata).
+ *
+ * Preferimos en-US (para fijar el oído en un único acento mientras se
+ * aprende), pero si el dispositivo solo tiene UNA voz marcada como en-US
+ * —algo muy común: "Google US English" es la única en Chrome/Android sin
+ * paquetes de idioma extra instalados— ampliamos el pool a cualquier voz
+ * en inglés (en-GB, en-AU, en-IN, etc.). Restringirse a una sola voz en-US
+ * era justo la causa de que siempre sonara igual: no había con qué
+ * alternar.
+ */
+function pickEnglishVoice(voices) {
+  const usVoices = voices.filter((v) => v.lang === "en-US" || v.lang === "en_US");
+  const pool = usVoices.length >= 2 ? usVoices : voices.filter((v) => /^en/i.test(v.lang));
+  if (pool.length === 0) return null;
+
+  const classified = pool.map((v) => ({ voice: v, gender: classifyVoiceGender(v) }));
   const females = classified.filter((v) => v.gender === "female");
   const males = classified.filter((v) => v.gender === "male");
 
-  let pool = classified;
+  let group = classified;
   if (females.length && males.length) {
-    // Alterna respecto al género anterior; si no sabemos el anterior, usa todo el pool
-    if (lastGender === "female") pool = males;
-    else if (lastGender === "male") pool = females;
+    if (lastGender === "female") group = males;
+    else if (lastGender === "male") group = females;
   }
 
-  let candidates = pool.filter((v) => v.voice.voiceURI !== lastVoiceURI);
-  if (candidates.length === 0) candidates = pool.length ? pool : classified;
+  let candidates = group.filter((v) => v.voice.voiceURI !== lastVoiceURI);
+  if (candidates.length === 0) candidates = classified.filter((v) => v.voice.voiceURI !== lastVoiceURI);
+  if (candidates.length === 0) candidates = classified;
 
   const chosen = candidates[Math.floor(Math.random() * candidates.length)];
   lastVoiceURI = chosen.voice.voiceURI;
@@ -81,11 +122,13 @@ function pickUSVoice() {
   return chosen.voice;
 }
 
-function speakDictado(text) {
+async function speakDictado(text) {
   if (!("speechSynthesis" in window)) return;
 
   // Cancelar cualquier audio previo
   window.speechSynthesis.cancel();
+
+  const voices = await waitForVoices();
 
   const u = new SpeechSynthesisUtterance(text);
   currentUtterance = u;
@@ -95,10 +138,11 @@ function speakDictado(text) {
   u.pitch = 1;
   u.volume = 1;
 
+  const voice = pickEnglishVoice(voices);
+  if (voice) u.voice = voice;
+
   // Pequeño delay para asegurar que el cancel se procesó
   setTimeout(() => {
-    const voice = pickUSVoice();
-    if (voice) u.voice = voice;
     window.speechSynthesis.speak(u);
   }, 100);
 }

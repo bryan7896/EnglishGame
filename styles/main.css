@@ -709,6 +709,64 @@ textarea:focus-visible,
   width: 100%;
 }
 
+/* --- tarjeta rotativa de intentos fallidos (nodo 6) --- */
+.corregir-flipcard-carousel {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+}
+
+.corregir-attempts-stack {
+  position: relative;
+  min-height: 46px;
+}
+
+.corregir-attempt-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s var(--ease);
+}
+
+.corregir-attempt-slide.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+.corregir-attempt-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bad);
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.corregir-attempt-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.corregir-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 84, 112, 0.3);
+  cursor: pointer;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.corregir-dot.active {
+  background: var(--bad);
+  transform: scale(1.25);
+}
+
 .error-highlight {
   color: var(--bad);
   text-decoration: line-through;
@@ -868,6 +926,87 @@ textarea:focus-visible,
   20%, 60% { transform: translateX(-4px); }
   40%, 80% { transform: translateX(4px); }
 }
+
+/* Palabras que el usuario ya practicó por oído en la fase previa:
+   aparecen sin texto en el juego de emparejar, solo con el ícono de audio. */
+.selection-item.audio-only-item { padding-right: 10px; }
+.selection-item.audio-only-item::after { content: none; }
+.selection-item.audio-only-item .audio-only-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--info);
+}
+.selection-item.audio-only-item.selected .audio-only-icon,
+.selection-item.audio-only-item.matched .audio-only-icon { color: inherit; }
+
+/* ============ 14b. SELECCIONAR — PRÁCTICA DE ESCUCHA PREVIA ============ */
+.mini-listen-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 10px 0 16px;
+}
+
+.mini-listen-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  flex: 1 1 150px;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+
+.mini-listen-connector { color: var(--ink-faint); font-size: 0.9rem; }
+
+.mini-listen-play, .mini-listen-submit {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  color: var(--ink);
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.mini-listen-play:hover, .mini-listen-submit:hover { border-color: var(--line-strong); }
+.mini-listen-submit { color: var(--brand); }
+.mini-listen-play:disabled, .mini-listen-submit:disabled { opacity: 0.4; cursor: default; }
+
+.mini-listen-input {
+  flex: 1;
+  min-width: 50px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 4px 2px;
+  text-align: center;
+}
+
+.mini-listen-input:focus { outline: none; border-color: var(--brand); }
+
+.mini-listen-item.mini-listen-correct { border-color: var(--good); background: var(--good-wash); }
+.mini-listen-item.mini-listen-correct .mini-listen-input { color: var(--good); }
+.mini-listen-item.mini-listen-revealed { border-color: var(--bad); background: var(--bad-wash); }
+.mini-listen-item.mini-listen-revealed .mini-listen-input { color: var(--bad); }
+.mini-listen-item.mini-listen-wrong { animation: shake 0.4s var(--ease); border-color: var(--bad); }
+
+.mini-listen-footer { display: flex; justify-content: center; margin-top: 6px; }
+.mini-listen-continue:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .mood-card {
   display: flex;
@@ -1127,6 +1266,8 @@ textarea:focus-visible,
   .selection-columns { gap: 10px; }
   .modal-friend { padding: 20px 16px; }
   .netflix-node-title { font-size: 0.95rem; }
+  .mini-listen-row { flex-direction: column; align-items: stretch; }
+  .mini-listen-connector { display: none; }
 }
 
 @media (min-width: 601px) {

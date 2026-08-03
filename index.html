@@ -723,6 +723,64 @@ textarea:focus-visible,
   width: 100%;
 }
 
+/* --- tarjeta rotativa de intentos fallidos (nodo 6) --- */
+.corregir-flipcard-carousel {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+}
+
+.corregir-attempts-stack {
+  position: relative;
+  min-height: 46px;
+}
+
+.corregir-attempt-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s var(--ease);
+}
+
+.corregir-attempt-slide.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+.corregir-attempt-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bad);
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.corregir-attempt-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.corregir-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 84, 112, 0.3);
+  cursor: pointer;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.corregir-dot.active {
+  background: var(--bad);
+  transform: scale(1.25);
+}
+
 .error-highlight {
   color: var(--bad);
   text-decoration: line-through;
@@ -882,6 +940,87 @@ textarea:focus-visible,
   20%, 60% { transform: translateX(-4px); }
   40%, 80% { transform: translateX(4px); }
 }
+
+/* Palabras que el usuario ya practicó por oído en la fase previa:
+   aparecen sin texto en el juego de emparejar, solo con el ícono de audio. */
+.selection-item.audio-only-item { padding-right: 10px; }
+.selection-item.audio-only-item::after { content: none; }
+.selection-item.audio-only-item .audio-only-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--info);
+}
+.selection-item.audio-only-item.selected .audio-only-icon,
+.selection-item.audio-only-item.matched .audio-only-icon { color: inherit; }
+
+/* ============ 14b. SELECCIONAR — PRÁCTICA DE ESCUCHA PREVIA ============ */
+.mini-listen-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 10px 0 16px;
+}
+
+.mini-listen-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  flex: 1 1 150px;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+
+.mini-listen-connector { color: var(--ink-faint); font-size: 0.9rem; }
+
+.mini-listen-play, .mini-listen-submit {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xs);
+  color: var(--ink);
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.mini-listen-play:hover, .mini-listen-submit:hover { border-color: var(--line-strong); }
+.mini-listen-submit { color: var(--brand); }
+.mini-listen-play:disabled, .mini-listen-submit:disabled { opacity: 0.4; cursor: default; }
+
+.mini-listen-input {
+  flex: 1;
+  min-width: 50px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 4px 2px;
+  text-align: center;
+}
+
+.mini-listen-input:focus { outline: none; border-color: var(--brand); }
+
+.mini-listen-item.mini-listen-correct { border-color: var(--good); background: var(--good-wash); }
+.mini-listen-item.mini-listen-correct .mini-listen-input { color: var(--good); }
+.mini-listen-item.mini-listen-revealed { border-color: var(--bad); background: var(--bad-wash); }
+.mini-listen-item.mini-listen-revealed .mini-listen-input { color: var(--bad); }
+.mini-listen-item.mini-listen-wrong { animation: shake 0.4s var(--ease); border-color: var(--bad); }
+
+.mini-listen-footer { display: flex; justify-content: center; margin-top: 6px; }
+.mini-listen-continue:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .mood-card {
   display: flex;
@@ -1141,6 +1280,8 @@ textarea:focus-visible,
   .selection-columns { gap: 10px; }
   .modal-friend { padding: 20px 16px; }
   .netflix-node-title { font-size: 0.95rem; }
+  .mini-listen-row { flex-direction: column; align-items: stretch; }
+  .mini-listen-connector { display: none; }
 }
 
 @media (min-width: 601px) {
@@ -1174,7 +1315,7 @@ textarea:focus-visible,
     <div class="play-topbar">
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
-        <div class="sub-fun">8.1 (30-07-2024)</div>
+        <div class="sub-fun">8.2 (2-08-2026)</div>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
         <div class="user-info" id="userInfo">
@@ -1751,29 +1892,36 @@ export function getCompletarReportEntry(exercise, userAnswers, duda) {
 }
   // exercises/seleccionar.js
 
-// ---- Voz: precarga del motor para que no haya retraso la primera vez ----
+// ---- Voz: precarga del motor + selección con variedad ----
 // El retraso de ~2-3s que se siente al tocar una palabra la primera vez no lo
 // causa nuestro código: lo causa el motor de speechSynthesis del navegador,
 // que "despierta" recién con su primera utterance. Por eso, apenas se abre
 // este ejercicio (antes de que el usuario llegue a tocar nada), disparamos
 // una utterance silenciosa que fuerza esa inicialización de una vez.
 let speechWarmedUp = false;
-let cachedEnglishVoice = null;
+let cachedEnglishVoices = [];
+let lastSeleccionarVoiceURI = null;
+
+// Igual que en dictado.js: restringirnos a una sola voz "en-US" es lo que
+// hacía que siempre sonara la misma voz en muchos navegadores (Chrome sin
+// paquetes de idioma extra solo trae "Google US English" como en-US). Si
+// hay 2+ voces en-US las usamos (mantiene el acento consistente); si no,
+// ampliamos a cualquier voz en inglés para poder variar de verdad.
+function refreshVoiceCache() {
+  if (!('speechSynthesis' in window)) return;
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices.length) return;
+  const usVoices = voices.filter(v => v.lang === 'en-US' || v.lang === 'en_US');
+  cachedEnglishVoices = usVoices.length >= 2 ? usVoices : voices.filter(v => /^en/i.test(v.lang));
+}
 
 function warmUpSpeech() {
   if (!('speechSynthesis' in window)) return;
 
-  // Fuerza la carga de la lista de voces (en Chrome suele llegar async).
-  const tryCacheVoice = () => {
-    const voices = window.speechSynthesis.getVoices();
-    if (voices.length) {
-      cachedEnglishVoice = voices.find(v => v.lang === 'en-US') || voices.find(v => /^en/i.test(v.lang)) || null;
-    }
-  };
-  tryCacheVoice();
+  refreshVoiceCache();
 
   if (!window._seleccionarVoicesHandlerAttached) {
-    window.speechSynthesis.addEventListener('voiceschanged', tryCacheVoice);
+    window.speechSynthesis.addEventListener('voiceschanged', refreshVoiceCache);
     window._seleccionarVoicesHandlerAttached = true;
   }
 
@@ -1788,19 +1936,170 @@ function warmUpSpeech() {
   } catch (e) { /* noop */ }
 }
 
+// Elige una voz en inglés distinta a la última usada (si hay más de una
+// candidata disponible), para que cada reproducción -incluso de la misma
+// palabra, incluso presionando "escuchar" varias veces seguidas- suene con
+// una voz diferente.
+function pickVariedVoice() {
+  if (!cachedEnglishVoices.length) refreshVoiceCache();
+  if (!cachedEnglishVoices.length) return null;
+
+  let candidates = cachedEnglishVoices.filter(v => v.voiceURI !== lastSeleccionarVoiceURI);
+  if (candidates.length === 0) candidates = cachedEnglishVoices;
+
+  const chosen = candidates[Math.floor(Math.random() * candidates.length)];
+  lastSeleccionarVoiceURI = chosen.voiceURI;
+  return chosen;
+}
+
 function speakSeleccionarWord(text) {
   if (!('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = 'en-US';
   utterance.rate = 0.95;
-  if (cachedEnglishVoice) utterance.voice = cachedEnglishVoice;
+  const voice = pickVariedVoice();
+  if (voice) utterance.voice = voice;
   window.speechSynthesis.speak(utterance);
 }
 
+function shuffleArray(arr) {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+// ---- Punto de entrada ----
+// Antes de mostrar el juego de emparejar de siempre, se toman hasta 3
+// palabras al azar del set y se ponen a practicar por oído (escuchar +
+// escribir, 2 intentos). Esas 3 palabras luego aparecen en el juego de
+// emparejar SIN texto visible (solo el botón de audio), para forzar a que
+// el usuario las reconozca por sonido.
 export function renderSeleccionarExercise(exercise, container) {
   warmUpSpeech();
 
+  const pairs = exercise.pairs || [];
+  const practiceCount = Math.min(3, pairs.length);
+
+  if (container._seleccionarAutoPlayTimer) {
+    clearTimeout(container._seleccionarAutoPlayTimer);
+    container._seleccionarAutoPlayTimer = null;
+  }
+
+  if (practiceCount > 0) {
+    const practicePairs = shuffleArray(pairs).slice(0, practiceCount);
+    renderListeningPractice(practicePairs, container, () => {
+      const hiddenWords = new Set(practicePairs.map(p => p.englishWord));
+      renderMatchingGame(exercise, container, hiddenWords);
+    });
+  } else {
+    renderMatchingGame(exercise, container, new Set());
+  }
+}
+
+// ---- Fase 1: práctica de escucha ----
+function renderListeningPractice(practicePairs, container, onDone) {
+  const state = practicePairs.map(() => ({ attempts: 0, done: false }));
+
+  container.innerHTML = `
+    <div class="mini-listen-wrap">
+      <div class="question-bubble">🎧 Escribe la palabra que escuchas</div>
+      <p style="color:#94a3b8;margin:6px 0 4px;font-size:0.82rem;">
+        Antes de emparejar, practica el oído: reproduce el audio y escribe cada palabra (2 intentos por palabra).
+      </p>
+      <div class="mini-listen-row">
+        ${practicePairs.map((p, idx) => `
+          ${idx > 0 ? '<span class="mini-listen-connector">➤</span>' : ''}
+          <div class="mini-listen-item" data-idx="${idx}">
+            <button class="mini-listen-play" type="button" data-idx="${idx}" title="Reproducir">🔊</button>
+            <input type="text" class="mini-listen-input" data-idx="${idx}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="?">
+            <button class="mini-listen-submit" type="button" data-idx="${idx}" title="Comprobar">➤</button>
+          </div>
+        `).join('')}
+      </div>
+      <div class="mini-listen-footer">
+        <button class="fun-btn primary-btn mini-listen-continue" type="button" disabled>▶️ Continuar</button>
+      </div>
+    </div>
+  `;
+
+  const items = container.querySelectorAll('.mini-listen-item');
+  const continueBtn = container.querySelector('.mini-listen-continue');
+
+  function updateContinueState() {
+    if (continueBtn) continueBtn.disabled = !state.every(s => s.done);
+  }
+
+  function playWord(idx) {
+    speakSeleccionarWord(practicePairs[idx].englishWord);
+  }
+
+  items.forEach((item) => {
+    const idx = parseInt(item.dataset.idx, 10);
+    const playBtn = item.querySelector('.mini-listen-play');
+    const input = item.querySelector('.mini-listen-input');
+    const submitBtn = item.querySelector('.mini-listen-submit');
+
+    const lockItem = (correct) => {
+      input.readOnly = true;
+      playBtn.disabled = true;
+      submitBtn.disabled = true;
+      item.classList.add(correct ? 'mini-listen-correct' : 'mini-listen-revealed');
+    };
+
+    const submit = () => {
+      if (state[idx].done) return;
+      const userVal = input.value.trim();
+      const correctVal = practicePairs[idx].englishWord;
+      const isCorrect = userVal.toLowerCase() === correctVal.toLowerCase();
+
+      if (isCorrect) {
+        state[idx].done = true;
+        lockItem(true);
+      } else {
+        state[idx].attempts++;
+        if (state[idx].attempts >= 2) {
+          state[idx].done = true;
+          input.value = correctVal;
+          lockItem(false);
+        } else {
+          item.classList.add('mini-listen-wrong');
+          setTimeout(() => item.classList.remove('mini-listen-wrong'), 450);
+          input.value = '';
+          input.focus();
+        }
+      }
+      updateContinueState();
+    };
+
+    playBtn.addEventListener('click', () => playWord(idx));
+    submitBtn.addEventListener('click', submit);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); submit(); }
+    });
+  });
+
+  // Reproduce automáticamente la primera palabra al entrar (igual que en dictado)
+  container._seleccionarAutoPlayTimer = setTimeout(() => {
+    if (document.body.contains(container)) playWord(0);
+  }, 500);
+
+  if (continueBtn) {
+    continueBtn.addEventListener('click', () => {
+      if (continueBtn.disabled) return;
+      window.speechSynthesis?.cancel();
+      onDone();
+    });
+  }
+}
+
+// ---- Fase 2: emparejar (juego original) ----
+// hiddenWords: Set de englishWord que deben mostrarse sin texto (solo audio)
+// porque el usuario ya las practicó en la fase de escucha.
+function renderMatchingGame(exercise, container, hiddenWords) {
   const pairs = exercise.pairs || [];
   
   const englishWords = pairs.map(p => ({ word: p.englishWord, id: `en-${p.englishWord.replace(/\s+/g, '-')}` }));
@@ -1814,11 +2113,13 @@ export function renderSeleccionarExercise(exercise, container) {
     <div class="selection-columns">
       <div class="selection-column">
         <h4 style="color:#60a5fa;text-align:center;margin-bottom:8px;">🇬🇧 Inglés</h4>
-        ${shuffledEnglish.map(w => `
-          <div class="selection-item english-item" data-id="${w.id}" data-word="${window._escHTML(w.word)}">
-            ${window._escHTML(w.word)}
+        ${shuffledEnglish.map(w => {
+          const isHidden = hiddenWords && hiddenWords.has(w.word);
+          return `
+          <div class="selection-item english-item${isHidden ? ' audio-only-item' : ''}" data-id="${w.id}" data-word="${window._escHTML(w.word)}">
+            ${isHidden ? '<span class="audio-only-icon">🔊 Escuchar</span>' : window._escHTML(w.word)}
           </div>
-        `).join('')}
+        `;}).join('')}
       </div>
       <div class="selection-column">
         <h4 style="color:#f59e0b;text-align:center;margin-bottom:8px;">🇪🇸 Español</h4>
@@ -1987,9 +2288,85 @@ export function showSeleccionarCompleteModal(pairs, onContinue) {
 }
   // exercises/corregir.js
 
+// Cuando un ejercicio de repaso (nodo 6) ha sido fallado más de una vez, el
+// exercise trae "wrongAttempts": un historial (máx. 3, el más reciente al
+// final) con lo que el usuario fue escribiendo mal cada vez. En ese caso, en
+// vez de una tarjeta fija con un solo error, se muestra una tarjeta
+// ROTATIVA que va pasando por cada intento fallido para que el usuario vea
+// su patrón de error.
+function buildCorregirBackFace(exercise) {
+  const attempts = (Array.isArray(exercise.wrongAttempts) && exercise.wrongAttempts.length)
+    ? exercise.wrongAttempts
+    : [exercise.fraseConError];
+
+  if (attempts.length <= 1) {
+    return {
+      html: `<div class="corregir-flipcard-face corregir-flipcard-back">
+        <div class="error-highlight">${window._escHTML(attempts[0])}</div>
+      </div>`,
+      attempts
+    };
+  }
+
+  const slides = attempts.map((a, i) => `
+    <div class="corregir-attempt-slide${i === attempts.length - 1 ? ' active' : ''}" data-idx="${i}">
+      <div class="corregir-attempt-label">Intento ${i + 1} de ${attempts.length}</div>
+      <div class="error-highlight">${window._escHTML(a)}</div>
+    </div>
+  `).join('');
+
+  const dots = attempts.map((_, i) => `
+    <span class="corregir-dot${i === attempts.length - 1 ? ' active' : ''}" data-idx="${i}"></span>
+  `).join('');
+
+  return {
+    html: `<div class="corregir-flipcard-face corregir-flipcard-back corregir-flipcard-carousel">
+      <div class="corregir-attempts-stack">${slides}</div>
+      <div class="corregir-attempt-dots">${dots}</div>
+    </div>`,
+    attempts
+  };
+}
+
+function wireCorregirCarousel(container, attemptsCount) {
+  if (attemptsCount <= 1) return;
+  const stack = container.querySelector('.corregir-attempts-stack');
+  const dotsWrap = container.querySelector('.corregir-attempt-dots');
+  if (!stack || !dotsWrap) return;
+
+  const slides = Array.from(stack.querySelectorAll('.corregir-attempt-slide'));
+  const dots = Array.from(dotsWrap.querySelectorAll('.corregir-dot'));
+  let activeIdx = slides.findIndex((s) => s.classList.contains('active'));
+  if (activeIdx < 0) activeIdx = slides.length - 1;
+
+  function goTo(idx) {
+    activeIdx = (idx + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('active', i === activeIdx));
+    dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goTo(parseInt(dot.dataset.idx, 10));
+    });
+  });
+
+  if (container._corregirCarouselTimer) clearInterval(container._corregirCarouselTimer);
+  container._corregirCarouselTimer = setInterval(() => goTo(activeIdx + 1), 2600);
+}
+
 export function renderCorregirExercise(exercise, container, isRetry = false) {
-  const { fraseConError, spanishPhrase } = exercise;
-  
+  const { spanishPhrase } = exercise;
+
+  if (container._corregirCarouselTimer) {
+    clearInterval(container._corregirCarouselTimer);
+    container._corregirCarouselTimer = null;
+  }
+
+  const backFace = buildCorregirBackFace(exercise);
+  const hasHistory = backFace.attempts.length > 1;
+
   container.innerHTML = `
     <div class="corregir-card">
       ${isRetry ? '<div class="corregir-correction-notice">⚠️ Corrección: intenta de nuevo</div>' : ''}
@@ -2002,16 +2379,14 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
       ` : ''}
       
       <div class="corregir-error-section">
-        <div class="corregir-eyebrow">🔍 Encuentra el error y corrige la frase en inglés</div>
+        <div class="corregir-eyebrow">🔍 ${hasHistory ? 'Tus intentos anteriores (encuentra el error y corrige)' : 'Encuentra el error y corrige la frase en inglés'}</div>
         <div class="corregir-flipcard" tabindex="0" role="button" aria-pressed="false" aria-label="Toca para revelar la frase con error">
           <div class="corregir-flipcard-inner">
             <div class="corregir-flipcard-face corregir-flipcard-front">
               <span class="corregir-flipcard-icon">🃏</span>
               <span class="corregir-flipcard-hint">Toca para revelar</span>
             </div>
-            <div class="corregir-flipcard-face corregir-flipcard-back">
-              <div class="error-highlight">${window._escHTML(fraseConError)}</div>
-            </div>
+            ${backFace.html}
           </div>
         </div>
       </div>
@@ -2037,6 +2412,8 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
       }
     });
   }
+
+  wireCorregirCarousel(container, backFace.attempts.length);
 }
 
 export function checkCorregirAnswer(exercise, userAnswer) {
@@ -2226,6 +2603,7 @@ function classifyVoiceGender(voice) {
 let currentUtterance = null; // Para tracking
 let lastVoiceURI = null; // Evita repetir literalmente la misma voz
 let lastGender = null; // Para alternar género cuando hay ambos disponibles
+let voicesReadyPromise = null; // Cachea la espera de getVoices() poblado
 
 // Pre-cargar la lista de voces del sistema apenas se pueda. En Chrome,
 // getVoices() suele devolver [] hasta que dispara "voiceschanged".
@@ -2237,33 +2615,73 @@ if ("speechSynthesis" in window) {
 }
 
 /**
- * Elige una voz en inglés estadounidense (en-US), alternando entre
- * masculina y femenina cuando el sistema tiene ambas disponibles, y
- * evitando repetir la misma voz dos veces seguidas.
- *
- * Se restringe a en-US (en vez de mezclar en-GB/en-AU/en-IE) porque el
- * objetivo es practicar específicamente la pronunciación estadounidense:
- * mezclar acentos es variedad, pero no ayuda a fijar el oído en un
- * único estándar mientras se está aprendiendo.
+ * Devuelve una promesa que resuelve con la lista de voces del sistema en
+ * cuanto esté realmente poblada. En Chrome, la primera llamada a
+ * getVoices() en la vida de la página casi siempre devuelve [] porque el
+ * motor de voces carga de forma asíncrona; hay que esperar el evento
+ * "voiceschanged" (o, como red de seguridad por si algún WebView nunca lo
+ * dispara, un timeout corto).
  */
-function pickUSVoice() {
-  const voices = window.speechSynthesis.getVoices();
-  const usVoices = voices.filter((v) => v.lang === "en-US" || v.lang === "en_US");
-  if (usVoices.length === 0) return null;
+function waitForVoices() {
+  if (!("speechSynthesis" in window)) return Promise.resolve([]);
 
-  const classified = usVoices.map((v) => ({ voice: v, gender: classifyVoiceGender(v) }));
+  const existing = window.speechSynthesis.getVoices();
+  if (existing.length) return Promise.resolve(existing);
+
+  if (voicesReadyPromise) return voicesReadyPromise;
+
+  voicesReadyPromise = new Promise((resolve) => {
+    let resolved = false;
+    const finish = (voices) => {
+      if (resolved) return;
+      resolved = true;
+      resolve(voices);
+    };
+    const onChange = () => {
+      const voices = window.speechSynthesis.getVoices();
+      if (voices.length) {
+        window.speechSynthesis.removeEventListener("voiceschanged", onChange);
+        finish(voices);
+      }
+    };
+    window.speechSynthesis.addEventListener("voiceschanged", onChange);
+    setTimeout(() => finish(window.speechSynthesis.getVoices()), 1200);
+  });
+
+  return voicesReadyPromise;
+}
+
+/**
+ * Elige una voz en inglés, alternando entre masculina y femenina cuando el
+ * sistema tiene ambas disponibles, y evitando SIEMPRE repetir la misma voz
+ * dos veces seguidas (si hay más de una candidata).
+ *
+ * Preferimos en-US (para fijar el oído en un único acento mientras se
+ * aprende), pero si el dispositivo solo tiene UNA voz marcada como en-US
+ * —algo muy común: "Google US English" es la única en Chrome/Android sin
+ * paquetes de idioma extra instalados— ampliamos el pool a cualquier voz
+ * en inglés (en-GB, en-AU, en-IN, etc.). Restringirse a una sola voz en-US
+ * era justo la causa de que siempre sonara igual: no había con qué
+ * alternar.
+ */
+function pickEnglishVoice(voices) {
+  const usVoices = voices.filter((v) => v.lang === "en-US" || v.lang === "en_US");
+  const pool = usVoices.length >= 2 ? usVoices : voices.filter((v) => /^en/i.test(v.lang));
+  if (pool.length === 0) return null;
+
+  const classified = pool.map((v) => ({ voice: v, gender: classifyVoiceGender(v) }));
   const females = classified.filter((v) => v.gender === "female");
   const males = classified.filter((v) => v.gender === "male");
 
-  let pool = classified;
+  let group = classified;
   if (females.length && males.length) {
-    // Alterna respecto al género anterior; si no sabemos el anterior, usa todo el pool
-    if (lastGender === "female") pool = males;
-    else if (lastGender === "male") pool = females;
+    if (lastGender === "female") group = males;
+    else if (lastGender === "male") group = females;
   }
 
-  let candidates = pool.filter((v) => v.voice.voiceURI !== lastVoiceURI);
-  if (candidates.length === 0) candidates = pool.length ? pool : classified;
+  let candidates = group.filter((v) => v.voice.voiceURI !== lastVoiceURI);
+  if (candidates.length === 0) candidates = classified.filter((v) => v.voice.voiceURI !== lastVoiceURI);
+  if (candidates.length === 0) candidates = classified;
 
   const chosen = candidates[Math.floor(Math.random() * candidates.length)];
   lastVoiceURI = chosen.voice.voiceURI;
@@ -2271,11 +2689,13 @@ function pickUSVoice() {
   return chosen.voice;
 }
 
-function speakDictado(text) {
+async function speakDictado(text) {
   if (!("speechSynthesis" in window)) return;
 
   // Cancelar cualquier audio previo
   window.speechSynthesis.cancel();
+
+  const voices = await waitForVoices();
 
   const u = new SpeechSynthesisUtterance(text);
   currentUtterance = u;
@@ -2285,10 +2705,11 @@ function speakDictado(text) {
   u.pitch = 1;
   u.volume = 1;
 
+  const voice = pickEnglishVoice(voices);
+  if (voice) u.voice = voice;
+
   // Pequeño delay para asegurar que el cancel se procesó
   setTimeout(() => {
-    const voice = pickUSVoice();
-    if (voice) u.voice = voice;
     window.speechSynthesis.speak(u);
   }, 100);
 }
@@ -2562,6 +2983,15 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
       activeExerciseIndex: AppState.activeExerciseIndex,
       reportEntries: AppState.reportEntries,
       reviewPool: AppState.reviewPool,
+      // Se persisten también las respuestas/resultados "de sesión". Antes
+      // vivían solo en memoria: si la página se recargaba a mitad de un
+      // nodo (muy común en PWA/móvil), se perdían, y al cerrar el nodo los
+      // ejercicios fallados ANTES del reload quedaban sin userAnswer
+      // registrada — eso hacía que el error mandado al nodo 6 cayera en un
+      // fallback incorrecto (mostraba el texto en español en vez del error
+      // real del usuario). Persistir esto soluciona ese bug de raíz.
+      sessionCorrectness: AppState.sessionCorrectness,
+      sessionAnswers: AppState.sessionAnswers,
       lastUpdated: new Date().toISOString()
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
@@ -2579,6 +3009,8 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
       AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
       AppState.reportEntries = data.reportEntries || [];
       AppState.reviewPool = data.reviewPool || [];
+      AppState.sessionCorrectness = data.sessionCorrectness || {};
+      AppState.sessionAnswers = data.sessionAnswers || {};
       return AppState.nodes.length > 0;
     } catch(e) { return false; }
   }
@@ -2617,6 +3049,11 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     const existingModal = document.querySelector('.modal-overlay');
     if (existingModal) existingModal.remove();
+    const exContainer = document.getElementById("exerciseContainer");
+    if (exContainer && exContainer._corregirCarouselTimer) {
+      clearInterval(exContainer._corregirCarouselTimer);
+      exContainer._corregirCarouselTimer = null;
+    }
   }
   
   function debounceSave() {
@@ -2698,36 +3135,110 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
     };
   }
 
+  // ---- Análisis de diferencia palabra a palabra ----
+  // Separa puntuación final (.,!?;:) de una palabra para poder dejarla fuera
+  // del hueco de "completar" (así el hueco pide solo la palabra, no la
+  // puntuación pegada al final).
+  function splitTrailingPunct(word) {
+    const m = String(word || "").match(/^(.*?)([.,!?;:]*)$/);
+    return { core: m ? m[1] : word, punct: m ? m[2] : "" };
+  }
+
+  // Compara la respuesta correcta contra lo que escribió el usuario,
+  // palabra por palabra. Solo se considera un "error de 1-2 palabras" (near
+  // miss) cuando ambas frases tienen la MISMA cantidad de palabras — si
+  // sobran o faltan palabras, el error es estructural y no un simple
+  // "me equivoqué en una palabra", así que se trata como error mayor.
+  function analyzeWordDiff(correctText, userAnswer) {
+    const correctWords = String(correctText || "").trim().split(/\s+/).filter(Boolean);
+    const userWords = String(userAnswer || "").trim().split(/\s+/).filter(Boolean);
+    if (!correctWords.length || correctWords.length !== userWords.length) {
+      return { sameLength: false, diffIndexes: [], correctWords, userWords };
+    }
+    const diffIndexes = [];
+    correctWords.forEach((w, i) => {
+      if (normalizeWord(w) !== normalizeWord(userWords[i])) diffIndexes.push(i);
+    });
+    return { sameLength: true, diffIndexes, correctWords, userWords };
+  }
+
+  // Construye un ejercicio de tipo "completar" a partir de la frase correcta
+  // y los índices de las 1-2 palabras que el usuario falló, dejando esas
+  // palabras como huecos ("_____") y el resto de la frase intacta.
+  function buildCompletarFromDiff(spanishPrompt, correctWords, diffIndexes) {
+    const options = [];
+    const sentenceWords = correctWords.map((w, i) => {
+      if (!diffIndexes.includes(i)) return w;
+      const { core, punct } = splitTrailingPunct(w);
+      options.push(core || w);
+      return "_____" + punct;
+    });
+    return {
+      type: "completar",
+      spanishWord: spanishPrompt || "✏️ Completa la(s) palabra(s) correcta(s):",
+      englishSentence: sentenceWords.join(" "),
+      options
+    };
+  }
+
   // Convierte un ejercicio fallado (de un nodo principal) en la forma en la
-  // que debe aparecer dentro del nodo 6 (repaso). Traducción y Corregir se
-  // convierten siempre en ejercicios de tipo "corregir":
-  //  - Traducción: "spanishWord/spanishWords" pasa a mostrarse arriba como
-  //    "spanishPhrase" (🇪🇸 Frase en español), "englishWord/englishWords"
-  //    pasa a ser "fraseCorrecta", y la tarjeta de error ("fraseConError")
-  //    muestra lo que el propio usuario escribió mal.
-  //  - Corregir: se conserva igual, pero "fraseConError" se reemplaza por el
-  //    error que el propio usuario escribió al fallar.
-  // El resto de tipos (completar, seleccionar, dictado) entran sin cambios.
+  // que debe aparecer dentro del nodo 6 (repaso).
+  //
+  //  - Si el error del usuario es de 1 o 2 palabras (misma cantidad de
+  //    palabras que la frase correcta, pero 1-2 distintas), se convierte en
+  //    un ejercicio de "completar" con esas palabras como huecos.
+  //  - En cualquier otro caso, Traducción y Corregir se convierten en
+  //    ejercicios de tipo "corregir":
+  //     · Traducción: "spanishWord/spanishWords" pasa a mostrarse arriba
+  //       como "spanishPhrase" (🇪🇸 Frase en español), "englishWord/
+  //       englishWords" pasa a ser "fraseCorrecta", y la tarjeta de error
+  //       ("fraseConError") muestra lo que el propio usuario escribió mal.
+  //     · Corregir: se conserva igual, pero "fraseConError" se reemplaza
+  //       por el error que el propio usuario escribió al fallar.
+  //    En ambos casos se inicia un historial "wrongAttempts" (máx. 3) con
+  //    los intentos fallidos del usuario, para mostrarlos en la tarjeta
+  //    rotativa de errores si vuelve a fallar en el nodo 6.
+  //  - El resto de tipos (completar, seleccionar, dictado) entran sin
+  //    cambios.
   function buildRepasoExercise(ex, userAnswer) {
     if (!ex.__repasoId) {
       AppState._repasoSeq = (AppState._repasoSeq || 0) + 1;
       ex.__repasoId = "rp" + AppState._repasoSeq;
     }
+    const cleanAnswer = (userAnswer && userAnswer.trim()) ? userAnswer.trim() : "";
+
     let converted;
-    if (ex.type === "traduccion") {
-      converted = {
-        type: "corregir",
-        spanishPhrase: ex.spanishWord || ex.spanishWords || "",
-        fraseConError: (userAnswer && userAnswer.trim()) ? userAnswer.trim() : (ex.spanishWord || ex.spanishWords || ""),
-        fraseCorrecta: ex.englishWord || ex.englishWords || ""
-      };
-    } else if (ex.type === "corregir") {
-      converted = { ...ex };
-      if (userAnswer && userAnswer.trim()) converted.fraseConError = userAnswer.trim();
+    if (ex.type === "traduccion" || ex.type === "corregir") {
+      const spanishPrompt = ex.type === "traduccion"
+        ? (ex.spanishWord || ex.spanishWords || "")
+        : (ex.spanishPhrase || "");
+      const correctText = ex.type === "traduccion"
+        ? (ex.englishWord || ex.englishWords || "")
+        : (ex.fraseCorrecta || "");
+
+      const diff = cleanAnswer ? analyzeWordDiff(correctText, cleanAnswer) : { sameLength: false, diffIndexes: [] };
+      const isNearMiss = diff.sameLength && diff.diffIndexes.length >= 1 && diff.diffIndexes.length <= 2;
+
+      if (isNearMiss) {
+        converted = buildCompletarFromDiff(spanishPrompt, diff.correctWords, diff.diffIndexes);
+      } else {
+        // Nunca cae de vuelta al texto en español: si por algún motivo no
+        // hay respuesta del usuario registrada, se usa un texto neutro que
+        // no se pueda confundir con la frase en español.
+        const errorText = cleanAnswer || "(respuesta no registrada)";
+        converted = {
+          type: "corregir",
+          spanishPhrase: spanishPrompt,
+          fraseConError: errorText,
+          fraseCorrecta: correctText,
+          wrongAttempts: cleanAnswer ? [cleanAnswer] : []
+        };
+      }
     } else {
       converted = { ...ex };
     }
     converted.__repasoId = ex.__repasoId;
+    converted.__originType = ex.type;
     return converted;
   }
 
@@ -2759,7 +3270,13 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
         const clone = { ...current };
         const userAnswer = AppState.sessionAnswers[exIndex];
         if (clone.type === "corregir" && userAnswer && userAnswer.trim()) {
-          clone.fraseConError = userAnswer.trim();
+          const attempt = userAnswer.trim();
+          clone.fraseConError = attempt;
+          // Acumula el historial de intentos fallidos (máx. 3, el más
+          // reciente al final) para la tarjeta rotativa de errores.
+          const history = Array.isArray(current.wrongAttempts) ? current.wrongAttempts.slice() : (current.fraseConError ? [current.fraseConError] : []);
+          if (history[history.length - 1] !== attempt) history.push(attempt);
+          clone.wrongAttempts = history.slice(-3);
         }
         node.exercises.push(clone);
       }

@@ -1,8 +1,84 @@
 // exercises/corregir.js
 
+// Cuando un ejercicio de repaso (nodo 6) ha sido fallado más de una vez, el
+// exercise trae "wrongAttempts": un historial (máx. 3, el más reciente al
+// final) con lo que el usuario fue escribiendo mal cada vez. En ese caso, en
+// vez de una tarjeta fija con un solo error, se muestra una tarjeta
+// ROTATIVA que va pasando por cada intento fallido para que el usuario vea
+// su patrón de error.
+function buildCorregirBackFace(exercise) {
+  const attempts = (Array.isArray(exercise.wrongAttempts) && exercise.wrongAttempts.length)
+    ? exercise.wrongAttempts
+    : [exercise.fraseConError];
+
+  if (attempts.length <= 1) {
+    return {
+      html: `<div class="corregir-flipcard-face corregir-flipcard-back">
+        <div class="error-highlight">${window._escHTML(attempts[0])}</div>
+      </div>`,
+      attempts
+    };
+  }
+
+  const slides = attempts.map((a, i) => `
+    <div class="corregir-attempt-slide${i === attempts.length - 1 ? ' active' : ''}" data-idx="${i}">
+      <div class="corregir-attempt-label">Intento ${i + 1} de ${attempts.length}</div>
+      <div class="error-highlight">${window._escHTML(a)}</div>
+    </div>
+  `).join('');
+
+  const dots = attempts.map((_, i) => `
+    <span class="corregir-dot${i === attempts.length - 1 ? ' active' : ''}" data-idx="${i}"></span>
+  `).join('');
+
+  return {
+    html: `<div class="corregir-flipcard-face corregir-flipcard-back corregir-flipcard-carousel">
+      <div class="corregir-attempts-stack">${slides}</div>
+      <div class="corregir-attempt-dots">${dots}</div>
+    </div>`,
+    attempts
+  };
+}
+
+function wireCorregirCarousel(container, attemptsCount) {
+  if (attemptsCount <= 1) return;
+  const stack = container.querySelector('.corregir-attempts-stack');
+  const dotsWrap = container.querySelector('.corregir-attempt-dots');
+  if (!stack || !dotsWrap) return;
+
+  const slides = Array.from(stack.querySelectorAll('.corregir-attempt-slide'));
+  const dots = Array.from(dotsWrap.querySelectorAll('.corregir-dot'));
+  let activeIdx = slides.findIndex((s) => s.classList.contains('active'));
+  if (activeIdx < 0) activeIdx = slides.length - 1;
+
+  function goTo(idx) {
+    activeIdx = (idx + slides.length) % slides.length;
+    slides.forEach((s, i) => s.classList.toggle('active', i === activeIdx));
+    dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goTo(parseInt(dot.dataset.idx, 10));
+    });
+  });
+
+  if (container._corregirCarouselTimer) clearInterval(container._corregirCarouselTimer);
+  container._corregirCarouselTimer = setInterval(() => goTo(activeIdx + 1), 2600);
+}
+
 export function renderCorregirExercise(exercise, container, isRetry = false) {
-  const { fraseConError, spanishPhrase } = exercise;
-  
+  const { spanishPhrase } = exercise;
+
+  if (container._corregirCarouselTimer) {
+    clearInterval(container._corregirCarouselTimer);
+    container._corregirCarouselTimer = null;
+  }
+
+  const backFace = buildCorregirBackFace(exercise);
+  const hasHistory = backFace.attempts.length > 1;
+
   container.innerHTML = `
     <div class="corregir-card">
       ${isRetry ? '<div class="corregir-correction-notice">⚠️ Corrección: intenta de nuevo</div>' : ''}
@@ -15,16 +91,14 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
       ` : ''}
       
       <div class="corregir-error-section">
-        <div class="corregir-eyebrow">🔍 Encuentra el error y corrige la frase en inglés</div>
+        <div class="corregir-eyebrow">🔍 ${hasHistory ? 'Tus intentos anteriores (encuentra el error y corrige)' : 'Encuentra el error y corrige la frase en inglés'}</div>
         <div class="corregir-flipcard" tabindex="0" role="button" aria-pressed="false" aria-label="Toca para revelar la frase con error">
           <div class="corregir-flipcard-inner">
             <div class="corregir-flipcard-face corregir-flipcard-front">
               <span class="corregir-flipcard-icon">🃏</span>
               <span class="corregir-flipcard-hint">Toca para revelar</span>
             </div>
-            <div class="corregir-flipcard-face corregir-flipcard-back">
-              <div class="error-highlight">${window._escHTML(fraseConError)}</div>
-            </div>
+            ${backFace.html}
           </div>
         </div>
       </div>
@@ -50,6 +124,8 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
       }
     });
   }
+
+  wireCorregirCarousel(container, backFace.attempts.length);
 }
 
 export function checkCorregirAnswer(exercise, userAnswer) {

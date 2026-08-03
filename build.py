@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "8.1 (30-07-2024)"
+VERSION = "8.2 (2-08-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -251,6 +251,15 @@ def get_main_logic():
       activeExerciseIndex: AppState.activeExerciseIndex,
       reportEntries: AppState.reportEntries,
       reviewPool: AppState.reviewPool,
+      // Se persisten también las respuestas/resultados "de sesión". Antes
+      // vivían solo en memoria: si la página se recargaba a mitad de un
+      // nodo (muy común en PWA/móvil), se perdían, y al cerrar el nodo los
+      // ejercicios fallados ANTES del reload quedaban sin userAnswer
+      // registrada — eso hacía que el error mandado al nodo 6 cayera en un
+      // fallback incorrecto (mostraba el texto en español en vez del error
+      // real del usuario). Persistir esto soluciona ese bug de raíz.
+      sessionCorrectness: AppState.sessionCorrectness,
+      sessionAnswers: AppState.sessionAnswers,
       lastUpdated: new Date().toISOString()
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
@@ -268,6 +277,8 @@ def get_main_logic():
       AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
       AppState.reportEntries = data.reportEntries || [];
       AppState.reviewPool = data.reviewPool || [];
+      AppState.sessionCorrectness = data.sessionCorrectness || {};
+      AppState.sessionAnswers = data.sessionAnswers || {};
       return AppState.nodes.length > 0;
     } catch(e) { return false; }
   }
@@ -306,6 +317,11 @@ def get_main_logic():
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     const existingModal = document.querySelector('.modal-overlay');
     if (existingModal) existingModal.remove();
+    const exContainer = document.getElementById("exerciseContainer");
+    if (exContainer && exContainer._corregirCarouselTimer) {
+      clearInterval(exContainer._corregirCarouselTimer);
+      exContainer._corregirCarouselTimer = null;
+    }
   }
   
   function debounceSave() {
@@ -383,36 +399,110 @@ def get_main_logic():
     };
   }
 
+  // ---- Análisis de diferencia palabra a palabra ----
+  // Separa puntuación final (.,!?;:) de una palabra para poder dejarla fuera
+  // del hueco de "completar" (así el hueco pide solo la palabra, no la
+  // puntuación pegada al final).
+  function splitTrailingPunct(word) {
+    const m = String(word || "").match(/^(.*?)([.,!?;:]*)$/);
+    return { core: m ? m[1] : word, punct: m ? m[2] : "" };
+  }
+
+  // Compara la respuesta correcta contra lo que escribió el usuario,
+  // palabra por palabra. Solo se considera un "error de 1-2 palabras" (near
+  // miss) cuando ambas frases tienen la MISMA cantidad de palabras — si
+  // sobran o faltan palabras, el error es estructural y no un simple
+  // "me equivoqué en una palabra", así que se trata como error mayor.
+  function analyzeWordDiff(correctText, userAnswer) {
+    const correctWords = String(correctText || "").trim().split(/\s+/).filter(Boolean);
+    const userWords = String(userAnswer || "").trim().split(/\s+/).filter(Boolean);
+    if (!correctWords.length || correctWords.length !== userWords.length) {
+      return { sameLength: false, diffIndexes: [], correctWords, userWords };
+    }
+    const diffIndexes = [];
+    correctWords.forEach((w, i) => {
+      if (normalizeWord(w) !== normalizeWord(userWords[i])) diffIndexes.push(i);
+    });
+    return { sameLength: true, diffIndexes, correctWords, userWords };
+  }
+
+  // Construye un ejercicio de tipo "completar" a partir de la frase correcta
+  // y los índices de las 1-2 palabras que el usuario falló, dejando esas
+  // palabras como huecos ("_____") y el resto de la frase intacta.
+  function buildCompletarFromDiff(spanishPrompt, correctWords, diffIndexes) {
+    const options = [];
+    const sentenceWords = correctWords.map((w, i) => {
+      if (!diffIndexes.includes(i)) return w;
+      const { core, punct } = splitTrailingPunct(w);
+      options.push(core || w);
+      return "_____" + punct;
+    });
+    return {
+      type: "completar",
+      spanishWord: spanishPrompt || "✏️ Completa la(s) palabra(s) correcta(s):",
+      englishSentence: sentenceWords.join(" "),
+      options
+    };
+  }
+
   // Convierte un ejercicio fallado (de un nodo principal) en la forma en la
-  // que debe aparecer dentro del nodo 6 (repaso). Traducción y Corregir se
-  // convierten siempre en ejercicios de tipo "corregir":
-  //  - Traducción: "spanishWord/spanishWords" pasa a mostrarse arriba como
-  //    "spanishPhrase" (🇪🇸 Frase en español), "englishWord/englishWords"
-  //    pasa a ser "fraseCorrecta", y la tarjeta de error ("fraseConError")
-  //    muestra lo que el propio usuario escribió mal.
-  //  - Corregir: se conserva igual, pero "fraseConError" se reemplaza por el
-  //    error que el propio usuario escribió al fallar.
-  // El resto de tipos (completar, seleccionar, dictado) entran sin cambios.
+  // que debe aparecer dentro del nodo 6 (repaso).
+  //
+  //  - Si el error del usuario es de 1 o 2 palabras (misma cantidad de
+  //    palabras que la frase correcta, pero 1-2 distintas), se convierte en
+  //    un ejercicio de "completar" con esas palabras como huecos.
+  //  - En cualquier otro caso, Traducción y Corregir se convierten en
+  //    ejercicios de tipo "corregir":
+  //     · Traducción: "spanishWord/spanishWords" pasa a mostrarse arriba
+  //       como "spanishPhrase" (🇪🇸 Frase en español), "englishWord/
+  //       englishWords" pasa a ser "fraseCorrecta", y la tarjeta de error
+  //       ("fraseConError") muestra lo que el propio usuario escribió mal.
+  //     · Corregir: se conserva igual, pero "fraseConError" se reemplaza
+  //       por el error que el propio usuario escribió al fallar.
+  //    En ambos casos se inicia un historial "wrongAttempts" (máx. 3) con
+  //    los intentos fallidos del usuario, para mostrarlos en la tarjeta
+  //    rotativa de errores si vuelve a fallar en el nodo 6.
+  //  - El resto de tipos (completar, seleccionar, dictado) entran sin
+  //    cambios.
   function buildRepasoExercise(ex, userAnswer) {
     if (!ex.__repasoId) {
       AppState._repasoSeq = (AppState._repasoSeq || 0) + 1;
       ex.__repasoId = "rp" + AppState._repasoSeq;
     }
+    const cleanAnswer = (userAnswer && userAnswer.trim()) ? userAnswer.trim() : "";
+
     let converted;
-    if (ex.type === "traduccion") {
-      converted = {
-        type: "corregir",
-        spanishPhrase: ex.spanishWord || ex.spanishWords || "",
-        fraseConError: (userAnswer && userAnswer.trim()) ? userAnswer.trim() : (ex.spanishWord || ex.spanishWords || ""),
-        fraseCorrecta: ex.englishWord || ex.englishWords || ""
-      };
-    } else if (ex.type === "corregir") {
-      converted = { ...ex };
-      if (userAnswer && userAnswer.trim()) converted.fraseConError = userAnswer.trim();
+    if (ex.type === "traduccion" || ex.type === "corregir") {
+      const spanishPrompt = ex.type === "traduccion"
+        ? (ex.spanishWord || ex.spanishWords || "")
+        : (ex.spanishPhrase || "");
+      const correctText = ex.type === "traduccion"
+        ? (ex.englishWord || ex.englishWords || "")
+        : (ex.fraseCorrecta || "");
+
+      const diff = cleanAnswer ? analyzeWordDiff(correctText, cleanAnswer) : { sameLength: false, diffIndexes: [] };
+      const isNearMiss = diff.sameLength && diff.diffIndexes.length >= 1 && diff.diffIndexes.length <= 2;
+
+      if (isNearMiss) {
+        converted = buildCompletarFromDiff(spanishPrompt, diff.correctWords, diff.diffIndexes);
+      } else {
+        // Nunca cae de vuelta al texto en español: si por algún motivo no
+        // hay respuesta del usuario registrada, se usa un texto neutro que
+        // no se pueda confundir con la frase en español.
+        const errorText = cleanAnswer || "(respuesta no registrada)";
+        converted = {
+          type: "corregir",
+          spanishPhrase: spanishPrompt,
+          fraseConError: errorText,
+          fraseCorrecta: correctText,
+          wrongAttempts: cleanAnswer ? [cleanAnswer] : []
+        };
+      }
     } else {
       converted = { ...ex };
     }
     converted.__repasoId = ex.__repasoId;
+    converted.__originType = ex.type;
     return converted;
   }
 
@@ -444,7 +534,13 @@ def get_main_logic():
         const clone = { ...current };
         const userAnswer = AppState.sessionAnswers[exIndex];
         if (clone.type === "corregir" && userAnswer && userAnswer.trim()) {
-          clone.fraseConError = userAnswer.trim();
+          const attempt = userAnswer.trim();
+          clone.fraseConError = attempt;
+          // Acumula el historial de intentos fallidos (máx. 3, el más
+          // reciente al final) para la tarjeta rotativa de errores.
+          const history = Array.isArray(current.wrongAttempts) ? current.wrongAttempts.slice() : (current.fraseConError ? [current.fraseConError] : []);
+          if (history[history.length - 1] !== attempt) history.push(attempt);
+          clone.wrongAttempts = history.slice(-3);
         }
         node.exercises.push(clone);
       }
