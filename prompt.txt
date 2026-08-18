@@ -47,16 +47,18 @@ Total: 60 ejercicios por tanda. No más — es el punto óptimo de ~20-25 minuto
 
 | Tipo                  | Cantidad                  | % |
 |------------------------|----------------------------|---|
-| Traducción              | 18                         | 30% |
-| Corregir                | 15                         | 25% |
-| Completar                | 12                        | 20% |
-| Dictado                  | 12                        | 20% |
+| Traducción              | 20                         | 33% |
+| Completar                | 14                        | 23% |
+| Dictado                  | 13                        | 22% |
+| Corregir                | 10                         | 17% |
 | Seleccionar palabras      | 3 grupos (15 palabras)    | 5% |
 
-LONGITUD DE LAS FRASES DE TRADUCCIÓN (de las 18)
+Nota sobre por qué Corregir bajó de peso: en mi app, cualquier ejercicio (de cualquier tipo) que falle con menos de 80% de precisión se reactiva automáticamente en un "Nodo 6 de repaso" hasta que lo domine. Eso significa que el refuerzo por repetición ya lo cubre la app sola, sin importar el tipo de ejercicio — no hace falta inflar Corregir para lograr repetición. Además, Corregir en mi app no es reconocimiento puro: la frase con error está oculta detrás de una flip-card y debo escribir la corrección completa en un textarea, así que ya tiene su propio nivel de producción activa, solo que con andamiaje (parte de la oración ya viene dada). Traducción y Completar siguen siendo la producción más pura (sin andamiaje), por eso llevan más peso.
 
-- 60% (≈11 frases): 6-10 palabras — práctica base
-- 30% (≈5 frases): 11-16 palabras — con cláusulas subordinadas (when/before/while + segunda acción)
+LONGITUD DE LAS FRASES DE TRADUCCIÓN (de las 20)
+
+- 60% (≈12 frases): 6-10 palabras — práctica base
+- 30% (≈6 frases): 11-16 palabras — con cláusulas subordinadas (when/before/while + segunda acción)
 - 10% (≈2 frases): 17-22 palabras — oraciones compuestas, nivel B2
 
 REGLAS DEL DICTADO
@@ -77,8 +79,8 @@ No te concentres en una sola regla gramatical por muchas tandas seguidas. Si un 
 
 PRIORIDAD DE TIPOS DE EJERCICIO SEGÚN SU FUNCIÓN
 
-- Traducción y completar = producción activa (recuperar la estructura desde cero). Es lo que más fija el aprendizaje a largo plazo — dales peso real.
-- Corregir = reconocimiento (identificar un error ya visible). Útil para consolidar, pero no debe ser el ejercicio dominante.
+- Traducción y completar = producción activa pura (recuperar la estructura desde cero, sin ninguna parte de la frase ya dada). Es lo que más fija el aprendizaje a largo plazo — llevan el mayor peso.
+- Corregir = producción con andamiaje (la frase casi-correcta ya está dada detrás de una flip-card; solo hay que corregir y reescribir). Sigue siendo útil para casos específicos (ej. mostrar patrones de error repetidos vía el carrusel de intentos fallidos de mi app), pero no necesita tanto peso porque el refuerzo por repetición ya lo cubre automáticamente el Nodo 6 de repaso de mi app para cualquier tipo de ejercicio.
 - Dictado = comprensión auditiva y discriminación de sonidos/contracciones.
 - Seleccionar palabras = repaso rápido de vocabulario.
 
