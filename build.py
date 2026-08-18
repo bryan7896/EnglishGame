@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "8.2 (2-08-2026)"
+VERSION = "8.3 (18-08-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -39,19 +39,32 @@ def read_file(filepath):
 
 
 def build_import_fields():
-    fields = []
-    for t in INPUT_TYPES:
-        fields.append(f'        <div class="multi-input-section">\n')
-        fields.append(f'          <h4>{t["label"]}</h4>\n')
-        fields.append(f'          <textarea id="{t["id"]}Input" class="answer-input" rows="3" placeholder=\'{t["placeholder"]}\'></textarea>\n')
-        fields.append(f'        </div>\n')
-    return ''.join(fields)
+    # Un único textarea: se pega el array completo en un solo JSON con las
+    # 5 claves (traducciones, completar, seleccionar, corregir, dictado).
+    # Cualquier clave ausente se trata como vacía. Junto al textarea va el
+    # botón "Copiar prompt", que copia el contenido de prompt.txt (archivo
+    # externo y editable, no se genera desde este script) al portapapeles
+    # para pegarlo directo en la IA que construye la tanda de ejercicios.
+    example = json.dumps({t["id"]: json.loads(t["placeholder"]) for t in INPUT_TYPES}, ensure_ascii=False)
+    return (
+        '        <div class="multi-input-section">\n'
+        '          <div class="import-fields-header">\n'
+        '            <h4>📦 Array completo (JSON)</h4>\n'
+        '            <button type="button" class="fun-btn" id="copyPromptBtn">📋 Copiar prompt para la IA</button>\n'
+        '          </div>\n'
+        f'          <textarea id="fullDataInput" class="answer-input" rows="10" placeholder=\'{example}\'></textarea>\n'
+        '        </div>\n'
+    )
 
 
 def build_load_data_fields():
-    lines = []
-    for t in INPUT_TYPES:
-        lines.append(f'const {t["id"]} = JSON.parse(document.getElementById("{t["id"]}Input").value.trim() || \'[]\');')
+    ids = [t["id"] for t in INPUT_TYPES]
+    lines = [
+        'const __rawFullData = document.getElementById("fullDataInput").value.trim();',
+        'const __parsedFullData = __rawFullData ? JSON.parse(__rawFullData) : {};',
+    ]
+    for _id in ids:
+        lines.append(f'const {_id} = __parsedFullData.{_id} || [];')
     return '\n      '.join(lines)
 
 
@@ -90,6 +103,7 @@ const ASSETS = [
   './',
   './index.html',
   './manifest.json',
+  './prompt.txt',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap',
   'https://cdn-icons-png.flaticon.com/512/3898/3898082.png',
 ];
@@ -182,7 +196,7 @@ def get_html_template():
     <div id="importScreen" class="screen active">
       <div class="magic-card">
         <h2>📚 ¡Hola <span id="welcomeUsername"></span>!</h2>
-        <p>Todos los campos son opcionales. Ingresa los que quieras:</p>
+        <p>Pega aquí el JSON completo con tu tanda de ejercicios (usa el botón para copiar el prompt y pedírselo a la IA):</p>
         __IMPORT_FIELDS__
         <div class="button-group">
           <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa</button>
@@ -822,6 +836,22 @@ def get_main_logic():
     navigator.clipboard?.writeText(report).then(() => toast("📋 Informe copiado")).catch(() => toast("📋 Copia manualmente"));
   }
 
+  // prompt.txt vive como archivo aparte (no se genera desde build.py) para
+  // que se pueda editar en cualquier momento sin tener que reconstruir el
+  // proyecto. Este botón simplemente lo lee y lo copia al portapapeles.
+  async function copyPromptFromFile() {
+    try {
+      const res = await fetch('./prompt.txt', { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const text = await res.text();
+      await navigator.clipboard.writeText(text);
+      toast("📋 Prompt copiado");
+    } catch (e) {
+      console.error(e);
+      toast("❌ No se pudo leer prompt.txt");
+    }
+  }
+
   function burstConfetti() {
     const colors = ["#e50914", "#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"];
     for(let i = 0; i < 40; i++) {
@@ -872,6 +902,7 @@ def get_main_logic():
     document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { if(e.key === "Enter") login(document.getElementById("usernameInput").value); });
     document.getElementById("logoutBtn")?.addEventListener("click", logout);
     document.getElementById("loadBtn")?.addEventListener("click", loadAllData);
+    document.getElementById("copyPromptBtn")?.addEventListener("click", copyPromptFromFile);
     document.getElementById("resetAllBtn")?.addEventListener("click", resetAll);
     document.getElementById("replaceListBtn")?.addEventListener("click", () => { showMainView("import"); toast("📥 Ingresa nuevos datos"); });
     document.getElementById("copyReportBtn")?.addEventListener("click", copyReport);

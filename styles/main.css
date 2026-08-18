@@ -418,6 +418,17 @@ textarea:focus-visible,
   margin-bottom: 8px;
 }
 
+.import-fields-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.import-fields-header h4 { margin-bottom: 0; }
+
 .answer-input {
   width: 100%;
   background: var(--surface-2);

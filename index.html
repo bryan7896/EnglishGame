@@ -432,6 +432,17 @@ textarea:focus-visible,
   margin-bottom: 8px;
 }
 
+.import-fields-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.import-fields-header h4 { margin-bottom: 0; }
+
 .answer-input {
   width: 100%;
   background: var(--surface-2);
@@ -1315,7 +1326,7 @@ textarea:focus-visible,
     <div class="play-topbar">
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
-        <div class="sub-fun">8.2 (2-08-2026)</div>
+        <div class="sub-fun">8.3 (18-08-2026)</div>
       </div>
       <div style="display:flex;align-items:center;gap:8px;">
         <div class="user-info" id="userInfo">
@@ -1337,26 +1348,13 @@ textarea:focus-visible,
     <div id="importScreen" class="screen active">
       <div class="magic-card">
         <h2>📚 ¡Hola <span id="welcomeUsername"></span>!</h2>
-        <p>Todos los campos son opcionales. Ingresa los que quieras:</p>
+        <p>Pega aquí el JSON completo con tu tanda de ejercicios (usa el botón para copiar el prompt y pedírselo a la IA):</p>
                 <div class="multi-input-section">
-          <h4>📝 Traducciones (opcional)</h4>
-          <textarea id="traduccionesInput" class="answer-input" rows="3" placeholder='[{"spanishWord": "...", "englishWord": "..."}]'></textarea>
-        </div>
-        <div class="multi-input-section">
-          <h4>✏️ Completar palabras (opcional)</h4>
-          <textarea id="completarInput" class="answer-input" rows="3" placeholder='[{"spanishWord": "...", "englishSentence": "... _____ ...", "options": ["word1"]}]'></textarea>
-        </div>
-        <div class="multi-input-section">
-          <h4>🎯 Seleccionar palabras (opcional)</h4>
-          <textarea id="seleccionarInput" class="answer-input" rows="3" placeholder='[[{"englishWord": "...", "spanishWord": "..."}]]'></textarea>
-        </div>
-        <div class="multi-input-section">
-          <h4>🔍 Corregir frases (opcional)</h4>
-          <textarea id="corregirInput" class="answer-input" rows="3" placeholder='[{"fraseConError": "...", "fraseCorrecta": "..."}]'></textarea>
-        </div>
-        <div class="multi-input-section">
-          <h4>🎧 Dictado - frases en inglés (opcional)</h4>
-          <textarea id="dictadoInput" class="answer-input" rows="3" placeholder='["The cat is on the table", "She goes to school every day"]'></textarea>
+          <div class="import-fields-header">
+            <h4>📦 Array completo (JSON)</h4>
+            <button type="button" class="fun-btn" id="copyPromptBtn">📋 Copiar prompt para la IA</button>
+          </div>
+          <textarea id="fullDataInput" class="answer-input" rows="10" placeholder='{"traducciones": [{"spanishWord": "...", "englishWord": "..."}], "completar": [{"spanishWord": "...", "englishSentence": "... _____ ...", "options": ["word1"]}], "seleccionar": [[{"englishWord": "...", "spanishWord": "..."}]], "corregir": [{"fraseConError": "...", "fraseCorrecta": "..."}], "dictado": ["The cat is on the table", "She goes to school every day"]}'></textarea>
         </div>
 
         <div class="button-group">
@@ -3080,11 +3078,13 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
 
   function loadAllData() {
     try {
-      const traducciones = JSON.parse(document.getElementById("traduccionesInput").value.trim() || '[]');
-      const completar = JSON.parse(document.getElementById("completarInput").value.trim() || '[]');
-      const seleccionar = JSON.parse(document.getElementById("seleccionarInput").value.trim() || '[]');
-      const corregir = JSON.parse(document.getElementById("corregirInput").value.trim() || '[]');
-      const dictado = JSON.parse(document.getElementById("dictadoInput").value.trim() || '[]');
+      const __rawFullData = document.getElementById("fullDataInput").value.trim();
+      const __parsedFullData = __rawFullData ? JSON.parse(__rawFullData) : {};
+      const traducciones = __parsedFullData.traducciones || [];
+      const completar = __parsedFullData.completar || [];
+      const seleccionar = __parsedFullData.seleccionar || [];
+      const corregir = __parsedFullData.corregir || [];
+      const dictado = __parsedFullData.dictado || [];
       
       // Sin validación - todo es opcional
       AppState.nodes = createNodeStructure({ traducciones, completar, seleccionar, corregir, dictado });
@@ -3563,6 +3563,22 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
     navigator.clipboard?.writeText(report).then(() => toast("📋 Informe copiado")).catch(() => toast("📋 Copia manualmente"));
   }
 
+  // prompt.txt vive como archivo aparte (no se genera desde build.py) para
+  // que se pueda editar en cualquier momento sin tener que reconstruir el
+  // proyecto. Este botón simplemente lo lee y lo copia al portapapeles.
+  async function copyPromptFromFile() {
+    try {
+      const res = await fetch('./prompt.txt', { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const text = await res.text();
+      await navigator.clipboard.writeText(text);
+      toast("📋 Prompt copiado");
+    } catch (e) {
+      console.error(e);
+      toast("❌ No se pudo leer prompt.txt");
+    }
+  }
+
   function burstConfetti() {
     const colors = ["#e50914", "#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"];
     for(let i = 0; i < 40; i++) {
@@ -3613,6 +3629,7 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
     document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { if(e.key === "Enter") login(document.getElementById("usernameInput").value); });
     document.getElementById("logoutBtn")?.addEventListener("click", logout);
     document.getElementById("loadBtn")?.addEventListener("click", loadAllData);
+    document.getElementById("copyPromptBtn")?.addEventListener("click", copyPromptFromFile);
     document.getElementById("resetAllBtn")?.addEventListener("click", resetAll);
     document.getElementById("replaceListBtn")?.addEventListener("click", () => { showMainView("import"); toast("📥 Ingresa nuevos datos"); });
     document.getElementById("copyReportBtn")?.addEventListener("click", copyReport);
