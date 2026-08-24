@@ -6,7 +6,7 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
   let html = englishSentence;
   let inputIndex = 0;
   
-  html = html.replace(/_{3,}/g, () => {
+  html = html.replace(/___/g, () => {
     const input = `<input type="text" class="completar-input" data-idx="${inputIndex}" placeholder="?" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">`;
     inputIndex++;
     return input;

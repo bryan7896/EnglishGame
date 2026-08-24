@@ -2081,7 +2081,7 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
   let html = englishSentence;
   let inputIndex = 0;
   
-  html = html.replace(/_____/g, () => {
+  html = html.replace(/___/g, () => {
     const input = `<input type="text" class="completar-input" data-idx="${inputIndex}" placeholder="?" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">`;
     inputIndex++;
     return input;
@@ -3831,7 +3831,7 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
       if (!diffIndexes.includes(i)) return w;
       const { core, punct } = splitTrailingPunct(w);
       options.push(core || w);
-      return "_____" + punct;
+      return "___" + punct;
     });
     return {
       type: "completar",
@@ -4346,7 +4346,7 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">8.4 (24-08-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">8.5 (24-08-2026)</div>
         <div class="action-buttons">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
           <button class="fun-btn" id="menuCopyReportBtn">📋 Copiar informe</button>

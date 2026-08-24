@@ -458,7 +458,7 @@ def get_main_logic():
       if (!diffIndexes.includes(i)) return w;
       const { core, punct } = splitTrailingPunct(w);
       options.push(core || w);
-      return "_____" + punct;
+      return "___" + punct;
     });
     return {
       type: "completar",
