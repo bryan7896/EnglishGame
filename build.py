@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "8.3 (18-08-2026)"
+VERSION = "8.4 (24-08-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -18,6 +18,7 @@ INPUT_TYPES = [
     {"id": "seleccionar", "label": "🎯 Seleccionar palabras (opcional)", "placeholder": '[[{"englishWord": "...", "spanishWord": "..."}]]'},
     {"id": "corregir", "label": "🔍 Corregir frases (opcional)", "placeholder": '[{"fraseConError": "...", "fraseCorrecta": "..."}]'},
     {"id": "dictado", "label": "🎧 Dictado - frases en inglés (opcional)", "placeholder": '["The cat is on the table", "She goes to school every day"]'},
+    {"id": "informacion", "label": "💡 Práctica inicial (opcional)", "placeholder": '[{"titulo": "...", "introduccion": "...", "ejercicio1": {"subtitulo": "...", "preguntas": [{"texto": "...", "opciones": [{"texto": "...", "correcta": true, "explicacion": "..."}]}]}, "ejercicio2": {"subtitulo": "...", "banco": ["..."], "frases": [{"texto": "... ___ ...", "respuesta": "..."}]}, "ejercicio3": {"subtitulo": "...", "explicacion": "...", "traducciones": [{"spanishWord": "...", "englishWord": "..."}]}}]'},
 ]
 
 EXERCISE_FILES = {
@@ -26,6 +27,7 @@ EXERCISE_FILES = {
     "exercises/seleccionar.js": "__SELECCIONAR_JS__",
     "exercises/corregir.js": "__CORREGIR_JS__",
     "exercises/dictado.js": "__DICTADO_JS__",
+    "exercises/informacion.js": "__INFORMACION_JS__",
 }
 
 
@@ -174,23 +176,8 @@ def get_html_template():
     <div class="play-topbar">
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
-        <div class="sub-fun">__VERSION__</div>
       </div>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <div class="user-info" id="userInfo">
-          <span class="user-name" id="userNameDisplay"></span>
-          <button id="logoutBtn" class="logout-btn">Salir</button>
-        </div>
-        <button class="menu-btn" id="toggleMenuBtn">☰</button>
-      </div>
-    </div>
-    <div class="topbar-expand" id="menuExpand">
-      <div class="action-buttons">
-        <button class="fun-btn" id="backToMapBtn">🗺️ Mapa</button>
-        <button class="fun-btn" id="copyReportBtn">📋 Copiar informe</button>
-        <button class="fun-btn" id="replaceListBtn">📥 Nueva tanda</button>
-        <button class="fun-btn danger-btn" id="resetAllBtn">🗑️ Borrar todo</button>
-      </div>
+      <button class="menu-btn" id="toggleMenuBtn">☰</button>
     </div>
 
     <div id="importScreen" class="screen active">
@@ -226,6 +213,15 @@ def get_html_template():
         <div id="resultLine" class="sub-fun" style="text-align:center;">✏️ Tu turno</div>
       </div>
     </div>
+
+    <div id="infoScreen" class="screen">
+      <div class="exercise-area info-scroll">
+        <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+          <span class="pill-status info-pill" id="infoTag">💡 Lección 1/1</span>
+        </div>
+        <div id="infoContainer"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -246,6 +242,7 @@ def get_html_template():
   __SELECCIONAR_JS__
   __CORREGIR_JS__
   __DICTADO_JS__
+  __INFORMACION_JS__
   __MAIN_LOGIC__
 </script>
 </body>
@@ -265,6 +262,12 @@ def get_main_logic():
       activeExerciseIndex: AppState.activeExerciseIndex,
       reportEntries: AppState.reportEntries,
       reviewPool: AppState.reviewPool,
+      // "Práctica inicial" vive fuera del array de nodos (ver map.js /
+      // createPracticaInicial). Se persiste completa (incluye las
+      // lecciones) para que un reload no la pierda; solo el progreso
+      // DENTRO de la lección activa se reinicia si hay un reload (es
+      // intencional, ver informacion.js).
+      practicaInicial: AppState.practicaInicial || null,
       // Se persisten también las respuestas/resultados "de sesión". Antes
       // vivían solo en memoria: si la página se recargaba a mitad de un
       // nodo (muy común en PWA/móvil), se perdían, y al cerrar el nodo los
@@ -293,6 +296,7 @@ def get_main_logic():
       AppState.reviewPool = data.reviewPool || [];
       AppState.sessionCorrectness = data.sessionCorrectness || {};
       AppState.sessionAnswers = data.sessionAnswers || {};
+      AppState.practicaInicial = data.practicaInicial || null;
       return AppState.nodes.length > 0;
     } catch(e) { return false; }
   }
@@ -308,7 +312,8 @@ def get_main_logic():
     reportEntries: [],
     reviewPool: [],
     sessionCorrectness: {},
-    sessionAnswers: {}
+    sessionAnswers: {},
+    practicaInicial: null,
   };
 
   function toast(msg) {
@@ -346,7 +351,8 @@ def get_main_logic():
   const mainScreens = {
     import: document.getElementById("importScreen"),
     map: document.getElementById("mapScreen"),
-    exercise: document.getElementById("exerciseScreen")
+    exercise: document.getElementById("exerciseScreen"),
+    info: document.getElementById("infoScreen")
   };
   
   function showMainView(name) {
@@ -361,6 +367,7 @@ def get_main_logic():
       
       // Sin validación - todo es opcional
       AppState.nodes = createNodeStructure(__CREATE_NODE_ARGS__);
+      AppState.practicaInicial = createPracticaInicial(informacion);
       AppState.progress = {};
       AppState.activeNodeIndex = 0;
       AppState.activeExerciseIndex = 0;
@@ -382,8 +389,10 @@ def get_main_logic():
       renderMapView();
       showMainView("map");
       const totalEj = AppState.nodes.reduce((sum, n) => sum + n.exercises.length, 0);
-      if (totalEj > 0) {
-        toast("🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos");
+      const leccionesCount = AppState.practicaInicial?.lecciones?.length || 0;
+      if (totalEj > 0 || leccionesCount > 0) {
+        const leccionesMsg = leccionesCount > 0 ? (" + " + leccionesCount + " lección(es) de práctica inicial") : "";
+        toast("🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos" + leccionesMsg);
       } else {
         toast("⚠️ No se encontraron ejercicios. Agrega al menos uno.");
       }
@@ -395,10 +404,10 @@ def get_main_logic():
 
   function renderMapView() {
     cleanupAudio();
-    renderMap(AppState.nodes, AppState.progress, { openNode, showToast: toast });
+    renderMap(AppState.nodes, AppState.progress, { openNode, openPracticaInicial, showToast: toast }, AppState.practicaInicial);
   }
 
-  const REPASO_NODE_INDEX = 5;
+  const REPASO_NODE_INDEX = 7;
   const PASS_THRESHOLD = 0.8;
 
   function refreshRepasoNode() {
@@ -559,6 +568,56 @@ def get_main_logic():
         node.exercises.push(clone);
       }
     }
+  }
+
+  // ==================== PRÁCTICA INICIAL ====================
+  // Nodo especial, obligatorio, previo al Nodo 1. Vive fuera del array de
+  // 6 nodos y NO alimenta el informe de errores (ver informacion.js).
+  let practicaLeccionState = null;
+
+  function openPracticaInicial() {
+    cleanupAudio();
+    const p = AppState.practicaInicial;
+    if (!p || p.completed || !p.lecciones?.length) { renderMapView(); showMainView("map"); return; }
+    if (p.leccionIndex >= p.lecciones.length) {
+      p.completed = true;
+      saveToStorage();
+      renderMapView();
+      showMainView("map");
+      return;
+    }
+    practicaLeccionState = freshLeccionState(p.lecciones[p.leccionIndex]);
+    renderPracticaInicialScreen();
+    showMainView("info");
+  }
+
+  function renderPracticaInicialScreen() {
+    const p = AppState.practicaInicial;
+    const leccion = p.lecciones[p.leccionIndex];
+    const container = document.getElementById("infoContainer");
+    // Cada interacción vuelve a renderizar todo el scroll (más simple y
+    // robusto que parchear el DOM a mano). Sin esto, cada tap reseteaba el
+    // scroll al tope de la lección — muy molesto en ejercicio 2, donde el
+    // usuario ya bajó varias líneas.
+    const preservedScroll = window.scrollY;
+    document.getElementById("infoTag").innerHTML = "💡 Lección " + (p.leccionIndex + 1) + "/" + p.lecciones.length;
+    container.innerHTML = renderLeccion(leccion, practicaLeccionState);
+    wireLeccion(leccion, container, practicaLeccionState, renderPracticaInicialScreen, () => {
+      p.leccionIndex++;
+      saveToStorage();
+      if (p.leccionIndex >= p.lecciones.length) {
+        p.completed = true;
+        saveToStorage();
+        renderMapView();
+        showMainView("map");
+        burstConfetti();
+        toast("🎉 ¡Práctica inicial completada!");
+      } else {
+        practicaLeccionState = freshLeccionState(p.lecciones[p.leccionIndex]);
+        renderPracticaInicialScreen();
+      }
+    });
+    window.scrollTo(0, preservedScroll);
   }
 
   function openNode(nodeIndex) {
@@ -868,10 +927,9 @@ def get_main_logic():
     username = username.trim().toLowerCase();
     currentUser = username;
     localStorage.setItem("__LS_KEY___user", username);
-    document.getElementById("userNameDisplay").innerText = username;
     document.getElementById("welcomeUsername").innerText = username;
     const hasData = loadFromStorage(username);
-    if (!hasData) { AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; }
+    if (!hasData) { AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; AppState.practicaInicial = null; }
     renderMapView();
     document.getElementById("loginScreen").classList.remove("active");
     document.getElementById("mainScreen").classList.add("active");
@@ -890,9 +948,50 @@ def get_main_logic():
 
   async function resetAll() {
     if(confirm("¿Borrar todo el progreso?")) {
-      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = []; AppState.reviewPool = []; AppState.sessionCorrectness = {}; AppState.sessionAnswers = {};
+      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = []; AppState.reviewPool = []; AppState.sessionCorrectness = {}; AppState.sessionAnswers = {}; AppState.practicaInicial = null;
       saveToStorage(); renderMapView(); showMainView("import"); toast("🗑️ Todo borrado");
     }
+  }
+
+  // El header quedó reducido a una barra angosta (título + botón ☰). Todo lo
+  // que antes vivía ahí (usuario, salir, mapa, copiar informe, nueva tanda,
+  // borrar todo) ahora vive en este modal bajo demanda, para no robarle
+  // altura permanente a la pantalla.
+  function showMenuModal() {
+    const existing = document.querySelector('.modal-overlay');
+    if (existing) existing.remove();
+
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>☰ Menú</h3>
+          <button class="menu-modal-close" id="menuModalClose" aria-label="Cerrar">✕</button>
+        </div>
+        <div class="menu-modal-user">
+          <span class="user-name">${window._escHTML(currentUser || '')}</span>
+          <button id="menuLogoutBtn" class="logout-btn">Salir</button>
+        </div>
+        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">__VERSION__</div>
+        <div class="action-buttons">
+          <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
+          <button class="fun-btn" id="menuCopyReportBtn">📋 Copiar informe</button>
+          <button class="fun-btn" id="menuReplaceListBtn">📥 Nueva tanda</button>
+          <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const close = () => modal.remove();
+    modal.querySelector('#menuModalClose').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    modal.querySelector('#menuLogoutBtn').addEventListener('click', () => { close(); logout(); });
+    modal.querySelector('#menuBackToMapBtn').addEventListener('click', () => { close(); renderMapView(); showMainView("map"); });
+    modal.querySelector('#menuCopyReportBtn').addEventListener('click', () => { close(); copyReport(); });
+    modal.querySelector('#menuReplaceListBtn').addEventListener('click', () => { close(); showMainView("import"); toast("📥 Ingresa nuevos datos"); });
+    modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
   }
 
   function init() {
@@ -900,16 +999,11 @@ def get_main_logic():
     if(savedUser) login(savedUser);
     document.getElementById("loginBtn")?.addEventListener("click", () => login(document.getElementById("usernameInput").value));
     document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { if(e.key === "Enter") login(document.getElementById("usernameInput").value); });
-    document.getElementById("logoutBtn")?.addEventListener("click", logout);
     document.getElementById("loadBtn")?.addEventListener("click", loadAllData);
     document.getElementById("copyPromptBtn")?.addEventListener("click", copyPromptFromFile);
-    document.getElementById("resetAllBtn")?.addEventListener("click", resetAll);
-    document.getElementById("replaceListBtn")?.addEventListener("click", () => { showMainView("import"); toast("📥 Ingresa nuevos datos"); });
-    document.getElementById("copyReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("openReportBtn")?.addEventListener("click", copyReport);
-    document.getElementById("backToMapBtn")?.addEventListener("click", () => { renderMapView(); showMainView("map"); });
-    document.getElementById("toggleMenuBtn")?.addEventListener("click", () => { document.getElementById("menuExpand").classList.toggle("open"); });
+    document.getElementById("toggleMenuBtn")?.addEventListener("click", showMenuModal);
   }
   
   init();
@@ -938,6 +1032,7 @@ def build_html():
     
     main_logic = get_main_logic()
     main_logic = main_logic.replace('__LS_KEY__', LS_KEY)
+    main_logic = main_logic.replace('__VERSION__', VERSION)
     main_logic = main_logic.replace('__LOAD_DATA_FIELDS__', build_load_data_fields())
     main_logic = main_logic.replace('__VALIDATION_ARGS__', build_validation_args())
     main_logic = main_logic.replace('__CREATE_NODE_ARGS__', build_create_node_args())

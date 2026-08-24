@@ -256,11 +256,15 @@ textarea:focus-visible,
 }
 
 /* ============ 6. TOPBAR ============ */
+/* Barra angosta: solo título + botón de menú. Todo lo demás (usuario,
+   salir, mapa, copiar informe, nueva tanda, borrar todo) vive en el modal
+   de menú (ver .menu-modal más abajo), para no robarle altura fija a la
+   pantalla. */
 .play-topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 4px 12px;
+  padding: 10px 4px;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -268,39 +272,6 @@ textarea:focus-visible,
 }
 
 .brand-mini { display: flex; flex-direction: column; }
-
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  padding: 6px 8px 6px 14px;
-  border-radius: var(--radius-pill);
-}
-
-.user-name {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--ink-dim);
-  max-width: 90px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.logout-btn {
-  background: var(--surface-3);
-  color: var(--ink-dim);
-  border: none;
-  border-radius: var(--radius-pill);
-  padding: 6px 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  transition: background 0.2s var(--ease), color 0.2s var(--ease);
-}
-
-.logout-btn:hover { background: var(--bad-wash); color: var(--bad); }
 
 .menu-btn {
   width: 38px;
@@ -314,14 +285,6 @@ textarea:focus-visible,
   align-items: center;
   justify-content: center;
 }
-
-.topbar-expand {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s var(--ease);
-}
-
-.topbar-expand.open { max-height: 240px; }
 
 .action-buttons {
   display: grid;
@@ -1191,6 +1154,251 @@ textarea:focus-visible,
 
 .netflix-node.repaso-node.empty .repaso-node-desc { color: var(--ink-dim); }
 
+/* ============ 16b. PRÁCTICA INICIAL (nodo obligatorio previo al Nodo 1) ============ */
+.netflix-node.practica-inicial-node {
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.25), var(--surface));
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  margin-bottom: 14px;
+}
+
+.netflix-node.practica-inicial-node:hover {
+  transform: translateY(-2px);
+  border-color: #3b82f6;
+}
+
+.practica-inicial-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: rgba(30, 58, 138, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.practica-inicial-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.practica-inicial-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.practica-inicial-desc {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink-dim);
+}
+
+.practica-inicial-status {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #60a5fa;
+}
+
+.netflix-node.practica-dim {
+  opacity: 0.35;
+  filter: grayscale(70%);
+}
+
+/* ============ 16c. PRÁCTICA INICIAL — CONTENIDO DE LECCIÓN ============ */
+.info-scroll { padding-bottom: 24px; }
+
+.info-pill { border-color: rgba(59, 130, 246, 0.4); color: #60a5fa; }
+
+.info-lesson-header h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 18px;
+  line-height: 1.3;
+}
+
+.info-group {
+  margin: 22px 0 10px;
+  transition: opacity 0.3s var(--ease);
+}
+
+.info-group h3 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.info-ej3-tip {
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.info-step {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.info-step.step-active { border-color: rgba(59, 130, 246, 0.4); }
+
+.info-step.step-locked {
+  opacity: 0.32;
+  filter: grayscale(60%);
+  pointer-events: none;
+}
+
+.info-step.step-done { display: none; }
+
+.info-intro-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 16px;
+  white-space: pre-wrap;
+}
+
+.info-next-btn { margin-top: 14px; }
+
+/* Ejercicio 1 — selección múltiple */
+.mc-question-text {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.mc-options { display: flex; flex-direction: column; gap: 8px; }
+
+.mc-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+
+.mc-option:hover { border-color: var(--line-strong); }
+
+.mc-letter {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.mc-text { font-size: 0.92rem; }
+
+.mc-option.mc-correct { border-color: var(--good); background: var(--good-wash); cursor: default; }
+.mc-option.mc-incorrect { border-color: var(--bad); background: var(--bad-wash); cursor: default; }
+.mc-option.mc-dim { opacity: 0.5; cursor: default; pointer-events: none; }
+
+.mc-explanation {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  padding: 10px 14px;
+  margin: -2px 0 8px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--ink-dim);
+}
+
+/* Ejercicio 2 — arrastrar / completar con reinicio de ronda */
+.dnd-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.dnd-chip {
+  padding: 9px 16px;
+  background: var(--surface-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.dnd-chip:hover { border-color: #60a5fa; }
+.dnd-chip-selected { background: rgba(59, 130, 246, 0.25); border-color: #60a5fa; transform: translateY(-2px); }
+.dnd-chip-used { opacity: 0.25; pointer-events: none; }
+
+.dnd-frases { display: flex; flex-direction: column; gap: 12px; }
+
+.dnd-frase {
+  display: flex;
+  gap: 8px;
+  font-size: 0.94rem;
+  line-height: 1.7;
+  opacity: 0.35;
+  transition: opacity 0.3s var(--ease);
+}
+
+.dnd-frase[data-blank-state="active"],
+.dnd-frase[data-blank-state="done"],
+.dnd-frase[data-blank-state="wrong"] { opacity: 1; }
+
+.dnd-num { color: var(--ink-faint); font-weight: 700; flex-shrink: 0; }
+
+.dnd-blank {
+  display: inline-block;
+  min-width: 60px;
+  padding: 2px 10px;
+  margin: 0 2px;
+  border-radius: var(--radius-xs);
+  border-bottom: 2px solid var(--line-strong);
+  text-align: center;
+  font-weight: 700;
+}
+
+.dnd-blank-active { border-color: #60a5fa; background: rgba(59, 130, 246, 0.12); cursor: pointer; }
+.dnd-blank-correct { border-color: var(--good); background: var(--good-wash); color: var(--good); }
+.dnd-blank-wrong { border-color: var(--bad); background: var(--bad-wash); color: var(--bad); }
+
+.dnd-fail-notice {
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: var(--bad-wash);
+  border: 1px solid rgba(255, 84, 112, 0.35);
+  border-radius: var(--radius-sm);
+  color: var(--bad);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+}
+
 /* ============ 17. MODAL ============ */
 .modal-overlay {
   position: fixed;
@@ -1245,6 +1453,74 @@ textarea:focus-visible,
 
 .modal-buttons { display: flex; gap: 10px; margin-top: 18px; }
 .modal-buttons .fun-btn { flex: 1; }
+
+/* ============ 17b. MODAL DE MENÚ (header colapsado) ============ */
+.menu-modal {
+  min-height: auto;
+  max-width: 380px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.menu-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.menu-modal-header h3 { margin-bottom: 0; }
+
+.menu-modal-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  color: var(--ink-dim);
+  border: none;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.menu-modal-close:hover { background: var(--bad-wash); color: var(--bad); }
+
+.menu-modal-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  padding: 10px 10px 10px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 4px;
+}
+
+.user-name {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logout-btn {
+  background: var(--surface-3);
+  color: var(--ink-dim);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.logout-btn:hover { background: var(--bad-wash); color: var(--bad); }
 
 /* ============ 18. TOAST ============ */
 .toast-fun {
@@ -1326,23 +1602,8 @@ textarea:focus-visible,
     <div class="play-topbar">
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
-        <div class="sub-fun">8.3 (18-08-2026)</div>
       </div>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <div class="user-info" id="userInfo">
-          <span class="user-name" id="userNameDisplay"></span>
-          <button id="logoutBtn" class="logout-btn">Salir</button>
-        </div>
-        <button class="menu-btn" id="toggleMenuBtn">☰</button>
-      </div>
-    </div>
-    <div class="topbar-expand" id="menuExpand">
-      <div class="action-buttons">
-        <button class="fun-btn" id="backToMapBtn">🗺️ Mapa</button>
-        <button class="fun-btn" id="copyReportBtn">📋 Copiar informe</button>
-        <button class="fun-btn" id="replaceListBtn">📥 Nueva tanda</button>
-        <button class="fun-btn danger-btn" id="resetAllBtn">🗑️ Borrar todo</button>
-      </div>
+      <button class="menu-btn" id="toggleMenuBtn">☰</button>
     </div>
 
     <div id="importScreen" class="screen active">
@@ -1354,7 +1615,7 @@ textarea:focus-visible,
             <h4>📦 Array completo (JSON)</h4>
             <button type="button" class="fun-btn" id="copyPromptBtn">📋 Copiar prompt para la IA</button>
           </div>
-          <textarea id="fullDataInput" class="answer-input" rows="10" placeholder='{"traducciones": [{"spanishWord": "...", "englishWord": "..."}], "completar": [{"spanishWord": "...", "englishSentence": "... _____ ...", "options": ["word1"]}], "seleccionar": [[{"englishWord": "...", "spanishWord": "..."}]], "corregir": [{"fraseConError": "...", "fraseCorrecta": "..."}], "dictado": ["The cat is on the table", "She goes to school every day"]}'></textarea>
+          <textarea id="fullDataInput" class="answer-input" rows="10" placeholder='{"traducciones": [{"spanishWord": "...", "englishWord": "..."}], "completar": [{"spanishWord": "...", "englishSentence": "... _____ ...", "options": ["word1"]}], "seleccionar": [[{"englishWord": "...", "spanishWord": "..."}]], "corregir": [{"fraseConError": "...", "fraseCorrecta": "..."}], "dictado": ["The cat is on the table", "She goes to school every day"], "informacion": [{"titulo": "...", "introduccion": "...", "ejercicio1": {"subtitulo": "...", "preguntas": [{"texto": "...", "opciones": [{"texto": "...", "correcta": true, "explicacion": "..."}]}]}, "ejercicio2": {"subtitulo": "...", "banco": ["..."], "frases": [{"texto": "... ___ ...", "respuesta": "..."}]}, "ejercicio3": {"subtitulo": "...", "explicacion": "...", "traducciones": [{"spanishWord": "...", "englishWord": "..."}]}}]}'></textarea>
         </div>
 
         <div class="button-group">
@@ -1385,6 +1646,15 @@ textarea:focus-visible,
         <div id="resultLine" class="sub-fun" style="text-align:center;">✏️ Tu turno</div>
       </div>
     </div>
+
+    <div id="infoScreen" class="screen">
+      <div class="exercise-area info-scroll">
+        <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+          <span class="pill-status info-pill" id="infoTag">💡 Lección 1/1</span>
+        </div>
+        <div id="infoContainer"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1405,14 +1675,16 @@ textarea:focus-visible,
 // ejercicios de los nodos que no se aprueben con 80% o más.
 
 export const MAP_CONFIG = {
-  totalMainNodes: 5,
-  // Imágenes de fondo estilo "carátula de episodio" para los 5 nodos principales
+  totalMainNodes: 7,
+  // Imágenes de fondo estilo "carátula de episodio" para los nodos principales
   backgrounds: [
     "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",
     "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
     "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=300&fit=crop",
     "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
     "https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=300&fit=crop",
   ],
 };
 
@@ -1423,6 +1695,29 @@ function shuffleArray(arr) {
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   return shuffled;
+}
+
+// Ícono "i" de información en SVG, azul oscuro, para el nodo "Práctica inicial".
+const INFO_ICON_SVG = `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="10" fill="#1e3a8a"/>
+  <rect x="10.9" y="10.2" width="2.2" height="7" rx="1.1" fill="#fff"/>
+  <circle cx="12" cy="7.3" r="1.35" fill="#fff"/>
+</svg>`;
+
+/**
+ * Construye el estado inicial del nodo especial "Práctica inicial" a partir
+ * del array `informacion` del JSON del usuario. Vive FUERA del array de 6
+ * nodos (main + repaso): no cuenta para el informe de errores ni para el
+ * sistema de repaso por 80%. Devuelve null si no hay lecciones.
+ */
+export function createPracticaInicial(informacion) {
+  const lecciones = informacion || [];
+  if (!lecciones.length) return null;
+  return {
+    lecciones,
+    leccionIndex: 0,
+    completed: false,
+  };
 }
 
 /**
@@ -1481,17 +1776,37 @@ export function validateInputData(data) {
   return { valid: true, errors: [] };
 }
 
-export function renderMap(nodes, progress, callbacks) {
+export function renderMap(nodes, progress, callbacks, practicaInicial) {
   const mapList = document.getElementById("mapList");
   if (!mapList) return;
 
-  const mainNodes = nodes.slice(0, 5);
-  const repasoNode = nodes[5];
+  const mainNodes = nodes.slice(0, MAP_CONFIG.totalMainNodes);
+  const repasoNode = nodes[MAP_CONFIG.totalMainNodes];
   const hasAnyMain = mainNodes.some(n => (n.exercises?.length || 0) > 0);
+  const hasPractica = !!(practicaInicial && practicaInicial.lecciones?.length);
 
-  if (!nodes?.length || !hasAnyMain) {
+  if (!nodes?.length || (!hasAnyMain && !hasPractica)) {
     mapList.innerHTML = `<div style="text-align:center;padding:40px;color:#94a3b8;"><p>Carga tus ejercicios para ver el mapa</p></div>`;
     return;
+  }
+
+  // La "Práctica inicial" es obligatoria: mientras tenga lecciones pendientes,
+  // bloquea visualmente TODO lo demás (nodos principales y repaso) y
+  // desaparece por completo al terminarse.
+  const practicaPendiente = !!(practicaInicial && !practicaInicial.completed && practicaInicial.lecciones?.length);
+  let practicaHtml = '';
+  if (practicaPendiente) {
+    const total = practicaInicial.lecciones.length;
+    practicaHtml = `
+      <div class="netflix-node practica-inicial-node" data-practica-inicial="1">
+        <div class="practica-inicial-icon">${INFO_ICON_SVG}</div>
+        <div class="practica-inicial-content">
+          <div class="practica-inicial-title">Práctica inicial</div>
+          <div class="practica-inicial-desc">${total} ${total === 1 ? 'lección' : 'lecciones'} de refuerzo antes de continuar</div>
+          <div class="practica-inicial-status">▶ OBLIGATORIO · TOCA PARA EMPEZAR</div>
+        </div>
+      </div>
+    `;
   }
 
   let firstUnlocked = 0;
@@ -1509,10 +1824,11 @@ export function renderMap(nodes, progress, callbacks) {
     const isCur = idx === firstUnlocked && !isDone;
     const unlocked = idx <= firstUnlocked;
     const isEmpty = (node.exercises?.length || 0) === 0;
+    const blocked = !unlocked || isEmpty || practicaPendiente;
 
     return `
-      <div class="netflix-node ${!unlocked || isEmpty ? 'locked' : ''} ${isCur ? 'current' : ''} ${isDone ? 'done' : ''} ${isEmpty ? 'empty' : ''}"
-           data-node="${idx}" style="${!unlocked || isEmpty ? 'pointer-events:none;' : ''}">
+      <div class="netflix-node ${blocked ? 'locked' : ''} ${isCur ? 'current' : ''} ${isDone ? 'done' : ''} ${isEmpty ? 'empty' : ''} ${practicaPendiente ? 'practica-dim' : ''}"
+           data-node="${idx}" style="${blocked ? 'pointer-events:none;' : ''}">
         <div class="netflix-node-bg" style="background-image:url('${node.background}')">
           <div class="netflix-node-overlay"></div>
         </div>
@@ -1534,7 +1850,7 @@ export function renderMap(nodes, progress, callbacks) {
 
   let repasoHtml = '';
   if (repasoNode) {
-    const idx = 5;
+    const idx = MAP_CONFIG.totalMainNodes;
     const prog = progress[idx] || { completed: true, exercisesDone: 0 };
     const total = repasoNode.exercises?.length || 0;
     const done = Math.min(prog.exercisesDone || 0, total);
@@ -1542,7 +1858,7 @@ export function renderMap(nodes, progress, callbacks) {
     const isEmpty = total === 0;
 
     repasoHtml = `
-      <div class="netflix-node repaso-node ${isEmpty ? 'empty' : ''}" data-node="${idx}" style="${isEmpty ? 'pointer-events:none;' : ''}">
+      <div class="netflix-node repaso-node ${isEmpty ? 'empty' : ''} ${practicaPendiente ? 'practica-dim' : ''}" data-node="${idx}" style="${isEmpty || practicaPendiente ? 'pointer-events:none;' : ''}">
         <div class="repaso-node-icon">🧠</div>
         <div class="repaso-node-content">
           <div class="repaso-node-title">Nodo 6 · Repaso</div>
@@ -1561,13 +1877,19 @@ export function renderMap(nodes, progress, callbacks) {
     `;
   }
 
-  mapList.innerHTML = mainNodesHtml + repasoHtml;
+  mapList.innerHTML = practicaHtml + mainNodesHtml + repasoHtml;
+
+  const practicaEl = mapList.querySelector('[data-practica-inicial]');
+  if (practicaEl) {
+    practicaEl.addEventListener('click', () => callbacks.openPracticaInicial());
+  }
 
   mapList.querySelectorAll('.netflix-node[data-node]').forEach(card => {
     card.addEventListener('click', () => {
+      if (practicaPendiente) { callbacks.showToast("📌 Termina la práctica inicial primero"); return; }
       const idx = parseInt(card.dataset.node);
       const node = nodes[idx];
-      const isRepaso = idx === 5;
+      const isRepaso = idx === MAP_CONFIG.totalMainNodes;
 
       if (!node || !node.exercises || node.exercises.length === 0) {
         callbacks.showToast(isRepaso ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo no tiene ejercicios");
@@ -2974,6 +3296,326 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
 export function getDictadoReportEntry(originalText, userAnswer, duda) {
   return { type:"dictado", original:originalText, userAnswer, duda:duda||'' };
 }
+  // exercises/informacion.js
+//
+// "Práctica inicial": lecciones especiales de refuerzo dirigido, ajenas al
+// sistema de nodos y al informe de errores. Cada lección es un único scroll
+// con: Introducción -> Ejercicio 1 (selección múltiple) -> Ejercicio 2
+// (arrastrar/completar con reinicio total si falla algo en la pasada) ->
+// Ejercicio 3 (traducir). Todo se revela progresivamente: cada paso que el
+// usuario completa se colapsa (display:none) y habilita el siguiente, sin
+// ocultar los encabezados generales de cada ejercicio.
+
+// Construye la lista plana de "pasos" de una lección, en orden.
+function buildSteps(leccion) {
+  const steps = [{ kind: "intro" }];
+  (leccion.ejercicio1?.preguntas || []).slice(0, 4).forEach((_, i) => steps.push({ kind: "ej1", idx: i }));
+  if (leccion.ejercicio2) steps.push({ kind: "ej2" });
+  (leccion.ejercicio3?.traducciones || []).slice(0, 3).forEach((_, i) => steps.push({ kind: "ej3", idx: i }));
+  steps.push({ kind: "finalizar" });
+  return steps;
+}
+
+function freshEj2State(leccion) {
+  const frases = leccion.ejercicio2?.frases || [];
+  return {
+    banco: (leccion.ejercicio2?.banco || []).map((texto, i) => ({ id: "chip" + i, texto, used: false })),
+    activeIdx: 0,
+    results: frases.map(() => null), // null | 'correct' | 'wrong'
+    failedThisPass: false,
+    selectedChipId: null,
+  };
+}
+
+// Estado por defecto de una lección (se guarda en AppState.practicaInicial).
+export function freshLeccionState(leccion) {
+  return {
+    stepIndex: 0, // hasta qué índice de `buildSteps` está desbloqueado (inclusive)
+    ej1: (leccion.ejercicio1?.preguntas || []).map(() => ({ answered: false, selectedIdx: null })),
+    ej2: freshEj2State(leccion),
+    ej3: (leccion.ejercicio3?.traducciones || []).map(() => ({ answered: false, userAnswer: "" })),
+  };
+}
+
+function stepStatus(steps, state, i) {
+  if (i < state.stepIndex) return "done";
+  if (i === state.stepIndex) return "active";
+  return "locked";
+}
+
+function renderEj1Question(leccion, state, qIdx, status) {
+  const pregunta = leccion.ejercicio1.preguntas[qIdx];
+  const answer = state.ej1[qIdx];
+  const letras = "abcdef";
+  const opcionesHtml = pregunta.opciones.map((op, i) => {
+    const letra = letras[i] || (i + 1);
+    const selected = answer.selectedIdx === i;
+    let cls = "mc-option";
+    let explHtml = "";
+    if (answer.answered && selected) {
+      cls += op.correcta ? " mc-correct" : " mc-incorrect";
+      explHtml = `<div class="mc-explanation">${op.correcta ? "✅" : "❌"} ${window._escHTML(op.explicacion || "")}</div>`;
+    } else if (answer.answered) {
+      cls += " mc-dim";
+    }
+    return `
+      <div class="${cls}" data-opt="${i}">
+        <span class="mc-letter">${letra}</span>
+        <span class="mc-text">${window._escHTML(op.texto)}</span>
+      </div>
+      ${explHtml}
+    `;
+  }).join("");
+
+  return `
+    <div class="info-step step-${status}" data-step-kind="ej1" data-step-idx="${qIdx}">
+      <div class="mc-question-text">${window._escHTML(pregunta.texto)}</div>
+      <div class="mc-options">${opcionesHtml}</div>
+      ${answer.answered ? '<button class="fun-btn info-next-btn" data-action="ej1-next">Siguiente ▶</button>' : ''}
+    </div>
+  `;
+}
+
+function renderEj2(leccion, state, status) {
+  const ej2 = leccion.ejercicio2;
+  const s = state.ej2;
+  const frases = ej2.frases || [];
+
+  const bancoHtml = s.banco.map(chip => {
+    const cls = "dnd-chip" + (chip.used ? " dnd-chip-used" : "") + (s.selectedChipId === chip.id ? " dnd-chip-selected" : "");
+    return `<button type="button" class="${cls}" data-chip="${chip.id}" ${chip.used ? "disabled" : ""}>${window._escHTML(chip.texto)}</button>`;
+  }).join("");
+
+  const frasesHtml = frases.map((frase, i) => {
+    const r = s.results[i];
+    let blankCls = "dnd-blank";
+    let blankLabel = "_____";
+    let blankState = "locked";
+    if (r === "correct") { blankCls += " dnd-blank-correct"; blankLabel = frase.respuesta; blankState = "done"; }
+    else if (r === "wrong") { blankCls += " dnd-blank-wrong"; blankLabel = "✗"; blankState = "wrong"; }
+    else if (i === s.activeIdx) { blankCls += " dnd-blank-active"; blankState = "active"; }
+    const parts = frase.texto.split("___");
+    const before = window._escHTML(parts[0] || "");
+    const after = window._escHTML(parts[1] || "");
+    return `
+      <div class="dnd-frase" data-frase-idx="${i}" data-blank-state="${blankState}">
+        <span class="dnd-num">${i + 1}.</span>
+        <span>${before}<span class="${blankCls}" data-blank="${i}">${blankLabel}</span>${after}</span>
+      </div>
+    `;
+  }).join("");
+
+  const allDone = s.results.every(r => r === "correct");
+  const failNotice = s.failedThisPass ? '<div class="dnd-fail-notice">↺ Fallaste una — reiniciando la ronda...</div>' : '';
+
+  return `
+    <div class="info-step step-${status}" data-step-kind="ej2">
+      <div class="dnd-bank">${bancoHtml}</div>
+      <div class="dnd-frases">${frasesHtml}</div>
+      ${failNotice}
+      ${allDone ? '<button class="fun-btn info-next-btn" data-action="ej2-next">Siguiente ▶</button>' : ''}
+    </div>
+  `;
+}
+
+function renderEj3Item(leccion, state, tIdx, status) {
+  const item = leccion.ejercicio3.traducciones[tIdx];
+  const answer = state.ej3[tIdx];
+  const normalize = (s) => String(s || "").toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
+  const isCorrect = answer.answered && normalize(answer.userAnswer) === normalize(item.englishWord);
+
+  return `
+    <div class="info-step step-${status}" data-step-kind="ej3" data-step-idx="${tIdx}">
+      <div class="question-bubble">${window._escHTML(item.spanishWord)}</div>
+      ${answer.answered ? `
+        <div class="comparison-text-block" style="margin-top:10px;">
+          <div class="comparison-row">
+            <span class="comparison-row-label">✅ Correcto</span>
+            <div class="comparison-row-text correct-highlight">${window._escHTML(item.englishWord)}</div>
+          </div>
+          <div class="comparison-row">
+            <span class="comparison-row-label">✏️ Tu respuesta</span>
+            <div class="comparison-row-text" style="${isCorrect ? '' : 'color:#fbbf24;'}">${window._escHTML(answer.userAnswer)}</div>
+          </div>
+        </div>
+        <button class="fun-btn info-next-btn" data-action="ej3-next">Siguiente ▶</button>
+      ` : `
+        <textarea class="answer-input info-ej3-answer" rows="2" placeholder="Escribe tu traducción..."></textarea>
+        <div class="button-group"><button class="btn-action btn-check" data-action="ej3-check">✅ Comprobar</button></div>
+      `}
+    </div>
+  `;
+}
+
+export function renderLeccion(leccion, state) {
+  const steps = buildSteps(leccion);
+  const introStatus = state.stepIndex === 0 ? "active" : "done";
+
+  let html = `
+    <div class="info-lesson-header">
+      <h2>💡 ${window._escHTML(leccion.titulo)}</h2>
+    </div>
+    <div class="info-step step-${introStatus}" data-step-kind="intro">
+      <div class="info-intro-text">${window._escHTML(leccion.introduccion)}</div>
+      ${state.stepIndex === 0 ? '<button class="fun-btn primary-btn info-next-btn" data-action="start">🚀 Iniciar ejercicios</button>' : ''}
+    </div>
+  `;
+
+  if (leccion.ejercicio1?.preguntas?.length) {
+    const groupUnlocked = steps.findIndex(s => s.kind === "ej1") <= state.stepIndex;
+    html += `<div class="info-group ${groupUnlocked ? '' : 'step-locked'}"><h3>🔎 ${window._escHTML(leccion.ejercicio1.subtitulo || "Selecciona la respuesta correcta")}</h3></div>`;
+    leccion.ejercicio1.preguntas.slice(0, 4).forEach((_, i) => {
+      const globalIdx = steps.findIndex(s => s.kind === "ej1" && s.idx === i);
+      html += renderEj1Question(leccion, state, i, stepStatus(steps, state, globalIdx));
+    });
+  }
+
+  if (leccion.ejercicio2) {
+    const ej2Idx = steps.findIndex(s => s.kind === "ej2");
+    const groupUnlocked = ej2Idx <= state.stepIndex;
+    html += `<div class="info-group ${groupUnlocked ? '' : 'step-locked'}"><h3>🧩 ${window._escHTML(leccion.ejercicio2.subtitulo || "Arrastra la palabra correcta")}</h3></div>`;
+    html += renderEj2(leccion, state, stepStatus(steps, state, ej2Idx));
+  }
+
+  if (leccion.ejercicio3?.traducciones?.length) {
+    const groupUnlocked = steps.findIndex(s => s.kind === "ej3") <= state.stepIndex;
+    html += `<div class="info-group ${groupUnlocked ? '' : 'step-locked'}"><h3>✍️ ${window._escHTML(leccion.ejercicio3.subtitulo || "Traduce")}</h3>${leccion.ejercicio3.explicacion ? `<p class="info-ej3-tip">${window._escHTML(leccion.ejercicio3.explicacion)}</p>` : ''}</div>`;
+    leccion.ejercicio3.traducciones.slice(0, 3).forEach((_, i) => {
+      const globalIdx = steps.findIndex(s => s.kind === "ej3" && s.idx === i);
+      html += renderEj3Item(leccion, state, i, stepStatus(steps, state, globalIdx));
+    });
+  }
+
+  const finalIdx = steps.length - 1;
+  const finalStatus = stepStatus(steps, state, finalIdx);
+  html += `
+    <div class="info-step step-${finalStatus}" data-step-kind="finalizar">
+      <button class="fun-btn primary-btn full-width" data-action="finalizar">🏁 Finalizar y continuar</button>
+    </div>
+  `;
+
+  return html;
+}
+
+function advanceStep(state, steps) {
+  state.stepIndex = Math.min(state.stepIndex + 1, steps.length - 1);
+}
+
+export function wireLeccion(leccion, container, state, onChange, onLeccionDone) {
+  const steps = buildSteps(leccion);
+
+  container.querySelectorAll('[data-action="start"]').forEach(btn => {
+    btn.onclick = () => { advanceStep(state, steps); onChange(); };
+  });
+
+  // Ejercicio 1: click en una opción -> revela SU explicación; el "Siguiente"
+  // avanza sin importar si acertó.
+  container.querySelectorAll('.info-step[data-step-kind="ej1"]').forEach(stepEl => {
+    if (stepEl.classList.contains('step-locked') || stepEl.classList.contains('step-done')) return;
+    const qIdx = parseInt(stepEl.dataset.stepIdx, 10);
+    const answer = state.ej1[qIdx];
+    if (!answer.answered) {
+      stepEl.querySelectorAll('.mc-option').forEach(optEl => {
+        optEl.onclick = () => {
+          answer.answered = true;
+          answer.selectedIdx = parseInt(optEl.dataset.opt, 10);
+          onChange();
+        };
+      });
+    }
+    const nextBtn = stepEl.querySelector('[data-action="ej1-next"]');
+    if (nextBtn) nextBtn.onclick = () => {
+      const globalIdx = steps.findIndex(s => s.kind === "ej1" && s.idx === qIdx);
+      state.stepIndex = Math.max(state.stepIndex, globalIdx);
+      advanceStep(state, steps);
+      onChange();
+    };
+  });
+
+  // Ejercicio 2: tap-to-select chip + tap-to-place en el blanco activo.
+  const ej2StepEl = container.querySelector('.info-step[data-step-kind="ej2"]');
+  if (ej2StepEl && !ej2StepEl.classList.contains('step-locked') && !ej2StepEl.classList.contains('step-done')) {
+    const s = state.ej2;
+    const frases = leccion.ejercicio2.frases || [];
+
+    ej2StepEl.querySelectorAll('.dnd-chip:not(.dnd-chip-used)').forEach(chipEl => {
+      chipEl.onclick = () => {
+        s.selectedChipId = (s.selectedChipId === chipEl.dataset.chip) ? null : chipEl.dataset.chip;
+        onChange();
+      };
+    });
+
+    const activeBlank = ej2StepEl.querySelector('.dnd-blank-active');
+    if (activeBlank && s.selectedChipId) {
+      activeBlank.onclick = () => {
+        const chip = s.banco.find(c => c.id === s.selectedChipId);
+        if (!chip) return;
+        const frase = frases[s.activeIdx];
+        const normalize = (t) => String(t || "").toLowerCase().trim();
+        const correct = normalize(chip.texto) === normalize(frase.respuesta);
+        s.results[s.activeIdx] = correct ? "correct" : "wrong";
+        if (correct) chip.used = true;
+        if (!correct) s.failedThisPass = true;
+        s.selectedChipId = null;
+        s.activeIdx++;
+
+        if (s.activeIdx >= frases.length) {
+          if (s.failedThisPass) {
+            // Reinicia toda la ronda tras un breve instante para que el
+            // usuario alcance a ver qué falló en rojo.
+            onChange();
+            setTimeout(() => {
+              state.ej2 = freshEj2State(leccion);
+              onChange();
+            }, 1100);
+            return;
+          }
+        }
+        onChange();
+      };
+    } else if (activeBlank) {
+      activeBlank.onclick = () => { /* sin ficha seleccionada aún */ };
+    }
+
+    const nextBtn = ej2StepEl.querySelector('[data-action="ej2-next"]');
+    if (nextBtn) nextBtn.onclick = () => {
+      const ej2Idx = steps.findIndex(st => st.kind === "ej2");
+      state.stepIndex = Math.max(state.stepIndex, ej2Idx);
+      advanceStep(state, steps);
+      onChange();
+    };
+  }
+
+  // Ejercicio 3: traducir con comprobación simple inline (sin modal).
+  container.querySelectorAll('.info-step[data-step-kind="ej3"]').forEach(stepEl => {
+    if (stepEl.classList.contains('step-locked') || stepEl.classList.contains('step-done')) return;
+    const tIdx = parseInt(stepEl.dataset.stepIdx, 10);
+    const answer = state.ej3[tIdx];
+    const checkBtn = stepEl.querySelector('[data-action="ej3-check"]');
+    const textarea = stepEl.querySelector('.info-ej3-answer');
+    if (checkBtn && textarea) {
+      checkBtn.onclick = () => {
+        const val = textarea.value.trim();
+        if (!val) return;
+        answer.answered = true;
+        answer.userAnswer = val;
+        onChange();
+      };
+    }
+    const nextBtn = stepEl.querySelector('[data-action="ej3-next"]');
+    if (nextBtn) nextBtn.onclick = () => {
+      const globalIdx = steps.findIndex(st => st.kind === "ej3" && st.idx === tIdx);
+      state.stepIndex = Math.max(state.stepIndex, globalIdx);
+      advanceStep(state, steps);
+      onChange();
+    };
+  });
+
+  const finalBtn = container.querySelector('[data-action="finalizar"]');
+  if (finalBtn && !finalBtn.closest('.step-locked')) {
+    finalBtn.onclick = () => onLeccionDone();
+  }
+}
   
   const STORAGE_KEY = "english_trainer_v6";
   
@@ -2986,6 +3628,12 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
       activeExerciseIndex: AppState.activeExerciseIndex,
       reportEntries: AppState.reportEntries,
       reviewPool: AppState.reviewPool,
+      // "Práctica inicial" vive fuera del array de nodos (ver map.js /
+      // createPracticaInicial). Se persiste completa (incluye las
+      // lecciones) para que un reload no la pierda; solo el progreso
+      // DENTRO de la lección activa se reinicia si hay un reload (es
+      // intencional, ver informacion.js).
+      practicaInicial: AppState.practicaInicial || null,
       // Se persisten también las respuestas/resultados "de sesión". Antes
       // vivían solo en memoria: si la página se recargaba a mitad de un
       // nodo (muy común en PWA/móvil), se perdían, y al cerrar el nodo los
@@ -3014,6 +3662,7 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
       AppState.reviewPool = data.reviewPool || [];
       AppState.sessionCorrectness = data.sessionCorrectness || {};
       AppState.sessionAnswers = data.sessionAnswers || {};
+      AppState.practicaInicial = data.practicaInicial || null;
       return AppState.nodes.length > 0;
     } catch(e) { return false; }
   }
@@ -3029,7 +3678,8 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
     reportEntries: [],
     reviewPool: [],
     sessionCorrectness: {},
-    sessionAnswers: {}
+    sessionAnswers: {},
+    practicaInicial: null,
   };
 
   function toast(msg) {
@@ -3067,7 +3717,8 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
   const mainScreens = {
     import: document.getElementById("importScreen"),
     map: document.getElementById("mapScreen"),
-    exercise: document.getElementById("exerciseScreen")
+    exercise: document.getElementById("exerciseScreen"),
+    info: document.getElementById("infoScreen")
   };
   
   function showMainView(name) {
@@ -3085,9 +3736,11 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
       const seleccionar = __parsedFullData.seleccionar || [];
       const corregir = __parsedFullData.corregir || [];
       const dictado = __parsedFullData.dictado || [];
+      const informacion = __parsedFullData.informacion || [];
       
       // Sin validación - todo es opcional
-      AppState.nodes = createNodeStructure({ traducciones, completar, seleccionar, corregir, dictado });
+      AppState.nodes = createNodeStructure({ traducciones, completar, seleccionar, corregir, dictado, informacion });
+      AppState.practicaInicial = createPracticaInicial(informacion);
       AppState.progress = {};
       AppState.activeNodeIndex = 0;
       AppState.activeExerciseIndex = 0;
@@ -3109,8 +3762,10 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
       renderMapView();
       showMainView("map");
       const totalEj = AppState.nodes.reduce((sum, n) => sum + n.exercises.length, 0);
-      if (totalEj > 0) {
-        toast("🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos");
+      const leccionesCount = AppState.practicaInicial?.lecciones?.length || 0;
+      if (totalEj > 0 || leccionesCount > 0) {
+        const leccionesMsg = leccionesCount > 0 ? (" + " + leccionesCount + " lección(es) de práctica inicial") : "";
+        toast("🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos" + leccionesMsg);
       } else {
         toast("⚠️ No se encontraron ejercicios. Agrega al menos uno.");
       }
@@ -3122,10 +3777,10 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
 
   function renderMapView() {
     cleanupAudio();
-    renderMap(AppState.nodes, AppState.progress, { openNode, showToast: toast });
+    renderMap(AppState.nodes, AppState.progress, { openNode, openPracticaInicial, showToast: toast }, AppState.practicaInicial);
   }
 
-  const REPASO_NODE_INDEX = 5;
+  const REPASO_NODE_INDEX = 7;
   const PASS_THRESHOLD = 0.8;
 
   function refreshRepasoNode() {
@@ -3286,6 +3941,56 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
         node.exercises.push(clone);
       }
     }
+  }
+
+  // ==================== PRÁCTICA INICIAL ====================
+  // Nodo especial, obligatorio, previo al Nodo 1. Vive fuera del array de
+  // 6 nodos y NO alimenta el informe de errores (ver informacion.js).
+  let practicaLeccionState = null;
+
+  function openPracticaInicial() {
+    cleanupAudio();
+    const p = AppState.practicaInicial;
+    if (!p || p.completed || !p.lecciones?.length) { renderMapView(); showMainView("map"); return; }
+    if (p.leccionIndex >= p.lecciones.length) {
+      p.completed = true;
+      saveToStorage();
+      renderMapView();
+      showMainView("map");
+      return;
+    }
+    practicaLeccionState = freshLeccionState(p.lecciones[p.leccionIndex]);
+    renderPracticaInicialScreen();
+    showMainView("info");
+  }
+
+  function renderPracticaInicialScreen() {
+    const p = AppState.practicaInicial;
+    const leccion = p.lecciones[p.leccionIndex];
+    const container = document.getElementById("infoContainer");
+    // Cada interacción vuelve a renderizar todo el scroll (más simple y
+    // robusto que parchear el DOM a mano). Sin esto, cada tap reseteaba el
+    // scroll al tope de la lección — muy molesto en ejercicio 2, donde el
+    // usuario ya bajó varias líneas.
+    const preservedScroll = window.scrollY;
+    document.getElementById("infoTag").innerHTML = "💡 Lección " + (p.leccionIndex + 1) + "/" + p.lecciones.length;
+    container.innerHTML = renderLeccion(leccion, practicaLeccionState);
+    wireLeccion(leccion, container, practicaLeccionState, renderPracticaInicialScreen, () => {
+      p.leccionIndex++;
+      saveToStorage();
+      if (p.leccionIndex >= p.lecciones.length) {
+        p.completed = true;
+        saveToStorage();
+        renderMapView();
+        showMainView("map");
+        burstConfetti();
+        toast("🎉 ¡Práctica inicial completada!");
+      } else {
+        practicaLeccionState = freshLeccionState(p.lecciones[p.leccionIndex]);
+        renderPracticaInicialScreen();
+      }
+    });
+    window.scrollTo(0, preservedScroll);
   }
 
   function openNode(nodeIndex) {
@@ -3595,10 +4300,9 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
     username = username.trim().toLowerCase();
     currentUser = username;
     localStorage.setItem("english_trainer_v6_user", username);
-    document.getElementById("userNameDisplay").innerText = username;
     document.getElementById("welcomeUsername").innerText = username;
     const hasData = loadFromStorage(username);
-    if (!hasData) { AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; }
+    if (!hasData) { AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; AppState.practicaInicial = null; }
     renderMapView();
     document.getElementById("loginScreen").classList.remove("active");
     document.getElementById("mainScreen").classList.add("active");
@@ -3617,9 +4321,50 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
 
   async function resetAll() {
     if(confirm("¿Borrar todo el progreso?")) {
-      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = []; AppState.reviewPool = []; AppState.sessionCorrectness = {}; AppState.sessionAnswers = {};
+      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = []; AppState.reviewPool = []; AppState.sessionCorrectness = {}; AppState.sessionAnswers = {}; AppState.practicaInicial = null;
       saveToStorage(); renderMapView(); showMainView("import"); toast("🗑️ Todo borrado");
     }
+  }
+
+  // El header quedó reducido a una barra angosta (título + botón ☰). Todo lo
+  // que antes vivía ahí (usuario, salir, mapa, copiar informe, nueva tanda,
+  // borrar todo) ahora vive en este modal bajo demanda, para no robarle
+  // altura permanente a la pantalla.
+  function showMenuModal() {
+    const existing = document.querySelector('.modal-overlay');
+    if (existing) existing.remove();
+
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>☰ Menú</h3>
+          <button class="menu-modal-close" id="menuModalClose" aria-label="Cerrar">✕</button>
+        </div>
+        <div class="menu-modal-user">
+          <span class="user-name">${window._escHTML(currentUser || '')}</span>
+          <button id="menuLogoutBtn" class="logout-btn">Salir</button>
+        </div>
+        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">8.4 (24-08-2026)</div>
+        <div class="action-buttons">
+          <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
+          <button class="fun-btn" id="menuCopyReportBtn">📋 Copiar informe</button>
+          <button class="fun-btn" id="menuReplaceListBtn">📥 Nueva tanda</button>
+          <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const close = () => modal.remove();
+    modal.querySelector('#menuModalClose').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    modal.querySelector('#menuLogoutBtn').addEventListener('click', () => { close(); logout(); });
+    modal.querySelector('#menuBackToMapBtn').addEventListener('click', () => { close(); renderMapView(); showMainView("map"); });
+    modal.querySelector('#menuCopyReportBtn').addEventListener('click', () => { close(); copyReport(); });
+    modal.querySelector('#menuReplaceListBtn').addEventListener('click', () => { close(); showMainView("import"); toast("📥 Ingresa nuevos datos"); });
+    modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
   }
 
   function init() {
@@ -3627,16 +4372,11 @@ export function getDictadoReportEntry(originalText, userAnswer, duda) {
     if(savedUser) login(savedUser);
     document.getElementById("loginBtn")?.addEventListener("click", () => login(document.getElementById("usernameInput").value));
     document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { if(e.key === "Enter") login(document.getElementById("usernameInput").value); });
-    document.getElementById("logoutBtn")?.addEventListener("click", logout);
     document.getElementById("loadBtn")?.addEventListener("click", loadAllData);
     document.getElementById("copyPromptBtn")?.addEventListener("click", copyPromptFromFile);
-    document.getElementById("resetAllBtn")?.addEventListener("click", resetAll);
-    document.getElementById("replaceListBtn")?.addEventListener("click", () => { showMainView("import"); toast("📥 Ingresa nuevos datos"); });
-    document.getElementById("copyReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("openReportBtn")?.addEventListener("click", copyReport);
-    document.getElementById("backToMapBtn")?.addEventListener("click", () => { renderMapView(); showMainView("map"); });
-    document.getElementById("toggleMenuBtn")?.addEventListener("click", () => { document.getElementById("menuExpand").classList.toggle("open"); });
+    document.getElementById("toggleMenuBtn")?.addEventListener("click", showMenuModal);
   }
   
   init();

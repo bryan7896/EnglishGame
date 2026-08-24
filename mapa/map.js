@@ -4,14 +4,16 @@
 // ejercicios de los nodos que no se aprueben con 80% o más.
 
 export const MAP_CONFIG = {
-  totalMainNodes: 5,
-  // Imágenes de fondo estilo "carátula de episodio" para los 5 nodos principales
+  totalMainNodes: 7,
+  // Imágenes de fondo estilo "carátula de episodio" para los nodos principales
   backgrounds: [
     "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",
     "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
     "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=300&fit=crop",
     "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
     "https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=300&fit=crop",
   ],
 };
 
@@ -22,6 +24,29 @@ function shuffleArray(arr) {
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   return shuffled;
+}
+
+// Ícono "i" de información en SVG, azul oscuro, para el nodo "Práctica inicial".
+const INFO_ICON_SVG = `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="10" fill="#1e3a8a"/>
+  <rect x="10.9" y="10.2" width="2.2" height="7" rx="1.1" fill="#fff"/>
+  <circle cx="12" cy="7.3" r="1.35" fill="#fff"/>
+</svg>`;
+
+/**
+ * Construye el estado inicial del nodo especial "Práctica inicial" a partir
+ * del array `informacion` del JSON del usuario. Vive FUERA del array de 6
+ * nodos (main + repaso): no cuenta para el informe de errores ni para el
+ * sistema de repaso por 80%. Devuelve null si no hay lecciones.
+ */
+export function createPracticaInicial(informacion) {
+  const lecciones = informacion || [];
+  if (!lecciones.length) return null;
+  return {
+    lecciones,
+    leccionIndex: 0,
+    completed: false,
+  };
 }
 
 /**
@@ -80,17 +105,37 @@ export function validateInputData(data) {
   return { valid: true, errors: [] };
 }
 
-export function renderMap(nodes, progress, callbacks) {
+export function renderMap(nodes, progress, callbacks, practicaInicial) {
   const mapList = document.getElementById("mapList");
   if (!mapList) return;
 
-  const mainNodes = nodes.slice(0, 5);
-  const repasoNode = nodes[5];
+  const mainNodes = nodes.slice(0, MAP_CONFIG.totalMainNodes);
+  const repasoNode = nodes[MAP_CONFIG.totalMainNodes];
   const hasAnyMain = mainNodes.some(n => (n.exercises?.length || 0) > 0);
+  const hasPractica = !!(practicaInicial && practicaInicial.lecciones?.length);
 
-  if (!nodes?.length || !hasAnyMain) {
+  if (!nodes?.length || (!hasAnyMain && !hasPractica)) {
     mapList.innerHTML = `<div style="text-align:center;padding:40px;color:#94a3b8;"><p>Carga tus ejercicios para ver el mapa</p></div>`;
     return;
+  }
+
+  // La "Práctica inicial" es obligatoria: mientras tenga lecciones pendientes,
+  // bloquea visualmente TODO lo demás (nodos principales y repaso) y
+  // desaparece por completo al terminarse.
+  const practicaPendiente = !!(practicaInicial && !practicaInicial.completed && practicaInicial.lecciones?.length);
+  let practicaHtml = '';
+  if (practicaPendiente) {
+    const total = practicaInicial.lecciones.length;
+    practicaHtml = `
+      <div class="netflix-node practica-inicial-node" data-practica-inicial="1">
+        <div class="practica-inicial-icon">${INFO_ICON_SVG}</div>
+        <div class="practica-inicial-content">
+          <div class="practica-inicial-title">Práctica inicial</div>
+          <div class="practica-inicial-desc">${total} ${total === 1 ? 'lección' : 'lecciones'} de refuerzo antes de continuar</div>
+          <div class="practica-inicial-status">▶ OBLIGATORIO · TOCA PARA EMPEZAR</div>
+        </div>
+      </div>
+    `;
   }
 
   let firstUnlocked = 0;
@@ -108,10 +153,11 @@ export function renderMap(nodes, progress, callbacks) {
     const isCur = idx === firstUnlocked && !isDone;
     const unlocked = idx <= firstUnlocked;
     const isEmpty = (node.exercises?.length || 0) === 0;
+    const blocked = !unlocked || isEmpty || practicaPendiente;
 
     return `
-      <div class="netflix-node ${!unlocked || isEmpty ? 'locked' : ''} ${isCur ? 'current' : ''} ${isDone ? 'done' : ''} ${isEmpty ? 'empty' : ''}"
-           data-node="${idx}" style="${!unlocked || isEmpty ? 'pointer-events:none;' : ''}">
+      <div class="netflix-node ${blocked ? 'locked' : ''} ${isCur ? 'current' : ''} ${isDone ? 'done' : ''} ${isEmpty ? 'empty' : ''} ${practicaPendiente ? 'practica-dim' : ''}"
+           data-node="${idx}" style="${blocked ? 'pointer-events:none;' : ''}">
         <div class="netflix-node-bg" style="background-image:url('${node.background}')">
           <div class="netflix-node-overlay"></div>
         </div>
@@ -133,7 +179,7 @@ export function renderMap(nodes, progress, callbacks) {
 
   let repasoHtml = '';
   if (repasoNode) {
-    const idx = 5;
+    const idx = MAP_CONFIG.totalMainNodes;
     const prog = progress[idx] || { completed: true, exercisesDone: 0 };
     const total = repasoNode.exercises?.length || 0;
     const done = Math.min(prog.exercisesDone || 0, total);
@@ -141,7 +187,7 @@ export function renderMap(nodes, progress, callbacks) {
     const isEmpty = total === 0;
 
     repasoHtml = `
-      <div class="netflix-node repaso-node ${isEmpty ? 'empty' : ''}" data-node="${idx}" style="${isEmpty ? 'pointer-events:none;' : ''}">
+      <div class="netflix-node repaso-node ${isEmpty ? 'empty' : ''} ${practicaPendiente ? 'practica-dim' : ''}" data-node="${idx}" style="${isEmpty || practicaPendiente ? 'pointer-events:none;' : ''}">
         <div class="repaso-node-icon">🧠</div>
         <div class="repaso-node-content">
           <div class="repaso-node-title">Nodo 6 · Repaso</div>
@@ -160,13 +206,19 @@ export function renderMap(nodes, progress, callbacks) {
     `;
   }
 
-  mapList.innerHTML = mainNodesHtml + repasoHtml;
+  mapList.innerHTML = practicaHtml + mainNodesHtml + repasoHtml;
+
+  const practicaEl = mapList.querySelector('[data-practica-inicial]');
+  if (practicaEl) {
+    practicaEl.addEventListener('click', () => callbacks.openPracticaInicial());
+  }
 
   mapList.querySelectorAll('.netflix-node[data-node]').forEach(card => {
     card.addEventListener('click', () => {
+      if (practicaPendiente) { callbacks.showToast("📌 Termina la práctica inicial primero"); return; }
       const idx = parseInt(card.dataset.node);
       const node = nodes[idx];
-      const isRepaso = idx === 5;
+      const isRepaso = idx === MAP_CONFIG.totalMainNodes;
 
       if (!node || !node.exercises || node.exercises.length === 0) {
         callbacks.showToast(isRepaso ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo no tiene ejercicios");
