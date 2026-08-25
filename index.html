@@ -2337,7 +2337,6 @@ function renderListeningPractice(practicePairs, container, onDone) {
       </p>
       <div class="mini-listen-row">
         ${practicePairs.map((p, idx) => `
-          ${idx > 0 ? '<span class="mini-listen-connector">➤</span>' : ''}
           <div class="mini-listen-item" data-idx="${idx}">
             <button class="mini-listen-play" type="button" data-idx="${idx}" title="Reproducir">🔊</button>
             <input type="text" class="mini-listen-input" data-idx="${idx}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="?">
