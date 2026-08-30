@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "8.5 (24-08-2026)"
+VERSION = "8.6 (24-08-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -22,6 +22,11 @@ INPUT_TYPES = [
 ]
 
 EXERCISE_FILES = {
+    # contracciones.js va primero: define normalizeContractions/
+    # contractionAwareEquals que usan traduccion/completar/corregir/dictado/
+    # seleccionar. informacion.js NO lo usa a propósito (debe seguir
+    # validando de forma estricta, sin tolerar contracciones).
+    "exercises/contracciones.js": "__CONTRACCIONES_JS__",
     "exercises/traduccion.js": "__TRADUCCION_JS__",
     "exercises/completar.js": "__COMPLETAR_JS__",
     "exercises/seleccionar.js": "__SELECCIONAR_JS__",
@@ -237,6 +242,7 @@ def get_html_template():
   }
 
   __MAP_JS__
+  __CONTRACCIONES_JS__
   __TRADUCCION_JS__
   __COMPLETAR_JS__
   __SELECCIONAR_JS__

@@ -53,7 +53,7 @@ export function renderTraduccionExercise(exercise, container) {
 }
 
 function normalizeFullAnswer(str) {
-  return String(str || "")
+  return normalizeContractions(String(str || ""))
     .toLowerCase()
     .replace(/[.,!?;:]/g, '')
     .replace(/\s+/g, ' ')
@@ -92,8 +92,16 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   
   const correctText = exercise.englishWord || exercise.englishWords;
   const isCorrect = isFullyCorrectAnswer(correctText, userAnswer);
+  // Para MOSTRAR el diff se usa el texto tal cual (sin tocar lo que el
+  // usuario escribió). Para CALCULAR la precisión se usa una versión con
+  // las contracciones normalizadas, así "i have" vs "i've" no penaliza el
+  // puntaje aunque en el diff visual se vean como palabras distintas.
   const { alignedCorrect, alignedUser } = alignWords(correctText, userAnswer);
-  const accuracy = computeAccuracy(alignedCorrect);
+  const { alignedCorrect: matchAlignedCorrect } = alignWords(
+    normalizeContractions(correctText),
+    normalizeContractions(userAnswer)
+  );
+  const accuracy = Math.max(computeAccuracy(alignedCorrect), computeAccuracy(matchAlignedCorrect));
   const accuracyPct = Math.round(accuracy * 100);
   const passed = isCorrect || accuracy >= 0.8;
   

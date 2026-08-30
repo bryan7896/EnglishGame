@@ -46,7 +46,7 @@ export function checkCompletarAnswers(exercise, container) {
   inputs.forEach((input, idx) => {
     const userAnswer = input.value.trim();
     const correctAnswer = options[idx] || '';
-    const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase();
+    const isCorrect = contractionAwareEquals(userAnswer, correctAnswer);
     
     userAnswers.push(userAnswer);
     results.push({ index: idx, userAnswer, correctAnswer, isCorrect });

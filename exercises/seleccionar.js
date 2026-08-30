@@ -166,7 +166,7 @@ function renderListeningPractice(practicePairs, container, onDone) {
       if (state[idx].done) return;
       const userVal = input.value.trim();
       const correctVal = practicePairs[idx].englishWord;
-      const isCorrect = userVal.toLowerCase() === correctVal.toLowerCase();
+      const isCorrect = contractionAwareEquals(userVal, correctVal);
 
       if (isCorrect) {
         state[idx].done = true;

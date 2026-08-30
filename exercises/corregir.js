@@ -130,12 +130,18 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
 
 export function checkCorregirAnswer(exercise, userAnswer) {
   const correctAnswer = exercise.fraseCorrecta.trim();
-  const normalize = (str) => str.toLowerCase().replace(/\s+/g, ' ').replace(/[.,!?;:]/g, '').trim();
+  // Normalizamos contracciones ("i have" <-> "i've") ANTES de comparar y de
+  // partir en palabras, para que "i have" y "i've" cuenten como la misma
+  // palabra tanto en el match completo como en la comparación palabra a
+  // palabra (evita que se desalineen por tener distinta cantidad de
+  // palabras). El texto que se le muestra al usuario (fraseCorrecta,
+  // fraseConError, userAnswer tal cual) no se toca en ningún lado.
+  const normalize = (str) => normalizeContractions(str).toLowerCase().replace(/\s+/g, ' ').replace(/[.,!?;:]/g, '').trim();
 
   const isCorrect = normalize(userAnswer) === normalize(correctAnswer);
 
-  const correctWords = correctAnswer.split(/\s+/);
-  const userWords = userAnswer.split(/\s+/);
+  const correctWords = normalizeContractions(correctAnswer).split(/\s+/);
+  const userWords = normalizeContractions(userAnswer).split(/\s+/);
   const maxLen = Math.max(correctWords.length, userWords.length);
   const comparison = [];
 

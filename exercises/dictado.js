@@ -298,10 +298,16 @@ export function renderDictadoExercise(exercise, container) {
 }
 
 export function checkDictadoAnswer(correctText, userAnswer) {
+  // Colapsamos contracciones ("i have" <-> "i've") antes de comparar, así
+  // no cambia la cantidad de palabras entre lo dictado y lo escrito solo
+  // por usar una forma u otra. El texto original (correctText/userAnswer)
+  // se sigue mostrando tal cual en el modal.
+  const correctNorm = normalizeContractions(correctText);
+  const userNorm = normalizeContractions(userAnswer);
   const norm = (s) => String(s||'').toLowerCase().replace(/\s+/g,' ').replace(/[.,!?;:'"]/g,'').trim();
-  const isExact = norm(userAnswer) === norm(correctText);
-  const cw = correctText.toLowerCase().replace(/[.,!?;:'"]/g,'').split(/\s+/);
-  const uw = userAnswer.toLowerCase().replace(/[.,!?;:'"]/g,'').split(/\s+/);
+  const isExact = norm(userNorm) === norm(correctNorm);
+  const cw = correctNorm.toLowerCase().replace(/[.,!?;:'"]/g,'').split(/\s+/);
+  const uw = userNorm.toLowerCase().replace(/[.,!?;:'"]/g,'').split(/\s+/);
   let matched = 0;
   const comp = [];
   for (let i=0; i<Math.max(cw.length, uw.length); i++) {
