@@ -21,7 +21,10 @@ function buildSteps(leccion) {
 function freshEj2State(leccion) {
   const frases = leccion.ejercicio2?.frases || [];
   return {
-    banco: (leccion.ejercicio2?.banco || []).map((texto, i) => ({ id: "chip" + i, texto, used: false })),
+    // Las fichas del banco NO se marcan como "usadas": una misma palabra
+    // (p.ej. "maschile") puede necesitarse para varios huecos, así que
+    // queda siempre disponible para volver a arrastrarla/tocarla.
+    banco: (leccion.ejercicio2?.banco || []).map((texto, i) => ({ id: "chip" + i, texto })),
     activeIdx: 0,
     results: frases.map(() => null), // null | 'correct' | 'wrong'
     failedThisPass: false,
@@ -84,8 +87,8 @@ function renderEj2(leccion, state, status) {
   const frases = ej2.frases || [];
 
   const bancoHtml = s.banco.map(chip => {
-    const cls = "dnd-chip" + (chip.used ? " dnd-chip-used" : "") + (s.selectedChipId === chip.id ? " dnd-chip-selected" : "");
-    return `<button type="button" class="${cls}" data-chip="${chip.id}" ${chip.used ? "disabled" : ""}>${window._escHTML(chip.texto)}</button>`;
+    const cls = "dnd-chip" + (s.selectedChipId === chip.id ? " dnd-chip-selected" : "");
+    return `<button type="button" class="${cls}" data-chip="${chip.id}">${window._escHTML(chip.texto)}</button>`;
   }).join("");
 
   const frasesHtml = frases.map((frase, i) => {
@@ -240,7 +243,7 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
     const s = state.ej2;
     const frases = leccion.ejercicio2.frases || [];
 
-    ej2StepEl.querySelectorAll('.dnd-chip:not(.dnd-chip-used)').forEach(chipEl => {
+    ej2StepEl.querySelectorAll('.dnd-chip').forEach(chipEl => {
       chipEl.onclick = () => {
         s.selectedChipId = (s.selectedChipId === chipEl.dataset.chip) ? null : chipEl.dataset.chip;
         onChange();
@@ -256,7 +259,9 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
         const normalize = (t) => String(t || "").toLowerCase().trim();
         const correct = normalize(chip.texto) === normalize(frase.respuesta);
         s.results[s.activeIdx] = correct ? "correct" : "wrong";
-        if (correct) chip.used = true;
+        // La ficha NUNCA se marca como "usada": una misma palabra del banco
+        // puede necesitarse para varios huecos de la misma ronda, así que
+        // sigue disponible para volver a elegirla.
         if (!correct) s.failedThisPass = true;
         s.selectedChipId = null;
         s.activeIdx++;
