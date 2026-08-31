@@ -16,6 +16,16 @@ function refreshVoiceCache() {
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) return;
   const langCode = getTargetLangMeta().code;
+
+  // Si el usuario eligió una voz a mano, la caché es solo esa voz — se
+  // usará siempre, sin excepción.
+  const manual = findPreferredVoice(voices, langCode);
+  if (manual) {
+    cachedVoicesForLang = [manual];
+    cachedVoicesLangCode = langCode;
+    return;
+  }
+
   const preferred = PREFERRED_LOCALE[langCode] || [];
   const exactVoices = voices.filter(v => preferred.includes(String(v.lang || '').toLowerCase()));
 
@@ -35,6 +45,10 @@ function refreshVoiceCache() {
 // refrescarla para que las nuevas reproducciones usen voces del idioma
 // nuevo.
 onTargetLanguageChange(() => {
+  lastSeleccionarVoiceURI = null;
+  refreshVoiceCache();
+});
+onPreferredVoiceChange(() => {
   lastSeleccionarVoiceURI = null;
   refreshVoiceCache();
 });

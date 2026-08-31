@@ -168,6 +168,7 @@ function speakCorregirText(text) {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = getTargetLangMeta().ttsLang;
     utterance.rate = 0.9;
+    applyPreferredVoice(utterance, getTargetLangMeta().code);
     window.speechSynthesis.speak(utterance);
   }, 100);
 }

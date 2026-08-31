@@ -58,6 +58,10 @@ onTargetLanguageChange(() => {
   lastVoiceURI = null;
   lastGender = null;
 });
+onPreferredVoiceChange(() => {
+  lastVoiceURI = null;
+  lastGender = null;
+});
 
 // Pre-cargar la lista de voces del sistema apenas se pueda. En Chrome,
 // getVoices() suele devolver [] hasta que dispara "voiceschanged".
@@ -120,8 +124,13 @@ function waitForVoices() {
  *   caer en voces robóticas o de acento raro.
  */
 function pickVoiceForLang(voices, langPrefix) {
-  const preferred = PREFERRED_LOCALE[langPrefix] || [];
-  const exactVoices = voices.filter((v) => preferred.includes(String(v.lang || "").toLowerCase()));
+  // Si el usuario eligió una voz a mano desde "🎙️ Elegir voz", esa gana
+  // siempre — sin excepción — por sobre la selección automática de abajo.
+  const preferred = findPreferredVoice(voices, langPrefix);
+  if (preferred) return preferred;
+
+  const localeList = PREFERRED_LOCALE[langPrefix] || [];
+  const exactVoices = voices.filter((v) => localeList.includes(String(v.lang || "").toLowerCase()));
 
   if (langPrefix === "it") {
     return exactVoices.length ? exactVoices[0] : null;

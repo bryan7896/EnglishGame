@@ -65,3 +65,63 @@ export function toggleTargetLanguage() {
 export function onTargetLanguageChange(fn) {
   if (typeof fn === "function") _listeners.push(fn);
 }
+
+// =========================================================================
+// Voz preferida por idioma (elegida a mano por el usuario)
+// =========================================================================
+// La selección automática de voz (ver dictado.js/seleccionar.js) hace lo
+// mejor que puede, pero en algunos dispositivos con varios motores de voz
+// instalados no hay forma de saber desde el código cuál "suena mejor". Por
+// eso se le da al usuario la opción de elegir una voz concreta una sola
+// vez (con un botón de "Probar" para escucharla antes) y la app la
+// recuerda siempre para ese idioma — así queda garantizado que solo suene
+// esa voz, sin importar qué otras voces reporte el navegador.
+const PREFERRED_VOICE_STORAGE_PREFIX = "englishTrainerPreferredVoice_";
+const _voiceListeners = [];
+
+export function getPreferredVoiceURI(langCode) {
+  try { return window.localStorage?.getItem(PREFERRED_VOICE_STORAGE_PREFIX + langCode) || null; }
+  catch (e) { return null; }
+}
+
+export function setPreferredVoiceURI(langCode, voiceURI) {
+  try {
+    if (voiceURI) window.localStorage?.setItem(PREFERRED_VOICE_STORAGE_PREFIX + langCode, voiceURI);
+    else window.localStorage?.removeItem(PREFERRED_VOICE_STORAGE_PREFIX + langCode);
+  } catch (e) { /* noop */ }
+  _voiceListeners.forEach((fn) => { try { fn(langCode); } catch (e) { /* noop */ } });
+}
+
+// Los módulos de audio (dictado.js, seleccionar.js) se suscriben para
+// invalidar su caché de voz apenas el usuario elija o quite una voz
+// manual, sin esperar a que también cambie el idioma.
+export function onPreferredVoiceChange(fn) {
+  if (typeof fn === "function") _voiceListeners.push(fn);
+}
+
+// Todas las voces del sistema cuyo idioma empieza con el prefijo dado
+// (p.ej. "it" trae it-IT, it-CH, etc.), para mostrarlas en el selector.
+export function listVoicesForLanguage(langCode) {
+  if (!("speechSynthesis" in window)) return [];
+  const voices = window.speechSynthesis.getVoices() || [];
+  return voices.filter((v) => new RegExp("^" + langCode, "i").test(v.lang));
+}
+
+// Busca, dentro de una lista de voces ya obtenida, la voz preferida
+// guardada para ese idioma (o null si no hay ninguna guardada, o si la
+// guardada ya no existe en este dispositivo/navegador).
+export function findPreferredVoice(voices, langCode) {
+  const uri = getPreferredVoiceURI(langCode);
+  if (!uri) return null;
+  return voices.find((v) => v.voiceURI === uri) || null;
+}
+
+// Aplica la voz preferida (si hay una guardada) a una utterance ya creada.
+// Útil para los módulos que no eligen voz por sí mismos (traduccion.js,
+// corregir.js) y simplemente dejan que el navegador use su voz por
+// defecto para ese idioma.
+export function applyPreferredVoice(utterance, langCode) {
+  if (!("speechSynthesis" in window)) return;
+  const voice = findPreferredVoice(window.speechSynthesis.getVoices() || [], langCode);
+  if (voice) utterance.voice = voice;
+}
