@@ -106,23 +106,27 @@ function waitForVoices() {
 }
 
 /**
- * Elige una voz del idioma objetivo (inglés o italiano), alternando entre
- * masculina y femenina cuando el sistema tiene ambas disponibles, y
- * evitando SIEMPRE repetir la misma voz dos veces seguidas (si hay más de
- * una candidata).
+ * Elige la voz a usar para el idioma objetivo.
  *
- * Preferimos el locale exacto (en-US / it-IT, para fijar el oído en un
- * único acento mientras se aprende), pero si el dispositivo solo tiene UNA
- * voz marcada con ese locale exacto —algo muy común: "Google US English"
- * o "Google italiano" suelen ser la única en Chrome/Android sin paquetes
- * de idioma extra instalados— ampliamos el pool a cualquier voz de ese
- * idioma (en-GB, en-AU, it-CH, etc.). Restringirse a una sola voz exacta
- * era justo la causa de que siempre sonara igual: no había con qué
- * alternar.
+ * - Para INGLÉS: alterna entre masculina y femenina cuando el sistema
+ *   tiene ambas disponibles, y evita repetir la misma voz dos veces
+ *   seguidas (si hay más de una candidata). Si el dispositivo solo tiene
+ *   UNA voz en-US, amplía el pool a cualquier voz en inglés (en-GB, en-AU,
+ *   etc.) para tener con qué variar.
+ *
+ * - Para ITALIANO: NO se alterna ni se amplía el pool. Se usa siempre la
+ *   MISMA voz italiana "natural" del sistema (la primera voz it-IT que
+ *   reporte el navegador), sin mezclar con otras variantes — así se evita
+ *   caer en voces robóticas o de acento raro.
  */
 function pickVoiceForLang(voices, langPrefix) {
   const preferred = PREFERRED_LOCALE[langPrefix] || [];
   const exactVoices = voices.filter((v) => preferred.includes(String(v.lang || "").toLowerCase()));
+
+  if (langPrefix === "it") {
+    return exactVoices.length ? exactVoices[0] : null;
+  }
+
   const pool = exactVoices.length >= 2 ? exactVoices : voices.filter((v) => new RegExp("^" + langPrefix, "i").test(v.lang));
   if (pool.length === 0) return null;
 

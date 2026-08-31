@@ -2404,7 +2404,15 @@ function refreshVoiceCache() {
   const langCode = getTargetLangMeta().code;
   const preferred = PREFERRED_LOCALE[langCode] || [];
   const exactVoices = voices.filter(v => preferred.includes(String(v.lang || '').toLowerCase()));
-  cachedVoicesForLang = exactVoices.length >= 2 ? exactVoices : voices.filter(v => new RegExp('^' + langCode, 'i').test(v.lang));
+
+  if (langCode === 'it') {
+    // Para italiano NO se amplía el pool ni se alterna entre voces: se usa
+    // siempre la misma voz italiana "natural" del sistema, para evitar
+    // caer en voces robóticas o de acento raro.
+    cachedVoicesForLang = exactVoices.length ? [exactVoices[0]] : [];
+  } else {
+    cachedVoicesForLang = exactVoices.length >= 2 ? exactVoices : voices.filter(v => new RegExp('^' + langCode, 'i').test(v.lang));
+  }
   cachedVoicesLangCode = langCode;
 }
 
@@ -2438,10 +2446,10 @@ function warmUpSpeech() {
   } catch (e) { /* noop */ }
 }
 
-// Elige una voz del idioma objetivo distinta a la última usada (si hay más
-// de una candidata disponible), para que cada reproducción -incluso de la
-// misma palabra, incluso presionando "escuchar" varias veces seguidas-
-// suene con una voz diferente.
+// Elige una voz del idioma objetivo. Para INGLÉS varía entre las
+// candidatas disponibles (evitando repetir la última usada). Para
+// ITALIANO la caché ya trae una sola voz fija (ver refreshVoiceCache), así
+// que esta función simplemente la devuelve siempre igual.
 function pickVariedVoice() {
   // Si cambió el idioma objetivo desde la última vez que se armó la
   // caché, la refrescamos antes de elegir.
@@ -3187,23 +3195,27 @@ function waitForVoices() {
 }
 
 /**
- * Elige una voz del idioma objetivo (inglés o italiano), alternando entre
- * masculina y femenina cuando el sistema tiene ambas disponibles, y
- * evitando SIEMPRE repetir la misma voz dos veces seguidas (si hay más de
- * una candidata).
+ * Elige la voz a usar para el idioma objetivo.
  *
- * Preferimos el locale exacto (en-US / it-IT, para fijar el oído en un
- * único acento mientras se aprende), pero si el dispositivo solo tiene UNA
- * voz marcada con ese locale exacto —algo muy común: "Google US English"
- * o "Google italiano" suelen ser la única en Chrome/Android sin paquetes
- * de idioma extra instalados— ampliamos el pool a cualquier voz de ese
- * idioma (en-GB, en-AU, it-CH, etc.). Restringirse a una sola voz exacta
- * era justo la causa de que siempre sonara igual: no había con qué
- * alternar.
+ * - Para INGLÉS: alterna entre masculina y femenina cuando el sistema
+ *   tiene ambas disponibles, y evita repetir la misma voz dos veces
+ *   seguidas (si hay más de una candidata). Si el dispositivo solo tiene
+ *   UNA voz en-US, amplía el pool a cualquier voz en inglés (en-GB, en-AU,
+ *   etc.) para tener con qué variar.
+ *
+ * - Para ITALIANO: NO se alterna ni se amplía el pool. Se usa siempre la
+ *   MISMA voz italiana "natural" del sistema (la primera voz it-IT que
+ *   reporte el navegador), sin mezclar con otras variantes — así se evita
+ *   caer en voces robóticas o de acento raro.
  */
 function pickVoiceForLang(voices, langPrefix) {
   const preferred = PREFERRED_LOCALE[langPrefix] || [];
   const exactVoices = voices.filter((v) => preferred.includes(String(v.lang || "").toLowerCase()));
+
+  if (langPrefix === "it") {
+    return exactVoices.length ? exactVoices[0] : null;
+  }
+
   const pool = exactVoices.length >= 2 ? exactVoices : voices.filter((v) => new RegExp("^" + langPrefix, "i").test(v.lang));
   if (pool.length === 0) return null;
 
@@ -4584,7 +4596,7 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">9.1 (24-08-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">9.2 (24-08-2026)</div>
         <div class="action-buttons">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>

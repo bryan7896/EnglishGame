@@ -18,7 +18,15 @@ function refreshVoiceCache() {
   const langCode = getTargetLangMeta().code;
   const preferred = PREFERRED_LOCALE[langCode] || [];
   const exactVoices = voices.filter(v => preferred.includes(String(v.lang || '').toLowerCase()));
-  cachedVoicesForLang = exactVoices.length >= 2 ? exactVoices : voices.filter(v => new RegExp('^' + langCode, 'i').test(v.lang));
+
+  if (langCode === 'it') {
+    // Para italiano NO se amplía el pool ni se alterna entre voces: se usa
+    // siempre la misma voz italiana "natural" del sistema, para evitar
+    // caer en voces robóticas o de acento raro.
+    cachedVoicesForLang = exactVoices.length ? [exactVoices[0]] : [];
+  } else {
+    cachedVoicesForLang = exactVoices.length >= 2 ? exactVoices : voices.filter(v => new RegExp('^' + langCode, 'i').test(v.lang));
+  }
   cachedVoicesLangCode = langCode;
 }
 
@@ -52,10 +60,10 @@ function warmUpSpeech() {
   } catch (e) { /* noop */ }
 }
 
-// Elige una voz del idioma objetivo distinta a la última usada (si hay más
-// de una candidata disponible), para que cada reproducción -incluso de la
-// misma palabra, incluso presionando "escuchar" varias veces seguidas-
-// suene con una voz diferente.
+// Elige una voz del idioma objetivo. Para INGLÉS varía entre las
+// candidatas disponibles (evitando repetir la última usada). Para
+// ITALIANO la caché ya trae una sola voz fija (ver refreshVoiceCache), así
+// que esta función simplemente la devuelve siempre igual.
 function pickVariedVoice() {
   // Si cambió el idioma objetivo desde la última vez que se armó la
   // caché, la refrescamos antes de elegir.
