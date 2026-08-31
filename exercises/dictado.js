@@ -1,35 +1,49 @@
 // exercises/dictado.js
 
-const DICTADO_LANG = "en-US";
 const DICTADO_RATE = 0.73;
 
-// Mapa "best-effort" nombre de voz -> género. El navegador no expone un
-// campo de género real (SpeechSynthesisVoice no lo tiene), así que
-// detectamos por el nombre. Cubre las voces en-US más comunes de Chrome,
-// Edge/Windows y Safari/macOS. Si una voz no matchea, se trata como
-// "unknown" y simplemente entra al pool general.
-const VOICE_GENDER_MAP = [
-  // típicamente femeninas
-  { match: /samantha/i, gender: "female" },
-  { match: /victoria/i, gender: "female" },
-  { match: /susan/i, gender: "female" },
-  { match: /zira/i, gender: "female" },
-  { match: /aria/i, gender: "female" },
-  { match: /jenny/i, gender: "female" },
-  { match: /allison/i, gender: "female" },
-  { match: /^google us english$/i, gender: "female" }, // voz por defecto en Chrome
-  // típicamente masculinas
-  { match: /alex/i, gender: "male" },
-  { match: /fred/i, gender: "male" },
-  { match: /david/i, gender: "male" },
-  { match: /guy/i, gender: "male" },
-  { match: /mark/i, gender: "male" },
-  { match: /tom/i, gender: "male" },
-  { match: /eric/i, gender: "male" },
-];
+// Mapa "best-effort" nombre de voz -> género, por idioma. El navegador no
+// expone un campo de género real (SpeechSynthesisVoice no lo tiene), así
+// que detectamos por el nombre. Cubre las voces más comunes de Chrome,
+// Edge/Windows y Safari/macOS para cada idioma. Si una voz no matchea, se
+// trata como "unknown" y simplemente entra al pool general.
+const VOICE_GENDER_MAP = {
+  en: [
+    // típicamente femeninas
+    { match: /samantha/i, gender: "female" },
+    { match: /victoria/i, gender: "female" },
+    { match: /susan/i, gender: "female" },
+    { match: /zira/i, gender: "female" },
+    { match: /aria/i, gender: "female" },
+    { match: /jenny/i, gender: "female" },
+    { match: /allison/i, gender: "female" },
+    { match: /^google us english$/i, gender: "female" }, // voz por defecto en Chrome
+    // típicamente masculinas
+    { match: /alex/i, gender: "male" },
+    { match: /fred/i, gender: "male" },
+    { match: /david/i, gender: "male" },
+    { match: /guy/i, gender: "male" },
+    { match: /mark/i, gender: "male" },
+    { match: /tom/i, gender: "male" },
+    { match: /eric/i, gender: "male" },
+  ],
+  it: [
+    // típicamente femeninas
+    { match: /alice/i, gender: "female" },
+    { match: /federica/i, gender: "female" },
+    { match: /elsa/i, gender: "female" },
+    { match: /isabella/i, gender: "female" },
+    { match: /^google italiano$/i, gender: "female" }, // voz por defecto en Chrome
+    // típicamente masculinas
+    { match: /luca/i, gender: "male" },
+    { match: /diego/i, gender: "male" },
+    { match: /cosimo/i, gender: "male" },
+  ],
+};
 
-function classifyVoiceGender(voice) {
-  const found = VOICE_GENDER_MAP.find((v) => v.match.test(voice.name));
+function classifyVoiceGender(voice, langPrefix) {
+  const list = VOICE_GENDER_MAP[langPrefix] || [];
+  const found = list.find((v) => v.match.test(voice.name));
   return found ? found.gender : "unknown";
 }
 
@@ -37,6 +51,13 @@ let currentUtterance = null; // Para tracking
 let lastVoiceURI = null; // Evita repetir literalmente la misma voz
 let lastGender = null; // Para alternar género cuando hay ambos disponibles
 let voicesReadyPromise = null; // Cachea la espera de getVoices() poblado
+
+// Si cambia el idioma objetivo, olvidamos la última voz/género usados: son
+// de otro idioma y no tiene sentido "evitar repetirlos" en el nuevo pool.
+onTargetLanguageChange(() => {
+  lastVoiceURI = null;
+  lastGender = null;
+});
 
 // Pre-cargar la lista de voces del sistema apenas se pueda. En Chrome,
 // getVoices() suele devolver [] hasta que dispara "voiceschanged".
@@ -85,24 +106,27 @@ function waitForVoices() {
 }
 
 /**
- * Elige una voz en inglés, alternando entre masculina y femenina cuando el
- * sistema tiene ambas disponibles, y evitando SIEMPRE repetir la misma voz
- * dos veces seguidas (si hay más de una candidata).
+ * Elige una voz del idioma objetivo (inglés o italiano), alternando entre
+ * masculina y femenina cuando el sistema tiene ambas disponibles, y
+ * evitando SIEMPRE repetir la misma voz dos veces seguidas (si hay más de
+ * una candidata).
  *
- * Preferimos en-US (para fijar el oído en un único acento mientras se
- * aprende), pero si el dispositivo solo tiene UNA voz marcada como en-US
- * —algo muy común: "Google US English" es la única en Chrome/Android sin
- * paquetes de idioma extra instalados— ampliamos el pool a cualquier voz
- * en inglés (en-GB, en-AU, en-IN, etc.). Restringirse a una sola voz en-US
+ * Preferimos el locale exacto (en-US / it-IT, para fijar el oído en un
+ * único acento mientras se aprende), pero si el dispositivo solo tiene UNA
+ * voz marcada con ese locale exacto —algo muy común: "Google US English"
+ * o "Google italiano" suelen ser la única en Chrome/Android sin paquetes
+ * de idioma extra instalados— ampliamos el pool a cualquier voz de ese
+ * idioma (en-GB, en-AU, it-CH, etc.). Restringirse a una sola voz exacta
  * era justo la causa de que siempre sonara igual: no había con qué
  * alternar.
  */
-function pickEnglishVoice(voices) {
-  const usVoices = voices.filter((v) => v.lang === "en-US" || v.lang === "en_US");
-  const pool = usVoices.length >= 2 ? usVoices : voices.filter((v) => /^en/i.test(v.lang));
+function pickVoiceForLang(voices, langPrefix) {
+  const preferred = PREFERRED_LOCALE[langPrefix] || [];
+  const exactVoices = voices.filter((v) => preferred.includes(String(v.lang || "").toLowerCase()));
+  const pool = exactVoices.length >= 2 ? exactVoices : voices.filter((v) => new RegExp("^" + langPrefix, "i").test(v.lang));
   if (pool.length === 0) return null;
 
-  const classified = pool.map((v) => ({ voice: v, gender: classifyVoiceGender(v) }));
+  const classified = pool.map((v) => ({ voice: v, gender: classifyVoiceGender(v, langPrefix) }));
   const females = classified.filter((v) => v.gender === "female");
   const males = classified.filter((v) => v.gender === "male");
 
@@ -129,16 +153,17 @@ async function speakDictado(text) {
   window.speechSynthesis.cancel();
 
   const voices = await waitForVoices();
+  const langMeta = getTargetLangMeta();
 
   const u = new SpeechSynthesisUtterance(text);
   currentUtterance = u;
 
-  u.lang = DICTADO_LANG;
+  u.lang = langMeta.ttsLang;
   u.rate = DICTADO_RATE;
   u.pitch = 1;
   u.volume = 1;
 
-  const voice = pickEnglishVoice(voices);
+  const voice = pickVoiceForLang(voices, langMeta.code);
   if (voice) u.voice = voice;
 
   // Pequeño delay para asegurar que el cancel se procesó

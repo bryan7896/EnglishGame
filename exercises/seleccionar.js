@@ -7,21 +7,29 @@
 // este ejercicio (antes de que el usuario llegue a tocar nada), disparamos
 // una utterance silenciosa que fuerza esa inicialización de una vez.
 let speechWarmedUp = false;
-let cachedEnglishVoices = [];
+let cachedVoicesForLang = [];
+let cachedVoicesLangCode = null;
 let lastSeleccionarVoiceURI = null;
 
-// Igual que en dictado.js: restringirnos a una sola voz "en-US" es lo que
-// hacía que siempre sonara la misma voz en muchos navegadores (Chrome sin
-// paquetes de idioma extra solo trae "Google US English" como en-US). Si
-// hay 2+ voces en-US las usamos (mantiene el acento consistente); si no,
-// ampliamos a cualquier voz en inglés para poder variar de verdad.
 function refreshVoiceCache() {
   if (!('speechSynthesis' in window)) return;
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) return;
-  const usVoices = voices.filter(v => v.lang === 'en-US' || v.lang === 'en_US');
-  cachedEnglishVoices = usVoices.length >= 2 ? usVoices : voices.filter(v => /^en/i.test(v.lang));
+  const langCode = getTargetLangMeta().code;
+  const preferred = PREFERRED_LOCALE[langCode] || [];
+  const exactVoices = voices.filter(v => preferred.includes(String(v.lang || '').toLowerCase()));
+  cachedVoicesForLang = exactVoices.length >= 2 ? exactVoices : voices.filter(v => new RegExp('^' + langCode, 'i').test(v.lang));
+  cachedVoicesLangCode = langCode;
 }
+
+// Si el usuario cambia el idioma objetivo desde el menú, la caché de voces
+// (y la "última voz usada") corresponde al idioma anterior — hay que
+// refrescarla para que las nuevas reproducciones usen voces del idioma
+// nuevo.
+onTargetLanguageChange(() => {
+  lastSeleccionarVoiceURI = null;
+  refreshVoiceCache();
+});
 
 function warmUpSpeech() {
   if (!('speechSynthesis' in window)) return;
@@ -44,16 +52,18 @@ function warmUpSpeech() {
   } catch (e) { /* noop */ }
 }
 
-// Elige una voz en inglés distinta a la última usada (si hay más de una
-// candidata disponible), para que cada reproducción -incluso de la misma
-// palabra, incluso presionando "escuchar" varias veces seguidas- suene con
-// una voz diferente.
+// Elige una voz del idioma objetivo distinta a la última usada (si hay más
+// de una candidata disponible), para que cada reproducción -incluso de la
+// misma palabra, incluso presionando "escuchar" varias veces seguidas-
+// suene con una voz diferente.
 function pickVariedVoice() {
-  if (!cachedEnglishVoices.length) refreshVoiceCache();
-  if (!cachedEnglishVoices.length) return null;
+  // Si cambió el idioma objetivo desde la última vez que se armó la
+  // caché, la refrescamos antes de elegir.
+  if (!cachedVoicesForLang.length || cachedVoicesLangCode !== getTargetLangMeta().code) refreshVoiceCache();
+  if (!cachedVoicesForLang.length) return null;
 
-  let candidates = cachedEnglishVoices.filter(v => v.voiceURI !== lastSeleccionarVoiceURI);
-  if (candidates.length === 0) candidates = cachedEnglishVoices;
+  let candidates = cachedVoicesForLang.filter(v => v.voiceURI !== lastSeleccionarVoiceURI);
+  if (candidates.length === 0) candidates = cachedVoicesForLang;
 
   const chosen = candidates[Math.floor(Math.random() * candidates.length)];
   lastSeleccionarVoiceURI = chosen.voiceURI;
@@ -64,7 +74,7 @@ function speakSeleccionarWord(text) {
   if (!('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'en-US';
+  utterance.lang = getTargetLangMeta().ttsLang;
   utterance.rate = 0.95;
   const voice = pickVariedVoice();
   if (voice) utterance.voice = voice;
@@ -224,7 +234,7 @@ function renderMatchingGame(exercise, container, hiddenWords) {
     <div class="question-bubble">🎯 Empareja las palabras correctas</div>
     <div class="selection-columns">
       <div class="selection-column">
-        <h4 style="color:#60a5fa;text-align:center;margin-bottom:8px;">🇬🇧 Inglés</h4>
+        <h4 style="color:#60a5fa;text-align:center;margin-bottom:8px;">${getTargetLangMeta().flag} ${getTargetLangMeta().label}</h4>
         ${shuffledEnglish.map(w => {
           const isHidden = hiddenWords && hiddenWords.has(w.word);
           return `

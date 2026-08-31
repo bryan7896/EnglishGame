@@ -79,7 +79,7 @@ function speakTraduccionText(text) {
   window.speechSynthesis.cancel();
   setTimeout(() => {
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
+    utterance.lang = getTargetLangMeta().ttsLang;
     utterance.rate = 0.9;
     window.speechSynthesis.speak(utterance);
   }, 100);

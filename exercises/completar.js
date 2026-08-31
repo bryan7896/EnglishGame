@@ -85,7 +85,7 @@ export function showCompletarModal(exercise, results, onContinue, onRetry) {
       <h3>${allCorrect ? '🎉 ¡Perfecto!' : '📝 Resultados'}</h3>
       <div class="comparison-text-block">
         <p><strong>🇪🇸 Español:</strong><br>${spanishWord}</p>
-        <p><strong>🇬🇧 Frase:</strong><br>${englishSentence}</p>
+        <p><strong>${getTargetLangMeta().flag} Frase:</strong><br>${englishSentence}</p>
         <p><strong>📊 Resultados:</strong></p>${resultsHtml}
       </div>
       <div style="margin-top:12px;text-align:left;">

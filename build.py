@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "8.6 (30-08-2026)"
+VERSION = "9.0 (24-08-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -22,10 +22,12 @@ INPUT_TYPES = [
 ]
 
 EXERCISE_FILES = {
-    # contracciones.js va primero: define normalizeContractions/
-    # contractionAwareEquals que usan traduccion/completar/corregir/dictado/
-    # seleccionar. informacion.js NO lo usa a propósito (debe seguir
+    # idioma.js y contracciones.js van primero: definen helpers compartidos
+    # (getTargetLangMeta/toggleTargetLanguage y normalizeContractions/
+    # contractionAwareEquals) que usan los demás módulos de ejercicios.
+    # informacion.js NO usa contracciones.js a propósito (debe seguir
     # validando de forma estricta, sin tolerar contracciones).
+    "exercises/idioma.js": "__IDIOMA_JS__",
     "exercises/contracciones.js": "__CONTRACCIONES_JS__",
     "exercises/traduccion.js": "__TRADUCCION_JS__",
     "exercises/completar.js": "__COMPLETAR_JS__",
@@ -242,6 +244,7 @@ def get_html_template():
   }
 
   __MAP_JS__
+  __IDIOMA_JS__
   __CONTRACCIONES_JS__
   __TRADUCCION_JS__
   __COMPLETAR_JS__
@@ -963,6 +966,19 @@ def get_main_logic():
   // que antes vivía ahí (usuario, salir, mapa, copiar informe, nueva tanda,
   // borrar todo) ahora vive en este modal bajo demanda, para no robarle
   // altura permanente a la pantalla.
+  // Vuelve a renderizar lo que esté visible en pantalla en este momento,
+  // para que las etiquetas/banderas del idioma objetivo se actualicen sin
+  // necesidad de recargar ni perder el progreso.
+  function refreshCurrentScreenForLanguage() {
+    if (document.getElementById("exerciseScreen")?.classList.contains("active")) {
+      renderExercise();
+    } else if (document.getElementById("infoScreen")?.classList.contains("active")) {
+      renderPracticaInicialScreen();
+    } else {
+      renderMapView();
+    }
+  }
+
   function showMenuModal() {
     const existing = document.querySelector('.modal-overlay');
     if (existing) existing.remove();
@@ -982,6 +998,7 @@ def get_main_logic():
         <div class="sub-fun" style="text-align:center;margin-bottom:14px;">__VERSION__</div>
         <div class="action-buttons">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
+          <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuCopyReportBtn">📋 Copiar informe</button>
           <button class="fun-btn" id="menuReplaceListBtn">📥 Nueva tanda</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
@@ -995,6 +1012,12 @@ def get_main_logic():
     modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
     modal.querySelector('#menuLogoutBtn').addEventListener('click', () => { close(); logout(); });
     modal.querySelector('#menuBackToMapBtn').addEventListener('click', () => { close(); renderMapView(); showMainView("map"); });
+    modal.querySelector('#menuToggleLangBtn').addEventListener('click', () => {
+      toggleTargetLanguage();
+      close();
+      refreshCurrentScreenForLanguage();
+      toast(getTargetLangMeta().flag + " Ahora practicando " + getTargetLangMeta().labelLower);
+    });
     modal.querySelector('#menuCopyReportBtn').addEventListener('click', () => { close(); copyReport(); });
     modal.querySelector('#menuReplaceListBtn').addEventListener('click', () => { close(); showMainView("import"); toast("📥 Ingresa nuevos datos"); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });

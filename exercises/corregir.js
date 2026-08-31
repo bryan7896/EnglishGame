@@ -91,7 +91,7 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
       ` : ''}
       
       <div class="corregir-error-section">
-        <div class="corregir-eyebrow">🔍 ${hasHistory ? 'Tus intentos anteriores (encuentra el error y corrige)' : 'Encuentra el error y corrige la frase en inglés'}</div>
+        <div class="corregir-eyebrow">🔍 ${hasHistory ? 'Tus intentos anteriores (encuentra el error y corrige)' : 'Encuentra el error y corrige la frase en ' + getTargetLangMeta().labelLower}</div>
         <div class="corregir-flipcard" tabindex="0" role="button" aria-pressed="false" aria-label="Toca para revelar la frase con error">
           <div class="corregir-flipcard-inner">
             <div class="corregir-flipcard-face corregir-flipcard-front">
@@ -103,7 +103,7 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
         </div>
       </div>
       
-      <textarea class="answer-input corregir-answer" rows="2" placeholder="Escribe la frase corregida en inglés..."></textarea>
+      <textarea class="answer-input corregir-answer" rows="2" placeholder="Escribe la frase corregida en ${getTargetLangMeta().labelLower}..."></textarea>
       <div class="button-group">
         <button class="btn-action btn-check corregir-check">✅ Comprobar</button>
       </div>
@@ -166,7 +166,7 @@ function speakCorregirText(text) {
   window.speechSynthesis.cancel();
   setTimeout(() => {
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
+    utterance.lang = getTargetLangMeta().ttsLang;
     utterance.rate = 0.9;
     window.speechSynthesis.speak(utterance);
   }, 100);

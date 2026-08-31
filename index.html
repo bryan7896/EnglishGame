@@ -1911,6 +1911,73 @@ export function getExerciseTypeName(type) {
   const n = { traduccion: "Traducción", completar: "Completar", seleccionar: "Emparejar", corregir: "Corregir", dictado: "Dictado" };
   return n[type] || type;
 }
+  // exercises/idioma.js
+//
+// Controla el "idioma objetivo" que se está practicando: inglés o
+// italiano. El idioma nativo (español) nunca cambia — solo cambia el otro
+// lado de cada tarjeta.
+//
+// Esto afecta TANTO la interfaz (banderas/etiquetas) COMO el audio: cada
+// módulo de ejercicio (dictado.js, seleccionar.js, traduccion.js,
+// corregir.js) usa `getTargetLangMeta().ttsLang` ("en-US" / "it-IT") y
+// busca una voz de ese idioma instalada en el navegador/dispositivo. Si el
+// dispositivo no tiene ninguna voz italiana instalada, el navegador hará
+// lo que pueda con "it-IT" (normalmente usa la voz por defecto que tenga,
+// aunque no sea ideal) — es una limitación del dispositivo, no de la app.
+//
+// Los datos que se cargan (traducciones, completar, corregir, etc.) siguen
+// viniendo en los mismos campos de siempre (englishWord, englishSentence,
+// fraseCorrecta...) — simplemente ahora pueden contener texto en italiano
+// si el usuario así arma su JSON; el campo no cambia de nombre.
+
+const TARGET_LANG_STORAGE_KEY = "englishTrainerTargetLanguage";
+
+const LANGUAGES = {
+  en: { code: "en", flag: "🇬🇧", label: "Inglés", labelLower: "inglés", ttsLang: "en-US" },
+  it: { code: "it", flag: "🇮🇹", label: "Italiano", labelLower: "italiano", ttsLang: "it-IT" },
+};
+
+// Locale "exacto" preferido por idioma, para elegir voces de TTS. Lo usan
+// dictado.js y seleccionar.js (se define una sola vez acá para no
+// duplicar el mismo nombre de constante en dos archivos que terminan
+// concatenados en el mismo scope).
+export const PREFERRED_LOCALE = {
+  en: ["en-us", "en_us"],
+  it: ["it-it", "it_it"],
+};
+
+let _targetLang = "en";
+try {
+  const saved = window.localStorage?.getItem(TARGET_LANG_STORAGE_KEY);
+  if (saved && LANGUAGES[saved]) _targetLang = saved;
+} catch (e) { /* localStorage no disponible */ }
+
+const _listeners = [];
+
+export function getTargetLanguage() {
+  return _targetLang;
+}
+
+export function getTargetLangMeta() {
+  return LANGUAGES[_targetLang];
+}
+
+export function setTargetLanguage(lang) {
+  if (!LANGUAGES[lang] || lang === _targetLang) return;
+  _targetLang = lang;
+  try { window.localStorage?.setItem(TARGET_LANG_STORAGE_KEY, lang); } catch (e) { /* noop */ }
+  _listeners.forEach((fn) => { try { fn(_targetLang); } catch (e) { /* noop */ } });
+}
+
+export function toggleTargetLanguage() {
+  setTargetLanguage(_targetLang === "en" ? "it" : "en");
+}
+
+// La lógica principal puede suscribirse para re-renderizar la pantalla
+// actual apenas cambie el idioma objetivo.
+export function onTargetLanguageChange(fn) {
+  if (typeof fn === "function") _listeners.push(fn);
+}
   // exercises/contracciones.js
 //
 // Módulo compartido de contracciones en inglés. Se usa desde traduccion.js,
@@ -2091,7 +2158,7 @@ function speakTraduccionText(text) {
   window.speechSynthesis.cancel();
   setTimeout(() => {
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
+    utterance.lang = getTargetLangMeta().ttsLang;
     utterance.rate = 0.9;
     window.speechSynthesis.speak(utterance);
   }, 100);
@@ -2267,7 +2334,7 @@ export function showCompletarModal(exercise, results, onContinue, onRetry) {
       <h3>${allCorrect ? '🎉 ¡Perfecto!' : '📝 Resultados'}</h3>
       <div class="comparison-text-block">
         <p><strong>🇪🇸 Español:</strong><br>${spanishWord}</p>
-        <p><strong>🇬🇧 Frase:</strong><br>${englishSentence}</p>
+        <p><strong>${getTargetLangMeta().flag} Frase:</strong><br>${englishSentence}</p>
         <p><strong>📊 Resultados:</strong></p>${resultsHtml}
       </div>
       <div style="margin-top:12px;text-align:left;">
@@ -2326,21 +2393,29 @@ export function getCompletarReportEntry(exercise, userAnswers, duda) {
 // este ejercicio (antes de que el usuario llegue a tocar nada), disparamos
 // una utterance silenciosa que fuerza esa inicialización de una vez.
 let speechWarmedUp = false;
-let cachedEnglishVoices = [];
+let cachedVoicesForLang = [];
+let cachedVoicesLangCode = null;
 let lastSeleccionarVoiceURI = null;
 
-// Igual que en dictado.js: restringirnos a una sola voz "en-US" es lo que
-// hacía que siempre sonara la misma voz en muchos navegadores (Chrome sin
-// paquetes de idioma extra solo trae "Google US English" como en-US). Si
-// hay 2+ voces en-US las usamos (mantiene el acento consistente); si no,
-// ampliamos a cualquier voz en inglés para poder variar de verdad.
 function refreshVoiceCache() {
   if (!('speechSynthesis' in window)) return;
   const voices = window.speechSynthesis.getVoices();
   if (!voices.length) return;
-  const usVoices = voices.filter(v => v.lang === 'en-US' || v.lang === 'en_US');
-  cachedEnglishVoices = usVoices.length >= 2 ? usVoices : voices.filter(v => /^en/i.test(v.lang));
+  const langCode = getTargetLangMeta().code;
+  const preferred = PREFERRED_LOCALE[langCode] || [];
+  const exactVoices = voices.filter(v => preferred.includes(String(v.lang || '').toLowerCase()));
+  cachedVoicesForLang = exactVoices.length >= 2 ? exactVoices : voices.filter(v => new RegExp('^' + langCode, 'i').test(v.lang));
+  cachedVoicesLangCode = langCode;
 }
+
+// Si el usuario cambia el idioma objetivo desde el menú, la caché de voces
+// (y la "última voz usada") corresponde al idioma anterior — hay que
+// refrescarla para que las nuevas reproducciones usen voces del idioma
+// nuevo.
+onTargetLanguageChange(() => {
+  lastSeleccionarVoiceURI = null;
+  refreshVoiceCache();
+});
 
 function warmUpSpeech() {
   if (!('speechSynthesis' in window)) return;
@@ -2363,16 +2438,18 @@ function warmUpSpeech() {
   } catch (e) { /* noop */ }
 }
 
-// Elige una voz en inglés distinta a la última usada (si hay más de una
-// candidata disponible), para que cada reproducción -incluso de la misma
-// palabra, incluso presionando "escuchar" varias veces seguidas- suene con
-// una voz diferente.
+// Elige una voz del idioma objetivo distinta a la última usada (si hay más
+// de una candidata disponible), para que cada reproducción -incluso de la
+// misma palabra, incluso presionando "escuchar" varias veces seguidas-
+// suene con una voz diferente.
 function pickVariedVoice() {
-  if (!cachedEnglishVoices.length) refreshVoiceCache();
-  if (!cachedEnglishVoices.length) return null;
+  // Si cambió el idioma objetivo desde la última vez que se armó la
+  // caché, la refrescamos antes de elegir.
+  if (!cachedVoicesForLang.length || cachedVoicesLangCode !== getTargetLangMeta().code) refreshVoiceCache();
+  if (!cachedVoicesForLang.length) return null;
 
-  let candidates = cachedEnglishVoices.filter(v => v.voiceURI !== lastSeleccionarVoiceURI);
-  if (candidates.length === 0) candidates = cachedEnglishVoices;
+  let candidates = cachedVoicesForLang.filter(v => v.voiceURI !== lastSeleccionarVoiceURI);
+  if (candidates.length === 0) candidates = cachedVoicesForLang;
 
   const chosen = candidates[Math.floor(Math.random() * candidates.length)];
   lastSeleccionarVoiceURI = chosen.voiceURI;
@@ -2383,7 +2460,7 @@ function speakSeleccionarWord(text) {
   if (!('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'en-US';
+  utterance.lang = getTargetLangMeta().ttsLang;
   utterance.rate = 0.95;
   const voice = pickVariedVoice();
   if (voice) utterance.voice = voice;
@@ -2543,7 +2620,7 @@ function renderMatchingGame(exercise, container, hiddenWords) {
     <div class="question-bubble">🎯 Empareja las palabras correctas</div>
     <div class="selection-columns">
       <div class="selection-column">
-        <h4 style="color:#60a5fa;text-align:center;margin-bottom:8px;">🇬🇧 Inglés</h4>
+        <h4 style="color:#60a5fa;text-align:center;margin-bottom:8px;">${getTargetLangMeta().flag} ${getTargetLangMeta().label}</h4>
         ${shuffledEnglish.map(w => {
           const isHidden = hiddenWords && hiddenWords.has(w.word);
           return `
@@ -2810,7 +2887,7 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
       ` : ''}
       
       <div class="corregir-error-section">
-        <div class="corregir-eyebrow">🔍 ${hasHistory ? 'Tus intentos anteriores (encuentra el error y corrige)' : 'Encuentra el error y corrige la frase en inglés'}</div>
+        <div class="corregir-eyebrow">🔍 ${hasHistory ? 'Tus intentos anteriores (encuentra el error y corrige)' : 'Encuentra el error y corrige la frase en ' + getTargetLangMeta().labelLower}</div>
         <div class="corregir-flipcard" tabindex="0" role="button" aria-pressed="false" aria-label="Toca para revelar la frase con error">
           <div class="corregir-flipcard-inner">
             <div class="corregir-flipcard-face corregir-flipcard-front">
@@ -2822,7 +2899,7 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
         </div>
       </div>
       
-      <textarea class="answer-input corregir-answer" rows="2" placeholder="Escribe la frase corregida en inglés..."></textarea>
+      <textarea class="answer-input corregir-answer" rows="2" placeholder="Escribe la frase corregida en ${getTargetLangMeta().labelLower}..."></textarea>
       <div class="button-group">
         <button class="btn-action btn-check corregir-check">✅ Comprobar</button>
       </div>
@@ -2885,7 +2962,7 @@ function speakCorregirText(text) {
   window.speechSynthesis.cancel();
   setTimeout(() => {
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'en-US';
+    utterance.lang = getTargetLangMeta().ttsLang;
     utterance.rate = 0.9;
     window.speechSynthesis.speak(utterance);
   }, 100);
@@ -3004,36 +3081,50 @@ export function getCorregirReportEntry(exercise, userAnswer, duda) {
 }
   // exercises/dictado.js
 
-const DICTADO_LANG = "en-US";
 const DICTADO_RATE = 0.73;
 
-// Mapa "best-effort" nombre de voz -> género. El navegador no expone un
-// campo de género real (SpeechSynthesisVoice no lo tiene), así que
-// detectamos por el nombre. Cubre las voces en-US más comunes de Chrome,
-// Edge/Windows y Safari/macOS. Si una voz no matchea, se trata como
-// "unknown" y simplemente entra al pool general.
-const VOICE_GENDER_MAP = [
-  // típicamente femeninas
-  { match: /samantha/i, gender: "female" },
-  { match: /victoria/i, gender: "female" },
-  { match: /susan/i, gender: "female" },
-  { match: /zira/i, gender: "female" },
-  { match: /aria/i, gender: "female" },
-  { match: /jenny/i, gender: "female" },
-  { match: /allison/i, gender: "female" },
-  { match: /^google us english$/i, gender: "female" }, // voz por defecto en Chrome
-  // típicamente masculinas
-  { match: /alex/i, gender: "male" },
-  { match: /fred/i, gender: "male" },
-  { match: /david/i, gender: "male" },
-  { match: /guy/i, gender: "male" },
-  { match: /mark/i, gender: "male" },
-  { match: /tom/i, gender: "male" },
-  { match: /eric/i, gender: "male" },
-];
+// Mapa "best-effort" nombre de voz -> género, por idioma. El navegador no
+// expone un campo de género real (SpeechSynthesisVoice no lo tiene), así
+// que detectamos por el nombre. Cubre las voces más comunes de Chrome,
+// Edge/Windows y Safari/macOS para cada idioma. Si una voz no matchea, se
+// trata como "unknown" y simplemente entra al pool general.
+const VOICE_GENDER_MAP = {
+  en: [
+    // típicamente femeninas
+    { match: /samantha/i, gender: "female" },
+    { match: /victoria/i, gender: "female" },
+    { match: /susan/i, gender: "female" },
+    { match: /zira/i, gender: "female" },
+    { match: /aria/i, gender: "female" },
+    { match: /jenny/i, gender: "female" },
+    { match: /allison/i, gender: "female" },
+    { match: /^google us english$/i, gender: "female" }, // voz por defecto en Chrome
+    // típicamente masculinas
+    { match: /alex/i, gender: "male" },
+    { match: /fred/i, gender: "male" },
+    { match: /david/i, gender: "male" },
+    { match: /guy/i, gender: "male" },
+    { match: /mark/i, gender: "male" },
+    { match: /tom/i, gender: "male" },
+    { match: /eric/i, gender: "male" },
+  ],
+  it: [
+    // típicamente femeninas
+    { match: /alice/i, gender: "female" },
+    { match: /federica/i, gender: "female" },
+    { match: /elsa/i, gender: "female" },
+    { match: /isabella/i, gender: "female" },
+    { match: /^google italiano$/i, gender: "female" }, // voz por defecto en Chrome
+    // típicamente masculinas
+    { match: /luca/i, gender: "male" },
+    { match: /diego/i, gender: "male" },
+    { match: /cosimo/i, gender: "male" },
+  ],
+};
 
-function classifyVoiceGender(voice) {
-  const found = VOICE_GENDER_MAP.find((v) => v.match.test(voice.name));
+function classifyVoiceGender(voice, langPrefix) {
+  const list = VOICE_GENDER_MAP[langPrefix] || [];
+  const found = list.find((v) => v.match.test(voice.name));
   return found ? found.gender : "unknown";
 }
 
@@ -3041,6 +3132,13 @@ let currentUtterance = null; // Para tracking
 let lastVoiceURI = null; // Evita repetir literalmente la misma voz
 let lastGender = null; // Para alternar género cuando hay ambos disponibles
 let voicesReadyPromise = null; // Cachea la espera de getVoices() poblado
+
+// Si cambia el idioma objetivo, olvidamos la última voz/género usados: son
+// de otro idioma y no tiene sentido "evitar repetirlos" en el nuevo pool.
+onTargetLanguageChange(() => {
+  lastVoiceURI = null;
+  lastGender = null;
+});
 
 // Pre-cargar la lista de voces del sistema apenas se pueda. En Chrome,
 // getVoices() suele devolver [] hasta que dispara "voiceschanged".
@@ -3089,24 +3187,27 @@ function waitForVoices() {
 }
 
 /**
- * Elige una voz en inglés, alternando entre masculina y femenina cuando el
- * sistema tiene ambas disponibles, y evitando SIEMPRE repetir la misma voz
- * dos veces seguidas (si hay más de una candidata).
+ * Elige una voz del idioma objetivo (inglés o italiano), alternando entre
+ * masculina y femenina cuando el sistema tiene ambas disponibles, y
+ * evitando SIEMPRE repetir la misma voz dos veces seguidas (si hay más de
+ * una candidata).
  *
- * Preferimos en-US (para fijar el oído en un único acento mientras se
- * aprende), pero si el dispositivo solo tiene UNA voz marcada como en-US
- * —algo muy común: "Google US English" es la única en Chrome/Android sin
- * paquetes de idioma extra instalados— ampliamos el pool a cualquier voz
- * en inglés (en-GB, en-AU, en-IN, etc.). Restringirse a una sola voz en-US
+ * Preferimos el locale exacto (en-US / it-IT, para fijar el oído en un
+ * único acento mientras se aprende), pero si el dispositivo solo tiene UNA
+ * voz marcada con ese locale exacto —algo muy común: "Google US English"
+ * o "Google italiano" suelen ser la única en Chrome/Android sin paquetes
+ * de idioma extra instalados— ampliamos el pool a cualquier voz de ese
+ * idioma (en-GB, en-AU, it-CH, etc.). Restringirse a una sola voz exacta
  * era justo la causa de que siempre sonara igual: no había con qué
  * alternar.
  */
-function pickEnglishVoice(voices) {
-  const usVoices = voices.filter((v) => v.lang === "en-US" || v.lang === "en_US");
-  const pool = usVoices.length >= 2 ? usVoices : voices.filter((v) => /^en/i.test(v.lang));
+function pickVoiceForLang(voices, langPrefix) {
+  const preferred = PREFERRED_LOCALE[langPrefix] || [];
+  const exactVoices = voices.filter((v) => preferred.includes(String(v.lang || "").toLowerCase()));
+  const pool = exactVoices.length >= 2 ? exactVoices : voices.filter((v) => new RegExp("^" + langPrefix, "i").test(v.lang));
   if (pool.length === 0) return null;
 
-  const classified = pool.map((v) => ({ voice: v, gender: classifyVoiceGender(v) }));
+  const classified = pool.map((v) => ({ voice: v, gender: classifyVoiceGender(v, langPrefix) }));
   const females = classified.filter((v) => v.gender === "female");
   const males = classified.filter((v) => v.gender === "male");
 
@@ -3133,16 +3234,17 @@ async function speakDictado(text) {
   window.speechSynthesis.cancel();
 
   const voices = await waitForVoices();
+  const langMeta = getTargetLangMeta();
 
   const u = new SpeechSynthesisUtterance(text);
   currentUtterance = u;
 
-  u.lang = DICTADO_LANG;
+  u.lang = langMeta.ttsLang;
   u.rate = DICTADO_RATE;
   u.pitch = 1;
   u.volume = 1;
 
-  const voice = pickEnglishVoice(voices);
+  const voice = pickVoiceForLang(voices, langMeta.code);
   if (voice) u.voice = voice;
 
   // Pequeño delay para asegurar que el cancel se procesó
@@ -4448,6 +4550,19 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
   // que antes vivía ahí (usuario, salir, mapa, copiar informe, nueva tanda,
   // borrar todo) ahora vive en este modal bajo demanda, para no robarle
   // altura permanente a la pantalla.
+  // Vuelve a renderizar lo que esté visible en pantalla en este momento,
+  // para que las etiquetas/banderas del idioma objetivo se actualicen sin
+  // necesidad de recargar ni perder el progreso.
+  function refreshCurrentScreenForLanguage() {
+    if (document.getElementById("exerciseScreen")?.classList.contains("active")) {
+      renderExercise();
+    } else if (document.getElementById("infoScreen")?.classList.contains("active")) {
+      renderPracticaInicialScreen();
+    } else {
+      renderMapView();
+    }
+  }
+
   function showMenuModal() {
     const existing = document.querySelector('.modal-overlay');
     if (existing) existing.remove();
@@ -4464,9 +4579,10 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">8.6 (30-08-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">9.0 (24-08-2026)</div>
         <div class="action-buttons">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
+          <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuCopyReportBtn">📋 Copiar informe</button>
           <button class="fun-btn" id="menuReplaceListBtn">📥 Nueva tanda</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
@@ -4480,6 +4596,12 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
     modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
     modal.querySelector('#menuLogoutBtn').addEventListener('click', () => { close(); logout(); });
     modal.querySelector('#menuBackToMapBtn').addEventListener('click', () => { close(); renderMapView(); showMainView("map"); });
+    modal.querySelector('#menuToggleLangBtn').addEventListener('click', () => {
+      toggleTargetLanguage();
+      close();
+      refreshCurrentScreenForLanguage();
+      toast(getTargetLangMeta().flag + " Ahora practicando " + getTargetLangMeta().labelLower);
+    });
     modal.querySelector('#menuCopyReportBtn').addEventListener('click', () => { close(); copyReport(); });
     modal.querySelector('#menuReplaceListBtn').addEventListener('click', () => { close(); showMainView("import"); toast("📥 Ingresa nuevos datos"); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
