@@ -16,37 +16,79 @@
 
 // expanded (forma completa) -> contracted (forma contraída)
 export const CONTRACTIONS_MAP = {
+
   "i am": "i'm", "you are": "you're", "we are": "we're", "they are": "they're",
+
   "he is": "he's", "she is": "she's", "it is": "it's", "that is": "that's",
+
   "there is": "there's", "here is": "here's", "who is": "who's", "what is": "what's",
+
   "where is": "where's", "when is": "when's", "why is": "why's", "how is": "how's",
 
+  "there are": "there're", "who are": "who're", "what are": "what're",
+  "where are": "where're", "when are": "when're", "why are": "why're",
+  "how are": "how're",
+
   "i have": "i've", "you have": "you've", "we have": "we've", "they have": "they've",
+
   "he has": "he's", "she has": "she's", "it has": "it's", "there has": "there's",
+
   "who has": "who's", "what has": "what's",
 
+  "there have": "there've", "who have": "who've", "what have": "what've",
+  "where have": "where've", "when have": "when've", "why have": "why've",
+  "how have": "how've",
+
   "i had": "i'd", "i would": "i'd", "you had": "you'd", "you would": "you'd",
+
   "he had": "he'd", "he would": "he'd", "she had": "she'd", "she would": "she'd",
+
   "it had": "it'd", "it would": "it'd", "we had": "we'd", "we would": "we'd",
-  "they had": "they'd", "they would": "they'd", "who would": "who'd",
-  "there would": "there'd", "that would": "that'd",
+
+  "they had": "they'd", "they would": "they'd", "who had": "who'd",
+  "who would": "who'd", "what had": "what'd", "what would": "what'd",
+  "where had": "where'd", "where would": "where'd",
+  "when had": "when'd", "when would": "when'd",
+  "why had": "why'd", "why would": "why'd",
+  "how had": "how'd", "how would": "how'd",
+
+  "there had": "there'd", "there would": "there'd",
+  "that had": "that'd", "that would": "that'd",
 
   "i will": "i'll", "you will": "you'll", "he will": "he'll", "she will": "she'll",
+
   "it will": "it'll", "we will": "we'll", "they will": "they'll", "that will": "that'll",
+
   "there will": "there'll", "who will": "who'll", "what will": "what'll",
+  "where will": "where'll", "when will": "when'll", "why will": "why'll",
+  "how will": "how'll",
 
   "do not": "don't", "does not": "doesn't", "did not": "didn't",
+
   "is not": "isn't", "are not": "aren't", "was not": "wasn't", "were not": "weren't",
+
   "have not": "haven't", "has not": "hasn't", "had not": "hadn't",
+
   "will not": "won't", "would not": "wouldn't",
+
   "can not": "can't", "cannot": "can't", "could not": "couldn't",
+
   "should not": "shouldn't", "must not": "mustn't", "might not": "mightn't",
+
   "need not": "needn't", "ought not": "oughtn't", "shall not": "shan't",
 
+  "dare not": "daren't",
+
   "should have": "should've", "would have": "would've", "could have": "could've",
+
   "might have": "might've", "must have": "must've",
 
   "let us": "let's",
+
+  "you all": "y'all",
+
+  "am not": "ain't", "is not": "ain't", "are not": "ain't",
+  "have not": "ain't", "has not": "ain't",
 };
 
 // Precalculamos las expresiones regulares una sola vez. Se ordenan por

@@ -87,6 +87,54 @@
     { "expanded": "might have", "contracted": "might've" },
     { "expanded": "must have", "contracted": "must've" },
 
-    { "expanded": "let us", "contracted": "let's" }
+    { "expanded": "let us", "contracted": "let's" },
+    { "expanded": "there are", "contracted": "there're" },
+
+    { "expanded": "who are", "contracted": "who're" },
+    { "expanded": "what are", "contracted": "what're" },
+    { "expanded": "where are", "contracted": "where're" },
+    { "expanded": "when are", "contracted": "when're" },
+    { "expanded": "why are", "contracted": "why're" },
+    { "expanded": "how are", "contracted": "how're" },
+
+    { "expanded": "there have", "contracted": "there've" },
+    { "expanded": "who have", "contracted": "who've" },
+    { "expanded": "what have", "contracted": "what've" },
+    { "expanded": "where have", "contracted": "where've" },
+    { "expanded": "when have", "contracted": "when've" },
+    { "expanded": "why have", "contracted": "why've" },
+    { "expanded": "how have", "contracted": "how've" },
+
+    { "expanded": "there had", "contracted": "there'd" },
+    { "expanded": "who had", "contracted": "who'd" },
+    { "expanded": "what had", "contracted": "what'd" },
+    { "expanded": "where had", "contracted": "where'd" },
+    { "expanded": "when had", "contracted": "when'd" },
+    { "expanded": "why had", "contracted": "why'd" },
+    { "expanded": "how had", "contracted": "how'd" },
+
+    { "expanded": "what would", "contracted": "what'd" },
+    { "expanded": "where would", "contracted": "where'd" },
+    { "expanded": "when would", "contracted": "when'd" },
+    { "expanded": "why would", "contracted": "why'd" },
+    { "expanded": "how would", "contracted": "how'd" },
+
+    { "expanded": "there will", "contracted": "there'll" },
+    { "expanded": "who will", "contracted": "who'll" },
+    { "expanded": "what will", "contracted": "what'll" },
+    { "expanded": "where will", "contracted": "where'll" },
+    { "expanded": "when will", "contracted": "when'll" },
+    { "expanded": "why will", "contracted": "why'll" },
+    { "expanded": "how will", "contracted": "how'll" },
+
+    { "expanded": "dare not", "contracted": "daren't" },
+
+    { "expanded": "am not", "contracted": "ain't" },
+    { "expanded": "is not", "contracted": "ain't" },
+    { "expanded": "are not", "contracted": "ain't" },
+    { "expanded": "have not", "contracted": "ain't" },
+    { "expanded": "has not", "contracted": "ain't" },
+
+    { "expanded": "you all", "contracted": "y'all" }
   ]
 }
