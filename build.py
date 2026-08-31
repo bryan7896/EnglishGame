@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "9.3 (24-08-2026)"
+VERSION = "9.4 (24-08-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -999,6 +999,7 @@ def get_main_logic():
         <div class="action-buttons">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
+          <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
           <button class="fun-btn" id="menuCopyReportBtn">📋 Copiar informe</button>
           <button class="fun-btn" id="menuReplaceListBtn">📥 Nueva tanda</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
@@ -1018,9 +1019,94 @@ def get_main_logic():
       refreshCurrentScreenForLanguage();
       toast(getTargetLangMeta().flag + " Ahora practicando " + getTargetLangMeta().labelLower);
     });
+    modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
     modal.querySelector('#menuCopyReportBtn').addEventListener('click', () => { close(); copyReport(); });
     modal.querySelector('#menuReplaceListBtn').addEventListener('click', () => { close(); showMainView("import"); toast("📥 Ingresa nuevos datos"); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
+  }
+
+  // Deja al usuario escuchar ("▶️ Probar") y elegir a mano UNA voz fija
+  // para el idioma objetivo actual. Esa elección queda guardada y a partir
+  // de ahí gana siempre por sobre la selección automática de
+  // dictado.js/seleccionar.js/traduccion.js/corregir.js — es la única
+  // forma de garantizar al 100% que nunca suene otra voz distinta a la
+  // elegida, sin importar cuántas voces reporte el dispositivo.
+  function showVoicePickerModal() {
+    const existing = document.querySelector('.modal-overlay');
+    if (existing) existing.remove();
+    window.speechSynthesis?.cancel();
+
+    const langMeta = getTargetLangMeta();
+    const voices = listVoicesForLanguage(langMeta.code);
+    const currentPreferred = getPreferredVoiceURI(langMeta.code);
+    const sampleText = langMeta.code === "it"
+      ? "Ciao, come stai? Questo è un esempio di voce."
+      : "Hello, how are you? This is a voice sample.";
+
+    const rowStyle = "display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-radius:10px;margin-bottom:6px;background:#151515;";
+    const rowActiveStyle = rowStyle + "border:1px solid #e50914;";
+
+    const autoRow = `
+      <div style="${!currentPreferred ? rowActiveStyle : rowStyle}">
+        <span>🔀 Automática (recomendado por la app)</span>
+        <button type="button" class="fun-btn voice-select-btn" data-voice-uri="" style="white-space:nowrap;">Usar esta</button>
+      </div>
+    `;
+    const voiceRows = voices.map((v) => `
+      <div style="${currentPreferred === v.voiceURI ? rowActiveStyle : rowStyle}">
+        <span style="overflow:hidden;text-overflow:ellipsis;">${window._escHTML(v.name)} <small style="color:#94a3b8;">(${window._escHTML(v.lang)})</small></span>
+        <span style="display:flex;gap:6px;flex-shrink:0;">
+          <button type="button" class="fun-btn voice-preview-btn" data-voice-uri="${window._escHTML(v.voiceURI)}">▶️</button>
+          <button type="button" class="fun-btn voice-select-btn" data-voice-uri="${window._escHTML(v.voiceURI)}" style="white-space:nowrap;">Usar esta</button>
+        </span>
+      </div>
+    `).join("");
+
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>🎙️ Voz de ${langMeta.label}</h3>
+          <button class="menu-modal-close" id="voicePickerClose" aria-label="Cerrar">✕</button>
+        </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:12px;">
+          Elige la voz que se usará SIEMPRE para ${langMeta.labelLower} en toda la app.
+          Toca ▶️ para escucharla antes de elegir.
+        </p>
+        ${voices.length === 0 ? `<p style="color:#f59e0b;margin-bottom:10px;">No se encontró ninguna voz de ${langMeta.labelLower} instalada en este dispositivo/navegador todavía. Si acabas de abrir la app, espera unos segundos y vuelve a intentar.</p>` : ""}
+        <div>${autoRow}${voiceRows}</div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const close = () => { window.speechSynthesis?.cancel(); modal.remove(); };
+    modal.querySelector("#voicePickerClose").addEventListener("click", close);
+    modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+
+    modal.querySelectorAll(".voice-preview-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const uri = btn.dataset.voiceUri;
+        const voice = voices.find((v) => v.voiceURI === uri);
+        if (!voice) return;
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(sampleText);
+        u.lang = langMeta.ttsLang;
+        u.voice = voice;
+        window.speechSynthesis.speak(u);
+      });
+    });
+
+    modal.querySelectorAll(".voice-select-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const uri = btn.dataset.voiceUri || null;
+        setPreferredVoiceURI(langMeta.code, uri);
+        close();
+        toast(uri ? "🎙️ Voz guardada — se usará siempre" : "🔀 Volviendo a selección automática");
+      });
+    });
   }
 
   function init() {
