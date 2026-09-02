@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "9.4 (24-08-2026)"
+VERSION = "9.5 (1-09-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -211,7 +211,7 @@ def get_html_template():
 
     <div id="exerciseScreen" class="screen">
       <div class="exercise-area">
-        <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
           <span class="pill-status" id="nodeTag">Nodo 1</span>
           <span class="pill-status" id="exTag">Ejercicio 1/1</span>
           <span class="pill-status" id="exTypeTag">📝</span>
@@ -281,7 +281,7 @@ def get_main_logic():
       // vivían solo en memoria: si la página se recargaba a mitad de un
       // nodo (muy común en PWA/móvil), se perdían, y al cerrar el nodo los
       // ejercicios fallados ANTES del reload quedaban sin userAnswer
-      // registrada — eso hacía que el error mandado al nodo 6 cayera en un
+      // registrada — eso hacía que el error mandado al nodo de repaso cayera en un
       // fallback incorrecto (mostraba el texto en español en vez del error
       // real del usuario). Persistir esto soluciona ese bug de raíz.
       sessionCorrectness: AppState.sessionCorrectness,
@@ -416,7 +416,7 @@ def get_main_logic():
     renderMap(AppState.nodes, AppState.progress, { openNode, openPracticaInicial, showToast: toast }, AppState.practicaInicial);
   }
 
-  const REPASO_NODE_INDEX = 7;
+  const REPASO_NODE_INDEX = 10;
   const PASS_THRESHOLD = 0.8;
 
   function refreshRepasoNode() {
@@ -478,7 +478,7 @@ def get_main_logic():
   }
 
   // Convierte un ejercicio fallado (de un nodo principal) en la forma en la
-  // que debe aparecer dentro del nodo 6 (repaso).
+  // que debe aparecer dentro del nodo de repaso.
   //
   //  - Si el error del usuario es de 1 o 2 palabras (misma cantidad de
   //    palabras que la frase correcta, pero 1-2 distintas), se convierte en
@@ -493,7 +493,7 @@ def get_main_logic():
   //       por el error que el propio usuario escribió al fallar.
   //    En ambos casos se inicia un historial "wrongAttempts" (máx. 3) con
   //    los intentos fallidos del usuario, para mostrarlos en la tarjeta
-  //    rotativa de errores si vuelve a fallar en el nodo 6.
+  //    rotativa de errores si vuelve a fallar en el nodo de repaso.
   //  - El resto de tipos (completar, seleccionar, dictado) entran sin
   //    cambios.
   function buildRepasoExercise(ex, userAnswer) {
@@ -538,7 +538,7 @@ def get_main_logic():
     return converted;
   }
 
-  // Marca cada entrada del informe según si sucedió dentro del nodo 6
+  // Marca cada entrada del informe según si sucedió dentro del nodo de repaso
   // (repaso) o en un nodo principal, para poder agruparlas por separado.
   function tagOrigin(entry) {
     const node = AppState.nodes[AppState.activeNodeIndex];
@@ -560,7 +560,7 @@ def get_main_logic():
           AppState.reviewPool = AppState.reviewPool.filter(p => p.__repasoId !== current.__repasoId);
         }
       } else {
-        // Sigue sin superar el 80%: se reencola al FINAL del nodo 6,
+        // Sigue sin superar el 80%: se reencola al FINAL del nodo de repaso,
         // refrescando el error con la última respuesta del usuario, hasta
         // que realmente lo apruebe.
         const clone = { ...current };
@@ -581,7 +581,8 @@ def get_main_logic():
 
   // ==================== PRÁCTICA INICIAL ====================
   // Nodo especial, obligatorio, previo al Nodo 1. Vive fuera del array de
-  // 6 nodos y NO alimenta el informe de errores (ver informacion.js).
+  // 11 nodos (10 principales + repaso) y NO alimenta el informe de errores
+  // (ver informacion.js).
   let practicaLeccionState = null;
 
   function openPracticaInicial() {
@@ -663,7 +664,7 @@ def get_main_logic():
       AppState.progress[AppState.activeNodeIndex].completed = true;
 
       if (node.type !== 'repaso') {
-        // El nodo 6 resuelve su propia pool ejercicio a ejercicio (ver
+        // El nodo de repaso resuelve su propia pool ejercicio a ejercicio (ver
         // recordExerciseResult), así que aquí solo evaluamos nodos principales.
         const total = node.exercises.length;
         let correctCount = 0;
@@ -848,7 +849,7 @@ def get_main_logic():
       return lines.join("\n");
     }
     
-    // Todo lo ocurrido dentro del nodo 6 (repaso) se separa del resto para
+    // Todo lo ocurrido dentro del nodo de repaso se separa del resto para
     // que quede claro en el informe que esa parte fue donde el usuario
     // estuvo practicando hasta lograr superar su error.
     const mainEntries = AppState.reportEntries.filter(e => e.origin !== "repaso");
@@ -884,7 +885,7 @@ def get_main_logic():
     if (repasoEntries.length > 0) {
       lines.push("🔁 SECCIÓN DE REPASO — Practicando hasta superar tus errores");
       lines.push("=".repeat(40));
-      lines.push("Aquí queda registrado todo lo ocurrido en el Nodo 6 (repaso),");
+      lines.push("Aquí queda registrado todo lo ocurrido en el Nodo " + (REPASO_NODE_INDEX + 1) + " (repaso),");
       lines.push("donde cada ejercicio fallado se repite hasta que se aprueba de verdad.");
       lines.push("-".repeat(30));
       repasoEntries.forEach(entry => {

@@ -1,10 +1,15 @@
 // mapa/map.js
-// Mapa de 5 nodos principales (reparto equitativo, el residuo va al nodo 1)
-// + 1 nodo especial de repaso (nodo 6) que se llena dinámicamente con los
-// ejercicios de los nodos que no se aprueben con 80% o más.
+// Mapa de 10 nodos principales (el nodo 1 recibe una porción extra: un
+// ejercicio adicional por cada nodo existente, es decir +totalMainNodes
+// ejercicios sobre su reparto base; el resto del total se reparte lo más
+// parejo posible entre los 9 nodos restantes, y el residuo de esa segunda
+// división cae en el primero de esos 9)
+// + 1 nodo especial de repaso (nodo totalMainNodes+1) que se llena
+// dinámicamente con los ejercicios de los nodos que no se aprueben con
+// 80% o más.
 
 export const MAP_CONFIG = {
-  totalMainNodes: 7,
+  totalMainNodes: 10,
   // Imágenes de fondo estilo "carátula de episodio" para los nodos principales
   backgrounds: [
     "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",
@@ -50,11 +55,41 @@ export function createPracticaInicial(informacion) {
 }
 
 /**
- * Construye 6 nodos: 5 principales con reparto equitativo de todos los
- * ejercicios (si sobran ejercicios al dividir entre 5, el sobrante se suma
- * al nodo 1) y un 6to nodo de repaso que arranca vacío — se llena en
- * tiempo de ejecución (ver refreshRepasoNode en el motor principal) con
- * los ejercicios de nodos que no se aprobaron con 80% o más.
+ * Reparte `total` ejercicios entre `totalMainNodes` nodos, donde el nodo 1
+ * recibe una porción extra: un ejercicio adicional "por cada nodo", es
+ * decir +totalMainNodes sobre su reparto base equitativo. El resto del
+ * total (lo que queda después de darle su porción al nodo 1) se reparte
+ * lo más parejo posible entre los totalMainNodes-1 nodos restantes, y el
+ * residuo de esa segunda división cae en el primero de esos nodos
+ * restantes (nodo 2).
+ *
+ * Ejemplo: 100 ejercicios, 10 nodos -> base = 10, nodo 1 = 10 + 10 = 20;
+ * quedan 80 para repartir entre 9 nodos -> 8 c/u con residuo 8, así que
+ * los primeros 8 de esos 9 nodos reciben 9 y el último recibe 8.
+ */
+function computeNodeSizes(total, totalMainNodes) {
+  const base = Math.floor(total / totalMainNodes);
+  const node1Size = Math.min(total, base + totalMainNodes);
+  const remainingTotal = total - node1Size;
+  const remainingNodes = totalMainNodes - 1;
+
+  const sizes = [node1Size];
+  if (remainingNodes > 0) {
+    const restBase = Math.floor(remainingTotal / remainingNodes);
+    const restRemainder = remainingTotal % remainingNodes;
+    for (let i = 0; i < remainingNodes; i++) {
+      sizes.push(restBase + (i < restRemainder ? 1 : 0));
+    }
+  }
+  return sizes;
+}
+
+/**
+ * Construye totalMainNodes+1 nodos: los principales con el reparto de
+ * computeNodeSizes() (nodo 1 con porción extra, ver arriba) y un nodo
+ * extra de repaso que arranca vacío — se llena en tiempo de ejecución
+ * (ver refreshRepasoNode en el motor principal) con los ejercicios de
+ * nodos que no se aprobaron con 80% o más.
  */
 export function createNodeStructure(userData) {
   const { traducciones, completar, seleccionar, corregir, dictado } = userData;
@@ -69,15 +104,14 @@ export function createNodeStructure(userData) {
 
   const totalMainNodes = MAP_CONFIG.totalMainNodes;
   const total = allExercises.length;
-  const base = Math.floor(total / totalMainNodes);
-  const remainder = total % totalMainNodes;
+  const sizes = computeNodeSizes(total, totalMainNodes);
 
   const shuffled = shuffleArray(allExercises);
 
   const nodes = [];
   let cursor = 0;
   for (let i = 0; i < totalMainNodes; i++) {
-    const size = base + (i === 0 ? remainder : 0);
+    const size = sizes[i] || 0;
     const nodeExercises = shuffled.slice(cursor, cursor + size);
     cursor += size;
     nodes.push({
@@ -89,7 +123,7 @@ export function createNodeStructure(userData) {
     });
   }
 
-  // Nodo 6 — repaso: arranca vacío, se sincroniza dinámicamente con la
+  // Nodo de repaso: arranca vacío, se sincroniza dinámicamente con la
   // "pool" de repaso mientras el usuario juega (ver refreshRepasoNode()).
   nodes.push({
     id: totalMainNodes + 1,
@@ -190,7 +224,7 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
       <div class="netflix-node repaso-node ${isEmpty ? 'empty' : ''} ${practicaPendiente ? 'practica-dim' : ''}" data-node="${idx}" style="${isEmpty || practicaPendiente ? 'pointer-events:none;' : ''}">
         <div class="repaso-node-icon">🧠</div>
         <div class="repaso-node-content">
-          <div class="repaso-node-title">Nodo 6 · Repaso</div>
+          <div class="repaso-node-title">Nodo ${MAP_CONFIG.totalMainNodes + 1} · Repaso</div>
           <div class="repaso-node-desc">
             ${isEmpty ? '🎉 No tienes ejercicios pendientes' : total + (total === 1 ? ' ejercicio por repasar' : ' ejercicios por repasar')}
           </div>

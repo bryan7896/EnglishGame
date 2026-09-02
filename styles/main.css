@@ -637,7 +637,7 @@ textarea:focus-visible,
 
 .corregir-flipcard-inner {
   position: relative;
-  min-height: 88px;
+  min-height: 80px;
   transform-style: preserve-3d;
   transition: transform 0.55s var(--ease);
 }
