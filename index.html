@@ -1693,6 +1693,36 @@ export const MAP_CONFIG = {
   ],
 };
 
+// =========================================================================
+// Cantidad de nodos principales — configurable por el usuario
+// =========================================================================
+// Antes era un valor fijo (MAP_CONFIG.totalMainNodes). Ahora el usuario
+// puede definirla libremente (con +/- desde el modal del menú) y queda
+// guardada en localStorage, igual que el idioma objetivo en idioma.js.
+const NODE_COUNT_STORAGE_KEY = "englishTrainerTotalMainNodes";
+export const MIN_MAIN_NODES = 3;
+export const MAX_MAIN_NODES = 20;
+
+let _totalMainNodes = MAP_CONFIG.totalMainNodes;
+try {
+  const saved = parseInt(window.localStorage?.getItem(NODE_COUNT_STORAGE_KEY), 10);
+  if (!isNaN(saved) && saved >= MIN_MAIN_NODES && saved <= MAX_MAIN_NODES) _totalMainNodes = saved;
+} catch (e) { /* localStorage no disponible */ }
+
+export function getTotalMainNodes() {
+  return _totalMainNodes;
+}
+
+// Guarda la nueva cantidad (siempre dentro de los límites) y la persiste.
+// No toca AppState.nodes/progress por sí sola — eso lo hace
+// redistributeMainNodes() cuando ya hay ejercicios cargados.
+export function setTotalMainNodes(n) {
+  const clamped = Math.max(MIN_MAIN_NODES, Math.min(MAX_MAIN_NODES, Math.round(n) || MIN_MAIN_NODES));
+  _totalMainNodes = clamped;
+  try { window.localStorage?.setItem(NODE_COUNT_STORAGE_KEY, String(clamped)); } catch (e) { /* noop */ }
+  return _totalMainNodes;
+}
+
 function shuffleArray(arr) {
   const shuffled = [...arr];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -1773,7 +1803,7 @@ export function createNodeStructure(userData) {
     ...(dictado || []).map(e => ({ text: typeof e === 'string' ? e : e.text || e, type: "dictado" })),
   ];
 
-  const totalMainNodes = MAP_CONFIG.totalMainNodes;
+  const totalMainNodes = getTotalMainNodes();
   const total = allExercises.length;
   const sizes = computeNodeSizes(total, totalMainNodes);
 
@@ -1806,6 +1836,91 @@ export function createNodeStructure(userData) {
   return nodes;
 }
 
+/**
+ * Cambia la cantidad de nodos principales de forma libre (usada por el
+ * modal de +/- del menú), SIN afectar el progreso ya guardado: cada
+ * ejercicio conserva su estado (hecho/pendiente) sin importar en qué nodo
+ * termine cayendo tras el cambio.
+ *
+ * Cómo lo logra: en vez de tocar cada ejercicio, se "aplanan" todos los
+ * ejercicios principales anotando junto a cada uno si su casillero en
+ * `progress` ya estaba marcado como resuelto; luego se vuelven a repartir
+ * con computeNodeSizes() usando la nueva cantidad de nodos, y el progreso
+ * de cada nodo nuevo se recalcula a partir de esas anotaciones. El nodo de
+ * repaso (siempre el último del array) se conserva tal cual, con su propio
+ * progreso intacto.
+ *
+ * `nodes` y `progress` son los AppState.nodes/AppState.progress actuales.
+ * Devuelve { nodes, progress } listos para reemplazarlos.
+ */
+export function redistributeMainNodes(nodes, progress, newTotalMainNodes) {
+  const oldTotalMainNodes = Math.max(0, nodes.length - 1);
+  const clamped = setTotalMainNodes(newTotalMainNodes);
+
+  const mainNodes = nodes.slice(0, oldTotalMainNodes);
+  const repasoNode = nodes[oldTotalMainNodes] || { exercises: [] };
+
+  // Aplanamos todos los ejercicios principales, recordando si cada uno ya
+  // estaba resuelto (según el progreso viejo), para que ese dato viaje con
+  // el ejercicio sin importar en qué nodo nuevo caiga.
+  const flat = [];
+  mainNodes.forEach((node, idx) => {
+    const prog = progress[idx] || {};
+    const results = prog.exerciseResults || [];
+    (node.exercises || []).forEach((ex, i) => {
+      flat.push({ exercise: ex, done: !!results[i] });
+    });
+  });
+
+  const total = flat.length;
+  const sizes = computeNodeSizes(total, clamped);
+
+  const newMainNodes = [];
+  const newProgress = {};
+  let cursor = 0;
+  for (let i = 0; i < clamped; i++) {
+    const size = sizes[i] || 0;
+    const slice = flat.slice(cursor, cursor + size);
+    cursor += size;
+
+    const exercises = slice.map(item => item.exercise);
+    const exerciseResults = slice.map(item => item.done);
+    const exercisesDone = exerciseResults.filter(Boolean).length;
+
+    newMainNodes.push({
+      id: i + 1,
+      type: "main",
+      background: MAP_CONFIG.backgrounds[i % MAP_CONFIG.backgrounds.length],
+      totalExercises: exercises.length,
+      exercises,
+    });
+    newProgress[i] = {
+      completed: exercises.length > 0 && exercisesDone === exercises.length,
+      exercisesDone,
+      exerciseResults,
+    };
+  }
+
+  const repasoIdx = clamped;
+  const repasoExercises = repasoNode.exercises || [];
+  const newNodes = [...newMainNodes, {
+    id: clamped + 1,
+    type: "repaso",
+    totalExercises: repasoExercises.length,
+    exercises: repasoExercises,
+  }];
+
+  // El progreso del nodo de repaso se conserva tal cual estaba (no depende
+  // de la cantidad de nodos principales).
+  newProgress[repasoIdx] = progress[oldTotalMainNodes] || {
+    completed: repasoExercises.length === 0,
+    exercisesDone: 0,
+    exerciseResults: Array(repasoExercises.length).fill(false),
+  };
+
+  return { nodes: newNodes, progress: newProgress };
+}
+
 export function validateInputData(data) {
   return { valid: true, errors: [] };
 }
@@ -1814,8 +1929,12 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
   const mapList = document.getElementById("mapList");
   if (!mapList) return;
 
-  const mainNodes = nodes.slice(0, MAP_CONFIG.totalMainNodes);
-  const repasoNode = nodes[MAP_CONFIG.totalMainNodes];
+  // Se deriva de la longitud real del array (y no de MAP_CONFIG.totalMainNodes)
+  // para que el mapa funcione igual sin importar cuántos nodos haya elegido
+  // el usuario.
+  const totalMainNodes = Math.max(0, nodes.length - 1);
+  const mainNodes = nodes.slice(0, totalMainNodes);
+  const repasoNode = nodes[totalMainNodes];
   const hasAnyMain = mainNodes.some(n => (n.exercises?.length || 0) > 0);
   const hasPractica = !!(practicaInicial && practicaInicial.lecciones?.length);
 
@@ -1884,7 +2003,7 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
 
   let repasoHtml = '';
   if (repasoNode) {
-    const idx = MAP_CONFIG.totalMainNodes;
+    const idx = totalMainNodes;
     const prog = progress[idx] || { completed: true, exercisesDone: 0 };
     const total = repasoNode.exercises?.length || 0;
     const done = Math.min(prog.exercisesDone || 0, total);
@@ -1895,7 +2014,7 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
       <div class="netflix-node repaso-node ${isEmpty ? 'empty' : ''} ${practicaPendiente ? 'practica-dim' : ''}" data-node="${idx}" style="${isEmpty || practicaPendiente ? 'pointer-events:none;' : ''}">
         <div class="repaso-node-icon">🧠</div>
         <div class="repaso-node-content">
-          <div class="repaso-node-title">Nodo ${MAP_CONFIG.totalMainNodes + 1} · Repaso</div>
+          <div class="repaso-node-title">Nodo ${totalMainNodes + 1} · Repaso</div>
           <div class="repaso-node-desc">
             ${isEmpty ? '🎉 No tienes ejercicios pendientes' : total + (total === 1 ? ' ejercicio por repasar' : ' ejercicios por repasar')}
           </div>
@@ -1923,7 +2042,7 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
       if (practicaPendiente) { callbacks.showToast("📌 Termina la práctica inicial primero"); return; }
       const idx = parseInt(card.dataset.node);
       const node = nodes[idx];
-      const isRepaso = idx === MAP_CONFIG.totalMainNodes;
+      const isRepaso = idx === totalMainNodes;
 
       if (!node || !node.exercises || node.exercises.length === 0) {
         callbacks.showToast(isRepaso ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo no tiene ejercicios");
@@ -4176,15 +4295,21 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
     renderMap(AppState.nodes, AppState.progress, { openNode, openPracticaInicial, showToast: toast }, AppState.practicaInicial);
   }
 
-  const REPASO_NODE_INDEX = 10;
   const PASS_THRESHOLD = 0.8;
 
+  // El nodo de repaso siempre es el último del array: como la cantidad de
+  // nodos principales ahora es configurable (ver menú -> 🔢 Nodos), su
+  // índice ya no puede ser una constante fija.
+  function getRepasoNodeIndex() {
+    return Math.max(0, AppState.nodes.length - 1);
+  }
+
   function refreshRepasoNode() {
-    const node = AppState.nodes[REPASO_NODE_INDEX];
+    const node = AppState.nodes[getRepasoNodeIndex()];
     if (!node || node.type !== 'repaso') return;
     node.exercises = AppState.reviewPool.slice();
     node.totalExercises = node.exercises.length;
-    AppState.progress[REPASO_NODE_INDEX] = {
+    AppState.progress[getRepasoNodeIndex()] = {
       completed: node.exercises.length === 0,
       exercisesDone: 0,
       exerciseResults: Array(node.exercises.length).fill(false)
@@ -4393,7 +4518,7 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
   function openNode(nodeIndex) {
     cleanupAudio();
     if (!AppState.nodes[nodeIndex]?.exercises?.length) {
-      toast(nodeIndex === REPASO_NODE_INDEX ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo está vacío");
+      toast(nodeIndex === getRepasoNodeIndex() ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo está vacío");
       return;
     }
     AppState.activeNodeIndex = nodeIndex;
@@ -4645,7 +4770,7 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
     if (repasoEntries.length > 0) {
       lines.push("🔁 SECCIÓN DE REPASO — Practicando hasta superar tus errores");
       lines.push("=".repeat(40));
-      lines.push("Aquí queda registrado todo lo ocurrido en el Nodo " + (REPASO_NODE_INDEX + 1) + " (repaso),");
+      lines.push("Aquí queda registrado todo lo ocurrido en el Nodo " + (getRepasoNodeIndex() + 1) + " (repaso),");
       lines.push("donde cada ejercicio fallado se repite hasta que se aprueba de verdad.");
       lines.push("-".repeat(30));
       repasoEntries.forEach(entry => {
@@ -4756,11 +4881,12 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">9.5 (1-09-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">9.6 (6-09-2026)</div>
         <div class="action-buttons">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
+          <button class="fun-btn" id="menuNodeCountBtn">🔢 Nodos: ${getTotalMainNodes()}</button>
           <button class="fun-btn" id="menuCopyReportBtn">📋 Copiar informe</button>
           <button class="fun-btn" id="menuReplaceListBtn">📥 Nueva tanda</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
@@ -4781,9 +4907,97 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
       toast(getTargetLangMeta().flag + " Ahora practicando " + getTargetLangMeta().labelLower);
     });
     modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
+    modal.querySelector('#menuNodeCountBtn').addEventListener('click', () => { close(); showNodeCountModal(); });
     modal.querySelector('#menuCopyReportBtn').addEventListener('click', () => { close(); copyReport(); });
     modal.querySelector('#menuReplaceListBtn').addEventListener('click', () => { close(); showMainView("import"); toast("📥 Ingresa nuevos datos"); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
+  }
+
+  // Deja al usuario definir libremente en cuántos nodos se reparten sus
+  // ejercicios, con botones +/-. Al aplicar, se usa redistributeMainNodes()
+  // (map.js) para reacomodar los ejercicios existentes en la nueva
+  // cantidad de nodos SIN perder el progreso ya hecho (cada ejercicio
+  // conserva si ya estaba resuelto, caiga en el nodo que caiga).
+  function showNodeCountModal() {
+    const existing = document.querySelector('.modal-overlay');
+    if (existing) existing.remove();
+
+    let pending = getTotalMainNodes();
+
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>🔢 Cantidad de nodos</h3>
+          <button class="menu-modal-close" id="nodeCountClose" aria-label="Cerrar">✕</button>
+        </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:14px;">
+          Define en cuántos nodos se reparten tus ejercicios (mínimo ${MIN_MAIN_NODES}, máximo ${MAX_MAIN_NODES}).
+          Puedes cambiarlo cuando quieras: tu progreso se conserva.
+        </p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin:10px 0 18px;">
+          <button type="button" class="fun-btn" id="nodeCountMinus" style="width:52px;height:52px;font-size:1.5rem;">−</button>
+          <span id="nodeCountValue" style="font-size:2rem;font-weight:900;min-width:56px;text-align:center;">${pending}</span>
+          <button type="button" class="fun-btn" id="nodeCountPlus" style="width:52px;height:52px;font-size:1.5rem;">+</button>
+        </div>
+        <div class="action-buttons">
+          <button class="fun-btn primary-btn" id="nodeCountApply">✅ Aplicar</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const valueEl = modal.querySelector('#nodeCountValue');
+    const minusBtn = modal.querySelector('#nodeCountMinus');
+    const plusBtn = modal.querySelector('#nodeCountPlus');
+
+    const refreshStepper = () => {
+      minusBtn.disabled = pending <= MIN_MAIN_NODES;
+      plusBtn.disabled = pending >= MAX_MAIN_NODES;
+      minusBtn.style.opacity = minusBtn.disabled ? "0.4" : "1";
+      plusBtn.style.opacity = plusBtn.disabled ? "0.4" : "1";
+    };
+    refreshStepper();
+
+    minusBtn.addEventListener('click', () => {
+      if (pending > MIN_MAIN_NODES) { pending--; valueEl.textContent = pending; refreshStepper(); }
+    });
+    plusBtn.addEventListener('click', () => {
+      if (pending < MAX_MAIN_NODES) { pending++; valueEl.textContent = pending; refreshStepper(); }
+    });
+
+    const close = () => modal.remove();
+    modal.querySelector('#nodeCountClose').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+
+    modal.querySelector('#nodeCountApply').addEventListener('click', () => {
+      close();
+      applyNodeCount(pending);
+    });
+  }
+
+  function applyNodeCount(newCount) {
+    const current = getTotalMainNodes();
+
+    // Sin ejercicios cargados todavía: solo guardamos la preferencia, se
+    // usará quando se construya el mapa por primera vez.
+    if (!AppState.nodes.length) {
+      setTotalMainNodes(newCount);
+      toast("🔢 Se usarán " + getTotalMainNodes() + " nodos cuando cargues tus ejercicios");
+      return;
+    }
+
+    if (newCount === current) { toast("🔢 Ya tienes " + current + " nodos"); return; }
+
+    const { nodes, progress } = redistributeMainNodes(AppState.nodes, AppState.progress, newCount);
+    AppState.nodes = nodes;
+    AppState.progress = progress;
+
+    saveToStorage();
+    renderMapView();
+    showMainView("map");
+    toast("🔢 Ahora tienes " + getTotalMainNodes() + " nodos — tu progreso se mantuvo");
   }
 
   // Deja al usuario escuchar ("▶️ Probar") y elegir a mano UNA voz fija

@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "9.5 (1-09-2026)"
+VERSION = "9.6 (6-09-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -416,15 +416,21 @@ def get_main_logic():
     renderMap(AppState.nodes, AppState.progress, { openNode, openPracticaInicial, showToast: toast }, AppState.practicaInicial);
   }
 
-  const REPASO_NODE_INDEX = 10;
   const PASS_THRESHOLD = 0.8;
 
+  // El nodo de repaso siempre es el último del array: como la cantidad de
+  // nodos principales ahora es configurable (ver menú -> 🔢 Nodos), su
+  // índice ya no puede ser una constante fija.
+  function getRepasoNodeIndex() {
+    return Math.max(0, AppState.nodes.length - 1);
+  }
+
   function refreshRepasoNode() {
-    const node = AppState.nodes[REPASO_NODE_INDEX];
+    const node = AppState.nodes[getRepasoNodeIndex()];
     if (!node || node.type !== 'repaso') return;
     node.exercises = AppState.reviewPool.slice();
     node.totalExercises = node.exercises.length;
-    AppState.progress[REPASO_NODE_INDEX] = {
+    AppState.progress[getRepasoNodeIndex()] = {
       completed: node.exercises.length === 0,
       exercisesDone: 0,
       exerciseResults: Array(node.exercises.length).fill(false)
@@ -633,7 +639,7 @@ def get_main_logic():
   function openNode(nodeIndex) {
     cleanupAudio();
     if (!AppState.nodes[nodeIndex]?.exercises?.length) {
-      toast(nodeIndex === REPASO_NODE_INDEX ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo está vacío");
+      toast(nodeIndex === getRepasoNodeIndex() ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo está vacío");
       return;
     }
     AppState.activeNodeIndex = nodeIndex;
@@ -885,7 +891,7 @@ def get_main_logic():
     if (repasoEntries.length > 0) {
       lines.push("🔁 SECCIÓN DE REPASO — Practicando hasta superar tus errores");
       lines.push("=".repeat(40));
-      lines.push("Aquí queda registrado todo lo ocurrido en el Nodo " + (REPASO_NODE_INDEX + 1) + " (repaso),");
+      lines.push("Aquí queda registrado todo lo ocurrido en el Nodo " + (getRepasoNodeIndex() + 1) + " (repaso),");
       lines.push("donde cada ejercicio fallado se repite hasta que se aprueba de verdad.");
       lines.push("-".repeat(30));
       repasoEntries.forEach(entry => {
@@ -1001,6 +1007,7 @@ def get_main_logic():
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
+          <button class="fun-btn" id="menuNodeCountBtn">🔢 Nodos: ${getTotalMainNodes()}</button>
           <button class="fun-btn" id="menuCopyReportBtn">📋 Copiar informe</button>
           <button class="fun-btn" id="menuReplaceListBtn">📥 Nueva tanda</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
@@ -1021,9 +1028,97 @@ def get_main_logic():
       toast(getTargetLangMeta().flag + " Ahora practicando " + getTargetLangMeta().labelLower);
     });
     modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
+    modal.querySelector('#menuNodeCountBtn').addEventListener('click', () => { close(); showNodeCountModal(); });
     modal.querySelector('#menuCopyReportBtn').addEventListener('click', () => { close(); copyReport(); });
     modal.querySelector('#menuReplaceListBtn').addEventListener('click', () => { close(); showMainView("import"); toast("📥 Ingresa nuevos datos"); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
+  }
+
+  // Deja al usuario definir libremente en cuántos nodos se reparten sus
+  // ejercicios, con botones +/-. Al aplicar, se usa redistributeMainNodes()
+  // (map.js) para reacomodar los ejercicios existentes en la nueva
+  // cantidad de nodos SIN perder el progreso ya hecho (cada ejercicio
+  // conserva si ya estaba resuelto, caiga en el nodo que caiga).
+  function showNodeCountModal() {
+    const existing = document.querySelector('.modal-overlay');
+    if (existing) existing.remove();
+
+    let pending = getTotalMainNodes();
+
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>🔢 Cantidad de nodos</h3>
+          <button class="menu-modal-close" id="nodeCountClose" aria-label="Cerrar">✕</button>
+        </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:14px;">
+          Define en cuántos nodos se reparten tus ejercicios (mínimo ${MIN_MAIN_NODES}, máximo ${MAX_MAIN_NODES}).
+          Puedes cambiarlo cuando quieras: tu progreso se conserva.
+        </p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin:10px 0 18px;">
+          <button type="button" class="fun-btn" id="nodeCountMinus" style="width:52px;height:52px;font-size:1.5rem;">−</button>
+          <span id="nodeCountValue" style="font-size:2rem;font-weight:900;min-width:56px;text-align:center;">${pending}</span>
+          <button type="button" class="fun-btn" id="nodeCountPlus" style="width:52px;height:52px;font-size:1.5rem;">+</button>
+        </div>
+        <div class="action-buttons">
+          <button class="fun-btn primary-btn" id="nodeCountApply">✅ Aplicar</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const valueEl = modal.querySelector('#nodeCountValue');
+    const minusBtn = modal.querySelector('#nodeCountMinus');
+    const plusBtn = modal.querySelector('#nodeCountPlus');
+
+    const refreshStepper = () => {
+      minusBtn.disabled = pending <= MIN_MAIN_NODES;
+      plusBtn.disabled = pending >= MAX_MAIN_NODES;
+      minusBtn.style.opacity = minusBtn.disabled ? "0.4" : "1";
+      plusBtn.style.opacity = plusBtn.disabled ? "0.4" : "1";
+    };
+    refreshStepper();
+
+    minusBtn.addEventListener('click', () => {
+      if (pending > MIN_MAIN_NODES) { pending--; valueEl.textContent = pending; refreshStepper(); }
+    });
+    plusBtn.addEventListener('click', () => {
+      if (pending < MAX_MAIN_NODES) { pending++; valueEl.textContent = pending; refreshStepper(); }
+    });
+
+    const close = () => modal.remove();
+    modal.querySelector('#nodeCountClose').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+
+    modal.querySelector('#nodeCountApply').addEventListener('click', () => {
+      close();
+      applyNodeCount(pending);
+    });
+  }
+
+  function applyNodeCount(newCount) {
+    const current = getTotalMainNodes();
+
+    // Sin ejercicios cargados todavía: solo guardamos la preferencia, se
+    // usará quando se construya el mapa por primera vez.
+    if (!AppState.nodes.length) {
+      setTotalMainNodes(newCount);
+      toast("🔢 Se usarán " + getTotalMainNodes() + " nodos cuando cargues tus ejercicios");
+      return;
+    }
+
+    if (newCount === current) { toast("🔢 Ya tienes " + current + " nodos"); return; }
+
+    const { nodes, progress } = redistributeMainNodes(AppState.nodes, AppState.progress, newCount);
+    AppState.nodes = nodes;
+    AppState.progress = progress;
+
+    saveToStorage();
+    renderMapView();
+    showMainView("map");
+    toast("🔢 Ahora tienes " + getTotalMainNodes() + " nodos — tu progreso se mantuvo");
   }
 
   // Deja al usuario escuchar ("▶️ Probar") y elegir a mano UNA voz fija
