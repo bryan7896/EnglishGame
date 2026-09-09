@@ -1755,32 +1755,14 @@ export function createPracticaInicial(informacion) {
   };
 }
 
-/**
- * Reparte `total` ejercicios entre `totalMainNodes` nodos, donde el nodo 1
- * recibe una porción extra: un ejercicio adicional "por cada nodo", es
- * decir +totalMainNodes sobre su reparto base equitativo. El resto del
- * total (lo que queda después de darle su porción al nodo 1) se reparte
- * lo más parejo posible entre los totalMainNodes-1 nodos restantes, y el
- * residuo de esa segunda división cae en el primero de esos nodos
- * restantes (nodo 2).
- *
- * Ejemplo: 100 ejercicios, 10 nodos -> base = 10, nodo 1 = 10 + 10 = 20;
- * quedan 80 para repartir entre 9 nodos -> 8 c/u con residuo 8, así que
- * los primeros 8 de esos 9 nodos reciben 9 y el último recibe 8.
- */
+
 function computeNodeSizes(total, totalMainNodes) {
   const base = Math.floor(total / totalMainNodes);
-  const node1Size = Math.min(total, base + totalMainNodes);
-  const remainingTotal = total - node1Size;
-  const remainingNodes = totalMainNodes - 1;
+  const remainder = total % totalMainNodes;
 
-  const sizes = [node1Size];
-  if (remainingNodes > 0) {
-    const restBase = Math.floor(remainingTotal / remainingNodes);
-    const restRemainder = remainingTotal % remainingNodes;
-    for (let i = 0; i < remainingNodes; i++) {
-      sizes.push(restBase + (i < restRemainder ? 1 : 0));
-    }
+  const sizes = [];
+  for (let i = 0; i < totalMainNodes; i++) {
+    sizes.push(base + (i < remainder ? 1 : 0));
   }
   return sizes;
 }
