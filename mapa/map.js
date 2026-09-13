@@ -4,9 +4,11 @@
 // ejercicios sobre su reparto base; el resto del total se reparte lo más
 // parejo posible entre los 9 nodos restantes, y el residuo de esa segunda
 // división cae en el primero de esos 9)
-// + 1 nodo especial de repaso (nodo totalMainNodes+1) que se llena
-// dinámicamente con los ejercicios de los nodos que no se aprueben con
-// 80% o más.
+// + uno o más nodos especiales de repaso (a partir del nodo
+// totalMainNodes+1) que se llenan dinámicamente con los ejercicios de los
+// nodos que no se aprueben con 80% o más. Igual que los nodos principales,
+// si la pool de repaso crece se reparte en varios nodos del mismo tamaño
+// típico en vez de amontonarse en uno solo (ver buildRepasoNodes()).
 
 export const MAP_CONFIG = {
   totalMainNodes: 10,
@@ -30,7 +32,7 @@ export const MAP_CONFIG = {
 // guardada en localStorage, igual que el idioma objetivo en idioma.js.
 const NODE_COUNT_STORAGE_KEY = "englishTrainerTotalMainNodes";
 export const MIN_MAIN_NODES = 3;
-export const MAX_MAIN_NODES = 20;
+export const MAX_MAIN_NODES = 60;
 
 let _totalMainNodes = MAP_CONFIG.totalMainNodes;
 try {
@@ -85,6 +87,58 @@ export function createPracticaInicial(informacion) {
 }
 
 
+// =========================================================================
+// Reparto del nodo de repaso en varios nodos — igual que los principales
+// =========================================================================
+// Antes el repaso era SIEMPRE un único nodo (por grande que fuera su pool).
+// Ahora, igual que los nodos principales se reparten con computeNodeSizes(),
+// la pool de repaso (AppState.reviewPool) se reparte en tantos nodos de
+// repaso como haga falta, del mismo tamaño "típico" que tiene un nodo
+// principal — así un repaso con muchos ejercicios pendientes también queda
+// dividido en tandas manejables en vez de amontonarse en un solo nodo.
+
+// Tamaño "típico" de un nodo principal (promedio, redondeado hacia arriba),
+// usado como tamaño de cada trozo de repaso. Si todavía no hay nodos
+// principales con ejercicios, se usa un tamaño por defecto razonable.
+export function computeRepasoChunkSize(mainNodes) {
+  const withExercises = (mainNodes || []).filter(
+    (n) => (n.totalExercises || n.exercises?.length || 0) > 0
+  );
+  if (!withExercises.length) return 10;
+  const totalMain = withExercises.reduce(
+    (sum, n) => sum + (n.totalExercises || n.exercises?.length || 0), 0
+  );
+  return Math.max(1, Math.ceil(totalMain / withExercises.length));
+}
+
+/**
+ * Reparte un array plano de ejercicios de repaso en tantos nodos de tipo
+ * "repaso" como haga falta, de tamaño `chunkSize` cada uno (el último puede
+ * quedar más chico). Si la pool está vacía, igual devuelve UN nodo vacío,
+ * para que el mapa siempre tenga al menos un nodo de repaso que mostrar.
+ * `startId` es el id (1-based) que le corresponde al primer nodo de repaso,
+ * es decir totalMainNodes + 1.
+ */
+export function buildRepasoNodes(reviewPool, chunkSize, startId) {
+  const pool = reviewPool || [];
+  const size = Math.max(1, chunkSize || 10);
+  const chunkCount = pool.length ? Math.ceil(pool.length / size) : 1;
+
+  const nodes = [];
+  for (let i = 0; i < chunkCount; i++) {
+    const exercises = pool.slice(i * size, (i + 1) * size);
+    nodes.push({
+      id: startId + i,
+      type: "repaso",
+      repasoIndex: i,
+      repasoCount: chunkCount,
+      totalExercises: exercises.length,
+      exercises,
+    });
+  }
+  return nodes;
+}
+
 function computeNodeSizes(total, totalMainNodes) {
   const base = Math.floor(total / totalMainNodes);
   const remainder = total % totalMainNodes;
@@ -97,11 +151,12 @@ function computeNodeSizes(total, totalMainNodes) {
 }
 
 /**
- * Construye totalMainNodes+1 nodos: los principales con el reparto de
- * computeNodeSizes() (nodo 1 con porción extra, ver arriba) y un nodo
- * extra de repaso que arranca vacío — se llena en tiempo de ejecución
- * (ver refreshRepasoNode en el motor principal) con los ejercicios de
- * nodos que no se aprobaron con 80% o más.
+ * Construye los nodos principales con el reparto de computeNodeSizes()
+ * (nodo 1 con porción extra, ver arriba) más uno o más nodos extra de
+ * repaso que arrancan vacíos — se llenan en tiempo de ejecución (ver
+ * refreshRepasoNode en el motor principal) con los ejercicios de nodos
+ * que no se aprobaron con 80% o más, repartiéndose en varios nodos si la
+ * pool crece (ver buildRepasoNodes()).
  */
 export function createNodeStructure(userData) {
   const { traducciones, completar, seleccionar, corregir, dictado } = userData;
@@ -135,14 +190,11 @@ export function createNodeStructure(userData) {
     });
   }
 
-  // Nodo de repaso: arranca vacío, se sincroniza dinámicamente con la
-  // "pool" de repaso mientras el usuario juega (ver refreshRepasoNode()).
-  nodes.push({
-    id: totalMainNodes + 1,
-    type: "repaso",
-    totalExercises: 0,
-    exercises: [],
-  });
+  // Nodo(s) de repaso: arrancan vacíos (un único nodo vacío), se
+  // sincronizan dinámicamente con la "pool" de repaso mientras el usuario
+  // juega, repartiéndose en varios nodos si hace falta (ver
+  // refreshRepasoNode() / buildRepasoNodes()).
+  nodes.push(...buildRepasoNodes([], computeRepasoChunkSize(nodes), totalMainNodes + 1));
 
   return nodes;
 }
@@ -165,11 +217,14 @@ export function createNodeStructure(userData) {
  * Devuelve { nodes, progress } listos para reemplazarlos.
  */
 export function redistributeMainNodes(nodes, progress, newTotalMainNodes) {
-  const oldTotalMainNodes = Math.max(0, nodes.length - 1);
+  // El primer nodo de tipo "repaso" marca dónde terminan los principales
+  // (puede haber uno o varios nodos de repaso a continuación).
+  const firstRepasoIdx = nodes.findIndex((n) => n.type === "repaso");
+  const oldTotalMainNodes = firstRepasoIdx === -1 ? nodes.length : firstRepasoIdx;
   const clamped = setTotalMainNodes(newTotalMainNodes);
 
   const mainNodes = nodes.slice(0, oldTotalMainNodes);
-  const repasoNode = nodes[oldTotalMainNodes] || { exercises: [] };
+  const oldRepasoNodes = nodes.slice(oldTotalMainNodes);
 
   // Aplanamos todos los ejercicios principales, recordando si cada uno ya
   // estaba resuelto (según el progreso viejo), para que ese dato viaje con
@@ -212,22 +267,31 @@ export function redistributeMainNodes(nodes, progress, newTotalMainNodes) {
     };
   }
 
-  const repasoIdx = clamped;
-  const repasoExercises = repasoNode.exercises || [];
-  const newNodes = [...newMainNodes, {
-    id: clamped + 1,
-    type: "repaso",
-    totalExercises: repasoExercises.length,
-    exercises: repasoExercises,
-  }];
+  // Los nodos de repaso (puede haber uno o varios) se conservan tal cual
+  // estaban — esto solo redistribuye los PRINCIPALES — únicamente se les
+  // renumera el id y se remapea su progreso a la nueva posición dentro del
+  // array. Si por algún motivo no había ninguno, se crea uno vacío.
+  const repasoSource = oldRepasoNodes.length
+    ? oldRepasoNodes
+    : [{ type: "repaso", totalExercises: 0, exercises: [] }];
 
-  // El progreso del nodo de repaso se conserva tal cual estaba (no depende
-  // de la cantidad de nodos principales).
-  newProgress[repasoIdx] = progress[oldTotalMainNodes] || {
-    completed: repasoExercises.length === 0,
-    exercisesDone: 0,
-    exerciseResults: Array(repasoExercises.length).fill(false),
-  };
+  const repasoNodes = repasoSource.map((node, i) => ({
+    ...node,
+    id: clamped + i + 1,
+    type: "repaso",
+  }));
+
+  const newNodes = [...newMainNodes, ...repasoNodes];
+
+  repasoNodes.forEach((node, i) => {
+    const oldIdx = oldTotalMainNodes + i;
+    const exercisesLen = (node.exercises || []).length;
+    newProgress[clamped + i] = progress[oldIdx] || {
+      completed: exercisesLen === 0,
+      exercisesDone: 0,
+      exerciseResults: Array(exercisesLen).fill(false),
+    };
+  });
 
   return { nodes: newNodes, progress: newProgress };
 }
@@ -240,12 +304,13 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
   const mapList = document.getElementById("mapList");
   if (!mapList) return;
 
-  // Se deriva de la longitud real del array (y no de MAP_CONFIG.totalMainNodes)
-  // para que el mapa funcione igual sin importar cuántos nodos haya elegido
-  // el usuario.
-  const totalMainNodes = Math.max(0, nodes.length - 1);
-  const mainNodes = nodes.slice(0, totalMainNodes);
-  const repasoNode = nodes[totalMainNodes];
+  // Se deriva del tipo de cada nodo (y no de la longitud del array) para
+  // que el mapa funcione igual sin importar cuántos nodos principales haya
+  // elegido el usuario NI cuántos nodos de repaso hayan salido de repartir
+  // la pool (ahora puede ser más de uno, ver buildRepasoNodes()).
+  const mainNodes = nodes.filter(n => n.type !== "repaso");
+  const repasoNodes = nodes.filter(n => n.type === "repaso");
+  const totalMainNodes = mainNodes.length;
   const hasAnyMain = mainNodes.some(n => (n.exercises?.length || 0) > 0);
   const hasPractica = !!(practicaInicial && practicaInicial.lecciones?.length);
 
@@ -312,20 +377,22 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
     `;
   }).join('');
 
-  let repasoHtml = '';
-  if (repasoNode) {
-    const idx = totalMainNodes;
+  const repasoHtml = repasoNodes.map((repasoNode, rIdx) => {
+    const idx = totalMainNodes + rIdx;
     const prog = progress[idx] || { completed: true, exercisesDone: 0 };
     const total = repasoNode.exercises?.length || 0;
     const done = Math.min(prog.exercisesDone || 0, total);
     const pct = total ? Math.round(done / total * 100) : 0;
     const isEmpty = total === 0;
+    // Solo se numeran los repasos entre sí ("Repaso 1", "Repaso 2"...)
+    // cuando hay más de uno; con uno solo se ve igual que antes.
+    const repasoLabel = repasoNodes.length > 1 ? `Repaso ${rIdx + 1}/${repasoNodes.length}` : 'Repaso';
 
-    repasoHtml = `
+    return `
       <div class="netflix-node repaso-node ${isEmpty ? 'empty' : ''} ${practicaPendiente ? 'practica-dim' : ''}" data-node="${idx}" style="${isEmpty || practicaPendiente ? 'pointer-events:none;' : ''}">
         <div class="repaso-node-icon">🧠</div>
         <div class="repaso-node-content">
-          <div class="repaso-node-title">Nodo ${totalMainNodes + 1} · Repaso</div>
+          <div class="repaso-node-title">Nodo ${idx + 1} · ${repasoLabel}</div>
           <div class="repaso-node-desc">
             ${isEmpty ? '🎉 No tienes ejercicios pendientes' : total + (total === 1 ? ' ejercicio por repasar' : ' ejercicios por repasar')}
           </div>
@@ -339,7 +406,7 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
         </div>
       </div>
     `;
-  }
+  }).join('');
 
   mapList.innerHTML = practicaHtml + mainNodesHtml + repasoHtml;
 
@@ -353,7 +420,7 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
       if (practicaPendiente) { callbacks.showToast("📌 Termina la práctica inicial primero"); return; }
       const idx = parseInt(card.dataset.node);
       const node = nodes[idx];
-      const isRepaso = idx === totalMainNodes;
+      const isRepaso = node?.type === "repaso";
 
       if (!node || !node.exercises || node.exercises.length === 0) {
         callbacks.showToast(isRepaso ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo no tiene ejercicios");

@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "9.6 (6-09-2026)"
+VERSION = "9.7 (13-09-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -418,23 +418,42 @@ def get_main_logic():
 
   const PASS_THRESHOLD = 0.8;
 
-  // El nodo de repaso siempre es el último del array: como la cantidad de
-  // nodos principales ahora es configurable (ver menú -> 🔢 Nodos), su
-  // índice ya no puede ser una constante fija.
-  function getRepasoNodeIndex() {
-    return Math.max(0, AppState.nodes.length - 1);
+  // El repaso ya no es siempre un único nodo al final del array: si la pool
+  // crece, se reparte en varios nodos de repaso (ver buildRepasoNodes() en
+  // map.js), igual que los principales se reparten con computeNodeSizes().
+  // Estos helpers ubican dónde EMPIEZAN los nodos de repaso dentro del
+  // array, sin asumir que hay exactamente uno.
+  function getFirstRepasoNodeIndex() {
+    const idx = AppState.nodes.findIndex(n => n.type === 'repaso');
+    return idx === -1 ? AppState.nodes.length : idx;
+  }
+
+  function isRepasoNodeIndex(idx) {
+    return AppState.nodes[idx]?.type === 'repaso';
   }
 
   function refreshRepasoNode() {
-    const node = AppState.nodes[getRepasoNodeIndex()];
-    if (!node || node.type !== 'repaso') return;
-    node.exercises = AppState.reviewPool.slice();
-    node.totalExercises = node.exercises.length;
-    AppState.progress[getRepasoNodeIndex()] = {
-      completed: node.exercises.length === 0,
-      exercisesDone: 0,
-      exerciseResults: Array(node.exercises.length).fill(false)
-    };
+    const firstRepasoIdx = getFirstRepasoNodeIndex();
+    if (firstRepasoIdx >= AppState.nodes.length) return;
+
+    const mainNodes = AppState.nodes.slice(0, firstRepasoIdx);
+    const oldRepasoCount = AppState.nodes.length - firstRepasoIdx;
+    const chunkSize = computeRepasoChunkSize(mainNodes);
+    const newRepasoNodes = buildRepasoNodes(AppState.reviewPool, chunkSize, firstRepasoIdx + 1);
+
+    // El progreso de los nodos de repaso viejos se descarta (igual que
+    // antes: cada refresh arranca el repaso "de cero") y se arma de nuevo
+    // para los nodos recién construidos.
+    for (let i = 0; i < oldRepasoCount; i++) delete AppState.progress[firstRepasoIdx + i];
+
+    AppState.nodes = [...mainNodes, ...newRepasoNodes];
+    newRepasoNodes.forEach((node, i) => {
+      AppState.progress[firstRepasoIdx + i] = {
+        completed: node.exercises.length === 0,
+        exercisesDone: 0,
+        exerciseResults: Array(node.exercises.length).fill(false)
+      };
+    });
   }
 
   // ---- Análisis de diferencia palabra a palabra ----
@@ -587,7 +606,8 @@ def get_main_logic():
 
   // ==================== PRÁCTICA INICIAL ====================
   // Nodo especial, obligatorio, previo al Nodo 1. Vive fuera del array de
-  // 11 nodos (10 principales + repaso) y NO alimenta el informe de errores
+  // nodos (principales + repaso, ahora este último puede ser más de uno) y
+  // NO alimenta el informe de errores
   // (ver informacion.js).
   let practicaLeccionState = null;
 
@@ -639,7 +659,7 @@ def get_main_logic():
   function openNode(nodeIndex) {
     cleanupAudio();
     if (!AppState.nodes[nodeIndex]?.exercises?.length) {
-      toast(nodeIndex === getRepasoNodeIndex() ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo está vacío");
+      toast(isRepasoNodeIndex(nodeIndex) ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo está vacío");
       return;
     }
     AppState.activeNodeIndex = nodeIndex;
@@ -891,7 +911,7 @@ def get_main_logic():
     if (repasoEntries.length > 0) {
       lines.push("🔁 SECCIÓN DE REPASO — Practicando hasta superar tus errores");
       lines.push("=".repeat(40));
-      lines.push("Aquí queda registrado todo lo ocurrido en el Nodo " + (getRepasoNodeIndex() + 1) + " (repaso),");
+      lines.push("Aquí queda registrado todo lo ocurrido en tus nodos de repaso,");
       lines.push("donde cada ejercicio fallado se repite hasta que se aprueba de verdad.");
       lines.push("-".repeat(30));
       repasoEntries.forEach(entry => {
