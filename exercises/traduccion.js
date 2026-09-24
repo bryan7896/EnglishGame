@@ -86,6 +86,36 @@ function speakTraduccionText(text) {
   }, 100);
 }
 
+// ---------------------------------------------------------------------
+// Botones "Repasar" / "Repasar luego" (compartidos por los modales de
+// resultado de traducción, corrección y dictado). Siempre visibles, sin
+// importar el puntaje (0% a 100%).
+//   - "repasar": el ejercicio se manda al FINAL del nodo actual.
+//   - "luego":   el ejercicio se manda a la sección de repaso final.
+// La decisión llega al motor principal como último argumento de onContinue.
+// ---------------------------------------------------------------------
+export function reviewButtonsHTML() {
+  return `
+    <div class="modal-review-buttons">
+      <button type="button" class="fun-btn review-btn review-btn-now" data-review="repasar">
+        <span>🔁 Repasar</span><span class="review-btn-sub">al final de este nodo</span>
+      </button>
+      <button type="button" class="fun-btn review-btn review-btn-later" data-review="luego">
+        <span>🧠 Repasar luego</span><span class="review-btn-sub">a la sección de repaso</span>
+      </button>
+    </div>
+  `;
+}
+
+export function wireReviewButtons(modal, done) {
+  modal.querySelectorAll('[data-review]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      done(btn.dataset.review);
+    });
+  });
+}
+
 export function showComparativeModal(exercise, userAnswer, onContinue) {
   const existingModal = document.querySelector('.modal-overlay');
   if (existingModal) existingModal.remove();
@@ -137,6 +167,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
         <label style="color:#94a3b8;font-size:0.8rem;">💭 Consulta (opcional)</label>
         <textarea class="answer-input modal-doubt" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
       </div>
+      ${reviewButtonsHTML()}
       <div class="modal-buttons">
         <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
       </div>
@@ -149,14 +180,16 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
     speakTraduccionText(correctText);
   }
   
-  const close = () => {
+  // decision: undefined (solo continuar) | "repasar" | "luego"
+  const close = (decision) => {
     const duda = modal.querySelector('.modal-doubt')?.value?.trim() || '';
     window.speechSynthesis?.cancel();
     modal.remove();
-    if (onContinue) onContinue(duda, passed);
+    if (onContinue) onContinue(duda, passed, decision || null);
   };
   
-  modal.querySelector('.modal-continue').addEventListener("click", close);
+  modal.querySelector('.modal-continue').addEventListener("click", () => close());
+  wireReviewButtons(modal, close);
   modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
 }
 

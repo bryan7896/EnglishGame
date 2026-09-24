@@ -1431,7 +1431,7 @@ textarea:focus-visible,
   animation: modal-pop 0.28s var(--ease);
   display: flex;          
   flex-direction: column; 
-  justify-content: center; 
+  justify-content: flex-start;
 }
 
 @keyframes modal-pop {
@@ -1453,6 +1453,41 @@ textarea:focus-visible,
 
 .modal-buttons { display: flex; gap: 10px; margin-top: 18px; }
 .modal-buttons .fun-btn { flex: 1; }
+
+/* Scroll en modales (corrección, traducción, dictado, menú...).
+   Antes el contenido se centraba con justify-content:center y los hijos
+   flex se comprimían, así que al crecer el modal quedaba "fijo" y con la
+   parte de arriba inalcanzable. Ahora el modal hace scroll vertical y el
+   contenido sigue centrado cuando cabe (margin:auto en primer/último hijo). */
+.modal-friend {
+  max-height: 86vh;
+  max-height: 86dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+.modal-friend > * { flex-shrink: 0; }
+.modal-friend > :first-child { margin-top: auto; }
+.modal-friend > :last-child { margin-bottom: auto; }
+
+/* Botones [Repasar] / [Repasar luego] de los modales de resultado */
+.modal-review-buttons { display: flex; gap: 10px; margin-top: 18px; }
+.modal-review-buttons + .modal-buttons { margin-top: 10px; }
+.review-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  line-height: 1.25;
+}
+.review-btn-sub { font-size: 0.66rem; font-weight: 500; opacity: 0.8; }
+.review-btn-now { background: var(--warn-wash); border-color: rgba(245, 158, 11, 0.35); color: var(--warn); }
+.review-btn-later { background: var(--info-wash); border-color: rgba(94, 179, 246, 0.3); color: var(--info); }
+
+/* Modal de dictado: cabecera + cuerpo + pie; el pie queda pegado abajo */
+.dictado-modal-footer { position: sticky; bottom: 0; background: var(--surface); z-index: 1; }
+.dictado-modal-footer .modal-review-buttons { margin: 0 0 10px; }
 
 /* ============ 17b. MODAL DE MENÚ (header colapsado) ============ */
 .menu-modal {
@@ -1772,13 +1807,15 @@ export function createPracticaInicial(informacion) {
 // usado como tamaño de cada trozo de repaso. Si todavía no hay nodos
 // principales con ejercicios, se usa un tamaño por defecto razonable.
 export function computeRepasoChunkSize(mainNodes) {
-  const withExercises = (mainNodes || []).filter(
-    (n) => (n.totalExercises || n.exercises?.length || 0) > 0
-  );
+  // Solo cuentan los ejercicios "originales" del nodo: las copias que el
+  // usuario manda con [Repasar] al final de su nodo (__requeue) no deben
+  // inflar el tamaño típico de un nodo de repaso.
+  const originalCount = (n) => Array.isArray(n.exercises)
+    ? n.exercises.filter((e) => !e.__requeue).length
+    : (n.totalExercises || 0);
+  const withExercises = (mainNodes || []).filter((n) => originalCount(n) > 0);
   if (!withExercises.length) return 10;
-  const totalMain = withExercises.reduce(
-    (sum, n) => sum + (n.totalExercises || n.exercises?.length || 0), 0
-  );
+  const totalMain = withExercises.reduce((sum, n) => sum + originalCount(n), 0);
   return Math.max(1, Math.ceil(totalMain / withExercises.length));
 }
 
@@ -1900,12 +1937,22 @@ export function redistributeMainNodes(nodes, progress, newTotalMainNodes) {
   // Aplanamos todos los ejercicios principales, recordando si cada uno ya
   // estaba resuelto (según el progreso viejo), para que ese dato viaje con
   // el ejercicio sin importar en qué nodo nuevo caiga.
+  //
+  // Excepción: las copias que el usuario mandó con [Repasar] al final de su
+  // nodo (marcadas con __requeue) NO entran al reparto automático. Se
+  // apartan y, tras repartir los ejercicios originales, se vuelven a poner
+  // al FINAL del mismo nodo donde estaban (o del último nodo, si el nuevo
+  // total de nodos es menor). Así el reparto automático no las mueve de
+  // sitio ni altera el tamaño de los nodos.
   const flat = [];
+  const requeued = [];
   mainNodes.forEach((node, idx) => {
     const prog = progress[idx] || {};
     const results = prog.exerciseResults || [];
     (node.exercises || []).forEach((ex, i) => {
-      flat.push({ exercise: ex, done: !!results[i] });
+      const done = !!results[i];
+      if (ex && ex.__requeue) requeued.push({ exercise: ex, done, home: idx });
+      else flat.push({ exercise: ex, done });
     });
   });
 
@@ -1920,8 +1967,12 @@ export function redistributeMainNodes(nodes, progress, newTotalMainNodes) {
     const slice = flat.slice(cursor, cursor + size);
     cursor += size;
 
-    const exercises = slice.map(item => item.exercise);
-    const exerciseResults = slice.map(item => item.done);
+    // Las copias de [Repasar] vuelven al final de su nodo de origen.
+    const extras = requeued.filter((r) => Math.min(r.home, clamped - 1) === i);
+    const withExtras = [...slice, ...extras];
+
+    const exercises = withExtras.map(item => item.exercise);
+    const exerciseResults = withExtras.map(item => item.done);
     const exercisesDone = exerciseResults.filter(Boolean).length;
 
     newMainNodes.push({
@@ -2469,6 +2520,36 @@ function speakTraduccionText(text) {
   }, 100);
 }
 
+// ---------------------------------------------------------------------
+// Botones "Repasar" / "Repasar luego" (compartidos por los modales de
+// resultado de traducción, corrección y dictado). Siempre visibles, sin
+// importar el puntaje (0% a 100%).
+//   - "repasar": el ejercicio se manda al FINAL del nodo actual.
+//   - "luego":   el ejercicio se manda a la sección de repaso final.
+// La decisión llega al motor principal como último argumento de onContinue.
+// ---------------------------------------------------------------------
+export function reviewButtonsHTML() {
+  return `
+    <div class="modal-review-buttons">
+      <button type="button" class="fun-btn review-btn review-btn-now" data-review="repasar">
+        <span>🔁 Repasar</span><span class="review-btn-sub">al final de este nodo</span>
+      </button>
+      <button type="button" class="fun-btn review-btn review-btn-later" data-review="luego">
+        <span>🧠 Repasar luego</span><span class="review-btn-sub">a la sección de repaso</span>
+      </button>
+    </div>
+  `;
+}
+
+export function wireReviewButtons(modal, done) {
+  modal.querySelectorAll('[data-review]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      done(btn.dataset.review);
+    });
+  });
+}
+
 export function showComparativeModal(exercise, userAnswer, onContinue) {
   const existingModal = document.querySelector('.modal-overlay');
   if (existingModal) existingModal.remove();
@@ -2520,6 +2601,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
         <label style="color:#94a3b8;font-size:0.8rem;">💭 Consulta (opcional)</label>
         <textarea class="answer-input modal-doubt" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
       </div>
+      ${reviewButtonsHTML()}
       <div class="modal-buttons">
         <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
       </div>
@@ -2532,14 +2614,16 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
     speakTraduccionText(correctText);
   }
   
-  const close = () => {
+  // decision: undefined (solo continuar) | "repasar" | "luego"
+  const close = (decision) => {
     const duda = modal.querySelector('.modal-doubt')?.value?.trim() || '';
     window.speechSynthesis?.cancel();
     modal.remove();
-    if (onContinue) onContinue(duda, passed);
+    if (onContinue) onContinue(duda, passed, decision || null);
   };
   
-  modal.querySelector('.modal-continue').addEventListener("click", close);
+  modal.querySelector('.modal-continue').addEventListener("click", () => close());
+  wireReviewButtons(modal, close);
   modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
 }
 
@@ -3352,6 +3436,7 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
         <label class="modal-doubt-label">💭 Consulta (opcional)</label>
         <textarea class="answer-input modal-doubt" rows="2" placeholder="Tu consulta..."></textarea>
       </div>
+      ${reviewButtonsHTML()}
       <div class="modal-buttons">
         ${!passed ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
         <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
@@ -3376,6 +3461,13 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
     e.stopPropagation();
     closeModal();
     if (onContinue) onContinue(getDuda());
+  });
+
+  // "Repasar" (final del nodo) / "Repasar luego" (sección de repaso)
+  wireReviewButtons(modal, (decision) => {
+    const duda = getDuda();
+    closeModal();
+    if (onContinue) onContinue(duda, decision);
   });
 
   const retryBtn = modal.querySelector('.modal-retry');
@@ -3714,11 +3806,11 @@ export function renderDictadoExercise(exercise, container) {
     window.speechSynthesis.cancel();
     
     const result = checkDictadoAnswer(text, userAnswer);
-    showDictadoModal(text, result, userAnswer, (duda) => {
+    showDictadoModal(text, result, userAnswer, (duda, decision) => {
       // Limpiar timer antes de avanzar
       if (container._autoPlayTimer) clearTimeout(container._autoPlayTimer);
       container.dispatchEvent(new CustomEvent('dictado-done', { 
-        detail: { originalText: text, userAnswer, result, duda } 
+        detail: { originalText: text, userAnswer, result, duda, decision } 
       }));
     });
   };
@@ -3787,7 +3879,7 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
   const modal = document.createElement("div");
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
-    <div class="modal-friend dictado-modal" style="padding:0;overflow:hidden;">
+    <div class="modal-friend dictado-modal" style="padding:0;">
       <div style="padding:20px 24px;background:${accColor};color:#fff;display:flex;align-items:center;gap:12px;">
         <span style="font-size:2rem;">${isExact?'🏆':passed?'✅':'📝'}</span>
         <h3 style="color:#fff;margin:0;">${isExact?'¡Perfecto!':passed?'¡Aceptado! (80%+)':'Sigue practicando'}</h3>
@@ -3824,7 +3916,8 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
           <textarea class="answer-input dictado-modal-doubt" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
         </div>
       </div>
-      <div style="padding:16px 24px;border-top:1px solid #222;">
+      <div class="dictado-modal-footer" style="padding:16px 24px;border-top:1px solid #222;">
+        ${reviewButtonsHTML()}
         <button class="dictado-modal-btn dictado-modal-continue" style="width:100%;background:#e50914;color:#fff;border:none;border-radius:8px;padding:14px;font-size:0.9rem;font-weight:600;cursor:pointer;">▶️ Continuar</button>
       </div>
     </div>
@@ -3835,12 +3928,14 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
   const continueBtn = modal.querySelector('.dictado-modal-continue');
   const doubtInput = modal.querySelector('.dictado-modal-doubt');
   
-  const close = () => {
+  // decision: undefined (solo continuar) | "repasar" | "luego"
+  const close = (decision) => {
     const duda = doubtInput?.value?.trim() || '';
     modal.remove();
     window.speechSynthesis.cancel(); // Cancelar audio al cerrar
-    if (onContinue) onContinue(duda);
+    if (onContinue) onContinue(duda, decision || null);
   };
+  wireReviewButtons(modal, close);
   
   continueBtn.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -4468,7 +4563,14 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
       const diff = cleanAnswer ? analyzeWordDiff(correctText, cleanAnswer) : { sameLength: false, diffIndexes: [] };
       const isNearMiss = diff.sameLength && diff.diffIndexes.length >= 1 && diff.diffIndexes.length <= 2;
 
-      if (isNearMiss) {
+      // Si lo respondió bien (p. ej. lo mandó a "Repasar luego" con 100%) no hay
+      // ningún "error" que mostrar: vuelve tal cual, como ejercicio del mismo tipo.
+      const stripP = (s) => normalizeContractions(String(s || "")).toLowerCase().replace(/[.,!?;:]/g, "").replace(/\s+/g, " ").trim();
+      const wasCorrect = cleanAnswer && stripP(cleanAnswer) === stripP(correctText);
+
+      if (wasCorrect) {
+        converted = { ...ex };
+      } else if (isNearMiss) {
         converted = buildCompletarFromDiff(spanishPrompt, diff.correctWords, diff.diffIndexes);
       } else {
         // Nunca cae de vuelta al texto en español: si por algún motivo no
@@ -4488,6 +4590,8 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
     }
     converted.__repasoId = ex.__repasoId;
     converted.__originType = ex.type;
+    // La marca de [Repasar] solo aplica a nodos principales; en la pool no.
+    delete converted.__requeue;
     return converted;
   }
 
@@ -4499,25 +4603,57 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
     return entry;
   }
 
-  function recordExerciseResult(isCorrect) {
+  // Tipos cuyo modal de resultado muestra [Repasar] / [Repasar luego]. Para
+  // estos ya NO hay envío automático al repaso: lo decide el usuario. Los
+  // demás tipos (completar, emparejar) conservan la regla anterior al
+  // cerrar el nodo (ver renderExercise).
+  const MANUAL_REVIEW_TYPES = ["traduccion", "corregir", "dictado"];
+
+  // [Repasar]: una copia del ejercicio se agrega al FINAL del nodo actual.
+  // La copia se marca con __requeue para que, si luego se cambia la cantidad
+  // de nodos (redistributeMainNodes en map.js), siga en ESTE nodo en vez de
+  // moverse con el reparto automático.
+  function requeueAtEndOfMainNode(node, ex) {
+    const nodeIdx = AppState.activeNodeIndex;
+    const clone = { ...ex, __requeue: true };
+    node.exercises.push(clone);
+    node.totalExercises = node.exercises.length;
+
+    const prog = AppState.progress[nodeIdx];
+    if (prog) {
+      prog.exerciseResults = prog.exerciseResults || [];
+      while (prog.exerciseResults.length < node.exercises.length) prog.exerciseResults.push(false);
+      prog.completed = false;
+    }
+    toast("🔁 Irá al final de este nodo");
+  }
+
+  // [Repasar luego]: el ejercicio va a la pool de la sección de repaso final.
+  function sendToReviewPool(ex, userAnswer) {
+    const alreadyQueued = ex.__repasoId && AppState.reviewPool.some(p => p.__repasoId === ex.__repasoId);
+    if (!alreadyQueued) AppState.reviewPool.push(buildRepasoExercise(ex, userAnswer));
+    // Se refleja de una vez en el mapa (los nodos de repaso van después de
+    // los principales, así que no mueve el nodo que se está jugando).
+    refreshRepasoNode();
+    toast("🧠 Enviado a la sección de repaso");
+  }
+
+  // decision (opcional): "repasar" | "luego" | null/undefined (solo continuar).
+  function recordExerciseResult(isCorrect, decision) {
     const node = AppState.nodes[AppState.activeNodeIndex];
     const exIndex = AppState.activeExerciseIndex;
     AppState.sessionCorrectness[exIndex] = !!isCorrect;
+    if (!node) return;
 
-    if (node && node.type === "repaso") {
-      const current = node.exercises[exIndex];
-      if (!current) return;
-      if (isCorrect) {
-        // Aprobado de verdad: sale definitivamente de la pool de repaso
-        if (current.__repasoId) {
-          AppState.reviewPool = AppState.reviewPool.filter(p => p.__repasoId !== current.__repasoId);
-        }
-      } else {
-        // Sigue sin superar el 80%: se reencola al FINAL del nodo de repaso,
-        // refrescando el error con la última respuesta del usuario, hasta
-        // que realmente lo apruebe.
+    const current = node.exercises[exIndex];
+    if (!current) return;
+    const userAnswer = AppState.sessionAnswers[exIndex];
+
+    if (node.type === "repaso") {
+      // Reencola el ejercicio al FINAL del nodo de repaso, refrescando el
+      // error con la última respuesta del usuario.
+      const requeueInRepaso = () => {
         const clone = { ...current };
-        const userAnswer = AppState.sessionAnswers[exIndex];
         if (clone.type === "corregir" && userAnswer && userAnswer.trim()) {
           const attempt = userAnswer.trim();
           clone.fraseConError = attempt;
@@ -4528,8 +4664,29 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
           clone.wrongAttempts = history.slice(-3);
         }
         node.exercises.push(clone);
+      };
+
+      if (decision === "repasar") {
+        // Pidió repasarlo otra vez: se queda en la pool y vuelve al final de este nodo.
+        requeueInRepaso();
+      } else if (decision === "luego") {
+        // Se queda en la pool para una próxima ronda de repaso (no se reencola aquí).
+      } else if (isCorrect) {
+        // Aprobado de verdad: sale definitivamente de la pool de repaso
+        if (current.__repasoId) {
+          AppState.reviewPool = AppState.reviewPool.filter(p => p.__repasoId !== current.__repasoId);
+        }
+      } else {
+        // Sigue sin superar el 80%: se reencola al FINAL del nodo de repaso
+        // hasta que realmente lo apruebe.
+        requeueInRepaso();
       }
+      return;
     }
+
+    // Nodo principal
+    if (decision === "repasar") requeueAtEndOfMainNode(node, current);
+    else if (decision === "luego") sendToReviewPool(current, userAnswer);
   }
 
   // ==================== PRÁCTICA INICIAL ====================
@@ -4620,13 +4777,16 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
       if (node.type !== 'repaso') {
         // El nodo de repaso resuelve su propia pool ejercicio a ejercicio (ver
         // recordExerciseResult), así que aquí solo evaluamos nodos principales.
+        // Traducción/corrección/dictado ya NO se envían solos al repaso: el
+        // usuario decide con [Repasar] / [Repasar luego] en el modal. Esta
+        // regla (nodo < 80%) solo sigue aplicando a los demás tipos.
         const total = node.exercises.length;
         let correctCount = 0;
         node.exercises.forEach((ex, i) => { if (AppState.sessionCorrectness[i]) correctCount++; });
         const score = total ? correctCount / total : 1;
         if (score < PASS_THRESHOLD) {
           node.exercises.forEach((ex, i) => {
-            if (!AppState.sessionCorrectness[i]) {
+            if (!AppState.sessionCorrectness[i] && !MANUAL_REVIEW_TYPES.includes(ex.type)) {
               const alreadyQueued = ex.__repasoId && AppState.reviewPool.some(p => p.__repasoId === ex.__repasoId);
               if (!alreadyQueued) {
                 AppState.reviewPool.push(buildRepasoExercise(ex, AppState.sessionAnswers[i]));
@@ -4674,9 +4834,9 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
       checkBtn.onclick = () => {
         const userAnswer = answerInput.value.trim();
         if (!userAnswer) { toast("📝 Escribe algo"); return; }
-        showComparativeModal(exercise, userAnswer, (duda, passed) => {
+        showComparativeModal(exercise, userAnswer, (duda, passed, decision) => {
           AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
-          recordExerciseResult(passed);
+          recordExerciseResult(passed, decision);
           AppState.reportEntries.push(tagOrigin(getTraduccionReportEntry(exercise, userAnswer, duda)));
           advanceExercise();
         });
@@ -4717,7 +4877,7 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
         AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
         const result = checkCorregirAnswer(exercise, userAnswer);
         showCorregirModal(exercise, result, userAnswer, 
-          (duda) => { recordExerciseResult(result.passed); AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); advanceExercise(); },
+          (duda, decision) => { recordExerciseResult(result.passed, decision); AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); advanceExercise(); },
           (duda) => { AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
       };
@@ -4737,9 +4897,9 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
     
     const handler = function(e) {
       cleanupAudio();
-      const { originalText, userAnswer, result, duda } = e.detail;
+      const { originalText, userAnswer, result, duda, decision } = e.detail;
       AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
-      recordExerciseResult(!!result?.passed);
+      recordExerciseResult(!!result?.passed, decision);
       AppState.reportEntries.push(tagOrigin(getDictadoReportEntry(originalText, userAnswer, duda)));
       advanceExercise();
     };
@@ -4950,7 +5110,7 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">9.7 (13-09-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">9.8 (24-09-2026)</div>
         <div class="action-buttons">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>

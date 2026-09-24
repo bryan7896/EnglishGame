@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "9.7 (13-09-2026)"
+VERSION = "9.8 (24-09-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -540,7 +540,14 @@ def get_main_logic():
       const diff = cleanAnswer ? analyzeWordDiff(correctText, cleanAnswer) : { sameLength: false, diffIndexes: [] };
       const isNearMiss = diff.sameLength && diff.diffIndexes.length >= 1 && diff.diffIndexes.length <= 2;
 
-      if (isNearMiss) {
+      // Si lo respondió bien (p. ej. lo mandó a "Repasar luego" con 100%) no hay
+      // ningún "error" que mostrar: vuelve tal cual, como ejercicio del mismo tipo.
+      const stripP = (s) => normalizeContractions(String(s || "")).toLowerCase().replace(/[.,!?;:]/g, "").replace(/\s+/g, " ").trim();
+      const wasCorrect = cleanAnswer && stripP(cleanAnswer) === stripP(correctText);
+
+      if (wasCorrect) {
+        converted = { ...ex };
+      } else if (isNearMiss) {
         converted = buildCompletarFromDiff(spanishPrompt, diff.correctWords, diff.diffIndexes);
       } else {
         // Nunca cae de vuelta al texto en español: si por algún motivo no
@@ -560,6 +567,8 @@ def get_main_logic():
     }
     converted.__repasoId = ex.__repasoId;
     converted.__originType = ex.type;
+    // La marca de [Repasar] solo aplica a nodos principales; en la pool no.
+    delete converted.__requeue;
     return converted;
   }
 
@@ -571,25 +580,57 @@ def get_main_logic():
     return entry;
   }
 
-  function recordExerciseResult(isCorrect) {
+  // Tipos cuyo modal de resultado muestra [Repasar] / [Repasar luego]. Para
+  // estos ya NO hay envío automático al repaso: lo decide el usuario. Los
+  // demás tipos (completar, emparejar) conservan la regla anterior al
+  // cerrar el nodo (ver renderExercise).
+  const MANUAL_REVIEW_TYPES = ["traduccion", "corregir", "dictado"];
+
+  // [Repasar]: una copia del ejercicio se agrega al FINAL del nodo actual.
+  // La copia se marca con __requeue para que, si luego se cambia la cantidad
+  // de nodos (redistributeMainNodes en map.js), siga en ESTE nodo en vez de
+  // moverse con el reparto automático.
+  function requeueAtEndOfMainNode(node, ex) {
+    const nodeIdx = AppState.activeNodeIndex;
+    const clone = { ...ex, __requeue: true };
+    node.exercises.push(clone);
+    node.totalExercises = node.exercises.length;
+
+    const prog = AppState.progress[nodeIdx];
+    if (prog) {
+      prog.exerciseResults = prog.exerciseResults || [];
+      while (prog.exerciseResults.length < node.exercises.length) prog.exerciseResults.push(false);
+      prog.completed = false;
+    }
+    toast("🔁 Irá al final de este nodo");
+  }
+
+  // [Repasar luego]: el ejercicio va a la pool de la sección de repaso final.
+  function sendToReviewPool(ex, userAnswer) {
+    const alreadyQueued = ex.__repasoId && AppState.reviewPool.some(p => p.__repasoId === ex.__repasoId);
+    if (!alreadyQueued) AppState.reviewPool.push(buildRepasoExercise(ex, userAnswer));
+    // Se refleja de una vez en el mapa (los nodos de repaso van después de
+    // los principales, así que no mueve el nodo que se está jugando).
+    refreshRepasoNode();
+    toast("🧠 Enviado a la sección de repaso");
+  }
+
+  // decision (opcional): "repasar" | "luego" | null/undefined (solo continuar).
+  function recordExerciseResult(isCorrect, decision) {
     const node = AppState.nodes[AppState.activeNodeIndex];
     const exIndex = AppState.activeExerciseIndex;
     AppState.sessionCorrectness[exIndex] = !!isCorrect;
+    if (!node) return;
 
-    if (node && node.type === "repaso") {
-      const current = node.exercises[exIndex];
-      if (!current) return;
-      if (isCorrect) {
-        // Aprobado de verdad: sale definitivamente de la pool de repaso
-        if (current.__repasoId) {
-          AppState.reviewPool = AppState.reviewPool.filter(p => p.__repasoId !== current.__repasoId);
-        }
-      } else {
-        // Sigue sin superar el 80%: se reencola al FINAL del nodo de repaso,
-        // refrescando el error con la última respuesta del usuario, hasta
-        // que realmente lo apruebe.
+    const current = node.exercises[exIndex];
+    if (!current) return;
+    const userAnswer = AppState.sessionAnswers[exIndex];
+
+    if (node.type === "repaso") {
+      // Reencola el ejercicio al FINAL del nodo de repaso, refrescando el
+      // error con la última respuesta del usuario.
+      const requeueInRepaso = () => {
         const clone = { ...current };
-        const userAnswer = AppState.sessionAnswers[exIndex];
         if (clone.type === "corregir" && userAnswer && userAnswer.trim()) {
           const attempt = userAnswer.trim();
           clone.fraseConError = attempt;
@@ -600,8 +641,29 @@ def get_main_logic():
           clone.wrongAttempts = history.slice(-3);
         }
         node.exercises.push(clone);
+      };
+
+      if (decision === "repasar") {
+        // Pidió repasarlo otra vez: se queda en la pool y vuelve al final de este nodo.
+        requeueInRepaso();
+      } else if (decision === "luego") {
+        // Se queda en la pool para una próxima ronda de repaso (no se reencola aquí).
+      } else if (isCorrect) {
+        // Aprobado de verdad: sale definitivamente de la pool de repaso
+        if (current.__repasoId) {
+          AppState.reviewPool = AppState.reviewPool.filter(p => p.__repasoId !== current.__repasoId);
+        }
+      } else {
+        // Sigue sin superar el 80%: se reencola al FINAL del nodo de repaso
+        // hasta que realmente lo apruebe.
+        requeueInRepaso();
       }
+      return;
     }
+
+    // Nodo principal
+    if (decision === "repasar") requeueAtEndOfMainNode(node, current);
+    else if (decision === "luego") sendToReviewPool(current, userAnswer);
   }
 
   // ==================== PRÁCTICA INICIAL ====================
@@ -692,13 +754,16 @@ def get_main_logic():
       if (node.type !== 'repaso') {
         // El nodo de repaso resuelve su propia pool ejercicio a ejercicio (ver
         // recordExerciseResult), así que aquí solo evaluamos nodos principales.
+        // Traducción/corrección/dictado ya NO se envían solos al repaso: el
+        // usuario decide con [Repasar] / [Repasar luego] en el modal. Esta
+        // regla (nodo < 80%) solo sigue aplicando a los demás tipos.
         const total = node.exercises.length;
         let correctCount = 0;
         node.exercises.forEach((ex, i) => { if (AppState.sessionCorrectness[i]) correctCount++; });
         const score = total ? correctCount / total : 1;
         if (score < PASS_THRESHOLD) {
           node.exercises.forEach((ex, i) => {
-            if (!AppState.sessionCorrectness[i]) {
+            if (!AppState.sessionCorrectness[i] && !MANUAL_REVIEW_TYPES.includes(ex.type)) {
               const alreadyQueued = ex.__repasoId && AppState.reviewPool.some(p => p.__repasoId === ex.__repasoId);
               if (!alreadyQueued) {
                 AppState.reviewPool.push(buildRepasoExercise(ex, AppState.sessionAnswers[i]));
@@ -746,9 +811,9 @@ def get_main_logic():
       checkBtn.onclick = () => {
         const userAnswer = answerInput.value.trim();
         if (!userAnswer) { toast("📝 Escribe algo"); return; }
-        showComparativeModal(exercise, userAnswer, (duda, passed) => {
+        showComparativeModal(exercise, userAnswer, (duda, passed, decision) => {
           AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
-          recordExerciseResult(passed);
+          recordExerciseResult(passed, decision);
           AppState.reportEntries.push(tagOrigin(getTraduccionReportEntry(exercise, userAnswer, duda)));
           advanceExercise();
         });
@@ -789,7 +854,7 @@ def get_main_logic():
         AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
         const result = checkCorregirAnswer(exercise, userAnswer);
         showCorregirModal(exercise, result, userAnswer, 
-          (duda) => { recordExerciseResult(result.passed); AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); advanceExercise(); },
+          (duda, decision) => { recordExerciseResult(result.passed, decision); AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); advanceExercise(); },
           (duda) => { AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
       };
@@ -809,9 +874,9 @@ def get_main_logic():
     
     const handler = function(e) {
       cleanupAudio();
-      const { originalText, userAnswer, result, duda } = e.detail;
+      const { originalText, userAnswer, result, duda, decision } = e.detail;
       AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
-      recordExerciseResult(!!result?.passed);
+      recordExerciseResult(!!result?.passed, decision);
       AppState.reportEntries.push(tagOrigin(getDictadoReportEntry(originalText, userAnswer, duda)));
       advanceExercise();
     };

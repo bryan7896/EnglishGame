@@ -229,6 +229,7 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
         <label class="modal-doubt-label">💭 Consulta (opcional)</label>
         <textarea class="answer-input modal-doubt" rows="2" placeholder="Tu consulta..."></textarea>
       </div>
+      ${reviewButtonsHTML()}
       <div class="modal-buttons">
         ${!passed ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
         <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
@@ -253,6 +254,13 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
     e.stopPropagation();
     closeModal();
     if (onContinue) onContinue(getDuda());
+  });
+
+  // "Repasar" (final del nodo) / "Repasar luego" (sección de repaso)
+  wireReviewButtons(modal, (decision) => {
+    const duda = getDuda();
+    closeModal();
+    if (onContinue) onContinue(duda, decision);
   });
 
   const retryBtn = modal.querySelector('.modal-retry');

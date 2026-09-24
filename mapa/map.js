@@ -101,13 +101,15 @@ export function createPracticaInicial(informacion) {
 // usado como tamaño de cada trozo de repaso. Si todavía no hay nodos
 // principales con ejercicios, se usa un tamaño por defecto razonable.
 export function computeRepasoChunkSize(mainNodes) {
-  const withExercises = (mainNodes || []).filter(
-    (n) => (n.totalExercises || n.exercises?.length || 0) > 0
-  );
+  // Solo cuentan los ejercicios "originales" del nodo: las copias que el
+  // usuario manda con [Repasar] al final de su nodo (__requeue) no deben
+  // inflar el tamaño típico de un nodo de repaso.
+  const originalCount = (n) => Array.isArray(n.exercises)
+    ? n.exercises.filter((e) => !e.__requeue).length
+    : (n.totalExercises || 0);
+  const withExercises = (mainNodes || []).filter((n) => originalCount(n) > 0);
   if (!withExercises.length) return 10;
-  const totalMain = withExercises.reduce(
-    (sum, n) => sum + (n.totalExercises || n.exercises?.length || 0), 0
-  );
+  const totalMain = withExercises.reduce((sum, n) => sum + originalCount(n), 0);
   return Math.max(1, Math.ceil(totalMain / withExercises.length));
 }
 
@@ -229,12 +231,22 @@ export function redistributeMainNodes(nodes, progress, newTotalMainNodes) {
   // Aplanamos todos los ejercicios principales, recordando si cada uno ya
   // estaba resuelto (según el progreso viejo), para que ese dato viaje con
   // el ejercicio sin importar en qué nodo nuevo caiga.
+  //
+  // Excepción: las copias que el usuario mandó con [Repasar] al final de su
+  // nodo (marcadas con __requeue) NO entran al reparto automático. Se
+  // apartan y, tras repartir los ejercicios originales, se vuelven a poner
+  // al FINAL del mismo nodo donde estaban (o del último nodo, si el nuevo
+  // total de nodos es menor). Así el reparto automático no las mueve de
+  // sitio ni altera el tamaño de los nodos.
   const flat = [];
+  const requeued = [];
   mainNodes.forEach((node, idx) => {
     const prog = progress[idx] || {};
     const results = prog.exerciseResults || [];
     (node.exercises || []).forEach((ex, i) => {
-      flat.push({ exercise: ex, done: !!results[i] });
+      const done = !!results[i];
+      if (ex && ex.__requeue) requeued.push({ exercise: ex, done, home: idx });
+      else flat.push({ exercise: ex, done });
     });
   });
 
@@ -249,8 +261,12 @@ export function redistributeMainNodes(nodes, progress, newTotalMainNodes) {
     const slice = flat.slice(cursor, cursor + size);
     cursor += size;
 
-    const exercises = slice.map(item => item.exercise);
-    const exerciseResults = slice.map(item => item.done);
+    // Las copias de [Repasar] vuelven al final de su nodo de origen.
+    const extras = requeued.filter((r) => Math.min(r.home, clamped - 1) === i);
+    const withExtras = [...slice, ...extras];
+
+    const exercises = withExtras.map(item => item.exercise);
+    const exerciseResults = withExtras.map(item => item.done);
     const exercisesDone = exerciseResults.filter(Boolean).length;
 
     newMainNodes.push({

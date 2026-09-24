@@ -307,11 +307,11 @@ export function renderDictadoExercise(exercise, container) {
     window.speechSynthesis.cancel();
     
     const result = checkDictadoAnswer(text, userAnswer);
-    showDictadoModal(text, result, userAnswer, (duda) => {
+    showDictadoModal(text, result, userAnswer, (duda, decision) => {
       // Limpiar timer antes de avanzar
       if (container._autoPlayTimer) clearTimeout(container._autoPlayTimer);
       container.dispatchEvent(new CustomEvent('dictado-done', { 
-        detail: { originalText: text, userAnswer, result, duda } 
+        detail: { originalText: text, userAnswer, result, duda, decision } 
       }));
     });
   };
@@ -380,7 +380,7 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
   const modal = document.createElement("div");
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
-    <div class="modal-friend dictado-modal" style="padding:0;overflow:hidden;">
+    <div class="modal-friend dictado-modal" style="padding:0;">
       <div style="padding:20px 24px;background:${accColor};color:#fff;display:flex;align-items:center;gap:12px;">
         <span style="font-size:2rem;">${isExact?'🏆':passed?'✅':'📝'}</span>
         <h3 style="color:#fff;margin:0;">${isExact?'¡Perfecto!':passed?'¡Aceptado! (80%+)':'Sigue practicando'}</h3>
@@ -417,7 +417,8 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
           <textarea class="answer-input dictado-modal-doubt" rows="2" placeholder="Tu consulta..." style="font-size:0.85rem;min-height:45px;width:100%;"></textarea>
         </div>
       </div>
-      <div style="padding:16px 24px;border-top:1px solid #222;">
+      <div class="dictado-modal-footer" style="padding:16px 24px;border-top:1px solid #222;">
+        ${reviewButtonsHTML()}
         <button class="dictado-modal-btn dictado-modal-continue" style="width:100%;background:#e50914;color:#fff;border:none;border-radius:8px;padding:14px;font-size:0.9rem;font-weight:600;cursor:pointer;">▶️ Continuar</button>
       </div>
     </div>
@@ -428,12 +429,14 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
   const continueBtn = modal.querySelector('.dictado-modal-continue');
   const doubtInput = modal.querySelector('.dictado-modal-doubt');
   
-  const close = () => {
+  // decision: undefined (solo continuar) | "repasar" | "luego"
+  const close = (decision) => {
     const duda = doubtInput?.value?.trim() || '';
     modal.remove();
     window.speechSynthesis.cancel(); // Cancelar audio al cerrar
-    if (onContinue) onContinue(duda);
+    if (onContinue) onContinue(duda, decision || null);
   };
+  wireReviewButtons(modal, close);
   
   continueBtn.addEventListener("click", (e) => {
     e.stopPropagation();

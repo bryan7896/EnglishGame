@@ -1417,7 +1417,7 @@ textarea:focus-visible,
   animation: modal-pop 0.28s var(--ease);
   display: flex;          
   flex-direction: column; 
-  justify-content: center; 
+  justify-content: flex-start;
 }
 
 @keyframes modal-pop {
@@ -1439,6 +1439,41 @@ textarea:focus-visible,
 
 .modal-buttons { display: flex; gap: 10px; margin-top: 18px; }
 .modal-buttons .fun-btn { flex: 1; }
+
+/* Scroll en modales (corrección, traducción, dictado, menú...).
+   Antes el contenido se centraba con justify-content:center y los hijos
+   flex se comprimían, así que al crecer el modal quedaba "fijo" y con la
+   parte de arriba inalcanzable. Ahora el modal hace scroll vertical y el
+   contenido sigue centrado cuando cabe (margin:auto en primer/último hijo). */
+.modal-friend {
+  max-height: 86vh;
+  max-height: 86dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+.modal-friend > * { flex-shrink: 0; }
+.modal-friend > :first-child { margin-top: auto; }
+.modal-friend > :last-child { margin-bottom: auto; }
+
+/* Botones [Repasar] / [Repasar luego] de los modales de resultado */
+.modal-review-buttons { display: flex; gap: 10px; margin-top: 18px; }
+.modal-review-buttons + .modal-buttons { margin-top: 10px; }
+.review-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  line-height: 1.25;
+}
+.review-btn-sub { font-size: 0.66rem; font-weight: 500; opacity: 0.8; }
+.review-btn-now { background: var(--warn-wash); border-color: rgba(245, 158, 11, 0.35); color: var(--warn); }
+.review-btn-later { background: var(--info-wash); border-color: rgba(94, 179, 246, 0.3); color: var(--info); }
+
+/* Modal de dictado: cabecera + cuerpo + pie; el pie queda pegado abajo */
+.dictado-modal-footer { position: sticky; bottom: 0; background: var(--surface); z-index: 1; }
+.dictado-modal-footer .modal-review-buttons { margin: 0 0 10px; }
 
 /* ============ 17b. MODAL DE MENÚ (header colapsado) ============ */
 .menu-modal {
