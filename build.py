@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "9.8 (24-09-2026)"
+VERSION = "9.9 (27-09-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -580,6 +580,40 @@ def get_main_logic():
     return entry;
   }
 
+  // Etiquetas del tipo de ejercicio de origen, para que la entrada "manual"
+  // del informe deje constancia de qué tipo era el ejercicio original.
+  const ORIGIN_TYPE_LABELS = { traduccion: "Traducción", corregir: "Corregir", dictado: "Dictado" };
+
+  // Cuando el usuario manda un ejercicio a [Repasar] (fin del nodo actual),
+  // queda registrado en el informe como una entrada de tipo "corregir" —
+  // igual que los ejercicios que caen al repaso por fallar — para que se
+  // agrupe junto a las demás correcciones. Se marca con manualReview para
+  // distinguirla en el texto del informe de una corrección "de verdad".
+  function buildManualCorreccionEntry(exercise, userAnswer, duda) {
+    const originType = exercise.type;
+    const spanishPrompt = originType === "traduccion"
+      ? (exercise.spanishWord || exercise.spanishWords || "")
+      : originType === "corregir"
+      ? (exercise.spanishPhrase || "")
+      : "";
+    const correctText = originType === "traduccion"
+      ? (exercise.englishWord || exercise.englishWords || "")
+      : originType === "corregir"
+      ? (exercise.fraseCorrecta || "")
+      : (exercise.text || exercise.phrase || exercise.original || "");
+    const cleanAnswer = (userAnswer && userAnswer.trim()) ? userAnswer.trim() : "(respuesta no registrada)";
+    return {
+      type: "corregir",
+      original: cleanAnswer,
+      expected: correctText,
+      spanishPhrase: spanishPrompt,
+      userAnswer: userAnswer,
+      duda: duda || '',
+      manualReview: true,
+      originType,
+    };
+  }
+
   // Tipos cuyo modal de resultado muestra [Repasar] / [Repasar luego]. Para
   // estos ya NO hay envío automático al repaso: lo decide el usuario. Los
   // demás tipos (completar, emparejar) conservan la regla anterior al
@@ -814,7 +848,10 @@ def get_main_logic():
         showComparativeModal(exercise, userAnswer, (duda, passed, decision) => {
           AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
           recordExerciseResult(passed, decision);
-          AppState.reportEntries.push(tagOrigin(getTraduccionReportEntry(exercise, userAnswer, duda)));
+          const entry = decision === "repasar"
+            ? buildManualCorreccionEntry(exercise, userAnswer, duda)
+            : getTraduccionReportEntry(exercise, userAnswer, duda);
+          AppState.reportEntries.push(tagOrigin(entry));
           advanceExercise();
         });
       };
@@ -854,7 +891,14 @@ def get_main_logic():
         AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
         const result = checkCorregirAnswer(exercise, userAnswer);
         showCorregirModal(exercise, result, userAnswer, 
-          (duda, decision) => { recordExerciseResult(result.passed, decision); AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); advanceExercise(); },
+          (duda, decision) => {
+            recordExerciseResult(result.passed, decision);
+            const entry = decision === "repasar"
+              ? buildManualCorreccionEntry(exercise, userAnswer, duda)
+              : getCorregirReportEntry(exercise, userAnswer, duda);
+            AppState.reportEntries.push(tagOrigin(entry));
+            advanceExercise();
+          },
           (duda) => { AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
       };
@@ -877,7 +921,10 @@ def get_main_logic():
       const { originalText, userAnswer, result, duda, decision } = e.detail;
       AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
       recordExerciseResult(!!result?.passed, decision);
-      AppState.reportEntries.push(tagOrigin(getDictadoReportEntry(originalText, userAnswer, duda)));
+      const entry = decision === "repasar"
+        ? buildManualCorreccionEntry(exercise, userAnswer, duda)
+        : getDictadoReportEntry(originalText, userAnswer, duda);
+      AppState.reportEntries.push(tagOrigin(entry));
       advanceExercise();
     };
     
@@ -916,9 +963,15 @@ def get_main_logic():
       lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); 
     }
     else if (entry.type === "corregir") { 
-      lines.push("   ❌ Error: " + entry.original); 
-      lines.push("   ✅ Correcto: " + entry.expected); 
-      lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+      if (entry.manualReview) {
+        lines.push("   🔁 Marcado para corrección (antes: " + (ORIGIN_TYPE_LABELS[entry.originType] || entry.originType) + ")");
+        lines.push("   ✏️ Tu respuesta: " + entry.original);
+        lines.push("   ✅ Correcto: " + entry.expected);
+      } else {
+        lines.push("   ❌ Error: " + entry.original); 
+        lines.push("   ✅ Correcto: " + entry.expected); 
+        lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+      }
     }
     else if (entry.type === "dictado") { 
       lines.push("   🎧 Correcto: " + entry.original); 

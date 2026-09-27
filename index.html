@@ -4603,6 +4603,40 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
     return entry;
   }
 
+  // Etiquetas del tipo de ejercicio de origen, para que la entrada "manual"
+  // del informe deje constancia de qué tipo era el ejercicio original.
+  const ORIGIN_TYPE_LABELS = { traduccion: "Traducción", corregir: "Corregir", dictado: "Dictado" };
+
+  // Cuando el usuario manda un ejercicio a [Repasar] (fin del nodo actual),
+  // queda registrado en el informe como una entrada de tipo "corregir" —
+  // igual que los ejercicios que caen al repaso por fallar — para que se
+  // agrupe junto a las demás correcciones. Se marca con manualReview para
+  // distinguirla en el texto del informe de una corrección "de verdad".
+  function buildManualCorreccionEntry(exercise, userAnswer, duda) {
+    const originType = exercise.type;
+    const spanishPrompt = originType === "traduccion"
+      ? (exercise.spanishWord || exercise.spanishWords || "")
+      : originType === "corregir"
+      ? (exercise.spanishPhrase || "")
+      : "";
+    const correctText = originType === "traduccion"
+      ? (exercise.englishWord || exercise.englishWords || "")
+      : originType === "corregir"
+      ? (exercise.fraseCorrecta || "")
+      : (exercise.text || exercise.phrase || exercise.original || "");
+    const cleanAnswer = (userAnswer && userAnswer.trim()) ? userAnswer.trim() : "(respuesta no registrada)";
+    return {
+      type: "corregir",
+      original: cleanAnswer,
+      expected: correctText,
+      spanishPhrase: spanishPrompt,
+      userAnswer: userAnswer,
+      duda: duda || '',
+      manualReview: true,
+      originType,
+    };
+  }
+
   // Tipos cuyo modal de resultado muestra [Repasar] / [Repasar luego]. Para
   // estos ya NO hay envío automático al repaso: lo decide el usuario. Los
   // demás tipos (completar, emparejar) conservan la regla anterior al
@@ -4837,7 +4871,10 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
         showComparativeModal(exercise, userAnswer, (duda, passed, decision) => {
           AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
           recordExerciseResult(passed, decision);
-          AppState.reportEntries.push(tagOrigin(getTraduccionReportEntry(exercise, userAnswer, duda)));
+          const entry = decision === "repasar"
+            ? buildManualCorreccionEntry(exercise, userAnswer, duda)
+            : getTraduccionReportEntry(exercise, userAnswer, duda);
+          AppState.reportEntries.push(tagOrigin(entry));
           advanceExercise();
         });
       };
@@ -4877,7 +4914,14 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
         AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
         const result = checkCorregirAnswer(exercise, userAnswer);
         showCorregirModal(exercise, result, userAnswer, 
-          (duda, decision) => { recordExerciseResult(result.passed, decision); AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); advanceExercise(); },
+          (duda, decision) => {
+            recordExerciseResult(result.passed, decision);
+            const entry = decision === "repasar"
+              ? buildManualCorreccionEntry(exercise, userAnswer, duda)
+              : getCorregirReportEntry(exercise, userAnswer, duda);
+            AppState.reportEntries.push(tagOrigin(entry));
+            advanceExercise();
+          },
           (duda) => { AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
       };
@@ -4900,7 +4944,10 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
       const { originalText, userAnswer, result, duda, decision } = e.detail;
       AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
       recordExerciseResult(!!result?.passed, decision);
-      AppState.reportEntries.push(tagOrigin(getDictadoReportEntry(originalText, userAnswer, duda)));
+      const entry = decision === "repasar"
+        ? buildManualCorreccionEntry(exercise, userAnswer, duda)
+        : getDictadoReportEntry(originalText, userAnswer, duda);
+      AppState.reportEntries.push(tagOrigin(entry));
       advanceExercise();
     };
     
@@ -4939,9 +4986,15 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
       lines.push("   ✏️ Respuestas: " + (entry.userAnswers || []).join(", ")); 
     }
     else if (entry.type === "corregir") { 
-      lines.push("   ❌ Error: " + entry.original); 
-      lines.push("   ✅ Correcto: " + entry.expected); 
-      lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+      if (entry.manualReview) {
+        lines.push("   🔁 Marcado para corrección (antes: " + (ORIGIN_TYPE_LABELS[entry.originType] || entry.originType) + ")");
+        lines.push("   ✏️ Tu respuesta: " + entry.original);
+        lines.push("   ✅ Correcto: " + entry.expected);
+      } else {
+        lines.push("   ❌ Error: " + entry.original); 
+        lines.push("   ✅ Correcto: " + entry.expected); 
+        lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+      }
     }
     else if (entry.type === "dictado") { 
       lines.push("   🎧 Correcto: " + entry.original); 
@@ -5110,7 +5163,7 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">9.8 (24-09-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">9.9 (27-09-2026)</div>
         <div class="action-buttons">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
