@@ -158,8 +158,12 @@ textarea:focus-visible,
 /* ============ 3. SCREENS ============ */
 .screen {
   display: none;
-  padding: 16px 16px 40px;
+  padding: 16px 8px 40px;
   animation: screen-in 0.35s var(--ease);
+}
+
+.borderw {
+  padding: 16px 0px 40px;
 }
 
 .screen.active { display: block; }
@@ -495,7 +499,7 @@ textarea:focus-visible,
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: saturate(0.8) brightness(0.5);
+  filter: saturate(0.8) brightness(0.9);
   transform: scale(1.03);
   transition: transform 0.4s var(--ease), filter 0.4s var(--ease);
 }
@@ -2035,7 +2039,7 @@ textarea:focus-visible,
       </div>
     </div>
 
-    <div id="rulesSelectScreen" class="screen">
+    <div id="rulesSelectScreen" class="screen borderw">
       <div class="magic-card rules-card">
         <h2>🎯 Selecciona las reglas a estudiar</h2>
         <p>Marca las reglas que quieres practicar en esta tanda. La barra muestra tu dominio actual de cada una.</p>
@@ -2047,7 +2051,7 @@ textarea:focus-visible,
       </div>
     </div>
 
-    <div id="rulesConfigScreen" class="screen">
+    <div id="rulesConfigScreen" class="screen borderw">
       <div class="magic-card rules-card">
         <h2>📋 Reglas seleccionadas</h2>
         <p>Indica cuántos ejercicios quieres de cada regla y, si tiene varios tipos, cuántos de cada uno.</p>
@@ -2125,22 +2129,16 @@ export const MAP_CONFIG = {
   // nodos, así que aunque haya más nodos que imágenes no se repiten
   // seguidas.
   backgrounds: [
-    "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1540921002383-b2a7ff6a716d?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1576616519587-986b14a1388a?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1557234424-db3778bd0346?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1500964757637-c85e8a162699?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1750322769147-6ae0d3fceb86?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1576888841486-afe7f1b2d74a?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1705299493165-4b2a6bfe3e1f?w=400&h=300&fit=crop",
+    "https://m.media-amazon.com/images/S/pv-target-images/7d7f75526d4bcdb4f3c55d9653812b456e29323c7b28eca273e536923a26c360._SX1080_FMpng_.png",
+    "https://static.wikia.nocookie.net/pocoyo8381/images/1/15/Vacaciones.jpg/revision/latest?cb=20230415050741&path-prefix=es",
+    "https://static.wikia.nocookie.net/pocoyo8381/images/d/d3/Viajando_con_Pocoy%C3%B300004.jpg/revision/latest?cb=20231004023440&path-prefix=es",
+    "https://static.wikia.nocookie.net/pocoyo8381/images/9/99/Viajando_con_Pocoy%C3%B300001.jpg/revision/latest?cb=20231004023439&path-prefix=es",
+    "https://m.media-amazon.com/images/M/MV5BNmExZTQ3ZmItMzk1NC00MDkxLWE0M2EtOTlmODIxZTllNTFlXkEyXkFqcGc@._V1_.jpg",
+    "https://m.media-amazon.com/images/S/pv-target-images/10f483e7081094c8691667e6971cfded64b8821a118d159e44f056598f3c9ff4.jpg",
+    "https://imagenes.elpais.com/resizer/v2/JEEIOKAJOF6JPG72Z2BOJCU7LU.jpg?auth=4abe6b2dad44b77a016ad4ff6ecafd60486ab3ac391f0941e97ed7d7f39daa4a&width=1200",
+    "https://m.media-amazon.com/images/M/MV5BZTFlYmY5YTgtNmZjYi00OTQ2LWEwMmMtM2ViZGY4OGQ2YjBhXkEyXkFqcGc@._V1_.jpg",
+    "https://m.media-amazon.com/images/M/MV5BYjk3ODJiMTAtM2M2ZS00NThjLWI4YmQtMzM2YTkwZTFiNTY5XkEyXkFqcGc@._V1_.jpg",
+    "https://img.rtve.es/v/16288192/?w=400"
   ],
 };
 

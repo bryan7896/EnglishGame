@@ -298,7 +298,7 @@ def get_html_template():
       </div>
     </div>
 
-    <div id="rulesSelectScreen" class="screen">
+    <div id="rulesSelectScreen" class="screen borderw">
       <div class="magic-card rules-card">
         <h2>🎯 Selecciona las reglas a estudiar</h2>
         <p>Marca las reglas que quieres practicar en esta tanda. La barra muestra tu dominio actual de cada una.</p>
@@ -310,7 +310,7 @@ def get_html_template():
       </div>
     </div>
 
-    <div id="rulesConfigScreen" class="screen">
+    <div id="rulesConfigScreen" class="screen borderw">
       <div class="magic-card rules-card">
         <h2>📋 Reglas seleccionadas</h2>
         <p>Indica cuántos ejercicios quieres de cada regla y, si tiene varios tipos, cuántos de cada uno.</p>

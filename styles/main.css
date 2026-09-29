@@ -144,8 +144,12 @@ textarea:focus-visible,
 /* ============ 3. SCREENS ============ */
 .screen {
   display: none;
-  padding: 16px 16px 40px;
+  padding: 16px 8px 40px;
   animation: screen-in 0.35s var(--ease);
+}
+
+.borderw {
+  padding: 16px 0px 40px;
 }
 
 .screen.active { display: block; }
@@ -481,7 +485,7 @@ textarea:focus-visible,
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: saturate(0.8) brightness(0.5);
+  filter: saturate(0.8) brightness(0.9);
   transform: scale(1.03);
   transition: transform 0.4s var(--ease), filter 0.4s var(--ease);
 }
