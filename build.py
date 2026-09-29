@@ -614,7 +614,16 @@ def get_main_logic():
   function renderRulesSelectScreen() {
     const list = document.getElementById("rulesSelectList");
     if (!list) return;
-    list.innerHTML = AppRules.map((r) => {
+    const sortedRules = [...AppRules].sort((a, b) => {
+      // Los 0% siempre van al final
+      if (a.porcentaje === 0 && b.porcentaje !== 0) return 1;
+      if (a.porcentaje !== 0 && b.porcentaje === 0) return -1;
+
+      // El resto: menor porcentaje primero
+      return a.porcentaje - b.porcentaje;
+    });
+
+    list.innerHTML = sortedRules.map((r) => {
       const disponibles = countAvailable(r.id);
       const checked = pendingRuleIds.includes(r.id);
       const tier = pctTier(r.porcentaje);
