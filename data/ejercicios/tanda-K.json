@@ -1,0 +1,1070 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "Mi tío se ha ido a Canadá.",
+      "englishWord": "My uncle has gone to Canada.",
+      "id": "tanda-K-trad-1",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Mi tía ha salido de Canadá.",
+      "englishWord": "My aunt has left Canada.",
+      "id": "tanda-K-trad-2",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Mi anillo ha desaparecido.",
+      "englishWord": "My ring has gone.",
+      "id": "tanda-K-trad-3",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella se ha ido de picnic.",
+      "englishWord": "She's gone on a picnic.",
+      "id": "tanda-K-trad-4",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ellos abandonaron el barco.",
+      "englishWord": "They left the ship.",
+      "id": "tanda-K-trad-5",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio las llaves a su hermano.",
+      "englishWord": "She gave the keys to her brother.",
+      "id": "tanda-K-trad-6",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él les dio el mensaje a ellos.",
+      "englishWord": "He gave the message to them.",
+      "id": "tanda-K-trad-7",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Le di el reporte a mi jefe.",
+      "englishWord": "I gave the report to my boss.",
+      "id": "tanda-K-trad-8",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ellos nos dieron la noticia a nosotros.",
+      "englishWord": "They gave the news to us.",
+      "id": "tanda-K-trad-9",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ella me dio la respuesta a mí.",
+      "englishWord": "She gave the answer to me.",
+      "id": "tanda-K-trad-10",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él le dio su opinión a ella.",
+      "englishWord": "He gave his opinion to her.",
+      "id": "tanda-K-trad-11",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Nosotros les dimos las gracias a ellos.",
+      "englishWord": "We gave thanks to them.",
+      "id": "tanda-K-trad-12",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Yo le di el regalo a mi amigo.",
+      "englishWord": "I gave the gift to my friend.",
+      "id": "tanda-K-trad-13",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio la carta a su vecino.",
+      "englishWord": "She gave the letter to her neighbor.",
+      "id": "tanda-K-trad-14",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él nos dio la dirección a nosotros.",
+      "englishWord": "He gave the address to us.",
+      "id": "tanda-K-trad-15",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Si él trabaja duro, le irá bien.",
+      "englishWord": "If he works hard, he'll do well.",
+      "id": "tanda-K-trad-16",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si ella maneja rápido, llegará a tiempo.",
+      "englishWord": "If she drives fast, she'll arrive on time.",
+      "id": "tanda-K-trad-17",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si tú me ayudas, terminaremos pronto.",
+      "englishWord": "If you help me, we'll finish soon.",
+      "id": "tanda-K-trad-18",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si él pierde las llaves, no podrá entrar.",
+      "englishWord": "If he loses his keys, he won't be able to get in.",
+      "id": "tanda-K-trad-19",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si ella no viene, empezaremos sin ella.",
+      "englishWord": "If she doesn't come, we'll start without her.",
+      "id": "tanda-K-trad-20",
+      "reglaIds": [
+        8,
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si yo tuviera un carro, iría a la playa todos los días.",
+      "englishWord": "If I had a car, I would go to the beach every day.",
+      "id": "tanda-K-trad-21",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si ella ganara más dinero, viajaría más.",
+      "englishWord": "If she earned more money, she would travel more.",
+      "id": "tanda-K-trad-22",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si nosotros viviéramos en la costa, nadaríamos todos los días.",
+      "englishWord": "If we lived on the coast, we would swim every day.",
+      "id": "tanda-K-trad-23",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si él fuera más paciente, tendría más amigos.",
+      "englishWord": "If he were more patient, he would have more friends.",
+      "id": "tanda-K-trad-24",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si yo supiera la respuesta, te la diría.",
+      "englishWord": "If I knew the answer, I would tell you.",
+      "id": "tanda-K-trad-25",
+      "reglaIds": [
+        4,
+        21
+      ]
+    },
+    {
+      "spanishWord": "Este mensaje es de él.",
+      "englishWord": "This message is from him.",
+      "id": "tanda-K-trad-26",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Ella cocina para nosotros.",
+      "englishWord": "She cooks for us.",
+      "id": "tanda-K-trad-27",
+      "reglaIds": [
+        8,
+        20
+      ]
+    },
+    {
+      "spanishWord": "El regalo es de ellos.",
+      "englishWord": "The gift is from them.",
+      "id": "tanda-K-trad-28",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Este consejo es para ella.",
+      "englishWord": "This advice is for her.",
+      "id": "tanda-K-trad-29",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "El perro se sentó cerca de mí.",
+      "englishWord": "The dog sat near me.",
+      "id": "tanda-K-trad-30",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Ella pasó junto a él.",
+      "englishWord": "She walked past him.",
+      "id": "tanda-K-trad-31",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Nosotros vivimos cerca de ellos.",
+      "englishWord": "We live near them.",
+      "id": "tanda-K-trad-32",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Él llegó después de nosotros.",
+      "englishWord": "He arrived after us.",
+      "id": "tanda-K-trad-33",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Ella se preocupa por él.",
+      "englishWord": "She worries about him.",
+      "id": "tanda-K-trad-34",
+      "reglaIds": [
+        8,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Ellos hablaron de mí.",
+      "englishWord": "They talked about me.",
+      "id": "tanda-K-trad-35",
+      "reglaIds": [
+        8
+      ]
+    }
+  ],
+  "completar": [
+    {
+      "spanishWord": "Mi primo se ha ido a México.",
+      "englishSentence": "My cousin ___ ___ ___ Mexico.",
+      "options": [
+        "has",
+        "gone",
+        "to"
+      ],
+      "id": "tanda-K-compl-1",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Mi primo ha salido de México.",
+      "englishSentence": "My cousin ___ ___ Mexico.",
+      "options": [
+        "has",
+        "left"
+      ],
+      "id": "tanda-K-compl-2",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "¡Las llaves han desaparecido!",
+      "englishSentence": "The keys ___ ___!",
+      "options": [
+        "have",
+        "gone"
+      ],
+      "id": "tanda-K-compl-3",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella se ha ido de vacaciones.",
+      "englishSentence": "She's ___ ___ vacation.",
+      "options": [
+        "gone",
+        "on"
+      ],
+      "id": "tanda-K-compl-4",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Los niños se han ido afuera.",
+      "englishSentence": "The children have ___ ___.",
+      "options": [
+        "gone",
+        "outside"
+      ],
+      "id": "tanda-K-compl-5",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él abandonó el restaurante hace una hora.",
+      "englishSentence": "He ___ the restaurant ___ hour ago.",
+      "options": [
+        "left",
+        "an"
+      ],
+      "id": "tanda-K-compl-6",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Cuando llegué, ella ya se había marchado.",
+      "englishSentence": "When I arrived, she had already ___.",
+      "options": [
+        "left"
+      ],
+      "id": "tanda-K-compl-7",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "El autobús partió hacia Perú esta mañana.",
+      "englishSentence": "The bus ___ ___ Peru this morning.",
+      "options": [
+        "left",
+        "for"
+      ],
+      "id": "tanda-K-compl-8",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "¡Mi teléfono ha desaparecido! No lo encuentro.",
+      "englishSentence": "My phone is ___! I can't find it.",
+      "options": [
+        "gone"
+      ],
+      "id": "tanda-K-compl-9",
+      "reglaIds": [
+        15,
+        17
+      ]
+    },
+    {
+      "spanishWord": "Ellos abandonaron la oficina al mediodía.",
+      "englishSentence": "They ___ ___ office at noon.",
+      "options": [
+        "left",
+        "the"
+      ],
+      "id": "tanda-K-compl-10",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Mi hermana se ha ido al centro comercial.",
+      "englishSentence": "My sister ___ ___ ___ the mall.",
+      "options": [
+        "has",
+        "gone",
+        "to"
+      ],
+      "id": "tanda-K-compl-11",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Mi hermana ha salido del centro comercial.",
+      "englishSentence": "My sister ___ ___ the mall.",
+      "options": [
+        "has",
+        "left"
+      ],
+      "id": "tanda-K-compl-12",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él se ha ido a caminar.",
+      "englishSentence": "He's ___ ___ a walk.",
+      "options": [
+        "gone",
+        "for"
+      ],
+      "id": "tanda-K-compl-13",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Cuando llamamos, ellos ya se habían ido.",
+      "englishSentence": "When we called, they had already ___.",
+      "options": [
+        "gone"
+      ],
+      "id": "tanda-K-compl-14",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "El avión partió hacia España hace una hora.",
+      "englishSentence": "The plane ___ ___ Spain an hour ago.",
+      "options": [
+        "left",
+        "for"
+      ],
+      "id": "tanda-K-compl-15",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio las llaves a su hermano.",
+      "englishSentence": "She ___ the keys ___ her brother.",
+      "options": [
+        "gave",
+        "to"
+      ],
+      "id": "tanda-K-compl-16",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Le di el reporte a mi jefe.",
+      "englishSentence": "I ___ ___ report ___ my boss.",
+      "options": [
+        "gave",
+        "the",
+        "to"
+      ],
+      "id": "tanda-K-compl-17",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ellos nos dieron la noticia a nosotros.",
+      "englishSentence": "They ___ the news ___ us.",
+      "options": [
+        "gave",
+        "to"
+      ],
+      "id": "tanda-K-compl-18",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él le dio su opinión a ella.",
+      "englishSentence": "He ___ his opinion ___ her.",
+      "options": [
+        "gave",
+        "to"
+      ],
+      "id": "tanda-K-compl-19",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio la carta a su vecino.",
+      "englishSentence": "She ___ ___ letter ___ her neighbor.",
+      "options": [
+        "gave",
+        "the",
+        "to"
+      ],
+      "id": "tanda-K-compl-20",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Si llueve, nos quedaremos adentro.",
+      "englishSentence": "If it ___, we'll stay inside.",
+      "options": [
+        "rains"
+      ],
+      "id": "tanda-K-compl-21",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si ella no duerme bien, estará cansada mañana.",
+      "englishSentence": "If she ___ ___ ___, she'll be tired tomorrow.",
+      "options": [
+        "doesn't",
+        "sleep",
+        "well"
+      ],
+      "id": "tanda-K-compl-22",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si no salimos ahora, perderemos el autobús.",
+      "englishSentence": "If we ___ ___ now, we'll miss the bus.",
+      "options": [
+        "don't",
+        "leave"
+      ],
+      "id": "tanda-K-compl-23",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si él tiene suficiente dinero, comprará un carro.",
+      "englishSentence": "If he ___ ___ money, he ___ buy a car.",
+      "options": [
+        "has",
+        "enough",
+        "will"
+      ],
+      "id": "tanda-K-compl-24",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si no me dices la verdad, estaré enojado.",
+      "englishSentence": "If you ___ ___ the truth, I'll be angry.",
+      "options": [
+        "don't",
+        "tell"
+      ],
+      "id": "tanda-K-compl-25",
+      "reglaIds": [
+        12,
+        21
+      ]
+    },
+    {
+      "spanishWord": "Si ellos llegan tarde, el profesor estará molesto.",
+      "englishSentence": "If they ___ late, the teacher ___ ___ upset.",
+      "options": [
+        "arrive",
+        "will",
+        "be"
+      ],
+      "id": "tanda-K-compl-26",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si lo veo, le diré la noticia.",
+      "englishSentence": "If I ___ him, I'll tell him the news.",
+      "options": [
+        "see"
+      ],
+      "id": "tanda-K-compl-27",
+      "reglaIds": [
+        12,
+        21
+      ]
+    },
+    {
+      "spanishWord": "Si ella ahorra suficiente dinero, comprará un teléfono nuevo.",
+      "englishSentence": "If she ___ ___ money, she ___ ___ a new phone.",
+      "options": [
+        "saves",
+        "enough",
+        "will",
+        "buy"
+      ],
+      "id": "tanda-K-compl-28",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si no llueve mañana, iremos a la playa.",
+      "englishSentence": "If it ___ ___ tomorrow, we'll go to the beach.",
+      "options": [
+        "doesn't",
+        "rain"
+      ],
+      "id": "tanda-K-compl-29",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si estudias duro, aprobarás el examen.",
+      "englishSentence": "If you ___ hard, you ___ ___ the exam.",
+      "options": [
+        "study",
+        "'ll",
+        "pass"
+      ],
+      "id": "tanda-K-compl-30",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si él llama, lo ayudaré.",
+      "englishSentence": "If he ___, I ___ ___ him.",
+      "options": [
+        "calls",
+        "'ll",
+        "help"
+      ],
+      "id": "tanda-K-compl-31",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si tenemos suficiente tiempo, los visitaremos.",
+      "englishSentence": "If we ___ ___ time, we'll visit them.",
+      "options": [
+        "have",
+        "enough"
+      ],
+      "id": "tanda-K-compl-32",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si ella llega temprano, dile que espere.",
+      "englishSentence": "If she ___ ___, tell her ___ wait.",
+      "options": [
+        "arrives",
+        "early",
+        "to"
+      ],
+      "id": "tanda-K-compl-33",
+      "reglaIds": [
+        12,
+        20,
+        21
+      ]
+    },
+    {
+      "spanishWord": "Si no vienen, estaremos sorprendidos.",
+      "englishSentence": "If they ___ ___, we'll be surprised.",
+      "options": [
+        "don't",
+        "come"
+      ],
+      "id": "tanda-K-compl-34",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si termino temprano esta semana, viajaré el próximo mes.",
+      "englishSentence": "If I ___ ___ this week, I'll travel next month.",
+      "options": [
+        "finish",
+        "early"
+      ],
+      "id": "tanda-K-compl-35",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si él no llega pronto, nos iremos sin él.",
+      "englishSentence": "If he ___ ___ soon, we ___ ___ without him.",
+      "options": [
+        "doesn't",
+        "arrive",
+        "'ll",
+        "leave"
+      ],
+      "id": "tanda-K-compl-36",
+      "reglaIds": [
+        8,
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si necesitas ayuda, te ayudaré.",
+      "englishSentence": "If you ___ help, I'll ___ you.",
+      "options": [
+        "need",
+        "help"
+      ],
+      "id": "tanda-K-compl-37",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si a ella le va bien, estaremos felices.",
+      "englishSentence": "If she ___ ___, we'll be happy.",
+      "options": [
+        "does",
+        "well"
+      ],
+      "id": "tanda-K-compl-38",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si hace frío hoy, usaré una chaqueta.",
+      "englishSentence": "If it ___ ___ today, I'll wear a jacket.",
+      "options": [
+        "is",
+        "cold"
+      ],
+      "id": "tanda-K-compl-39",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si ellos no tienen tiempo, no nos llamarán.",
+      "englishSentence": "If they ___ ___ time, they ___ ___ us.",
+      "options": [
+        "don't",
+        "have",
+        "won't",
+        "call"
+      ],
+      "id": "tanda-K-compl-40",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si yo tuviera un carro, iría a la playa todos los días.",
+      "englishSentence": "If I ___ a car, I would go to the beach every day.",
+      "options": [
+        "had"
+      ],
+      "id": "tanda-K-compl-41",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si ella ganara más dinero, viajaría más.",
+      "englishSentence": "If she ___ ___ money, she would travel more.",
+      "options": [
+        "earned",
+        "more"
+      ],
+      "id": "tanda-K-compl-42",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si viviéramos en la costa, nadaríamos todos los días.",
+      "englishSentence": "If we ___ on the coast, we ___ swim every day.",
+      "options": [
+        "lived",
+        "would"
+      ],
+      "id": "tanda-K-compl-43",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si él fuera más paciente, tendría más amigos.",
+      "englishSentence": "If he ___ more patient, he ___ ___ more friends.",
+      "options": [
+        "were",
+        "would",
+        "have"
+      ],
+      "id": "tanda-K-compl-44",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si yo supiera la respuesta, te la diría.",
+      "englishSentence": "If I ___ the answer, I ___ tell you.",
+      "options": [
+        "knew",
+        "would"
+      ],
+      "id": "tanda-K-compl-45",
+      "reglaIds": [
+        4,
+        21
+      ]
+    },
+    {
+      "spanishWord": "Si ellos vivieran más cerca, los veríamos más seguido.",
+      "englishSentence": "If they ___ closer, we ___ ___ them more often.",
+      "options": [
+        "lived",
+        "would",
+        "see"
+      ],
+      "id": "tanda-K-compl-46",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si ella tuviera más tiempo, nos ayudaría.",
+      "englishSentence": "If she ___ ___ time, she would help us.",
+      "options": [
+        "had",
+        "more"
+      ],
+      "id": "tanda-K-compl-47",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si yo fuera tú, le diría la verdad.",
+      "englishSentence": "If I ___ you, I ___ ___ him the truth.",
+      "options": [
+        "were",
+        "would",
+        "tell"
+      ],
+      "id": "tanda-K-compl-48",
+      "reglaIds": [
+        4,
+        21
+      ]
+    },
+    {
+      "spanishWord": "Si tuviéramos suficiente dinero, compraríamos una casa.",
+      "englishSentence": "If we ___ enough money, we ___ buy a house.",
+      "options": [
+        "had",
+        "would"
+      ],
+      "id": "tanda-K-compl-49",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si él estudiara más duro, obtendría mejores calificaciones.",
+      "englishSentence": "If he ___ harder, he ___ ___ better grades.",
+      "options": [
+        "studied",
+        "would",
+        "get"
+      ],
+      "id": "tanda-K-compl-50",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si ellos supieran la verdad, estarían molestos.",
+      "englishSentence": "If they ___ the truth, they ___ ___ upset.",
+      "options": [
+        "knew",
+        "would",
+        "be"
+      ],
+      "id": "tanda-K-compl-51",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si yo fuera más alto, jugaría baloncesto.",
+      "englishSentence": "If I ___ taller, I ___ play basketball.",
+      "options": [
+        "were",
+        "would"
+      ],
+      "id": "tanda-K-compl-52",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si ella tuviera un jardín, plantaría flores.",
+      "englishSentence": "If she ___ a garden, she ___ plant flowers.",
+      "options": [
+        "had",
+        "would"
+      ],
+      "id": "tanda-K-compl-53",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si tuviéramos más tiempo libre, viajaríamos más seguido.",
+      "englishSentence": "If we ___ more free time, we ___ ___ more often.",
+      "options": [
+        "had",
+        "would",
+        "travel"
+      ],
+      "id": "tanda-K-compl-54",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si le preguntaras a ella, ella te ayudaría.",
+      "englishSentence": "If you ___ her, she ___ help you.",
+      "options": [
+        "asked",
+        "would"
+      ],
+      "id": "tanda-K-compl-55",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si yo lo conociera mejor, confiaría más en él.",
+      "englishSentence": "If I ___ him better, I ___ trust him more.",
+      "options": [
+        "knew",
+        "would"
+      ],
+      "id": "tanda-K-compl-56",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si ella aprobara el examen, estaría muy feliz.",
+      "englishSentence": "If she ___ the exam, she ___ ___ very happy.",
+      "options": [
+        "passed",
+        "would",
+        "be"
+      ],
+      "id": "tanda-K-compl-57",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si ellos tuvieran una casa más grande, invitarían a más invitados.",
+      "englishSentence": "If they ___ a bigger house, they ___ ___ more guests.",
+      "options": [
+        "had",
+        "would",
+        "invite"
+      ],
+      "id": "tanda-K-compl-58",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si yo fuera tú, tomaría este trabajo.",
+      "englishSentence": "If I ___ you, I ___ ___ this job.",
+      "options": [
+        "were",
+        "would",
+        "take"
+      ],
+      "id": "tanda-K-compl-59",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si estuviéramos menos ocupados, descansaríamos más.",
+      "englishSentence": "If we ___ less busy, we ___ ___ more.",
+      "options": [
+        "were",
+        "would",
+        "rest"
+      ],
+      "id": "tanda-K-compl-60",
+      "reglaIds": [
+        4,
+        37
+      ]
+    }
+  ]
+}

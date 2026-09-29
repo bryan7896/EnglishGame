@@ -1,62 +1,79 @@
 /* ============================================================
    English Trainer — main.css
    ------------------------------------------------------------
-   Sistema de diseño "Temporada": cada nodo de ejercicios se trata
-   como un episodio de una serie que el usuario va desbloqueando.
-   Paleta: carbón cálido + rojo carmesí de marca + oro para logros,
-   verde para aciertos, rosa para errores.
+   Sistema de diseño inspirado en el modo oscuro de Duolingo:
+   fondo azul-carbón, verde como color de marca/acierto, azul
+   para info, dorado para rachas/logros, rojo coral para error.
+   Botones con el característico "borde 3D" (sombra sólida
+   inferior que desaparece al presionar). Tarjetas con borde
+   sólido de 2px en vez de líneas translúcidas.
    Un solo archivo, sin duplicados, organizado por componente.
    ============================================================ */
 
 /* ============ 1. TOKENS ============ */
 :root {
-  --bg: #0a0a0d;
-  --bg-vignette: radial-gradient(120% 120% at 50% -10%, #1a1418 0%, #0a0a0d 55%);
-  --surface: #15151a;
-  --surface-2: #1c1d24;
-  --surface-3: #24252d;
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.16);
+  --bg: #131f24;
+  --bg-vignette: radial-gradient(130% 110% at 50% -10%, #1b2b32 0%, #131f24 60%);
+  --surface: #202f36;
+  --surface-2: #253640;
+  --surface-3: #2c4049;
+  --line: #37464f;
+  --line-strong: #4a5c66;
 
-  --ink: #f3f2f5;
-  --ink-dim: #9a9aa6;
-  --ink-faint: #6b6b76;
+  --ink: #f1f7fb;
+  --ink-dim: #dce6ec;
+  --ink-faint: #7c93a0;
 
-  --brand: #e50914;
-  --brand-light: #ff3b47;
-  --brand-dark: #9c0610;
-  --brand-wash: rgba(229, 9, 20, 0.12);
+  --brand: #58cc02;
+  --brand-light: #7ee037;
+  --brand-dark: #46a302;
+  --brand-wash: rgba(88, 204, 2, 0.14);
 
-  --gold: #f5c518;
-  --gold-wash: rgba(245, 197, 24, 0.12);
+  --gold: #ffc800;
+  --gold-dark: #e0a800;
+  --gold-wash: rgba(255, 200, 0, 0.14);
 
-  --good: #3ddc84;
-  --good-dark: #1e9e59;
-  --good-wash: rgba(61, 220, 132, 0.12);
+  --good: #58cc02;
+  --good-dark: #46a302;
+  --good-wash: rgba(88, 204, 2, 0.14);
 
-  --bad: #ff5470;
-  --bad-wash: rgba(255, 84, 112, 0.12);
+  --bad: #ff4b4b;
+  --bad-dark: #d33131;
+  --bad-wash: rgba(255, 75, 75, 0.14);
 
-  --warn: #f59e0b;
-  --warn-wash: rgba(245, 158, 11, 0.12);
+  --warn: #ff9600;
+  --warn-dark: #d67c00;
+  --warn-wash: rgba(255, 150, 0, 0.14);
 
-  --info: #5eb3f6;
-  --info-wash: rgba(94, 179, 246, 0.1);
+  --info: #1cb0f6;
+  --info-dark: #0d8fd0;
+  --info-wash: rgba(28, 176, 246, 0.14);
 
-  --pink: #f472b6;
+  --pink: #ff86d0;
 
-  --radius-xs: 6px;
-  --radius-sm: 10px;
+  /* alias de marca para el resto del archivo (secciones que aún
+     referencian --brand como acento "rojo" de antes ahora heredan
+     el verde Duolingo automáticamente) */
+
+  --radius-xs: 8px;
+  --radius-sm: 12px;
   --radius-md: 16px;
   --radius-lg: 22px;
   --radius-pill: 999px;
 
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.45);
-  --shadow-glow-brand: 0 0 0 1px rgba(229, 9, 20, 0.4), 0 8px 24px rgba(229, 9, 20, 0.25);
+  --shadow-md: 0 10px 26px rgba(0, 0, 0, 0.4);
+  --shadow-glow-brand: 0 0 0 1px rgba(88, 204, 2, 0.35), 0 8px 22px rgba(88, 204, 2, 0.2);
+
+  /* "borde 3D": ledge sólido debajo de botones y tarjetas, al
+     estilo del botón verde de Duolingo. Se usa junto a
+     transform: translateY() en :active para simular la pulsación. */
+  --press-depth: 4px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --font: 'Nunito', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Baloo 2', 'Nunito', var(--font);
 }
 
 /* ============ 2. RESET & BASE ============ */
@@ -82,7 +99,8 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font);
+  font-family: var(--font-display);
+  font-weight: 800;
   margin: 0;
   color: var(--ink);
 }
@@ -280,33 +298,46 @@ textarea:focus-visible,
 }
 
 /* ============ 7. BOTONES GENÉRICOS ============ */
+/* Botón "3D": un ledge sólido y más oscuro debajo, que desaparece
+   y el botón "baja" al presionarlo — el gesto característico de
+   Duolingo. Se aplica a fun-btn, btn-action/btn-check y variantes. */
 .fun-btn {
   background: var(--surface-2);
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   color: var(--ink);
   border-radius: var(--radius-sm);
   padding: 12px 14px;
+  font-family: var(--font-display);
   font-size: 0.82rem;
-  font-weight: 600;
-  transition: transform 0.15s var(--ease), background 0.2s var(--ease), border-color 0.2s var(--ease);
+  font-weight: 700;
+  box-shadow: 0 var(--press-depth) 0 0 var(--line);
+  transform: translateY(0);
+  transition: transform 0.1s var(--ease), box-shadow 0.1s var(--ease), background 0.2s var(--ease), border-color 0.2s var(--ease);
 }
 
 .fun-btn:hover { border-color: var(--line-strong); }
-.fun-btn:active { transform: scale(0.97); }
+.fun-btn:active {
+  transform: translateY(var(--press-depth));
+  box-shadow: 0 0 0 0 var(--line);
+}
 
 .fun-btn.primary-btn {
   background: var(--brand);
-  border-color: var(--brand);
+  border-color: var(--brand-dark);
   color: #fff;
+  box-shadow: 0 var(--press-depth) 0 0 var(--brand-dark);
 }
 .fun-btn.primary-btn:hover { background: var(--brand-light); }
+.fun-btn.primary-btn:active { box-shadow: 0 0 0 0 var(--brand-dark); }
 
 .fun-btn.danger-btn {
   background: var(--bad-wash);
-  border-color: rgba(255, 84, 112, 0.3);
+  border-color: var(--bad-dark);
   color: var(--bad);
+  box-shadow: 0 var(--press-depth) 0 0 rgba(255, 75, 75, 0.25);
 }
-.fun-btn.danger-btn:hover { background: rgba(255, 84, 112, 0.2); }
+.fun-btn.danger-btn:hover { background: rgba(255, 75, 75, 0.22); }
+.fun-btn.danger-btn:active { box-shadow: 0 0 0 0 rgba(255, 75, 75, 0.25); }
 
 .fun-btn.full-width { width: 100%; }
 
@@ -314,23 +345,29 @@ textarea:focus-visible,
   border: none;
   border-radius: var(--radius-sm);
   padding: 15px 18px;
+  font-family: var(--font-display);
   font-size: 0.92rem;
-  font-weight: 700;
-  transition: transform 0.15s var(--ease), filter 0.2s var(--ease);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transform: translateY(0);
+  transition: transform 0.1s var(--ease), box-shadow 0.1s var(--ease), filter 0.2s var(--ease);
 }
 
-.btn-action:active { transform: scale(0.98); }
+.btn-action:active { transform: translateY(var(--press-depth)); }
 
 .btn-check, .btn-continue {
   background: var(--brand);
   color: #fff;
   width: 100%;
+  box-shadow: 0 var(--press-depth) 0 0 var(--brand-dark);
 }
+.btn-check:active, .btn-continue:active { box-shadow: 0 0 0 0 var(--brand-dark); }
 
-.btn-check:hover, .btn-continue:hover { filter: brightness(1.1); }
+.btn-check:hover, .btn-continue:hover { background: var(--brand-light); }
 
 .button-group {
-  margin-top: 16px;
+  margin-top: 18px;
   display: flex;
   gap: 10px;
 }
@@ -339,12 +376,13 @@ textarea:focus-visible,
   width: 100%;
   margin-top: 10px;
   background: transparent;
-  border: 1px dashed var(--line-strong);
+  border: 2px dashed var(--line-strong);
   color: var(--ink-dim);
   border-radius: var(--radius-sm);
   padding: 12px;
+  font-family: var(--font-display);
   font-size: 0.82rem;
-  font-weight: 600;
+  font-weight: 700;
   transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
 }
 
@@ -353,14 +391,15 @@ textarea:focus-visible,
 /* ============ 8. TARJETAS / IMPORT ============ */
 .magic-card {
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 22px 18px;
   margin-bottom: 14px;
+  box-shadow: var(--shadow-sm);
 }
 
 .magic-card h2 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 800;
   letter-spacing: -0.01em;
   margin-bottom: 6px;
@@ -427,30 +466,32 @@ textarea:focus-visible,
   border-radius: var(--radius-md);
   overflow: hidden;
   min-height: 150px;
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   cursor: pointer;
   transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s var(--ease);
   background: var(--surface);
+  box-shadow: 0 var(--press-depth) 0 0 rgba(0, 0, 0, 0.25);
 }
 
 .netflix-node:hover { transform: translateY(-2px); border-color: var(--line-strong); }
+.netflix-node:active { transform: translateY(2px); box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.25); }
 
 .netflix-node-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: saturate(0.7) brightness(0.55);
+  filter: saturate(0.8) brightness(0.5);
   transform: scale(1.03);
   transition: transform 0.4s var(--ease), filter 0.4s var(--ease);
 }
 
-.netflix-node:hover .netflix-node-bg { transform: scale(1.08); filter: saturate(0.85) brightness(0.5); }
+.netflix-node:hover .netflix-node-bg { transform: scale(1.08); filter: saturate(0.9) brightness(0.48); }
 
 .netflix-node-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10, 10, 13, 0.15) 0%, rgba(10, 10, 13, 0.55) 55%, rgba(10, 10, 13, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(19, 31, 36, 0.2) 0%, rgba(19, 31, 36, 0.6) 55%, rgba(19, 31, 36, 0.94) 100%);
 }
 
 .netflix-node-content {
@@ -509,15 +550,16 @@ textarea:focus-visible,
 
 .netflix-node.current {
   border-color: var(--brand);
-  box-shadow: var(--shadow-glow-brand);
+  box-shadow: var(--shadow-glow-brand), 0 var(--press-depth) 0 0 var(--brand-dark);
 }
 
 .netflix-node.current .netflix-node-status { color: var(--brand-light); }
 .netflix-node.current .netflix-progress-fill { background: var(--brand-light); }
 
+.netflix-node.done { border-color: var(--good); }
 .netflix-node.done .netflix-node-status { color: var(--good); }
 .netflix-node.done .netflix-progress-fill { background: var(--good); }
-.netflix-node.done .netflix-node-bg { filter: saturate(0.4) brightness(0.4); }
+.netflix-node.done .netflix-node-bg { filter: saturate(0.5) brightness(0.42); }
 
 .netflix-node.locked { cursor: not-allowed; }
 .netflix-node.locked .netflix-node-bg { filter: grayscale(1) brightness(0.35); }
@@ -595,7 +637,7 @@ textarea:focus-visible,
 
 .corregir-correction-notice {
   background: var(--bad-wash);
-  border: 1px solid rgba(255, 84, 112, 0.3);
+  border: 1px solid rgba(255, 75, 75, 0.3);
   border-radius: var(--radius-sm);
   padding: 10px 14px;
   color: var(--bad);
@@ -678,7 +720,7 @@ textarea:focus-visible,
 
 .corregir-flipcard-back {
   background: var(--bad-wash);
-  border: 1px solid rgba(255, 84, 112, 0.25);
+  border: 1px solid rgba(255, 75, 75, 0.25);
   transform: rotateY(180deg);
   width: 100%;
 }
@@ -731,7 +773,7 @@ textarea:focus-visible,
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: rgba(255, 84, 112, 0.3);
+  background: rgba(255, 75, 75, 0.3);
   cursor: pointer;
   transition: background 0.2s var(--ease), transform 0.2s var(--ease);
 }
@@ -744,7 +786,7 @@ textarea:focus-visible,
 .error-highlight {
   color: var(--bad);
   text-decoration: line-through;
-  text-decoration-color: rgba(255, 84, 112, 0.6);
+  text-decoration-color: rgba(255, 75, 75, 0.6);
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -1377,7 +1419,7 @@ textarea:focus-visible,
   margin-top: 14px;
   padding: 10px 14px;
   background: var(--bad-wash);
-  border: 1px solid rgba(255, 84, 112, 0.35);
+  border: 1px solid rgba(255, 75, 75, 0.35);
   border-radius: var(--radius-sm);
   color: var(--bad);
   font-size: 0.82rem;
@@ -1389,7 +1431,7 @@ textarea:focus-visible,
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(6, 6, 8, 0.72);
+  background: rgba(6, 12, 15, 0.78);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -1409,19 +1451,19 @@ textarea:focus-visible,
   max-height: 86vh;
   overflow-y: auto;
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 2px solid var(--line-strong);
   border-radius: var(--radius-lg);
   padding: 26px 22px;
   text-align: center;
   box-shadow: var(--shadow-md);
-  animation: modal-pop 0.28s var(--ease);
+  animation: modal-pop 0.32s var(--ease-bounce);
   display: flex;          
   flex-direction: column; 
   justify-content: flex-start;
 }
 
 @keyframes modal-pop {
-  from { transform: scale(0.94) translateY(8px); opacity: 0; }
+  from { transform: scale(0.88) translateY(10px); opacity: 0; }
   to   { transform: scale(1) translateY(0); opacity: 1; }
 }
 
@@ -1550,16 +1592,17 @@ textarea:focus-visible,
   bottom: 28px;
   transform: translate(-50%, 20px);
   background: var(--surface-3);
-  border: 1px solid var(--line-strong);
+  border: 2px solid var(--line-strong);
   color: var(--ink);
   padding: 12px 20px;
   border-radius: var(--radius-pill);
+  font-family: var(--font-display);
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   box-shadow: var(--shadow-md);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease-bounce);
   z-index: 200;
   max-width: 90vw;
   text-align: center;
@@ -1605,3 +1648,329 @@ textarea:focus-visible,
   }
   .corregir-flipcard-inner { transition: none; }
 }
+/* ============ 22. SELECCIÓN DE REGLAS GRAMATICALES ============ */
+.rules-card > p { margin-bottom: 14px; }
+
+.advanced-import-details {
+  margin-top: 16px;
+  text-align: left;
+}
+.advanced-import-details summary {
+  cursor: pointer;
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 0;
+  list-style: none;
+}
+.advanced-import-details summary::-webkit-details-marker { display: none; }
+.advanced-import-details summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform 0.2s var(--ease);
+}
+.advanced-import-details[open] summary::before { transform: rotate(90deg); }
+.advanced-import-details > p { margin-top: 10px; }
+
+.rules-select-list,
+.rules-config-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 58vh;
+  overflow-y: auto;
+  margin: 4px 0 14px;
+  padding: 2px 4px 2px 2px;
+}
+
+/* Tarjeta base compartida por fila de selección y de configuración: mismo
+   lenguaje visual que .netflix-node (superficie, borde, radio, sombra) pero
+   en formato de lista en vez de mosaico. */
+.rule-card {
+  position: relative;
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 14px 14px 14px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s var(--ease), transform 0.15s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+/* Franja de color a la izquierda de cada tarjeta según el tier de dominio
+   (good/warn/bad) — el mismo código de color que ya usa la app para
+   aciertos/errores, aplicado aquí como indicador rápido de qué tan
+   dominada está cada regla, de un vistazo, sin tener que leer el %. */
+.rule-card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 10px; bottom: 10px;
+  width: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--ink-faint);
+}
+.rule-card.tier-good::before { background: var(--good); }
+.rule-card.tier-warn::before { background: var(--warn); }
+.rule-card.tier-bad::before { background: var(--bad); }
+
+/* ---- Fila de selección (checkbox) ---- */
+.rule-select-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+.rule-select-row:hover { border-color: var(--line-strong); }
+.rule-select-row.rule-row-checked {
+  border-color: rgba(88, 204, 2, 0.45);
+  box-shadow: var(--shadow-glow-brand);
+}
+.rule-select-row.rule-row-empty { opacity: 0.4; cursor: not-allowed; }
+.rule-select-row.rule-row-empty:hover { border-color: var(--line); box-shadow: var(--shadow-sm); }
+
+/* El checkbox real queda invisible pero accesible (foco de teclado); el
+   círculo visible es .rule-check, dibujado a mano para que combine con el
+   resto de la UI en vez del checkbox nativo del navegador. */
+.rule-select-row input.rule-select-checkbox {
+  position: absolute;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.rule-check {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-radius: var(--radius-xs);
+  border: 2px solid var(--line-strong);
+  background: var(--surface-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s var(--ease), border-color 0.15s var(--ease);
+}
+.rule-check::after {
+  content: "";
+  width: 11px;
+  height: 6px;
+  border-left: 2.5px solid #fff;
+  border-bottom: 2.5px solid #fff;
+  transform: rotate(-45deg) translateY(-1px);
+  opacity: 0;
+  transition: opacity 0.12s var(--ease);
+}
+.rule-select-row.rule-row-checked .rule-check {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+.rule-select-row.rule-row-checked .rule-check::after { opacity: 1; }
+.rule-select-row input.rule-select-checkbox:focus-visible ~ .rule-card-body,
+.rule-select-row input.rule-select-checkbox:focus-visible + .rule-check {
+  outline: 2px solid var(--brand-light);
+  outline-offset: 2px;
+}
+
+.rule-card-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.rule-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.rule-select-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.35;
+}
+
+.rule-pct-badge {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+}
+.rule-pct-badge.tier-good { color: var(--good); background: var(--good-wash); }
+.rule-pct-badge.tier-warn { color: var(--warn); background: var(--warn-wash); }
+.rule-pct-badge.tier-bad { color: var(--bad); background: var(--bad-wash); }
+
+.rule-pct-bar {
+  display: block;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-3);
+  overflow: hidden;
+}
+.rule-pct-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.3s var(--ease);
+}
+.rule-pct-bar-fill.tier-good { background: var(--good); }
+.rule-pct-bar-fill.tier-warn { background: var(--warn); }
+.rule-pct-bar-fill.tier-bad { background: var(--bad); }
+
+.rule-card-bottom { display: flex; }
+.rule-select-count,
+.rule-config-meta {
+  font-size: 0.7rem;
+  color: var(--ink-faint);
+}
+
+/* Barra de resumen fija sobre el botón final, para que el usuario vea de
+   un vistazo cuántas reglas / ejercicios lleva antes de continuar. */
+.rules-selection-summary {
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+}
+.rules-selection-summary:empty { display: none; }
+.rules-selection-summary strong { color: var(--ink); }
+
+/* ---- Fila de configuración (cantidad + desglose) ---- */
+.rule-config-row { text-align: left; cursor: default; }
+.rule-config-row .rule-card-top { margin-bottom: 6px; }
+.rule-config-row .rule-pct-bar { margin-bottom: 8px; }
+
+.rule-config-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.rule-config-qty-field { display: flex; flex-direction: column; gap: 5px; }
+.rule-config-qty-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--ink-faint);
+}
+.rule-config-qty-inputwrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px 4px 12px;
+  transition: border-color 0.2s var(--ease);
+}
+.rule-config-qty-inputwrap:focus-within { border-color: var(--brand); }
+.rule-config-qty {
+  width: 46px;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 6px 0;
+  text-align: center;
+}
+.rule-config-qty:focus { outline: none; }
+.rule-config-qty::placeholder { color: var(--ink-faint); font-weight: 600; }
+.rule-config-qty-max {
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+
+.rule-config-info-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  cursor: pointer;
+}
+.rule-config-info-toggle input[type="checkbox"] {
+  position: absolute;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.rule-config-switch {
+  flex-shrink: 0;
+  width: 34px;
+  height: 20px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-3);
+  border: 1px solid var(--line-strong);
+  position: relative;
+  transition: background 0.15s var(--ease), border-color 0.15s var(--ease);
+}
+.rule-config-switch::after {
+  content: "";
+  position: absolute;
+  top: 1px; left: 1px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--ink-dim);
+  transition: transform 0.15s var(--ease), background 0.15s var(--ease);
+}
+.rule-config-info-toggle input:checked ~ .rule-config-switch {
+  background: var(--brand-wash);
+  border-color: var(--brand);
+}
+.rule-config-info-toggle input:checked ~ .rule-config-switch::after {
+  transform: translateX(14px);
+  background: var(--brand);
+}
+.rule-config-info-toggle input:focus-visible ~ .rule-config-switch {
+  outline: 2px solid var(--brand-light);
+  outline-offset: 2px;
+}
+
+.rule-config-type-breakdown:empty { margin: 0; }
+.rule-config-type-breakdown {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+}
+.rule-type-breakdown-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+}
+.rule-type-breakdown-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.rule-type-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px 6px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-3);
+  border: 1px solid var(--line);
+}
+.rule-type-chip-label { font-size: 0.72rem; color: var(--ink-dim); white-space: nowrap; }
+.rule-type-chip-max { font-size: 0.62rem; color: var(--ink-faint); white-space: nowrap; }
+.rule-type-chip input {
+  width: 38px;
+  padding: 4px 2px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--line-strong);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+}
+.rule-type-chip input:focus { outline: none; border-color: var(--brand); }
+.rule-type-chip input::placeholder { color: var(--ink-faint); font-weight: 500; }
+
+.rule-type-breakdown-sum { font-weight: 800; }
+.rule-type-breakdown-sum.sum-ok { color: var(--good); }
+.rule-type-breakdown-sum.sum-bad { color: var(--bad); }

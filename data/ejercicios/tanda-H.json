@@ -1,0 +1,601 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "Tengo pocos correos electrónicos nuevos.",
+      "englishWord": "I have few new emails.",
+      "id": "tanda-H-trad-1",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Ella tiene pocas invitaciones para la fiesta.",
+      "englishWord": "She has few invitations for the party.",
+      "id": "tanda-H-trad-2",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Tenemos poco interés en ese premio.",
+      "englishWord": "We have little interest in that prize.",
+      "id": "tanda-H-trad-3",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Ellos tienen pocos boletos disponibles.",
+      "englishWord": "They have few tickets available.",
+      "id": "tanda-H-trad-4",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Tengo poco tiempo antes de la reunión.",
+      "englishWord": "I have little time before the meeting.",
+      "id": "tanda-H-trad-5",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Él tiene pocas ideas para el proyecto.",
+      "englishWord": "He has few ideas for the project.",
+      "id": "tanda-H-trad-6",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Acabo de recibir tu correo.",
+      "englishWord": "I've just received your email.",
+      "id": "tanda-H-trad-7",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella acababa de salir cuando llamé.",
+      "englishWord": "She'd just left when I called.",
+      "id": "tanda-H-trad-8",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Acabamos de recibir el premio.",
+      "englishWord": "We've just received the prize.",
+      "id": "tanda-H-trad-9",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio un premio, y él lo recibió hoy.",
+      "englishWord": "She gave him a prize, and he received it today.",
+      "id": "tanda-H-trad-10",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él le dio una invitación, y ella la recibió hoy.",
+      "englishWord": "He gave her an invitation, and she received it today.",
+      "id": "tanda-H-trad-11",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ellos nos dieron un premio, y lo recibimos hoy.",
+      "englishWord": "They gave us an award, and we received it today.",
+      "id": "tanda-H-trad-12",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ella trajo su computadora a la oficina.",
+      "englishWord": "She brought her computer to the office.",
+      "id": "tanda-H-trad-13",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Él trajo su cuaderno a la oficina.",
+      "englishWord": "He brought his notebook to the office.",
+      "id": "tanda-H-trad-14",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Trajimos los boletos para el concierto.",
+      "englishWord": "We brought the tickets for the concert.",
+      "id": "tanda-H-trad-15",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Ella dejó la oficina, y ahora se ha ido a casa.",
+      "englishWord": "She left the office, and now she's gone home.",
+      "id": "tanda-H-trad-16",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él dejó la reunión, y se ha ido al aeropuerto.",
+      "englishWord": "He left the meeting, and he's gone to the airport.",
+      "id": "tanda-H-trad-17",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ellos dejaron el trabajo, y ya se han ido a casa.",
+      "englishWord": "They left work, and they've already gone home.",
+      "id": "tanda-H-trad-18",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "¿Habías recibido mi correo?",
+      "englishWord": "Had you received my email?",
+      "id": "tanda-H-trad-19",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "spanishWord": "Está muy nublado hoy.",
+      "englishWord": "It's very cloudy today.",
+      "id": "tanda-H-trad-20",
+      "reglaIds": [
+        33
+      ]
+    }
+  ],
+  "completar": [
+    {
+      "spanishWord": "Tengo pocos correos electrónicos nuevos.",
+      "englishSentence": "I ___ few new emails.",
+      "options": [
+        "have"
+      ],
+      "id": "tanda-H-compl-1",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Ella tiene pocas invitaciones para la fiesta.",
+      "englishSentence": "She ___ few invitations for the party.",
+      "options": [
+        "has"
+      ],
+      "id": "tanda-H-compl-2",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Tenemos poco interés en ese premio.",
+      "englishSentence": "We ___ little interest in that prize.",
+      "options": [
+        "have"
+      ],
+      "id": "tanda-H-compl-3",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Él tiene pocas ideas para el proyecto.",
+      "englishSentence": "He ___ few ideas for the project.",
+      "options": [
+        "has"
+      ],
+      "id": "tanda-H-compl-4",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Acabo de recibir tu correo.",
+      "englishSentence": "I've ___ received your email.",
+      "options": [
+        "just"
+      ],
+      "id": "tanda-H-compl-5",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella acababa de salir cuando llamé.",
+      "englishSentence": "She'd ___ left when I called.",
+      "options": [
+        "just"
+      ],
+      "id": "tanda-H-compl-6",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio un premio, y él lo recibió hoy.",
+      "englishSentence": "She gave him a prize, and he ___ it today.",
+      "options": [
+        "received"
+      ],
+      "id": "tanda-H-compl-7",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él le dio una invitación, y ella la recibió hoy.",
+      "englishSentence": "He gave her an invitation, and she ___ it today.",
+      "options": [
+        "received"
+      ],
+      "id": "tanda-H-compl-8",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ella trajo su computadora a la oficina.",
+      "englishSentence": "She ___ her computer to the office.",
+      "options": [
+        "brought"
+      ],
+      "id": "tanda-H-compl-9",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Trajimos los boletos para el concierto.",
+      "englishSentence": "We ___ the tickets for the concert.",
+      "options": [
+        "brought"
+      ],
+      "id": "tanda-H-compl-10",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Ella dejó la oficina, y ahora se ha ido a casa.",
+      "englishSentence": "She left the office, and now she's ___ home.",
+      "options": [
+        "gone"
+      ],
+      "id": "tanda-H-compl-11",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él dejó la reunión, y se ha ido al aeropuerto.",
+      "englishSentence": "He ___ the meeting, and he's gone to the airport.",
+      "options": [
+        "left"
+      ],
+      "id": "tanda-H-compl-12",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "¿Habías recibido mi correo?",
+      "englishSentence": "___ you received my email?",
+      "options": [
+        "Had"
+      ],
+      "id": "tanda-H-compl-13",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "spanishWord": "Está muy nublado hoy.",
+      "englishSentence": "___'s very cloudy today.",
+      "options": [
+        "It"
+      ],
+      "id": "tanda-H-compl-14",
+      "reglaIds": [
+        33
+      ]
+    }
+  ],
+  "seleccionar": [
+    {
+      "pairs": [
+        {
+          "englishWord": "email",
+          "spanishWord": "correo electrónico"
+        },
+        {
+          "englishWord": "invitation",
+          "spanishWord": "invitación"
+        },
+        {
+          "englishWord": "prize",
+          "spanishWord": "premio"
+        },
+        {
+          "englishWord": "award",
+          "spanishWord": "reconocimiento"
+        },
+        {
+          "englishWord": "ticket",
+          "spanishWord": "boleto"
+        }
+      ],
+      "id": "tanda-H-sel-1",
+      "reglaIds": [
+        42
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "concert",
+          "spanishWord": "concierto"
+        },
+        {
+          "englishWord": "office",
+          "spanishWord": "oficina"
+        },
+        {
+          "englishWord": "laptop",
+          "spanishWord": "computadora portátil"
+        },
+        {
+          "englishWord": "printer",
+          "spanishWord": "impresora"
+        },
+        {
+          "englishWord": "folder",
+          "spanishWord": "carpeta"
+        }
+      ],
+      "id": "tanda-H-sel-2",
+      "reglaIds": [
+        42
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "calendar",
+          "spanishWord": "calendario"
+        },
+        {
+          "englishWord": "menu",
+          "spanishWord": "menú"
+        },
+        {
+          "englishWord": "wallet",
+          "spanishWord": "billetera"
+        },
+        {
+          "englishWord": "mirror",
+          "spanishWord": "espejo"
+        },
+        {
+          "englishWord": "clock",
+          "spanishWord": "reloj"
+        }
+      ],
+      "id": "tanda-H-sel-3",
+      "reglaIds": [
+        42
+      ]
+    }
+  ],
+  "corregir": [
+    {
+      "spanishPhrase": "Tengo pocos correos nuevos.",
+      "fraseConError": "I've few new emails.",
+      "fraseCorrecta": "I have few new emails.",
+      "id": "tanda-H-correg-1",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishPhrase": "Ella tiene poco interés en eso.",
+      "fraseConError": "She's little interest in that.",
+      "fraseCorrecta": "She has little interest in that.",
+      "id": "tanda-H-correg-2",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishPhrase": "Tenemos pocos boletos disponibles.",
+      "fraseConError": "We've few tickets available.",
+      "fraseCorrecta": "We have few tickets available.",
+      "id": "tanda-H-correg-3",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishPhrase": "Ella acababa de salir cuando llamé.",
+      "fraseConError": "She's just left when I called.",
+      "fraseCorrecta": "She'd just left when I called.",
+      "id": "tanda-H-correg-4",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Él le dio un premio y ella lo recibió.",
+      "fraseConError": "He gave a prize her and she received it.",
+      "fraseCorrecta": "He gave her a prize and she received it.",
+      "id": "tanda-H-correg-5",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishPhrase": "Ella trajo su computadora a la oficina.",
+      "fraseConError": "She brought her computer at the office.",
+      "fraseCorrecta": "She brought her computer to the office.",
+      "id": "tanda-H-correg-6",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishPhrase": "Ella dejó la oficina, y se ha ido a casa.",
+      "fraseConError": "She's gone the office, and she's gone home.",
+      "fraseCorrecta": "She left the office, and she's gone home.",
+      "id": "tanda-H-correg-7",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos dejaron el trabajo y ya se han ido.",
+      "fraseConError": "They've gone work, and they've already left.",
+      "fraseCorrecta": "They left work, and they've already gone.",
+      "id": "tanda-H-correg-8",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "¿Habías recibido mi correo?",
+      "fraseConError": "Have you received my email?",
+      "fraseCorrecta": "Had you received my email?",
+      "id": "tanda-H-correg-9",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "spanishPhrase": "Está muy nublado hoy.",
+      "fraseConError": "Is very cloudy today.",
+      "fraseCorrecta": "It's very cloudy today.",
+      "id": "tanda-H-correg-10",
+      "reglaIds": [
+        33
+      ]
+    }
+  ],
+  "dictado": [
+    {
+      "text": "I have few new emails.",
+      "id": "tanda-H-dict-1",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "text": "She has little interest in that.",
+      "id": "tanda-H-dict-2",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "text": "We have few tickets available.",
+      "id": "tanda-H-dict-3",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "text": "I've just received your email.",
+      "id": "tanda-H-dict-4",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "text": "She'd just left when I called.",
+      "id": "tanda-H-dict-5",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "text": "She gave him a prize.",
+      "id": "tanda-H-dict-6",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "text": "He received it today.",
+      "id": "tanda-H-dict-7",
+      "reglaIds": []
+    },
+    {
+      "text": "She brought her computer.",
+      "id": "tanda-H-dict-8",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "text": "We brought the tickets.",
+      "id": "tanda-H-dict-9",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "text": "She left the office.",
+      "id": "tanda-H-dict-10",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "text": "She's gone home.",
+      "id": "tanda-H-dict-11",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "text": "Had you received my email?",
+      "id": "tanda-H-dict-12",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "text": "It's very cloudy today.",
+      "id": "tanda-H-dict-13",
+      "reglaIds": [
+        33
+      ]
+    }
+  ]
+}

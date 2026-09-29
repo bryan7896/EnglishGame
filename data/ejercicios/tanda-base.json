@@ -1,0 +1,784 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "El entrenador tiene pocos jugadores este año.",
+      "englishWord": "The coach has few players this year.",
+      "id": "tanda-base-trad-1",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Tenemos poco tiempo para el partido.",
+      "englishWord": "We have little time for the match.",
+      "id": "tanda-base-trad-2",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Ella tiene pocas preguntas sobre el equipo.",
+      "englishWord": "She has few questions about the team.",
+      "id": "tanda-base-trad-3",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Tengo poco dinero para el gimnasio.",
+      "englishWord": "I have little money for the gym.",
+      "id": "tanda-base-trad-4",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "El entrenador le dio consejos al jugador.",
+      "englishWord": "The coach gave the player advice.",
+      "id": "tanda-base-trad-5",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio el balón al niño.",
+      "englishWord": "She gave the boy the ball.",
+      "id": "tanda-base-trad-6",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Le di mi raqueta a mi amigo.",
+      "englishWord": "I gave my friend my racket.",
+      "id": "tanda-base-trad-7",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "El jugador se ha ido del equipo.",
+      "englishWord": "The player's gone from the team.",
+      "id": "tanda-base-trad-8",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella dejó el gimnasio temprano.",
+      "englishWord": "She left the gym early.",
+      "id": "tanda-base-trad-9",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "El entrenador ya se ha ido de la cancha.",
+      "englishWord": "The coach's already gone from the field.",
+      "id": "tanda-base-trad-10",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella tomó fotos del partido.",
+      "englishWord": "She took photos of the match.",
+      "id": "tanda-base-trad-11",
+      "reglaIds": [
+        19
+      ]
+    },
+    {
+      "spanishWord": "Él tomó la pelota de la cancha.",
+      "englishWord": "He took the ball from the field.",
+      "id": "tanda-base-trad-12",
+      "reglaIds": [
+        19
+      ]
+    },
+    {
+      "spanishWord": "El jugador tiene miedo del juego.",
+      "englishWord": "The player is afraid of the game.",
+      "id": "tanda-base-trad-13",
+      "reglaIds": []
+    },
+    {
+      "spanishWord": "Los niños tienen miedo de perder.",
+      "englishWord": "The kids are afraid of losing.",
+      "id": "tanda-base-trad-14",
+      "reglaIds": []
+    },
+    {
+      "spanishWord": "El entrenador estudia cada partido.",
+      "englishWord": "The coach studies every match.",
+      "id": "tanda-base-trad-15",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "Ella practica tenis todos los días.",
+      "englishWord": "She practices tennis every day.",
+      "id": "tanda-base-trad-16",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "Ella trajo su raqueta al gimnasio.",
+      "englishWord": "She brought her racket to the gym.",
+      "id": "tanda-base-trad-17",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Él trajo agua al partido.",
+      "englishWord": "He brought water to the match.",
+      "id": "tanda-base-trad-18",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Hay menos jugadores este año.",
+      "englishWord": "There are fewer players this year.",
+      "id": "tanda-base-trad-19",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Tengo menos tiempo hoy.",
+      "englishWord": "I have less time today.",
+      "id": "tanda-base-trad-20",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "El partido acaba de terminar.",
+      "englishWord": "The match has just ended.",
+      "id": "tanda-base-trad-21",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella acababa de llegar cuando empezó el juego.",
+      "englishWord": "She had just arrived when the game started.",
+      "id": "tanda-base-trad-22",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "¿Habías jugado tenis antes?",
+      "englishWord": "Had you played tennis before?",
+      "id": "tanda-base-trad-23",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "spanishWord": "¿Había ganado el equipo antes?",
+      "englishWord": "Had the team won before?",
+      "id": "tanda-base-trad-24",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "spanishWord": "Ella se parece a su entrenadora.",
+      "englishWord": "She looks like her coach.",
+      "id": "tanda-base-trad-25",
+      "reglaIds": [
+        8,
+        20,
+        23
+      ]
+    },
+    {
+      "spanishWord": "El niño se parece a su papá.",
+      "englishWord": "The boy looks like his dad.",
+      "id": "tanda-base-trad-26",
+      "reglaIds": [
+        20,
+        23
+      ]
+    }
+  ],
+  "completar": [
+    {
+      "spanishWord": "El entrenador tiene pocos jugadores este año.",
+      "englishSentence": "The coach ___ few players this year.",
+      "options": [
+        "has"
+      ],
+      "id": "tanda-base-compl-1",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Tenemos poco tiempo para el partido.",
+      "englishSentence": "We ___ little time for the match.",
+      "options": [
+        "have"
+      ],
+      "id": "tanda-base-compl-2",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "El entrenador le dio consejos al jugador.",
+      "englishSentence": "The coach ___ the player advice.",
+      "options": [
+        "gave"
+      ],
+      "id": "tanda-base-compl-3",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio el balón al niño.",
+      "englishSentence": "She ___ the boy the ball.",
+      "options": [
+        "gave"
+      ],
+      "id": "tanda-base-compl-4",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "El jugador se ha ido del equipo.",
+      "englishSentence": "The player's ___ from the team.",
+      "options": [
+        "gone"
+      ],
+      "id": "tanda-base-compl-5",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella dejó el gimnasio temprano.",
+      "englishSentence": "She ___ the gym early.",
+      "options": [
+        "left"
+      ],
+      "id": "tanda-base-compl-6",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella tomó fotos del partido.",
+      "englishSentence": "She ___ photos of the match.",
+      "options": [
+        "took"
+      ],
+      "id": "tanda-base-compl-7",
+      "reglaIds": [
+        19
+      ]
+    },
+    {
+      "spanishWord": "El jugador tiene miedo del juego.",
+      "englishSentence": "The player is ___ of the game.",
+      "options": [
+        "afraid"
+      ],
+      "id": "tanda-base-compl-8",
+      "reglaIds": []
+    },
+    {
+      "spanishWord": "El entrenador estudia cada partido.",
+      "englishSentence": "The coach ___ every match.",
+      "options": [
+        "studies"
+      ],
+      "id": "tanda-base-compl-9",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "Ella practica tenis todos los días.",
+      "englishSentence": "She ___ tennis every day.",
+      "options": [
+        "practices"
+      ],
+      "id": "tanda-base-compl-10",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "Ella trajo su raqueta al gimnasio.",
+      "englishSentence": "She ___ her racket to the gym.",
+      "options": [
+        "brought"
+      ],
+      "id": "tanda-base-compl-11",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Hay menos jugadores este año.",
+      "englishSentence": "There are ___ players this year.",
+      "options": [
+        "fewer"
+      ],
+      "id": "tanda-base-compl-12",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Tengo menos tiempo hoy.",
+      "englishSentence": "I have ___ time today.",
+      "options": [
+        "less"
+      ],
+      "id": "tanda-base-compl-13",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "El partido acaba de terminar.",
+      "englishSentence": "The match has ___ ended.",
+      "options": [
+        "just"
+      ],
+      "id": "tanda-base-compl-14",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "¿Habías jugado tenis antes?",
+      "englishSentence": "___ you played tennis before?",
+      "options": [
+        "Had"
+      ],
+      "id": "tanda-base-compl-15",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "spanishWord": "Ella se parece a su entrenadora.",
+      "englishSentence": "She looks ___ her coach.",
+      "options": [
+        "like"
+      ],
+      "id": "tanda-base-compl-16",
+      "reglaIds": [
+        8,
+        20,
+        23
+      ]
+    },
+    {
+      "spanishWord": "El niño se parece a su papá.",
+      "englishSentence": "The boy looks ___ his dad.",
+      "options": [
+        "like"
+      ],
+      "id": "tanda-base-compl-17",
+      "reglaIds": [
+        20,
+        23
+      ]
+    },
+    {
+      "spanishWord": "Ella acababa de llegar cuando empezó el juego.",
+      "englishSentence": "She had ___ arrived when the game started.",
+      "options": [
+        "just"
+      ],
+      "id": "tanda-base-compl-18",
+      "reglaIds": [
+        10
+      ]
+    }
+  ],
+  "seleccionar": [
+    {
+      "pairs": [
+        {
+          "englishWord": "coach",
+          "spanishWord": "entrenador(a)"
+        },
+        {
+          "englishWord": "player",
+          "spanishWord": "jugador(a)"
+        },
+        {
+          "englishWord": "team",
+          "spanishWord": "equipo"
+        },
+        {
+          "englishWord": "match",
+          "spanishWord": "partido"
+        },
+        {
+          "englishWord": "field",
+          "spanishWord": "cancha"
+        }
+      ],
+      "id": "tanda-base-sel-1",
+      "reglaIds": [
+        42
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "gym",
+          "spanishWord": "gimnasio"
+        },
+        {
+          "englishWord": "race",
+          "spanishWord": "carrera"
+        },
+        {
+          "englishWord": "win",
+          "spanishWord": "ganar"
+        },
+        {
+          "englishWord": "lose",
+          "spanishWord": "perder"
+        },
+        {
+          "englishWord": "swim",
+          "spanishWord": "nadar"
+        }
+      ],
+      "id": "tanda-base-sel-2",
+      "reglaIds": [
+        42
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "advice",
+          "spanishWord": "consejo"
+        },
+        {
+          "englishWord": "dad",
+          "spanishWord": "papá"
+        },
+        {
+          "englishWord": "boy",
+          "spanishWord": "niño"
+        },
+        {
+          "englishWord": "water",
+          "spanishWord": "agua"
+        },
+        {
+          "englishWord": "exercise",
+          "spanishWord": "ejercicio"
+        }
+      ],
+      "id": "tanda-base-sel-3",
+      "reglaIds": [
+        42
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "doctor",
+          "spanishWord": "doctor(a)"
+        },
+        {
+          "englishWord": "dentist",
+          "spanishWord": "dentista"
+        },
+        {
+          "englishWord": "engineer",
+          "spanishWord": "ingeniero(a)"
+        },
+        {
+          "englishWord": "lawyer",
+          "spanishWord": "abogado(a)"
+        },
+        {
+          "englishWord": "artist",
+          "spanishWord": "artista"
+        }
+      ],
+      "id": "tanda-base-sel-4",
+      "reglaIds": [
+        42
+      ]
+    }
+  ],
+  "corregir": [
+    {
+      "spanishPhrase": "El entrenador tiene pocos jugadores.",
+      "fraseConError": "The coach've few players.",
+      "fraseCorrecta": "The coach has few players.",
+      "id": "tanda-base-correg-1",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishPhrase": "Tenemos poco tiempo.",
+      "fraseConError": "We've little time.",
+      "fraseCorrecta": "We have little time.",
+      "id": "tanda-base-correg-2",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishPhrase": "El entrenador le dio consejos al jugador.",
+      "fraseConError": "The coach give the player advice.",
+      "fraseCorrecta": "The coach gave the player advice.",
+      "id": "tanda-base-correg-3",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishPhrase": "El jugador se ha ido del equipo.",
+      "fraseConError": "The player's left from the team.",
+      "fraseCorrecta": "The player's gone from the team.",
+      "id": "tanda-base-correg-4",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Ella dejó el gimnasio temprano.",
+      "fraseConError": "She's gone the gym early.",
+      "fraseCorrecta": "She left the gym early.",
+      "id": "tanda-base-correg-5",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Él tomó la pelota de la cancha.",
+      "fraseConError": "He take the ball from the field.",
+      "fraseCorrecta": "He took the ball from the field.",
+      "id": "tanda-base-correg-6",
+      "reglaIds": [
+        19
+      ]
+    },
+    {
+      "spanishPhrase": "El jugador tiene miedo del juego.",
+      "fraseConError": "The player has afraid of the game.",
+      "fraseCorrecta": "The player is afraid of the game.",
+      "id": "tanda-base-correg-7",
+      "reglaIds": []
+    },
+    {
+      "spanishPhrase": "El entrenador estudia cada partido.",
+      "fraseConError": "The coach study every match.",
+      "fraseCorrecta": "The coach studies every match.",
+      "id": "tanda-base-correg-8",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishPhrase": "Ella practica tenis todos los días.",
+      "fraseConError": "She practice tennis every day.",
+      "fraseCorrecta": "She practices tennis every day.",
+      "id": "tanda-base-correg-9",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishPhrase": "Ella trajo su raqueta al gimnasio.",
+      "fraseConError": "She bringed her racket to the gym.",
+      "fraseCorrecta": "She brought her racket to the gym.",
+      "id": "tanda-base-correg-10",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishPhrase": "Hay menos jugadores este año.",
+      "fraseConError": "There are less players this year.",
+      "fraseCorrecta": "There are fewer players this year.",
+      "id": "tanda-base-correg-11",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishPhrase": "El partido acaba de terminar.",
+      "fraseConError": "The match have just ended.",
+      "fraseCorrecta": "The match has just ended.",
+      "id": "tanda-base-correg-12",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "¿Había ganado el equipo antes?",
+      "fraseConError": "Did the team had won before?",
+      "fraseCorrecta": "Had the team won before?",
+      "id": "tanda-base-correg-13",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "spanishPhrase": "Ella se parece a su entrenadora.",
+      "fraseConError": "She looks as her coach.",
+      "fraseCorrecta": "She looks like her coach.",
+      "id": "tanda-base-correg-14",
+      "reglaIds": [
+        8,
+        20,
+        23
+      ]
+    }
+  ],
+  "dictado": [
+    {
+      "text": "I've... I'd... Had I... Have I... I haven't",
+      "id": "tanda-base-dict-1",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "text": "He's... He'd... Had he... Has he... He hasn't",
+      "id": "tanda-base-dict-2",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "text": "She's... She'd... Had she... Has she... She hasn't",
+      "id": "tanda-base-dict-3",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "text": "It's... It'd... Had it... Has it... It hasn't",
+      "id": "tanda-base-dict-4",
+      "reglaIds": [
+        10,
+        33
+      ]
+    },
+    {
+      "text": "I have... I had... Had I... Have I... I do not have",
+      "id": "tanda-base-dict-5",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "text": "The windy weather surprised us.",
+      "id": "tanda-base-dict-6",
+      "reglaIds": []
+    },
+    {
+      "text": "The student studies and works hard.",
+      "id": "tanda-base-dict-7",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "text": "She looked for her watch and scarf.",
+      "id": "tanda-base-dict-8",
+      "reglaIds": [
+        8,
+        23
+      ]
+    },
+    {
+      "text": "They're looking for a new notebook.",
+      "id": "tanda-base-dict-9",
+      "reglaIds": [
+        23
+      ]
+    },
+    {
+      "text": "They left the party and ate breakfast.",
+      "id": "tanda-base-dict-10",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "text": "I work at a small school.",
+      "id": "tanda-base-dict-11",
+      "reglaIds": []
+    },
+    {
+      "text": "She took the cheese from the table.",
+      "id": "tanda-base-dict-12",
+      "reglaIds": [
+        19
+      ]
+    },
+    {
+      "text": "It's windy, and I need a scarf.",
+      "id": "tanda-base-dict-13",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "text": "The teacher studies the weather every week.",
+      "id": "tanda-base-dict-14",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "text": "They're new students at school.",
+      "id": "tanda-base-dict-15",
+      "reglaIds": []
+    },
+    {
+      "text": "She's already gone, she left early.",
+      "id": "tanda-base-dict-16",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "text": "I've never worked at a school.",
+      "id": "tanda-base-dict-17",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "text": "He took his notebook and left.",
+      "id": "tanda-base-dict-18",
+      "reglaIds": [
+        15,
+        19
+      ]
+    }
+  ]
+}

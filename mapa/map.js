@@ -12,7 +12,12 @@
 
 export const MAP_CONFIG = {
   totalMainNodes: 10,
-  // Imágenes de fondo estilo "carátula de episodio" para los nodos principales
+  // Imágenes de fondo estilo "carátula de episodio" para los nodos
+  // principales. Todas son enlaces directos a Unsplash (CDN de
+  // images.unsplash.com), verificadas una por una antes de agregarlas.
+  // Se reparten de forma rotativa (i % backgrounds.length) entre los
+  // nodos, así que aunque haya más nodos que imágenes no se repiten
+  // seguidas.
   backgrounds: [
     "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop",
     "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop",
@@ -21,6 +26,15 @@ export const MAP_CONFIG = {
     "https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=400&h=300&fit=crop",
     "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop",
     "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1540921002383-b2a7ff6a716d?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1576616519587-986b14a1388a?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1557234424-db3778bd0346?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1500964757637-c85e8a162699?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1750322769147-6ae0d3fceb86?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1576888841486-afe7f1b2d74a?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1705299493165-4b2a6bfe3e1f?w=400&h=300&fit=crop",
   ],
 };
 
@@ -54,7 +68,7 @@ export function setTotalMainNodes(n) {
   return _totalMainNodes;
 }
 
-function shuffleArray(arr) {
+export function shuffleArray(arr) {
   const shuffled = [...arr];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -160,17 +174,17 @@ function computeNodeSizes(total, totalMainNodes) {
  * que no se aprobaron con 80% o más, repartiéndose en varios nodos si la
  * pool crece (ver buildRepasoNodes()).
  */
-export function createNodeStructure(userData) {
-  const { traducciones, completar, seleccionar, corregir, dictado } = userData;
-
-  const allExercises = [
-    ...(traducciones || []).map(e => ({ ...e, type: "traduccion" })),
-    ...(completar || []).map(e => ({ ...e, type: "completar" })),
-    ...(seleccionar || []).map(e => ({ pairs: e, type: "seleccionar" })),
-    ...(corregir || []).map(e => ({ ...e, type: "corregir" })),
-    ...(dictado || []).map(e => ({ text: typeof e === 'string' ? e : e.text || e, type: "dictado" })),
-  ];
-
+/**
+ * Construye los nodos principales + nodo(s) de repaso vacíos a partir de
+ * una lista PLANA de ejercicios ya normalizados (cada uno con su `type`
+ * ya asignado: "traduccion" | "completar" | "seleccionar" | "corregir" |
+ * "dictado"). Es el núcleo compartido por:
+ *  - createNodeStructure() (import manual clásico, abajo), que arma esa
+ *    lista plana a partir de los 5 arrays crudos.
+ *  - el flujo de "Seleccionar reglas a estudiar" (motor principal), que ya
+ *    trae la lista plana armada (con id/reglaIds) desde ALL_STUDY_EXERCISES.
+ */
+export function buildNodesFromExerciseList(allExercises) {
   const totalMainNodes = getTotalMainNodes();
   const total = allExercises.length;
   const sizes = computeNodeSizes(total, totalMainNodes);
@@ -199,6 +213,28 @@ export function createNodeStructure(userData) {
   nodes.push(...buildRepasoNodes([], computeRepasoChunkSize(nodes), totalMainNodes + 1));
 
   return nodes;
+}
+
+/**
+ * Convierte el JSON crudo del usuario (5 claves: traducciones/completar/
+ * seleccionar/corregir/dictado) en una lista PLANA de ejercicios ya
+ * normalizados (con `type`), sin barajar ni repartir en nodos todavía.
+ * La usan tanto createNodeStructure() (import manual clásico, reemplaza
+ * todo) como el flujo de "Mezclar JSON manual" (agrega a lo ya cargado).
+ */
+export function rawDataToExerciseList(userData) {
+  const { traducciones, completar, seleccionar, corregir, dictado } = userData || {};
+  return [
+    ...(traducciones || []).map(e => ({ ...e, type: "traduccion" })),
+    ...(completar || []).map(e => ({ ...e, type: "completar" })),
+    ...(seleccionar || []).map(e => ({ pairs: e, type: "seleccionar" })),
+    ...(corregir || []).map(e => ({ ...e, type: "corregir" })),
+    ...(dictado || []).map(e => ({ text: typeof e === 'string' ? e : e.text || e, type: "dictado" })),
+  ];
+}
+
+export function createNodeStructure(userData) {
+  return buildNodesFromExerciseList(rawDataToExerciseList(userData));
 }
 
 /**

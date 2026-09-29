@@ -1,0 +1,497 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "¿Tienes alguna pregunta?",
+      "englishWord": "Do you have any questions?",
+      "id": "tanda-W-trad-1",
+      "reglaIds": [
+        31
+      ]
+    },
+    {
+      "spanishWord": "¿Necesitas algo más?",
+      "englishWord": "Do you need anything else?",
+      "id": "tanda-W-trad-2",
+      "reglaIds": [
+        31
+      ]
+    },
+    {
+      "spanishWord": "¿Hay alguien aquí?",
+      "englishWord": "Is anyone here?",
+      "id": "tanda-W-trad-3",
+      "reglaIds": [
+        31
+      ]
+    },
+    {
+      "spanishWord": "Ella no tiene ningún problema con eso.",
+      "englishWord": "She doesn't have any problem with that.",
+      "id": "tanda-W-trad-4",
+      "reglaIds": [
+        31
+      ]
+    },
+    {
+      "spanishWord": "¿Compraste algo en la tienda?",
+      "englishWord": "Did you buy anything at the store?",
+      "id": "tanda-W-trad-5",
+      "reglaIds": [
+        31
+      ]
+    },
+    {
+      "spanishWord": "No queda comida.",
+      "englishWord": "There isn't any food left.",
+      "id": "tanda-W-trad-6",
+      "reglaIds": [
+        15,
+        31
+      ]
+    },
+    {
+      "spanishWord": "¿Alguien te ayudó con esto?",
+      "englishWord": "Did anyone help you with this?",
+      "id": "tanda-W-trad-7",
+      "reglaIds": [
+        31
+      ]
+    },
+    {
+      "spanishWord": "No tenemos ningún plan para hoy.",
+      "englishWord": "We don't have any plans for today.",
+      "id": "tanda-W-trad-8",
+      "reglaIds": [
+        31
+      ]
+    },
+    {
+      "spanishWord": "Para el jueves, habré enviado el reporte.",
+      "englishWord": "By Thursday, I will have sent the report.",
+      "id": "tanda-W-trad-9",
+      "reglaIds": [
+        48
+      ]
+    },
+    {
+      "spanishWord": "Para las siete, ellos habrán llegado.",
+      "englishWord": "By seven, they will have arrived.",
+      "id": "tanda-W-trad-10",
+      "reglaIds": [
+        10,
+        48
+      ]
+    },
+    {
+      "spanishWord": "Para el fin de semana, habremos terminado la mudanza.",
+      "englishWord": "By the weekend, we will have finished the move.",
+      "id": "tanda-W-trad-11",
+      "reglaIds": [
+        10,
+        48
+      ]
+    },
+    {
+      "spanishWord": "Para julio, él habrá comprado la casa.",
+      "englishWord": "By July, he will have bought the house.",
+      "id": "tanda-W-trad-12",
+      "reglaIds": [
+        48
+      ]
+    },
+    {
+      "spanishWord": "Para entonces, ella habrá aprendido inglés.",
+      "englishWord": "By then, she will have learned English.",
+      "id": "tanda-W-trad-13",
+      "reglaIds": [
+        10,
+        48
+      ]
+    },
+    {
+      "spanishWord": "Para mañana, habré terminado el informe.",
+      "englishWord": "By tomorrow, I will have finished the report.",
+      "id": "tanda-W-trad-14",
+      "reglaIds": [
+        10,
+        48
+      ]
+    },
+    {
+      "spanishWord": "Para el próximo verano, habremos ahorrado bastante.",
+      "englishWord": "By next summer, we will have saved a lot.",
+      "id": "tanda-W-trad-15",
+      "reglaIds": [
+        10,
+        48
+      ]
+    },
+    {
+      "spanishWord": "Para las diez, la reunión habrá terminado.",
+      "englishWord": "By ten, the meeting will have ended.",
+      "id": "tanda-W-trad-16",
+      "reglaIds": [
+        10,
+        48
+      ]
+    },
+    {
+      "spanishWord": "Ella me dio un libro interesante.",
+      "englishWord": "She gave me an interesting book.",
+      "id": "tanda-W-trad-17",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él ha dado su vida por su trabajo.",
+      "englishWord": "He has given his life to his work.",
+      "id": "tanda-W-trad-18",
+      "reglaIds": [
+        10,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ellos nos dieron buenas noticias.",
+      "englishWord": "They gave us good news.",
+      "id": "tanda-W-trad-19",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Nosotros hemos dado nuestro mejor esfuerzo.",
+      "englishWord": "We have given our best effort.",
+      "id": "tanda-W-trad-20",
+      "reglaIds": [
+        10,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Yo le di la respuesta correcta.",
+      "englishWord": "I gave her the correct answer.",
+      "id": "tanda-W-trad-21",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ella ha dado clases de inglés por años.",
+      "englishWord": "She has given English classes for years.",
+      "id": "tanda-W-trad-22",
+      "reglaIds": [
+        10,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él nos dio permiso para salir.",
+      "englishWord": "He gave us permission to leave.",
+      "id": "tanda-W-trad-23",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ellos han dado mucho apoyo a la comunidad.",
+      "englishWord": "They have given a lot of support to the community.",
+      "id": "tanda-W-trad-24",
+      "reglaIds": [
+        10,
+        25
+      ]
+    },
+    {
+      "spanishWord": "No fuimos a la playa porque hacía frío.",
+      "englishWord": "We didn't go to the beach because it was cold.",
+      "id": "tanda-W-trad-25",
+      "reglaIds": [
+        49
+      ]
+    },
+    {
+      "spanishWord": "No fuimos a la playa por el frío.",
+      "englishWord": "We didn't go to the beach because of the cold.",
+      "id": "tanda-W-trad-26",
+      "reglaIds": [
+        49
+      ]
+    },
+    {
+      "spanishWord": "Ella dejó el trabajo porque estaba cansada.",
+      "englishWord": "She left the job because she was tired.",
+      "id": "tanda-W-trad-27",
+      "reglaIds": [
+        15,
+        49
+      ]
+    },
+    {
+      "spanishWord": "Él llegó tarde por el tráfico pesado.",
+      "englishWord": "He arrived late because of the heavy traffic.",
+      "id": "tanda-W-trad-28",
+      "reglaIds": [
+        49
+      ]
+    },
+    {
+      "spanishWord": "No hicimos el viaje porque no teníamos dinero.",
+      "englishWord": "We didn't take the trip because we didn't have money.",
+      "id": "tanda-W-trad-29",
+      "reglaIds": [
+        49
+      ]
+    },
+    {
+      "spanishWord": "No hicimos el viaje por falta de dinero.",
+      "englishWord": "We didn't take the trip because of the lack of money.",
+      "id": "tanda-W-trad-30",
+      "reglaIds": [
+        49
+      ]
+    },
+    {
+      "spanishWord": "Ella ganó porque practicó mucho.",
+      "englishWord": "She won because she practiced a lot.",
+      "id": "tanda-W-trad-31",
+      "reglaIds": [
+        49
+      ]
+    },
+    {
+      "spanishWord": "Ella ganó por su esfuerzo.",
+      "englishWord": "She won because of her effort.",
+      "id": "tanda-W-trad-32",
+      "reglaIds": [
+        8,
+        49
+      ]
+    },
+    {
+      "spanishWord": "Hay pocos platos limpios.",
+      "englishWord": "There are few clean plates.",
+      "id": "tanda-W-trad-33",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Tenemos poca gasolina en el carro.",
+      "englishWord": "We have little gas in the car.",
+      "id": "tanda-W-trad-34",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Ella compró pocas manzanas.",
+      "englishWord": "She bought few apples.",
+      "id": "tanda-W-trad-35",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Hay demasiado ruido aquí.",
+      "englishWord": "There's too much noise here.",
+      "id": "tanda-W-trad-36",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Necesitamos más información sobre esto.",
+      "englishWord": "We need more information about this.",
+      "id": "tanda-W-trad-37",
+      "reglaIds": []
+    },
+    {
+      "spanishWord": "Él tiene muchos amigos en el trabajo.",
+      "englishWord": "He has many friends at work.",
+      "id": "tanda-W-trad-38",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "Hay poco espacio en la maleta.",
+      "englishWord": "There's little space in the suitcase.",
+      "id": "tanda-W-trad-39",
+      "reglaIds": [
+        37
+      ]
+    },
+    {
+      "spanishWord": "La mitad de la ciudad se quedó sin luz.",
+      "englishWord": "Half of the city lost power.",
+      "id": "tanda-W-trad-40",
+      "reglaIds": [
+        47
+      ]
+    },
+    {
+      "spanishWord": "Comí la mitad de mi almuerzo.",
+      "englishWord": "I ate half of my lunch.",
+      "id": "tanda-W-trad-41",
+      "reglaIds": [
+        47
+      ]
+    },
+    {
+      "spanishWord": "La mitad del dinero ya se fue.",
+      "englishWord": "Half of the money is already gone.",
+      "id": "tanda-W-trad-42",
+      "reglaIds": [
+        15,
+        47
+      ]
+    },
+    {
+      "spanishWord": "La mitad de sus estudiantes aprobaron.",
+      "englishWord": "Half of his students passed.",
+      "id": "tanda-W-trad-43",
+      "reglaIds": [
+        47
+      ]
+    },
+    {
+      "spanishWord": "Ella terminó la mitad de su tarea.",
+      "englishWord": "She finished half of her homework.",
+      "id": "tanda-W-trad-44",
+      "reglaIds": [
+        8,
+        47
+      ]
+    },
+    {
+      "spanishWord": "Ya vendimos la mitad de los boletos.",
+      "englishWord": "We already sold half of the tickets.",
+      "id": "tanda-W-trad-45",
+      "reglaIds": [
+        47
+      ]
+    },
+    {
+      "spanishWord": "La mitad de la ciudad no tiene agua.",
+      "englishWord": "Half of the city has no water.",
+      "id": "tanda-W-trad-46",
+      "reglaIds": [
+        47
+      ]
+    },
+    {
+      "spanishWord": "El hombre que llamó es mi vecino.",
+      "englishWord": "The man who called is my neighbor.",
+      "id": "tanda-W-trad-47",
+      "reglaIds": [
+        5
+      ]
+    },
+    {
+      "spanishWord": "Mi hermano, que vive lejos, viene pronto.",
+      "englishWord": "My brother, who lives far away, is coming soon.",
+      "id": "tanda-W-trad-48",
+      "reglaIds": [
+        5
+      ]
+    },
+    {
+      "spanishWord": "La película que vimos fue muy buena.",
+      "englishWord": "The movie that we watched was very good.",
+      "id": "tanda-W-trad-49",
+      "reglaIds": [
+        5
+      ]
+    },
+    {
+      "spanishWord": "Mi jefe, que es muy amable, me ayudó.",
+      "englishWord": "My boss, who is very kind, helped me.",
+      "id": "tanda-W-trad-50",
+      "reglaIds": [
+        5
+      ]
+    },
+    {
+      "spanishWord": "El restaurante que elegimos es excelente.",
+      "englishWord": "The restaurant that we chose is excellent.",
+      "id": "tanda-W-trad-51",
+      "reglaIds": [
+        5
+      ]
+    },
+    {
+      "spanishWord": "Los niños que juegan afuera son mis vecinos.",
+      "englishWord": "The children who play outside are my neighbors.",
+      "id": "tanda-W-trad-52",
+      "reglaIds": [
+        5
+      ]
+    },
+    {
+      "spanishWord": "Mi amiga, que estudia medicina, me visitó ayer.",
+      "englishWord": "My friend, who studies medicine, visited me yesterday.",
+      "id": "tanda-W-trad-53",
+      "reglaIds": [
+        5
+      ]
+    },
+    {
+      "spanishWord": "[Suena la puerta ahora] Yo abriré.",
+      "englishWord": "I'll open it.",
+      "id": "tanda-W-trad-54",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Ya compramos el pastel] Vamos a tener una fiesta esta noche.",
+      "englishWord": "We're going to have a party tonight.",
+      "id": "tanda-W-trad-55",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[No te preocupes por la cena] Yo cocinaré.",
+      "englishWord": "I'll cook.",
+      "id": "tanda-W-trad-56",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Ella ya empacó todo] Va a mudarse el próximo mes.",
+      "englishWord": "She's going to move next month.",
+      "id": "tanda-W-trad-57",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Mira, se acabó la leche] Iré a comprar más.",
+      "englishWord": "I'll go buy more.",
+      "id": "tanda-W-trad-58",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Ya reservamos la mesa] Vamos a cenar afuera esta noche.",
+      "englishWord": "We're going to have dinner out tonight.",
+      "id": "tanda-W-trad-59",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Estoy aburrido ahora] Veré una película.",
+      "englishWord": "I'll watch a movie.",
+      "id": "tanda-W-trad-60",
+      "reglaIds": [
+        36
+      ]
+    }
+  ]
+}

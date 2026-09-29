@@ -1,0 +1,470 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "Ella disfruta bailar los fines de semana.",
+      "englishWord": "She enjoys dancing on weekends.",
+      "id": "tanda-S-trad-1",
+      "reglaIds": [
+        18,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Antes de comer, lávate las manos.",
+      "englishWord": "Before eating, wash your hands.",
+      "id": "tanda-S-trad-2",
+      "reglaIds": [
+        18
+      ]
+    },
+    {
+      "spanishWord": "Él está interesado en aprender francés.",
+      "englishWord": "He's interested in learning French.",
+      "id": "tanda-S-trad-3",
+      "reglaIds": [
+        10,
+        18
+      ]
+    },
+    {
+      "spanishWord": "Ellos evitan hablar de dinero.",
+      "englishWord": "They avoid talking about money.",
+      "id": "tanda-S-trad-4",
+      "reglaIds": [
+        18
+      ]
+    },
+    {
+      "spanishWord": "Después de trabajar, ella descansa.",
+      "englishWord": "After working, she rests.",
+      "id": "tanda-S-trad-5",
+      "reglaIds": [
+        18,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Necesito lavar mi carro.",
+      "englishWord": "I need to wash my car.",
+      "id": "tanda-S-trad-6",
+      "reglaIds": [
+        6
+      ]
+    },
+    {
+      "spanishWord": "Ella necesita comprar zapatos nuevos.",
+      "englishWord": "She needs to buy new shoes.",
+      "id": "tanda-S-trad-7",
+      "reglaIds": [
+        6,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Necesitamos limpiar la casa hoy.",
+      "englishWord": "We need to clean the house today.",
+      "id": "tanda-S-trad-8",
+      "reglaIds": [
+        6
+      ]
+    },
+    {
+      "spanishWord": "Él necesita llamar a su jefe.",
+      "englishWord": "He needs to call his boss.",
+      "id": "tanda-S-trad-9",
+      "reglaIds": [
+        6,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Necesitas descansar más esta semana.",
+      "englishWord": "You need to rest more this week.",
+      "id": "tanda-S-trad-10",
+      "reglaIds": [
+        6
+      ]
+    },
+    {
+      "spanishWord": "[Suena el teléfono ahora mismo] Contestaré yo.",
+      "englishWord": "I'll answer it.",
+      "id": "tanda-S-trad-11",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Ya reservamos el vuelo] Vamos a viajar en diciembre.",
+      "englishWord": "We're going to travel in December.",
+      "id": "tanda-S-trad-12",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[No te preocupes por la cuenta] Yo pagaré.",
+      "englishWord": "I'll pay.",
+      "id": "tanda-S-trad-13",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Ella ya empacó todo] Va a mudarse mañana.",
+      "englishWord": "She's going to move tomorrow.",
+      "id": "tanda-S-trad-14",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Mira esas nubes negras] Va a llover pronto.",
+      "englishWord": "It's going to rain soon.",
+      "id": "tanda-S-trad-15",
+      "reglaIds": [
+        33,
+        36
+      ]
+    },
+    {
+      "spanishWord": "Si tuviera un perro, lo llevaría a pasear.",
+      "englishWord": "If I had a dog, I would walk it.",
+      "id": "tanda-S-trad-16",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si ella fuera más paciente, ayudaría más.",
+      "englishWord": "If she were more patient, she would help more.",
+      "id": "tanda-S-trad-17",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si supiéramos cocinar, haríamos la cena.",
+      "englishWord": "If we knew how to cook, we would make dinner.",
+      "id": "tanda-S-trad-18",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si él tuviera un carro, iría al trabajo.",
+      "englishWord": "If he had a car, he would drive to work.",
+      "id": "tanda-S-trad-19",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Si yo fuera tú, hablaría con ella.",
+      "englishWord": "If I were you, I would talk to her.",
+      "id": "tanda-S-trad-20",
+      "reglaIds": [
+        4,
+        8
+      ]
+    },
+    {
+      "spanishWord": "Ella trabaja como enfermera en el hospital.",
+      "englishWord": "She works as a nurse at the hospital.",
+      "id": "tanda-S-trad-21",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Lo usamos como ejemplo en clase.",
+      "englishWord": "We used it as an example in class.",
+      "id": "tanda-S-trad-22",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Él sirve como guía para turistas.",
+      "englishWord": "He serves as a guide for tourists.",
+      "id": "tanda-S-trad-23",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Ella lo ve como un buen amigo.",
+      "englishWord": "She sees him as a good friend.",
+      "id": "tanda-S-trad-24",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Él actúa como el líder del grupo.",
+      "englishWord": "He acts as the group leader.",
+      "id": "tanda-S-trad-25",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "¿Por qué está tan ocupado hoy?",
+      "englishWord": "Why is he so busy today?",
+      "id": "tanda-S-trad-26",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "¿Dónde trabajas ahora?",
+      "englishWord": "Where do you work now?",
+      "id": "tanda-S-trad-27",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "¿Qué necesitas de la tienda?",
+      "englishWord": "What do you need from the store?",
+      "id": "tanda-S-trad-28",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "¿Cuándo llega el avión?",
+      "englishWord": "When does the plane arrive?",
+      "id": "tanda-S-trad-29",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "¿Quién te ayudó con esto?",
+      "englishWord": "Who helped you with this?",
+      "id": "tanda-S-trad-30",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "Si llueve mañana, me quedaré en casa.",
+      "englishWord": "If it rains tomorrow, I'll stay home.",
+      "id": "tanda-S-trad-31",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si ella estudia, aprobará el examen.",
+      "englishWord": "If she studies, she'll pass the exam.",
+      "id": "tanda-S-trad-32",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si necesitas ayuda, llámame.",
+      "englishWord": "If you need help, call me.",
+      "id": "tanda-S-trad-33",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si él llega tarde, empezaremos sin él.",
+      "englishWord": "If he arrives late, we'll start without him.",
+      "id": "tanda-S-trad-34",
+      "reglaIds": [
+        8,
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si no tenemos tiempo, iremos mañana.",
+      "englishWord": "If we don't have time, we'll go tomorrow.",
+      "id": "tanda-S-trad-35",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Ella trabaja todos los días.",
+      "englishWord": "She works every day.",
+      "id": "tanda-S-trad-36",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "Él vive en Bogotá ahora.",
+      "englishWord": "He lives in Bogotá now.",
+      "id": "tanda-S-trad-37",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "Mi hermano estudia inglés.",
+      "englishWord": "My brother studies English.",
+      "id": "tanda-S-trad-38",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "El perro corre en el parque.",
+      "englishWord": "The dog runs in the park.",
+      "id": "tanda-S-trad-39",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "Ella cocina muy bien.",
+      "englishWord": "She cooks very well.",
+      "id": "tanda-S-trad-40",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "Él siempre llega temprano.",
+      "englishWord": "He always arrives early.",
+      "id": "tanda-S-trad-41",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "Mi hermana enseña matemáticas.",
+      "englishWord": "My sister teaches math.",
+      "id": "tanda-S-trad-42",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "El gato duerme todo el día.",
+      "englishWord": "The cat sleeps all day.",
+      "id": "tanda-S-trad-43",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "Ella escribe cartas a su familia.",
+      "englishWord": "She writes letters to her family.",
+      "id": "tanda-S-trad-44",
+      "reglaIds": [
+        8,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Él necesita más tiempo.",
+      "englishWord": "He needs more time.",
+      "id": "tanda-S-trad-45",
+      "reglaIds": [
+        20
+      ]
+    },
+    {
+      "spanishWord": "Ya había terminado cuando llegaste.",
+      "englishWord": "I had already finished when you arrived.",
+      "id": "tanda-S-trad-46",
+      "reglaIds": [
+        10,
+        13
+      ]
+    },
+    {
+      "spanishWord": "Trabajo todos los días.",
+      "englishWord": "I work every day.",
+      "id": "tanda-S-trad-47",
+      "reglaIds": [
+        13
+      ]
+    },
+    {
+      "spanishWord": "Viajaremos el próximo año.",
+      "englishWord": "We'll travel next year.",
+      "id": "tanda-S-trad-48",
+      "reglaIds": [
+        13,
+        36
+      ]
+    },
+    {
+      "spanishWord": "Ella ya había comido cuando llamé.",
+      "englishWord": "She had already eaten when I called.",
+      "id": "tanda-S-trad-49",
+      "reglaIds": [
+        10,
+        13
+      ]
+    },
+    {
+      "spanishWord": "Él vive en Madrid ahora.",
+      "englishWord": "He lives in Madrid now.",
+      "id": "tanda-S-trad-50",
+      "reglaIds": [
+        13,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Nos veremos mañana.",
+      "englishWord": "We'll see each other tomorrow.",
+      "id": "tanda-S-trad-51",
+      "reglaIds": [
+        13,
+        36
+      ]
+    },
+    {
+      "spanishWord": "Ya habíamos salido cuando empezó a llover.",
+      "englishWord": "We had already left when it started raining.",
+      "id": "tanda-S-trad-52",
+      "reglaIds": [
+        10,
+        13,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ellos estudian los fines de semana.",
+      "englishWord": "They study on weekends.",
+      "id": "tanda-S-trad-53",
+      "reglaIds": [
+        13
+      ]
+    },
+    {
+      "spanishWord": "Él terminará el proyecto pronto.",
+      "englishWord": "He'll finish the project soon.",
+      "id": "tanda-S-trad-54",
+      "reglaIds": [
+        13,
+        36
+      ]
+    },
+    {
+      "spanishWord": "Cuando llegamos, ella ya se había ido.",
+      "englishWord": "When we arrived, she had already gone.",
+      "id": "tanda-S-trad-55",
+      "reglaIds": [
+        10,
+        13,
+        15
+      ]
+    }
+  ]
+}

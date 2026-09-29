@@ -1,0 +1,1297 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "Está nevando fuerte esta noche.",
+      "englishWord": "It's snowing hard tonight.",
+      "id": "tanda-J-trad-1",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Son las cinco y diez.",
+      "englishWord": "It's ten past five.",
+      "id": "tanda-J-trad-2",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Está lejos de la estación.",
+      "englishWord": "It's far from the station.",
+      "id": "tanda-J-trad-3",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Está haciendo más frío afuera.",
+      "englishWord": "It's getting colder outside.",
+      "id": "tanda-J-trad-4",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Hoy es martes.",
+      "englishWord": "It's Tuesday today.",
+      "id": "tanda-J-trad-5",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Está muy lejos hasta la playa.",
+      "englishWord": "It's very far to the beach.",
+      "id": "tanda-J-trad-6",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Está muy oscuro esta mañana.",
+      "englishWord": "It's very dark this morning.",
+      "id": "tanda-J-trad-7",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Ya es mediodía.",
+      "englishWord": "It's noon already.",
+      "id": "tanda-J-trad-8",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Hace viento cerca de la costa.",
+      "englishWord": "It's windy near the coast.",
+      "id": "tanda-J-trad-9",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Se está haciendo tarde.",
+      "englishWord": "It's getting late.",
+      "id": "tanda-J-trad-10",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio su dirección a él.",
+      "englishWord": "She gave her address to him.",
+      "id": "tanda-J-trad-11",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él les dio su opinión a ellos.",
+      "englishWord": "He gave his opinion to them.",
+      "id": "tanda-J-trad-12",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Le di mi número de teléfono a ella.",
+      "englishWord": "I gave my phone number to her.",
+      "id": "tanda-J-trad-13",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ellos nos dieron su apoyo a nosotros.",
+      "englishWord": "They gave their support to us.",
+      "id": "tanda-J-trad-14",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ella me dio un consejo a mí.",
+      "englishWord": "She gave some advice to me.",
+      "id": "tanda-J-trad-15",
+      "reglaIds": [
+        8,
+        25,
+        31
+      ]
+    },
+    {
+      "spanishWord": "Él le dio una propina al mesero.",
+      "englishWord": "He gave a tip to the waiter.",
+      "id": "tanda-J-trad-16",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Les dimos nuestra dirección a ellos.",
+      "englishWord": "We gave our address to them.",
+      "id": "tanda-J-trad-17",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio la respuesta a él.",
+      "englishWord": "She gave the answer to him.",
+      "id": "tanda-J-trad-18",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Le dieron los detalles a ella.",
+      "englishWord": "They gave the details to her.",
+      "id": "tanda-J-trad-19",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él nos dio su palabra a nosotros.",
+      "englishWord": "He gave his word to us.",
+      "id": "tanda-J-trad-20",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Le di una idea a él.",
+      "englishWord": "I gave an idea to him.",
+      "id": "tanda-J-trad-21",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Ella también les dio un consejo a ellos.",
+      "englishWord": "She gave some advice to them too.",
+      "id": "tanda-J-trad-22",
+      "reglaIds": [
+        8,
+        25,
+        31
+      ]
+    },
+    {
+      "spanishWord": "Él le dio su chaqueta a ella.",
+      "englishWord": "He gave his jacket to her.",
+      "id": "tanda-J-trad-23",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishWord": "Acabo de despertar.",
+      "englishWord": "I've just woken up.",
+      "id": "tanda-J-trad-24",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella acababa de salir cuando alguien llamó.",
+      "englishWord": "She'd just left when someone called.",
+      "id": "tanda-J-trad-25",
+      "reglaIds": [
+        10,
+        15,
+        31
+      ]
+    },
+    {
+      "spanishWord": "Acabamos de empezar la reunión.",
+      "englishWord": "We've just started the meeting.",
+      "id": "tanda-J-trad-26",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Él acababa de terminar cuando llamé.",
+      "englishWord": "He'd just finished when I called.",
+      "id": "tanda-J-trad-27",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Acaban de llegar al hotel.",
+      "englishWord": "They've just arrived at the hotel.",
+      "id": "tanda-J-trad-28",
+      "reglaIds": [
+        10,
+        16
+      ]
+    },
+    {
+      "spanishWord": "Yo acababa de sentarme cuando ella llamó.",
+      "englishWord": "I'd just sat down when she called.",
+      "id": "tanda-J-trad-29",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella acaba de enviarme un correo.",
+      "englishWord": "She's just emailed me.",
+      "id": "tanda-J-trad-30",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Acabábamos de comer cuando ellos llegaron.",
+      "englishWord": "We'd just eaten when they arrived.",
+      "id": "tanda-J-trad-31",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Él acaba de llamar a su madre.",
+      "englishWord": "He's just called his mother.",
+      "id": "tanda-J-trad-32",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Acababan de regresar cuando empezó a llover.",
+      "englishWord": "They'd just returned when it started raining.",
+      "id": "tanda-J-trad-33",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Acabo de recordar algo.",
+      "englishWord": "I've just remembered something.",
+      "id": "tanda-J-trad-34",
+      "reglaIds": [
+        10,
+        31
+      ]
+    },
+    {
+      "spanishWord": "Ella acababa de despertar cuando llegué.",
+      "englishWord": "She'd just woken up when I arrived.",
+      "id": "tanda-J-trad-35",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Acabamos de terminar el almuerzo.",
+      "englishWord": "We've just finished lunch.",
+      "id": "tanda-J-trad-36",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella se ha ido a la tienda.",
+      "englishWord": "She's gone to the store.",
+      "id": "tanda-J-trad-37",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él dejó su teléfono en casa.",
+      "englishWord": "He left his phone at home.",
+      "id": "tanda-J-trad-38",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ellos se han ido de campamento este fin de semana.",
+      "englishWord": "They've gone camping this weekend.",
+      "id": "tanda-J-trad-39",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella dejó su trabajo para viajar.",
+      "englishWord": "She left her work to travel.",
+      "id": "tanda-J-trad-40",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él se ha ido a caminar.",
+      "englishWord": "He's gone for a walk.",
+      "id": "tanda-J-trad-41",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Dejamos la ciudad hace años.",
+      "englishWord": "We left the city years ago.",
+      "id": "tanda-J-trad-42",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella está desaparecida desde ayer.",
+      "englishWord": "She's gone missing since yesterday.",
+      "id": "tanda-J-trad-43",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él dejó la empresa el año pasado.",
+      "englishWord": "He left the company last year.",
+      "id": "tanda-J-trad-44",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ellos se han ido por el fin de semana.",
+      "englishWord": "They're gone for the weekend.",
+      "id": "tanda-J-trad-45",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Dejé mi paraguas en algún lugar.",
+      "englishWord": "I left my umbrella somewhere.",
+      "id": "tanda-J-trad-46",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él se ha ido al gimnasio.",
+      "englishWord": "He's gone to the gym.",
+      "id": "tanda-J-trad-47",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él se fue sin decir adiós.",
+      "englishWord": "He left without saying goodbye.",
+      "id": "tanda-J-trad-48",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ellos ya se han ido a casa.",
+      "englishWord": "They've gone home already.",
+      "id": "tanda-J-trad-49",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella dejó el gimnasio temprano hoy.",
+      "englishWord": "She left the gym early today.",
+      "id": "tanda-J-trad-50",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él se ha ido a ver a un doctor.",
+      "englishWord": "He's gone to see a doctor.",
+      "id": "tanda-J-trad-51",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Este regalo es para él.",
+      "englishWord": "This gift is for him.",
+      "id": "tanda-J-trad-52",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Ella vino con nosotros.",
+      "englishWord": "She came with us.",
+      "id": "tanda-J-trad-53",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "No puedo vivir sin ella.",
+      "englishWord": "I can't live without her.",
+      "id": "tanda-J-trad-54",
+      "reglaIds": [
+        8,
+        17
+      ]
+    },
+    {
+      "spanishWord": "Él habló con ellos ayer.",
+      "englishWord": "He spoke to them yesterday.",
+      "id": "tanda-J-trad-55",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Esta carta es de ella.",
+      "englishWord": "This letter is from her.",
+      "id": "tanda-J-trad-56",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Vamos con él.",
+      "englishWord": "We're going with him.",
+      "id": "tanda-J-trad-57",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Es un secreto entre nosotros.",
+      "englishWord": "It's a secret between us.",
+      "id": "tanda-J-trad-58",
+      "reglaIds": [
+        8,
+        33
+      ]
+    },
+    {
+      "spanishWord": "Ella está enojada conmigo.",
+      "englishWord": "She's angry with me.",
+      "id": "tanda-J-trad-59",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "El perro corrió detrás de ellos.",
+      "englishWord": "The dog ran after them.",
+      "id": "tanda-J-trad-60",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Él se sentó junto a ella.",
+      "englishWord": "He sat next to her.",
+      "id": "tanda-J-trad-61",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Estoy de acuerdo con él.",
+      "englishWord": "I agree with him.",
+      "id": "tanda-J-trad-62",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Ella nos miró.",
+      "englishWord": "She looked at us.",
+      "id": "tanda-J-trad-63",
+      "reglaIds": [
+        23
+      ]
+    },
+    {
+      "spanishWord": "Ellos la miraron a ella.",
+      "englishWord": "They looked at her.",
+      "id": "tanda-J-trad-64",
+      "reglaIds": [
+        23
+      ]
+    },
+    {
+      "spanishWord": "Él los esperó.",
+      "englishWord": "He waited for them.",
+      "id": "tanda-J-trad-65",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Confío en ella completamente.",
+      "englishWord": "I trust her completely.",
+      "id": "tanda-J-trad-66",
+      "reglaIds": []
+    },
+    {
+      "spanishWord": "Si ella llega tarde, nos iremos sin ella.",
+      "englishWord": "If she arrives late, we'll leave without her.",
+      "id": "tanda-J-trad-67",
+      "reglaIds": [
+        8,
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si él llama, contestaré.",
+      "englishWord": "If he calls, I'll answer.",
+      "id": "tanda-J-trad-68",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si hace frío, usaré una chaqueta.",
+      "englishWord": "If it's cold, I'll wear a jacket.",
+      "id": "tanda-J-trad-69",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si llegan temprano, empezaremos a tiempo.",
+      "englishWord": "If they arrive early, we'll start on time.",
+      "id": "tanda-J-trad-70",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si necesitas ayuda, llámame.",
+      "englishWord": "If you need help, call me.",
+      "id": "tanda-J-trad-71",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si ella no contesta, dejaré un mensaje.",
+      "englishWord": "If she doesn't answer, I'll leave a message.",
+      "id": "tanda-J-trad-72",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si nos apuramos, no llegaremos tarde.",
+      "englishWord": "If we hurry, we won't be late.",
+      "id": "tanda-J-trad-73",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si él termina temprano, nos ayudará.",
+      "englishWord": "If he finishes early, he'll help us.",
+      "id": "tanda-J-trad-74",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si no llueve, iremos a la playa.",
+      "englishWord": "If it doesn't rain, we'll go to the beach.",
+      "id": "tanda-J-trad-75",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si estás libre esta noche, podemos vernos.",
+      "englishWord": "If you're free tonight, we can meet.",
+      "id": "tanda-J-trad-76",
+      "reglaIds": [
+        12,
+        17
+      ]
+    },
+    {
+      "spanishWord": "Si ella pregunta, dile la verdad.",
+      "englishWord": "If she asks, tell her the truth.",
+      "id": "tanda-J-trad-77",
+      "reglaIds": [
+        12,
+        20,
+        21
+      ]
+    },
+    {
+      "spanishWord": "Si él está cansado, descansará.",
+      "englishWord": "If he's tired, he'll rest.",
+      "id": "tanda-J-trad-78",
+      "reglaIds": [
+        10,
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si ellos no llaman, los llamaré.",
+      "englishWord": "If they don't call, I'll call them.",
+      "id": "tanda-J-trad-79",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si estudias duro, aprobarás fácilmente.",
+      "englishWord": "If you study hard, you'll pass easily.",
+      "id": "tanda-J-trad-80",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si tengo tiempo, te visitaré.",
+      "englishWord": "If I have time, I'll visit you.",
+      "id": "tanda-J-trad-81",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si tuviera más tiempo, viajaría.",
+      "englishWord": "If I had more time, I would travel.",
+      "id": "tanda-J-trad-82",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si ella encontrara algo de dinero, compraría una casa.",
+      "englishWord": "If she found some money, she would buy a house.",
+      "id": "tanda-J-trad-83",
+      "reglaIds": [
+        4,
+        31
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si él fuera más alto, jugaría baloncesto.",
+      "englishWord": "If he were taller, he would play basketball.",
+      "id": "tanda-J-trad-84",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si tuviéramos un carro, viajaríamos más.",
+      "englishWord": "If we had a car, we would travel more.",
+      "id": "tanda-J-trad-85",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si yo fuera tú, se lo diría a ella.",
+      "englishWord": "If I were you, I would tell her.",
+      "id": "tanda-J-trad-86",
+      "reglaIds": [
+        4,
+        21
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si ellos vivieran más cerca, los veríamos más.",
+      "englishWord": "If they lived closer, we would see them more.",
+      "id": "tanda-J-trad-87",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si le preguntaras a ella, ella te ayudaría.",
+      "englishWord": "If you asked her, she would help you.",
+      "id": "tanda-J-trad-88",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si tuviera un jardín, plantaría flores.",
+      "englishWord": "If I had a garden, I would plant flowers.",
+      "id": "tanda-J-trad-89",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si él estudiara más, aprobaría fácilmente.",
+      "englishWord": "If he studied more, he would pass easily.",
+      "id": "tanda-J-trad-90",
+      "reglaIds": [
+        4
+      ]
+    }
+  ],
+  "corregir": [
+    {
+      "spanishPhrase": "Está nevando fuerte esta noche.",
+      "fraseConError": "Is snowing hard tonight.",
+      "fraseCorrecta": "It's snowing hard tonight.",
+      "id": "tanda-J-correg-1",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishPhrase": "Son las cinco y diez.",
+      "fraseConError": "Are ten past five.",
+      "fraseCorrecta": "It's ten past five.",
+      "id": "tanda-J-correg-2",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishPhrase": "Está haciendo más frío afuera.",
+      "fraseConError": "Is getting colder outside.",
+      "fraseCorrecta": "It's getting colder outside.",
+      "id": "tanda-J-correg-3",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishPhrase": "Hace viento cerca de la costa.",
+      "fraseConError": "Is windy near the coast.",
+      "fraseCorrecta": "It's windy near the coast.",
+      "id": "tanda-J-correg-4",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishPhrase": "Ella le dio su dirección a él.",
+      "fraseConError": "She gave him her address.",
+      "fraseCorrecta": "She gave her address to him.",
+      "id": "tanda-J-correg-5",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishPhrase": "Él les dio su opinión a ellos.",
+      "fraseConError": "He gave them his opinion.",
+      "fraseCorrecta": "He gave his opinion to them.",
+      "id": "tanda-J-correg-6",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishPhrase": "Le di mi número de teléfono a ella.",
+      "fraseConError": "I gave her my phone number.",
+      "fraseCorrecta": "I gave my phone number to her.",
+      "id": "tanda-J-correg-7",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos nos dieron su apoyo a nosotros.",
+      "fraseConError": "They gave us their support.",
+      "fraseCorrecta": "They gave their support to us.",
+      "id": "tanda-J-correg-8",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishPhrase": "Ella me dio un consejo a mí.",
+      "fraseConError": "She gave me some advice.",
+      "fraseCorrecta": "She gave some advice to me.",
+      "id": "tanda-J-correg-9",
+      "reglaIds": [
+        8,
+        25,
+        31
+      ]
+    },
+    {
+      "spanishPhrase": "Él le dio una propina al mesero.",
+      "fraseConError": "He gave the waiter a tip.",
+      "fraseCorrecta": "He gave a tip to the waiter.",
+      "id": "tanda-J-correg-10",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishPhrase": "Él nos dio su palabra a nosotros.",
+      "fraseConError": "He gave us his word.",
+      "fraseCorrecta": "He gave his word to us.",
+      "id": "tanda-J-correg-11",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "spanishPhrase": "Acabo de despertar.",
+      "fraseConError": "I just woken up.",
+      "fraseCorrecta": "I've just woken up.",
+      "id": "tanda-J-correg-12",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Ella acababa de salir cuando alguien llamó.",
+      "fraseConError": "She's just left when someone called.",
+      "fraseCorrecta": "She'd just left when someone called.",
+      "id": "tanda-J-correg-13",
+      "reglaIds": [
+        10,
+        15,
+        31
+      ]
+    },
+    {
+      "spanishPhrase": "Acabamos de empezar la reunión.",
+      "fraseConError": "We just started the meeting.",
+      "fraseCorrecta": "We've just started the meeting.",
+      "id": "tanda-J-correg-14",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Él acababa de terminar cuando llamé.",
+      "fraseConError": "He's just finished when I called.",
+      "fraseCorrecta": "He'd just finished when I called.",
+      "id": "tanda-J-correg-15",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Acaban de llegar al hotel.",
+      "fraseConError": "They just arrived at the hotel.",
+      "fraseCorrecta": "They've just arrived at the hotel.",
+      "id": "tanda-J-correg-16",
+      "reglaIds": [
+        10,
+        16
+      ]
+    },
+    {
+      "spanishPhrase": "Ella acaba de enviarme un correo.",
+      "fraseConError": "She just emailed me.",
+      "fraseCorrecta": "She's just emailed me.",
+      "id": "tanda-J-correg-17",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Acabamos de terminar el almuerzo.",
+      "fraseConError": "We just finished lunch.",
+      "fraseCorrecta": "We've just finished lunch.",
+      "id": "tanda-J-correg-18",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Ella se ha ido a la tienda.",
+      "fraseConError": "She's left to the store.",
+      "fraseCorrecta": "She's gone to the store.",
+      "id": "tanda-J-correg-19",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Él dejó su teléfono en casa.",
+      "fraseConError": "He's gone his phone at home.",
+      "fraseCorrecta": "He left his phone at home.",
+      "id": "tanda-J-correg-20",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos se han ido de campamento este fin de semana.",
+      "fraseConError": "They've left camping this weekend.",
+      "fraseCorrecta": "They've gone camping this weekend.",
+      "id": "tanda-J-correg-21",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Ella dejó su trabajo para viajar.",
+      "fraseConError": "She's gone her work to travel.",
+      "fraseCorrecta": "She left her work to travel.",
+      "id": "tanda-J-correg-22",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Él se ha ido a caminar.",
+      "fraseConError": "He's left for a walk.",
+      "fraseCorrecta": "He's gone for a walk.",
+      "id": "tanda-J-correg-23",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Dejamos la ciudad hace años.",
+      "fraseConError": "We've gone the city years ago.",
+      "fraseCorrecta": "We left the city years ago.",
+      "id": "tanda-J-correg-24",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Él dejó la empresa el año pasado.",
+      "fraseConError": "He's gone the company last year.",
+      "fraseCorrecta": "He left the company last year.",
+      "id": "tanda-J-correg-25",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos ya se han ido a casa.",
+      "fraseConError": "They've left home already.",
+      "fraseCorrecta": "They've gone home already.",
+      "id": "tanda-J-correg-26",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Este regalo es para él.",
+      "fraseConError": "This gift is for he.",
+      "fraseCorrecta": "This gift is for him.",
+      "id": "tanda-J-correg-27",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishPhrase": "Ella vino con nosotros.",
+      "fraseConError": "She came with we.",
+      "fraseCorrecta": "She came with us.",
+      "id": "tanda-J-correg-28",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishPhrase": "No puedo vivir sin ella.",
+      "fraseConError": "I can't live without she.",
+      "fraseCorrecta": "I can't live without her.",
+      "id": "tanda-J-correg-29",
+      "reglaIds": [
+        8,
+        17
+      ]
+    },
+    {
+      "spanishPhrase": "Él habló con ellos ayer.",
+      "fraseConError": "He spoke to they yesterday.",
+      "fraseCorrecta": "He spoke to them yesterday.",
+      "id": "tanda-J-correg-30",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishPhrase": "Esta carta es de ella.",
+      "fraseConError": "This letter is from she.",
+      "fraseCorrecta": "This letter is from her.",
+      "id": "tanda-J-correg-31",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishPhrase": "Vamos con él.",
+      "fraseConError": "We're going with he.",
+      "fraseCorrecta": "We're going with him.",
+      "id": "tanda-J-correg-32",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishPhrase": "Él se sentó junto a ella.",
+      "fraseConError": "He sat next to she.",
+      "fraseCorrecta": "He sat next to her.",
+      "id": "tanda-J-correg-33",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishPhrase": "Si él llama, contestaré.",
+      "fraseConError": "If he call, I'll answer.",
+      "fraseCorrecta": "If he calls, I'll answer.",
+      "id": "tanda-J-correg-34",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishPhrase": "Si hace frío, usaré una chaqueta.",
+      "fraseConError": "If it's cold, I wear a jacket.",
+      "fraseCorrecta": "If it's cold, I'll wear a jacket.",
+      "id": "tanda-J-correg-35",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishPhrase": "Si llegan temprano, empezaremos a tiempo.",
+      "fraseConError": "If they arrive early, we start on time.",
+      "fraseCorrecta": "If they arrive early, we'll start on time.",
+      "id": "tanda-J-correg-36",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishPhrase": "Si ella no contesta, dejaré un mensaje.",
+      "fraseConError": "If she doesn't answer, I leave a message.",
+      "fraseCorrecta": "If she doesn't answer, I'll leave a message.",
+      "id": "tanda-J-correg-37",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishPhrase": "Si nos apuramos, no llegaremos tarde.",
+      "fraseConError": "If we hurry, we don't be late.",
+      "fraseCorrecta": "If we hurry, we won't be late.",
+      "id": "tanda-J-correg-38",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishPhrase": "Si él termina temprano, nos ayudará.",
+      "fraseConError": "If he finish early, he'll help us.",
+      "fraseCorrecta": "If he finishes early, he'll help us.",
+      "id": "tanda-J-correg-39",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishPhrase": "Si estudias duro, aprobarás fácilmente.",
+      "fraseConError": "If you study hard, you pass easily.",
+      "fraseCorrecta": "If you study hard, you'll pass easily.",
+      "id": "tanda-J-correg-40",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishPhrase": "🆕 Si tuviera más tiempo, viajaría.",
+      "fraseConError": "If I had more time, I will travel.",
+      "fraseCorrecta": "If I had more time, I would travel.",
+      "id": "tanda-J-correg-41",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "🆕 Si ella encontrara algo de dinero, compraría una casa.",
+      "fraseConError": "If she find some money, she would buy a house.",
+      "fraseCorrecta": "If she found some money, she would buy a house.",
+      "id": "tanda-J-correg-42",
+      "reglaIds": [
+        4,
+        31
+      ]
+    },
+    {
+      "spanishPhrase": "🆕 Si él fuera más alto, jugaría baloncesto.",
+      "fraseConError": "If he was taller, he would play basketball.",
+      "fraseCorrecta": "If he were taller, he would play basketball.",
+      "id": "tanda-J-correg-43",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "🆕 Si tuviéramos un carro, viajaríamos más.",
+      "fraseConError": "If we had a car, we will travel more.",
+      "fraseCorrecta": "If we had a car, we would travel more.",
+      "id": "tanda-J-correg-44",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "🆕 Si yo fuera tú, se lo diría a ella.",
+      "fraseConError": "If I was you, I would tell her.",
+      "fraseCorrecta": "If I were you, I would tell her.",
+      "id": "tanda-J-correg-45",
+      "reglaIds": [
+        4,
+        21
+      ]
+    }
+  ],
+  "dictado": [
+    {
+      "text": "He left his job.",
+      "id": "tanda-J-dict-1",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "text": "He left this book here.",
+      "id": "tanda-J-dict-2",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "text": "Had you seen that sign?",
+      "id": "tanda-J-dict-3",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "text": "It's getting dark outside.",
+      "id": "tanda-J-dict-4",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "text": "He gave his number to her.",
+      "id": "tanda-J-dict-5",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "text": "She gave her address to him.",
+      "id": "tanda-J-dict-6",
+      "reglaIds": [
+        8,
+        25
+      ]
+    },
+    {
+      "text": "She walked to the store yesterday.",
+      "id": "tanda-J-dict-7",
+      "reglaIds": [
+        16
+      ]
+    },
+    {
+      "text": "They walked home together.",
+      "id": "tanda-J-dict-8",
+      "reglaIds": []
+    },
+    {
+      "text": "She's gone shopping again.",
+      "id": "tanda-J-dict-9",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "text": "He's gone to see a doctor.",
+      "id": "tanda-J-dict-10",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "text": "If it rains, I'll stay home.",
+      "id": "tanda-J-dict-11",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "text": "This gift is for him.",
+      "id": "tanda-J-dict-12",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "text": "I can't live without her.",
+      "id": "tanda-J-dict-13",
+      "reglaIds": [
+        8,
+        17
+      ]
+    },
+    {
+      "text": "We've just started the meeting.",
+      "id": "tanda-J-dict-14",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "text": "She'd just left when I called.",
+      "id": "tanda-J-dict-15",
+      "reglaIds": [
+        10,
+        15
+      ]
+    }
+  ]
+}

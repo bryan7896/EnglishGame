@@ -1,0 +1,4152 @@
+{
+  "_comentario": "Lecciones de información agrupadas por id de regla gramatical. Generado a partir de las tandas J/K/M/R/S/W/etc.",
+  "porRegla": {
+    "12": [
+      {
+        "titulo": "Primer condicional: ¿dónde se te cruzan los cables?",
+        "introduccion": "Estructura fija: If + presente simple, will/won't + infinitivo. Aquí es donde más te confundes: en el 'if', SIEMPRE presente simple (con -s si es he/she/it), nunca 'will' y nunca pasado. En el resultado, SIEMPRE 'will/won't', NUNCA 'would' - 'would' es del segundo condicional (para cosas hipotéticas/imaginarias, no reales), y mezclarlos es tu error más frecuente.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es la forma correcta del primer condicional?",
+              "opciones": [
+                {
+                  "texto": "If it rains, I will stay home.",
+                  "correcta": true,
+                  "explicacion": "Correcto: if + presente simple, will + infinitivo."
+                },
+                {
+                  "texto": "If it will rain, I stay home.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: nunca uses 'will' en la parte del 'if'. El 'will' va solo en el resultado."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es la diferencia clave con el segundo condicional?",
+              "opciones": [
+                {
+                  "texto": "El primero usa 'will' para algo posible/real; el segundo usa 'would' para algo hipotético/imaginario.",
+                  "correcta": true,
+                  "explicacion": "Correcto: esa es la diferencia central entre los dos."
+                },
+                {
+                  "texto": "No hay diferencia, 'will' y 'would' se pueden usar igual en ambos.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: usar 'would' en el primer condicional es el error más común que cometes - revísalo con cuidado."
+                }
+              ]
+            },
+            {
+              "texto": "Elige la frase correcta con un verbo en 3ra persona.",
+              "opciones": [
+                {
+                  "texto": "If she call, I'll answer.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: falta la -s, debe ser 'calls' porque 'she' es 3ra persona singular."
+                },
+                {
+                  "texto": "If she calls, I'll answer.",
+                  "correcta": true,
+                  "explicacion": "Correcto: recuerda la -s en el if-clause con he/she/it."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa con will (nunca would)",
+          "banco": [
+            "will",
+            "will",
+            "will",
+            "will"
+          ],
+          "frases": [
+            {
+              "texto": "If he studies, he ___ pass the exam.",
+              "respuesta": "will"
+            },
+            {
+              "texto": "If it rains, we ___ stay inside.",
+              "respuesta": "will"
+            },
+            {
+              "texto": "If she doesn't call, I ___ call her.",
+              "respuesta": "will"
+            },
+            {
+              "texto": "If they arrive late, the show ___ start without them.",
+              "respuesta": "will"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Truco final: en el 'if', siempre presente simple (con -s si hace falta); en el resultado, siempre 'will/won't', nunca 'would'.",
+          "traducciones": [
+            {
+              "spanishWord": "Si él estudia, aprobará el examen.",
+              "englishWord": "If he studies, he will pass the exam."
+            },
+            {
+              "spanishWord": "Si llueve, nos quedaremos adentro.",
+              "englishWord": "If it rains, we will stay inside."
+            },
+            {
+              "spanishWord": "Si ella no llama, yo la llamaré.",
+              "englishWord": "If she doesn't call, I will call her."
+            }
+          ]
+        }
+      }
+    ],
+    "13": [
+      {
+        "titulo": "Past Perfect vs Presente vs Futuro",
+        "introduccion": "Tres tiempos, tres pistas clave: PRESENTE (trabajo, vive) para hábitos y hechos de ahora. FUTURO (will/'ll) para lo que pasará después. PAST PERFECT (had + participio) para algo que YA había pasado antes de otro momento pasado - por eso casi siempre aparece con 'ya' o 'cuando' + otra acción pasada. Truco: si ves 'ya' + otra cosa que pasó después, es Past Perfect.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál frase usa correctamente el Past Perfect?",
+              "opciones": [
+                {
+                  "texto": "When I arrived, she had already left.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'había salido' antes de que yo llegara - dos momentos pasados, uno antes del otro."
+                },
+                {
+                  "texto": "When I arrive, she has already left.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: mezcla presente con presente perfecto, no describe dos momentos pasados."
+                }
+              ]
+            },
+            {
+              "texto": "¿Qué palabra suele acompañar al Past Perfect?",
+              "opciones": [
+                {
+                  "texto": "already / ya, junto con otra acción pasada",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'ya había pasado algo' cuando ocurrió otra cosa."
+                },
+                {
+                  "texto": "tomorrow / mañana",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'tomorrow' señala futuro, no pasado anterior a otro pasado."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa con el tiempo correcto",
+          "banco": [
+            "had eaten",
+            "works",
+            "will travel",
+            "had left"
+          ],
+          "frases": [
+            {
+              "texto": "She ___ dinner when I called.",
+              "respuesta": "had eaten"
+            },
+            {
+              "texto": "He ___ at the hospital every day.",
+              "respuesta": "works"
+            },
+            {
+              "texto": "They ___ to Spain next year.",
+              "respuesta": "will travel"
+            },
+            {
+              "texto": "When we arrived, they ___ already.",
+              "respuesta": "had left"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Recuerda: 'ya' + otra acción pasada = Past Perfect (had + participio).",
+          "traducciones": [
+            {
+              "spanishWord": "Ya había comido cuando ella llegó.",
+              "englishWord": "I had already eaten when she arrived."
+            },
+            {
+              "spanishWord": "Ella estudia todos los días.",
+              "englishWord": "She studies every day."
+            },
+            {
+              "spanishWord": "Nosotros viajaremos el próximo mes.",
+              "englishWord": "We'll travel next month."
+            }
+          ]
+        }
+      }
+    ],
+    "31": [
+      {
+        "titulo": "Some / Any: el truco rápido",
+        "introduccion": "Regla simple: en PREGUNTAS y frases NEGATIVAS usa 'any' (anyone, anything, any + sustantivo). En afirmaciones usa 'some' (someone, something, some + sustantivo). \"Is there SOMEONE?\" suena raro en inglés natural - lo correcto es \"Is there ANYONE?\". Truco: si la frase termina en '?' o tiene 'not/n't', casi siempre va 'any-'.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "Do you need anything?",
+                  "correcta": true,
+                  "explicacion": "Correcto: es una pregunta, así que va 'any-'."
+                },
+                {
+                  "texto": "Do you need something?",
+                  "correcta": false,
+                  "explicacion": "Incorrecto en la mayoría de los casos: en preguntas normales se espera 'any-', no 'some-'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "I don't have anyone to call.",
+                  "correcta": true,
+                  "explicacion": "Correcto: frase negativa, va 'any-'."
+                },
+                {
+                  "texto": "I don't have someone to call.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: en negativas se usa 'any-', no 'some-'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "anyone",
+            "something"
+          ],
+          "frases": [
+            {
+              "texto": "Is ___ home?",
+              "respuesta": "anyone"
+            },
+            {
+              "texto": "I have ___ to tell you.",
+              "respuesta": "something"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Pregunta o negación = any-. Afirmación = some-.",
+          "traducciones": [
+            {
+              "spanishWord": "¿Hay alguien en la oficina?",
+              "englishWord": "Is anyone in the office?"
+            },
+            {
+              "spanishWord": "Tengo algo para ti.",
+              "englishWord": "I have something for you."
+            }
+          ]
+        }
+      }
+    ],
+    "48": [
+      {
+        "titulo": "\"Will have\" + participio (nunca forma base)",
+        "introduccion": "Dentro de 'will have', el verbo principal SIEMPRE va en participio pasado (el mismo que usas después de 'has/have'), nunca en su forma base. 'will have FINISHED', no 'will have finish'. Si el verbo es irregular (go-went-gone, find-found-found), usa la tercera columna, no la primera.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "By Friday, we will have finished.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'finished' es el participio."
+                },
+                {
+                  "texto": "By Friday, we will have finish.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: después de 'will have' nunca va la forma base del verbo."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta con el verbo irregular 'find'?",
+              "opciones": [
+                {
+                  "texto": "By June, she will have found a job.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'found' es el participio de 'find' (find-found-found)."
+                },
+                {
+                  "texto": "By June, she will have find a job.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'find' es la forma base, no el participio."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "have written",
+            "have traveled"
+          ],
+          "frases": [
+            {
+              "texto": "By tonight, I will ___ the letter.",
+              "respuesta": "have written"
+            },
+            {
+              "texto": "By 2028, they will ___ to Peru.",
+              "respuesta": "have traveled"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Truco: piensa primero en el participio (el que usas con 'has/have') y pégalo después de 'will have'.",
+          "traducciones": [
+            {
+              "spanishWord": "Para el lunes, habré terminado esto.",
+              "englishWord": "By Monday, I will have finished this."
+            },
+            {
+              "spanishWord": "Para entonces, ellos habrán vendido la casa.",
+              "englishWord": "By then, they will have sold the house."
+            }
+          ]
+        }
+      }
+    ],
+    "1": [
+      {
+        "titulo": "Past Perfect Continuous",
+        "introduccion": "\"had been + verbo-ing\" para una acción que YA venía ocurriendo, con énfasis en la DURACIÓN, antes de otro momento pasado. Casi siempre aparece con \"for\" (duración) o \"since\" (punto de inicio), y a menudo junto a \"when\" + otra acción pasada.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál frase usa correctamente el Past Perfect Continuous?",
+              "opciones": [
+                {
+                  "texto": "She had been studying for two hours when I called.",
+                  "correcta": true,
+                  "explicacion": "Correcto: duración (dos horas) antes de otro momento pasado (la llamada)."
+                },
+                {
+                  "texto": "She has been studying for two hours when I called.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: mezcla presente perfecto con un evento pasado puntual."
+                }
+              ]
+            },
+            {
+              "texto": "¿Qué suele acompañar a esta estructura?",
+              "opciones": [
+                {
+                  "texto": "for / since (duración o punto de inicio)",
+                  "correcta": true,
+                  "explicacion": "Correcto: for + periodo, since + punto de inicio."
+                },
+                {
+                  "texto": "tomorrow (mañana)",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'tomorrow' es futuro, no encaja con 'had been'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa con el tiempo correcto",
+          "banco": [
+            "had been waiting",
+            "had been working"
+          ],
+          "frases": [
+            {
+              "texto": "They ___ for the bus for half an hour when it finally arrived.",
+              "respuesta": "had been waiting"
+            },
+            {
+              "texto": "He ___ at that company for five years when he got promoted.",
+              "respuesta": "had been working"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Recuerda: had been + verbo-ing + for/since.",
+          "traducciones": [
+            {
+              "spanishWord": "Ella había estado estudiando dos horas cuando llegué.",
+              "englishWord": "She had been studying for two hours when I arrived."
+            },
+            {
+              "spanishWord": "Habíamos estado esperando desde las ocho.",
+              "englishWord": "We had been waiting since eight."
+            }
+          ]
+        }
+      }
+    ],
+    "2": [
+      {
+        "titulo": "Wh Questions",
+        "introduccion": "What/where/why/who/when/how + auxiliar (do/does/did/is/are/was/were/have) + sujeto + verbo. El orden NO cambia sea cual sea la palabra Wh: siempre Wh + auxiliar + sujeto + verbo base (nunca el verbo conjugado ni con -ed en la pregunta).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál pregunta está bien formada?",
+              "opciones": [
+                {
+                  "texto": "Where do you live?",
+                  "correcta": true,
+                  "explicacion": "Correcto: Wh + auxiliar (do) + sujeto + verbo base."
+                },
+                {
+                  "texto": "Where you live?",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: falta el auxiliar 'do'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta en pasado?",
+              "opciones": [
+                {
+                  "texto": "What did she say?",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'did' como auxiliar en pasado + verbo base (say, no said)."
+                },
+                {
+                  "texto": "What she said?",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: falta el auxiliar 'did' antes del sujeto."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa con el auxiliar correcto",
+          "banco": [
+            "did",
+            "does"
+          ],
+          "frases": [
+            {
+              "texto": "Where ___ you buy that jacket?",
+              "respuesta": "did"
+            },
+            {
+              "texto": "What time ___ the store close?",
+              "respuesta": "does"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Wh + auxiliar + sujeto + verbo base.",
+          "traducciones": [
+            {
+              "spanishWord": "¿Dónde compraste esos zapatos?",
+              "englishWord": "Where did you buy those shoes?"
+            },
+            {
+              "spanishWord": "¿A qué hora abre el banco?",
+              "englishWord": "What time does the bank open?"
+            }
+          ]
+        }
+      }
+    ],
+    "4": [
+      {
+        "titulo": "Segundo condicional",
+        "introduccion": "If + pasado simple, ... would + infinitivo. Se usa para situaciones hipotéticas o poco probables (no reales) en el presente/futuro. Con el verbo \"be\", se prefiere \"were\" para todas las personas (\"If I were you...\"), aunque \"was\" se escucha en el habla informal.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál frase es un segundo condicional correcto?",
+              "opciones": [
+                {
+                  "texto": "If I had more time, I would travel more.",
+                  "correcta": true,
+                  "explicacion": "Correcto: if + pasado, would + infinitivo, para algo hipotético."
+                },
+                {
+                  "texto": "If I have more time, I will travel more.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: esa es la estructura del primer condicional (situación real/posible)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se usa \"be\" en el segundo condicional?",
+              "opciones": [
+                {
+                  "texto": "If I were you, I would call her.",
+                  "correcta": true,
+                  "explicacion": "Correcto: se usa 'were' para todas las personas en este condicional."
+                },
+                {
+                  "texto": "If I was you, I would call her.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto en el uso formal/tradicional: se prefiere 'were'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "had",
+            "were"
+          ],
+          "frases": [
+            {
+              "texto": "If I ___ a car, I would drive to work.",
+              "respuesta": "had"
+            },
+            {
+              "texto": "If she ___ rich, she would travel the world.",
+              "respuesta": "were"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "if + pasado simple, would + infinitivo.",
+          "traducciones": [
+            {
+              "spanishWord": "Si tuviera un perro, lo pasearía todos los días.",
+              "englishWord": "If I had a dog, I would walk it every day."
+            },
+            {
+              "spanishWord": "Si ella fuera más paciente, ayudaría más.",
+              "englishWord": "If she were more patient, she would help more."
+            }
+          ]
+        }
+      }
+    ],
+    "5": [
+      {
+        "titulo": "Cláusulas relativas (who/which/that)",
+        "introduccion": "\"who\" para personas, \"which\" para cosas, \"that\" para ambos (más informal). Cuando la cláusula es EXPLICATIVA (info extra que no es esencial) va entre comas y NO se puede usar \"that\" ahí.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál oración usa correctamente la cláusula relativa?",
+              "opciones": [
+                {
+                  "texto": "The man who called is my neighbor.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'who' para personas."
+                },
+                {
+                  "texto": "The man which called is my neighbor.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'which' es para cosas, no personas."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál frase explicativa está bien puntuada?",
+              "opciones": [
+                {
+                  "texto": "My brother, who lives in Canada, is coming soon.",
+                  "correcta": true,
+                  "explicacion": "Correcto: información extra entre comas, con 'who'."
+                },
+                {
+                  "texto": "My brother, that lives in Canada, is coming soon.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'that' no se usa en cláusulas explicativas (con comas)."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "that",
+            "who"
+          ],
+          "frases": [
+            {
+              "texto": "The book ___ I bought is very interesting.",
+              "respuesta": "that"
+            },
+            {
+              "texto": "The teacher ___ helped me is very kind.",
+              "respuesta": "who"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "who = personas, which = cosas, that = ambos (sin comas).",
+          "traducciones": [
+            {
+              "spanishWord": "El hombre que llamó es mi vecino.",
+              "englishWord": "The man who called is my neighbor."
+            },
+            {
+              "spanishWord": "La casa que compramos es hermosa.",
+              "englishWord": "The house that we bought is beautiful."
+            }
+          ]
+        }
+      }
+    ],
+    "6": [
+      {
+        "titulo": "Need to + infinitivo",
+        "introduccion": "\"need to\" + verbo base = necesitar hacer algo. Se conjuga como cualquier verbo regular: need/needs en presente, needed en pasado. La negación se hace con don't/doesn't + need to (no confundir con 'needn't', que NO lleva 'to' después).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál oración es correcta?",
+              "opciones": [
+                {
+                  "texto": "She needs to call her doctor.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'needs' (3ra persona) + to + verbo base."
+                },
+                {
+                  "texto": "She need calling her doctor.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: falta la 's' en 'needs' y el verbo no va en gerundio."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se forma la negación?",
+              "opciones": [
+                {
+                  "texto": "You don't need to bring anything.",
+                  "correcta": true,
+                  "explicacion": "Correcto: don't/doesn't + need to + verbo."
+                },
+                {
+                  "texto": "You needn't to bring anything.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: si usas 'needn't', no lleva 'to' después."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "need to",
+            "needed to"
+          ],
+          "frases": [
+            {
+              "texto": "I ___ finish this report today.",
+              "respuesta": "need to"
+            },
+            {
+              "texto": "He ___ see a dentist last week.",
+              "respuesta": "needed to"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "need/needs/needed + to + verbo base.",
+          "traducciones": [
+            {
+              "spanishWord": "Necesito comprar leche.",
+              "englishWord": "I need to buy milk."
+            },
+            {
+              "spanishWord": "Ella necesitaba terminar el proyecto ayer.",
+              "englishWord": "She needed to finish the project yesterday."
+            }
+          ]
+        }
+      }
+    ],
+    "8": [
+      {
+        "titulo": "Pronombre objeto tras preposición",
+        "introduccion": "Después de una preposición (with, to, for, from, about...) siempre se usa el pronombre OBJETO: him/her/them/us/me — nunca he/she/they/we/I, que son pronombres de sujeto.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "This gift is for him.",
+                  "correcta": true,
+                  "explicacion": "Correcto: pronombre objeto 'him' tras la preposición 'for'."
+                },
+                {
+                  "texto": "This gift is for he.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: tras preposición no se usa 'he', sino 'him'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She came with us.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'us' es el pronombre objeto de 'we'."
+                },
+                {
+                  "texto": "She came with we.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'we' es sujeto, no puede ir tras preposición."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "her",
+            "them"
+          ],
+          "frases": [
+            {
+              "texto": "I bought a gift for ___ (she).",
+              "respuesta": "her"
+            },
+            {
+              "texto": "We talked about ___ (they) all night.",
+              "respuesta": "them"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Preposición + him/her/them/us/me (nunca he/she/they/we/I).",
+          "traducciones": [
+            {
+              "spanishWord": "El regalo es para ella.",
+              "englishWord": "The gift is for her."
+            },
+            {
+              "spanishWord": "Hablamos con ellos ayer.",
+              "englishWord": "We talked with them yesterday."
+            }
+          ]
+        }
+      }
+    ],
+    "9": [
+      {
+        "titulo": "Uso de \"as\" = como",
+        "introduccion": "\"as\" + sustantivo indica el ROL o función real de algo/alguien (trabaja COMO enfermera). No confundir con \"like\" (parecerse a, sin serlo de verdad) ni con la comparación \"as...as\" (tan... como).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál oración usa 'as' correctamente?",
+              "opciones": [
+                {
+                  "texto": "She works as a nurse.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'as' + sustantivo = su rol/profesión real."
+                },
+                {
+                  "texto": "She works like a nurse.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'like' sugiere solo un parecido, no su profesión real."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál oración es correcta?",
+              "opciones": [
+                {
+                  "texto": "He used the box as a table.",
+                  "correcta": true,
+                  "explicacion": "Correcto: usó la caja EN EL ROL de mesa."
+                },
+                {
+                  "texto": "He used the box like a table.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto en este contexto: 'like' sugeriría solo un parecido."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "as a teacher",
+            "as an example"
+          ],
+          "frases": [
+            {
+              "texto": "She works ___ at that school.",
+              "respuesta": "as a teacher"
+            },
+            {
+              "texto": "I used it ___ in class.",
+              "respuesta": "as an example"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "as + sustantivo = en el rol de.",
+          "traducciones": [
+            {
+              "spanishWord": "Él trabaja como piloto.",
+              "englishWord": "He works as a pilot."
+            },
+            {
+              "spanishWord": "Ella sirve como guía para los turistas.",
+              "englishWord": "She serves as a guide for the tourists."
+            }
+          ]
+        }
+      }
+    ],
+    "10": [
+      {
+        "titulo": "Presente perfecto: have/has + participio",
+        "introduccion": "have/has + participio para acciones pasadas conectadas con el presente, sin decir cuándo exactamente, o para experiencias de vida. \"just\" = acabar de hacer algo. \"had\" + participio es la misma estructura pero para el pasado (Past Perfect).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál oración es correcta?",
+              "opciones": [
+                {
+                  "texto": "I have finished my homework.",
+                  "correcta": true,
+                  "explicacion": "Correcto: have + participio (finished), sin decir cuándo exactamente."
+                },
+                {
+                  "texto": "I have finish my homework.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: falta el participio 'finished', no el verbo base."
+                }
+              ]
+            },
+            {
+              "texto": "¿Qué significa 'just' aquí?",
+              "opciones": [
+                {
+                  "texto": "I've just arrived = acabo de llegar",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'just' indica que la acción pasó hace muy poco."
+                },
+                {
+                  "texto": "I've just arrived = llegaré pronto",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: eso sería futuro, no presente perfecto."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "have seen",
+            "had left"
+          ],
+          "frases": [
+            {
+              "texto": "I ___ that movie three times.",
+              "respuesta": "have seen"
+            },
+            {
+              "texto": "When I arrived, he ___ already.",
+              "respuesta": "had left"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "have/has/had + participio.",
+          "traducciones": [
+            {
+              "spanishWord": "Ella ha terminado su tarea.",
+              "englishWord": "She has finished her homework."
+            },
+            {
+              "spanishWord": "Acabo de llegar a casa.",
+              "englishWord": "I've just arrived home."
+            }
+          ]
+        }
+      }
+    ],
+    "11": [
+      {
+        "titulo": "Bring / Brought",
+        "introduccion": "\"bring\" es la forma base (presente), \"brought\" es tanto el pasado como el participio (bring-brought-brought, verbo irregular). No existe \"bringed\".",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál oración usa correctamente el pasado?",
+              "opciones": [
+                {
+                  "texto": "She brought her umbrella yesterday.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'brought' es el pasado de 'bring'."
+                },
+                {
+                  "texto": "She bringed her umbrella yesterday.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'bring' es irregular, no se le agrega -ed."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta en presente?",
+              "opciones": [
+                {
+                  "texto": "Can you bring the dictionary tomorrow?",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'bring' en su forma base tras 'can'."
+                },
+                {
+                  "texto": "Can you brought the dictionary tomorrow?",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: tras 'can' siempre va el verbo en forma base, no el pasado."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "brought",
+            "bring"
+          ],
+          "frases": [
+            {
+              "texto": "He ___ his laptop to the meeting yesterday.",
+              "respuesta": "brought"
+            },
+            {
+              "texto": "Please ___ your passport tomorrow.",
+              "respuesta": "bring"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "bring (presente) / brought (pasado y participio).",
+          "traducciones": [
+            {
+              "spanishWord": "Trae tu computadora a la reunión.",
+              "englishWord": "Bring your computer to the meeting."
+            },
+            {
+              "spanishWord": "Ella trajo flores para su madre.",
+              "englishWord": "She brought flowers for her mother."
+            }
+          ]
+        }
+      }
+    ],
+    "14": [
+      {
+        "titulo": "Make vs Do",
+        "introduccion": "DO se usa para actividades/tareas generales (do homework, do the dishes, do exercise). MAKE se usa para crear/producir algo, o en expresiones fijas (make a decision, make a mistake, make breakfast).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She does her homework every night.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'do' para tareas/actividades generales."
+                },
+                {
+                  "texto": "She makes her homework every night.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'homework' va con 'do', no con 'make'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "He made a mistake on the exam.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'make a mistake' es una expresión fija con 'make'."
+                },
+                {
+                  "texto": "He did a mistake on the exam.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'mistake' va con 'make', no con 'do'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "do",
+            "make"
+          ],
+          "frases": [
+            {
+              "texto": "I need to ___ the dishes.",
+              "respuesta": "do"
+            },
+            {
+              "texto": "We have to ___ a decision today.",
+              "respuesta": "make"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "do = tareas/actividades; make = crear/producir.",
+          "traducciones": [
+            {
+              "spanishWord": "Ella hace su tarea todas las noches.",
+              "englishWord": "She does her homework every night."
+            },
+            {
+              "spanishWord": "Necesitamos tomar una decisión.",
+              "englishWord": "We need to make a decision."
+            }
+          ]
+        }
+      }
+    ],
+    "15": [
+      {
+        "titulo": "Gone vs Left",
+        "introduccion": "\"gone\" (con have/has/be) significa que alguien se fue y AÚN no ha vuelto o sigue en ese lugar. \"left\" es simplemente el pasado de \"leave\" (salir de un lugar), sin implicar si volvió o no.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta si la persona todavía NO ha vuelto?",
+              "opciones": [
+                {
+                  "texto": "She's gone to the store.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'gone' indica que se fue y no ha regresado."
+                },
+                {
+                  "texto": "She's left to the store.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'left' no se usa así con 'to', y no enfatiza que sigue fuera."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta como pasado simple de \"salir de un lugar\"?",
+              "opciones": [
+                {
+                  "texto": "She left the office at five.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'left' = pasado simple de 'leave', simplemente salió."
+                },
+                {
+                  "texto": "She gone the office at five.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'gone' necesita 'have/has/be' antes, no se usa solo."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "gone",
+            "left"
+          ],
+          "frases": [
+            {
+              "texto": "He has ___ to the gym; he'll be back later.",
+              "respuesta": "gone"
+            },
+            {
+              "texto": "She ___ the party early last night.",
+              "respuesta": "left"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "gone = se fue (sigue fuera); left = pasado simple de salir de un lugar.",
+          "traducciones": [
+            {
+              "spanishWord": "Ella se ha ido de compras.",
+              "englishWord": "She's gone shopping."
+            },
+            {
+              "spanishWord": "Él dejó la oficina temprano.",
+              "englishWord": "He left the office early."
+            }
+          ]
+        }
+      }
+    ],
+    "16": [
+      {
+        "titulo": "Preposiciones de movimiento",
+        "introduccion": "\"to\" indica destino con verbos de movimiento (go/travel/drive/walk TO). \"at\" se usa para llegar a un punto específico (arrive AT). No se mezclan: nunca 'go at' ni 'arrive to' (excepto con ciudades/países, donde se usa 'arrive in').",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "I go to school every day.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'go to' + destino."
+                },
+                {
+                  "texto": "I go at school every day.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: con 'go' (movimiento hacia un lugar) se usa 'to', no 'at'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "We arrived at the hotel at six.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'arrive at' + lugar específico."
+                },
+                {
+                  "texto": "We arrived to the hotel at six.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'arrive' usa 'at' (o 'in' para ciudades/países), no 'to'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "to",
+            "at"
+          ],
+          "frases": [
+            {
+              "texto": "She drove ___ the airport.",
+              "respuesta": "to"
+            },
+            {
+              "texto": "He arrived ___ the office late.",
+              "respuesta": "at"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "go/travel/drive + to (destino); arrive + at (punto específico).",
+          "traducciones": [
+            {
+              "spanishWord": "Ella condujo al aeropuerto.",
+              "englishWord": "She drove to the airport."
+            },
+            {
+              "spanishWord": "Él llegó a la oficina tarde.",
+              "englishWord": "He arrived at the office late."
+            }
+          ]
+        }
+      }
+    ],
+    "17": [
+      {
+        "titulo": "Modales básicos",
+        "introduccion": "Los modales (can, could, should, must, will, would) van SIEMPRE seguidos del verbo en forma base, sin 'to' y sin conjugar (nunca 'can to go' ni 'she cans go', ni siquiera con he/she/it).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She can speak three languages.",
+                  "correcta": true,
+                  "explicacion": "Correcto: modal + verbo base, sin 'to' y sin -s."
+                },
+                {
+                  "texto": "She can to speak three languages.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: después de un modal nunca va 'to'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "He should call his doctor.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'should' + verbo base."
+                },
+                {
+                  "texto": "He shoulds call his doctor.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: los modales nunca llevan -s, ni siquiera con he/she/it."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "should",
+            "must"
+          ],
+          "frases": [
+            {
+              "texto": "You ___ study more for the exam.",
+              "respuesta": "should"
+            },
+            {
+              "texto": "You ___ bring your passport.",
+              "respuesta": "must"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "modal + verbo base (sin 'to', sin conjugar).",
+          "traducciones": [
+            {
+              "spanishWord": "Ella puede hablar tres idiomas.",
+              "englishWord": "She can speak three languages."
+            },
+            {
+              "spanishWord": "Deberías estudiar más.",
+              "englishWord": "You should study more."
+            }
+          ]
+        }
+      }
+    ],
+    "18": [
+      {
+        "titulo": "Gerundio vs infinitivo",
+        "introduccion": "Después de ciertos verbos (enjoy, avoid, keep, finish) siempre va gerundio (-ing). Después de otros (want, decide, need, hope, plan) va infinitivo (to + verbo). Tras una preposición (before/after/without...) SIEMPRE va gerundio.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She enjoys dancing on weekends.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'enjoy' siempre va seguido de gerundio."
+                },
+                {
+                  "texto": "She enjoys to dance on weekends.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'enjoy' nunca lleva 'to + verbo', siempre gerundio."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "He decided to study medicine.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'decide' va seguido de infinitivo (to + verbo)."
+                },
+                {
+                  "texto": "He decided studying medicine.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'decide' no lleva gerundio, lleva infinitivo."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "eating",
+            "to learn"
+          ],
+          "frases": [
+            {
+              "texto": "She avoids ___ fast food.",
+              "respuesta": "eating"
+            },
+            {
+              "texto": "He wants ___ Spanish this year.",
+              "respuesta": "to learn"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "enjoy/avoid/keep + gerundio; want/decide/need + infinitivo.",
+          "traducciones": [
+            {
+              "spanishWord": "A ella le gusta bailar los fines de semana.",
+              "englishWord": "She enjoys dancing on weekends."
+            },
+            {
+              "spanishWord": "Él decidió estudiar medicina.",
+              "englishWord": "He decided to study medicine."
+            }
+          ]
+        }
+      }
+    ],
+    "19": [
+      {
+        "titulo": "Participios irregulares",
+        "introduccion": "Muchos verbos comunes tienen un participio distinto de su pasado simple: take-took-TAKEN, see-saw-SEEN, write-wrote-WRITTEN. Con have/has/had SIEMPRE va el participio (la tercera forma), nunca el pasado simple.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She has taken many photos.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'taken' es el participio de 'take' (take-took-taken)."
+                },
+                {
+                  "texto": "She has took many photos.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'took' es el pasado simple, no el participio; con 'has' va 'taken'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "Have you ever seen an elephant?",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'seen' es el participio de 'see' (see-saw-seen)."
+                },
+                {
+                  "texto": "Have you ever saw an elephant?",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'saw' es pasado simple; con 'have' va el participio 'seen'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "taken",
+            "written"
+          ],
+          "frases": [
+            {
+              "texto": "He has ___ many photos on the trip.",
+              "respuesta": "taken"
+            },
+            {
+              "texto": "She has ___ three books.",
+              "respuesta": "written"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "have/has/had + participio (tercera forma del verbo, no el pasado simple).",
+          "traducciones": [
+            {
+              "spanishWord": "Ella ha tomado muchas fotos en el viaje.",
+              "englishWord": "She has taken many photos on the trip."
+            },
+            {
+              "spanishWord": "¿Alguna vez has visto un elefante?",
+              "englishWord": "Have you ever seen an elephant?"
+            }
+          ]
+        }
+      }
+    ],
+    "20": [
+      {
+        "titulo": "3ra persona singular (-s)",
+        "introduccion": "En presente simple, con he/she/it (o cualquier sujeto singular) el verbo lleva -s (o -es si termina en s/sh/ch/x/o). Con I/you/we/they NUNCA se agrega -s.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She works at a bank.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'she' (3ra persona singular) + verbo con -s."
+                },
+                {
+                  "texto": "She work at a bank.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: falta la -s en 'works' porque el sujeto es 'she'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "The dog sleeps all day.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'the dog' es singular, el verbo lleva -s."
+                },
+                {
+                  "texto": "The dogs sleeps all day.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'dogs' es plural, aquí el verbo NO debe llevar -s (sleep)."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "works",
+            "studies"
+          ],
+          "frases": [
+            {
+              "texto": "He ___ every day.",
+              "respuesta": "works"
+            },
+            {
+              "texto": "My brother ___ English.",
+              "respuesta": "studies"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "he/she/it (singular) + verbo -s; I/you/we/they sin -s.",
+          "traducciones": [
+            {
+              "spanishWord": "Ella trabaja todos los días.",
+              "englishWord": "She works every day."
+            },
+            {
+              "spanishWord": "Mi hermano estudia inglés.",
+              "englishWord": "My brother studies English."
+            }
+          ]
+        }
+      }
+    ],
+    "21": [
+      {
+        "titulo": "Say vs Tell",
+        "introduccion": "\"tell\" necesita un objeto de persona (a quién le dices algo): tell someone something. \"say\" NO lleva objeto de persona directo: say something (to someone). Nunca \"say me\" — siempre \"tell me\".",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "He told me the truth.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'tell' + objeto (me) + lo que se dice."
+                },
+                {
+                  "texto": "He said me the truth.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'say' nunca lleva un objeto de persona directo; sería 'told me'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She said that she was tired.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'say' + 'that' + oración, sin objeto de persona."
+                },
+                {
+                  "texto": "She told that she was tired.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'tell' necesita a quién ('told him/her that...'), no puede quedar solo con 'that'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "told",
+            "said"
+          ],
+          "frases": [
+            {
+              "texto": "She ___ me about the party.",
+              "respuesta": "told"
+            },
+            {
+              "texto": "He ___ he would come.",
+              "respuesta": "said"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "tell + persona + lo dicho; say + lo dicho (sin persona directa).",
+          "traducciones": [
+            {
+              "spanishWord": "Él me dijo la verdad.",
+              "englishWord": "He told me the truth."
+            },
+            {
+              "spanishWord": "Ella dijo que estaba cansada.",
+              "englishWord": "She said she was tired."
+            }
+          ]
+        }
+      }
+    ],
+    "22": [
+      {
+        "titulo": "Artículos: a/an/the",
+        "introduccion": "\"a\" antes de sonido consonante, \"an\" antes de sonido vocal (an hour, aunque empiece con 'h'). Se usa \"a/an\" para la PRIMERA mención de algo (no específico); \"the\" para mencionarlo de nuevo o cuando ya se sabe cuál es.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "I need an umbrella.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'umbrella' empieza con sonido vocal, así que va 'an'."
+                },
+                {
+                  "texto": "I need a umbrella.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: antes de sonido vocal se usa 'an', no 'a'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta en la segunda mención?",
+              "opciones": [
+                {
+                  "texto": "I saw a movie. The movie was great.",
+                  "correcta": true,
+                  "explicacion": "Correcto: primera mención 'a movie', segunda mención (ya específico) 'the movie'."
+                },
+                {
+                  "texto": "I saw a movie. A movie was great.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: en la segunda mención ya es una película específica, debe ser 'the movie'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "an",
+            "The"
+          ],
+          "frases": [
+            {
+              "texto": "I need ___ umbrella.",
+              "respuesta": "an"
+            },
+            {
+              "texto": "I saw a movie. ___ movie was great.",
+              "respuesta": "The"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "a/an = primera mención (no específico); the = ya mencionado/conocido.",
+          "traducciones": [
+            {
+              "spanishWord": "Necesito un paraguas.",
+              "englishWord": "I need an umbrella."
+            },
+            {
+              "spanishWord": "Vi una película. La película fue muy buena.",
+              "englishWord": "I saw a movie. The movie was very good."
+            }
+          ]
+        }
+      }
+    ],
+    "23": [
+      {
+        "titulo": "Phrasal verbs con \"look\"",
+        "introduccion": "look FOR = buscar algo perdido/necesario. look UP = buscar información (en un diccionario, internet). look AT = mirar algo directamente. look LIKE = parecerse a.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta para \"buscar mis llaves\"?",
+              "opciones": [
+                {
+                  "texto": "I'm looking for my keys.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'look for' = buscar algo."
+                },
+                {
+                  "texto": "I'm looking at my keys.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'look at' es mirar directamente, no buscar."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta para \"buscar una palabra en el diccionario\"?",
+              "opciones": [
+                {
+                  "texto": "Look up that word in the dictionary.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'look up' = buscar información."
+                },
+                {
+                  "texto": "Look for that word in the dictionary.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'look for' es para objetos perdidos, no para buscar información específica."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "for",
+            "like"
+          ],
+          "frases": [
+            {
+              "texto": "I'm looking ___ a new job.",
+              "respuesta": "for"
+            },
+            {
+              "texto": "He looks ___ his father.",
+              "respuesta": "like"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "look for = buscar; look up = buscar info; look at = mirar; look like = parecerse.",
+          "traducciones": [
+            {
+              "spanishWord": "Estoy buscando mis llaves.",
+              "englishWord": "I'm looking for my keys."
+            },
+            {
+              "spanishWord": "Él se parece a su padre.",
+              "englishWord": "He looks like his father."
+            }
+          ]
+        }
+      }
+    ],
+    "25": [
+      {
+        "titulo": "Give / Gave / Given",
+        "introduccion": "give (presente) - gave (pasado) - given (participio). Con have/has/had siempre va \"given\", nunca \"gave\". Además, \"give\" admite dos órdenes: give someone something o give something to someone.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta en pasado?",
+              "opciones": [
+                {
+                  "texto": "She gave him the keys.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'gave' es el pasado simple de 'give'."
+                },
+                {
+                  "texto": "She has gave him the keys.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: con 'has' va el participio 'given', no 'gave'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta con \"has\"?",
+              "opciones": [
+                {
+                  "texto": "He has given his life to his work.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'given' es el participio."
+                },
+                {
+                  "texto": "He has gave his life to his work.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: con 'has' nunca va 'gave' (pasado simple), sino 'given'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "gave",
+            "given"
+          ],
+          "frases": [
+            {
+              "texto": "They ___ us good news yesterday.",
+              "respuesta": "gave"
+            },
+            {
+              "texto": "We have ___ our best effort.",
+              "respuesta": "given"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "give-gave-given; con have/has/had siempre 'given'.",
+          "traducciones": [
+            {
+              "spanishWord": "Ella le dio a él las llaves.",
+              "englishWord": "She gave him the keys."
+            },
+            {
+              "spanishWord": "Él ha dado su vida por su trabajo.",
+              "englishWord": "He has given his life to his work."
+            }
+          ]
+        }
+      }
+    ],
+    "26": [
+      {
+        "titulo": "Still + Hope",
+        "introduccion": "\"still\" (todavía/aún) va antes del verbo principal, pero DESPUÉS del verbo 'be' o de un auxiliar (I still work, but I am still tired). \"hope\" + to + infinitivo (o hope + that + oración) para expresar algo que deseamos que pase.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "I still live in the same house.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'still' antes del verbo principal 'live'."
+                },
+                {
+                  "texto": "I live still in the same house.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'still' no va después del verbo principal en esta posición."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She hopes to pass the exam.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'hope' + to + infinitivo."
+                },
+                {
+                  "texto": "She hopes passing the exam.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'hope' no lleva gerundio, lleva infinitivo (to + verbo)."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "still",
+            "hope to"
+          ],
+          "frases": [
+            {
+              "texto": "He ___ works there after ten years.",
+              "respuesta": "still"
+            },
+            {
+              "texto": "I ___ see you soon.",
+              "respuesta": "hope to"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "still + verbo (todavía); hope + to + infinitivo (esperar hacer algo).",
+          "traducciones": [
+            {
+              "spanishWord": "Todavía vivo en la misma casa.",
+              "englishWord": "I still live in the same house."
+            },
+            {
+              "spanishWord": "Espero verte pronto.",
+              "englishWord": "I hope to see you soon."
+            }
+          ]
+        }
+      }
+    ],
+    "27": [
+      {
+        "titulo": "Too vs Very",
+        "introduccion": "\"very\" simplemente intensifica (muy), sin implicar un problema. \"too\" implica un problema o algo excesivo que impide hacer algo (too + adjetivo + to + verbo).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta para describir algo simplemente intenso, sin problema?",
+              "opciones": [
+                {
+                  "texto": "She is very tired.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'very' solo intensifica, sin implicar un problema."
+                },
+                {
+                  "texto": "She is too tired.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto en un contexto neutral: 'too' sugeriría que ese cansancio le impide hacer algo."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta para decir que algo NO se puede hacer por exceso?",
+              "opciones": [
+                {
+                  "texto": "This soup is too hot to eat.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'too' + adjetivo + to + verbo = demasiado... para poder hacer algo."
+                },
+                {
+                  "texto": "This soup is very hot to eat.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'very' no se combina con 'to + verbo' para expresar consecuencia."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "very",
+            "too"
+          ],
+          "frases": [
+            {
+              "texto": "He is ___ tall.",
+              "respuesta": "very"
+            },
+            {
+              "texto": "The exam was ___ difficult to finish in time.",
+              "respuesta": "too"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "very = simplemente intenso; too + adjetivo + to = demasiado para poder hacer algo.",
+          "traducciones": [
+            {
+              "spanishWord": "Ella es muy alta.",
+              "englishWord": "She is very tall."
+            },
+            {
+              "spanishWord": "El examen fue demasiado difícil.",
+              "englishWord": "The exam was too difficult."
+            }
+          ]
+        }
+      }
+    ],
+    "28": [
+      {
+        "titulo": "Preguntas con presente/pasado perfecto",
+        "introduccion": "Have/Has + sujeto + participio...? para preguntar por experiencias (\"Have you ever...?\"). Had + sujeto + participio...? para preguntar si algo ya había pasado antes de otro momento pasado.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "Have you ever traveled to Europe?",
+                  "correcta": true,
+                  "explicacion": "Correcto: Have + sujeto + participio, para preguntar por experiencias."
+                },
+                {
+                  "texto": "Have you ever travel to Europe?",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: falta el participio (traveled), no el verbo base."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "Had you studied English before this course?",
+                  "correcta": true,
+                  "explicacion": "Correcto: Had + sujeto + participio, para algo anterior a otro momento pasado."
+                },
+                {
+                  "texto": "Did you had studied English before this course?",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: no se combina 'did' con 'had' en la misma pregunta."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "Have",
+            "Had"
+          ],
+          "frases": [
+            {
+              "texto": "___ you ever been to Japan?",
+              "respuesta": "Have"
+            },
+            {
+              "texto": "___ they finished the project before the meeting?",
+              "respuesta": "Had"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Have/Has + sujeto + participio (experiencias); Had + sujeto + participio (antes de otro pasado).",
+          "traducciones": [
+            {
+              "spanishWord": "¿Alguna vez has viajado a Europa?",
+              "englishWord": "Have you ever traveled to Europe?"
+            },
+            {
+              "spanishWord": "¿Habían terminado el proyecto antes de la reunión?",
+              "englishWord": "Had they finished the project before the meeting?"
+            }
+          ]
+        }
+      }
+    ],
+    "29": [
+      {
+        "titulo": "Tag Questions",
+        "introduccion": "Si la frase es afirmativa, la coletilla es negativa; si es negativa, la coletilla es afirmativa. La coletilla repite el mismo auxiliar (o do/does/did si no hay auxiliar) y el mismo sujeto en pronombre.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál coletilla es correcta?",
+              "opciones": [
+                {
+                  "texto": "It's hot today, isn't it?",
+                  "correcta": true,
+                  "explicacion": "Correcto: frase afirmativa -> coletilla negativa (isn't it)."
+                },
+                {
+                  "texto": "It's hot today, is it?",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: la frase es afirmativa, la coletilla debe ser negativa."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál coletilla es correcta?",
+              "opciones": [
+                {
+                  "texto": "You don't like coffee, do you?",
+                  "correcta": true,
+                  "explicacion": "Correcto: frase negativa -> coletilla afirmativa (do you)."
+                },
+                {
+                  "texto": "You don't like coffee, don't you?",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: la frase ya es negativa, la coletilla debe ser afirmativa."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "isn't it",
+            "do you"
+          ],
+          "frases": [
+            {
+              "texto": "It's hot today, ___?",
+              "respuesta": "isn't it"
+            },
+            {
+              "texto": "You don't like coffee, ___?",
+              "respuesta": "do you"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "afirmativa -> coletilla negativa; negativa -> coletilla afirmativa (mismo auxiliar y sujeto).",
+          "traducciones": [
+            {
+              "spanishWord": "Hace calor hoy, ¿verdad?",
+              "englishWord": "It's hot today, isn't it?"
+            },
+            {
+              "spanishWord": "No te gusta el café, ¿verdad?",
+              "englishWord": "You don't like coffee, do you?"
+            }
+          ]
+        }
+      }
+    ],
+    "30": [
+      {
+        "titulo": "Get + adjetivo",
+        "introduccion": "\"get\" + adjetivo indica un CAMBIO de estado (pasar a estar de otra forma), no un estado fijo. Se usa mucho con: get tired, get angry, get married, get lost, get better.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "He got tired after running.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'get' + adjetivo describe el cambio (pasó de no estar cansado a estarlo)."
+                },
+                {
+                  "texto": "He got tiring after running.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'tiring' describe algo que cansa a otros, no el propio estado; debe ser 'tired'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta para \"se casaron\"?",
+              "opciones": [
+                {
+                  "texto": "They got married last year.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'get married' = casarse (el cambio de estado civil)."
+                },
+                {
+                  "texto": "They were married last year.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto para expresar el momento del evento: 'were married' sugiere un estado ya existente, no cuándo ocurrió."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "got lost",
+            "got better"
+          ],
+          "frases": [
+            {
+              "texto": "We ___ in the new city.",
+              "respuesta": "got lost"
+            },
+            {
+              "texto": "She ___ after taking the medicine.",
+              "respuesta": "got better"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "get + adjetivo = cambio de estado (ponerse/volverse).",
+          "traducciones": [
+            {
+              "spanishWord": "Él se cansó después de correr.",
+              "englishWord": "He got tired after running."
+            },
+            {
+              "spanishWord": "Ellos se casaron el año pasado.",
+              "englishWord": "They got married last year."
+            }
+          ]
+        }
+      }
+    ],
+    "32": [
+      {
+        "titulo": "Already / Yet / Just",
+        "introduccion": "\"already\" (ya) va en frases AFIRMATIVAS, en medio de la oración. \"yet\" (todavía/ya) va en NEGATIVAS y PREGUNTAS, casi siempre al FINAL. \"just\" (acabar de) va en afirmativas, justo antes del participio.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She has already finished her homework.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'already' en frase afirmativa, en medio de la oración."
+                },
+                {
+                  "texto": "She has yet finished her homework.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'yet' no se usa así en afirmativas; aquí corresponde 'already'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "Have you finished the book yet?",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'yet' en pregunta, al final de la oración."
+                },
+                {
+                  "texto": "Have you already finished the book yet?",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: no se combinan 'already' y 'yet' en la misma pregunta."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "already",
+            "yet"
+          ],
+          "frases": [
+            {
+              "texto": "I've ___ seen that movie.",
+              "respuesta": "already"
+            },
+            {
+              "texto": "We haven't finished ___.",
+              "respuesta": "yet"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "already = afirmativas (en medio); yet = negativas/preguntas (al final); just = acabar de (antes del participio).",
+          "traducciones": [
+            {
+              "spanishWord": "Ella ya terminó su tarea.",
+              "englishWord": "She has already finished her homework."
+            },
+            {
+              "spanishWord": "¿Has terminado el libro todavía?",
+              "englishWord": "Have you finished the book yet?"
+            }
+          ]
+        }
+      }
+    ],
+    "33": [
+      {
+        "titulo": "Sujeto \"it\" (clima, tiempo, distancia)",
+        "introduccion": "En inglés, las frases sobre clima, hora, fecha o distancia SIEMPRE necesitan un sujeto, aunque en español no lo digamos. Ese sujeto \"vacío\" es \"it\": It's raining, It's three o'clock, It's ten kilometers away.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "It's raining today.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'it' como sujeto obligatorio para el clima."
+                },
+                {
+                  "texto": "Is raining today.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: falta el sujeto 'it'; en inglés toda oración necesita sujeto."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta para la hora?",
+              "opciones": [
+                {
+                  "texto": "It's three o'clock.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'it' + 's (is) + hora."
+                },
+                {
+                  "texto": "Is three o'clock.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: falta 'it' como sujeto."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "It's",
+            "It's"
+          ],
+          "frases": [
+            {
+              "texto": "___ very cold today.",
+              "respuesta": "It's"
+            },
+            {
+              "texto": "___ ten kilometers from here.",
+              "respuesta": "It's"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "it = sujeto obligatorio para clima/hora/distancia, aunque en español no se diga.",
+          "traducciones": [
+            {
+              "spanishWord": "Está lloviendo hoy.",
+              "englishWord": "It's raining today."
+            },
+            {
+              "spanishWord": "Está a diez kilómetros de aquí.",
+              "englishWord": "It's ten kilometers from here."
+            }
+          ]
+        }
+      }
+    ],
+    "34": [
+      {
+        "titulo": "Since vs For",
+        "introduccion": "\"since\" + un PUNTO en el tiempo (since 2020, since Monday) = desde cuándo empezó algo. \"for\" + una DURACIÓN (for two years, for a week) = cuánto tiempo ha durado.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "I've lived here since 2015.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'since' + punto de inicio (el año 2015)."
+                },
+                {
+                  "texto": "I've lived here for 2015.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'for' necesita una duración (for five years), no un punto en el tiempo."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "We've been friends for a long time.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'for' + duración (a long time)."
+                },
+                {
+                  "texto": "We've been friends since a long time.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'since' necesita un punto de inicio, no una duración."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "since",
+            "for"
+          ],
+          "frases": [
+            {
+              "texto": "She has studied Spanish ___ January.",
+              "respuesta": "since"
+            },
+            {
+              "texto": "He has played tennis ___ twenty years.",
+              "respuesta": "for"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "since + punto de inicio; for + duración.",
+          "traducciones": [
+            {
+              "spanishWord": "Vivo aquí desde 2015.",
+              "englishWord": "I've lived here since 2015."
+            },
+            {
+              "spanishWord": "Hemos sido amigos durante mucho tiempo.",
+              "englishWord": "We've been friends for a long time."
+            }
+          ]
+        }
+      }
+    ],
+    "35": [
+      {
+        "titulo": "Uso de \"when\" / \"while\"",
+        "introduccion": "\"when\" + acción CORTA/completa que interrumpe otra: When I arrived... \"while\" + acción LARGA/en progreso (a menudo con -ing): While I was studying...",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "I was cooking when the phone rang.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'when' + acción corta que interrumpe la acción en progreso."
+                },
+                {
+                  "texto": "I was cooking while the phone rang.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'while' se usa para dos acciones largas simultáneas, no para una interrupción puntual como esta."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "While she was sleeping, he cleaned the house.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'while' + acción en progreso (estaba durmiendo)."
+                },
+                {
+                  "texto": "When she was sleeping, he cleaned the house.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: aquí 'while' es más natural para señalar que ocurrían al mismo tiempo."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "when",
+            "While"
+          ],
+          "frases": [
+            {
+              "texto": "___ it started raining, we went inside.",
+              "respuesta": "when"
+            },
+            {
+              "texto": "___ we were waiting for the bus, we talked.",
+              "respuesta": "While"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "when = acción corta que interrumpe; while = acción larga/en progreso (a menudo -ing).",
+          "traducciones": [
+            {
+              "spanishWord": "Estaba cocinando cuando sonó el teléfono.",
+              "englishWord": "I was cooking when the phone rang."
+            },
+            {
+              "spanishWord": "Mientras ella dormía, él limpió la casa.",
+              "englishWord": "While she was sleeping, he cleaned the house."
+            }
+          ]
+        }
+      }
+    ],
+    "36": [
+      {
+        "titulo": "\"Will\" vs \"Going to\"",
+        "introduccion": "\"will\" se usa para decisiones ESPONTÁNEAS (las tomas en el momento de hablar) y predicciones sin evidencia. \"going to\" se usa para planes YA decididos de antemano, o predicciones CON evidencia visible ahora.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta para una decisión espontánea?",
+              "opciones": [
+                {
+                  "texto": "[The phone is ringing] I'll answer it.",
+                  "correcta": true,
+                  "explicacion": "Correcto: decisión tomada en el momento, se usa 'will'."
+                },
+                {
+                  "texto": "[The phone is ringing] I'm going to answer it.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto en este contexto: 'going to' sugiere un plan previo, pero aquí la decisión es espontánea."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta para un plan ya decidido?",
+              "opciones": [
+                {
+                  "texto": "We're going to travel to Peru; we already bought the tickets.",
+                  "correcta": true,
+                  "explicacion": "Correcto: plan ya decidido de antemano, se usa 'going to'."
+                },
+                {
+                  "texto": "We'll travel to Peru; we already bought the tickets.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: si ya está decidido y confirmado, se usa 'going to', no 'will'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "going to",
+            "'ll"
+          ],
+          "frases": [
+            {
+              "texto": "[Look at those dark clouds] It's ___ rain.",
+              "respuesta": "going to"
+            },
+            {
+              "texto": "[I didn't know you were hungry] I ___ make you something to eat.",
+              "respuesta": "'ll"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "will = decisión espontánea/predicción sin evidencia; going to = plan previo/predicción con evidencia.",
+          "traducciones": [
+            {
+              "spanishWord": "Va a llover pronto.",
+              "englishWord": "It's going to rain soon."
+            },
+            {
+              "spanishWord": "Contestaré yo.",
+              "englishWord": "I'll answer it."
+            }
+          ]
+        }
+      }
+    ],
+    "37": [
+      {
+        "titulo": "Contables vs incontables",
+        "introduccion": "Con sustantivos CONTABLES (que tienen plural) usamos \"few\" y \"many\". Con sustantivos INCONTABLES (sin plural: money, time, information) usamos \"little\" y \"much\".",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "I have few friends here.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'friends' es contable (friend/friends), se usa 'few'."
+                },
+                {
+                  "texto": "I have little friends here.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'little' es para incontables; 'friends' es contable, necesita 'few'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "We don't have much money.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'money' es incontable, se usa 'much'."
+                },
+                {
+                  "texto": "We don't have many money.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'many' es para contables; 'money' es incontable, necesita 'much'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "few",
+            "much"
+          ],
+          "frases": [
+            {
+              "texto": "She bought ___ apples.",
+              "respuesta": "few"
+            },
+            {
+              "texto": "How ___ water do you need?",
+              "respuesta": "much"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "contables: few/many; incontables: little/much.",
+          "traducciones": [
+            {
+              "spanishWord": "Tengo pocos amigos aquí.",
+              "englishWord": "I have few friends here."
+            },
+            {
+              "spanishWord": "No tenemos mucho dinero.",
+              "englishWord": "We don't have much money."
+            }
+          ]
+        }
+      }
+    ],
+    "38": [
+      {
+        "titulo": "Bad vs Badly",
+        "introduccion": "\"bad\" es un ADJETIVO: describe un sustantivo o va después de verbos como be/feel/look/smell/taste (this food is bad, I feel bad). \"badly\" es un ADVERBIO: describe CÓMO se hace una acción (he played badly).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "This soup tastes bad.",
+                  "correcta": true,
+                  "explicacion": "Correcto: tras 'taste' (verbo de sentidos) va el adjetivo 'bad'."
+                },
+                {
+                  "texto": "This soup tastes badly.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: con verbos de sentidos (taste/smell/look/feel) se usa el adjetivo 'bad', no el adverbio."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "He played badly in the match.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'badly' (adverbio) describe CÓMO jugó."
+                },
+                {
+                  "texto": "He played bad in the match.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: para describir cómo se realizó la acción se necesita el adverbio 'badly', no el adjetivo."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "bad",
+            "badly"
+          ],
+          "frases": [
+            {
+              "texto": "She feels ___ today.",
+              "respuesta": "bad"
+            },
+            {
+              "texto": "He slept ___ last night.",
+              "respuesta": "badly"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "bad = adjetivo (describe algo/alguien); badly = adverbio (describe cómo se hace algo).",
+          "traducciones": [
+            {
+              "spanishWord": "Esta comida sabe mal.",
+              "englishWord": "This food tastes bad."
+            },
+            {
+              "spanishWord": "Él jugó muy mal en el partido.",
+              "englishWord": "He played very badly in the match."
+            }
+          ]
+        }
+      }
+    ],
+    "39": [
+      {
+        "titulo": "Preposiciones básicas: to/at/in/on/for/during/from/of",
+        "introduccion": "Cada preposición tiene un uso típico: IN para meses/años/ciudades (in 2020, in Bogotá), ON para días (on Monday), AT para horas/lugares puntuales (at three, at the bank), DURING para dentro de un evento, FROM para origen, OF para material/posesión.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "I was born in 1990.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'in' + año."
+                },
+                {
+                  "texto": "I was born at 1990.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: para años se usa 'in', no 'at'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "The meeting is on Monday.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'on' + día de la semana."
+                },
+                {
+                  "texto": "The meeting is in Monday.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: para días de la semana se usa 'on', no 'in'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "at",
+            "during"
+          ],
+          "frases": [
+            {
+              "texto": "See you ___ three o'clock.",
+              "respuesta": "at"
+            },
+            {
+              "texto": "She arrived ___ the meeting.",
+              "respuesta": "during"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "in=meses/años/ciudades; on=días; at=horas/lugares puntuales; during=dentro de un evento.",
+          "traducciones": [
+            {
+              "spanishWord": "Nací en 1990.",
+              "englishWord": "I was born in 1990."
+            },
+            {
+              "spanishWord": "La reunión es el lunes.",
+              "englishWord": "The meeting is on Monday."
+            }
+          ]
+        }
+      }
+    ],
+    "40": [
+      {
+        "titulo": "For + período / During + evento",
+        "introduccion": "\"for\" + una cantidad de tiempo (for two hours, for a week) responde a \"¿por cuánto tiempo?\". \"during\" + un sustantivo de evento (during the meeting, during the summer) responde a \"¿en qué momento?\", sin decir cuánto duró.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "We waited for two hours.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'for' + cantidad de tiempo."
+                },
+                {
+                  "texto": "We waited during two hours.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'during' no se combina con una cantidad de tiempo, sino con un evento."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She arrived during the meeting.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'during' + evento (the meeting)."
+                },
+                {
+                  "texto": "She arrived for the meeting.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto en este contexto: 'for' no indica el momento dentro de un evento."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "for",
+            "during"
+          ],
+          "frases": [
+            {
+              "texto": "He worked there ___ six months.",
+              "respuesta": "for"
+            },
+            {
+              "texto": "It rained ___ the game.",
+              "respuesta": "during"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "for + cantidad de tiempo; during + evento.",
+          "traducciones": [
+            {
+              "spanishWord": "Esperamos durante dos horas.",
+              "englishWord": "We waited for two hours."
+            },
+            {
+              "spanishWord": "Ella llegó durante la reunión.",
+              "englishWord": "She arrived during the meeting."
+            }
+          ]
+        }
+      }
+    ],
+    "41": [
+      {
+        "titulo": "Orden natural de la oración",
+        "introduccion": "El inglés sigue casi siempre el orden Sujeto + Verbo + Objeto + Lugar + Tiempo (a diferencia del español, más flexible). Las expresiones de tiempo casi siempre van al FINAL de la oración, no al principio.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál sigue el orden natural en inglés?",
+              "opciones": [
+                {
+                  "texto": "I watched a movie at the theater yesterday.",
+                  "correcta": true,
+                  "explicacion": "Correcto: sujeto + verbo + objeto + lugar + tiempo, en ese orden."
+                },
+                {
+                  "texto": "Yesterday I watched at the theater a movie.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: el objeto (a movie) debe ir justo después del verbo, y el tiempo casi siempre al final."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál sigue el orden natural?",
+              "opciones": [
+                {
+                  "texto": "She walks to work every day.",
+                  "correcta": true,
+                  "explicacion": "Correcto: sujeto + verbo + lugar + tiempo, al final."
+                },
+                {
+                  "texto": "Every day to work she walks.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: en inglés el sujeto y el verbo van primero, no la expresión de tiempo."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "at the park",
+            "every day"
+          ],
+          "frases": [
+            {
+              "texto": "They play soccer ___.",
+              "respuesta": "at the park"
+            },
+            {
+              "texto": "She walks to school ___.",
+              "respuesta": "every day"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Sujeto + Verbo + Objeto + Lugar + Tiempo (el tiempo casi siempre al final).",
+          "traducciones": [
+            {
+              "spanishWord": "Vi una película en el cine ayer.",
+              "englishWord": "I watched a movie at the theater yesterday."
+            },
+            {
+              "spanishWord": "Ella camina al trabajo todos los días.",
+              "englishWord": "She walks to work every day."
+            }
+          ]
+        }
+      }
+    ],
+    "42": [
+      {
+        "titulo": "Vocabulario específico",
+        "introduccion": "Esta lección no tiene un único punto gramatical: es para repasar palabras nuevas de distintos temas (profesiones, naturaleza, tecnología) en contexto, dentro de oraciones simples.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es la traducción correcta de \"architect\"?",
+              "opciones": [
+                {
+                  "texto": "arquitecto/a",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'architect' = arquitecto/a."
+                },
+                {
+                  "texto": "abogado/a",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'abogado/a' es 'lawyer', no 'architect'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es la traducción correcta de \"laboratory\"?",
+              "opciones": [
+                {
+                  "texto": "laboratorio",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'laboratory' = laboratorio."
+                },
+                {
+                  "texto": "biblioteca",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'biblioteca' es 'library', no 'laboratory'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "architect",
+            "laboratory"
+          ],
+          "frases": [
+            {
+              "texto": "My uncle is an ___ and designs modern houses.",
+              "respuesta": "architect"
+            },
+            {
+              "texto": "The ___ has very modern equipment.",
+              "respuesta": "laboratory"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Vocabulario nuevo en contexto.",
+          "traducciones": [
+            {
+              "spanishWord": "Mi tío es arquitecto.",
+              "englishWord": "My uncle is an architect."
+            },
+            {
+              "spanishWord": "El laboratorio tiene equipo moderno.",
+              "englishWord": "The laboratory has modern equipment."
+            }
+          ]
+        }
+      }
+    ],
+    "43": [
+      {
+        "titulo": "Past Perfect",
+        "introduccion": "had + participio para algo que YA había pasado antes de otro momento en el pasado. Se usa mucho con \"before\" o \"when\" + otra acción pasada, y con \"never\" para experiencias previas a ese momento.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "When we arrived, the plane had already taken off.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'had taken off' pasó ANTES de que llegáramos (otro momento pasado)."
+                },
+                {
+                  "texto": "When we arrived, the plane has already taken off.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: mezcla presente perfecto con un evento en pasado; debe ser 'had taken off'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She had never seen snow before that trip.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'had never' + participio, para algo que no había pasado antes de ese momento."
+                },
+                {
+                  "texto": "She has never seen snow before that trip.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'before that trip' señala un punto en el pasado, corresponde 'had never'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "had already",
+            "had never"
+          ],
+          "frases": [
+            {
+              "texto": "He ___ finished college before getting married.",
+              "respuesta": "had already"
+            },
+            {
+              "texto": "I ___ driven such a big car before.",
+              "respuesta": "had never"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "had + participio = ya había pasado antes de otro momento pasado.",
+          "traducciones": [
+            {
+              "spanishWord": "Cuando llegamos, ya había despegado el avión.",
+              "englishWord": "When we arrived, the plane had already taken off."
+            },
+            {
+              "spanishWord": "Ella nunca había visto la nieve antes de ese viaje.",
+              "englishWord": "She had never seen snow before that trip."
+            }
+          ]
+        }
+      }
+    ],
+    "44": [
+      {
+        "titulo": "Future Perfect Continuous",
+        "introduccion": "will have been + verbo-ing, para expresar cuánto tiempo habrá durado una acción en un punto del futuro. Casi siempre va con \"by\" + momento futuro y \"for\" + duración.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "By Friday, I will have been working here for five years.",
+                  "correcta": true,
+                  "explicacion": "Correcto: will have been + verbo-ing + for + duración."
+                },
+                {
+                  "texto": "By Friday, I will have working here for five years.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: falta 'been' entre 'have' y el verbo-ing."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "By eight, she will have been waiting for an hour.",
+                  "correcta": true,
+                  "explicacion": "Correcto: estructura completa will have been + -ing."
+                },
+                {
+                  "texto": "By eight, she will has been waiting for an hour.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: después de 'will' siempre va 'have', nunca 'has'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "will have been working",
+            "will have been waiting"
+          ],
+          "frases": [
+            {
+              "texto": "By June, he ___ on that project for a year.",
+              "respuesta": "will have been working"
+            },
+            {
+              "texto": "By ten, they ___ for the bus for an hour.",
+              "respuesta": "will have been waiting"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "will have been + verbo-ing + for/since.",
+          "traducciones": [
+            {
+              "spanishWord": "Para el viernes, habré estado trabajando aquí cinco años.",
+              "englishWord": "By Friday, I will have been working here for five years."
+            },
+            {
+              "spanishWord": "Para las ocho, ella habrá estado esperando una hora.",
+              "englishWord": "By eight, she will have been waiting for an hour."
+            }
+          ]
+        }
+      }
+    ],
+    "45": [
+      {
+        "titulo": "Voz pasiva",
+        "introduccion": "Se forma con be + participio, cuando el foco está en la ACCIÓN o en quién la recibe, no en quién la hace. Con modales (can/must/should), la estructura es: modal + be + participio.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "The bread is baked every day.",
+                  "correcta": true,
+                  "explicacion": "Correcto: is (presente de be) + participio (baked)."
+                },
+                {
+                  "texto": "The bread bakes every day.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: eso está en voz activa; para pasiva se necesita 'is baked'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta con un modal?",
+              "opciones": [
+                {
+                  "texto": "This problem must be solved soon.",
+                  "correcta": true,
+                  "explicacion": "Correcto: modal (must) + be + participio."
+                },
+                {
+                  "texto": "This problem must solved soon.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: falta 'be' entre el modal y el participio."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "is spoken",
+            "must be approved"
+          ],
+          "frases": [
+            {
+              "texto": "English ___ in many countries.",
+              "respuesta": "is spoken"
+            },
+            {
+              "texto": "The project ___ before Monday.",
+              "respuesta": "must be approved"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "be + participio (pasiva simple); modal + be + participio (pasiva con modal).",
+          "traducciones": [
+            {
+              "spanishWord": "El inglés se habla en muchos países.",
+              "englishWord": "English is spoken in many countries."
+            },
+            {
+              "spanishWord": "Este problema debe resolverse pronto.",
+              "englishWord": "This problem must be solved soon."
+            }
+          ]
+        }
+      }
+    ],
+    "46": [
+      {
+        "titulo": "Modales de posibilidad/deducción",
+        "introduccion": "\"might/could\" + be = tal vez es (posibilidad, sin certeza). \"must\" + be = seguramente es (deducción lógica fuerte). \"can't\" + be = no puede ser (imposible según lo que sabemos).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta para expresar una posibilidad?",
+              "opciones": [
+                {
+                  "texto": "It might be raining outside.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'might be' = tal vez está (posibilidad, sin certeza)."
+                },
+                {
+                  "texto": "It must be raining outside.",
+                  "correcta": false,
+                  "explicacion": "Esta opción implica casi seguridad (deducción fuerte); para simple posibilidad se usa 'might'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta para expresar que algo es imposible?",
+              "opciones": [
+                {
+                  "texto": "It can't be that late already.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'can't be' = es imposible que sea así."
+                },
+                {
+                  "texto": "It mustn't be that late already.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'mustn't' expresa prohibición (no se debe), no imposibilidad; para eso se usa 'can't be'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "must be",
+            "can't be"
+          ],
+          "frases": [
+            {
+              "texto": "There ___ someone home; the lights are on.",
+              "respuesta": "must be"
+            },
+            {
+              "texto": "It ___ true what he said.",
+              "respuesta": "can't be"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "might/could be = posibilidad; must be = deducción fuerte; can't be = imposible.",
+          "traducciones": [
+            {
+              "spanishWord": "Podría estar lloviendo afuera.",
+              "englishWord": "It might be raining outside."
+            },
+            {
+              "spanishWord": "Debe haber alguien en casa, las luces están encendidas.",
+              "englishWord": "There must be someone home, the lights are on."
+            }
+          ]
+        }
+      }
+    ],
+    "3": [
+      {
+        "titulo": "Orden de sustantivos compuestos",
+        "introduccion": "En inglés, cuando combinas dos sustantivos, el que MODIFICA va PRIMERO (al revés que en español, donde \"de\" invierte el orden): \"parada de autobús\" = bus stop, \"número de teléfono\" = phone number.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta para \"parada de autobús\"?",
+              "opciones": [
+                {
+                  "texto": "bus stop",
+                  "correcta": true,
+                  "explicacion": "Correcto: el sustantivo modificador (bus) va primero."
+                },
+                {
+                  "texto": "stop of bus",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: en inglés no se usa 'of' aquí; se combinan los sustantivos en orden inverso al español."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta para \"número de teléfono\"?",
+              "opciones": [
+                {
+                  "texto": "phone number",
+                  "correcta": true,
+                  "explicacion": "Correcto: phone (modificador) + number."
+                },
+                {
+                  "texto": "number of phone",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: eso sería una traducción literal del español, no natural en inglés."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "bus stop",
+            "phone number"
+          ],
+          "frases": [
+            {
+              "texto": "The ___ is near my house.",
+              "respuesta": "bus stop"
+            },
+            {
+              "texto": "What is your ___?",
+              "respuesta": "phone number"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "sustantivo modificador + sustantivo principal (orden inverso al español con 'de').",
+          "traducciones": [
+            {
+              "spanishWord": "La parada de autobús está cerca de mi casa.",
+              "englishWord": "The bus stop is near my house."
+            },
+            {
+              "spanishWord": "¿Cuál es tu número de teléfono?",
+              "englishWord": "What is your phone number?"
+            }
+          ]
+        }
+      }
+    ],
+    "47": [
+      {
+        "titulo": "Half of",
+        "introduccion": "\"half of\" + sustantivo = la mitad de algo. El verbo concuerda con el sustantivo que sigue: \"half of the students ARE...\" (plural), pero \"half of the cake IS...\" (singular/incontable).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta con un sustantivo plural?",
+              "opciones": [
+                {
+                  "texto": "Half of the students are here.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'students' es plural, se usa 'are'."
+                },
+                {
+                  "texto": "Half of the students is here.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: con un sustantivo plural tras 'half of', el verbo va en plural (are)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta con un sustantivo incontable/singular?",
+              "opciones": [
+                {
+                  "texto": "Half of the cake is gone.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'cake' es singular/incontable, se usa 'is'."
+                },
+                {
+                  "texto": "Half of the cake are gone.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'cake' no es plural, el verbo debe ir en singular (is)."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "is",
+            "are"
+          ],
+          "frases": [
+            {
+              "texto": "Half of the money ___ already spent.",
+              "respuesta": "is"
+            },
+            {
+              "texto": "Half of the tickets ___ sold.",
+              "respuesta": "are"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "half of + sustantivo; el verbo concuerda con ese sustantivo (singular o plural).",
+          "traducciones": [
+            {
+              "spanishWord": "La mitad de los estudiantes están aquí.",
+              "englishWord": "Half of the students are here."
+            },
+            {
+              "spanishWord": "La mitad del pastel ya no está.",
+              "englishWord": "Half of the cake is gone."
+            }
+          ]
+        }
+      }
+    ],
+    "49": [
+      {
+        "titulo": "because of / because",
+        "introduccion": "\"because\" + sujeto + verbo (una oración completa): because it was raining. \"because of\" + sustantivo (sin verbo): because of the rain.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "We didn't go out because it was raining.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'because' + sujeto + verbo (oración completa)."
+                },
+                {
+                  "texto": "We didn't go out because of it was raining.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'because of' no puede ir seguido de una oración completa con verbo."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "We didn't go out because of the rain.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'because of' + sustantivo (the rain), sin verbo."
+                },
+                {
+                  "texto": "We didn't go out because the rain.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'because' solo, sin 'of', necesita una oración completa con verbo."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "because",
+            "because of"
+          ],
+          "frases": [
+            {
+              "texto": "She left early ___ she was tired.",
+              "respuesta": "because"
+            },
+            {
+              "texto": "She left early ___ the traffic.",
+              "respuesta": "because of"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "because + oración completa; because of + sustantivo.",
+          "traducciones": [
+            {
+              "spanishWord": "No salimos porque llovía.",
+              "englishWord": "We didn't go out because it was raining."
+            },
+            {
+              "spanishWord": "No salimos por la lluvia.",
+              "englishWord": "We didn't go out because of the rain."
+            }
+          ]
+        }
+      }
+    ],
+    "50": [
+      {
+        "titulo": "Verbos + partícula: down/off/on",
+        "introduccion": "Estos verbos cambian de significado según la partícula: put DOWN (poner algo abajo/soltarlo), put ON / try ON (ponerse/probarse ropa), get ON/OFF (subir/bajar de un transporte), take OFF (quitarse ropa), lie DOWN (acostarse).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta para \"ponerse una chaqueta\"?",
+              "opciones": [
+                {
+                  "texto": "Put on your jacket.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'put on' = ponerse ropa."
+                },
+                {
+                  "texto": "Put down your jacket.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'put down' significa soltar algo/ponerlo hacia abajo, no ponerse ropa."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta para \"bajar del autobús\"?",
+              "opciones": [
+                {
+                  "texto": "Get off the bus here.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'get off' = bajar de un transporte."
+                },
+                {
+                  "texto": "Get on the bus here.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'get on' es SUBIR, no bajar; para bajar es 'get off'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "try on",
+            "lie down"
+          ],
+          "frases": [
+            {
+              "texto": "Can I ___ these shoes?",
+              "respuesta": "try on"
+            },
+            {
+              "texto": "You should ___ if you feel sick.",
+              "respuesta": "lie down"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "put down=soltar; put on/try on=vestirse/probarse; get on/off=subir/bajar; take off=quitarse; lie down=acostarse.",
+          "traducciones": [
+            {
+              "spanishWord": "Ponte la chaqueta, hace frío.",
+              "englishWord": "Put on your jacket, it's cold."
+            },
+            {
+              "spanishWord": "Bájate del tren en la próxima parada.",
+              "englishWord": "Get off the train at the next stop."
+            }
+          ]
+        }
+      }
+    ],
+    "51": [
+      {
+        "titulo": "Sustantivos compuestos (compound nouns)",
+        "introduccion": "Muchos objetos cotidianos se nombran combinando dos sustantivos en una sola palabra o frase fija: toothbrush (cepillo de dientes), washing machine (lavadora), bookshelf (estantería). Hay que aprenderlos como una unidad.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es la traducción correcta de \"toothbrush\"?",
+              "opciones": [
+                {
+                  "texto": "cepillo de dientes",
+                  "correcta": true,
+                  "explicacion": "Correcto: tooth (diente) + brush (cepillo)."
+                },
+                {
+                  "texto": "cepillo de pelo",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'cepillo de pelo' es 'hairbrush', no 'toothbrush'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es la traducción correcta de \"washing machine\"?",
+              "opciones": [
+                {
+                  "texto": "lavadora",
+                  "correcta": true,
+                  "explicacion": "Correcto: washing (lavar) + machine (máquina) = lavadora."
+                },
+                {
+                  "texto": "secadora",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'secadora' es 'dryer', no 'washing machine'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "toothbrush",
+            "washing machine"
+          ],
+          "frases": [
+            {
+              "texto": "I forgot my ___ at the hotel.",
+              "respuesta": "toothbrush"
+            },
+            {
+              "texto": "The ___ is broken again.",
+              "respuesta": "washing machine"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "sustantivos compuestos = una unidad fija que hay que memorizar.",
+          "traducciones": [
+            {
+              "spanishWord": "Olvidé mi cepillo de dientes en el hotel.",
+              "englishWord": "I forgot my toothbrush at the hotel."
+            },
+            {
+              "spanishWord": "La lavadora está dañada otra vez.",
+              "englishWord": "The washing machine is broken again."
+            }
+          ]
+        }
+      }
+    ],
+    "52": [
+      {
+        "titulo": "Expresiones de tiempo con \"over\"",
+        "introduccion": "\"over\" + periodo de tiempo (over the weekend, over the summer, over time) indica que algo ocurrió a lo largo de ese periodo, no en un momento puntual.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "We rested a lot over the weekend.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'over the weekend' = a lo largo del fin de semana."
+                },
+                {
+                  "texto": "We rested a lot in the weekend.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: para este uso se prefiere 'over' u 'on' (on weekends), no 'in'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "Things have changed a lot over time.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'over time' = con el paso del tiempo."
+                },
+                {
+                  "texto": "Things have changed a lot during time.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'during' necesita un evento específico, no la palabra genérica 'time' así."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "over the summer",
+            "over time"
+          ],
+          "frases": [
+            {
+              "texto": "She learned a lot ___.",
+              "respuesta": "over the summer"
+            },
+            {
+              "texto": "He has improved his English ___.",
+              "respuesta": "over time"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "over + periodo = a lo largo de ese tiempo.",
+          "traducciones": [
+            {
+              "spanishWord": "Descansamos mucho durante el fin de semana.",
+              "englishWord": "We rested a lot over the weekend."
+            },
+            {
+              "spanishWord": "Las cosas han cambiado mucho con el tiempo.",
+              "englishWord": "Things have changed a lot over time."
+            }
+          ]
+        }
+      }
+    ],
+    "53": [
+      {
+        "titulo": "Future Continuous",
+        "introduccion": "will be + verbo-ing, para una acción que estará EN PROGRESO en un momento específico del futuro (a diferencia de 'will' simple, que es solo una acción puntual).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "Tomorrow at this time, I will be flying to Mexico.",
+                  "correcta": true,
+                  "explicacion": "Correcto: will be + verbo-ing, acción en progreso en un momento futuro específico."
+                },
+                {
+                  "texto": "Tomorrow at this time, I will fly to Mexico.",
+                  "correcta": false,
+                  "explicacion": "Esta forma (will simple) no enfatiza que la acción estará EN PROGRESO en ese momento exacto."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She will be working when you call her.",
+                  "correcta": true,
+                  "explicacion": "Correcto: estará en medio de esa acción cuando ocurra la otra."
+                },
+                {
+                  "texto": "She will work when you call her.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto para expresar 'estará en medio de': falta 'be' + verbo-ing."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "will be studying",
+            "will be waiting"
+          ],
+          "frases": [
+            {
+              "texto": "At eight, she ___ for the exam.",
+              "respuesta": "will be studying"
+            },
+            {
+              "texto": "He ___ at the airport at that time.",
+              "respuesta": "will be waiting"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "will be + verbo-ing = acción en progreso en un momento futuro específico.",
+          "traducciones": [
+            {
+              "spanishWord": "Mañana a esta hora estaré volando a México.",
+              "englishWord": "Tomorrow at this time, I will be flying to Mexico."
+            },
+            {
+              "spanishWord": "Ella estará trabajando cuando la llames.",
+              "englishWord": "She will be working when you call her."
+            }
+          ]
+        }
+      }
+    ],
+    "54": [
+      {
+        "titulo": "Comparativos y superlativos",
+        "introduccion": "Comparativo: adjetivo corto + -ER + than (taller than), o more + adjetivo largo + than. Superlativo: THE + adjetivo corto + -EST (the tallest), o the most + adjetivo largo.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She is taller than her sister.",
+                  "correcta": true,
+                  "explicacion": "Correcto: adjetivo corto + -er + than."
+                },
+                {
+                  "texto": "She is more tall than her sister.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'tall' es un adjetivo corto, se usa '-er' (taller), no 'more'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "This book is more interesting than the other one.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'interesting' es largo, se usa 'more' + adjetivo."
+                },
+                {
+                  "texto": "This book is interestinger than the other one.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: los adjetivos largos no llevan '-er', se usa 'more' antes."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "taller",
+            "the most expensive"
+          ],
+          "frases": [
+            {
+              "texto": "He is ___ than his brother.",
+              "respuesta": "taller"
+            },
+            {
+              "texto": "That's ___ car in the store.",
+              "respuesta": "the most expensive"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "adjetivo corto: -er/-est; adjetivo largo: more/the most.",
+          "traducciones": [
+            {
+              "spanishWord": "Ella es más alta que su hermana.",
+              "englishWord": "She is taller than her sister."
+            },
+            {
+              "spanishWord": "Ese es el carro más caro de la tienda.",
+              "englishWord": "That's the most expensive car in the store."
+            }
+          ]
+        }
+      }
+    ],
+    "55": [
+      {
+        "titulo": "Make/Let/Help + objeto + infinitivo",
+        "introduccion": "Después de \"make\" y \"let\" + persona, el verbo va SIN \"to\" (make someone DO, let someone DO). \"help\" admite ambas formas: help someone do / help someone TO do.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "My boss made me stay late.",
+                  "correcta": true,
+                  "explicacion": "Correcto: make + persona + verbo base (sin 'to')."
+                },
+                {
+                  "texto": "My boss made me to stay late.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: después de 'make + persona' nunca va 'to'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "She let her son play outside.",
+                  "correcta": true,
+                  "explicacion": "Correcto: let + persona + verbo base (sin 'to')."
+                },
+                {
+                  "texto": "She let her son to play outside.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: después de 'let + persona' nunca va 'to'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "stay",
+            "play"
+          ],
+          "frases": [
+            {
+              "texto": "The rain made us ___ home.",
+              "respuesta": "stay"
+            },
+            {
+              "texto": "She let the kids ___ outside.",
+              "respuesta": "play"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "make/let + persona + verbo base (sin 'to').",
+          "traducciones": [
+            {
+              "spanishWord": "Mi jefe me hizo quedarme tarde.",
+              "englishWord": "My boss made me stay late."
+            },
+            {
+              "spanishWord": "Ella dejó que su hijo jugara afuera.",
+              "englishWord": "She let her son play outside."
+            }
+          ]
+        }
+      }
+    ],
+    "56": [
+      {
+        "titulo": "Estilo indirecto (reported speech)",
+        "introduccion": "Al reportar lo que alguien dijo, los tiempos verbales \"retroceden\" un paso: presente -> pasado, will -> would. \"I am tired\" se convierte en \"she said she WAS tired\".",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es el estilo indirecto correcto de \"I am tired\"?",
+              "opciones": [
+                {
+                  "texto": "She said she was tired.",
+                  "correcta": true,
+                  "explicacion": "Correcto: presente (am) retrocede a pasado (was)."
+                },
+                {
+                  "texto": "She said she is tired.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: en estilo indirecto el presente debe retroceder a pasado."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es el estilo indirecto correcto de \"I will come\"?",
+              "opciones": [
+                {
+                  "texto": "He said he would come.",
+                  "correcta": true,
+                  "explicacion": "Correcto: will retrocede a would."
+                },
+                {
+                  "texto": "He said he will come.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: en estilo indirecto 'will' generalmente retrocede a 'would'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "was",
+            "would"
+          ],
+          "frases": [
+            {
+              "texto": "\"I am sick.\" -> She said she ___ sick.",
+              "respuesta": "was"
+            },
+            {
+              "texto": "\"I will call you.\" -> He said he ___ call me.",
+              "respuesta": "would"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "presente -> pasado; will -> would (los tiempos retroceden un paso).",
+          "traducciones": [
+            {
+              "spanishWord": "Ella dijo que estaba cansada.",
+              "englishWord": "She said she was tired."
+            },
+            {
+              "spanishWord": "Él dijo que vendría a la fiesta.",
+              "englishWord": "He said he would come to the party."
+            }
+          ]
+        }
+      }
+    ],
+    "57": [
+      {
+        "titulo": "Wish + pasado simple",
+        "introduccion": "\"wish\" + pasado simple expresa un deseo sobre algo que NO es cierto ahora (lo contrario de la realidad presente). Con el verbo \"be\", se prefiere \"were\" para todas las personas.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "I wish I had more time.",
+                  "correcta": true,
+                  "explicacion": "Correcto: wish + pasado simple, para algo que no es cierto ahora."
+                },
+                {
+                  "texto": "I wish I have more time.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: después de 'wish' para el presente se usa el pasado simple, no el presente."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta con \"be\"?",
+              "opciones": [
+                {
+                  "texto": "I wish I were taller.",
+                  "correcta": true,
+                  "explicacion": "Correcto: se prefiere 'were' para todas las personas con 'wish'."
+                },
+                {
+                  "texto": "I wish I am taller.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: con 'wish' nunca va el presente 'am/is/are', se usa 'were'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "had",
+            "were"
+          ],
+          "frases": [
+            {
+              "texto": "I wish I ___ more free time.",
+              "respuesta": "had"
+            },
+            {
+              "texto": "I wish she ___ here right now.",
+              "respuesta": "were"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "wish + pasado simple (were para 'be', en todas las personas).",
+          "traducciones": [
+            {
+              "spanishWord": "Ojalá tuviera más tiempo libre.",
+              "englishWord": "I wish I had more free time."
+            },
+            {
+              "spanishWord": "Ojalá ella estuviera aquí ahora.",
+              "englishWord": "I wish she were here right now."
+            }
+          ]
+        }
+      }
+    ],
+    "58": [
+      {
+        "titulo": "Conectores formales",
+        "introduccion": "\"however\" (sin embargo) y \"moreover\" (además) van al INICIO de una oración nueva, tras punto y coma o punto. \"although\" (aunque) va dentro de la MISMA oración + sujeto + verbo; \"despite\" (a pesar de) + sustantivo/gerundio (sin verbo conjugado).",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "The job is difficult; however, I like it a lot.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'however' tras punto y coma, iniciando la idea contraria."
+                },
+                {
+                  "texto": "The job is difficult; despite, I like it a lot.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'despite' no funciona solo así; necesita un sustantivo o gerundio después."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "Although it was raining, we went out.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'although' + sujeto + verbo, en la misma oración."
+                },
+                {
+                  "texto": "Despite it was raining, we went out.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: 'despite' no puede ir seguido de sujeto + verbo conjugado; necesitaría 'despite the rain'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "However",
+            "Despite"
+          ],
+          "frases": [
+            {
+              "texto": "She was tired. ___, she finished the project.",
+              "respuesta": "However"
+            },
+            {
+              "texto": "___ the rain, the game continued.",
+              "respuesta": "Despite"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "however/moreover = inicio de oración nueva; although+sujeto+verbo; despite+sustantivo/gerundio.",
+          "traducciones": [
+            {
+              "spanishWord": "El trabajo es difícil; sin embargo, me gusta mucho.",
+              "englishWord": "The job is difficult; however, I like it a lot."
+            },
+            {
+              "spanishWord": "Aunque llovía, salimos.",
+              "englishWord": "Although it was raining, we went out."
+            }
+          ]
+        }
+      }
+    ],
+    "59": [
+      {
+        "titulo": "Phrasal verbs de nivel B2",
+        "introduccion": "give up = rendirse/dejar de hacer algo. look forward to = esperar con ganas (ojo: aquí 'to' es preposición, va seguido de gerundio, no infinitivo). run into = encontrarse con alguien por casualidad. get along = llevarse bien.",
+        "ejercicio1": {
+          "subtitulo": "Elige la respuesta correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "I look forward to seeing you soon.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'look forward to' + gerundio (seeing), no infinitivo."
+                },
+                {
+                  "texto": "I look forward to see you soon.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: tras 'look forward to' va gerundio, no el infinitivo 'to see'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es correcta?",
+              "opciones": [
+                {
+                  "texto": "I ran into my old teacher yesterday.",
+                  "correcta": true,
+                  "explicacion": "Correcto: 'run into' = encontrarse por casualidad con alguien."
+                },
+                {
+                  "texto": "I ran in my old teacher yesterday.",
+                  "correcta": false,
+                  "explicacion": "Incorrecto: la expresión correcta es 'run INTO', no 'run in'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa",
+          "banco": [
+            "give up",
+            "get along"
+          ],
+          "frases": [
+            {
+              "texto": "Don't ___, you're almost done.",
+              "respuesta": "give up"
+            },
+            {
+              "texto": "They ___ well with their neighbors.",
+              "respuesta": "get along"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "give up=rendirse; look forward to+gerundio=esperar con ganas; run into=encontrarse por casualidad; get along=llevarse bien.",
+          "traducciones": [
+            {
+              "spanishWord": "Ella nunca se rinde ante los problemas.",
+              "englishWord": "She never gives up when facing problems."
+            },
+            {
+              "spanishWord": "Espero con ansias las vacaciones.",
+              "englishWord": "I look forward to the vacation."
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

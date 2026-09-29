@@ -1,0 +1,290 @@
+{
+  "_comentario": "Listado maestro de reglas gramaticales. build.py lo embebe como semilla (GRAMMAR_RULES_SEED). El % aquí es solo el valor INICIAL: en runtime cada porcentaje se guarda y actualiza en localStorage (independiente de 'Borrar todo') y se puede refrescar pegando un JSON de actualización desde el menú ('🔄 Actualizar % de reglas'). Editar este archivo y reconstruir con build.py NO pisa los porcentajes que el usuario ya haya actualizado en su dispositivo (solo agrega reglas nuevas que no existan aún en el storage).",
+  "reglas": [
+    {
+      "id": 1,
+      "regla": "Past Perfect Continuous",
+      "porcentaje": 50
+    },
+    {
+      "id": 2,
+      "regla": "Wh Questions (what/where/why/who/when/how)",
+      "porcentaje": 52
+    },
+    {
+      "id": 3,
+      "regla": "Orden de sustantivos compuestos (bus stop, phone number)",
+      "porcentaje": 53
+    },
+    {
+      "id": 4,
+      "regla": "Segundo condicional (if + pasado, would + infinitivo)",
+      "porcentaje": 58
+    },
+    {
+      "id": 5,
+      "regla": "Cláusulas relativas (who/which/that, incluyendo explicativas con comas)",
+      "porcentaje": 59
+    },
+    {
+      "id": 6,
+      "regla": "Need to + infinitivo",
+      "porcentaje": 55
+    },
+    {
+      "id": 8,
+      "regla": "Pronombre objeto tras preposición (him/her/them, no he/she/they)",
+      "porcentaje": 64
+    },
+    {
+      "id": 9,
+      "regla": "Uso básico de \"as\" = como",
+      "porcentaje": 63
+    },
+    {
+      "id": 10,
+      "regla": "Presente perfecto: have/has/had + participio (incluye \"just\": acaba de/acababa de)",
+      "porcentaje": 65
+    },
+    {
+      "id": 11,
+      "regla": "Bring / Brought",
+      "porcentaje": 66
+    },
+    {
+      "id": 12,
+      "regla": "Primer condicional (if + presente, will/won't + infinitivo)",
+      "porcentaje": 65
+    },
+    {
+      "id": 13,
+      "regla": "Past Perfect vs Presente vs Futuro",
+      "porcentaje": 55
+    },
+    {
+      "id": 14,
+      "regla": "Make vs Do",
+      "porcentaje": 68
+    },
+    {
+      "id": 15,
+      "regla": "Gone vs Left",
+      "porcentaje": 69
+    },
+    {
+      "id": 16,
+      "regla": "Preposiciones de movimiento (to/at/for/of con destinos)",
+      "porcentaje": 70
+    },
+    {
+      "id": 17,
+      "regla": "Modales básicos (can, could, should, must, will, would, used to + verbo)",
+      "porcentaje": 71
+    },
+    {
+      "id": 18,
+      "regla": "Gerundio vs infinitivo (incluye tras preposiciones y before/after + ing)",
+      "porcentaje": 66
+    },
+    {
+      "id": 19,
+      "regla": "Participios irregulares (incluye take/took/taken, leave/left/left)",
+      "porcentaje": 80
+    },
+    {
+      "id": 20,
+      "regla": "3ra persona singular (-s)",
+      "porcentaje": 74
+    },
+    {
+      "id": 21,
+      "regla": "Say vs Tell",
+      "porcentaje": 75
+    },
+    {
+      "id": 22,
+      "regla": "Artículos (a/an/the)",
+      "porcentaje": 75
+    },
+    {
+      "id": 23,
+      "regla": "Phrasal verbs con \"look\" (look for / look up / look at / look like)",
+      "porcentaje": 76
+    },
+    {
+      "id": 25,
+      "regla": "Give / Gave / Given",
+      "porcentaje": 71
+    },
+    {
+      "id": 26,
+      "regla": "Still + hope",
+      "porcentaje": 80
+    },
+    {
+      "id": 27,
+      "regla": "Too vs Very",
+      "porcentaje": 80
+    },
+    {
+      "id": 28,
+      "regla": "Preguntas con presente/pasado perfecto (Have...ever...? / Had...?)",
+      "porcentaje": 83
+    },
+    {
+      "id": 29,
+      "regla": "Tag Questions",
+      "porcentaje": 84
+    },
+    {
+      "id": 30,
+      "regla": "Get + adjetivo (cambios de estado: get worried, se puso...)",
+      "porcentaje": 85
+    },
+    {
+      "id": 31,
+      "regla": "Expresiones con \"some / any / no\" (incluye something/anything/nothing)",
+      "porcentaje": 56
+    },
+    {
+      "id": 32,
+      "regla": "Already / Yet / Just",
+      "porcentaje": 86
+    },
+    {
+      "id": 33,
+      "regla": "Sujeto \"it\" (clima, tiempo, distancia)",
+      "porcentaje": 87
+    },
+    {
+      "id": 34,
+      "regla": "Since vs For",
+      "porcentaje": 90
+    },
+    {
+      "id": 35,
+      "regla": "Uso de \"when / while\"",
+      "porcentaje": 90
+    },
+    {
+      "id": 36,
+      "regla": "Diferencia entre \"will\" y \"going to\"",
+      "porcentaje": 90
+    },
+    {
+      "id": 37,
+      "regla": "Contables vs incontables (few/little, less/fewer, much/many)",
+      "porcentaje": 71
+    },
+    {
+      "id": 38,
+      "regla": "Bad vs Badly",
+      "porcentaje": 84
+    },
+    {
+      "id": 39,
+      "regla": "Preposiciones (to/at/in/on/for/during/from/of)",
+      "porcentaje": 0
+    },
+    {
+      "id": 40,
+      "regla": "For + período / During + evento",
+      "porcentaje": 0
+    },
+    {
+      "id": 41,
+      "regla": "Orden natural de la oración en inglés",
+      "porcentaje": 0
+    },
+    {
+      "id": 42,
+      "regla": "Vocabulario específico",
+      "porcentaje": 0
+    },
+    {
+      "id": 43,
+      "regla": "Past Perfect",
+      "porcentaje": 0
+    },
+    {
+      "id": 44,
+      "regla": "Future Perfect Continuous",
+      "porcentaje": 0
+    },
+    {
+      "id": 45,
+      "regla": "Voz pasiva (presente y con modales)",
+      "porcentaje": 0
+    },
+    {
+      "id": 46,
+      "regla": "Modales de posibilidad/deducción (there might be, must/might/can't + be)",
+      "porcentaje": 0
+    },
+    {
+      "id": 47,
+      "regla": "Half of",
+      "porcentaje": 0
+    },
+    {
+      "id": 48,
+      "regla": "Oraciones con \"by\" para tiempo futuro",
+      "porcentaje": 0
+    },
+    {
+      "id": 49,
+      "regla": "because of / because",
+      "porcentaje": 0
+    },
+    {
+      "id": 50,
+      "regla": "(put, try, get, trying, take, lie) + (down, off, on)",
+      "porcentaje": 0
+    },
+    {
+      "id": 51,
+      "regla": "Sustantivos compuestos (compound nouns)",
+      "porcentaje": 0
+    },
+    {
+      "id": 52,
+      "regla": "Expresiones de tiempo con over",
+      "porcentaje": 0
+    },
+    {
+      "id": 53,
+      "regla": "Future Continuous",
+      "porcentaje": 0
+    },
+    {
+      "id": 54,
+      "regla": "Comparativos y superlativos",
+      "porcentaje": 0
+    },
+    {
+      "id": 55,
+      "regla": "Verbos make/let/help + objeto + infinitivo (sin 'to')",
+      "porcentaje": 0
+    },
+    {
+      "id": 56,
+      "regla": "Estilo indirecto básico (reported speech)",
+      "porcentaje": 0
+    },
+    {
+      "id": 57,
+      "regla": "Wish + pasado simple",
+      "porcentaje": 0
+    },
+    {
+      "id": 58,
+      "regla": "Conectores formales (however, although, despite, moreover)",
+      "porcentaje": 0
+    },
+    {
+      "id": 59,
+      "regla": "Phrasal verbs de nivel B2 (give up, look forward to, run into, get along)",
+      "porcentaje": 0
+    }
+  ]
+}

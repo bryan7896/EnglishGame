@@ -1,0 +1,25 @@
+{
+  "_comentario": "Regla 18: Gerundio vs infinitivo (incluye tras preposiciones y before/after + ing). Tanda 1/1 (20 ejercicios).",
+  "traducciones": [
+    { "spanishWord": "A ella le gusta bailar los fines de semana.", "englishWord": "She enjoys dancing on weekends.", "reglaIds": [18] },
+    { "spanishWord": "Él evita comer comida rápida.", "englishWord": "He avoids eating fast food.", "reglaIds": [18] },
+    { "spanishWord": "Ellos siguen practicando todos los días.", "englishWord": "They keep practicing every day.", "reglaIds": [18] },
+    { "spanishWord": "Quiero aprender a cocinar.", "englishWord": "I want to learn to cook.", "reglaIds": [18] },
+    { "spanishWord": "Ella decidió estudiar medicina.", "englishWord": "She decided to study medicine.", "reglaIds": [18] },
+    { "spanishWord": "Antes de salir, cierra la puerta.", "englishWord": "Before leaving, close the door.", "reglaIds": [18] },
+    { "spanishWord": "Después de trabajar, ella descansa.", "englishWord": "After working, she rests.", "reglaIds": [18] },
+    { "spanishWord": "Él terminó de escribir el informe.", "englishWord": "He finished writing the report.", "reglaIds": [18] },
+    { "spanishWord": "Necesito terminar este proyecto hoy.", "englishWord": "I need to finish this project today.", "reglaIds": [18, 6] },
+    { "spanishWord": "Ella evita hablar de dinero.", "englishWord": "She avoids talking about money.", "reglaIds": [18] },
+    { "spanishWord": "Él espera visitar Japón el próximo año.", "englishWord": "He hopes to visit Japan next year.", "reglaIds": [18] },
+    { "spanishWord": "Disfruto viajar por el mundo.", "englishWord": "I enjoy traveling around the world.", "reglaIds": [18] },
+    { "spanishWord": "Ellos planean mudarse pronto.", "englishWord": "They plan to move soon.", "reglaIds": [18] },
+    { "spanishWord": "Antes de comer, lávate las manos.", "englishWord": "Before eating, wash your hands.", "reglaIds": [18] },
+    { "spanishWord": "Él sigue estudiando inglés cada noche.", "englishWord": "He keeps studying English every night.", "reglaIds": [18] },
+    { "spanishWord": "Ella olvidó traer su paraguas.", "englishWord": "She forgot to bring her umbrella.", "reglaIds": [18, 11] },
+    { "spanishWord": "Después de estudiar, él ve la televisión.", "englishWord": "After studying, he watches television.", "reglaIds": [18] },
+    { "spanishWord": "Necesitamos empezar a trabajar ahora.", "englishWord": "We need to start working now.", "reglaIds": [18, 6] },
+    { "spanishWord": "Ellos disfrutan escuchar música clásica.", "englishWord": "They enjoy listening to classical music.", "reglaIds": [18] },
+    { "spanishWord": "Ella evita manejar de noche.", "englishWord": "She avoids driving at night.", "reglaIds": [18] }
+  ]
+}

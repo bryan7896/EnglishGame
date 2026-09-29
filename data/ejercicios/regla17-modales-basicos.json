@@ -1,0 +1,25 @@
+{
+  "_comentario": "Regla 17: Modales básicos (can, could, should, must, will, would, used to + verbo). Tanda 1/1 (20 ejercicios).",
+  "traducciones": [
+    { "spanishWord": "Ella puede hablar tres idiomas.", "englishWord": "She can speak three languages.", "reglaIds": [17] },
+    { "spanishWord": "Él podía nadar rápido cuando era joven.", "englishWord": "He could swim fast when he was young.", "reglaIds": [17] },
+    { "spanishWord": "Deberías estudiar más para el examen.", "englishWord": "You should study more for the exam.", "reglaIds": [17] },
+    { "spanishWord": "Debemos llegar temprano al aeropuerto.", "englishWord": "We must arrive early at the airport.", "reglaIds": [17] },
+    { "spanishWord": "Ella solía vivir en Madrid.", "englishWord": "She used to live in Madrid.", "reglaIds": [17] },
+    { "spanishWord": "¿Puedes ayudarme con esto?", "englishWord": "Can you help me with this?", "reglaIds": [17] },
+    { "spanishWord": "Él debería llamar a su médico.", "englishWord": "He should call his doctor.", "reglaIds": [17] },
+    { "spanishWord": "Tienes que traer tu pasaporte.", "englishWord": "You must bring your passport.", "reglaIds": [17] },
+    { "spanishWord": "Ellos solían trabajar en esa fábrica.", "englishWord": "They used to work at that factory.", "reglaIds": [17] },
+    { "spanishWord": "Ella podría venir mañana.", "englishWord": "She could come tomorrow.", "reglaIds": [17] },
+    { "spanishWord": "Debes terminar tu tarea hoy.", "englishWord": "You must finish your homework today.", "reglaIds": [17] },
+    { "spanishWord": "Él puede manejar muy bien.", "englishWord": "He can drive very well.", "reglaIds": [17] },
+    { "spanishWord": "Deberíamos comprar más comida.", "englishWord": "We should buy more food.", "reglaIds": [17] },
+    { "spanishWord": "Ella solía tocar el piano.", "englishWord": "She used to play the piano.", "reglaIds": [17] },
+    { "spanishWord": "¿Podrías repetir la pregunta?", "englishWord": "Could you repeat the question?", "reglaIds": [17] },
+    { "spanishWord": "Él debe pagar la cuenta ahora.", "englishWord": "He must pay the bill now.", "reglaIds": [17] },
+    { "spanishWord": "Ustedes deberían descansar más.", "englishWord": "You should rest more.", "reglaIds": [17] },
+    { "spanishWord": "Yo solía jugar fútbol los domingos.", "englishWord": "I used to play soccer on Sundays.", "reglaIds": [17] },
+    { "spanishWord": "Ella puede cocinar comida italiana.", "englishWord": "She can cook Italian food.", "reglaIds": [17] },
+    { "spanishWord": "Él podía correr muy rápido de niño.", "englishWord": "He could run very fast as a child.", "reglaIds": [17] }
+  ]
+}

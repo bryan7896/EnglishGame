@@ -1,0 +1,705 @@
+{
+  "_comentario": "Regla 1: Past Perfect Continuous (had been + verbo-ing). Tanda 1/1 (100 ejercicios).",
+  "traducciones": [
+    {
+      "spanishWord": "Nosotros habíamos estado nadando en la piscina durante media hora cuando empezó a llover.",
+      "englishWord": "We had been swimming in the pool for half an hour when it started raining.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado limpiando la casa durante veinte minutos cuando sonó el teléfono.",
+      "englishWord": "He had been cleaning the house for twenty minutes when the phone rang.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado conduciendo durante veinte minutos cuando salió el sol.",
+      "englishWord": "They had been driving for twenty minutes when the sun came out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado planeando el viaje durante tres días cuando terminó la clase.",
+      "englishWord": "They had been planning the trip for three days when the class ended.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado aprendiendo inglés durante un año cuando se fue la luz.",
+      "englishWord": "She had been learning English for a year when the power went out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado conduciendo durante media hora cuando empezó la reunión.",
+      "englishWord": "She had been driving for half an hour when the meeting started.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros habíamos estado planeando el viaje durante tres días cuando empezó a llover.",
+      "englishWord": "We had been planning the trip for three days when it started raining.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado trabajando durante dos horas cuando empezó a llover.",
+      "englishWord": "He had been working for two hours when it started raining.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado planeando el viaje durante seis meses cuando terminó la clase.",
+      "englishWord": "I had been planning the trip for six months when the class ended.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado buscando trabajo durante una semana cuando se fue la luz.",
+      "englishWord": "I had been looking for a job for a week when the power went out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros habíamos estado practicando piano durante un año cuando la vi.",
+      "englishWord": "We had been practicing piano for a year when I saw her.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros habíamos estado trabajando durante dos horas cuando llamaste.",
+      "englishWord": "We had been working for two hours when you called.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado trabajando durante una semana cuando él llegó.",
+      "englishWord": "I had been working for a week when he arrived.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado planeando el viaje durante dos horas cuando terminó la clase.",
+      "englishWord": "He had been planning the trip for two hours when the class ended.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado escuchando música durante una semana cuando salió el sol.",
+      "englishWord": "They had been listening to music for a week when the sun came out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado leyendo ese libro durante seis meses cuando llegué.",
+      "englishWord": "You had been reading that book for six months when I arrived.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado escribiendo el reporte durante una semana cuando salió el sol.",
+      "englishWord": "He had been writing the report for a week when the sun came out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado cocinando la cena durante todo el día cuando sonó el teléfono.",
+      "englishWord": "You had been cooking dinner for the whole day when the phone rang.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado estudiando durante un año cuando salió el sol.",
+      "englishWord": "You had been studying for a year when the sun came out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado aprendiendo inglés durante una semana cuando terminó la clase.",
+      "englishWord": "She had been learning English for a week when the class ended.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado ahorrando dinero durante un año cuando se fue la luz.",
+      "englishWord": "She had been saving money for a year when the power went out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado durmiendo durante veinte minutos cuando se fue la luz.",
+      "englishWord": "You had been sleeping for twenty minutes when the power went out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado aprendiendo inglés durante un año cuando llamaste.",
+      "englishWord": "He had been learning English for a year when you called.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado trabajando durante todo el día cuando salió el sol.",
+      "englishWord": "She had been working for the whole day when the sun came out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado buscando trabajo durante seis meses cuando él llegó.",
+      "englishWord": "He had been looking for a job for six months when he arrived.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado trabajando durante veinte minutos cuando se fue la luz.",
+      "englishWord": "He had been working for twenty minutes when the power went out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado escribiendo el reporte durante seis meses cuando llegué.",
+      "englishWord": "He had been writing the report for six months when I arrived.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado escuchando música durante veinte minutos cuando sonó el teléfono.",
+      "englishWord": "She had been listening to music for twenty minutes when the phone rang.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado esperando el autobús durante media hora cuando llamaste.",
+      "englishWord": "She had been waiting for the bus for half an hour when you called.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado ahorrando dinero durante seis meses cuando terminó la clase.",
+      "englishWord": "I had been saving money for six months when the class ended.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado escribiendo el reporte durante todo el día cuando sonó el teléfono.",
+      "englishWord": "You had been writing the report for the whole day when the phone rang.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado viajando por Europa durante tres días cuando se fue la luz.",
+      "englishWord": "I had been traveling around Europe for three days when the power went out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado cocinando la cena durante veinte minutos cuando empezó la reunión.",
+      "englishWord": "They had been cooking dinner for twenty minutes when the meeting started.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado leyendo ese libro durante todo el día cuando empezó a llover.",
+      "englishWord": "I had been reading that book for the whole day when it started raining.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado caminando por el parque durante media hora cuando empezó a llover.",
+      "englishWord": "You had been walking through the park for half an hour when it started raining.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado hablando por teléfono durante veinte minutos cuando terminó la clase.",
+      "englishWord": "They had been talking on the phone for twenty minutes when the class ended.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado haciendo ejercicio durante media hora cuando la vi.",
+      "englishWord": "He had been exercising for half an hour when I saw her.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado viendo la televisión durante media hora cuando llamaste.",
+      "englishWord": "He had been watching television for half an hour when you called.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado conduciendo durante veinte minutos cuando salió el sol.",
+      "englishWord": "She had been driving for twenty minutes when the sun came out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado trabajando durante dos horas cuando sonó el teléfono.",
+      "englishWord": "He had been working for two hours when the phone rang.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado limpiando la casa durante todo el día cuando llegué.",
+      "englishWord": "You had been cleaning the house for the whole day when I arrived.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros habíamos estado estudiando durante todo el día cuando se fue la luz.",
+      "englishWord": "We had been studying for the whole day when the power went out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado planeando el viaje durante veinte minutos cuando empezó la reunión.",
+      "englishWord": "I had been planning the trip for twenty minutes when the meeting started.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado escribiendo el reporte durante una semana cuando empezó a llover.",
+      "englishWord": "She had been writing the report for a week when it started raining.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado escuchando música durante dos horas cuando llamaste.",
+      "englishWord": "I had been listening to music for two hours when you called.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado escuchando música durante dos horas cuando salió el sol.",
+      "englishWord": "I had been listening to music for two hours when the sun came out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado hablando por teléfono durante todo el día cuando empezó a llover.",
+      "englishWord": "He had been talking on the phone for the whole day when it started raining.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado pintando la habitación durante todo el día cuando llamaste.",
+      "englishWord": "She had been painting the room for the whole day when you called.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros habíamos estado escribiendo el reporte durante seis meses cuando empezó a llover.",
+      "englishWord": "We had been writing the report for six months when it started raining.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros habíamos estado ahorrando dinero durante una semana cuando él llegó.",
+      "englishWord": "We had been saving money for a week when he arrived.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado hablando por teléfono durante media hora cuando llamaste.",
+      "englishWord": "They had been talking on the phone for half an hour when you called.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado viendo la televisión durante media hora cuando la vi.",
+      "englishWord": "They had been watching television for half an hour when I saw her.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado haciendo ejercicio durante todo el día cuando empezó a llover.",
+      "englishWord": "He had been exercising for the whole day when it started raining.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado jugando fútbol durante veinte minutos cuando se fue la luz.",
+      "englishWord": "You had been playing soccer for twenty minutes when the power went out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado nadando en la piscina durante todo el día cuando se fue la luz.",
+      "englishWord": "They had been swimming in the pool for the whole day when the power went out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado caminando por el parque durante dos horas cuando llegué.",
+      "englishWord": "He had been walking through the park for two hours when I arrived.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado nadando en la piscina durante veinte minutos cuando sonó el teléfono.",
+      "englishWord": "You had been swimming in the pool for twenty minutes when the phone rang.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado pintando la habitación durante tres días cuando él llegó.",
+      "englishWord": "He had been painting the room for three days when he arrived.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado leyendo ese libro durante un año cuando llamaste.",
+      "englishWord": "I had been reading that book for a year when you called.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado esperando el autobús durante todo el día cuando sonó el teléfono.",
+      "englishWord": "She had been waiting for the bus for the whole day when the phone rang.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado durmiendo durante una semana cuando llamaste.",
+      "englishWord": "They had been sleeping for a week when you called.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado jugando fútbol durante todo el día cuando salió el sol.",
+      "englishWord": "They had been playing soccer for the whole day when the sun came out.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado planeando el viaje durante un año cuando la vi.",
+      "englishWord": "They had been planning the trip for a year when I saw her.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él había estado leyendo ese libro durante tres días cuando sonó el teléfono.",
+      "englishWord": "He had been reading that book for three days when the phone rang.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado trabajando durante un año cuando él llegó.",
+      "englishWord": "They had been working for a year when he arrived.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado viendo la televisión desde el mediodía.",
+      "englishWord": "She had been watching television since noon.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros habíamos estado leyendo ese libro desde las ocho.",
+      "englishWord": "We had been reading that book since eight o'clock.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado conduciendo desde la mañana.",
+      "englishWord": "She had been driving since morning.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado estudiando desde el mediodía.",
+      "englishWord": "You had been studying since noon.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado pintando la habitación desde las ocho.",
+      "englishWord": "She had been painting the room since eight o'clock.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado viendo la televisión desde la mañana.",
+      "englishWord": "You had been watching television since morning.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado durmiendo desde el mediodía.",
+      "englishWord": "You had been sleeping since noon.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú habías estado viviendo en esa ciudad desde las ocho.",
+      "englishWord": "You had been living in that city since eight o'clock.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros habíamos estado aprendiendo inglés desde la mañana.",
+      "englishWord": "We had been learning English since morning.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado cocinando la cena desde el mediodía.",
+      "englishWord": "I had been cooking dinner since noon.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella había estado leyendo ese libro desde las ocho.",
+      "englishWord": "She had been reading that book since eight o'clock.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado hablando por teléfono desde la mañana.",
+      "englishWord": "They had been talking on the phone since morning.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros habíamos estado escuchando música desde el mediodía.",
+      "englishWord": "We had been listening to music since noon.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo había estado caminando por el parque desde las ocho.",
+      "englishWord": "I had been walking through the park since eight o'clock.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos habían estado escribiendo el reporte desde la mañana.",
+      "englishWord": "They had been writing the report since morning.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "¿Cuánto tiempo habías estado tú estudiando cuando llegué?",
+      "englishWord": "How long had you been studying when I arrived?",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "¿Cuánto tiempo había estado él trabajando cuando sonó el teléfono?",
+      "englishWord": "How long had he been working when the phone rang?",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "¿Cuánto tiempo había estado ella esperando el autobús cuando empezó a llover?",
+      "englishWord": "How long had she been waiting for the bus when it started raining?",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "¿Cuánto tiempo habían estado ellos corriendo cuando la vi?",
+      "englishWord": "How long had they been running when I saw her?",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "¿Cuánto tiempo había estado usted durmiendo cuando él llegó?",
+      "englishWord": "How long had you been sleeping when he arrived?",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "¿Cuánto tiempo habías estado tú leyendo ese libro cuando terminó la clase?",
+      "englishWord": "How long had you been reading that book when the class ended?",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "¿Cuánto tiempo había estado él viendo la televisión cuando se fue la luz?",
+      "englishWord": "How long had he been watching television when the power went out?",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "¿Cuánto tiempo había estado ella jugando fútbol cuando llamaste?",
+      "englishWord": "How long had she been playing soccer when you called?",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "¿Cuánto tiempo habían estado ellos cocinando la cena cuando empezó la reunión?",
+      "englishWord": "How long had they been cooking dinner when the meeting started?",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "¿Cuánto tiempo había estado usted conduciendo cuando salió el sol?",
+      "englishWord": "How long had you been driving when the sun came out?",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros no habíamos estado practicando piano por mucho tiempo cuando la vi.",
+      "englishWord": "We hadn't been practicing piano for long when I saw her.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos no habían estado esperando el autobús por mucho tiempo cuando empezó la reunión.",
+      "englishWord": "They hadn't been waiting for the bus for long when the meeting started.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros no habíamos estado estudiando por mucho tiempo cuando llamaste.",
+      "englishWord": "We hadn't been studying for long when you called.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros no habíamos estado buscando trabajo por mucho tiempo cuando empezó a llover.",
+      "englishWord": "We hadn't been looking for a job for long when it started raining.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos no habían estado cocinando la cena por mucho tiempo cuando sonó el teléfono.",
+      "englishWord": "They hadn't been cooking dinner for long when the phone rang.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos no habían estado viviendo en esa ciudad por mucho tiempo cuando sonó el teléfono.",
+      "englishWord": "They hadn't been living in that city for long when the phone rang.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él no había estado estudiando por mucho tiempo cuando empezó la reunión.",
+      "englishWord": "He hadn't been studying for long when the meeting started.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú no habías estado buscando trabajo por mucho tiempo cuando empezó la reunión.",
+      "englishWord": "You hadn't been looking for a job for long when the meeting started.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú no habías estado haciendo ejercicio por mucho tiempo cuando empezó a llover.",
+      "englishWord": "You hadn't been exercising for long when it started raining.",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros no habíamos estado aprendiendo inglés por mucho tiempo cuando la vi.",
+      "englishWord": "We hadn't been learning English for long when I saw her.",
+      "reglaIds": [
+        1
+      ]
+    }
+  ]
+}

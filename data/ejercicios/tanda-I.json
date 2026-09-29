@@ -1,0 +1,602 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "Está oscureciendo temprano hoy.",
+      "englishWord": "It's getting dark early today.",
+      "id": "tanda-I-trad-1",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Es casi la hora de cenar.",
+      "englishWord": "It's almost dinner time.",
+      "id": "tanda-I-trad-2",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Acabo de terminar el reporte.",
+      "englishWord": "I've just finished the report.",
+      "id": "tanda-I-trad-3",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella acababa de llamar cuando llegué.",
+      "englishWord": "She'd just called when I arrived.",
+      "id": "tanda-I-trad-4",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Acaban de compartir los resultados.",
+      "englishWord": "They've just shared the results.",
+      "id": "tanda-I-trad-5",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella caminó al parque esta tarde.",
+      "englishWord": "She walked to the park this afternoon.",
+      "id": "tanda-I-trad-6",
+      "reglaIds": [
+        16
+      ]
+    },
+    {
+      "spanishWord": "Nos vemos en el aeropuerto a las seis.",
+      "englishWord": "See you at the airport at six.",
+      "id": "tanda-I-trad-7",
+      "reglaIds": [
+        16
+      ]
+    },
+    {
+      "spanishWord": "Él condujo a la oficina temprano.",
+      "englishWord": "He drove to the office early.",
+      "id": "tanda-I-trad-8",
+      "reglaIds": [
+        16
+      ]
+    },
+    {
+      "spanishWord": "Ella se ha ido de compras.",
+      "englishWord": "She's gone shopping.",
+      "id": "tanda-I-trad-9",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él dejó su trabajo el mes pasado.",
+      "englishWord": "He left his job last month.",
+      "id": "tanda-I-trad-10",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ellos ya se han ido del hotel.",
+      "englishWord": "They've already gone from the hotel.",
+      "id": "tanda-I-trad-11",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio a él las llaves.",
+      "englishWord": "She gave him the keys.",
+      "id": "tanda-I-trad-12",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él le dio a ella su número.",
+      "englishWord": "He gave her his number.",
+      "id": "tanda-I-trad-13",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Le dieron a ella un ascenso.",
+      "englishWord": "They gave her a promotion.",
+      "id": "tanda-I-trad-14",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "¿Habías visto esa señal antes?",
+      "englishWord": "Had you seen that sign before?",
+      "id": "tanda-I-trad-15",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "spanishWord": "¿Ella había hablado con él?",
+      "englishWord": "Had she spoken with him?",
+      "id": "tanda-I-trad-16",
+      "reglaIds": [
+        8,
+        28
+      ]
+    },
+    {
+      "spanishWord": "¿Habían terminado el reporte?",
+      "englishWord": "Had they finished the report?",
+      "id": "tanda-I-trad-17",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si llueve, me quedaré en casa.",
+      "englishWord": "If it rains, I'll stay home.",
+      "id": "tanda-I-trad-18",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si tienes tiempo, podemos hablar.",
+      "englishWord": "If you have time, we can talk.",
+      "id": "tanda-I-trad-19",
+      "reglaIds": [
+        12,
+        17
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si ella llama, le diré la verdad.",
+      "englishWord": "If she calls, I'll tell her the truth.",
+      "id": "tanda-I-trad-20",
+      "reglaIds": [
+        12,
+        20,
+        21
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si estudias, aprobarás el examen.",
+      "englishWord": "If you study, you'll pass the exam.",
+      "id": "tanda-I-trad-21",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si él no viene, empezaremos sin él.",
+      "englishWord": "If he doesn't come, we'll start without him.",
+      "id": "tanda-I-trad-22",
+      "reglaIds": [
+        8,
+        12
+      ]
+    }
+  ],
+  "completar": [
+    {
+      "spanishWord": "Está oscureciendo temprano hoy.",
+      "englishSentence": "___'s getting dark early today.",
+      "options": [
+        "It"
+      ],
+      "id": "tanda-I-compl-1",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Es casi la hora de cenar.",
+      "englishSentence": "___'s almost dinner time.",
+      "options": [
+        "It"
+      ],
+      "id": "tanda-I-compl-2",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishWord": "Acabo de terminar el reporte.",
+      "englishSentence": "I've ___ finished the report.",
+      "options": [
+        "just"
+      ],
+      "id": "tanda-I-compl-3",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella acababa de llamar cuando llegué.",
+      "englishSentence": "She'd ___ called when I arrived.",
+      "options": [
+        "just"
+      ],
+      "id": "tanda-I-compl-4",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella caminó al parque esta tarde.",
+      "englishSentence": "She walked ___ the park this afternoon.",
+      "options": [
+        "to"
+      ],
+      "id": "tanda-I-compl-5",
+      "reglaIds": [
+        16
+      ]
+    },
+    {
+      "spanishWord": "Nos vemos en el aeropuerto a las seis.",
+      "englishSentence": "See you ___ the airport at six.",
+      "options": [
+        "at"
+      ],
+      "id": "tanda-I-compl-6",
+      "reglaIds": [
+        16
+      ]
+    },
+    {
+      "spanishWord": "Ella se ha ido de compras.",
+      "englishSentence": "She's ___ shopping.",
+      "options": [
+        "gone"
+      ],
+      "id": "tanda-I-compl-7",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él dejó su trabajo el mes pasado.",
+      "englishSentence": "He ___ his job last month.",
+      "options": [
+        "left"
+      ],
+      "id": "tanda-I-compl-8",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella le dio a él las llaves.",
+      "englishSentence": "She ___ him the keys.",
+      "options": [
+        "gave"
+      ],
+      "id": "tanda-I-compl-9",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "Él le dio a ella su número.",
+      "englishSentence": "He ___ her his number.",
+      "options": [
+        "gave"
+      ],
+      "id": "tanda-I-compl-10",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishWord": "¿Habías visto esa señal antes?",
+      "englishSentence": "___ you seen that sign before?",
+      "options": [
+        "Had"
+      ],
+      "id": "tanda-I-compl-11",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "spanishWord": "¿Ella había hablado con él?",
+      "englishSentence": "___ she spoken with him?",
+      "options": [
+        "Had"
+      ],
+      "id": "tanda-I-compl-12",
+      "reglaIds": [
+        8,
+        28
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si llueve, me quedaré en casa.",
+      "englishSentence": "If it rains, I'll ___ home.",
+      "options": [
+        "stay"
+      ],
+      "id": "tanda-I-compl-13",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si tienes tiempo, podemos hablar.",
+      "englishSentence": "If you have time, we ___ talk.",
+      "options": [
+        "can"
+      ],
+      "id": "tanda-I-compl-14",
+      "reglaIds": [
+        12,
+        17
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si ella llama, le diré la verdad.",
+      "englishSentence": "If she calls, I'll tell her the ___.",
+      "options": [
+        "truth"
+      ],
+      "id": "tanda-I-compl-15",
+      "reglaIds": [
+        12,
+        20,
+        21
+      ]
+    },
+    {
+      "spanishWord": "🆕 Si estudias, aprobarás el examen.",
+      "englishSentence": "If you study, you'll ___ the exam.",
+      "options": [
+        "pass"
+      ],
+      "id": "tanda-I-compl-16",
+      "reglaIds": [
+        12
+      ]
+    }
+  ],
+  "seleccionar": [
+    {
+      "pairs": [
+        {
+          "englishWord": "report",
+          "spanishWord": "reporte"
+        },
+        {
+          "englishWord": "result",
+          "spanishWord": "resultado"
+        },
+        {
+          "englishWord": "promotion",
+          "spanishWord": "ascenso"
+        },
+        {
+          "englishWord": "sign",
+          "spanishWord": "señal"
+        },
+        {
+          "englishWord": "shopping",
+          "spanishWord": "compras"
+        }
+      ],
+      "id": "tanda-I-sel-1",
+      "reglaIds": [
+        42
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "dinner",
+          "spanishWord": "cena"
+        },
+        {
+          "englishWord": "airport",
+          "spanishWord": "aeropuerto"
+        },
+        {
+          "englishWord": "hotel",
+          "spanishWord": "hotel"
+        },
+        {
+          "englishWord": "job",
+          "spanishWord": "trabajo"
+        },
+        {
+          "englishWord": "truth",
+          "spanishWord": "verdad"
+        }
+      ],
+      "id": "tanda-I-sel-2",
+      "reglaIds": [
+        42
+      ]
+    }
+  ],
+  "corregir": [
+    {
+      "spanishPhrase": "Es casi la hora de cenar.",
+      "fraseConError": "Is almost dinner time.",
+      "fraseCorrecta": "It's almost dinner time.",
+      "id": "tanda-I-correg-1",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "spanishPhrase": "Acabo de terminar el reporte.",
+      "fraseConError": "I just finished the report.",
+      "fraseCorrecta": "I've just finished the report.",
+      "id": "tanda-I-correg-2",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Ella acababa de llamar cuando llegué.",
+      "fraseConError": "She's just called when I arrived.",
+      "fraseCorrecta": "She'd just called when I arrived.",
+      "id": "tanda-I-correg-3",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Ella caminó al parque.",
+      "fraseConError": "She walked at the park.",
+      "fraseCorrecta": "She walked to the park.",
+      "id": "tanda-I-correg-4",
+      "reglaIds": [
+        16
+      ]
+    },
+    {
+      "spanishPhrase": "Él condujo a la oficina.",
+      "fraseConError": "He drove at the office.",
+      "fraseCorrecta": "He drove to the office.",
+      "id": "tanda-I-correg-5",
+      "reglaIds": [
+        16
+      ]
+    },
+    {
+      "spanishPhrase": "Ella se ha ido de compras.",
+      "fraseConError": "She's left shopping.",
+      "fraseCorrecta": "She's gone shopping.",
+      "id": "tanda-I-correg-6",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishPhrase": "Ella le dio a él las llaves.",
+      "fraseConError": "She gave the keys him.",
+      "fraseCorrecta": "She gave him the keys.",
+      "id": "tanda-I-correg-7",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishPhrase": "Le dieron a ella un ascenso.",
+      "fraseConError": "They gave a promotion her.",
+      "fraseCorrecta": "They gave her a promotion.",
+      "id": "tanda-I-correg-8",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "spanishPhrase": "¿Habían terminado el reporte?",
+      "fraseConError": "Have they finished the report?",
+      "fraseCorrecta": "Had they finished the report?",
+      "id": "tanda-I-correg-9",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "spanishPhrase": "🆕 Si llueve, me quedaré en casa.",
+      "fraseConError": "If it rains, I stay home.",
+      "fraseCorrecta": "If it rains, I'll stay home.",
+      "id": "tanda-I-correg-10",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishPhrase": "🆕 Si estudias, aprobarás el examen.",
+      "fraseConError": "If you study, you pass the exam.",
+      "fraseCorrecta": "If you study, you'll pass the exam.",
+      "id": "tanda-I-correg-11",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishPhrase": "🆕 Si él no viene, empezaremos sin él.",
+      "fraseConError": "If he don't come, we'll start without him.",
+      "fraseCorrecta": "If he doesn't come, we'll start without him.",
+      "id": "tanda-I-correg-12",
+      "reglaIds": [
+        8,
+        12
+      ]
+    }
+  ],
+  "dictado": [
+    {
+      "text": "It's getting dark early.",
+      "id": "tanda-I-dict-1",
+      "reglaIds": [
+        33
+      ]
+    },
+    {
+      "text": "I've just finished the report.",
+      "id": "tanda-I-dict-2",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "text": "She walked to the park.",
+      "id": "tanda-I-dict-3",
+      "reglaIds": [
+        16
+      ]
+    },
+    {
+      "text": "She's gone shopping.",
+      "id": "tanda-I-dict-4",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "text": "He left his job.",
+      "id": "tanda-I-dict-5",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "text": "She gave him the keys.",
+      "id": "tanda-I-dict-6",
+      "reglaIds": [
+        25
+      ]
+    },
+    {
+      "text": "Had you seen that sign?",
+      "id": "tanda-I-dict-7",
+      "reglaIds": [
+        28
+      ]
+    },
+    {
+      "text": "He gave her his number.",
+      "id": "tanda-I-dict-8",
+      "reglaIds": [
+        25
+      ]
+    }
+  ]
+}

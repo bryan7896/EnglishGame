@@ -1,0 +1,992 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "[Llevo tos hace días] Necesito dejar de fumar.",
+      "englishWord": "I need to stop smoking.",
+      "id": "tanda-R-trad-1",
+      "reglaIds": [
+        6,
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Alguien me invitó justo ahora] Disfrutaré viendo esa película.",
+      "englishWord": "I'll enjoy watching that movie.",
+      "id": "tanda-R-trad-2",
+      "reglaIds": [
+        18,
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Quiero conocerte mejor] ¿Qué disfrutas hacer?",
+      "englishWord": "What do you enjoy doing?",
+      "id": "tanda-R-trad-3",
+      "reglaIds": [
+        2,
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo estoy ocupado] Si estuviera libre, disfrutaría pintar.",
+      "englishWord": "If free, I'd enjoy painting.",
+      "id": "tanda-R-trad-4",
+      "reglaIds": [
+        4,
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Ella nunca se queja en la cocina] Ella trata cocinar como diversión real.",
+      "englishWord": "She sees cooking as real fun.",
+      "id": "tanda-R-trad-5",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "[Tu pronunciación está mejorando] Debes seguir practicando todos los días.",
+      "englishWord": "You need to keep practicing daily.",
+      "id": "tanda-R-trad-6",
+      "reglaIds": [
+        6,
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Ya reservamos las clases] Vamos a intentar esquiar.",
+      "englishWord": "We're going to try skiing.",
+      "id": "tanda-R-trad-7",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Nunca te veo hacer ejercicio] ¿Por qué evitas correr?",
+      "englishWord": "Why do you avoid running?",
+      "id": "tanda-R-trad-8",
+      "reglaIds": [
+        2,
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo no estoy cansado] Si estuviera cansado, dejaría de trabajar.",
+      "englishWord": "If tired, I'd stop working.",
+      "id": "tanda-R-trad-9",
+      "reglaIds": [
+        4,
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Él nada cada mañana] Él ve nadar como buen ejercicio.",
+      "englishWord": "He sees swimming as good exercise.",
+      "id": "tanda-R-trad-10",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "[Ella decidió esto ahora mismo] Ella terminará antes de salir esta noche.",
+      "englishWord": "She'll finish before leaving tonight.",
+      "id": "tanda-R-trad-11",
+      "reglaIds": [
+        18,
+        36
+      ]
+    },
+    {
+      "spanishWord": "[El primer intento no funcionó] Necesitamos seguir intentando.",
+      "englishWord": "We need to keep trying.",
+      "id": "tanda-R-trad-12",
+      "reglaIds": [
+        6,
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Llevamos horas aquí sin noticias] ¿Cuál es el punto de esperar?",
+      "englishWord": "What's the point of waiting?",
+      "id": "tanda-R-trad-13",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[Ya compraron las tablas de surf] Van a intentar surfear.",
+      "englishWord": "They're going to try surfing.",
+      "id": "tanda-R-trad-14",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Aunque parece difícil] Lo veo como algo que vale intentar.",
+      "englishWord": "I see it as worth trying.",
+      "id": "tanda-R-trad-15",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo no tienes tiempo libre] Si estuviera libre, intentaría leer libros.",
+      "englishWord": "If free, I'd try reading books.",
+      "id": "tanda-R-trad-16",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Decidí esto justo ahora] Evitaré manejar de noche.",
+      "englishWord": "I'll avoid driving at night.",
+      "id": "tanda-R-trad-17",
+      "reglaIds": [
+        18,
+        36
+      ]
+    },
+    {
+      "spanishWord": "[El doctor se lo recomendó] Ella necesita seguir relajándose.",
+      "englishWord": "She needs to keep relaxing.",
+      "id": "tanda-R-trad-18",
+      "reglaIds": [
+        6,
+        18,
+        20
+      ]
+    },
+    {
+      "spanishWord": "[Sé que nadas seguido] ¿Dónde disfrutas nadar?",
+      "englishWord": "Where do you enjoy swimming?",
+      "id": "tanda-R-trad-19",
+      "reglaIds": [
+        2,
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Ya tiró sus cigarrillos] Él va a dejar de fumar.",
+      "englishWord": "He's going to stop smoking.",
+      "id": "tanda-R-trad-20",
+      "reglaIds": [
+        18,
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Llevas meses estudiando sin avanzar] ¿Qué hace tan difícil aprender idiomas?",
+      "englishWord": "What makes learning languages so hard?",
+      "id": "tanda-R-trad-21",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[Lo digo por experiencia propia] Estudiar a diario necesita esfuerzo real.",
+      "englishWord": "Studying daily needs real effort.",
+      "id": "tanda-R-trad-22",
+      "reglaIds": [
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Te lo garantizo] Leer libros mejorará tu inglés.",
+      "englishWord": "Reading books will improve your English.",
+      "id": "tanda-R-trad-23",
+      "reglaIds": [
+        18,
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo se siente difícil] Si fuera fácil, aprender sería divertido.",
+      "englishWord": "If easy, learning would be fun.",
+      "id": "tanda-R-trad-24",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Ella viaja seguido para mejorar] Ella ve viajar como práctica útil.",
+      "englishWord": "She sees traveling as useful practice.",
+      "id": "tanda-R-trad-25",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "[El doctor se lo recomendó] Nadar a diario va a ayudar.",
+      "englishWord": "Swimming daily is going to help.",
+      "id": "tanda-R-trad-26",
+      "reglaIds": [
+        18,
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Siempre sonríes en la cocina] ¿Por qué cocinar es tan divertido?",
+      "englishWord": "Why is cooking so much fun?",
+      "id": "tanda-R-trad-27",
+      "reglaIds": [
+        2,
+        37
+      ]
+    },
+    {
+      "spanishWord": "[Muchos estudiantes se saltan esto] Aprender gramática necesita práctica diaria.",
+      "englishWord": "Learning grammar needs daily practice.",
+      "id": "tanda-R-trad-28",
+      "reglaIds": [
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Confía en el proceso] Practicar a diario mejorará todo.",
+      "englishWord": "Practicing daily will improve everything.",
+      "id": "tanda-R-trad-29",
+      "reglaIds": [
+        18,
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Es barato y efectivo] Correr funciona como ejercicio saludable.",
+      "englishWord": "Running works as healthy exercise.",
+      "id": "tanda-R-trad-30",
+      "reglaIds": [
+        9,
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Hoy no tienes tiempo] Si estuviera libre, nadar sería agradable.",
+      "englishWord": "If free, swimming would be nice.",
+      "id": "tanda-R-trad-31",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Según tu profesora] Leer te va a ayudar.",
+      "englishWord": "Reading is going to help you.",
+      "id": "tanda-R-trad-32",
+      "reglaIds": [
+        18,
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Lo mencionas todo el tiempo] ¿Qué hace tan importante nadar?",
+      "englishWord": "What makes swimming so important?",
+      "id": "tanda-R-trad-33",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[No te desanimes] Cocinar bien necesita algo de práctica.",
+      "englishWord": "Cooking well needs some practice.",
+      "id": "tanda-R-trad-34",
+      "reglaIds": [
+        18,
+        31
+      ]
+    },
+    {
+      "spanishWord": "[Te lo aseguro] Bailar te hará feliz.",
+      "englishWord": "Dancing will make you happy.",
+      "id": "tanda-R-trad-35",
+      "reglaIds": [
+        18,
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Escribe todos los días por gusto] Él trata escribir como diversión real.",
+      "englishWord": "He sees writing as real fun.",
+      "id": "tanda-R-trad-36",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo tienes tiempo libre] Si estuviera ocupado, estudiar sería más difícil.",
+      "englishWord": "If busy, studying would be harder.",
+      "id": "tanda-R-trad-37",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Ya empezaste el cuadro] Pintar va a tomar tiempo.",
+      "englishWord": "Painting is going to take time.",
+      "id": "tanda-R-trad-38",
+      "reglaIds": [
+        18,
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Estás planeando un viaje] ¿Dónde es más popular nadar?",
+      "englishWord": "Where is swimming most popular?",
+      "id": "tanda-R-trad-39",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[No es tan fácil como parece] Escuchar a diario necesita esfuerzo real.",
+      "englishWord": "Listening daily needs real effort.",
+      "id": "tanda-R-trad-40",
+      "reglaIds": [
+        18
+      ]
+    },
+    {
+      "spanishWord": "[Te llamo justo ahora] ¿Qué estás haciendo ahora?",
+      "englishWord": "What are you doing now?",
+      "id": "tanda-R-trad-41",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[Acabo de decidirlo] Estaré trabajando hasta tarde esta noche.",
+      "englishWord": "I'll be working late tonight.",
+      "id": "tanda-R-trad-42",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Hay mucho ruido aquí] Ella está estudiando; necesito silencio.",
+      "englishWord": "She's studying; I need quiet.",
+      "id": "tanda-R-trad-43",
+      "reglaIds": []
+    },
+    {
+      "spanishWord": "[Ya compramos los boletos] Vamos a estar viajando pronto.",
+      "englishWord": "We're going to be traveling soon.",
+      "id": "tanda-R-trad-44",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Quiere terminar antes del viernes] Él está trabajando lo más duro posible.",
+      "englishWord": "He's working as hard as possible.",
+      "id": "tanda-R-trad-45",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo estás en la oficina] Si estuviera en casa, estaría relajándome.",
+      "englishWord": "If home, I'd be relaxing.",
+      "id": "tanda-R-trad-46",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Te veo muy triste] ¿Por qué estás llorando ahora mismo?",
+      "englishWord": "Why are you crying right now?",
+      "id": "tanda-R-trad-47",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[No te preocupes por ellos] Estarán esperando afuera pronto.",
+      "englishWord": "They'll be waiting outside soon.",
+      "id": "tanda-R-trad-48",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[No puedo hablar ahora] Estoy manejando; necesitas esperar.",
+      "englishWord": "I'm driving; you need to wait.",
+      "id": "tanda-R-trad-49",
+      "reglaIds": [
+        6
+      ]
+    },
+    {
+      "spanishWord": "[Ya organizó sus libros] Ella va a estar estudiando esta noche.",
+      "englishWord": "She's going to be studying tonight.",
+      "id": "tanda-R-trad-50",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Todos bostezan en clase] ¿Por qué esta clase es tan aburrida?",
+      "englishWord": "Why is this class so boring?",
+      "id": "tanda-R-trad-51",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[Te ves aburrido últimamente] Necesitas un nuevo pasatiempo interesante.",
+      "englishWord": "You need an interesting new hobby.",
+      "id": "tanda-R-trad-52",
+      "reglaIds": []
+    },
+    {
+      "spanishWord": "[Dura cuatro horas] Este examen será muy cansado.",
+      "englishWord": "This exam will be very tiring.",
+      "id": "tanda-R-trad-53",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo dura poco] Si fuera más larga, la película sería aburrida.",
+      "englishWord": "If longer, the movie would be boring.",
+      "id": "tanda-R-trad-54",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Lo leí de una sentada] Veo este libro como interesante.",
+      "englishWord": "I see this book as interesting.",
+      "id": "tanda-R-trad-55",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "[Ya armamos el itinerario] Este viaje va a ser emocionante.",
+      "englishWord": "This trip is going to be exciting.",
+      "id": "tanda-R-trad-56",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Todos quieren escucharlo] ¿Qué hace tan interesantes sus historias?",
+      "englishWord": "What makes his stories so interesting?",
+      "id": "tanda-R-trad-57",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[Los últimos fueron aburridos] Necesitamos planes más emocionantes para el fin de semana.",
+      "englishWord": "We need more exciting weekend plans.",
+      "id": "tanda-R-trad-58",
+      "reglaIds": []
+    },
+    {
+      "spanishWord": "[Ella prepara muy bien sus clases] Su clase será realmente interesante.",
+      "englishWord": "Her class will be really interesting.",
+      "id": "tanda-R-trad-59",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Acaba de volver del spa] Él lo describió como muy relajante.",
+      "englishWord": "He described it as very relaxing.",
+      "id": "tanda-R-trad-60",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo va apurado] Si fuera libre, el viaje sería relajante.",
+      "englishWord": "If free, the trip would be relaxing.",
+      "id": "tanda-R-trad-61",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Juegan los dos mejores equipos] El juego va a ser emocionante.",
+      "englishWord": "The game is going to be exciting.",
+      "id": "tanda-R-trad-62",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Todos hablan de esa visita] ¿Por qué el museo era tan interesante?",
+      "englishWord": "Why was the museum so interesting?",
+      "id": "tanda-R-trad-63",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[Esta semana fue agotadora] Necesito un fin de semana más relajante.",
+      "englishWord": "I need a more relaxing weekend.",
+      "id": "tanda-R-trad-64",
+      "reglaIds": []
+    },
+    {
+      "spanishWord": "[Es el nuevo sencillo de la banda] Esta canción será realmente emocionante.",
+      "englishWord": "This song will be really exciting.",
+      "id": "tanda-R-trad-65",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Se durmieron a mitad de la función] Encontraron la película bastante aburrida.",
+      "englishWord": "They found the movie quite boring.",
+      "id": "tanda-R-trad-66",
+      "reglaIds": []
+    },
+    {
+      "spanishWord": "[Ahora mismo es cortito] Si fuera más largo, el viaje sería cansado.",
+      "englishWord": "If longer, the trip would be tiring.",
+      "id": "tanda-R-trad-67",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Vieron el programa del curso] La clase va a ser interesante.",
+      "englishWord": "The class is going to be interesting.",
+      "id": "tanda-R-trad-68",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Todos están emocionados] ¿Qué tiene de emocionante este juego?",
+      "englishWord": "What's so exciting about this game?",
+      "id": "tanda-R-trad-69",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[El día fue muy estresante] Necesitamos algo más relajante esta noche.",
+      "englishWord": "We need something more relaxing tonight.",
+      "id": "tanda-R-trad-70",
+      "reglaIds": [
+        31
+      ]
+    },
+    {
+      "spanishWord": "[La nevera está vacía] Necesito ir de compras hoy.",
+      "englishWord": "I need to go shopping today.",
+      "id": "tanda-R-trad-71",
+      "reglaIds": [
+        6
+      ]
+    },
+    {
+      "spanishWord": "[Se nos ocurrió ahora] Iremos a nadar este fin de semana.",
+      "englishWord": "We'll go swimming this weekend.",
+      "id": "tanda-R-trad-72",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Quiero acompañarte algún día] ¿Cuándo vas a correr?",
+      "englishWord": "When do you go running?",
+      "id": "tanda-R-trad-73",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[Hoy está lloviendo] Si estuviera soleado, iríamos a caminar por el monte.",
+      "englishWord": "If sunny, we'd go hiking.",
+      "id": "tanda-R-trad-74",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Va al lago cada domingo] Ella ve ir a pescar como relajante.",
+      "englishWord": "She sees going fishing as relaxing.",
+      "id": "tanda-R-trad-75",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "[Ya compraron la carpa] Van a ir de campamento pronto.",
+      "englishWord": "They're going to go camping soon.",
+      "id": "tanda-R-trad-76",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Vi tus fotos en la nieve] ¿Dónde fuiste a esquiar?",
+      "englishWord": "Where did you go skiing?",
+      "id": "tanda-R-trad-77",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[El doctor te lo recomendó] Necesitas ir a correr a diario.",
+      "englishWord": "You need to go running daily.",
+      "id": "tanda-R-trad-78",
+      "reglaIds": [
+        6
+      ]
+    },
+    {
+      "spanishWord": "[Se le ocurrió de repente] Él irá a bailar este sábado.",
+      "englishWord": "He'll go dancing this Saturday.",
+      "id": "tanda-R-trad-79",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Voy cada año con mi familia] Veo acampar como diversión real.",
+      "englishWord": "I see camping as real fun.",
+      "id": "tanda-R-trad-80",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo estás ocupado] Si estuviera libre, iría de compras.",
+      "englishWord": "If free, I'd go shopping.",
+      "id": "tanda-R-trad-81",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Ya alistamos los trajes de baño] Vamos a ir a nadar más tarde.",
+      "englishWord": "We're going to go swimming later.",
+      "id": "tanda-R-trad-82",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Nunca invitas a nadie] ¿Por qué vas de campamento solo?",
+      "englishWord": "Why do you go camping alone?",
+      "id": "tanda-R-trad-83",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[No le queda ropa limpia] Ella necesita ir de compras pronto.",
+      "englishWord": "She needs to go shopping soon.",
+      "id": "tanda-R-trad-84",
+      "reglaIds": [
+        6,
+        20
+      ]
+    },
+    {
+      "spanishWord": "[Lo decidieron ahora mismo] Irán a caminar por el monte el próximo mes.",
+      "englishWord": "They'll go hiking next month.",
+      "id": "tanda-R-trad-85",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Va solo, sin su teléfono] Él trata pescar como tiempo tranquilo.",
+      "englishWord": "He sees fishing as quiet time.",
+      "id": "tanda-R-trad-86",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "[Hoy hace frío] Si estuviera cálido, iríamos a nadar.",
+      "englishWord": "If warm, we'd go swimming.",
+      "id": "tanda-R-trad-87",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Ya me puse los tenis] Voy a ir a correr ahora.",
+      "englishWord": "I'm going to go running now.",
+      "id": "tanda-R-trad-88",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Quiero coincidir contigo] ¿A qué hora vas a correr?",
+      "englishWord": "What time do you go running?",
+      "id": "tanda-R-trad-89",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[La última vez la pasamos genial] Necesitamos ir de campamento otra vez.",
+      "englishWord": "We need to go camping again.",
+      "id": "tanda-R-trad-90",
+      "reglaIds": [
+        6
+      ]
+    },
+    {
+      "spanishWord": "[Ahora estoy ocupado] Te llamaré más tarde esta noche.",
+      "englishWord": "I'll call you later tonight.",
+      "id": "tanda-R-trad-91",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Ya compró los boletos] Ella va a visitar España.",
+      "englishWord": "She's going to visit Spain.",
+      "id": "tanda-R-trad-92",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Veo que lo necesitas] Te ayudaremos con eso.",
+      "englishWord": "We'll help you with that.",
+      "id": "tanda-R-trad-93",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Ya ahorró suficiente dinero] Él va a comprar un carro.",
+      "englishWord": "He's going to buy a car.",
+      "id": "tanda-R-trad-94",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[No has recibido respuesta aún] Contestarán pronto, no te preocupes.",
+      "englishWord": "They'll answer soon, don't worry.",
+      "id": "tanda-R-trad-95",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Ya lo tengo decidido] Voy a empezar mañana.",
+      "englishWord": "I'm going to start tomorrow.",
+      "id": "tanda-R-trad-96",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "[Hace tiempo no hablamos] ¿Dónde vives ahora?",
+      "englishWord": "Where do you live now?",
+      "id": "tanda-R-trad-97",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[No la vi en la fiesta] ¿Por qué se fue temprano?",
+      "englishWord": "Why did she leave early?",
+      "id": "tanda-R-trad-98",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[Perdí la noción del tiempo] ¿Qué hora es ahora?",
+      "englishWord": "What time is it now?",
+      "id": "tanda-R-trad-99",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[Nunca lo había visto] ¿Quién te dio ese libro?",
+      "englishWord": "Who gave you that book?",
+      "id": "tanda-R-trad-100",
+      "reglaIds": [
+        2,
+        25
+      ]
+    },
+    {
+      "spanishWord": "[Estás en la tienda] ¿Cuánto cuesta esto?",
+      "englishWord": "How much does this cost?",
+      "id": "tanda-R-trad-101",
+      "reglaIds": [
+        2,
+        37
+      ]
+    },
+    {
+      "spanishWord": "[Estás en la estación] ¿Cuándo llega el tren?",
+      "englishWord": "When does the train arrive?",
+      "id": "tanda-R-trad-102",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo estás ocupado] Si tuviera tiempo, ayudaría.",
+      "englishWord": "If I had time, I'd help.",
+      "id": "tanda-R-trad-103",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo el teléfono está apagado] Si ella llamara, contestaría.",
+      "englishWord": "If she called, I'd answer.",
+      "id": "tanda-R-trad-104",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Ahora mismo no tenemos la información] Si supiéramos, te diríamos.",
+      "englishWord": "If we knew, we'd tell you.",
+      "id": "tanda-R-trad-105",
+      "reglaIds": [
+        4,
+        21
+      ]
+    },
+    {
+      "spanishWord": "[Él todavía no se lo ha pedido] Si él preguntara, ella diría que sí.",
+      "englishWord": "If he asked, she'd say yes.",
+      "id": "tanda-R-trad-106",
+      "reglaIds": [
+        4,
+        21
+      ]
+    },
+    {
+      "spanishWord": "[Hoy está soleado] Si lloviera, nos quedaríamos en casa.",
+      "englishWord": "If it rained, we'd stay home.",
+      "id": "tanda-R-trad-107",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[Todavía no han confirmado] Si ellos vinieran, seríamos felices.",
+      "englishWord": "If they came, we'd be happy.",
+      "id": "tanda-R-trad-108",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "[La conocí en el hospital] Ella trabaja como enfermera.",
+      "englishWord": "She works as a nurse.",
+      "id": "tanda-R-trad-109",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "[Nos llevó por toda la ciudad] Él sirvió como nuestro guía.",
+      "englishWord": "He served as our guide.",
+      "id": "tanda-R-trad-110",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "[Lo conozco desde niño] Lo veo como familia.",
+      "englishWord": "I see him as family.",
+      "id": "tanda-R-trad-111",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "[La invitan a todas sus reuniones] La tratan como una amiga.",
+      "englishWord": "They see her as a friend.",
+      "id": "tanda-R-trad-112",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "[Estás explicando la lección] Usa esto como ejemplo.",
+      "englishWord": "Use this as an example.",
+      "id": "tanda-R-trad-113",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "[Todos le hacen caso] Él actúa como líder del equipo.",
+      "englishWord": "He acts as team leader.",
+      "id": "tanda-R-trad-114",
+      "reglaIds": [
+        9,
+        20
+      ]
+    },
+    {
+      "spanishWord": "[Se acabó en el refrigerador] Necesito comprar leche.",
+      "englishWord": "I need to buy milk.",
+      "id": "tanda-R-trad-115",
+      "reglaIds": [
+        6
+      ]
+    },
+    {
+      "spanishWord": "[Está esperando tu respuesta] Necesitas llamarlo.",
+      "englishWord": "You need to call him.",
+      "id": "tanda-R-trad-116",
+      "reglaIds": [
+        6
+      ]
+    },
+    {
+      "spanishWord": "[Vamos a llegar tarde] Necesitamos irnos ahora.",
+      "englishWord": "We need to leave now.",
+      "id": "tanda-R-trad-117",
+      "reglaIds": [
+        6
+      ]
+    },
+    {
+      "spanishWord": "[La entrega es hoy] Ella necesita terminar esto.",
+      "englishWord": "She needs to finish this.",
+      "id": "tanda-R-trad-118",
+      "reglaIds": [
+        6,
+        20
+      ]
+    },
+    {
+      "spanishWord": "[Ya terminaron de comer] Necesitan pagar la cuenta.",
+      "englishWord": "They need to pay the bill.",
+      "id": "tanda-R-trad-119",
+      "reglaIds": [
+        6
+      ]
+    },
+    {
+      "spanishWord": "[Trabajó toda la semana sin parar] Él necesita descansar hoy.",
+      "englishWord": "He needs to rest today.",
+      "id": "tanda-R-trad-120",
+      "reglaIds": [
+        6,
+        20
+      ]
+    }
+  ]
+}

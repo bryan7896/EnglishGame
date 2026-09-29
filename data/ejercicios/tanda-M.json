@@ -1,0 +1,746 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "Él me contó un secreto.",
+      "englishWord": "He told me a secret.",
+      "id": "tanda-M-trad-1",
+      "reglaIds": [
+        21
+      ]
+    },
+    {
+      "spanishWord": "Ella dijo que sí.",
+      "englishWord": "She said yes.",
+      "id": "tanda-M-trad-2",
+      "reglaIds": [
+        21
+      ]
+    },
+    {
+      "spanishWord": "¿Quién te dijo eso?",
+      "englishWord": "Who told you that?",
+      "id": "tanda-M-trad-3",
+      "reglaIds": [
+        2,
+        21
+      ]
+    },
+    {
+      "spanishWord": "Ella puede cantar muy bien.",
+      "englishWord": "She can sing very well.",
+      "id": "tanda-M-trad-4",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Él debería llamar a su madre.",
+      "englishWord": "He should call his mother.",
+      "id": "tanda-M-trad-5",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Debemos llegar temprano mañana.",
+      "englishWord": "We must arrive early tomorrow.",
+      "id": "tanda-M-trad-6",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Yo podía correr rápido cuando era joven.",
+      "englishWord": "I could run fast when I was young.",
+      "id": "tanda-M-trad-7",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Ellos visitarán a sus abuelos el próximo mes.",
+      "englishWord": "They will visit their grandparents next month.",
+      "id": "tanda-M-trad-8",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "Él solía trabajar en ese hospital.",
+      "englishWord": "He used to work at that hospital.",
+      "id": "tanda-M-trad-9",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Deberías descansar más.",
+      "englishWord": "You should rest more.",
+      "id": "tanda-M-trad-10",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Ella podría ayudarte si se lo pides.",
+      "englishWord": "She could help you if you ask her.",
+      "id": "tanda-M-trad-11",
+      "reglaIds": [
+        12,
+        17
+      ]
+    },
+    {
+      "spanishWord": "Debes estudiar para el examen.",
+      "englishWord": "You must study for the exam.",
+      "id": "tanda-M-trad-12",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Nosotros solíamos vivir cerca de la playa.",
+      "englishWord": "We used to live near the beach.",
+      "id": "tanda-M-trad-13",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Él puede manejar muy bien.",
+      "englishWord": "He can drive very well.",
+      "id": "tanda-M-trad-14",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Ellos deberían escuchar con atención.",
+      "englishWord": "They should listen carefully.",
+      "id": "tanda-M-trad-15",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Ella dijo que llamaría más tarde.",
+      "englishWord": "She said she would call later.",
+      "id": "tanda-M-trad-16",
+      "reglaIds": [
+        21
+      ]
+    },
+    {
+      "spanishWord": "Yo debo terminar este proyecto hoy.",
+      "englishWord": "I must finish this project today.",
+      "id": "tanda-M-trad-17",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Él podía nadar como un pez cuando era niño.",
+      "englishWord": "He could swim like a fish when he was a child.",
+      "id": "tanda-M-trad-18",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Ustedes deberían probar esa comida.",
+      "englishWord": "You should try that food.",
+      "id": "tanda-M-trad-19",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Ella solía cantar en la ducha.",
+      "englishWord": "She used to sing in the shower.",
+      "id": "tanda-M-trad-20",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Nosotros podemos terminar esto juntos.",
+      "englishWord": "We can finish this together.",
+      "id": "tanda-M-trad-21",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Él debe pagar la cuenta.",
+      "englishWord": "He must pay the bill.",
+      "id": "tanda-M-trad-22",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Ellos solían caminar a la escuela.",
+      "englishWord": "They used to walk to school.",
+      "id": "tanda-M-trad-23",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Mi jefe se ha ido a una reunión.",
+      "englishWord": "My boss has gone to a meeting.",
+      "id": "tanda-M-trad-24",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Mi jefe salió de la reunión temprano.",
+      "englishWord": "My boss has left the meeting early.",
+      "id": "tanda-M-trad-25",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Los estudiantes se han ido a almorzar.",
+      "englishWord": "The students have gone to lunch.",
+      "id": "tanda-M-trad-26",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "El profesor abandonó el salón de clases.",
+      "englishWord": "The teacher has left the classroom.",
+      "id": "tanda-M-trad-27",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Mi vecino se ha ido de viaje.",
+      "englishWord": "My neighbor has gone on a trip.",
+      "id": "tanda-M-trad-28",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Si él llama, contestaré.",
+      "englishWord": "If he calls, I'll answer.",
+      "id": "tanda-M-trad-29",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si ella estudia duro, le irá bien.",
+      "englishWord": "If she studies hard, she'll do well.",
+      "id": "tanda-M-trad-30",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si no llueve mañana, iremos al parque.",
+      "englishWord": "If it doesn't rain tomorrow, we'll go to the park.",
+      "id": "tanda-M-trad-31",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si ellos llegan tarde, empezaremos sin ellos.",
+      "englishWord": "If they arrive late, we'll start without them.",
+      "id": "tanda-M-trad-32",
+      "reglaIds": [
+        8,
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si me llamas, contestaré.",
+      "englishWord": "If you call me, I'll answer.",
+      "id": "tanda-M-trad-33",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si él tiene suficiente dinero, comprará el carro.",
+      "englishWord": "If he has enough money, he'll buy the car.",
+      "id": "tanda-M-trad-34",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si salimos ahora, no llegaremos tarde.",
+      "englishWord": "If we leave now, we won't be late.",
+      "id": "tanda-M-trad-35",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si tengo tiempo, te ayudaré.",
+      "englishWord": "If I have time, I'll help you.",
+      "id": "tanda-M-trad-36",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si hace frío, usaré una chaqueta.",
+      "englishWord": "If it's cold, I'll wear a jacket.",
+      "id": "tanda-M-trad-37",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si ella no viene, empezaremos sin ella.",
+      "englishWord": "If she doesn't come, we'll start without her.",
+      "id": "tanda-M-trad-38",
+      "reglaIds": [
+        8,
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si él termina temprano, nos ayudará.",
+      "englishWord": "If he finishes early, he'll help us.",
+      "id": "tanda-M-trad-39",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si necesitas ayuda, llámame.",
+      "englishWord": "If you need help, call me.",
+      "id": "tanda-M-trad-40",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si ellos no llaman, los llamaré.",
+      "englishWord": "If they don't call, I'll call them.",
+      "id": "tanda-M-trad-41",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si estudias, aprobarás el examen.",
+      "englishWord": "If you study, you'll pass the exam.",
+      "id": "tanda-M-trad-42",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si él no llega pronto, nos iremos sin él.",
+      "englishWord": "If he doesn't arrive soon, we'll leave without him.",
+      "id": "tanda-M-trad-43",
+      "reglaIds": [
+        8,
+        12
+      ]
+    }
+  ],
+  "completar": [
+    {
+      "spanishWord": "Él quiere decirte algo.",
+      "englishSentence": "He wants to ___ you something.",
+      "options": [
+        "tell"
+      ],
+      "id": "tanda-M-compl-1",
+      "reglaIds": [
+        21,
+        31
+      ]
+    },
+    {
+      "spanishWord": "Ella siempre dice la verdad.",
+      "englishSentence": "She always ___ the truth.",
+      "options": [
+        "tells"
+      ],
+      "id": "tanda-M-compl-2",
+      "reglaIds": [
+        21
+      ]
+    },
+    {
+      "spanishWord": "No digas ni una palabra sobre esto.",
+      "englishSentence": "Don't ___ a word about this.",
+      "options": [
+        "say"
+      ],
+      "id": "tanda-M-compl-3",
+      "reglaIds": [
+        21
+      ]
+    },
+    {
+      "spanishWord": "Ella puede hablar tres idiomas.",
+      "englishSentence": "She ___ speak three languages.",
+      "options": [
+        "can"
+      ],
+      "id": "tanda-M-compl-4",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Él debería tomar más agua.",
+      "englishSentence": "He ___ drink more water.",
+      "options": [
+        "should"
+      ],
+      "id": "tanda-M-compl-5",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Ellos deben terminar el reporte para el viernes.",
+      "englishSentence": "They ___ finish the report by Friday.",
+      "options": [
+        "must"
+      ],
+      "id": "tanda-M-compl-6",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Yo podía nadar cuando tenía cinco años.",
+      "englishSentence": "I ___ swim when I was five.",
+      "options": [
+        "could"
+      ],
+      "id": "tanda-M-compl-7",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Nosotros veremos la película esta noche.",
+      "englishSentence": "We ___ watch the movie tonight.",
+      "options": [
+        "will"
+      ],
+      "id": "tanda-M-compl-8",
+      "reglaIds": [
+        36
+      ]
+    },
+    {
+      "spanishWord": "Ella corría todas las mañanas.",
+      "englishSentence": "She ___ run every morning.",
+      "options": [
+        "would"
+      ],
+      "id": "tanda-M-compl-9",
+      "reglaIds": []
+    },
+    {
+      "spanishWord": "Él solía vivir en esa casa.",
+      "englishSentence": "He ___ ___ live in that house.",
+      "options": [
+        "used",
+        "to"
+      ],
+      "id": "tanda-M-compl-10",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Deberías hacer tu tarea primero.",
+      "englishSentence": "You ___ do your homework first.",
+      "options": [
+        "should"
+      ],
+      "id": "tanda-M-compl-11",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Debo enviar este correo hoy.",
+      "englishSentence": "I ___ send this email today.",
+      "options": [
+        "must"
+      ],
+      "id": "tanda-M-compl-12",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Solían jugar fútbol todos los fines de semana.",
+      "englishSentence": "They ___ ___ play soccer every weekend.",
+      "options": [
+        "used",
+        "to"
+      ],
+      "id": "tanda-M-compl-13",
+      "reglaIds": [
+        17
+      ]
+    },
+    {
+      "spanishWord": "Mi jefe se ha ido a una reunión.",
+      "englishSentence": "My boss ___ ___ ___ a meeting.",
+      "options": [
+        "has",
+        "gone",
+        "to"
+      ],
+      "id": "tanda-M-compl-14",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Mi jefe salió de la reunión temprano.",
+      "englishSentence": "My boss ___ ___ the meeting early.",
+      "options": [
+        "has",
+        "left"
+      ],
+      "id": "tanda-M-compl-15",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Los estudiantes se han ido a almorzar.",
+      "englishSentence": "The students have ___ ___ lunch.",
+      "options": [
+        "gone",
+        "to"
+      ],
+      "id": "tanda-M-compl-16",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "El profesor abandonó el salón de clases.",
+      "englishSentence": "The teacher has ___ the classroom.",
+      "options": [
+        "left"
+      ],
+      "id": "tanda-M-compl-17",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Mi vecino se ha ido de viaje.",
+      "englishSentence": "My neighbor's ___ ___ a trip.",
+      "options": [
+        "gone",
+        "on"
+      ],
+      "id": "tanda-M-compl-18",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ella ya se ha ido al trabajo.",
+      "englishSentence": "She's already ___ ___ work.",
+      "options": [
+        "gone",
+        "to"
+      ],
+      "id": "tanda-M-compl-19",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "Él dejó su billetera en el restaurante.",
+      "englishSentence": "He ___ his wallet at the restaurant.",
+      "options": [
+        "left"
+      ],
+      "id": "tanda-M-compl-20",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Ellos se han ido de compras.",
+      "englishSentence": "They've ___ shopping.",
+      "options": [
+        "gone"
+      ],
+      "id": "tanda-M-compl-21",
+      "reglaIds": [
+        10,
+        15
+      ]
+    },
+    {
+      "spanishWord": "El tren partió del andén hace cinco minutos.",
+      "englishSentence": "The train ___ ___ platform five minutes ago.",
+      "options": [
+        "left",
+        "the"
+      ],
+      "id": "tanda-M-compl-22",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Nosotros dejamos la fiesta antes de la medianoche.",
+      "englishSentence": "We ___ the party before midnight.",
+      "options": [
+        "left"
+      ],
+      "id": "tanda-M-compl-23",
+      "reglaIds": [
+        15
+      ]
+    },
+    {
+      "spanishWord": "Si él llama, nos ayudará.",
+      "englishSentence": "If he ___, he'll help us.",
+      "options": [
+        "calls"
+      ],
+      "id": "tanda-M-compl-24",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si ella estudia duro, le irá bien.",
+      "englishSentence": "If she ___ hard, she'll do well.",
+      "options": [
+        "studies"
+      ],
+      "id": "tanda-M-compl-25",
+      "reglaIds": [
+        12,
+        20
+      ]
+    },
+    {
+      "spanishWord": "Si no llueve mañana, iremos al parque.",
+      "englishSentence": "If it ___ ___ tomorrow, we'll go to the park.",
+      "options": [
+        "doesn't",
+        "rain"
+      ],
+      "id": "tanda-M-compl-26",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si ellos llegan tarde, empezaremos sin ellos.",
+      "englishSentence": "If they ___ late, we'll start without them.",
+      "options": [
+        "arrive"
+      ],
+      "id": "tanda-M-compl-27",
+      "reglaIds": [
+        8,
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si me llamas, contestaré.",
+      "englishSentence": "If you ___ me, I'll answer.",
+      "options": [
+        "call"
+      ],
+      "id": "tanda-M-compl-28",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si él tiene suficiente dinero, comprará el carro.",
+      "englishSentence": "If he ___ enough money, he'll buy the car.",
+      "options": [
+        "has"
+      ],
+      "id": "tanda-M-compl-29",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si salimos ahora, no llegaremos tarde.",
+      "englishSentence": "If we ___ now, we won't be late.",
+      "options": [
+        "leave"
+      ],
+      "id": "tanda-M-compl-30",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si ella sabe la verdad, te la dirá.",
+      "englishSentence": "If she ___ the truth, she'll tell you.",
+      "options": [
+        "knows"
+      ],
+      "id": "tanda-M-compl-31",
+      "reglaIds": [
+        12,
+        21
+      ]
+    },
+    {
+      "spanishWord": "Si tengo tiempo, te ayudaré.",
+      "englishSentence": "If I ___ time, I'll help you.",
+      "options": [
+        "have"
+      ],
+      "id": "tanda-M-compl-32",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Si hace frío, usaré una chaqueta.",
+      "englishSentence": "If it ___ cold, I'll wear a jacket.",
+      "options": [
+        "is"
+      ],
+      "id": "tanda-M-compl-33",
+      "reglaIds": [
+        12
+      ]
+    }
+  ]
+}

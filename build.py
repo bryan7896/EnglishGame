@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "9.9 (27-09-2026)"
+VERSION = "10.0 (29-09-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -38,6 +38,96 @@ EXERCISE_FILES = {
 }
 
 
+DATA_DIR = "data"
+GRAMMAR_RULES_FILE = os.path.join(DATA_DIR, "reglas-gramaticales.json")
+STUDY_EXERCISES_DIR = os.path.join(DATA_DIR, "ejercicios")
+INFORMACION_REGLAS_FILE = os.path.join(DATA_DIR, "informacion-reglas.json")
+
+# Claves de los 5 tipos crudos -> nombre de tipo singular usado en runtime
+# (mismo mapeo que createNodeStructure() en mapa/map.js).
+TYPE_KEY_TO_SINGULAR = {
+    "traducciones": "traduccion",
+    "completar": "completar",
+    "seleccionar": "seleccionar",
+    "corregir": "corregir",
+    "dictado": "dictado",
+}
+
+
+def load_grammar_rules():
+    """Lee data/reglas-gramaticales.json (listado maestro con id/regla/
+    porcentaje). Es solo la SEMILLA: en runtime el % real vive y se
+    actualiza en localStorage, independiente de este archivo."""
+    if not os.path.exists(GRAMMAR_RULES_FILE):
+        return []
+    with open(GRAMMAR_RULES_FILE, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    rules = data.get('reglas', data if isinstance(data, list) else [])
+    # Solo id/regla/porcentaje viajan al cliente (se ignoran comentarios).
+    return [{"id": r["id"], "regla": r["regla"], "porcentaje": r.get("porcentaje", 0)} for r in rules]
+
+
+def load_study_exercises():
+    """Combina TODOS los .json de data/ejercicios/ en una sola lista plana
+    de ejercicios ya normalizados (type/id/reglaIds + campos propios del
+    tipo), lista para que el flujo de 'Seleccionar reglas a estudiar' la
+    filtre por reglaId sin transformar nada en runtime."""
+    all_exercises = []
+    if not os.path.isdir(STUDY_EXERCISES_DIR):
+        return all_exercises
+
+    counters = {singular: 0 for singular in TYPE_KEY_TO_SINGULAR.values()}
+    seen_ids = set()
+    files = sorted(f for f in os.listdir(STUDY_EXERCISES_DIR) if f.endswith('.json'))
+
+    for fname in files:
+        fpath = os.path.join(STUDY_EXERCISES_DIR, fname)
+        file_stem = os.path.splitext(fname)[0]
+        with open(fpath, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        for raw_key, singular in TYPE_KEY_TO_SINGULAR.items():
+            for raw in (data.get(raw_key) or []):
+                counters[singular] += 1
+
+                if singular == "dictado":
+                    if isinstance(raw, str):
+                        ex = {"text": raw, "reglaIds": []}
+                    else:
+                        ex = dict(raw)
+                        ex.setdefault("text", ex.get("text") or "")
+                elif singular == "seleccionar":
+                    if isinstance(raw, list):
+                        ex = {"pairs": raw, "reglaIds": []}
+                    else:
+                        ex = dict(raw)
+                else:
+                    ex = dict(raw)
+
+                ex["type"] = singular
+                custom_id = ex.get("id") if isinstance(raw, dict) else None
+                ex["id"] = custom_id or f"{singular}_{counters[singular]}_{file_stem}"
+                ex["reglaIds"] = ex.get("reglaIds") or []
+
+                if ex["id"] in seen_ids:
+                    print(f"  ⚠️  id duplicado '{ex['id']}' en {fname} — se agrega igual, revísalo a mano")
+                seen_ids.add(ex["id"])
+
+                all_exercises.append(ex)
+
+    return all_exercises
+
+
+def load_informacion_por_regla():
+    """Lee data/informacion-reglas.json: lecciones de 'información' (mismo
+    esquema que informacion.js) agrupadas por id de regla gramatical."""
+    if not os.path.exists(INFORMACION_REGLAS_FILE):
+        return {}
+    with open(INFORMACION_REGLAS_FILE, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return data.get('porRegla', data if isinstance(data, dict) else {})
+
+
 def read_file(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -47,6 +137,10 @@ def read_file(filepath):
         sys.exit(1)
 
 
+def build_import_example_json():
+    return json.dumps({t["id"]: json.loads(t["placeholder"]) for t in INPUT_TYPES}, ensure_ascii=False)
+
+
 def build_import_fields():
     # Un único textarea: se pega el array completo en un solo JSON con las
     # 5 claves (traducciones, completar, seleccionar, corregir, dictado).
@@ -54,7 +148,7 @@ def build_import_fields():
     # botón "Copiar prompt", que copia el contenido de prompt.txt (archivo
     # externo y editable, no se genera desde este script) al portapapeles
     # para pegarlo directo en la IA que construye la tanda de ejercicios.
-    example = json.dumps({t["id"]: json.loads(t["placeholder"]) for t in INPUT_TYPES}, ensure_ascii=False)
+    example = build_import_example_json()
     return (
         '        <div class="multi-input-section">\n'
         '          <div class="import-fields-header">\n'
@@ -92,8 +186,8 @@ def create_manifest():
         "description": "Mejora tu inglés con práctica diaria",
         "start_url": "./index.html",
         "display": "standalone",
-        "background_color": "#0a0a0a",
-        "theme_color": "#e50914",
+        "background_color": "#131f24",
+        "theme_color": "#58cc02",
         "orientation": "portrait-primary",
         "icons": [
             {"src": ICON_URL, "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
@@ -113,7 +207,7 @@ const ASSETS = [
   './index.html',
   './manifest.json',
   './prompt.txt',
-  'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap',
+  'https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Baloo+2:wght@500;600;700;800&display=swap',
   'https://cdn-icons-png.flaticon.com/512/3898/3898082.png',
 ];
 
@@ -163,7 +257,7 @@ def get_html_template():
   <link rel="manifest" href="./manifest.json" />
   <title>English Trainer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>__STYLES__</style>
 </head>
 <body>
@@ -190,10 +284,41 @@ def get_html_template():
     <div id="importScreen" class="screen active">
       <div class="magic-card">
         <h2>📚 ¡Hola <span id="welcomeUsername"></span>!</h2>
-        <p>Pega aquí el JSON completo con tu tanda de ejercicios (usa el botón para copiar el prompt y pedírselo a la IA):</p>
-        __IMPORT_FIELDS__
         <div class="button-group">
-          <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa</button>
+          <button class="fun-btn primary-btn full-width" id="goToRulesSelectBtn" style="width:100%;">🎯 Seleccionar reglas a estudiar</button>
+        </div>
+        <details class="advanced-import-details">
+          <summary>⚙️ Avanzado: pegar JSON manual</summary>
+          <p>Pega aquí el JSON completo con tu tanda de ejercicios (usa el botón para copiar el prompt y pedírselo a la IA):</p>
+          __IMPORT_FIELDS__
+          <div class="button-group">
+            <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa</button>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div id="rulesSelectScreen" class="screen">
+      <div class="magic-card rules-card">
+        <h2>🎯 Selecciona las reglas a estudiar</h2>
+        <p>Marca las reglas que quieres practicar en esta tanda. La barra muestra tu dominio actual de cada una.</p>
+        <div id="rulesSelectList" class="rules-select-list"></div>
+        <div id="rulesSelectSummary" class="rules-selection-summary"></div>
+        <div class="button-group">
+          <button class="btn-action btn-check" id="rulesSelectFinishBtn">✅ Finalizar selección</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="rulesConfigScreen" class="screen">
+      <div class="magic-card rules-card">
+        <h2>📋 Reglas seleccionadas</h2>
+        <p>Indica cuántos ejercicios quieres de cada regla y, si tiene varios tipos, cuántos de cada uno.</p>
+        <div id="rulesConfigList" class="rules-config-list"></div>
+        <div id="rulesConfigSummary" class="rules-selection-summary"></div>
+        <div class="button-group">
+          <button class="fun-btn" id="rulesConfigBackBtn">← Editar selección</button>
+          <button class="btn-action btn-check" id="rulesConfigStartBtn">🚀 Empezar a estudiar</button>
         </div>
       </div>
     </div>
@@ -203,7 +328,6 @@ def get_html_template():
         <div id="mapList" class="adventure-map"></div>
       </div>
       <div class="magic-card" style="padding:14px 18px;">
-        <button class="fun-btn full-width" id="openReportBtn" style="width:100%;">📄 Ver informe completo</button>
         <textarea id="reportArea" class="report" rows="4" readonly style="display:none;"></textarea>
         <button class="copy-report-btn" id="copyFinalReportBtn">📋 Copiar reporte</button>
       </div>
@@ -261,6 +385,41 @@ def get_html_template():
 def get_main_logic():
     return r'''
   const STORAGE_KEY = "__LS_KEY__";
+  const IMPORT_EXAMPLE_JSON = __IMPORT_EXAMPLE_JSON__;
+
+  // ==================== REGLAS GRAMATICALES + BANCO DE EJERCICIOS ====================
+  // Embebidos en el build (ver load_grammar_rules/load_study_exercises/
+  // load_informacion_por_regla en build.py). GRAMMAR_RULES_SEED es solo el
+  // % INICIAL; el % real vive en localStorage bajo RULES_STORAGE_KEY y
+  // sobrevive a "Borrar todo" (esa acción solo toca STORAGE_KEY).
+  const GRAMMAR_RULES_SEED = __GRAMMAR_RULES_JSON__;
+  const ALL_STUDY_EXERCISES = __STUDY_EXERCISES_JSON__;
+  const INFORMACION_POR_REGLA = __INFORMACION_POR_REGLA_JSON__;
+  const RULES_STORAGE_KEY = "english_trainer_grammar_rules_v1";
+
+  function loadGrammarRules() {
+    let saved = [];
+    try {
+      const raw = localStorage.getItem(RULES_STORAGE_KEY);
+      if (raw) saved = JSON.parse(raw) || [];
+    } catch (e) { /* noop */ }
+    return GRAMMAR_RULES_SEED.map((r) => {
+      const found = saved.find((s) => s.id === r.id);
+      return { ...r, porcentaje: found ? found.porcentaje : r.porcentaje };
+    });
+  }
+
+  function saveGrammarRules(rules) {
+    try {
+      localStorage.setItem(RULES_STORAGE_KEY, JSON.stringify(rules.map((r) => ({ id: r.id, porcentaje: r.porcentaje }))));
+    } catch (e) { /* noop */ }
+  }
+
+  let AppRules = loadGrammarRules();
+
+  function findRegla(id) {
+    return AppRules.find((r) => r.id === id) || null;
+  }
   
   function saveToStorage() {
     const data = {
@@ -359,6 +518,8 @@ def get_main_logic():
 
   const mainScreens = {
     import: document.getElementById("importScreen"),
+    rulesSelect: document.getElementById("rulesSelectScreen"),
+    rulesConfig: document.getElementById("rulesConfigScreen"),
     map: document.getElementById("mapScreen"),
     exercise: document.getElementById("exerciseScreen"),
     info: document.getElementById("infoScreen")
@@ -410,6 +571,473 @@ def get_main_logic():
       console.error(e);
     }
   }
+
+  // ==================== SELECCIONAR REGLAS A ESTUDIAR ====================
+  // Flujo: [Seleccionar reglas a estudiar] -> checkboxes con % -> [Finalizar
+  // selección] -> tabla con cantidad (1-50) + info opcional por regla ->
+  // [Empezar a estudiar]. Los ejercicios se toman de ALL_STUDY_EXERCISES
+  // (embebido por build.py) filtrando por reglaIds, sin repetir el mismo id
+  // de ejercicio entre dos reglas distintas de la misma tanda.
+  let pendingRuleIds = [];
+
+  function openRulesSelect() {
+    pendingRuleIds = [];
+    renderRulesSelectScreen();
+    showMainView("rulesSelect");
+  }
+
+  function countAvailable(ruleId) {
+    return ALL_STUDY_EXERCISES.reduce((n, e) => n + ((e.reglaIds || []).includes(ruleId) ? 1 : 0), 0);
+  }
+
+  // Cuántos ejercicios hay disponibles por regla, desglosado por tipo
+  // (traduccion/completar/seleccionar/corregir/dictado). Solo se listan los
+  // tipos con al menos 1 ejercicio.
+  function computeTypeCounts(ruleId) {
+    const counts = {};
+    ALL_STUDY_EXERCISES.forEach((e) => {
+      if ((e.reglaIds || []).includes(ruleId)) counts[e.type] = (counts[e.type] || 0) + 1;
+    });
+    return counts;
+  }
+
+  const TYPE_LABELS_UI = { traduccion: "📝 Traducción", completar: "✏️ Completar", seleccionar: "🎯 Emparejar", corregir: "🔍 Corregir", dictado: "🎧 Dictado" };
+
+  // Clasifica un % de dominio en la misma escala good/warn/bad que ya usa
+  // el resto de la app (corrección de ejercicios, progreso de nodos...).
+  function pctTier(pct) {
+    if (pct >= 80) return "good";
+    if (pct >= 60) return "warn";
+    return "bad";
+  }
+
+  function renderRulesSelectScreen() {
+    const list = document.getElementById("rulesSelectList");
+    if (!list) return;
+    list.innerHTML = AppRules.map((r) => {
+      const disponibles = countAvailable(r.id);
+      const checked = pendingRuleIds.includes(r.id);
+      const tier = pctTier(r.porcentaje);
+      const empty = disponibles === 0;
+      return `
+        <label class="rule-card rule-select-row tier-${tier} ${empty ? 'rule-row-empty' : ''} ${checked ? 'rule-row-checked' : ''}">
+          <input type="checkbox" class="rule-select-checkbox" data-id="${r.id}" ${checked ? 'checked' : ''} ${empty ? 'disabled' : ''}>
+          <span class="rule-check" aria-hidden="true"></span>
+          <span class="rule-card-body">
+            <span class="rule-card-top">
+              <span class="rule-select-text">${window._escHTML(r.regla)}</span>
+              <span class="rule-pct-badge tier-${tier}">${r.porcentaje}%</span>
+            </span>
+            <span class="rule-pct-bar" role="presentation">
+              <span class="rule-pct-bar-fill tier-${tier}" style="width:${r.porcentaje}%"></span>
+            </span>
+            <span class="rule-card-bottom">
+              <span class="rule-select-count">${empty ? 'Sin ejercicios todavía' : disponibles + ' ejercicio' + (disponibles === 1 ? '' : 's') + ' disponible' + (disponibles === 1 ? '' : 's')}</span>
+            </span>
+          </span>
+        </label>
+      `;
+    }).join('');
+
+    list.querySelectorAll('.rule-select-checkbox').forEach((cb) => {
+      cb.addEventListener('change', () => {
+        const id = parseInt(cb.dataset.id, 10);
+        if (cb.checked) { if (!pendingRuleIds.includes(id)) pendingRuleIds.push(id); }
+        else pendingRuleIds = pendingRuleIds.filter((x) => x !== id);
+        cb.closest('.rule-select-row')?.classList.toggle('rule-row-checked', cb.checked);
+        updateRulesSelectSummary();
+      });
+    });
+
+    updateRulesSelectSummary();
+  }
+
+  function updateRulesSelectSummary() {
+    const el = document.getElementById("rulesSelectSummary");
+    if (!el) return;
+    if (!pendingRuleIds.length) { el.innerHTML = ''; return; }
+    const totalDisponibles = pendingRuleIds.reduce((n, id) => n + countAvailable(id), 0);
+    el.innerHTML = `<strong>${pendingRuleIds.length}</strong> regla${pendingRuleIds.length === 1 ? '' : 's'} seleccionada${pendingRuleIds.length === 1 ? '' : 's'} · <strong>${totalDisponibles}</strong> ejercicio${totalDisponibles === 1 ? '' : 's'} disponibles en total`;
+  }
+
+  function finishRulesSelect() {
+    if (!pendingRuleIds.length) { toast("⚠️ Selecciona al menos una regla"); return; }
+    renderRulesConfigScreen();
+    showMainView("rulesConfig");
+  }
+
+  function renderRulesConfigScreen() {
+    const list = document.getElementById("rulesConfigList");
+    if (!list) return;
+    list.innerHTML = pendingRuleIds.map((id) => {
+      const r = findRegla(id);
+      if (!r) return '';
+      const disponibles = countAvailable(id);
+      const maxTotal = Math.max(1, Math.min(50, disponibles));
+      const lecciones = (INFORMACION_POR_REGLA[id] || INFORMACION_POR_REGLA[String(id)] || []);
+      const tier = pctTier(r.porcentaje);
+      return `
+        <div class="rule-card rule-config-row tier-${tier}" data-rule-id="${id}" data-max-total="${maxTotal}">
+          <div class="rule-card-top">
+            <span class="rule-select-text">${window._escHTML(r.regla)}</span>
+            <span class="rule-pct-badge tier-${tier}">${r.porcentaje}%</span>
+          </div>
+          <span class="rule-pct-bar" role="presentation">
+            <span class="rule-pct-bar-fill tier-${tier}" style="width:${r.porcentaje}%"></span>
+          </span>
+          <div class="rule-config-meta">${disponibles} ejercicio${disponibles === 1 ? '' : 's'} disponible${disponibles === 1 ? '' : 's'}</div>
+          <div class="rule-config-controls">
+            <label class="rule-config-qty-field">
+              <span class="rule-config-qty-label">Cantidad a estudiar</span>
+              <span class="rule-config-qty-inputwrap">
+                <input type="number" class="rule-config-qty" data-id="${id}" min="1" max="${maxTotal}" placeholder="—" required>
+                <span class="rule-config-qty-max">/ ${maxTotal} máx.</span>
+              </span>
+            </label>
+            ${lecciones.length ? `
+              <label class="rule-config-info-toggle">
+                <input type="checkbox" class="rule-config-info" data-id="${id}">
+                <span class="rule-config-switch" aria-hidden="true"></span>
+                <span>💡 Incluir lección de información</span>
+              </label>
+            ` : ''}
+          </div>
+          <div class="rule-config-type-breakdown" data-id="${id}"></div>
+        </div>
+      `;
+    }).join('');
+
+    list.querySelectorAll('.rule-config-qty').forEach((inp) => {
+      inp.addEventListener('input', () => { renderTypeBreakdown(inp); updateRulesConfigSummary(); });
+    });
+
+    updateRulesConfigSummary();
+  }
+
+  // Al escribir la cantidad total de una regla, si hay más de un tipo de
+  // ejercicio disponible para ella, se despliega un desglose "¿cuántos de
+  // cada tipo?" que debe sumar exactamente el total. Con un solo tipo
+  // disponible no hace falta desglosar: todo va a ese tipo.
+  function renderTypeBreakdown(qtyInput) {
+    const id = parseInt(qtyInput.dataset.id, 10);
+    const row = qtyInput.closest('.rule-config-row');
+    const breakdownEl = row.querySelector('.rule-config-type-breakdown');
+    const maxTotal = parseInt(row.dataset.maxTotal, 10) || 0;
+    const total = parseInt(qtyInput.value, 10);
+
+    if (!Number.isInteger(total) || total < 1 || total > maxTotal) {
+      breakdownEl.innerHTML = '';
+      return;
+    }
+
+    const counts = computeTypeCounts(id);
+    const types = Object.keys(TYPE_LABELS_UI).filter((t) => counts[t] > 0);
+
+    if (types.length <= 1) {
+      breakdownEl.innerHTML = '';
+      return;
+    }
+
+    breakdownEl.innerHTML = `
+      <div class="rule-type-breakdown-label">¿Cuántos de cada tipo? <span class="rule-type-breakdown-sum" data-id="${id}"></span></div>
+      <div class="rule-type-breakdown-inputs">
+        ${types.map((t) => `
+          <label class="rule-type-chip">
+            <span class="rule-type-chip-label">${TYPE_LABELS_UI[t]}</span>
+            <input type="number" class="rule-config-type-qty" data-id="${id}" data-type="${t}" min="0" max="${Math.min(counts[t], total)}" placeholder="—">
+            <span class="rule-type-chip-max">máx. ${Math.min(counts[t], total)}</span>
+          </label>
+        `).join('')}
+      </div>
+    `;
+
+    breakdownEl.querySelectorAll('.rule-config-type-qty').forEach((typeInp) => {
+      typeInp.addEventListener('input', () => { updateBreakdownSum(id, total); updateRulesConfigSummary(); });
+    });
+    updateBreakdownSum(id, total);
+  }
+
+  function updateBreakdownSum(id, total) {
+    const breakdownEl = document.querySelector('.rule-config-type-breakdown[data-id="' + id + '"]');
+    if (!breakdownEl) return;
+    const inputs = breakdownEl.querySelectorAll('.rule-config-type-qty');
+    let sum = 0;
+    inputs.forEach((i) => { sum += parseInt(i.value, 10) || 0; });
+    const sumEl = breakdownEl.querySelector('.rule-type-breakdown-sum');
+    if (!sumEl) return;
+    const ok = sum === total;
+    sumEl.textContent = (ok ? "✅ " : "") + sum + "/" + total;
+    sumEl.className = "rule-type-breakdown-sum" + (ok ? " sum-ok" : " sum-bad");
+  }
+
+  function updateRulesConfigSummary() {
+    const el = document.getElementById("rulesConfigSummary");
+    if (!el) return;
+    const qtyInputs = document.querySelectorAll('.rule-config-qty');
+    let total = 0;
+    let filled = 0;
+    qtyInputs.forEach((inp) => {
+      const v = parseInt(inp.value, 10);
+      if (Number.isInteger(v) && v > 0) { total += v; filled++; }
+    });
+    if (!total) { el.innerHTML = ''; return; }
+    el.innerHTML = `Vas a estudiar <strong>${total}</strong> ejercicio${total === 1 ? '' : 's'} en total (${filled}/${qtyInputs.length} regla${qtyInputs.length === 1 ? '' : 's'} con cantidad definida)`;
+  }
+
+  function handleStartStudyFromRules() {
+    const list = document.getElementById("rulesConfigList");
+    if (!list) return;
+    const rows = Array.from(list.querySelectorAll('.rule-config-row'));
+    if (!rows.length) return;
+
+    const config = [];
+    let allValid = true;
+
+    rows.forEach((row) => {
+      const id = parseInt(row.dataset.ruleId, 10);
+      const maxTotal = parseInt(row.dataset.maxTotal, 10) || 0;
+      const qtyInput = row.querySelector('.rule-config-qty');
+      const total = parseInt(qtyInput.value, 10);
+
+      if (!Number.isInteger(total) || total < 1 || total > maxTotal) { allValid = false; return; }
+
+      const typeInputs = Array.from(row.querySelectorAll('.rule-config-type-qty'));
+      let byType;
+      if (typeInputs.length) {
+        byType = {};
+        let sum = 0;
+        typeInputs.forEach((inp) => {
+          const v = parseInt(inp.value, 10) || 0;
+          if (v > 0) byType[inp.dataset.type] = v;
+          sum += v;
+        });
+        if (sum !== total) allValid = false;
+      } else {
+        const counts = computeTypeCounts(id);
+        const onlyType = Object.keys(counts).find((t) => counts[t] > 0);
+        byType = onlyType ? { [onlyType]: total } : {};
+      }
+
+      config.push({ id, byType });
+    });
+
+    if (!allValid) { toast("⚠️ Revisa las cantidades: cada regla necesita un total válido dentro de su máximo, y si hay desglose por tipo debe sumar exactamente ese total"); return; }
+
+    const infoRuleIds = new Set(
+      Array.from(list.querySelectorAll('.rule-config-info:checked')).map((cb) => parseInt(cb.dataset.id, 10))
+    );
+
+    startStudyFromRules(config, infoRuleIds);
+  }
+
+  function startStudyFromRules(config, infoRuleIds) {
+    const usedIds = new Set();
+    const chosen = [];
+    let anyShort = false;
+
+    config.forEach(({ id, byType }) => {
+      Object.keys(byType).forEach((type) => {
+        const qty = byType[type];
+        if (!qty) return;
+        const pool = shuffleArray(ALL_STUDY_EXERCISES.filter((e) => e.type === type && (e.reglaIds || []).includes(id) && !usedIds.has(e.id)));
+        const take = pool.slice(0, qty);
+        if (take.length < qty) anyShort = true;
+        take.forEach((e) => { usedIds.add(e.id); chosen.push(e); });
+      });
+    });
+
+    const informacionLecciones = [];
+    infoRuleIds.forEach((id) => {
+      (INFORMACION_POR_REGLA[id] || INFORMACION_POR_REGLA[String(id)] || []).forEach((leccion) => informacionLecciones.push(leccion));
+    });
+
+    AppState.nodes = buildNodesFromExerciseList(chosen);
+    AppState.practicaInicial = createPracticaInicial(informacionLecciones);
+    AppState.progress = {};
+    AppState.activeNodeIndex = 0;
+    AppState.activeExerciseIndex = 0;
+    AppState.failedExercises = [];
+    AppState.reportEntries = [];
+    AppState.reviewPool = [];
+    AppState.sessionCorrectness = {};
+    AppState.sessionAnswers = {};
+
+    AppState.nodes.forEach((node, idx) => {
+      AppState.progress[idx] = {
+        completed: false,
+        exercisesDone: 0,
+        exerciseResults: Array(node.exercises.length).fill(false)
+      };
+    });
+
+    saveToStorage();
+    renderMapView();
+    showMainView("map");
+    pendingRuleIds = [];
+
+    const totalEj = chosen.length;
+    const leccionesMsg = informacionLecciones.length > 0 ? (" + " + informacionLecciones.length + " lección(es) de información") : "";
+    const shortMsg = anyShort ? "⚠️ Algunas reglas no tenían suficientes ejercicios disponibles. " : "";
+    if (totalEj > 0 || informacionLecciones.length > 0) {
+      toast(shortMsg + "🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos" + leccionesMsg);
+    } else {
+      toast("⚠️ No hay ejercicios disponibles para esas reglas todavía");
+    }
+  }
+
+  // "🔄 Actualizar % de reglas": pega un JSON tipo [{"id":1,"porcentaje":55}, ...]
+  // (parcial o completo) y se fusiona por id contra AppRules; lo que no
+  // venga en el JSON queda intacto. Persiste en RULES_STORAGE_KEY, que
+  // "Borrar todo" nunca toca.
+  function showUpdateRulesModal() {
+    const existing = document.querySelector('.modal-overlay');
+    if (existing) existing.remove();
+
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>🔄 Actualizar % de reglas</h3>
+          <button class="menu-modal-close" id="updateRulesClose" aria-label="Cerrar">✕</button>
+        </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">
+          Pega un JSON con los porcentajes nuevos, por ejemplo:<br>
+          <code style="font-size:0.72rem;">[{"id":1,"porcentaje":55},{"id":2,"porcentaje":60}]</code><br>
+          Solo se actualizan las reglas que incluyas; el resto queda igual.
+        </p>
+        <textarea id="updateRulesInput" class="answer-input" rows="8" placeholder='[{"id":1,"porcentaje":55}]'></textarea>
+        <div class="action-buttons">
+          <button class="fun-btn primary-btn" id="updateRulesApply">✅ Aplicar</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const close = () => modal.remove();
+    modal.querySelector('#updateRulesClose').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+
+    modal.querySelector('#updateRulesApply').addEventListener('click', () => {
+      const raw = document.getElementById("updateRulesInput").value.trim();
+      if (!raw) { toast("📝 Pega el JSON primero"); return; }
+      let updates;
+      try { updates = JSON.parse(raw); } catch (e) { toast("❌ JSON inválido: " + e.message); return; }
+      if (!Array.isArray(updates)) { toast("❌ Debe ser un array de {id, porcentaje}"); return; }
+
+      let count = 0;
+      updates.forEach((u) => {
+        const r = findRegla(u.id);
+        if (r && typeof u.porcentaje === "number") { r.porcentaje = u.porcentaje; count++; }
+      });
+      saveGrammarRules(AppRules);
+      close();
+      toast(count > 0 ? ("🔄 " + count + " regla(s) actualizadas") : "⚠️ No se encontraron coincidencias por id");
+    });
+  }
+
+  // "🔀 Mezclar JSON manual": el mismo formato de siempre (traducciones/
+  // completar/seleccionar/corregir/dictado/informacion, las 6 opcionales),
+  // pero en vez de REEMPLAZAR lo que ya está cargado (como hace "Nueva
+  // tanda" / loadAllData), se AGREGA a lo que ya seleccionaste desde la
+  // base de datos por reglas. Útil, por ejemplo, para sumar una tanda con
+  // audios reales que no vive en data/ejercicios/. Como todo el conjunto
+  // (lo viejo + lo nuevo) se reparte de nuevo entre los nodos, el progreso
+  // y la cola de repaso se reinician — igual que al cargar cualquier tanda
+  // nueva o iniciar el estudio por reglas.
+  function showMergeDataModal() {
+    const existing = document.querySelector('.modal-overlay');
+    if (existing) existing.remove();
+
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>🔀 Mezclar JSON manual</h3>
+          <button class="menu-modal-close" id="mergeDataClose" aria-label="Cerrar">✕</button>
+        </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">
+          Pega aquí un JSON con el mismo formato de siempre (traducciones,
+          completar, seleccionar, corregir, dictado e información — todas
+          opcionales). Estos ejercicios se <strong>agregan</strong> a los
+          que ya tienes cargados (no los reemplazan). Como todo se reparte
+          de nuevo entre los nodos, el progreso y el repaso se reinician.
+        </p>
+        <div class="import-fields-header">
+          <button type="button" class="fun-btn" id="mergeCopyPromptBtn">📋 Copiar prompt para la IA</button>
+        </div>
+        <textarea id="mergeDataInput" class="answer-input" rows="10" placeholder='${window._escHTML(IMPORT_EXAMPLE_JSON)}'></textarea>
+        <div class="action-buttons">
+          <button class="fun-btn primary-btn" id="mergeDataApply">🔀 Mezclar con lo cargado</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const close = () => modal.remove();
+    modal.querySelector('#mergeDataClose').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    modal.querySelector('#mergeCopyPromptBtn').addEventListener('click', copyPromptFromFile);
+
+    modal.querySelector('#mergeDataApply').addEventListener('click', () => {
+      const raw = document.getElementById("mergeDataInput").value.trim();
+      if (!raw) { toast("📝 Pega el JSON primero"); return; }
+      let parsed;
+      try { parsed = JSON.parse(raw); } catch (e) { toast("❌ JSON inválido: " + e.message); return; }
+      close();
+      mergeManualData(parsed);
+    });
+  }
+
+  function mergeManualData(parsedData) {
+    try {
+      const newExercises = rawDataToExerciseList(parsedData);
+      const existingExercises = (AppState.nodes || [])
+        .filter((n) => n.type === "main")
+        .flatMap((n) => n.exercises);
+      const merged = existingExercises.concat(newExercises);
+
+      AppState.nodes = buildNodesFromExerciseList(merged);
+      AppState.progress = {};
+      AppState.activeNodeIndex = 0;
+      AppState.activeExerciseIndex = 0;
+      AppState.failedExercises = [];
+      AppState.reportEntries = [];
+      AppState.reviewPool = [];
+      AppState.sessionCorrectness = {};
+      AppState.sessionAnswers = {};
+
+      const newLecciones = parsedData?.informacion || [];
+      if (newLecciones.length) {
+        if (!AppState.practicaInicial) {
+          AppState.practicaInicial = createPracticaInicial(newLecciones);
+        } else {
+          AppState.practicaInicial.lecciones = AppState.practicaInicial.lecciones.concat(newLecciones);
+          AppState.practicaInicial.completed = false;
+        }
+      }
+
+      AppState.nodes.forEach((node, idx) => {
+        AppState.progress[idx] = {
+          completed: false,
+          exercisesDone: 0,
+          exerciseResults: Array(node.exercises.length).fill(false)
+        };
+      });
+
+      saveToStorage();
+      renderMapView();
+      showMainView("map");
+
+      const totalEj = AppState.nodes.reduce((sum, n) => sum + n.exercises.length, 0);
+      toast("🔀 Mezclados: " + newExercises.length + " ejercicio(s) nuevo(s) + " + existingExercises.length + " que ya tenías = " + totalEj + " en total");
+    } catch (e) {
+      toast("❌ Error al mezclar: " + e.message);
+      console.error(e);
+    }
+  }
+
 
   function renderMapView() {
     cleanupAudio();
@@ -573,10 +1201,14 @@ def get_main_logic():
   }
 
   // Marca cada entrada del informe según si sucedió dentro del nodo de repaso
-  // (repaso) o en un nodo principal, para poder agruparlas por separado.
-  function tagOrigin(entry) {
+  // (repaso) o en un nodo principal (para agruparlas por separado), y le
+  // adjunta las reglaIds del ejercicio de origen (para agrupar el informe
+  // por regla gramatical). exercise es opcional (el import manual clásico
+  // no trae reglaIds, y la entrada simplemente cae en "Sin regla asociada").
+  function tagEntryMeta(entry, exercise) {
     const node = AppState.nodes[AppState.activeNodeIndex];
     entry.origin = (node && node.type === "repaso") ? "repaso" : "main";
+    entry.reglaIds = (exercise && exercise.reglaIds) || [];
     return entry;
   }
 
@@ -851,7 +1483,7 @@ def get_main_logic():
           const entry = decision === "repasar"
             ? buildManualCorreccionEntry(exercise, userAnswer, duda)
             : getTraduccionReportEntry(exercise, userAnswer, duda);
-          AppState.reportEntries.push(tagOrigin(entry));
+          AppState.reportEntries.push(tagEntryMeta(entry, exercise));
           advanceExercise();
         });
       };
@@ -867,7 +1499,7 @@ def get_main_logic():
         showCompletarModal(exercise, results, 
           (success, duda) => { 
             recordExerciseResult(success);
-            AppState.reportEntries.push(tagOrigin(getCompletarReportEntry(exercise, userAnswers, duda))); 
+            AppState.reportEntries.push(tagEntryMeta(getCompletarReportEntry(exercise, userAnswers, duda), exercise)); 
             advanceExercise(); 
           },
           (duda) => { 
@@ -896,10 +1528,10 @@ def get_main_logic():
             const entry = decision === "repasar"
               ? buildManualCorreccionEntry(exercise, userAnswer, duda)
               : getCorregirReportEntry(exercise, userAnswer, duda);
-            AppState.reportEntries.push(tagOrigin(entry));
+            AppState.reportEntries.push(tagEntryMeta(entry, exercise));
             advanceExercise();
           },
-          (duda) => { AppState.reportEntries.push(tagOrigin(getCorregirReportEntry(exercise, userAnswer, duda))); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
+          (duda) => { AppState.reportEntries.push(tagEntryMeta(getCorregirReportEntry(exercise, userAnswer, duda), exercise)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
         );
       };
     }
@@ -924,7 +1556,7 @@ def get_main_logic():
       const entry = decision === "repasar"
         ? buildManualCorreccionEntry(exercise, userAnswer, duda)
         : getDictadoReportEntry(originalText, userAnswer, duda);
-      AppState.reportEntries.push(tagOrigin(entry));
+      AppState.reportEntries.push(tagEntryMeta(entry, exercise));
       advanceExercise();
     };
     
@@ -982,6 +1614,49 @@ def get_main_logic():
     return lines;
   }
 
+  // Nombre de las reglas de una entrada del informe, ya resuelto contra
+  // AppRules (por si el usuario actualizó % o cambió de dispositivo, el
+  // NOMBRE de la regla siempre se toma de la lista vigente).
+  function reglaGroupLabel(reglaIds) {
+    if (!reglaIds || !reglaIds.length) return "📎 Sin regla gramatical asociada";
+    const nombres = reglaIds.map((id) => {
+      const r = findRegla(id);
+      return r ? r.regla : ("Regla #" + id);
+    });
+    return "📚 " + nombres.join(" + ");
+  }
+
+  const REPORT_TYPE_NAMES = { traduccion: "TRADUCCIÓN", completar: "COMPLETAR", seleccionar: "EMPAREJAR", corregir: "CORREGIR" };
+
+  // Agrupa un set de entradas (ya sin dictado) por regla gramatical y, DENTRO
+  // de cada regla, por tipo de ejercicio (traducción/completar/corregir/
+  // emparejar). Devuelve las líneas ya formateadas y actualiza el contador.
+  function renderEntriesByRegla(entries, lines, counterRef) {
+    const byRegla = {};
+    const order = [];
+    entries.forEach((entry) => {
+      const label = reglaGroupLabel(entry.reglaIds);
+      if (!byRegla[label]) { byRegla[label] = {}; order.push(label); }
+      if (!byRegla[label][entry.type]) byRegla[label][entry.type] = [];
+      byRegla[label][entry.type].push(entry);
+    });
+
+    order.forEach((label) => {
+      lines.push(label);
+      lines.push("-".repeat(30));
+      Object.keys(REPORT_TYPE_NAMES).forEach((type) => {
+        const list = byRegla[label][type];
+        if (!list || !list.length) return;
+        lines.push("  📌 " + REPORT_TYPE_NAMES[type] + " (" + list.length + " ejercicios)");
+        list.forEach((entry) => {
+          counterRef.n++;
+          formatReportEntryLines(counterRef.n, entry).forEach((l) => lines.push(l ? ("  " + l) : l));
+        });
+      });
+      lines.push("");
+    });
+  }
+
   function buildReport() {
     let lines = [];
     lines.push("📘 INFORME DE APRENDIZAJE");
@@ -992,51 +1667,42 @@ def get_main_logic():
       lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); 
       return lines.join("\n");
     }
-    
-    // Todo lo ocurrido dentro del nodo de repaso se separa del resto para
-    // que quede claro en el informe que esa parte fue donde el usuario
-    // estuvo practicando hasta lograr superar su error.
-    const mainEntries = AppState.reportEntries.filter(e => e.origin !== "repaso");
-    const repasoEntries = AppState.reportEntries.filter(e => e.origin === "repaso");
 
-    const byType = {};
-    mainEntries.forEach(entry => {
-      if (!byType[entry.type]) byType[entry.type] = [];
-      byType[entry.type].push(entry);
-    });
-    
-    let counter = 0;
-    const typeNames = { 
-      traduccion:"TRADUCCIÓN", 
-      completar:"COMPLETAR", 
-      seleccionar:"EMPAREJAR", 
-      corregir:"CORREGIR", 
-      dictado:"DICTADO" 
-    };
-    
-    Object.keys(typeNames).forEach(type => {
-      const entries = byType[type] || [];
-      if (entries.length === 0) return;
-      lines.push("📌 " + typeNames[type] + " (" + entries.length + " ejercicios)");
+    // Dictado siempre queda en un único grupo aparte (normal + repaso
+    // mezclados) sin importar la regla gramatical. El resto se agrupa por
+    // regla gramatical, y dentro de eso se separa lo hecho en nodos
+    // principales de lo hecho en la sección de repaso.
+    const dictadoEntries = AppState.reportEntries.filter((e) => e.type === "dictado");
+    const nonDictado = AppState.reportEntries.filter((e) => e.type !== "dictado");
+    const mainEntries = nonDictado.filter((e) => e.origin !== "repaso");
+    const repasoEntries = nonDictado.filter((e) => e.origin === "repaso");
+
+    const counterRef = { n: 0 };
+
+    if (mainEntries.length > 0) {
+      lines.push("📚 EJERCICIOS POR REGLA GRAMATICAL");
+      lines.push("=".repeat(40));
+      renderEntriesByRegla(mainEntries, lines, counterRef);
+    }
+
+    if (dictadoEntries.length > 0) {
+      lines.push("🎧 DICTADO (" + dictadoEntries.length + " ejercicios)");
+      lines.push("=".repeat(40));
       lines.push("-".repeat(30));
-      entries.forEach(entry => {
-        counter++;
-        lines.push(...formatReportEntryLines(counter, entry));
+      dictadoEntries.forEach((entry) => {
+        counterRef.n++;
+        lines.push(...formatReportEntryLines(counterRef.n, entry));
       });
       lines.push("");
-    });
+    }
 
     if (repasoEntries.length > 0) {
       lines.push("🔁 SECCIÓN DE REPASO — Practicando hasta superar tus errores");
       lines.push("=".repeat(40));
       lines.push("Aquí queda registrado todo lo ocurrido en tus nodos de repaso,");
       lines.push("donde cada ejercicio fallado se repite hasta que se aprueba de verdad.");
-      lines.push("-".repeat(30));
-      repasoEntries.forEach(entry => {
-        counter++;
-        lines.push(...formatReportEntryLines(counter, entry));
-      });
       lines.push("");
+      renderEntriesByRegla(repasoEntries, lines, counterRef);
     }
     
     return lines.join("\n");
@@ -1066,7 +1732,7 @@ def get_main_logic():
   }
 
   function burstConfetti() {
-    const colors = ["#e50914", "#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"];
+    const colors = ["#58cc02", "#1cb0f6", "#ffc800", "#ce82ff", "#ff86d0"];
     for(let i = 0; i < 40; i++) {
       const c = document.createElement("div"); c.classList.add("confetti");
       c.style.left = Math.random() * 100 + "vw"; c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
@@ -1147,6 +1813,9 @@ def get_main_logic():
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
           <button class="fun-btn" id="menuNodeCountBtn">🔢 Nodos: ${getTotalMainNodes()}</button>
           <button class="fun-btn" id="menuCopyReportBtn">📋 Copiar informe</button>
+          <button class="fun-btn" id="menuRulesSelectBtn">🎯 Estudiar por reglas</button>
+          <button class="fun-btn" id="menuUpdateRulesBtn">🔄 Actualizar % de reglas</button>
+          <button class="fun-btn" id="menuMergeDataBtn">🔀 Mezclar JSON manual</button>
           <button class="fun-btn" id="menuReplaceListBtn">📥 Nueva tanda</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
         </div>
@@ -1168,6 +1837,9 @@ def get_main_logic():
     modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
     modal.querySelector('#menuNodeCountBtn').addEventListener('click', () => { close(); showNodeCountModal(); });
     modal.querySelector('#menuCopyReportBtn').addEventListener('click', () => { close(); copyReport(); });
+    modal.querySelector('#menuRulesSelectBtn').addEventListener('click', () => { close(); openRulesSelect(); });
+    modal.querySelector('#menuUpdateRulesBtn').addEventListener('click', () => { close(); showUpdateRulesModal(); });
+    modal.querySelector('#menuMergeDataBtn').addEventListener('click', () => { close(); showMergeDataModal(); });
     modal.querySelector('#menuReplaceListBtn').addEventListener('click', () => { close(); showMainView("import"); toast("📥 Ingresa nuevos datos"); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
   }
@@ -1278,7 +1950,7 @@ def get_main_logic():
       : "Hello, how are you? This is a voice sample.";
 
     const rowStyle = "display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-radius:10px;margin-bottom:6px;background:#151515;";
-    const rowActiveStyle = rowStyle + "border:1px solid #e50914;";
+    const rowActiveStyle = rowStyle + "border:1px solid #58cc02;";
 
     const autoRow = `
       <div style="${!currentPreferred ? rowActiveStyle : rowStyle}">
@@ -1351,8 +2023,11 @@ def get_main_logic():
     document.getElementById("loadBtn")?.addEventListener("click", loadAllData);
     document.getElementById("copyPromptBtn")?.addEventListener("click", copyPromptFromFile);
     document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
-    document.getElementById("openReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("toggleMenuBtn")?.addEventListener("click", showMenuModal);
+    document.getElementById("goToRulesSelectBtn")?.addEventListener("click", openRulesSelect);
+    document.getElementById("rulesSelectFinishBtn")?.addEventListener("click", finishRulesSelect);
+    document.getElementById("rulesConfigBackBtn")?.addEventListener("click", () => { renderRulesSelectScreen(); showMainView("rulesSelect"); });
+    document.getElementById("rulesConfigStartBtn")?.addEventListener("click", handleStartStudyFromRules);
   }
   
   init();
@@ -1363,6 +2038,14 @@ def build_html():
     print("📂 Leyendo archivos...")
     styles = read_file('styles/main.css')
     map_js = read_file('mapa/map.js')
+
+    grammar_rules = load_grammar_rules()
+    study_exercises = load_study_exercises()
+    informacion_por_regla = load_informacion_por_regla()
+    print(f"  ✅ {len(grammar_rules)} reglas gramaticales ({GRAMMAR_RULES_FILE})")
+    print(f"  ✅ {len(study_exercises)} ejercicios combinados desde {STUDY_EXERCISES_DIR}/")
+    total_lecciones = sum(len(v) for v in informacion_por_regla.values())
+    print(f"  ✅ {total_lecciones} lección(es) de información en {len(informacion_por_regla)} regla(s) ({INFORMACION_REGLAS_FILE})")
     
     exercise_modules = {}
     for filepath, marker in EXERCISE_FILES.items():
@@ -1385,6 +2068,10 @@ def build_html():
     main_logic = main_logic.replace('__LOAD_DATA_FIELDS__', build_load_data_fields())
     main_logic = main_logic.replace('__VALIDATION_ARGS__', build_validation_args())
     main_logic = main_logic.replace('__CREATE_NODE_ARGS__', build_create_node_args())
+    main_logic = main_logic.replace('__GRAMMAR_RULES_JSON__', json.dumps(grammar_rules, ensure_ascii=False))
+    main_logic = main_logic.replace('__STUDY_EXERCISES_JSON__', json.dumps(study_exercises, ensure_ascii=False))
+    main_logic = main_logic.replace('__INFORMACION_POR_REGLA_JSON__', json.dumps(informacion_por_regla, ensure_ascii=False))
+    main_logic = main_logic.replace('__IMPORT_EXAMPLE_JSON__', json.dumps(build_import_example_json(), ensure_ascii=False))
     html = html.replace('__MAIN_LOGIC__', main_logic)
     
     return html

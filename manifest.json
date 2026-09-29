@@ -4,8 +4,8 @@
   "description": "Mejora tu ingl\u00e9s con pr\u00e1ctica diaria",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#e50914",
+  "background_color": "#131f24",
+  "theme_color": "#58cc02",
   "orientation": "portrait-primary",
   "icons": [
     {
