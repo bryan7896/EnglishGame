@@ -144,7 +144,7 @@ textarea:focus-visible,
 /* ============ 3. SCREENS ============ */
 .screen {
   display: none;
-  padding: 16px 16px 40px;
+  padding: 16px 8px 40px;
   animation: screen-in 0.35s var(--ease);
 }
 
@@ -463,7 +463,7 @@ textarea:focus-visible,
   background: var(--surface);
   border: 2px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 22px 18px;
+  padding: 22px 5px;
   margin-bottom: 14px;
   box-shadow: var(--shadow-sm);
 }
