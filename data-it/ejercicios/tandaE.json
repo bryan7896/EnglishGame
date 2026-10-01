@@ -1,0 +1,664 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "Yo duermo mucho",
+      "englishWord": "Io dormo molto",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Tú duermes poco",
+      "englishWord": "Tu dormi poco",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Él sale a las ocho",
+      "englishWord": "Lui parte alle otto",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella abre la puerta",
+      "englishWord": "Lei apre la porta",
+      "reglaIds": [
+        3,
+        10
+      ]
+    },
+    {
+      "spanishWord": "Nosotros dormimos aquí",
+      "englishWord": "Noi dormiamo qui",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Vosotros abrís la ventana",
+      "englishWord": "Voi aprite la finestra",
+      "reglaIds": [
+        3,
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ellos sienten frío",
+      "englishWord": "Loro sentono freddo",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Yo sigo el camino",
+      "englishWord": "Io seguo la strada",
+      "reglaIds": [
+        3,
+        10
+      ]
+    },
+    {
+      "spanishWord": "Los niños están felices",
+      "englishWord": "I bambini sono felici",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las niñas están tristes",
+      "englishWord": "Le bambine sono tristi",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los perros son fuertes",
+      "englishWord": "I cani sono forti",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los libros son débiles",
+      "englishWord": "I libri sono deboli",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ellos están ocupados",
+      "englishWord": "Loro sono occupati",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ellas están cansadas",
+      "englishWord": "Loro sono stanche",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Yo pregunto la hora",
+      "englishWord": "Io chiedo l'ora",
+      "reglaIds": [
+        3,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Tú pones el libro aquí",
+      "englishWord": "Tu metti il libro qui",
+      "reglaIds": [
+        3,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Él cierra la puerta",
+      "englishWord": "Lui chiude la porta",
+      "reglaIds": [
+        3,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Nosotros perdemos el tiempo",
+      "englishWord": "Noi perdiamo tempo",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Ellos preguntan mucho",
+      "englishWord": "Loro chiedono molto",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "los árboles",
+      "englishWord": "gli alberi",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "los tíos",
+      "englishWord": "gli zii",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "los perros",
+      "englishWord": "i cani",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "los gatos",
+      "englishWord": "i gatti",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "los espejos",
+      "englishWord": "gli specchi",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "un árbol",
+      "englishWord": "un albero",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "un tío",
+      "englishWord": "uno zio",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "un perro",
+      "englishWord": "un cane",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "un espejo",
+      "englishWord": "uno specchio",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "una gata",
+      "englishWord": "una gatta",
+      "reglaIds": [
+        4
+      ]
+    }
+  ],
+  "completar": [
+    {
+      "spanishWord": "Yo duermo mucho.",
+      "englishSentence": "Io ___ molto.",
+      "options": [
+        "dormo"
+      ],
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Tú duermes poco.",
+      "englishSentence": "Tu ___ poco.",
+      "options": [
+        "dormi"
+      ],
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Él sale a las ocho.",
+      "englishSentence": "Lui ___ alle otto.",
+      "options": [
+        "parte"
+      ],
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ella abre la puerta.",
+      "englishSentence": "Lei ___ la porta.",
+      "options": [
+        "apre"
+      ],
+      "reglaIds": [
+        3,
+        10
+      ]
+    },
+    {
+      "spanishWord": "Nosotros dormimos aquí.",
+      "englishSentence": "Noi ___ qui.",
+      "options": [
+        "dormiamo"
+      ],
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Vosotros abrís la ventana.",
+      "englishSentence": "Voi ___ la finestra.",
+      "options": [
+        "aprite"
+      ],
+      "reglaIds": [
+        3,
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ellos sienten frío.",
+      "englishSentence": "Loro ___ freddo.",
+      "options": [
+        "sentono"
+      ],
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Los niños están felices.",
+      "englishSentence": "I bambini sono ___.",
+      "options": [
+        "felici"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las niñas están tristes.",
+      "englishSentence": "Le bambine sono ___.",
+      "options": [
+        "tristi"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los perros son fuertes.",
+      "englishSentence": "I cani sono ___.",
+      "options": [
+        "forti"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los libros son débiles.",
+      "englishSentence": "I libri sono ___.",
+      "options": [
+        "deboli"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ellas están cansadas.",
+      "englishSentence": "Loro sono ___.",
+      "options": [
+        "stanche"
+      ],
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Yo pregunto la hora.",
+      "englishSentence": "Io ___ l'ora.",
+      "options": [
+        "chiedo"
+      ],
+      "reglaIds": [
+        3,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Tú pones el libro.",
+      "englishSentence": "Tu ___ il libro.",
+      "options": [
+        "metti"
+      ],
+      "reglaIds": [
+        3,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Él cierra la puerta.",
+      "englishSentence": "Lui ___ la porta.",
+      "options": [
+        "chiude"
+      ],
+      "reglaIds": [
+        3,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Nosotros perdemos tiempo.",
+      "englishSentence": "Noi ___ tempo.",
+      "options": [
+        "perdiamo"
+      ],
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Vosotros preguntáis mucho.",
+      "englishSentence": "Voi ___ molto.",
+      "options": [
+        "chiedete"
+      ],
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Los árboles son altos.",
+      "englishSentence": "___ alberi sono alti.",
+      "options": [
+        "gli"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los perros son grandes.",
+      "englishSentence": "___ cani sono grandi.",
+      "options": [
+        "i"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "Los espejos son nuevos.",
+      "englishSentence": "___ specchi sono nuovi.",
+      "options": [
+        "gli"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los gatos son negros.",
+      "englishSentence": "___ gatti sono neri.",
+      "options": [
+        "i"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "Tengo un árbol en el jardín.",
+      "englishSentence": "Ho ___ albero in giardino.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Tengo un espejo nuevo.",
+      "englishSentence": "Ho ___ specchio nuovo.",
+      "options": [
+        "uno"
+      ],
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Es una gata negra.",
+      "englishSentence": "È ___ gatta nera.",
+      "options": [
+        "una"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    }
+  ],
+  "corregir": [
+    {
+      "spanishPhrase": "Yo duermo mucho",
+      "fraseCorrecta": "Io dormo molto",
+      "fraseConError": "Io dorme molto",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Tú duermes poco",
+      "fraseCorrecta": "Tu dormi poco",
+      "fraseConError": "Tu dorme poco",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros dormimos aquí",
+      "fraseCorrecta": "Noi dormiamo qui",
+      "fraseConError": "Noi dormite qui",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Vosotros abrís la ventana",
+      "fraseCorrecta": "Voi aprite la finestra",
+      "fraseConError": "Voi aprono la finestra",
+      "reglaIds": [
+        3,
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos sienten frío",
+      "fraseCorrecta": "Loro sentono freddo",
+      "fraseConError": "Loro sente freddo",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Los niños están felices",
+      "fraseCorrecta": "I bambini sono felici",
+      "fraseConError": "I bambini sono felice",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Las niñas están tristes",
+      "fraseCorrecta": "Le bambine sono tristi",
+      "fraseConError": "Le bambine sono triste",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Ellas están cansadas",
+      "fraseCorrecta": "Loro sono stanche",
+      "fraseConError": "Loro sono stanchi",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Yo pregunto la hora",
+      "fraseCorrecta": "Io chiedo l'ora",
+      "fraseConError": "Io chiede l'ora",
+      "reglaIds": [
+        3,
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "Tú pones el libro aquí",
+      "fraseCorrecta": "Tu metti il libro qui",
+      "fraseConError": "Tu mette il libro qui",
+      "reglaIds": [
+        3,
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos preguntan mucho",
+      "fraseCorrecta": "Loro chiedono molto",
+      "fraseConError": "Loro chiede molto",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "Los árboles son altos",
+      "fraseCorrecta": "Gli alberi sono alti",
+      "fraseConError": "I alberi sono alti",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Los perros son grandes",
+      "fraseCorrecta": "I cani sono grandi",
+      "fraseConError": "Gli cani sono grandi",
+      "reglaIds": [
+        1,
+        3,
+        6
+      ]
+    },
+    {
+      "spanishPhrase": "Los espejos son nuevos",
+      "fraseCorrecta": "Gli specchi sono nuovi",
+      "fraseConError": "I specchi sono nuovi",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Tengo un espejo nuevo",
+      "fraseCorrecta": "Ho uno specchio nuovo",
+      "fraseConError": "Ho un specchio nuovo",
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Tengo un tío simpático",
+      "fraseCorrecta": "Ho uno zio simpatico",
+      "fraseConError": "Ho un zio simpatico",
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Es una gata negra",
+      "fraseCorrecta": "È una gatta nera",
+      "fraseConError": "È un gatta nera",
+      "reglaIds": [
+        1,
+        4
+      ]
+    }
+  ]
+}

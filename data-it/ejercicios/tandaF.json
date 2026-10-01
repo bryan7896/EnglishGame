@@ -1,0 +1,719 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "Yo voy a la escuela",
+      "englishWord": "Io vado a scuola",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Tú vas al parque",
+      "englishWord": "Tu vai al parco",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Él va al mercado",
+      "englishWord": "Lui va al mercato",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Ella va a la biblioteca",
+      "englishWord": "Lei va in biblioteca",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Nosotros vamos a casa",
+      "englishWord": "Noi andiamo a casa",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Vosotros vais a la plaza",
+      "englishWord": "Voi andate in piazza",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Ellos van al museo",
+      "englishWord": "Loro vanno al museo",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Yo voy a la tienda",
+      "englishWord": "Io vado al negozio",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Tú vas al trabajo",
+      "englishWord": "Tu vai al lavoro",
+      "reglaIds": [
+        8,
+        11
+      ]
+    },
+    {
+      "spanishWord": "Ellos van a casa",
+      "englishWord": "Loro vanno a casa",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Las casas son nuevas",
+      "englishWord": "Le case sono nuove",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las chicas son bajas",
+      "englishWord": "Le ragazze sono basse",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las bicicletas son viejas",
+      "englishWord": "Le biciclette sono vecchie",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las amigas son bonitas",
+      "englishWord": "Le amiche sono belle",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las niñas son traviesas",
+      "englishWord": "Le bambine sono cattive",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ellas están cansadas",
+      "englishWord": "Loro sono stanche",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ellas están ocupadas",
+      "englishWord": "Loro sono occupate",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Yo sirvo la comida",
+      "englishWord": "Io servo il cibo",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "Tú sirves el café",
+      "englishWord": "Tu servi il caffè",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "Él abre la ventana",
+      "englishWord": "Lui apre la finestra",
+      "reglaIds": [
+        3,
+        10
+      ]
+    },
+    {
+      "spanishWord": "Nosotros seguimos el camino",
+      "englishWord": "Noi seguiamo la strada",
+      "reglaIds": [
+        3,
+        10
+      ]
+    },
+    {
+      "spanishWord": "Vosotros dormís mucho",
+      "englishWord": "Voi dormite molto",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ellas sienten calor",
+      "englishWord": "Loro sentono caldo",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Yo recibo un regalo",
+      "englishWord": "Io ricevo un regalo",
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Tú corres rápido",
+      "englishWord": "Tu corri veloce",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Ella recibe una carta",
+      "englishWord": "Lei riceve una lettera",
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Nosotros corremos mucho",
+      "englishWord": "Noi corriamo molto",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Ellos reciben ayuda",
+      "englishWord": "Loro ricevono aiuto",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "el puente",
+      "englishWord": "il ponte",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "la torre",
+      "englishWord": "la torre",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "la isla",
+      "englishWord": "l'isola",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "un puente",
+      "englishWord": "un ponte",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "una isla",
+      "englishWord": "un'isola",
+      "reglaIds": [
+        4
+      ]
+    }
+  ],
+  "completar": [
+    {
+      "spanishWord": "Yo voy a la escuela.",
+      "englishSentence": "Io ___ a scuola.",
+      "options": [
+        "vado"
+      ],
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Tú vas al parque.",
+      "englishSentence": "Tu ___ al parco.",
+      "options": [
+        "vai"
+      ],
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Él va al mercado.",
+      "englishSentence": "Lui ___ al mercato.",
+      "options": [
+        "va"
+      ],
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Nosotros vamos a casa.",
+      "englishSentence": "Noi ___ a casa.",
+      "options": [
+        "andiamo"
+      ],
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Vosotros vais a la plaza.",
+      "englishSentence": "Voi ___ in piazza.",
+      "options": [
+        "andate"
+      ],
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Ellos van al museo.",
+      "englishSentence": "Loro ___ al museo.",
+      "options": [
+        "vanno"
+      ],
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Ella va a la biblioteca.",
+      "englishSentence": "Lei ___ in biblioteca.",
+      "options": [
+        "va"
+      ],
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Yo voy a la tienda.",
+      "englishSentence": "Io ___ al negozio.",
+      "options": [
+        "vado"
+      ],
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishWord": "Las casas son nuevas.",
+      "englishSentence": "Le case sono ___.",
+      "options": [
+        "nuove"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las chicas son bajas.",
+      "englishSentence": "Le ragazze sono ___.",
+      "options": [
+        "basse"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las bicicletas son viejas.",
+      "englishSentence": "Le biciclette sono ___.",
+      "options": [
+        "vecchie"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las amigas son bonitas.",
+      "englishSentence": "Le amiche sono ___.",
+      "options": [
+        "belle"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las niñas son traviesas.",
+      "englishSentence": "Le bambine sono ___.",
+      "options": [
+        "cattive"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ellas están cansadas.",
+      "englishSentence": "Loro sono ___.",
+      "options": [
+        "stanche"
+      ],
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Yo sirvo la comida.",
+      "englishSentence": "Io ___ il cibo.",
+      "options": [
+        "servo"
+      ],
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "Tú sirves el café.",
+      "englishSentence": "Tu ___ il caffè.",
+      "options": [
+        "servi"
+      ],
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "Él abre la ventana.",
+      "englishSentence": "Lui ___ la finestra.",
+      "options": [
+        "apre"
+      ],
+      "reglaIds": [
+        3,
+        10
+      ]
+    },
+    {
+      "spanishWord": "Nosotros seguimos el camino.",
+      "englishSentence": "Noi ___ la strada.",
+      "options": [
+        "seguiamo"
+      ],
+      "reglaIds": [
+        3,
+        10
+      ]
+    },
+    {
+      "spanishWord": "Vosotros dormís mucho.",
+      "englishSentence": "Voi ___ molto.",
+      "options": [
+        "dormite"
+      ],
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Ellos sienten calor.",
+      "englishSentence": "Loro ___ caldo.",
+      "options": [
+        "sentono"
+      ],
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishWord": "Yo recibo un regalo.",
+      "englishSentence": "Io ___ un regalo.",
+      "options": [
+        "ricevo"
+      ],
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Tú corres rápido.",
+      "englishSentence": "Tu ___ veloce.",
+      "options": [
+        "corri"
+      ],
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Nosotros corremos mucho.",
+      "englishSentence": "Noi ___ molto.",
+      "options": [
+        "corriamo"
+      ],
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Ellos reciben ayuda.",
+      "englishSentence": "Loro ___ aiuto.",
+      "options": [
+        "ricevono"
+      ],
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "El puente es largo.",
+      "englishSentence": "___ ponte è lungo.",
+      "options": [
+        "il"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "La torre es alta.",
+      "englishSentence": "___ torre è alta.",
+      "options": [
+        "la"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Tengo un puente cerca.",
+      "englishSentence": "Ho ___ ponte vicino.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Es una isla pequeña.",
+      "englishSentence": "È ___ isola piccola.",
+      "options": [
+        "un'"
+      ],
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    }
+  ],
+  "corregir": [
+    {
+      "spanishPhrase": "Yo voy a la escuela",
+      "fraseCorrecta": "Io vado a scuola",
+      "fraseConError": "Io va a scuola",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishPhrase": "Tú vas al parque",
+      "fraseCorrecta": "Tu vai al parco",
+      "fraseConError": "Tu va al parco",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros vamos a casa",
+      "fraseCorrecta": "Noi andiamo a casa",
+      "fraseConError": "Noi andate a casa",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishPhrase": "Vosotros vais a la plaza",
+      "fraseCorrecta": "Voi andate in piazza",
+      "fraseConError": "Voi andiamo in piazza",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos van al museo",
+      "fraseCorrecta": "Loro vanno al museo",
+      "fraseConError": "Loro va al museo",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishPhrase": "Ella va a la biblioteca",
+      "fraseCorrecta": "Lei va in biblioteca",
+      "fraseConError": "Lei vado in biblioteca",
+      "reglaIds": [
+        11
+      ]
+    },
+    {
+      "spanishPhrase": "Las casas son nuevas",
+      "fraseCorrecta": "Le case sono nuove",
+      "fraseConError": "Le case sono nuovi",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Ellas están cansadas",
+      "fraseCorrecta": "Loro sono stanche",
+      "fraseConError": "Loro sono stanchi",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Ellas están ocupadas",
+      "fraseCorrecta": "Loro sono occupate",
+      "fraseConError": "Loro sono occupati",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Yo sirvo la comida",
+      "fraseCorrecta": "Io servo il cibo",
+      "fraseConError": "Io serve il cibo",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros seguimos el camino",
+      "fraseCorrecta": "Noi seguiamo la strada",
+      "fraseConError": "Noi seguite la strada",
+      "reglaIds": [
+        3,
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Vosotros dormís mucho",
+      "fraseCorrecta": "Voi dormite molto",
+      "fraseConError": "Voi dormono molto",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Ellas sienten calor",
+      "fraseCorrecta": "Loro sentono caldo",
+      "fraseConError": "Loro sente caldo",
+      "reglaIds": [
+        10
+      ]
+    },
+    {
+      "spanishPhrase": "Yo recibo un regalo",
+      "fraseCorrecta": "Io ricevo un regalo",
+      "fraseConError": "Io riceve un regalo",
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "Tú corres rápido",
+      "fraseCorrecta": "Tu corri veloce",
+      "fraseConError": "Tu corre veloce",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos reciben ayuda",
+      "fraseCorrecta": "Loro ricevono aiuto",
+      "fraseConError": "Loro riceve aiuto",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "El puente es largo",
+      "fraseCorrecta": "Il ponte è lungo",
+      "fraseConError": "La ponte è lungo",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishPhrase": "La isla es pequeña",
+      "fraseCorrecta": "L'isola è piccola",
+      "fraseConError": "La isola è piccola",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Es una isla pequeña",
+      "fraseCorrecta": "È un'isola piccola",
+      "fraseConError": "È una isola piccola",
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    }
+  ]
+}

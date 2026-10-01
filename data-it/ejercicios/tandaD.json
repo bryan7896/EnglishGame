@@ -1,0 +1,774 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "Yo leo un libro",
+      "englishWord": "Io leggo un libro",
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Tú bebes leche",
+      "englishWord": "Tu bevi latte",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Él escribe una carta",
+      "englishWord": "Lui scrive una lettera",
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Ella toma un café",
+      "englishWord": "Lei prende un caffè",
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Nosotros vendemos libros",
+      "englishWord": "Noi vendiamo libri",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Vosotros respondéis rápido",
+      "englishWord": "Voi rispondete velocemente",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Ellos creen en ti",
+      "englishWord": "Loro credono in te",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Yo veo la película",
+      "englishWord": "Io vedo il film",
+      "reglaIds": [
+        3,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Tú lees el periódico",
+      "englishWord": "Tu leggi il giornale",
+      "reglaIds": [
+        3,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Nosotros bebemos agua",
+      "englishWord": "Noi beviamo acqua",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Ella escribe un mensaje",
+      "englishWord": "Lei scrive un messaggio",
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Ellos venden frutas",
+      "englishWord": "Loro vendono frutta",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Los chicos son altos",
+      "englishWord": "I ragazzi sono alti",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las chicas son altas",
+      "englishWord": "Le ragazze sono alte",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los libros son viejos",
+      "englishWord": "I libri sono vecchi",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las casas son grandes",
+      "englishWord": "Le case sono grandi",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "Los amigos son simpáticos",
+      "englishWord": "Gli amici sono simpatici",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las amigas son jóvenes",
+      "englishWord": "Le amiche sono giovani",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los estudiantes son inteligentes",
+      "englishWord": "Gli studenti sono intelligenti",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Nosotros estamos felices",
+      "englishWord": "Noi siamo felici",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ellos están cansados",
+      "englishWord": "Loro sono stanchi",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las chicas están ocupadas",
+      "englishWord": "Le ragazze sono occupate",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "los niños",
+      "englishWord": "i bambini",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "los estudiantes",
+      "englishWord": "gli studenti",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "las mochilas",
+      "englishWord": "gli zaini",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "los amigos",
+      "englishWord": "gli amici",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "los relojes",
+      "englishWord": "gli orologi",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "los animales",
+      "englishWord": "gli animali",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "las flores",
+      "englishWord": "i fiori",
+      "reglaIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "un animal",
+      "englishWord": "un animale",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "una mochila",
+      "englishWord": "uno zaino",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "un amigo",
+      "englishWord": "un amico",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "una amiga",
+      "englishWord": "un'amica",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "un estudiante",
+      "englishWord": "uno studente",
+      "reglaIds": [
+        4
+      ]
+    }
+  ],
+  "completar": [
+    {
+      "spanishWord": "Yo leo un libro.",
+      "englishSentence": "Io ___ un libro.",
+      "options": [
+        "leggo"
+      ],
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Tú bebes leche.",
+      "englishSentence": "Tu ___ latte.",
+      "options": [
+        "bevi"
+      ],
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Él escribe una carta.",
+      "englishSentence": "Lui ___ una lettera.",
+      "options": [
+        "scrive"
+      ],
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Nosotros tomamos un café.",
+      "englishSentence": "Noi ___ un caffè.",
+      "options": [
+        "prendiamo"
+      ],
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Vosotros vendéis libros.",
+      "englishSentence": "Voi ___ libri.",
+      "options": [
+        "vendete"
+      ],
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Ellos responden rápido.",
+      "englishSentence": "Loro ___ velocemente.",
+      "options": [
+        "rispondono"
+      ],
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Yo creo en ti.",
+      "englishSentence": "Io ___ in te.",
+      "options": [
+        "credo"
+      ],
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Tú ves la película.",
+      "englishSentence": "Tu ___ il film.",
+      "options": [
+        "vedi"
+      ],
+      "reglaIds": [
+        3,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Nosotros escribimos una historia.",
+      "englishSentence": "Noi ___ una storia.",
+      "options": [
+        "scriviamo"
+      ],
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishWord": "Ella bebe agua.",
+      "englishSentence": "Lei ___ acqua.",
+      "options": [
+        "beve"
+      ],
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishWord": "Los chicos son altos.",
+      "englishSentence": "I ragazzi sono ___.",
+      "options": [
+        "alti"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las chicas son altas.",
+      "englishSentence": "Le ragazze sono ___.",
+      "options": [
+        "alte"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los libros son viejos.",
+      "englishSentence": "I libri sono ___.",
+      "options": [
+        "vecchi"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las casas son grandes.",
+      "englishSentence": "Le case sono ___.",
+      "options": [
+        "grandi"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "Los amigos son simpáticos.",
+      "englishSentence": "Gli amici sono ___.",
+      "options": [
+        "simpatici"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los estudiantes son inteligentes.",
+      "englishSentence": "Gli studenti sono ___.",
+      "options": [
+        "intelligenti"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ellos están cansados.",
+      "englishSentence": "Loro sono ___.",
+      "options": [
+        "stanchi"
+      ],
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las chicas están ocupadas.",
+      "englishSentence": "Le ragazze sono ___.",
+      "options": [
+        "occupate"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los niños son inteligentes.",
+      "englishSentence": "___ bambini sono intelligenti.",
+      "options": [
+        "i"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los estudiantes son diligentes.",
+      "englishSentence": "___ studenti sono diligenti.",
+      "options": [
+        "gli"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "Los amigos son simpáticos.",
+      "englishSentence": "___ amici sono simpatici.",
+      "options": [
+        "gli"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Las flores son bonitas.",
+      "englishSentence": "___ fiori sono belli.",
+      "options": [
+        "i"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Los animales son grandes.",
+      "englishSentence": "___ animali sono grandi.",
+      "options": [
+        "gli"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        6
+      ]
+    },
+    {
+      "spanishWord": "Tengo un animal en casa.",
+      "englishSentence": "Ho ___ animale a casa.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Tengo una mochila nueva.",
+      "englishSentence": "Ho ___ zaino nuovo.",
+      "options": [
+        "uno"
+      ],
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Es una amiga simpática.",
+      "englishSentence": "È ___ amica simpatica.",
+      "options": [
+        "un'"
+      ],
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Es un estudiante bueno.",
+      "englishSentence": "È ___ studente bravo.",
+      "options": [
+        "uno"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    }
+  ],
+  "corregir": [
+    {
+      "spanishPhrase": "Yo leo un libro",
+      "fraseCorrecta": "Io leggo un libro",
+      "fraseConError": "Io legge un libro",
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "Tú bebes leche",
+      "fraseCorrecta": "Tu bevi latte",
+      "fraseConError": "Tu beve latte",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros vendemos libros",
+      "fraseCorrecta": "Noi vendiamo libri",
+      "fraseConError": "Noi vendono libri",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos responden rápido",
+      "fraseCorrecta": "Loro rispondono velocemente",
+      "fraseConError": "Loro risponde velocemente",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "Ella escribe un mensaje",
+      "fraseCorrecta": "Lei scrive un messaggio",
+      "fraseConError": "Lei scrivo un messaggio",
+      "reglaIds": [
+        4,
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "Tú crees en mí",
+      "fraseCorrecta": "Tu credi in me",
+      "fraseConError": "Tu crede in me",
+      "reglaIds": [
+        9
+      ]
+    },
+    {
+      "spanishPhrase": "Los chicos son altos",
+      "fraseCorrecta": "I ragazzi sono alti",
+      "fraseConError": "I ragazzi sono alto",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Las chicas son altas",
+      "fraseCorrecta": "Le ragazze sono alte",
+      "fraseConError": "Le ragazze sono alta",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Los amigos son simpáticos",
+      "fraseCorrecta": "Gli amici sono simpatici",
+      "fraseConError": "Gli amici sono simpatico",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Los estudiantes son inteligentes",
+      "fraseCorrecta": "Gli studenti sono intelligenti",
+      "fraseConError": "Gli studenti sono intelligente",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros estamos felices",
+      "fraseCorrecta": "Noi siamo felici",
+      "fraseConError": "Noi siamo felice",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos están cansados",
+      "fraseCorrecta": "Loro sono stanchi",
+      "fraseConError": "Loro sono stanco",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Los niños son inteligentes",
+      "fraseCorrecta": "I bambini sono intelligenti",
+      "fraseConError": "Gli bambini sono intelligenti",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Los estudiantes son diligentes",
+      "fraseCorrecta": "Gli studenti sono diligenti",
+      "fraseConError": "I studenti sono diligenti",
+      "reglaIds": [
+        1,
+        3,
+        6
+      ]
+    },
+    {
+      "spanishPhrase": "Las flores son bonitas",
+      "fraseCorrecta": "I fiori sono belli",
+      "fraseConError": "Gli fiori sono belli",
+      "reglaIds": [
+        1,
+        3,
+        6,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Los animales son grandes",
+      "fraseCorrecta": "Gli animali sono grandi",
+      "fraseConError": "I animali sono grandi",
+      "reglaIds": [
+        1,
+        3,
+        6
+      ]
+    },
+    {
+      "spanishPhrase": "Tengo una mochila nueva",
+      "fraseCorrecta": "Ho uno zaino nuovo",
+      "fraseConError": "Ho un zaino nuovo",
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Es una amiga simpática",
+      "fraseCorrecta": "È un'amica simpatica",
+      "fraseConError": "È una amica simpatica",
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Es un estudiante bueno",
+      "fraseCorrecta": "È uno studente bravo",
+      "fraseConError": "È un studente bravo",
+      "reglaIds": [
+        1,
+        4
+      ]
+    }
+  ]
+}

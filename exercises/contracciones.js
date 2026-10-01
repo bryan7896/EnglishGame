@@ -7,7 +7,9 @@
 // y cuál de las dos escriba el usuario.
 //
 // A propósito NO se usa vía informacion.js: ese nodo ("Práctica inicial")
-// debe seguir validando de forma estricta/normal como hasta ahora.
+// debe seguir validando de forma estricta/normal como hasta ahora. Sí usa
+// normalizeQuotes() (del mismo archivo) para tolerar el apóstrofe curvo
+// (’) que autocorrigen los teclados, sin aceptar contracciones de inglés.
 //
 // La misma data vive también en /contracciones.json (por si se quiere
 // editar o reutilizar el listado fuera de la app). Aquí se repite como
@@ -118,8 +120,20 @@ const _CONTRACTION_REGEXES = Object.keys(CONTRACTIONS_MAP)
  * muestra de vuelta) — eso debe seguir mostrando exactamente lo que él
  * tecleó.
  */
+/**
+ * Normaliza apóstrofes "inteligentes" (’ ‘, los que meten solos iOS/Android
+ * al autocorregir) a un apóstrofe recto ' de toda la vida. Es su propia
+ * función (y no solo parte de normalizeContractions) porque también la
+ * necesita informacion.js, que a propósito NO pasa por normalizeContractions
+ * (no debe aceptar contracciones de inglés), pero SÍ debe tratar l'amica
+ * y l'amica (con comilla curva) como la misma respuesta.
+ */
+export function normalizeQuotes(text) {
+  return String(text || '').replace(/[’‘]/g, "'");
+}
+
 export function normalizeContractions(text) {
-  let result = String(text || '').replace(/[’‘]/g, "'");
+  let result = normalizeQuotes(text);
   for (const { regex, replacement } of _CONTRACTION_REGEXES) {
     result = result.replace(regex, replacement);
   }

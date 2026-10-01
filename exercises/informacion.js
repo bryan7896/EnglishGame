@@ -126,7 +126,7 @@ function renderEj2(leccion, state, status) {
 function renderEj3Item(leccion, state, tIdx, status) {
   const item = leccion.ejercicio3.traducciones[tIdx];
   const answer = state.ej3[tIdx];
-  const normalize = (s) => String(s || "").toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
+  const normalize = (s) => normalizeQuotes(String(s || "")).toLowerCase().replace(/[.,!?;:]/g, '').replace(/\s+/g, ' ').trim();
   const isCorrect = answer.answered && normalize(answer.userAnswer) === normalize(item.englishWord);
 
   return `
@@ -256,7 +256,7 @@ export function wireLeccion(leccion, container, state, onChange, onLeccionDone) 
         const chip = s.banco.find(c => c.id === s.selectedChipId);
         if (!chip) return;
         const frase = frases[s.activeIdx];
-        const normalize = (t) => String(t || "").toLowerCase().trim();
+        const normalize = (t) => normalizeQuotes(String(t || "")).toLowerCase().trim();
         const correct = normalize(chip.texto) === normalize(frase.respuesta);
         s.results[s.activeIdx] = correct ? "correct" : "wrong";
         // La ficha NUNCA se marca como "usada": una misma palabra del banco

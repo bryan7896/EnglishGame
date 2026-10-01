@@ -1,0 +1,65 @@
+{
+  "_comentario": "Reglas de italiano derivadas del contenido real de tanda1 + tandaB..G. Mismo esquema que inglés (id/regla/porcentaje), ids propios e independientes de los de inglés.",
+  "reglas": [
+    {
+      "id": 1,
+      "regla": "Presente del verbo Essere (ser/estar)",
+      "porcentaje": 73
+    },
+    {
+      "id": 2,
+      "regla": "Presente del verbo Avere (tener)",
+      "porcentaje": 78
+    },
+    {
+      "id": 3,
+      "regla": "Artículos determinados (il, lo, la, l', i, gli, le)",
+      "porcentaje": 65
+    },
+    {
+      "id": 4,
+      "regla": "Artículos indeterminados (un, uno, una, un')",
+      "porcentaje": 78
+    },
+    {
+      "id": 5,
+      "regla": "Género de los sustantivos (masculino/femenino)",
+      "porcentaje": 0
+    },
+    {
+      "id": 6,
+      "regla": "Plural de sustantivos y artículos (i/gli, e/i)",
+      "porcentaje": 78
+    },
+    {
+      "id": 7,
+      "regla": "Concordancia de adjetivos (género y número)",
+      "porcentaje": 68
+    },
+    {
+      "id": 8,
+      "regla": "Presente indicativo: verbos regulares -ARE",
+      "porcentaje": 0
+    },
+    {
+      "id": 9,
+      "regla": "Presente indicativo: verbos regulares -ERE",
+      "porcentaje": 75
+    },
+    {
+      "id": 10,
+      "regla": "Presente indicativo: verbos regulares -IRE",
+      "porcentaje": 68
+    },
+    {
+      "id": 11,
+      "regla": "Presente del verbo Andare (ir) + preposiciones de movimiento (a/in/al)",
+      "porcentaje": 70
+    },
+    {
+      "id": 12,
+      "regla": "Saludos y expresiones básicas",
+      "porcentaje": 40
+    }
+  ]
+}

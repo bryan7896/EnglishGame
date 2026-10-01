@@ -144,12 +144,8 @@ textarea:focus-visible,
 /* ============ 3. SCREENS ============ */
 .screen {
   display: none;
-  padding: 16px 8px 40px;
+  padding: 16px 16px 40px;
   animation: screen-in 0.35s var(--ease);
-}
-
-.borderw {
-  padding: 16px 0px 40px;
 }
 
 .screen.active { display: block; }
@@ -293,6 +289,76 @@ textarea:focus-visible,
   align-items: center;
   justify-content: center;
 }
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============ HELP MODAL (guía de gramática, solo inglés) ============ */
+.help-modal-content {
+  text-align: left;
+  max-height: 60vh;
+  overflow-y: auto;
+  margin: 4px 0 2px;
+}
+
+.help-section {
+  background: var(--surface-2);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.help-section h4 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.help-section .help-sub {
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.help-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.help-list li {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: var(--ink-dim);
+}
+
+.help-list b { color: var(--ink); }
+.help-list .help-arrow { color: var(--info); font-weight: 700; }
+.help-list .help-pct { color: var(--gold); font-weight: 700; }
+
+.help-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin-top: 4px;
+}
+
+.help-table th, .help-table td {
+  padding: 6px 8px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.help-table th { color: var(--ink-faint); font-weight: 700; }
+.help-table td { color: var(--ink-dim); }
+.help-table td b { color: var(--ink); }
 
 .action-buttons {
   display: grid;
@@ -485,7 +551,7 @@ textarea:focus-visible,
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: saturate(0.8) brightness(0.9);
+  filter: saturate(0.8) brightness(0.5);
   transform: scale(1.03);
   transition: transform 0.4s var(--ease), filter 0.4s var(--ease);
 }
@@ -1527,6 +1593,132 @@ textarea:focus-visible,
   max-width: 380px;
   justify-content: flex-start;
   text-align: left;
+}
+
+/* ============ MENÚ LATERAL (sidebar) ============ */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 12, 15, 0.78);
+  backdrop-filter: blur(2px);
+  z-index: 100;
+  opacity: 0;
+  animation: modal-fade 0.2s var(--ease) forwards;
+}
+
+.sidebar-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(86vw, 340px);
+  background: var(--surface);
+  border-left: 2px solid var(--line-strong);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  padding: 18px 16px;
+  transform: translateX(100%);
+  animation: sidebar-in 0.28s var(--ease) forwards;
+}
+
+@keyframes sidebar-in {
+  to { transform: translateX(0); }
+}
+
+.sidebar-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.sidebar-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  padding-right: 2px;
+  padding-bottom: 10px;
+}
+
+.sidebar-menu-list .fun-btn { text-align: left; width: 100%; }
+
+/* ============ PANTALLA "VER PORCENTAJES" ============ */
+.percentages-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.percentages-row .rule-card-body { flex: 1; min-width: 0; }
+
+.rule-stats-btn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--surface-2);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--info);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  box-shadow: 0 3px 0 0 var(--line);
+  transition: transform 0.1s var(--ease), box-shadow 0.1s var(--ease), border-color 0.2s var(--ease);
+}
+
+.rule-stats-btn:hover { border-color: var(--info); }
+.rule-stats-btn:active { transform: translateY(3px); box-shadow: 0 0 0 0 var(--line); }
+
+/* ============ GRÁFICA DE BARRAS (historial de %) ============ */
+.stats-chart-container { min-height: 120px; }
+
+.stats-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 180px;
+  padding: 10px 4px 0;
+  border-bottom: 2px solid var(--line);
+  overflow-x: auto;
+}
+
+.stats-bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1 0 36px;
+  height: 100%;
+}
+
+.stats-bar-value {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.stats-bar {
+  width: 22px;
+  min-height: 4px;
+  background: linear-gradient(180deg, var(--brand-light), var(--brand));
+  border-radius: 6px 6px 0 0;
+  transition: height 0.4s var(--ease-bounce);
+}
+
+.stats-bar-date {
+  font-size: 0.64rem;
+  color: var(--ink-faint);
+  margin-top: 6px;
+  white-space: nowrap;
 }
 
 .menu-modal-header {

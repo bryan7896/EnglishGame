@@ -1,0 +1,758 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "Es un cuaderno",
+      "englishWord": "È un quaderno",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Es una pluma",
+      "englishWord": "È una penna",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Es una computadora",
+      "englishWord": "È un computer",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Es una bicicleta",
+      "englishWord": "È una bicicletta",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Es una chaqueta",
+      "englishWord": "È una giacca",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Es un sombrero",
+      "englishWord": "È un cappello",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Es una ventana",
+      "englishWord": "È una finestra",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Tengo un cuaderno",
+      "englishWord": "Ho un quaderno",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Tengo una pluma",
+      "englishWord": "Ho una penna",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Tengo una bicicleta",
+      "englishWord": "Ho una bicicletta",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Tengo un amigo simpático",
+      "englishWord": "Ho un amico simpatico",
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Tengo una amiga italiana",
+      "englishWord": "Ho un'amica italiana",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Es un estudiante nuevo",
+      "englishWord": "È uno studente nuovo",
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Es una estudiante nueva",
+      "englishWord": "È una studentessa nuova",
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Yo soy mecánico",
+      "englishWord": "Io sono meccanico",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú eres farmacéutica",
+      "englishWord": "Tu sei farmacista",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él es arquitecto",
+      "englishWord": "Lui è architetto",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella es músico",
+      "englishWord": "Lei è musicista",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros estamos felices",
+      "englishWord": "Noi siamo felici",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Vosotros estáis cansados",
+      "englishWord": "Voi siete stanchi",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ellos están ocupados",
+      "englishWord": "Loro sono occupati",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "el cuaderno",
+      "englishWord": "il quaderno",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "la pluma",
+      "englishWord": "la penna",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "el sombrero",
+      "englishWord": "il cappello",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "La chica está feliz",
+      "englishWord": "La ragazza è felice",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El chico está triste",
+      "englishWord": "Il ragazzo è triste",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ella está cansada",
+      "englishWord": "Lei è stanca",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Yo tengo un hermano",
+      "englishWord": "Io ho un fratello",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Tú tienes una hermana",
+      "englishWord": "Tu hai una sorella",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Él tiene un perro",
+      "englishWord": "Lui ha un cane",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Ella tiene un libro nuevo",
+      "englishWord": "Lei ha un libro nuovo",
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Nosotros tenemos una casa",
+      "englishWord": "Noi abbiamo una casa",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Vosotros tenéis dos amigos",
+      "englishWord": "Voi avete due amici",
+      "reglaIds": [
+        2
+      ]
+    },
+    {
+      "spanishWord": "Ellos tienen un gato",
+      "englishWord": "Loro hanno un gatto",
+      "reglaIds": [
+        2,
+        4
+      ]
+    }
+  ],
+  "completar": [
+    {
+      "spanishWord": "Tengo un cuaderno nuevo.",
+      "englishSentence": "Ho ___ quaderno nuovo.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Tengo una pluma aquí.",
+      "englishSentence": "Ho ___ penna qui.",
+      "options": [
+        "una"
+      ],
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Es una computadora.",
+      "englishSentence": "È ___ computer.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Tengo una bicicleta roja.",
+      "englishSentence": "Ho ___ bicicletta rossa.",
+      "options": [
+        "una"
+      ],
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Es una chaqueta nueva.",
+      "englishSentence": "È ___ giacca nuova.",
+      "options": [
+        "una"
+      ],
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Tengo un sombrero.",
+      "englishSentence": "Ho ___ cappello.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Es una ventana grande.",
+      "englishSentence": "È ___ finestra grande.",
+      "options": [
+        "una"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Es una puerta abierta.",
+      "englishSentence": "È ___ porta aperta.",
+      "options": [
+        "una"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Tengo un reloj nuevo.",
+      "englishSentence": "Ho ___ orologio nuovo.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Es una amiga simpática.",
+      "englishSentence": "È ___ amica simpatica.",
+      "options": [
+        "un'"
+      ],
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Yo soy mecánico.",
+      "englishSentence": "Io ___ meccanico.",
+      "options": [
+        "sono"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú estás feliz.",
+      "englishSentence": "Tu ___ felice.",
+      "options": [
+        "sei"
+      ],
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Él está triste.",
+      "englishSentence": "Lui ___ triste.",
+      "options": [
+        "è"
+      ],
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Nosotros estamos cansados.",
+      "englishSentence": "Noi ___ stanchi.",
+      "options": [
+        "siamo"
+      ],
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Vosotros estáis ocupados.",
+      "englishSentence": "Voi ___ occupati.",
+      "options": [
+        "siete"
+      ],
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La computadora es nueva.",
+      "englishSentence": "___ computer è nuovo.",
+      "options": [
+        "il"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La bicicleta es roja.",
+      "englishSentence": "___ bicicletta è rossa.",
+      "options": [
+        "la"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La ventana es grande.",
+      "englishSentence": "___ finestra è grande.",
+      "options": [
+        "la"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "La chica está cansada.",
+      "englishSentence": "La ragazza è ___.",
+      "options": [
+        "stanca"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El chico está cansado.",
+      "englishSentence": "Il ragazzo è ___.",
+      "options": [
+        "stanco"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ella está ocupada.",
+      "englishSentence": "Lei è ___.",
+      "options": [
+        "occupata"
+      ],
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Yo tengo un hermano.",
+      "englishSentence": "Io ___ un fratello.",
+      "options": [
+        "ho"
+      ],
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Tú tienes una hermana.",
+      "englishSentence": "Tu ___ una sorella.",
+      "options": [
+        "hai"
+      ],
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Ella tiene un perro.",
+      "englishSentence": "Lei ___ un cane.",
+      "options": [
+        "ha"
+      ],
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Nosotros tenemos una casa.",
+      "englishSentence": "Noi ___ una casa.",
+      "options": [
+        "abbiamo"
+      ],
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Vosotros tenéis dos amigos.",
+      "englishSentence": "Voi ___ due amici.",
+      "options": [
+        "avete"
+      ],
+      "reglaIds": [
+        2
+      ]
+    }
+  ],
+  "corregir": [
+    {
+      "spanishPhrase": "Tengo un cuaderno nuevo",
+      "fraseCorrecta": "Ho un quaderno nuovo",
+      "fraseConError": "Ho uno quaderno nuovo",
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Es una pluma",
+      "fraseCorrecta": "È una penna",
+      "fraseConError": "È un penna",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Es una computadora",
+      "fraseCorrecta": "È un computer",
+      "fraseConError": "È uno computer",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Tengo una bicicleta roja",
+      "fraseCorrecta": "Ho una bicicletta rossa",
+      "fraseConError": "Ho un bicicletta rossa",
+      "reglaIds": [
+        2,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Es una chaqueta nueva",
+      "fraseCorrecta": "È una giacca nuova",
+      "fraseConError": "È un giacca nuova",
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Tengo un sombrero",
+      "fraseCorrecta": "Ho un cappello",
+      "fraseConError": "Ho uno cappello",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Es una ventana grande",
+      "fraseCorrecta": "È una finestra grande",
+      "fraseConError": "È un finestra grande",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Es una amiga simpática",
+      "fraseCorrecta": "È un'amica simpatica",
+      "fraseConError": "È una amica simpatica",
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Yo soy farmacéutico",
+      "fraseCorrecta": "Io sono farmacista",
+      "fraseConError": "Io è farmacista",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Ella está feliz",
+      "fraseCorrecta": "Lei è felice",
+      "fraseConError": "Lei sono felice",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros estamos cansados",
+      "fraseCorrecta": "Noi siamo stanchi",
+      "fraseConError": "Noi siete stanchi",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos están ocupados",
+      "fraseCorrecta": "Loro sono occupati",
+      "fraseConError": "Loro è occupati",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "El cuaderno es nuevo",
+      "fraseCorrecta": "Il quaderno è nuovo",
+      "fraseConError": "La quaderno è nuovo",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "La chaqueta es nueva",
+      "fraseCorrecta": "La giacca è nuova",
+      "fraseConError": "Il giacca è nuova",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "La chica está cansada",
+      "fraseCorrecta": "La ragazza è stanca",
+      "fraseConError": "La ragazza è stanco",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "El chico está ocupado",
+      "fraseCorrecta": "Il ragazzo è occupato",
+      "fraseConError": "Il ragazzo è occupata",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Yo tengo un hermano",
+      "fraseCorrecta": "Io ho un fratello",
+      "fraseConError": "Io hai un fratello",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Ella tiene un perro",
+      "fraseCorrecta": "Lei ha un cane",
+      "fraseConError": "Lei hanno un cane",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros tenemos una casa",
+      "fraseCorrecta": "Noi abbiamo una casa",
+      "fraseConError": "Noi avete una casa",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos tienen un gato",
+      "fraseCorrecta": "Loro hanno un gatto",
+      "fraseConError": "Loro ha un gatto",
+      "reglaIds": [
+        2,
+        4
+      ]
+    }
+  ]
+}

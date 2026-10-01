@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "10.0 (29-09-2026)"
+VERSION = "11.0 (28-09-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -38,10 +38,27 @@ EXERCISE_FILES = {
 }
 
 
-DATA_DIR = "data"
-GRAMMAR_RULES_FILE = os.path.join(DATA_DIR, "reglas-gramaticales.json")
-STUDY_EXERCISES_DIR = os.path.join(DATA_DIR, "ejercicios")
-INFORMACION_REGLAS_FILE = os.path.join(DATA_DIR, "informacion-reglas.json")
+DATA_LANGUAGES = ["en", "it"]
+
+
+def data_dir(lang):
+    """Carpeta de datos de un idioma: data-en/, data-it/, etc. — cada
+    idioma objetivo tiene su propia carpeta completa (reglas, ejercicios,
+    información), totalmente separada de las demás."""
+    return f"data-{lang}"
+
+
+def grammar_rules_file(lang):
+    return os.path.join(data_dir(lang), "reglas-gramaticales.json")
+
+
+def study_exercises_dir(lang):
+    return os.path.join(data_dir(lang), "ejercicios")
+
+
+def informacion_reglas_file(lang):
+    return os.path.join(data_dir(lang), "informacion-reglas.json")
+
 
 # Claves de los 5 tipos crudos -> nombre de tipo singular usado en runtime
 # (mismo mapeo que createNodeStructure() en mapa/map.js).
@@ -54,34 +71,40 @@ TYPE_KEY_TO_SINGULAR = {
 }
 
 
-def load_grammar_rules():
-    """Lee data/reglas-gramaticales.json (listado maestro con id/regla/
-    porcentaje). Es solo la SEMILLA: en runtime el % real vive y se
-    actualiza en localStorage, independiente de este archivo."""
-    if not os.path.exists(GRAMMAR_RULES_FILE):
+def load_grammar_rules(lang):
+    """Lee data-{lang}/reglas-gramaticales.json (listado maestro con
+    id/regla/porcentaje) para UN idioma. Es solo la SEMILLA: en runtime el
+    % real vive y se actualiza en localStorage (una llave por idioma),
+    independiente de este archivo. Si la carpeta del idioma no existe
+    todavía (por ejemplo data-it/ recién creada sin contenido), devuelve
+    una lista vacía sin romper el build."""
+    path = grammar_rules_file(lang)
+    if not os.path.exists(path):
         return []
-    with open(GRAMMAR_RULES_FILE, 'r', encoding='utf-8') as f:
+    with open(path, 'r', encoding='utf-8') as f:
         data = json.load(f)
     rules = data.get('reglas', data if isinstance(data, list) else [])
     # Solo id/regla/porcentaje viajan al cliente (se ignoran comentarios).
     return [{"id": r["id"], "regla": r["regla"], "porcentaje": r.get("porcentaje", 0)} for r in rules]
 
 
-def load_study_exercises():
-    """Combina TODOS los .json de data/ejercicios/ en una sola lista plana
-    de ejercicios ya normalizados (type/id/reglaIds + campos propios del
-    tipo), lista para que el flujo de 'Seleccionar reglas a estudiar' la
-    filtre por reglaId sin transformar nada en runtime."""
+def load_study_exercises(lang):
+    """Combina TODOS los .json de data-{lang}/ejercicios/ en una sola
+    lista plana de ejercicios ya normalizados (type/id/reglaIds + campos
+    propios del tipo) para UN idioma, lista para que el flujo de
+    'Seleccionar reglas a estudiar' la filtre por reglaId sin transformar
+    nada en runtime."""
     all_exercises = []
-    if not os.path.isdir(STUDY_EXERCISES_DIR):
+    ejercicios_dir = study_exercises_dir(lang)
+    if not os.path.isdir(ejercicios_dir):
         return all_exercises
 
     counters = {singular: 0 for singular in TYPE_KEY_TO_SINGULAR.values()}
     seen_ids = set()
-    files = sorted(f for f in os.listdir(STUDY_EXERCISES_DIR) if f.endswith('.json'))
+    files = sorted(f for f in os.listdir(ejercicios_dir) if f.endswith('.json'))
 
     for fname in files:
-        fpath = os.path.join(STUDY_EXERCISES_DIR, fname)
+        fpath = os.path.join(ejercicios_dir, fname)
         file_stem = os.path.splitext(fname)[0]
         with open(fpath, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -106,11 +129,11 @@ def load_study_exercises():
 
                 ex["type"] = singular
                 custom_id = ex.get("id") if isinstance(raw, dict) else None
-                ex["id"] = custom_id or f"{singular}_{counters[singular]}_{file_stem}"
+                ex["id"] = custom_id or f"{lang}_{singular}_{counters[singular]}_{file_stem}"
                 ex["reglaIds"] = ex.get("reglaIds") or []
 
                 if ex["id"] in seen_ids:
-                    print(f"  ⚠️  id duplicado '{ex['id']}' en {fname} — se agrega igual, revísalo a mano")
+                    print(f"  ⚠️  [{lang}] id duplicado '{ex['id']}' en {fname} — se agrega igual, revísalo a mano")
                 seen_ids.add(ex["id"])
 
                 all_exercises.append(ex)
@@ -118,12 +141,14 @@ def load_study_exercises():
     return all_exercises
 
 
-def load_informacion_por_regla():
-    """Lee data/informacion-reglas.json: lecciones de 'información' (mismo
-    esquema que informacion.js) agrupadas por id de regla gramatical."""
-    if not os.path.exists(INFORMACION_REGLAS_FILE):
+def load_informacion_por_regla(lang):
+    """Lee data-{lang}/informacion-reglas.json: lecciones de 'información'
+    (mismo esquema que informacion.js) agrupadas por id de regla
+    gramatical, para UN idioma."""
+    path = informacion_reglas_file(lang)
+    if not os.path.exists(path):
         return {}
-    with open(INFORMACION_REGLAS_FILE, 'r', encoding='utf-8') as f:
+    with open(path, 'r', encoding='utf-8') as f:
         data = json.load(f)
     return data.get('porRegla', data if isinstance(data, dict) else {})
 
@@ -278,7 +303,10 @@ def get_html_template():
       <div class="brand-mini">
         <div class="title-fun">English Trainer</div>
       </div>
-      <button class="menu-btn" id="toggleMenuBtn">☰</button>
+      <div class="topbar-actions">
+        <button class="menu-btn help-btn" id="toggleHelpBtn" title="Ayuda de gramática" style="display:none;">❓</button>
+        <button class="menu-btn" id="toggleMenuBtn">☰</button>
+      </div>
     </div>
 
     <div id="importScreen" class="screen active">
@@ -298,7 +326,7 @@ def get_html_template():
       </div>
     </div>
 
-    <div id="rulesSelectScreen" class="screen borderw">
+    <div id="rulesSelectScreen" class="screen">
       <div class="magic-card rules-card">
         <h2>🎯 Selecciona las reglas a estudiar</h2>
         <p>Marca las reglas que quieres practicar en esta tanda. La barra muestra tu dominio actual de cada una.</p>
@@ -310,7 +338,7 @@ def get_html_template():
       </div>
     </div>
 
-    <div id="rulesConfigScreen" class="screen borderw">
+    <div id="rulesConfigScreen" class="screen">
       <div class="magic-card rules-card">
         <h2>📋 Reglas seleccionadas</h2>
         <p>Indica cuántos ejercicios quieres de cada regla y, si tiene varios tipos, cuántos de cada uno.</p>
@@ -319,6 +347,20 @@ def get_html_template():
         <div class="button-group">
           <button class="fun-btn" id="rulesConfigBackBtn">← Editar selección</button>
           <button class="btn-action btn-check" id="rulesConfigStartBtn">🚀 Empezar a estudiar</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="percentagesScreen" class="screen">
+      <div class="magic-card rules-card">
+        <h2>📊 Porcentajes por regla</h2>
+        <p>Así vas en cada regla gramatical. Toca el ícono de barras para ver cómo ha cambiado en el tiempo.</p>
+        <div class="button-group">
+          <button class="fun-btn primary-btn full-width" id="percentagesUpdateBtn" style="width:100%;">🔄 Actualizar % de reglas</button>
+        </div>
+        <div id="percentagesList" class="rules-select-list" style="margin-top:14px;"></div>
+        <div class="button-group">
+          <button class="fun-btn full-width" id="percentagesBackBtn" style="width:100%;">← Volver al mapa</button>
         </div>
       </div>
     </div>
@@ -384,26 +426,54 @@ def get_html_template():
 
 def get_main_logic():
     return r'''
-  const STORAGE_KEY = "__LS_KEY__";
+  const BASE_STORAGE_KEY = "__LS_KEY__";
   const IMPORT_EXAMPLE_JSON = __IMPORT_EXAMPLE_JSON__;
+
+  // Backend (Google Apps Script) donde se va guardando el historial de %
+  // por regla, para poder verlo en una gráfica y para que "último
+  // registro" sea consultable desde cualquier dispositivo/sesión. Si no
+  // hay conexión, todas las funciones que lo usan fallan en silencio y la
+  // app sigue funcionando 100% con lo que haya en localStorage (nunca es
+  // obligatorio para jugar).
+  const API_URL = "https://script.google.com/macros/s/AKfycbwyu6wOJYkUXa8A-50Qzay61jC9eCRliTUA9TlXJkd7qL3TRpkyCImilgFfG88E_gKH/exec";
+
+  // El progreso (nodos/ejercicios cargados, avance, repaso, informe) se
+  // guarda en una llave de localStorage DISTINTA por idioma objetivo, así
+  // que estudiar inglés e italiano son dos "partidas" completamente
+  // independientes: cambiar el idioma en el menú nunca mezcla ni pisa el
+  // progreso del otro.
+  function currentStorageKey() {
+    return BASE_STORAGE_KEY + "_" + getTargetLanguage();
+  }
 
   // ==================== REGLAS GRAMATICALES + BANCO DE EJERCICIOS ====================
   // Embebidos en el build (ver load_grammar_rules/load_study_exercises/
-  // load_informacion_por_regla en build.py). GRAMMAR_RULES_SEED es solo el
-  // % INICIAL; el % real vive en localStorage bajo RULES_STORAGE_KEY y
-  // sobrevive a "Borrar todo" (esa acción solo toca STORAGE_KEY).
-  const GRAMMAR_RULES_SEED = __GRAMMAR_RULES_JSON__;
-  const ALL_STUDY_EXERCISES = __STUDY_EXERCISES_JSON__;
-  const INFORMACION_POR_REGLA = __INFORMACION_POR_REGLA_JSON__;
-  const RULES_STORAGE_KEY = "english_trainer_grammar_rules_v1";
+  // load_informacion_por_regla en build.py), UNA VEZ POR IDIOMA — cada uno
+  // sale de su propia carpeta (data-en/, data-it/, ver DATA_LANGUAGES en
+  // build.py), no de una carpeta única "data". Las constantes de abajo son
+  // objetos {en: ..., it: ...}; current*() resuelve el idioma activo.
+  // GRAMMAR_RULES_SEED es solo el % INICIAL de cada idioma; el % real vive
+  // en localStorage bajo rulesStorageKey() (también por idioma) y sobrevive
+  // a "Borrar todo" (esa acción solo toca currentStorageKey()).
+  const GRAMMAR_RULES_SEED_BY_LANG = __GRAMMAR_RULES_JSON__;
+  const ALL_STUDY_EXERCISES_BY_LANG = __STUDY_EXERCISES_JSON__;
+  const INFORMACION_POR_REGLA_BY_LANG = __INFORMACION_POR_REGLA_JSON__;
+
+  function currentGrammarSeed() { return GRAMMAR_RULES_SEED_BY_LANG[getTargetLanguage()] || []; }
+  function currentStudyExercises() { return ALL_STUDY_EXERCISES_BY_LANG[getTargetLanguage()] || []; }
+  function currentInformacionPorRegla() { return INFORMACION_POR_REGLA_BY_LANG[getTargetLanguage()] || {}; }
+
+  function rulesStorageKey() {
+    return "english_trainer_grammar_rules_v1_" + getTargetLanguage();
+  }
 
   function loadGrammarRules() {
     let saved = [];
     try {
-      const raw = localStorage.getItem(RULES_STORAGE_KEY);
+      const raw = localStorage.getItem(rulesStorageKey());
       if (raw) saved = JSON.parse(raw) || [];
     } catch (e) { /* noop */ }
-    return GRAMMAR_RULES_SEED.map((r) => {
+    return currentGrammarSeed().map((r) => {
       const found = saved.find((s) => s.id === r.id);
       return { ...r, porcentaje: found ? found.porcentaje : r.porcentaje };
     });
@@ -411,7 +481,7 @@ def get_main_logic():
 
   function saveGrammarRules(rules) {
     try {
-      localStorage.setItem(RULES_STORAGE_KEY, JSON.stringify(rules.map((r) => ({ id: r.id, porcentaje: r.porcentaje }))));
+      localStorage.setItem(rulesStorageKey(), JSON.stringify(rules.map((r) => ({ id: r.id, porcentaje: r.porcentaje }))));
     } catch (e) { /* noop */ }
   }
 
@@ -420,7 +490,120 @@ def get_main_logic():
   function findRegla(id) {
     return AppRules.find((r) => r.id === id) || null;
   }
-  
+
+  // ==================== SINCRONIZACIÓN DE % CON EL BACKEND ====================
+  // El backend (Google Sheets vía Apps Script) guarda un HISTORIAL por
+  // idioma: cada vez que se actualizan porcentajes aquí, se agrega una
+  // fila nueva por regla con fecha + idioma + reglaId + regla + %. Nunca
+  // se sobrescribe nada — así se puede graficar cómo se ha movido cada
+  // regla en el tiempo. El filtro por idioma (?idioma=en / ?idioma=it) es
+  // lo que garantiza que un idioma nunca vea el registro del otro.
+  function formatShortDate(fechaStr) {
+    try {
+      const d = new Date(fechaStr);
+      if (isNaN(d.getTime())) return String(fechaStr).slice(0, 10);
+      return d.toLocaleDateString('es-CO', { day: '2-digit', month: '2-digit' });
+    } catch (e) { return String(fechaStr).slice(0, 10); }
+  }
+
+  // Cache del último historial COMPLETO (todas las reglas) traído del
+  // backend para el idioma activo. Se llena al sincronizar (al entrar a
+  // "Ver porcentajes" / "Seleccionar reglas") y el modal de estadísticas
+  // la reutiliza en vez de volver a pedirle al backend exactamente lo
+  // mismo que la pantalla ya acaba de traer — antes hacía la consulta dos
+  // veces (una al entrar, otra al abrir el modal) sin necesidad. Queda
+  // atada al idioma con el que se llenó (cachedPercentageHistoryLang), así
+  // que un cambio de idioma la invalida sola.
+  let cachedPercentageHistory = null;
+  let cachedPercentageHistoryLang = null;
+
+  async function fetchAllPercentageHistory() {
+    const idioma = getTargetLanguage();
+    const res = await fetch(API_URL + "?sheet=porcentajes&idioma=" + encodeURIComponent(idioma));
+    const json = await res.json();
+    if (!json.success) throw new Error(json.error || "Error desconocido");
+    const data = json.data || [];
+    cachedPercentageHistory = data;
+    cachedPercentageHistoryLang = idioma;
+    return data;
+  }
+
+  // Envía el estado ACTUAL de AppRules (del idioma activo) como una nueva
+  // fila de historial por regla. Se llama después de guardar porcentajes
+  // nuevos (showUpdateRulesModal). No bloquea nada si falla (sin
+  // conexión, por ejemplo) — solo se pierde ese punto del historial. Como
+  // el historial en el backend queda desactualizado respecto al cache
+  // local, se invalida el cache para que la próxima consulta (p. ej. abrir
+  // el modal de estadísticas) traiga la fila nueva en vez de servir la
+  // versión vieja.
+  async function syncPercentagesToBackend() {
+    const idioma = getTargetLanguage();
+    const registros = AppRules.map((r) => ({ reglaId: r.id, regla: r.regla, porcentaje: r.porcentaje }));
+    try {
+      await fetch(API_URL, {
+        method: "POST",
+        body: JSON.stringify({ sheet: "porcentajes", action: "add", idioma, registros })
+      });
+      cachedPercentageHistory = null;
+      cachedPercentageHistoryLang = null;
+      return true;
+    } catch (e) {
+      console.log("⚠️ No se pudo sincronizar con el backend:", e.message);
+      return false;
+    }
+  }
+
+  // Trae TODO el historial del idioma activo para una regla puntual,
+  // ordenado de más viejo a más nuevo (para la gráfica de barras). Usa el
+  // cache si ya está listo (idioma correcto) en vez de volver a pedírselo
+  // al backend; si no hay cache todavía (p. ej. se abrió el modal antes de
+  // que terminara la sincronización de fondo de la pantalla), lo trae una
+  // sola vez y lo deja cacheado para la próxima.
+  async function fetchPercentageHistory(reglaId) {
+    const idioma = getTargetLanguage();
+    const data = (cachedPercentageHistoryLang === idioma && cachedPercentageHistory)
+      ? cachedPercentageHistory
+      : await fetchAllPercentageHistory();
+    return data
+      .filter((it) => Number(it.reglaId) === Number(reglaId))
+      .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+  }
+
+  // Trae el ÚLTIMO registro de cada regla (idioma activo) y, si hay algo
+  // más nuevo que lo que tenemos en local, actualiza AppRules + localStorage.
+  // Se usa al entrar a "Seleccionar reglas a estudiar" y a "Ver
+  // porcentajes", para que el % mostrado sea siempre el más reciente sin
+  // importar desde qué dispositivo se actualizó por última vez. Devuelve
+  // true si cambió algo (para saber si hay que volver a pintar). De paso
+  // deja el historial completo cacheado (fetchAllPercentageHistory), que
+  // es lo que evita la consulta duplicada al abrir el modal de
+  // estadísticas justo después.
+  async function syncLatestPercentagesFromBackend() {
+    try {
+      const data = await fetchAllPercentageHistory();
+      const latestByRule = {};
+      data.forEach((it) => {
+        const id = Number(it.reglaId);
+        const t = new Date(it.fecha).getTime();
+        if (!latestByRule[id] || t > latestByRule[id].t) {
+          latestByRule[id] = { t, porcentaje: Number(it.porcentaje) };
+        }
+      });
+      let changed = false;
+      AppRules.forEach((r) => {
+        const latest = latestByRule[r.id];
+        if (latest && !Number.isNaN(latest.porcentaje) && latest.porcentaje !== r.porcentaje) {
+          r.porcentaje = latest.porcentaje;
+          changed = true;
+        }
+      });
+      if (changed) saveGrammarRules(AppRules);
+      return changed;
+    } catch (e) {
+      return false;
+    }
+  }
+
   function saveToStorage() {
     const data = {
       username: currentUser,
@@ -447,12 +630,12 @@ def get_main_logic():
       sessionAnswers: AppState.sessionAnswers,
       lastUpdated: new Date().toISOString()
     };
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+    try { localStorage.setItem(currentStorageKey(), JSON.stringify(data)); } catch(e) {}
   }
   
   function loadFromStorage(username) {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = localStorage.getItem(currentStorageKey());
       if (!raw) return false;
       const data = JSON.parse(raw);
       if (data.username !== username) return false;
@@ -520,6 +703,7 @@ def get_main_logic():
     import: document.getElementById("importScreen"),
     rulesSelect: document.getElementById("rulesSelectScreen"),
     rulesConfig: document.getElementById("rulesConfigScreen"),
+    percentages: document.getElementById("percentagesScreen"),
     map: document.getElementById("mapScreen"),
     exercise: document.getElementById("exerciseScreen"),
     info: document.getElementById("infoScreen")
@@ -584,10 +768,14 @@ def get_main_logic():
     pendingRuleIds = [];
     renderRulesSelectScreen();
     showMainView("rulesSelect");
+    // Consulta el último registro guardado en el backend (idioma activo)
+    // y, si hay algo más nuevo, repinta con los % actualizados — sin
+    // bloquear la pantalla mientras tanto.
+    syncLatestPercentagesFromBackend().then((changed) => { if (changed) renderRulesSelectScreen(); });
   }
 
   function countAvailable(ruleId) {
-    return ALL_STUDY_EXERCISES.reduce((n, e) => n + ((e.reglaIds || []).includes(ruleId) ? 1 : 0), 0);
+    return currentStudyExercises().reduce((n, e) => n + ((e.reglaIds || []).includes(ruleId) ? 1 : 0), 0);
   }
 
   // Cuántos ejercicios hay disponibles por regla, desglosado por tipo
@@ -595,7 +783,7 @@ def get_main_logic():
   // tipos con al menos 1 ejercicio.
   function computeTypeCounts(ruleId) {
     const counts = {};
-    ALL_STUDY_EXERCISES.forEach((e) => {
+    currentStudyExercises().forEach((e) => {
       if ((e.reglaIds || []).includes(ruleId)) counts[e.type] = (counts[e.type] || 0) + 1;
     });
     return counts;
@@ -611,19 +799,27 @@ def get_main_logic():
     return "bad";
   }
 
+  // Orden para las listas de reglas (Seleccionar / Ver porcentajes): de
+  // menor a mayor % de dominio, PERO las de 0% siempre al final (0% suele
+  // ser "todavía no tiene ejercicios/no se ha estudiado", no
+  // necesariamente "lo peor dominado" — no tiene sentido mezclarlas con
+  // las que sí tienen algo de progreso real). Dentro de cada grupo
+  // (0% / resto) se conserva el orden original (sort es estable), así que
+  // no se reordena nada "porque sí" entre reglas con el mismo %.
+  function sortRulesByPercentage(rules) {
+    return [...rules].sort((a, b) => {
+      const aZero = a.porcentaje === 0;
+      const bZero = b.porcentaje === 0;
+      if (aZero !== bZero) return aZero ? 1 : -1;
+      if (aZero && bZero) return 0;
+      return a.porcentaje - b.porcentaje;
+    });
+  }
+
   function renderRulesSelectScreen() {
     const list = document.getElementById("rulesSelectList");
     if (!list) return;
-    const sortedRules = [...AppRules].sort((a, b) => {
-      // Los 0% siempre van al final
-      if (a.porcentaje === 0 && b.porcentaje !== 0) return 1;
-      if (a.porcentaje !== 0 && b.porcentaje === 0) return -1;
-
-      // El resto: menor porcentaje primero
-      return a.porcentaje - b.porcentaje;
-    });
-
-    list.innerHTML = sortedRules.map((r) => {
+    list.innerHTML = sortRulesByPercentage(AppRules).map((r) => {
       const disponibles = countAvailable(r.id);
       const checked = pendingRuleIds.includes(r.id);
       const tier = pctTier(r.porcentaje);
@@ -683,7 +879,7 @@ def get_main_logic():
       if (!r) return '';
       const disponibles = countAvailable(id);
       const maxTotal = Math.max(1, Math.min(50, disponibles));
-      const lecciones = (INFORMACION_POR_REGLA[id] || INFORMACION_POR_REGLA[String(id)] || []);
+      const lecciones = (currentInformacionPorRegla()[id] || currentInformacionPorRegla()[String(id)] || []);
       const tier = pctTier(r.porcentaje);
       return `
         <div class="rule-card rule-config-row tier-${tier}" data-rule-id="${id}" data-max-total="${maxTotal}">
@@ -848,7 +1044,7 @@ def get_main_logic():
       Object.keys(byType).forEach((type) => {
         const qty = byType[type];
         if (!qty) return;
-        const pool = shuffleArray(ALL_STUDY_EXERCISES.filter((e) => e.type === type && (e.reglaIds || []).includes(id) && !usedIds.has(e.id)));
+        const pool = shuffleArray(currentStudyExercises().filter((e) => e.type === type && (e.reglaIds || []).includes(id) && !usedIds.has(e.id)));
         const take = pool.slice(0, qty);
         if (take.length < qty) anyShort = true;
         take.forEach((e) => { usedIds.add(e.id); chosen.push(e); });
@@ -857,7 +1053,7 @@ def get_main_logic():
 
     const informacionLecciones = [];
     infoRuleIds.forEach((id) => {
-      (INFORMACION_POR_REGLA[id] || INFORMACION_POR_REGLA[String(id)] || []).forEach((leccion) => informacionLecciones.push(leccion));
+      (currentInformacionPorRegla()[id] || currentInformacionPorRegla()[String(id)] || []).forEach((leccion) => informacionLecciones.push(leccion));
     });
 
     AppState.nodes = buildNodesFromExerciseList(chosen);
@@ -898,6 +1094,91 @@ def get_main_logic():
   // (parcial o completo) y se fusiona por id contra AppRules; lo que no
   // venga en el JSON queda intacto. Persiste en RULES_STORAGE_KEY, que
   // "Borrar todo" nunca toca.
+  // ==================== PANTALLA "VER PORCENTAJES" ====================
+  function openPercentagesScreen() {
+    renderPercentagesScreen();
+    showMainView("percentages");
+    syncLatestPercentagesFromBackend().then((changed) => { if (changed) renderPercentagesScreen(); });
+  }
+
+  function renderPercentagesScreen() {
+    const list = document.getElementById("percentagesList");
+    if (!list) return;
+    list.innerHTML = sortRulesByPercentage(AppRules).map((r) => {
+      const tier = pctTier(r.porcentaje);
+      return `
+        <div class="rule-card tier-${tier} percentages-row">
+          <span class="rule-card-body">
+            <span class="rule-card-top">
+              <span class="rule-select-text">${window._escHTML(r.regla)}</span>
+              <span class="rule-pct-badge tier-${tier}">${r.porcentaje}%</span>
+            </span>
+            <span class="rule-pct-bar" role="presentation">
+              <span class="rule-pct-bar-fill tier-${tier}" style="width:${r.porcentaje}%"></span>
+            </span>
+          </span>
+          <button type="button" class="rule-stats-btn" data-id="${r.id}" title="Ver estadísticas" aria-label="Ver estadísticas de ${window._escHTML(r.regla)}">📊</button>
+        </div>
+      `;
+    }).join('');
+
+    list.querySelectorAll('.rule-stats-btn').forEach((btn) => {
+      btn.addEventListener('click', () => showRuleStatsModal(parseInt(btn.dataset.id, 10)));
+    });
+  }
+
+  // Modal con una gráfica de barras (CSS puro, sin librerías) del
+  // historial de % de UNA regla, leído del backend. Si nunca se ha usado
+  // "Actualizar % de reglas" todavía no hay nada que graficar, y si no
+  // hay conexión se avisa sin romper nada.
+  async function showRuleStatsModal(reglaId) {
+    const regla = findRegla(reglaId);
+    const existing = document.querySelector('.modal-overlay');
+    if (existing) existing.remove();
+
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>📊 ${window._escHTML(regla ? regla.regla : '')}</h3>
+          <button class="menu-modal-close" id="statsModalClose" aria-label="Cerrar">✕</button>
+        </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Así se ha movido tu dominio de esta regla a lo largo del tiempo.</p>
+        <div id="statsChartContainer" class="stats-chart-container">
+          <p class="sub-fun">Cargando historial...</p>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    const close = () => modal.remove();
+    modal.querySelector('#statsModalClose').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+
+    const container = modal.querySelector('#statsChartContainer');
+    try {
+      const history = await fetchPercentageHistory(reglaId);
+      if (!history.length) {
+        container.innerHTML = `<p class="sub-fun">Todavía no hay historial guardado para esta regla. Se va llenando cada vez que usas "🔄 Actualizar % de reglas".</p>`;
+        return;
+      }
+      const points = history.slice(-10);
+      container.innerHTML = `
+        <div class="stats-bar-chart">
+          ${points.map((h) => `
+            <div class="stats-bar-col">
+              <span class="stats-bar-value">${h.porcentaje}%</span>
+              <div class="stats-bar" style="height:${Math.max(4, Number(h.porcentaje) || 0)}%"></div>
+              <span class="stats-bar-date">${formatShortDate(h.fecha)}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    } catch (e) {
+      container.innerHTML = `<p class="sub-fun">⚠️ No se pudo cargar el historial (¿sin conexión?). Intenta de nuevo más tarde.</p>`;
+    }
+  }
+
   function showUpdateRulesModal() {
     const existing = document.querySelector('.modal-overlay');
     if (existing) existing.remove();
@@ -941,7 +1222,12 @@ def get_main_logic():
       });
       saveGrammarRules(AppRules);
       close();
+      renderPercentagesScreen();
+      renderRulesSelectScreen();
       toast(count > 0 ? ("🔄 " + count + " regla(s) actualizadas") : "⚠️ No se encontraron coincidencias por id");
+      if (count > 0) {
+        syncPercentagesToBackend().then((ok) => { if (ok) toast("☁️ Guardado en el historial"); });
+      }
     });
   }
 
@@ -954,6 +1240,99 @@ def get_main_logic():
   // (lo viejo + lo nuevo) se reparte de nuevo entre los nodos, el progreso
   // y la cola de repaso se reinician — igual que al cargar cualquier tanda
   // nueva o iniciar el estudio por reglas.
+  // Botón de ayuda (❓, junto al de menú): solo tiene sentido estudiando
+  // inglés (el contenido es la chuleta de gramática inglesa), así que se
+  // oculta por completo cuando el idioma objetivo es italiano. Se
+  // actualiza al boot y cada vez que se cambia de idioma.
+  function updateHelpBtnVisibility() {
+    const btn = document.getElementById("toggleHelpBtn");
+    if (!btn) return;
+    btn.style.display = getTargetLanguage() === "en" ? "flex" : "none";
+  }
+
+  function showHelpModal() {
+    const existing = document.querySelector('.modal-overlay');
+    if (existing) existing.remove();
+
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>❓ Chuleta de gramática</h3>
+          <button class="menu-modal-close" id="helpModalClose" aria-label="Cerrar">✕</button>
+        </div>
+        <div class="help-modal-content">
+
+          <div class="help-section">
+            <h4>1. Modales de probabilidad</h4>
+            <div class="help-sub">(de lo menos a lo más cierto)</div>
+            <ul class="help-list">
+              <li><b>Might</b> <span class="help-arrow">→</span> podría / quizás <span class="help-pct">(~0% certeza)</span></li>
+              <li><b>May</b> <span class="help-arrow">→</span> puede que / podría <span class="help-pct">(~30% certeza)</span></li>
+              <li><b>Must</b> <span class="help-arrow">→</span> debe de / seguramente <span class="help-pct">(~60% certeza)</span></li>
+              <li><b>Can't</b> <span class="help-arrow">→</span> no puede ser / seguramente no</li>
+              <li><b>Could</b> <span class="help-arrow">→</span> podría <span class="help-pct">(~100% certeza)</span></li>
+            </ul>
+          </div>
+
+          <div class="help-section">
+            <h4>2. Expresiones de futuro e hipotéticas</h4>
+            <ul class="help-list">
+              <li><b>GOING TO</b> <span class="help-arrow">→</span> intención / plan previo o algo que ya se ve venir.</li>
+              <li><b>WILL</b> <span class="help-arrow">→</span> decisión espontánea, promesa, oferta o predicción.</li>
+              <li><b>WOULD</b> <span class="help-arrow">→</span> situación hipotética ("haría / sería / tendría"), normalmente después de <b>if + pasado</b>.</li>
+            </ul>
+          </div>
+
+          <div class="help-section">
+            <h4>3. Uso y significado de verbos modales</h4>
+            <ul class="help-list">
+              <li><b>MUST</b> <span class="help-arrow">→</span> debo / debemos (obligación, necesidad).</li>
+              <li><b>SHOULD</b> <span class="help-arrow">→</span> debería / deberían (consejo, recomendación).</li>
+              <li><b>CAN</b> <span class="help-arrow">→</span> poder / capacidad real.</li>
+              <li><b>COULD</b> <span class="help-arrow">→</span> podría / podía.</li>
+              <li><b>WILL</b> <span class="help-arrow">→</span> futuro real.</li>
+              <li><b>WOULD</b> <span class="help-arrow">→</span> hipotético / cortés.</li>
+              <li><b>USED TO</b> <span class="help-arrow">→</span> solía / hábito pasado.</li>
+            </ul>
+          </div>
+
+          <div class="help-section">
+            <h4>4. Cuantificadores: contables vs. no contables</h4>
+            <table class="help-table">
+              <tr><th>Palabra</th><th>Se usa con</th><th>Significa</th></tr>
+              <tr><td><b>few</b></td><td>cosas contables</td><td>pocos</td></tr>
+              <tr><td><b>fewer</b></td><td>cosas contables</td><td>menos</td></tr>
+              <tr><td><b>little</b></td><td>cosas no contables</td><td>poco</td></tr>
+              <tr><td><b>less</b></td><td>cosas no contables</td><td>menos</td></tr>
+            </table>
+          </div>
+
+          <div class="help-section">
+            <h4>5. Duda común: ¿GONE o LEFT?</h4>
+            <ul class="help-list">
+              <li>"Se fue a Bogotá" <span class="help-arrow">→</span> ¿A? <span class="help-arrow">→</span> <b>GONE</b></li>
+              <li>"Salió de Bogotá" <span class="help-arrow">→</span> ¿DE? <span class="help-arrow">→</span> <b>LEFT</b></li>
+              <li>"Se fue a trabajar" <span class="help-arrow">→</span> ¿A? <span class="help-arrow">→</span> <b>GONE</b></li>
+              <li>"Abandonó la oficina" <i>(no lleva A)</i> <span class="help-arrow">→</span> <b>LEFT</b></li>
+              <li>"Se ha marchado" <i>(no lleva A ni DE)</i> <span class="help-arrow">→</span> <b>LEFT</b></li>
+              <li>"Partió hacia Bogotá" <i>(excepción 1)</i> <span class="help-arrow">→</span> <b>LEFT FOR</b></li>
+              <li>"Desaparecieron" <i>(excepción 2)</i> <span class="help-arrow">→</span> <b>GONE</b></li>
+              <li>"Se fue de vacaciones" <i>(expresión fija)</i> <span class="help-arrow">→</span> <b>GONE ON VACATION</b></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    const close = () => modal.remove();
+    modal.querySelector('#helpModalClose').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+  }
+
   function showMergeDataModal() {
     const existing = document.querySelector('.modal-overlay');
     if (existing) existing.remove();
@@ -1763,6 +2142,7 @@ def get_main_logic():
     document.getElementById("loginScreen").classList.remove("active");
     document.getElementById("mainScreen").classList.add("active");
     showMainView(AppState.nodes.length ? "map" : "import");
+    updateHelpBtnVisibility();
     toast("✨ Bienvenido " + username + "!");
     return true;
   }
@@ -1789,6 +2169,33 @@ def get_main_logic():
   // Vuelve a renderizar lo que esté visible en pantalla en este momento,
   // para que las etiquetas/banderas del idioma objetivo se actualicen sin
   // necesidad de recargar ni perder el progreso.
+  // Al cambiar el idioma objetivo (inglés <-> italiano) desde el menú, la
+  // "sección de estudio" completa cambia de base de datos: reglas
+  // gramaticales, banco de ejercicios, lecciones de información Y el
+  // progreso guardado (nodos/avance/repaso) pasan a ser los de ese idioma
+  // — currentStorageKey()/rulesStorageKey() ya resuelven distinto en
+  // cuanto getTargetLanguage() cambia, así que solo hace falta releer todo
+  // desde esas llaves (o arrancar en blanco si el usuario nunca ha
+  // estudiado ese idioma todavía) y mandarlo a la pantalla correcta.
+  function switchStudyDataToCurrentLanguage() {
+    AppRules = loadGrammarRules();
+    const loaded = loadFromStorage(currentUser);
+    if (!loaded) {
+      AppState.nodes = [];
+      AppState.progress = {};
+      AppState.activeNodeIndex = 0;
+      AppState.activeExerciseIndex = 0;
+      AppState.failedExercises = [];
+      AppState.reportEntries = [];
+      AppState.reviewPool = [];
+      AppState.sessionCorrectness = {};
+      AppState.sessionAnswers = {};
+      AppState.practicaInicial = null;
+    }
+    showMainView(loaded ? "map" : "import");
+    updateHelpBtnVisibility();
+  }
+
   function refreshCurrentScreenForLanguage() {
     if (document.getElementById("exerciseScreen")?.classList.contains("active")) {
       renderExercise();
@@ -1800,14 +2207,14 @@ def get_main_logic():
   }
 
   function showMenuModal() {
-    const existing = document.querySelector('.modal-overlay');
+    const existing = document.querySelector('.sidebar-overlay, .modal-overlay');
     if (existing) existing.remove();
 
-    const modal = document.createElement("div");
-    modal.className = "modal-overlay modal-active";
-    modal.innerHTML = `
-      <div class="modal-friend menu-modal">
-        <div class="menu-modal-header">
+    const overlay = document.createElement("div");
+    overlay.className = "sidebar-overlay";
+    overlay.innerHTML = `
+      <div class="sidebar-panel">
+        <div class="sidebar-panel-header">
           <h3>☰ Menú</h3>
           <button class="menu-modal-close" id="menuModalClose" aria-label="Cerrar">✕</button>
         </div>
@@ -1815,30 +2222,33 @@ def get_main_logic():
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin-bottom:14px;">__VERSION__</div>
-        <div class="action-buttons">
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">__VERSION__</div>
+        <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
+          <button class="fun-btn" id="menuPercentagesBtn">📊 Ver porcentajes</button>
+          <button class="fun-btn" id="menuRulesSelectBtn">🎯 Estudiar por reglas</button>
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
           <button class="fun-btn" id="menuNodeCountBtn">🔢 Nodos: ${getTotalMainNodes()}</button>
           <button class="fun-btn" id="menuCopyReportBtn">📋 Copiar informe</button>
-          <button class="fun-btn" id="menuRulesSelectBtn">🎯 Estudiar por reglas</button>
-          <button class="fun-btn" id="menuUpdateRulesBtn">🔄 Actualizar % de reglas</button>
           <button class="fun-btn" id="menuMergeDataBtn">🔀 Mezclar JSON manual</button>
           <button class="fun-btn" id="menuReplaceListBtn">📥 Nueva tanda</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
         </div>
       </div>
     `;
-    document.body.appendChild(modal);
+    document.body.appendChild(overlay);
+    const modal = overlay; // alias: el resto del código ya usa "modal"
 
-    const close = () => modal.remove();
+    const close = () => overlay.remove();
     modal.querySelector('#menuModalClose').addEventListener('click', close);
-    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    modal.addEventListener('click', (e) => { if (e.target === overlay) close(); });
     modal.querySelector('#menuLogoutBtn').addEventListener('click', () => { close(); logout(); });
     modal.querySelector('#menuBackToMapBtn').addEventListener('click', () => { close(); renderMapView(); showMainView("map"); });
+    modal.querySelector('#menuPercentagesBtn').addEventListener('click', () => { close(); openPercentagesScreen(); });
     modal.querySelector('#menuToggleLangBtn').addEventListener('click', () => {
       toggleTargetLanguage();
+      switchStudyDataToCurrentLanguage();
       close();
       refreshCurrentScreenForLanguage();
       toast(getTargetLangMeta().flag + " Ahora practicando " + getTargetLangMeta().labelLower);
@@ -1847,7 +2257,6 @@ def get_main_logic():
     modal.querySelector('#menuNodeCountBtn').addEventListener('click', () => { close(); showNodeCountModal(); });
     modal.querySelector('#menuCopyReportBtn').addEventListener('click', () => { close(); copyReport(); });
     modal.querySelector('#menuRulesSelectBtn').addEventListener('click', () => { close(); openRulesSelect(); });
-    modal.querySelector('#menuUpdateRulesBtn').addEventListener('click', () => { close(); showUpdateRulesModal(); });
     modal.querySelector('#menuMergeDataBtn').addEventListener('click', () => { close(); showMergeDataModal(); });
     modal.querySelector('#menuReplaceListBtn').addEventListener('click', () => { close(); showMainView("import"); toast("📥 Ingresa nuevos datos"); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
@@ -2033,10 +2442,13 @@ def get_main_logic():
     document.getElementById("copyPromptBtn")?.addEventListener("click", copyPromptFromFile);
     document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("toggleMenuBtn")?.addEventListener("click", showMenuModal);
+    document.getElementById("toggleHelpBtn")?.addEventListener("click", showHelpModal);
     document.getElementById("goToRulesSelectBtn")?.addEventListener("click", openRulesSelect);
     document.getElementById("rulesSelectFinishBtn")?.addEventListener("click", finishRulesSelect);
     document.getElementById("rulesConfigBackBtn")?.addEventListener("click", () => { renderRulesSelectScreen(); showMainView("rulesSelect"); });
     document.getElementById("rulesConfigStartBtn")?.addEventListener("click", handleStartStudyFromRules);
+    document.getElementById("percentagesUpdateBtn")?.addEventListener("click", showUpdateRulesModal);
+    document.getElementById("percentagesBackBtn")?.addEventListener("click", () => { renderMapView(); showMainView("map"); });
   }
   
   init();
@@ -2048,13 +2460,17 @@ def build_html():
     styles = read_file('styles/main.css')
     map_js = read_file('mapa/map.js')
 
-    grammar_rules = load_grammar_rules()
-    study_exercises = load_study_exercises()
-    informacion_por_regla = load_informacion_por_regla()
-    print(f"  ✅ {len(grammar_rules)} reglas gramaticales ({GRAMMAR_RULES_FILE})")
-    print(f"  ✅ {len(study_exercises)} ejercicios combinados desde {STUDY_EXERCISES_DIR}/")
-    total_lecciones = sum(len(v) for v in informacion_por_regla.values())
-    print(f"  ✅ {total_lecciones} lección(es) de información en {len(informacion_por_regla)} regla(s) ({INFORMACION_REGLAS_FILE})")
+    grammar_rules_by_lang = {}
+    study_exercises_by_lang = {}
+    informacion_por_regla_by_lang = {}
+    for lang in DATA_LANGUAGES:
+        grammar_rules_by_lang[lang] = load_grammar_rules(lang)
+        study_exercises_by_lang[lang] = load_study_exercises(lang)
+        informacion_por_regla_by_lang[lang] = load_informacion_por_regla(lang)
+        total_lecciones = sum(len(v) for v in informacion_por_regla_by_lang[lang].values())
+        print(f"  ✅ [{lang}] {len(grammar_rules_by_lang[lang])} reglas gramaticales ({grammar_rules_file(lang)})")
+        print(f"  ✅ [{lang}] {len(study_exercises_by_lang[lang])} ejercicios combinados desde {study_exercises_dir(lang)}/")
+        print(f"  ✅ [{lang}] {total_lecciones} lección(es) de información en {len(informacion_por_regla_by_lang[lang])} regla(s) ({informacion_reglas_file(lang)})")
     
     exercise_modules = {}
     for filepath, marker in EXERCISE_FILES.items():
@@ -2077,9 +2493,9 @@ def build_html():
     main_logic = main_logic.replace('__LOAD_DATA_FIELDS__', build_load_data_fields())
     main_logic = main_logic.replace('__VALIDATION_ARGS__', build_validation_args())
     main_logic = main_logic.replace('__CREATE_NODE_ARGS__', build_create_node_args())
-    main_logic = main_logic.replace('__GRAMMAR_RULES_JSON__', json.dumps(grammar_rules, ensure_ascii=False))
-    main_logic = main_logic.replace('__STUDY_EXERCISES_JSON__', json.dumps(study_exercises, ensure_ascii=False))
-    main_logic = main_logic.replace('__INFORMACION_POR_REGLA_JSON__', json.dumps(informacion_por_regla, ensure_ascii=False))
+    main_logic = main_logic.replace('__GRAMMAR_RULES_JSON__', json.dumps(grammar_rules_by_lang, ensure_ascii=False))
+    main_logic = main_logic.replace('__STUDY_EXERCISES_JSON__', json.dumps(study_exercises_by_lang, ensure_ascii=False))
+    main_logic = main_logic.replace('__INFORMACION_POR_REGLA_JSON__', json.dumps(informacion_por_regla_by_lang, ensure_ascii=False))
     main_logic = main_logic.replace('__IMPORT_EXAMPLE_JSON__', json.dumps(build_import_example_json(), ensure_ascii=False))
     html = html.replace('__MAIN_LOGIC__', main_logic)
     

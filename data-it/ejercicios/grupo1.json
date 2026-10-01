@@ -1,0 +1,566 @@
+{
+  "_comentario": "Grupo 1 de 3 (italiano). Remates: Essere(1) +8 sel, Art.determinados(3) +7 dict/+10 sel, Art.indeterminados(4) +8 trad/+12 dict/+9 sel. Completos: Avere(2) +48 trad/+17 dict/+10 sel, Verbos -ARE(8) +51 trad/+4 compl/+19 dict/+10 sel.",
+
+  "traducciones": [
+    { "spanishWord": "Yo tengo hambre.", "englishWord": "Io ho fame.", "reglaIds": [2] },
+    { "spanishWord": "Tú tienes sed.", "englishWord": "Tu hai sete.", "reglaIds": [2] },
+    { "spanishWord": "Él tiene sueño.", "englishWord": "Lui ha sonno.", "reglaIds": [2] },
+    { "spanishWord": "Ella tiene frío.", "englishWord": "Lei ha freddo.", "reglaIds": [2] },
+    { "spanishWord": "Nosotros tenemos calor.", "englishWord": "Noi abbiamo caldo.", "reglaIds": [2] },
+    { "spanishWord": "Vosotros tenéis miedo.", "englishWord": "Voi avete paura.", "reglaIds": [2] },
+    { "spanishWord": "Ellos tienen razón.", "englishWord": "Loro hanno ragione.", "reglaIds": [2] },
+    { "spanishWord": "Yo tengo veinte años.", "englishWord": "Io ho venti anni.", "reglaIds": [2] },
+    { "spanishWord": "Tú tienes treinta años.", "englishWord": "Tu hai trent'anni.", "reglaIds": [2] },
+    { "spanishWord": "Ella tiene dos hermanas.", "englishWord": "Lei ha due sorelle.", "reglaIds": [2] },
+    { "spanishWord": "Nosotros tenemos un carro.", "englishWord": "Noi abbiamo una macchina.", "reglaIds": [2, 4] },
+    { "spanishWord": "Vosotros tenéis una casa grande.", "englishWord": "Voi avete una casa grande.", "reglaIds": [2, 4] },
+    { "spanishWord": "Ellos tienen tres gatos.", "englishWord": "Loro hanno tre gatti.", "reglaIds": [2] },
+    { "spanishWord": "Yo tengo un problema.", "englishWord": "Io ho un problema.", "reglaIds": [2, 4] },
+    { "spanishWord": "Tú tienes razón.", "englishWord": "Tu hai ragione.", "reglaIds": [2] },
+    { "spanishWord": "Él está equivocado.", "englishWord": "Lui ha torto.", "reglaIds": [2] },
+    { "spanishWord": "Ella tiene miedo de los perros.", "englishWord": "Lei ha paura dei cani.", "reglaIds": [2] },
+    { "spanishWord": "Nosotros tenemos sed.", "englishWord": "Noi abbiamo sete.", "reglaIds": [2] },
+    { "spanishWord": "Vosotros tenéis hambre.", "englishWord": "Voi avete fame.", "reglaIds": [2] },
+    { "spanishWord": "Ellos tienen sueño.", "englishWord": "Loro hanno sonno.", "reglaIds": [2] },
+    { "spanishWord": "Yo tengo un hermano mayor.", "englishWord": "Io ho un fratello maggiore.", "reglaIds": [2, 4] },
+    { "spanishWord": "Tú tienes una amiga italiana.", "englishWord": "Tu hai un'amica italiana.", "reglaIds": [2, 4] },
+    { "spanishWord": "Él tiene un trabajo nuevo.", "englishWord": "Lui ha un lavoro nuovo.", "reglaIds": [2, 4] },
+    { "spanishWord": "Ella tiene mucho tiempo.", "englishWord": "Lei ha molto tempo.", "reglaIds": [2] },
+    { "spanishWord": "Nosotros tenemos poco dinero.", "englishWord": "Noi abbiamo poco denaro.", "reglaIds": [2] },
+    { "spanishWord": "Vosotros tenéis muchos amigos.", "englishWord": "Voi avete molti amici.", "reglaIds": [2] },
+    { "spanishWord": "Ellos tienen un perro pequeño.", "englishWord": "Loro hanno un cane piccolo.", "reglaIds": [2, 4] },
+    { "spanishWord": "Yo tengo cuarenta años.", "englishWord": "Io ho quarant'anni.", "reglaIds": [2] },
+    { "spanishWord": "Tú tienes calor ahora.", "englishWord": "Tu hai caldo adesso.", "reglaIds": [2] },
+    { "spanishWord": "Él tiene frío en invierno.", "englishWord": "Lui ha freddo in inverno.", "reglaIds": [2] },
+    { "spanishWord": "Ella tiene un libro interesante.", "englishWord": "Lei ha un libro interessante.", "reglaIds": [2, 4] },
+    { "spanishWord": "Nosotros tenemos una reunión hoy.", "englishWord": "Noi abbiamo una riunione oggi.", "reglaIds": [2, 4] },
+    { "spanishWord": "Vosotros tenéis vacaciones.", "englishWord": "Voi avete le vacanze.", "reglaIds": [2] },
+    { "spanishWord": "Ellos tienen un examen mañana.", "englishWord": "Loro hanno un esame domani.", "reglaIds": [2, 4] },
+    { "spanishWord": "Yo tengo sed ahora.", "englishWord": "Io ho sete adesso.", "reglaIds": [2] },
+    { "spanishWord": "Tú tienes hambre después del trabajo.", "englishWord": "Tu hai fame dopo il lavoro.", "reglaIds": [2] },
+    { "spanishWord": "Él tiene miedo de la oscuridad.", "englishWord": "Lui ha paura del buio.", "reglaIds": [2] },
+    { "spanishWord": "Ella tiene veinticinco años.", "englishWord": "Lei ha venticinque anni.", "reglaIds": [2] },
+    { "spanishWord": "Nosotros tenemos una casa nueva.", "englishWord": "Noi abbiamo una casa nuova.", "reglaIds": [2, 4] },
+    { "spanishWord": "Vosotros tenéis un gato negro.", "englishWord": "Voi avete un gatto nero.", "reglaIds": [2, 4] },
+    { "spanishWord": "Ellos tienen dos hijos.", "englishWord": "Loro hanno due figli.", "reglaIds": [2] },
+    { "spanishWord": "Yo tengo prisa.", "englishWord": "Io ho fretta.", "reglaIds": [2] },
+    { "spanishWord": "Tú tienes sueño esta noche.", "englishWord": "Tu hai sonno stasera.", "reglaIds": [2] },
+    { "spanishWord": "Él tiene calor en verano.", "englishWord": "Lui ha caldo in estate.", "reglaIds": [2] },
+    { "spanishWord": "Ella tiene un problema grande.", "englishWord": "Lei ha un problema grande.", "reglaIds": [2, 4] },
+    { "spanishWord": "Nosotros tenemos una idea.", "englishWord": "Noi abbiamo un'idea.", "reglaIds": [2, 4] },
+    { "spanishWord": "Vosotros tenéis razón siempre.", "englishWord": "Voi avete sempre ragione.", "reglaIds": [2] },
+    { "spanishWord": "Ellos tienen una empresa.", "englishWord": "Loro hanno un'azienda.", "reglaIds": [2, 4] },
+
+    { "spanishWord": "Tengo un perro.", "englishWord": "Ho un cane.", "reglaIds": [4, 2] },
+    { "spanishWord": "Es una casa grande.", "englishWord": "È una casa grande.", "reglaIds": [4, 1] },
+    { "spanishWord": "Tengo un amigo simpático.", "englishWord": "Ho un amico simpatico.", "reglaIds": [4, 2] },
+    { "spanishWord": "Es un libro interesante.", "englishWord": "È un libro interessante.", "reglaIds": [4, 1] },
+    { "spanishWord": "Tengo una hermana.", "englishWord": "Ho una sorella.", "reglaIds": [4, 2] },
+    { "spanishWord": "Es un estudiante bueno.", "englishWord": "È uno studente bravo.", "reglaIds": [4, 1] },
+    { "spanishWord": "Tengo un espejo nuevo.", "englishWord": "Ho uno specchio nuovo.", "reglaIds": [4, 2] },
+    { "spanishWord": "Es una amiga simpática.", "englishWord": "È un'amica simpatica.", "reglaIds": [4, 1] },
+
+    { "spanishWord": "Yo hablo italiano.", "englishWord": "Io parlo italiano.", "reglaIds": [8] },
+    { "spanishWord": "Tú hablas español.", "englishWord": "Tu parli spagnolo.", "reglaIds": [8] },
+    { "spanishWord": "Él habla francés.", "englishWord": "Lui parla francese.", "reglaIds": [8] },
+    { "spanishWord": "Ella habla alemán.", "englishWord": "Lei parla tedesco.", "reglaIds": [8] },
+    { "spanishWord": "Nosotros hablamos inglés.", "englishWord": "Noi parliamo inglese.", "reglaIds": [8] },
+    { "spanishWord": "Vosotros habláis italiano.", "englishWord": "Voi parlate italiano.", "reglaIds": [8] },
+    { "spanishWord": "Ellos hablan español.", "englishWord": "Loro parlano spagnolo.", "reglaIds": [8] },
+    { "spanishWord": "Yo vivo en Roma.", "englishWord": "Io abito a Roma.", "reglaIds": [8] },
+    { "spanishWord": "Tú vives en Milán.", "englishWord": "Tu abiti a Milano.", "reglaIds": [8] },
+    { "spanishWord": "Él vive en Nápoles.", "englishWord": "Lui abita a Napoli.", "reglaIds": [8] },
+    { "spanishWord": "Ella vive en Florencia.", "englishWord": "Lei abita a Firenze.", "reglaIds": [8] },
+    { "spanishWord": "Nosotros vivimos en Venecia.", "englishWord": "Noi abitiamo a Venezia.", "reglaIds": [8] },
+    { "spanishWord": "Vosotros vivís en Turín.", "englishWord": "Voi abitate a Torino.", "reglaIds": [8] },
+    { "spanishWord": "Ellos viven en Bolonia.", "englishWord": "Loro abitano a Bologna.", "reglaIds": [8] },
+    { "spanishWord": "Yo trabajo mucho.", "englishWord": "Io lavoro molto.", "reglaIds": [8] },
+    { "spanishWord": "Tú trabajas poco.", "englishWord": "Tu lavori poco.", "reglaIds": [8] },
+    { "spanishWord": "Él trabaja todos los días.", "englishWord": "Lui lavora tutti i giorni.", "reglaIds": [8] },
+    { "spanishWord": "Ella trabaja en un banco.", "englishWord": "Lei lavora in banca.", "reglaIds": [8] },
+    { "spanishWord": "Nosotros trabajamos juntos.", "englishWord": "Noi lavoriamo insieme.", "reglaIds": [8] },
+    { "spanishWord": "Vosotros trabajáis los sábados.", "englishWord": "Voi lavorate il sabato.", "reglaIds": [8] },
+    { "spanishWord": "Ellos trabajan en una oficina.", "englishWord": "Loro lavorano in un ufficio.", "reglaIds": [8] },
+    { "spanishWord": "Yo escucho música.", "englishWord": "Io ascolto la musica.", "reglaIds": [8] },
+    { "spanishWord": "Tú escuchas la radio.", "englishWord": "Tu ascolti la radio.", "reglaIds": [8] },
+    { "spanishWord": "Él escucha al profesor.", "englishWord": "Lui ascolta il professore.", "reglaIds": [8] },
+    { "spanishWord": "Ella escucha un podcast.", "englishWord": "Lei ascolta un podcast.", "reglaIds": [8] },
+    { "spanishWord": "Nosotros escuchamos la canción.", "englishWord": "Noi ascoltiamo la canzone.", "reglaIds": [8] },
+    { "spanishWord": "Vosotros escucháis las noticias.", "englishWord": "Voi ascoltate le notizie.", "reglaIds": [8] },
+    { "spanishWord": "Ellos escuchan música clásica.", "englishWord": "Loro ascoltano musica classica.", "reglaIds": [8] },
+    { "spanishWord": "Yo compro pan.", "englishWord": "Io compro il pane.", "reglaIds": [8] },
+    { "spanishWord": "Tú compras fruta.", "englishWord": "Tu compri la frutta.", "reglaIds": [8] },
+    { "spanishWord": "Él compra un carro nuevo.", "englishWord": "Lui compra una macchina nuova.", "reglaIds": [8] },
+    { "spanishWord": "Ella compra ropa.", "englishWord": "Lei compra vestiti.", "reglaIds": [8] },
+    { "spanishWord": "Nosotros compramos comida.", "englishWord": "Noi compriamo il cibo.", "reglaIds": [8] },
+    { "spanishWord": "Vosotros compráis regalos.", "englishWord": "Voi comprate regali.", "reglaIds": [8] },
+    { "spanishWord": "Ellos compran un libro.", "englishWord": "Loro comprano un libro.", "reglaIds": [8] },
+    { "spanishWord": "Yo canto en la ducha.", "englishWord": "Io canto nella doccia.", "reglaIds": [8] },
+    { "spanishWord": "Tú cantas muy bien.", "englishWord": "Tu canti molto bene.", "reglaIds": [8] },
+    { "spanishWord": "Él canta una canción.", "englishWord": "Lui canta una canzone.", "reglaIds": [8] },
+    { "spanishWord": "Ella canta en un coro.", "englishWord": "Lei canta in un coro.", "reglaIds": [8] },
+    { "spanishWord": "Nosotros cantamos juntos.", "englishWord": "Noi cantiamo insieme.", "reglaIds": [8] },
+    { "spanishWord": "Vosotros cantáis en italiano.", "englishWord": "Voi cantate in italiano.", "reglaIds": [8] },
+    { "spanishWord": "Ellos cantan todas las noches.", "englishWord": "Loro cantano ogni sera.", "reglaIds": [8] },
+    { "spanishWord": "Yo vuelvo a casa tarde.", "englishWord": "Io torno a casa tardi.", "reglaIds": [8] },
+    { "spanishWord": "Tú vuelves temprano.", "englishWord": "Tu torni presto.", "reglaIds": [8] },
+    { "spanishWord": "Él vuelve del trabajo.", "englishWord": "Lui torna dal lavoro.", "reglaIds": [8] },
+    { "spanishWord": "Ella vuelve mañana.", "englishWord": "Lei torna domani.", "reglaIds": [8] },
+    { "spanishWord": "Nosotros volvemos el lunes.", "englishWord": "Noi torniamo lunedì.", "reglaIds": [8] },
+    { "spanishWord": "Vosotros volvéis pronto.", "englishWord": "Voi tornate presto.", "reglaIds": [8] },
+    { "spanishWord": "Ellos vuelven de vacaciones.", "englishWord": "Loro tornano dalle vacanze.", "reglaIds": [8] },
+    { "spanishWord": "Yo miro la televisión.", "englishWord": "Io guardo la televisione.", "reglaIds": [8] },
+    { "spanishWord": "Tú miras una película.", "englishWord": "Tu guardi un film.", "reglaIds": [8] }
+  ],
+
+  "completar": [
+    { "spanishWord": "Él canta muy bien.", "englishSentence": "Lui ___ molto bene.", "options": ["canta"], "reglaIds": [8] },
+    { "spanishWord": "Nosotros vivimos en Venecia.", "englishSentence": "Noi ___ a Venezia.", "options": ["abitiamo"], "reglaIds": [8] },
+    { "spanishWord": "Vosotros miráis una película.", "englishSentence": "Voi ___ un film.", "options": ["guardate"], "reglaIds": [8] },
+    { "spanishWord": "Ellos vuelven de vacaciones.", "englishSentence": "Loro ___ dalle vacanze.", "options": ["tornano"], "reglaIds": [8] }
+  ],
+
+  "dictado": [
+    { "text": "Io ho fame.", "reglaIds": [2] },
+    { "text": "Tu hai sete.", "reglaIds": [2] },
+    { "text": "Lui ha sonno.", "reglaIds": [2] },
+    { "text": "Lei ha freddo.", "reglaIds": [2] },
+    { "text": "Noi abbiamo caldo.", "reglaIds": [2] },
+    { "text": "Voi avete paura.", "reglaIds": [2] },
+    { "text": "Loro hanno ragione.", "reglaIds": [2] },
+    { "text": "Io ho venti anni.", "reglaIds": [2] },
+    { "text": "Tu hai un fratello.", "reglaIds": [2, 4] },
+    { "text": "Lei ha due sorelle.", "reglaIds": [2] },
+    { "text": "Noi abbiamo una casa.", "reglaIds": [2, 4] },
+    { "text": "Voi avete due amici.", "reglaIds": [2] },
+    { "text": "Loro hanno un cane.", "reglaIds": [2, 4] },
+    { "text": "Io ho sete adesso.", "reglaIds": [2] },
+    { "text": "Tu hai fretta.", "reglaIds": [2] },
+    { "text": "Lui ha torto.", "reglaIds": [2] },
+    { "text": "Noi abbiamo un'idea.", "reglaIds": [2, 4] },
+
+    { "text": "Il libro è sul tavolo.", "reglaIds": [3] },
+    { "text": "La penna è nuova.", "reglaIds": [3] },
+    { "text": "Lo studente studia molto.", "reglaIds": [3] },
+    { "text": "L'amico arriva domani.", "reglaIds": [3] },
+    { "text": "I ragazzi giocano fuori.", "reglaIds": [3, 6] },
+    { "text": "Gli studenti sono bravi.", "reglaIds": [3, 6] },
+    { "text": "Le case sono grandi.", "reglaIds": [3, 6] },
+
+    { "text": "Ho un cane.", "reglaIds": [4, 2] },
+    { "text": "È una casa grande.", "reglaIds": [4, 1] },
+    { "text": "Ho un amico simpatico.", "reglaIds": [4, 2] },
+    { "text": "È un libro interessante.", "reglaIds": [4, 1] },
+    { "text": "Ho una sorella.", "reglaIds": [4, 2] },
+    { "text": "È uno studente bravo.", "reglaIds": [4, 1] },
+    { "text": "Ho uno specchio nuovo.", "reglaIds": [4, 2] },
+    { "text": "È un'amica simpatica.", "reglaIds": [4, 1] },
+    { "text": "Ho un gatto nero.", "reglaIds": [4, 2] },
+    { "text": "È una bicicletta rossa.", "reglaIds": [4, 1] },
+    { "text": "Ho uno zaino nuovo.", "reglaIds": [4, 2] },
+    { "text": "È un'isola piccola.", "reglaIds": [4, 1] },
+
+    { "text": "Io parlo italiano.", "reglaIds": [8] },
+    { "text": "Tu abiti a Roma.", "reglaIds": [8] },
+    { "text": "Lui lavora molto.", "reglaIds": [8] },
+    { "text": "Lei ascolta la musica.", "reglaIds": [8] },
+    { "text": "Noi parliamo inglese.", "reglaIds": [8] },
+    { "text": "Voi comprate il pane.", "reglaIds": [8] },
+    { "text": "Loro cantano insieme.", "reglaIds": [8] },
+    { "text": "Io torno a casa.", "reglaIds": [8] },
+    { "text": "Tu guardi la televisione.", "reglaIds": [8] },
+    { "text": "Lui abita a Milano.", "reglaIds": [8] },
+    { "text": "Lei lavora in banca.", "reglaIds": [8] },
+    { "text": "Noi ascoltiamo la radio.", "reglaIds": [8] },
+    { "text": "Voi parlate italiano.", "reglaIds": [8] },
+    { "text": "Loro lavorano insieme.", "reglaIds": [8] },
+    { "text": "Io compro un libro.", "reglaIds": [8] },
+    { "text": "Tu canti bene.", "reglaIds": [8] },
+    { "text": "Lui torna domani.", "reglaIds": [8] },
+    { "text": "Noi guardiamo un film.", "reglaIds": [8] },
+    { "text": "Loro comprano frutta.", "reglaIds": [8] }
+  ],
+
+  "seleccionar": [
+    { "pairs": [
+        { "englishWord": "italiano/a", "spanishWord": "italiano/a" },
+        { "englishWord": "spagnolo/a", "spanishWord": "español/a" },
+        { "englishWord": "francese", "spanishWord": "francés/a" },
+        { "englishWord": "tedesco/a", "spanishWord": "alemán/a" },
+        { "englishWord": "americano/a", "spanishWord": "americano/a" },
+        { "englishWord": "colombiano/a", "spanishWord": "colombiano/a" }
+      ], "reglaIds": [1] },
+    { "pairs": [
+        { "englishWord": "medico", "spanishWord": "médico" },
+        { "englishWord": "insegnante", "spanishWord": "profesor/a" },
+        { "englishWord": "cuoco", "spanishWord": "cocinero" },
+        { "englishWord": "cameriera", "spanishWord": "camarera" },
+        { "englishWord": "avvocato/a", "spanishWord": "abogado/a" },
+        { "englishWord": "dottoressa", "spanishWord": "doctora" }
+      ], "reglaIds": [1] },
+    { "pairs": [
+        { "englishWord": "felice", "spanishWord": "feliz" },
+        { "englishWord": "triste", "spanishWord": "triste" },
+        { "englishWord": "stanco/a", "spanishWord": "cansado/a" },
+        { "englishWord": "occupato/a", "spanishWord": "ocupado/a" },
+        { "englishWord": "alto/a", "spanishWord": "alto/a" },
+        { "englishWord": "basso/a", "spanishWord": "bajo/a" }
+      ], "reglaIds": [1] },
+    { "pairs": [
+        { "englishWord": "italiani", "spanishWord": "italianos" },
+        { "englishWord": "spagnoli", "spanishWord": "españoles" },
+        { "englishWord": "francesi", "spanishWord": "franceses" },
+        { "englishWord": "americani", "spanishWord": "americanos" },
+        { "englishWord": "messicani", "spanishWord": "mexicanos" },
+        { "englishWord": "colombiani", "spanishWord": "colombianos" }
+      ], "reglaIds": [1] },
+    { "pairs": [
+        { "englishWord": "medici", "spanishWord": "médicos" },
+        { "englishWord": "insegnanti", "spanishWord": "profesores" },
+        { "englishWord": "cuochi", "spanishWord": "cocineros" },
+        { "englishWord": "avvocati", "spanishWord": "abogados" },
+        { "englishWord": "studenti", "spanishWord": "estudiantes" },
+        { "englishWord": "impiegati", "spanishWord": "empleados" }
+      ], "reglaIds": [1] },
+    { "pairs": [
+        { "englishWord": "io sono", "spanishWord": "yo soy" },
+        { "englishWord": "tu sei", "spanishWord": "tú eres" },
+        { "englishWord": "lui è", "spanishWord": "él es" },
+        { "englishWord": "noi siamo", "spanishWord": "nosotros somos" },
+        { "englishWord": "voi siete", "spanishWord": "vosotros sois" },
+        { "englishWord": "loro sono", "spanishWord": "ellos son" }
+      ], "reglaIds": [1] },
+    { "pairs": [
+        { "englishWord": "giovane", "spanishWord": "joven" },
+        { "englishWord": "vecchio/a", "spanishWord": "viejo/a" },
+        { "englishWord": "forte", "spanishWord": "fuerte" },
+        { "englishWord": "debole", "spanishWord": "débil" },
+        { "englishWord": "bello/a", "spanishWord": "bonito/a" },
+        { "englishWord": "grande", "spanishWord": "grande" }
+      ], "reglaIds": [1] },
+    { "pairs": [
+        { "englishWord": "simpatico/a", "spanishWord": "simpático/a" },
+        { "englishWord": "intelligente", "spanishWord": "inteligente" },
+        { "englishWord": "piccolo/a", "spanishWord": "pequeño/a" },
+        { "englishWord": "nuovo/a", "spanishWord": "nuevo/a" },
+        { "englishWord": "cattivo/a", "spanishWord": "travieso/a" },
+        { "englishWord": "antico/a", "spanishWord": "antiguo/a" }
+      ], "reglaIds": [1] },
+
+    { "pairs": [
+        { "englishWord": "fame", "spanishWord": "hambre" },
+        { "englishWord": "sete", "spanishWord": "sed" },
+        { "englishWord": "sonno", "spanishWord": "sueño" },
+        { "englishWord": "freddo", "spanishWord": "frío" },
+        { "englishWord": "caldo", "spanishWord": "calor" },
+        { "englishWord": "paura", "spanishWord": "miedo" }
+      ], "reglaIds": [2] },
+    { "pairs": [
+        { "englishWord": "ragione", "spanishWord": "razón" },
+        { "englishWord": "torto", "spanishWord": "equivocado" },
+        { "englishWord": "fretta", "spanishWord": "prisa" },
+        { "englishWord": "anni", "spanishWord": "años" },
+        { "englishWord": "tempo", "spanishWord": "tiempo" },
+        { "englishWord": "bisogno", "spanishWord": "necesidad" }
+      ], "reglaIds": [2] },
+    { "pairs": [
+        { "englishWord": "fratello", "spanishWord": "hermano" },
+        { "englishWord": "sorella", "spanishWord": "hermana" },
+        { "englishWord": "amico", "spanishWord": "amigo" },
+        { "englishWord": "amica", "spanishWord": "amiga" },
+        { "englishWord": "cane", "spanishWord": "perro" },
+        { "englishWord": "gatto", "spanishWord": "gato" }
+      ], "reglaIds": [2] },
+    { "pairs": [
+        { "englishWord": "casa", "spanishWord": "casa" },
+        { "englishWord": "macchina", "spanishWord": "carro" },
+        { "englishWord": "lavoro", "spanishWord": "trabajo" },
+        { "englishWord": "problema", "spanishWord": "problema" },
+        { "englishWord": "idea", "spanishWord": "idea" },
+        { "englishWord": "soldi", "spanishWord": "dinero" }
+      ], "reglaIds": [2] },
+    { "pairs": [
+        { "englishWord": "ho", "spanishWord": "tengo" },
+        { "englishWord": "hai", "spanishWord": "tienes" },
+        { "englishWord": "ha", "spanishWord": "tiene" },
+        { "englishWord": "abbiamo", "spanishWord": "tenemos" },
+        { "englishWord": "avete", "spanishWord": "tenéis" },
+        { "englishWord": "hanno", "spanishWord": "tienen" }
+      ], "reglaIds": [2] },
+    { "pairs": [
+        { "englishWord": "molto", "spanishWord": "mucho" },
+        { "englishWord": "poco", "spanishWord": "poco" },
+        { "englishWord": "molti", "spanishWord": "muchos" },
+        { "englishWord": "poche", "spanishWord": "pocas" },
+        { "englishWord": "sempre", "spanishWord": "siempre" },
+        { "englishWord": "spesso", "spanishWord": "a menudo" }
+      ], "reglaIds": [2] },
+    { "pairs": [
+        { "englishWord": "esame", "spanishWord": "examen" },
+        { "englishWord": "riunione", "spanishWord": "reunión" },
+        { "englishWord": "vacanze", "spanishWord": "vacaciones" },
+        { "englishWord": "scuola", "spanishWord": "escuela" },
+        { "englishWord": "appuntamento", "spanishWord": "cita" },
+        { "englishWord": "ufficio", "spanishWord": "oficina" }
+      ], "reglaIds": [2] },
+    { "pairs": [
+        { "englishWord": "nero/a", "spanishWord": "negro/a" },
+        { "englishWord": "piccolo/a", "spanishWord": "pequeño/a" },
+        { "englishWord": "grande", "spanishWord": "grande" },
+        { "englishWord": "nuovo/a", "spanishWord": "nuevo/a" },
+        { "englishWord": "vecchio/a", "spanishWord": "viejo/a" },
+        { "englishWord": "interessante", "spanishWord": "interesante" }
+      ], "reglaIds": [2] },
+    { "pairs": [
+        { "englishWord": "oggi", "spanishWord": "hoy" },
+        { "englishWord": "domani", "spanishWord": "mañana" },
+        { "englishWord": "adesso", "spanishWord": "ahora" },
+        { "englishWord": "stasera", "spanishWord": "esta noche" },
+        { "englishWord": "dopo", "spanishWord": "después" },
+        { "englishWord": "sempre", "spanishWord": "siempre" }
+      ], "reglaIds": [2] },
+    { "pairs": [
+        { "englishWord": "figlio", "spanishWord": "hijo" },
+        { "englishWord": "figlia", "spanishWord": "hija" },
+        { "englishWord": "azienda", "spanishWord": "empresa" },
+        { "englishWord": "ufficio", "spanishWord": "oficina" },
+        { "englishWord": "libro", "spanishWord": "libro" },
+        { "englishWord": "penna", "spanishWord": "pluma" }
+      ], "reglaIds": [2] },
+
+    { "pairs": [
+        { "englishWord": "il libro", "spanishWord": "el libro" },
+        { "englishWord": "la penna", "spanishWord": "la pluma" },
+        { "englishWord": "lo studente", "spanishWord": "el estudiante" },
+        { "englishWord": "l'amico", "spanishWord": "el amigo" },
+        { "englishWord": "i ragazzi", "spanishWord": "los chicos" },
+        { "englishWord": "le case", "spanishWord": "las casas" }
+      ], "reglaIds": [3] },
+    { "pairs": [
+        { "englishWord": "il gatto", "spanishWord": "el gato" },
+        { "englishWord": "la chiave", "spanishWord": "la llave" },
+        { "englishWord": "il cane", "spanishWord": "el perro" },
+        { "englishWord": "la porta", "spanishWord": "la puerta" },
+        { "englishWord": "il tavolo", "spanishWord": "la mesa" },
+        { "englishWord": "la sedia", "spanishWord": "la silla" }
+      ], "reglaIds": [3] },
+    { "pairs": [
+        { "englishWord": "gli studenti", "spanishWord": "los estudiantes" },
+        { "englishWord": "gli amici", "spanishWord": "los amigos" },
+        { "englishWord": "gli alberi", "spanishWord": "los árboles" },
+        { "englishWord": "gli animali", "spanishWord": "los animales" },
+        { "englishWord": "gli zaini", "spanishWord": "las mochilas" },
+        { "englishWord": "gli specchi", "spanishWord": "los espejos" }
+      ], "reglaIds": [3, 6] },
+    { "pairs": [
+        { "englishWord": "il parco", "spanishWord": "el parque" },
+        { "englishWord": "la strada", "spanishWord": "la calle" },
+        { "englishWord": "il negozio", "spanishWord": "la tienda" },
+        { "englishWord": "la piazza", "spanishWord": "la plaza" },
+        { "englishWord": "il museo", "spanishWord": "el museo" },
+        { "englishWord": "la biblioteca", "spanishWord": "la biblioteca" }
+      ], "reglaIds": [3] },
+    { "pairs": [
+        { "englishWord": "il fiume", "spanishWord": "el río" },
+        { "englishWord": "la montagna", "spanishWord": "la montaña" },
+        { "englishWord": "il lago", "spanishWord": "el lago" },
+        { "englishWord": "la torre", "spanishWord": "la torre" },
+        { "englishWord": "il ponte", "spanishWord": "el puente" },
+        { "englishWord": "l'isola", "spanishWord": "la isla" }
+      ], "reglaIds": [3] },
+    { "pairs": [
+        { "englishWord": "la finestra", "spanishWord": "la ventana" },
+        { "englishWord": "il cappello", "spanishWord": "el sombrero" },
+        { "englishWord": "la giacca", "spanishWord": "la chaqueta" },
+        { "englishWord": "il computer", "spanishWord": "la computadora" },
+        { "englishWord": "la bicicletta", "spanishWord": "la bicicleta" },
+        { "englishWord": "il quaderno", "spanishWord": "el cuaderno" }
+      ], "reglaIds": [3] },
+    { "pairs": [
+        { "englishWord": "lo zaino", "spanishWord": "la mochila" },
+        { "englishWord": "lo specchio", "spanishWord": "el espejo" },
+        { "englishWord": "lo zio", "spanishWord": "el tío" },
+        { "englishWord": "lo studio", "spanishWord": "el estudio" },
+        { "englishWord": "lo sport", "spanishWord": "el deporte" },
+        { "englishWord": "lo stadio", "spanishWord": "el estadio" }
+      ], "reglaIds": [3] },
+    { "pairs": [
+        { "englishWord": "l'orologio", "spanishWord": "el reloj" },
+        { "englishWord": "l'amica", "spanishWord": "la amiga" },
+        { "englishWord": "l'albero", "spanishWord": "el árbol" },
+        { "englishWord": "l'isola", "spanishWord": "la isla" },
+        { "englishWord": "l'ora", "spanishWord": "la hora" },
+        { "englishWord": "l'acqua", "spanishWord": "el agua" }
+      ], "reglaIds": [3] },
+    { "pairs": [
+        { "englishWord": "i libri", "spanishWord": "los libros" },
+        { "englishWord": "i cani", "spanishWord": "los perros" },
+        { "englishWord": "i gatti", "spanishWord": "los gatos" },
+        { "englishWord": "i fiori", "spanishWord": "las flores" },
+        { "englishWord": "i bambini", "spanishWord": "los niños" },
+        { "englishWord": "i ponti", "spanishWord": "los puentes" }
+      ], "reglaIds": [3, 6] },
+    { "pairs": [
+        { "englishWord": "le ragazze", "spanishWord": "las chicas" },
+        { "englishWord": "le amiche", "spanishWord": "las amigas" },
+        { "englishWord": "le finestre", "spanishWord": "las ventanas" },
+        { "englishWord": "le chiavi", "spanishWord": "las llaves" },
+        { "englishWord": "le strade", "spanishWord": "las calles" },
+        { "englishWord": "le porte", "spanishWord": "las puertas" }
+      ], "reglaIds": [3, 6] },
+
+    { "pairs": [
+        { "englishWord": "un cane", "spanishWord": "un perro" },
+        { "englishWord": "un amico", "spanishWord": "un amigo" },
+        { "englishWord": "un libro", "spanishWord": "un libro" },
+        { "englishWord": "un gatto", "spanishWord": "un gato" },
+        { "englishWord": "un fiore", "spanishWord": "una flor" },
+        { "englishWord": "un ponte", "spanishWord": "un puente" }
+      ], "reglaIds": [4] },
+    { "pairs": [
+        { "englishWord": "uno studente", "spanishWord": "un estudiante" },
+        { "englishWord": "uno zaino", "spanishWord": "una mochila" },
+        { "englishWord": "uno specchio", "spanishWord": "un espejo" },
+        { "englishWord": "uno zio", "spanishWord": "un tío" },
+        { "englishWord": "uno sport", "spanishWord": "un deporte" },
+        { "englishWord": "uno stadio", "spanishWord": "un estadio" }
+      ], "reglaIds": [4] },
+    { "pairs": [
+        { "englishWord": "una casa", "spanishWord": "una casa" },
+        { "englishWord": "una sorella", "spanishWord": "una hermana" },
+        { "englishWord": "una bicicletta", "spanishWord": "una bicicleta" },
+        { "englishWord": "una penna", "spanishWord": "una pluma" },
+        { "englishWord": "una giacca", "spanishWord": "una chaqueta" },
+        { "englishWord": "una finestra", "spanishWord": "una ventana" }
+      ], "reglaIds": [4] },
+    { "pairs": [
+        { "englishWord": "un'amica", "spanishWord": "una amiga" },
+        { "englishWord": "un'isola", "spanishWord": "una isla" },
+        { "englishWord": "un'idea", "spanishWord": "una idea" },
+        { "englishWord": "un'azienda", "spanishWord": "una empresa" },
+        { "englishWord": "un'ora", "spanishWord": "una hora" },
+        { "englishWord": "un'amica italiana", "spanishWord": "una amiga italiana" }
+      ], "reglaIds": [4] },
+    { "pairs": [
+        { "englishWord": "un cappello", "spanishWord": "un sombrero" },
+        { "englishWord": "un quaderno", "spanishWord": "un cuaderno" },
+        { "englishWord": "un computer", "spanishWord": "una computadora" },
+        { "englishWord": "un orologio", "spanishWord": "un reloj" },
+        { "englishWord": "un fratello", "spanishWord": "un hermano" },
+        { "englishWord": "un lago", "spanishWord": "un lago" }
+      ], "reglaIds": [4] },
+    { "pairs": [
+        { "englishWord": "una chiave", "spanishWord": "una llave" },
+        { "englishWord": "una porta", "spanishWord": "una puerta" },
+        { "englishWord": "una strada", "spanishWord": "una calle" },
+        { "englishWord": "una piazza", "spanishWord": "una plaza" },
+        { "englishWord": "una montagna", "spanishWord": "una montaña" },
+        { "englishWord": "una torre", "spanishWord": "una torre" }
+      ], "reglaIds": [4] },
+    { "pairs": [
+        { "englishWord": "un anno", "spanishWord": "un año" },
+        { "englishWord": "una settimana", "spanishWord": "una semana" },
+        { "englishWord": "un mese", "spanishWord": "un mes" },
+        { "englishWord": "un giorno", "spanishWord": "un día" },
+        { "englishWord": "un'ora", "spanishWord": "una hora" },
+        { "englishWord": "un minuto", "spanishWord": "un minuto" }
+      ], "reglaIds": [4] },
+    { "pairs": [
+        { "englishWord": "un caffè", "spanishWord": "un café" },
+        { "englishWord": "una mela", "spanishWord": "una manzana" },
+        { "englishWord": "un panino", "spanishWord": "un sándwich" },
+        { "englishWord": "una pizza", "spanishWord": "una pizza" },
+        { "englishWord": "un gelato", "spanishWord": "un helado" },
+        { "englishWord": "un'insalata", "spanishWord": "una ensalada" }
+      ], "reglaIds": [4] },
+    { "pairs": [
+        { "englishWord": "un padre", "spanishWord": "un padre" },
+        { "englishWord": "una madre", "spanishWord": "una madre" },
+        { "englishWord": "un figlio", "spanishWord": "un hijo" },
+        { "englishWord": "una figlia", "spanishWord": "una hija" },
+        { "englishWord": "un nonno", "spanishWord": "un abuelo" },
+        { "englishWord": "una nonna", "spanishWord": "una abuela" }
+      ], "reglaIds": [4] },
+
+    { "pairs": [
+        { "englishWord": "parlo", "spanishWord": "hablo" },
+        { "englishWord": "parli", "spanishWord": "hablas" },
+        { "englishWord": "parla", "spanishWord": "habla" },
+        { "englishWord": "parliamo", "spanishWord": "hablamos" },
+        { "englishWord": "parlate", "spanishWord": "habláis" },
+        { "englishWord": "parlano", "spanishWord": "hablan" }
+      ], "reglaIds": [8] },
+    { "pairs": [
+        { "englishWord": "abito", "spanishWord": "vivo" },
+        { "englishWord": "abiti", "spanishWord": "vives" },
+        { "englishWord": "abita", "spanishWord": "vive" },
+        { "englishWord": "abitiamo", "spanishWord": "vivimos" },
+        { "englishWord": "abitate", "spanishWord": "vivís" },
+        { "englishWord": "abitano", "spanishWord": "viven" }
+      ], "reglaIds": [8] },
+    { "pairs": [
+        { "englishWord": "lavoro", "spanishWord": "trabajo" },
+        { "englishWord": "lavori", "spanishWord": "trabajas" },
+        { "englishWord": "lavora", "spanishWord": "trabaja" },
+        { "englishWord": "lavoriamo", "spanishWord": "trabajamos" },
+        { "englishWord": "lavorate", "spanishWord": "trabajáis" },
+        { "englishWord": "lavorano", "spanishWord": "trabajan" }
+      ], "reglaIds": [8] },
+    { "pairs": [
+        { "englishWord": "ascolto", "spanishWord": "escucho" },
+        { "englishWord": "ascolti", "spanishWord": "escuchas" },
+        { "englishWord": "ascolta", "spanishWord": "escucha" },
+        { "englishWord": "ascoltiamo", "spanishWord": "escuchamos" },
+        { "englishWord": "ascoltate", "spanishWord": "escucháis" },
+        { "englishWord": "ascoltano", "spanishWord": "escuchan" }
+      ], "reglaIds": [8] },
+    { "pairs": [
+        { "englishWord": "compro", "spanishWord": "compro" },
+        { "englishWord": "compri", "spanishWord": "compras" },
+        { "englishWord": "compra", "spanishWord": "compra" },
+        { "englishWord": "compriamo", "spanishWord": "compramos" },
+        { "englishWord": "comprate", "spanishWord": "compráis" },
+        { "englishWord": "comprano", "spanishWord": "compran" }
+      ], "reglaIds": [8] },
+    { "pairs": [
+        { "englishWord": "canto", "spanishWord": "canto" },
+        { "englishWord": "canti", "spanishWord": "cantas" },
+        { "englishWord": "canta", "spanishWord": "canta" },
+        { "englishWord": "cantiamo", "spanishWord": "cantamos" },
+        { "englishWord": "cantate", "spanishWord": "cantáis" },
+        { "englishWord": "cantano", "spanishWord": "cantan" }
+      ], "reglaIds": [8] },
+    { "pairs": [
+        { "englishWord": "torno", "spanishWord": "vuelvo" },
+        { "englishWord": "torni", "spanishWord": "vuelves" },
+        { "englishWord": "torna", "spanishWord": "vuelve" },
+        { "englishWord": "torniamo", "spanishWord": "volvemos" },
+        { "englishWord": "tornate", "spanishWord": "volvéis" },
+        { "englishWord": "tornano", "spanishWord": "vuelven" }
+      ], "reglaIds": [8] },
+    { "pairs": [
+        { "englishWord": "guardo", "spanishWord": "miro" },
+        { "englishWord": "guardi", "spanishWord": "miras" },
+        { "englishWord": "guarda", "spanishWord": "mira" },
+        { "englishWord": "guardiamo", "spanishWord": "miramos" },
+        { "englishWord": "guardate", "spanishWord": "miráis" },
+        { "englishWord": "guardano", "spanishWord": "miran" }
+      ], "reglaIds": [8] },
+    { "pairs": [
+        { "englishWord": "musica", "spanishWord": "música" },
+        { "englishWord": "radio", "spanishWord": "radio" },
+        { "englishWord": "canzone", "spanishWord": "canción" },
+        { "englishWord": "film", "spanishWord": "película" },
+        { "englishWord": "televisione", "spanishWord": "televisión" },
+        { "englishWord": "libro", "spanishWord": "libro" }
+      ], "reglaIds": [8] },
+    { "pairs": [
+        { "englishWord": "molto", "spanishWord": "mucho" },
+        { "englishWord": "poco", "spanishWord": "poco" },
+        { "englishWord": "sempre", "spanishWord": "siempre" },
+        { "englishWord": "spesso", "spanishWord": "a menudo" },
+        { "englishWord": "insieme", "spanishWord": "juntos" },
+        { "englishWord": "tardi", "spanishWord": "tarde" }
+      ], "reglaIds": [8] }
+  ]
+}

@@ -1,0 +1,731 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "El perro es bonito",
+      "englishWord": "Il cane è bello",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La casa es bonita",
+      "englishWord": "La casa è bella",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El chico es travieso",
+      "englishWord": "Il ragazzo è cattivo",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La chica es traviesa",
+      "englishWord": "La ragazza è cattiva",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El gato es joven",
+      "englishWord": "Il gatto è giovane",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La amiga es joven",
+      "englishWord": "L'amica è giovane",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El libro es viejo",
+      "englishWord": "Il libro è vecchio",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La casa es vieja",
+      "englishWord": "La casa è vecchia",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Él es fuerte",
+      "englishWord": "Lui è forte",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ella es fuerte",
+      "englishWord": "Lei è forte",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El estudiante es débil",
+      "englishWord": "Lo studente è debole",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Nosotros somos fuertes",
+      "englishWord": "Noi siamo forti",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Vosotros sois jóvenes",
+      "englishWord": "Voi siete giovani",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ellos son viejos",
+      "englishWord": "Loro sono vecchi",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Yo soy dentista",
+      "englishWord": "Io sono dentista",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú eres periodista",
+      "englishWord": "Tu sei giornalista",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él es profesor",
+      "englishWord": "Lui è professore",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella es profesora",
+      "englishWord": "Lei è professoressa",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros somos empleados",
+      "englishWord": "Noi siamo impiegati",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Vosotros sois dentistas",
+      "englishWord": "Voi siete dentisti",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos son periodistas",
+      "englishWord": "Loro sono giornalisti",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "el parque",
+      "englishWord": "il parco",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "la calle",
+      "englishWord": "la strada",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "la tienda",
+      "englishWord": "il negozio",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "la plaza",
+      "englishWord": "la piazza",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "el museo",
+      "englishWord": "il museo",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "la biblioteca",
+      "englishWord": "la biblioteca",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "el mercado",
+      "englishWord": "il mercato",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "Yo hablo italiano",
+      "englishWord": "Io parlo italiano",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Tú hablas español",
+      "englishWord": "Tu parli spagnolo",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Él vive en Roma",
+      "englishWord": "Lui abita a Roma",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Ella trabaja mucho",
+      "englishWord": "Lei lavora molto",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Nosotros hablamos italiano",
+      "englishWord": "Noi parliamo italiano",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Vosotros escucháis música",
+      "englishWord": "Voi ascoltate la musica",
+      "reglaIds": [
+        3,
+        8
+      ]
+    },
+    {
+      "spanishWord": "Ellos compran un libro",
+      "englishWord": "Loro comprano un libro",
+      "reglaIds": [
+        4,
+        8
+      ]
+    }
+  ],
+  "completar": [
+    {
+      "spanishWord": "El perro es bonito.",
+      "englishSentence": "Il cane è ___.",
+      "options": [
+        "bello"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La casa es bonita.",
+      "englishSentence": "La casa è ___.",
+      "options": [
+        "bella"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El chico es travieso.",
+      "englishSentence": "Il ragazzo è ___.",
+      "options": [
+        "cattivo"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La chica es traviesa.",
+      "englishSentence": "La ragazza è ___.",
+      "options": [
+        "cattiva"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El gato es joven.",
+      "englishSentence": "Il gatto è ___.",
+      "options": [
+        "giovane"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El libro es viejo.",
+      "englishSentence": "Il libro è ___.",
+      "options": [
+        "vecchio"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La bicicleta es vieja.",
+      "englishSentence": "La bicicletta è ___.",
+      "options": [
+        "vecchia"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Él es fuerte.",
+      "englishSentence": "Lui è ___.",
+      "options": [
+        "forte"
+      ],
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Nosotros somos fuertes.",
+      "englishSentence": "Noi siamo ___.",
+      "options": [
+        "forti"
+      ],
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Ellos son viejos.",
+      "englishSentence": "Loro sono ___.",
+      "options": [
+        "vecchi"
+      ],
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishWord": "Yo soy dentista.",
+      "englishSentence": "Io ___ dentista.",
+      "options": [
+        "sono"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú eres periodista.",
+      "englishSentence": "Tu ___ giornalista.",
+      "options": [
+        "sei"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él es profesor.",
+      "englishSentence": "Lui ___ professore.",
+      "options": [
+        "è"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros somos empleados.",
+      "englishSentence": "Noi ___ impiegati.",
+      "options": [
+        "siamo"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Vosotros sois dentistas.",
+      "englishSentence": "Voi ___ dentisti.",
+      "options": [
+        "siete"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "El parque es grande.",
+      "englishSentence": "___ parco è grande.",
+      "options": [
+        "il"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "La calle es larga.",
+      "englishSentence": "___ strada è lunga.",
+      "options": [
+        "la"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "La tienda está abierta.",
+      "englishSentence": "___ negozio è aperto.",
+      "options": [
+        "il"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "La plaza es bonita.",
+      "englishSentence": "___ piazza è bella.",
+      "options": [
+        "la"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El museo es antiguo.",
+      "englishSentence": "___ museo è antico.",
+      "options": [
+        "il"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "Yo hablo italiano.",
+      "englishSentence": "Io ___ italiano.",
+      "options": [
+        "parlo"
+      ],
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Tú hablas español.",
+      "englishSentence": "Tu ___ spagnolo.",
+      "options": [
+        "parli"
+      ],
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Él vive en Roma.",
+      "englishSentence": "Lui ___ a Roma.",
+      "options": [
+        "abita"
+      ],
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Nosotros hablamos italiano.",
+      "englishSentence": "Noi ___ italiano.",
+      "options": [
+        "parliamo"
+      ],
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishWord": "Vosotros escucháis la música.",
+      "englishSentence": "Voi ___ la musica.",
+      "options": [
+        "ascoltate"
+      ],
+      "reglaIds": [
+        3,
+        8
+      ]
+    }
+  ],
+  "corregir": [
+    {
+      "spanishPhrase": "El perro es bonito",
+      "fraseCorrecta": "Il cane è bello",
+      "fraseConError": "Il cane è bella",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "La casa es bonita",
+      "fraseCorrecta": "La casa è bella",
+      "fraseConError": "La casa è bello",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "El chico es travieso",
+      "fraseCorrecta": "Il ragazzo è cattivo",
+      "fraseConError": "Il ragazzo è cattiva",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "La chica es traviesa",
+      "fraseCorrecta": "La ragazza è cattiva",
+      "fraseConError": "La ragazza è cattivo",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "El libro es viejo",
+      "fraseCorrecta": "Il libro è vecchio",
+      "fraseConError": "Il libro è vecchia",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "La bicicleta es vieja",
+      "fraseCorrecta": "La bicicletta è vecchia",
+      "fraseConError": "La bicicletta è vecchio",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros somos fuertes",
+      "fraseCorrecta": "Noi siamo forti",
+      "fraseConError": "Noi siamo forte",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos son jóvenes",
+      "fraseCorrecta": "Loro sono giovani",
+      "fraseConError": "Loro sono giovane",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Yo soy dentista",
+      "fraseCorrecta": "Io sono dentista",
+      "fraseConError": "Io è dentista",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Ella es profesora",
+      "fraseCorrecta": "Lei è professoressa",
+      "fraseConError": "Lei sono professoressa",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros somos empleados",
+      "fraseCorrecta": "Noi siamo impiegati",
+      "fraseConError": "Noi siete impiegati",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos son periodistas",
+      "fraseCorrecta": "Loro sono giornalisti",
+      "fraseConError": "Loro è giornalisti",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "El parque es grande",
+      "fraseCorrecta": "Il parco è grande",
+      "fraseConError": "La parco è grande",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishPhrase": "La calle es larga",
+      "fraseCorrecta": "La strada è lunga",
+      "fraseConError": "Il strada è lunga",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishPhrase": "La tienda está abierta",
+      "fraseCorrecta": "Il negozio è aperto",
+      "fraseConError": "La negozio è aperto",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishPhrase": "La biblioteca es grande",
+      "fraseCorrecta": "La biblioteca è grande",
+      "fraseConError": "Il biblioteca è grande",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishPhrase": "Yo hablo italiano",
+      "fraseCorrecta": "Io parlo italiano",
+      "fraseConError": "Io parla italiano",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishPhrase": "Tú hablas español",
+      "fraseCorrecta": "Tu parli spagnolo",
+      "fraseConError": "Tu parlo spagnolo",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros hablamos italiano",
+      "fraseCorrecta": "Noi parliamo italiano",
+      "fraseConError": "Noi parlate italiano",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos compran un libro",
+      "fraseCorrecta": "Loro comprano un libro",
+      "fraseConError": "Loro compra un libro",
+      "reglaIds": [
+        4,
+        8
+      ]
+    }
+  ]
+}

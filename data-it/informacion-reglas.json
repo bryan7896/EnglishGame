@@ -1,0 +1,974 @@
+{
+  "porRegla": {
+    "5": [
+      {
+        "titulo": "Género de los sustantivos",
+        "introduccion": "En italiano, todos los sustantivos tienen género: masculino o femenino. La regla general es: las palabras que terminan en -O suelen ser MASCULINAS (il libro, il gatto) y las que terminan en -A suelen ser FEMENINAS (la casa, la ragazza). Pero hay una trampa: las palabras que terminan en -E pueden ser masculinas O femeninas, y hay que aprenderlas de memoria (il fiore = la flor, es masculino; la notte = la noche, es femenino). Además, el género en italiano NO siempre coincide con el género en español: 'la flor' es femenina en español pero 'il fiore' es masculino en italiano.",
+        "ejercicio1": {
+          "subtitulo": "Selecciona el género correcto",
+          "preguntas": [
+            {
+              "texto": "¿Qué género tiene 'libro'?",
+              "opciones": [
+                {
+                  "texto": "Masculino (il libro)",
+                  "correcta": true,
+                  "explicacion": "Termina en -O, es masculino: il libro."
+                },
+                {
+                  "texto": "Femenino (la libro)",
+                  "correcta": false,
+                  "explicacion": "Las palabras en -O casi siempre son masculinas."
+                }
+              ]
+            },
+            {
+              "texto": "¿Qué género tiene 'casa'?",
+              "opciones": [
+                {
+                  "texto": "Masculino (il casa)",
+                  "correcta": false,
+                  "explicacion": "Las palabras en -A casi siempre son femeninas."
+                },
+                {
+                  "texto": "Femenino (la casa)",
+                  "correcta": true,
+                  "explicacion": "Termina en -A, es femenino: la casa."
+                }
+              ]
+            },
+            {
+              "texto": "'Fiore' (flor) termina en -E. ¿Cuál es su género real?",
+              "opciones": [
+                {
+                  "texto": "Masculino (il fiore)",
+                  "correcta": true,
+                  "explicacion": "Aunque en español 'la flor' es femenina, en italiano 'il fiore' es masculino. Hay que memorizarlo."
+                },
+                {
+                  "texto": "Femenino (la fiore)",
+                  "correcta": false,
+                  "explicacion": "Es una excepción: 'fiore' termina en -E pero es masculino."
+                }
+              ]
+            },
+            {
+              "texto": "'Notte' (noche) también termina en -E. ¿Cuál es su género?",
+              "opciones": [
+                {
+                  "texto": "Masculino (il notte)",
+                  "correcta": false,
+                  "explicacion": "'Notte' es femenino, aunque termine en -E."
+                },
+                {
+                  "texto": "Femenino (la notte)",
+                  "correcta": true,
+                  "explicacion": "Correcto: la notte. Las palabras en -E hay que memorizarlas una por una."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Clasifica: ¿masculino o femenino?",
+          "banco": [
+            "maschile",
+            "femminile"
+          ],
+          "frases": [
+            {
+              "texto": "Il libro è ___",
+              "respuesta": "maschile"
+            },
+            {
+              "texto": "La casa è ___",
+              "respuesta": "femminile"
+            },
+            {
+              "texto": "Il fiore è ___",
+              "respuesta": "maschile"
+            },
+            {
+              "texto": "La notte è ___",
+              "respuesta": "femminile"
+            },
+            {
+              "texto": "Il gatto è ___",
+              "respuesta": "maschile"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Presta atención al género de cada palabra en italiano.",
+          "traducciones": [
+            {
+              "spanishWord": "el libro",
+              "englishWord": "libro"
+            },
+            {
+              "spanishWord": "la casa",
+              "englishWord": "casa"
+            },
+            {
+              "spanishWord": "la noche",
+              "englishWord": "notte"
+            }
+          ]
+        }
+      }
+    ],
+    "3": [
+      {
+        "titulo": "Artículos determinados (il, lo, la, l', i, gli, le)",
+        "introduccion": "El artículo determinado ('el/la' en español) cambia según el género y la primera letra de la palabra:\nMASCULINO singular: IL (il libro), LO (delante de s+consonante, z, gn, ps: lo studente, lo zaino), L' (delante de vocal: l'amico, l'orologio).\nFEMENINO singular: LA (la casa), L' (delante de vocal: l'amica).\nMASCULINO plural: I (i libri), GLI (plural de lo/l': gli studenti, gli amici).\nFEMENINO plural: LE (le case, le amiche).",
+        "ejercicio1": {
+          "subtitulo": "Selecciona el artículo correcto",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es el artículo correcto para 'treno' (tren)?",
+              "opciones": [
+                {
+                  "texto": "il treno",
+                  "correcta": true,
+                  "explicacion": "'Treno' es masculino y empieza con consonante simple: il treno."
+                },
+                {
+                  "texto": "lo treno",
+                  "correcta": false,
+                  "explicacion": "'Lo' se usa antes de s+consonante, z, gn, ps — no antes de 'tr'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es el artículo correcto para 'studente' (estudiante)?",
+              "opciones": [
+                {
+                  "texto": "il studente",
+                  "correcta": false,
+                  "explicacion": "Antes de 's+consonante' se usa 'lo', no 'il'."
+                },
+                {
+                  "texto": "lo studente",
+                  "correcta": true,
+                  "explicacion": "'Studente' empieza con 's+consonante' (st-), por eso se usa 'lo'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es el artículo correcto para 'amico' (amigo)?",
+              "opciones": [
+                {
+                  "texto": "lo amico",
+                  "correcta": false,
+                  "explicacion": "Antes de vocal se usa 'l'', no 'lo'."
+                },
+                {
+                  "texto": "l'amico",
+                  "correcta": true,
+                  "explicacion": "'Amico' empieza con vocal, por eso se usa 'l'' (elisión)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es el plural correcto de 'lo studente'?",
+              "opciones": [
+                {
+                  "texto": "i studenti",
+                  "correcta": false,
+                  "explicacion": "El plural de 'lo' es 'gli', no 'i'."
+                },
+                {
+                  "texto": "gli studenti",
+                  "correcta": true,
+                  "explicacion": "Correcto: el plural de 'lo' (y de 'l'') es siempre 'gli'."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa con el artículo correcto",
+          "banco": [
+            "il",
+            "lo",
+            "la",
+            "l'",
+            "i",
+            "gli",
+            "le"
+          ],
+          "frases": [
+            {
+              "texto": "___ libro è nuovo",
+              "respuesta": "il"
+            },
+            {
+              "texto": "___ studente è italiano",
+              "respuesta": "lo"
+            },
+            {
+              "texto": "___ orologio è qui",
+              "respuesta": "l'"
+            },
+            {
+              "texto": "___ casa è grande",
+              "respuesta": "la"
+            },
+            {
+              "texto": "___ amici sono simpatici",
+              "respuesta": "gli"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Incluye el artículo determinado correcto en tu respuesta.",
+          "traducciones": [
+            {
+              "spanishWord": "el estudiante",
+              "englishWord": "lo studente"
+            },
+            {
+              "spanishWord": "el amigo",
+              "englishWord": "l'amico"
+            },
+            {
+              "spanishWord": "los amigos",
+              "englishWord": "gli amici"
+            }
+          ]
+        }
+      }
+    ],
+    "4": [
+      {
+        "titulo": "Artículos indeterminados (un, uno, una, un')",
+        "introduccion": "El artículo indeterminado ('un/una' en español) también cambia según género y primera letra:\nMASCULINO: UN (delante de casi todo: un libro, un amico — 'un' nunca lleva apóstrofe), UNO (delante de s+consonante, z, gn, ps: uno studente, uno zaino).\nFEMENINO: UNA (delante de consonante: una casa), UN' (delante de vocal, con apóstrofe: un'amica, un'orologio no existe pero un'amica sí).",
+        "ejercicio1": {
+          "subtitulo": "Selecciona el artículo correcto",
+          "preguntas": [
+            {
+              "texto": "¿Cuál es el artículo indeterminado correcto para 'amico' (amigo, masculino)?",
+              "opciones": [
+                {
+                  "texto": "un amico",
+                  "correcta": true,
+                  "explicacion": "'Un' no lleva apóstrofe nunca, ni siquiera delante de vocal: un amico."
+                },
+                {
+                  "texto": "un'amico",
+                  "correcta": false,
+                  "explicacion": "El apóstrofe en 'un'' es solo para el femenino, no para 'un' masculino."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es el artículo indeterminado correcto para 'amica' (amiga, femenino)?",
+              "opciones": [
+                {
+                  "texto": "una amica",
+                  "correcta": false,
+                  "explicacion": "Delante de vocal, el femenino 'una' se convierte en 'un'' con apóstrofe."
+                },
+                {
+                  "texto": "un'amica",
+                  "correcta": true,
+                  "explicacion": "Correcto: femenino + vocal = un'amica (con apóstrofe)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cuál es el artículo indeterminado correcto para 'studente' (estudiante)?",
+              "opciones": [
+                {
+                  "texto": "un studente",
+                  "correcta": false,
+                  "explicacion": "Antes de 's+consonante' se usa 'uno', no 'un'."
+                },
+                {
+                  "texto": "uno studente",
+                  "correcta": true,
+                  "explicacion": "'Studente' empieza con 's+consonante', por eso se usa 'uno'."
+                }
+              ]
+            },
+            {
+              "texto": "'Fiore' (flor) es masculino. ¿Cuál es el artículo indeterminado correcto?",
+              "opciones": [
+                {
+                  "texto": "un fiore",
+                  "correcta": true,
+                  "explicacion": "Masculino delante de consonante simple: un fiore."
+                },
+                {
+                  "texto": "una fiore",
+                  "correcta": false,
+                  "explicacion": "'Fiore' es masculino en italiano, aunque 'la flor' sea femenina en español."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa con el artículo correcto",
+          "banco": [
+            "un",
+            "uno",
+            "una",
+            "un'"
+          ],
+          "frases": [
+            {
+              "texto": "___ libro è sul tavolo",
+              "respuesta": "un"
+            },
+            {
+              "texto": "___ studente arriva",
+              "respuesta": "uno"
+            },
+            {
+              "texto": "___ casa è bella",
+              "respuesta": "una"
+            },
+            {
+              "texto": "___ amica è qui",
+              "respuesta": "un'"
+            },
+            {
+              "texto": "___ fiore è rosso",
+              "respuesta": "un"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Incluye el artículo indeterminado correcto en tu respuesta.",
+          "traducciones": [
+            {
+              "spanishWord": "un amigo",
+              "englishWord": "un amico"
+            },
+            {
+              "spanishWord": "una amiga",
+              "englishWord": "un'amica"
+            },
+            {
+              "spanishWord": "un estudiante",
+              "englishWord": "uno studente"
+            }
+          ]
+        }
+      }
+    ],
+    "1": [
+      {
+        "titulo": "Presente del verbo Essere (ser/estar)",
+        "introduccion": "'Essere' es el verbo más importante del italiano; significa 'ser' o 'estar'. Se usa para decir quién eres, de dónde eres, tu profesión o cómo eres. Conjugación en presente:\nio sono (yo soy) · tu sei (tú eres) · lui/lei è (él/ella es) · noi siamo (nosotros somos) · voi siete (vosotros sois) · loro sono (ellos son).\nEjemplo: 'Io sono italiano' (Yo soy italiano). 'Noi siamo amici' (Nosotros somos amigos).",
+        "ejercicio1": {
+          "subtitulo": "Selecciona la conjugación correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cómo se dice 'yo soy' con essere?",
+              "opciones": [
+                {
+                  "texto": "io sono",
+                  "correcta": true,
+                  "explicacion": "Correcto: io sono (yo soy)."
+                },
+                {
+                  "texto": "io sei",
+                  "correcta": false,
+                  "explicacion": "'Sei' es la forma de 'tu' (tú), no de 'io' (yo)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'nosotros somos' con essere?",
+              "opciones": [
+                {
+                  "texto": "noi siete",
+                  "correcta": false,
+                  "explicacion": "'Siete' es la forma de 'voi' (vosotros), no de 'noi' (nosotros)."
+                },
+                {
+                  "texto": "noi siamo",
+                  "correcta": true,
+                  "explicacion": "Correcto: noi siamo (nosotros somos)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'ella es' con essere?",
+              "opciones": [
+                {
+                  "texto": "lei è",
+                  "correcta": true,
+                  "explicacion": "Correcto: lei è (ella es)."
+                },
+                {
+                  "texto": "lei sono",
+                  "correcta": false,
+                  "explicacion": "'Sono' se usa con 'io' y con 'loro', no con 'lei'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'ellos son' con essere?",
+              "opciones": [
+                {
+                  "texto": "loro sono",
+                  "correcta": true,
+                  "explicacion": "Correcto: loro sono (ellos son). Curiosamente, 'sono' se usa tanto para 'io' como para 'loro'."
+                },
+                {
+                  "texto": "loro è",
+                  "correcta": false,
+                  "explicacion": "'È' es la forma de 'lui/lei' (él/ella), no de 'loro' (ellos)."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa con la forma correcta de essere",
+          "banco": [
+            "sono",
+            "sei",
+            "è",
+            "siamo",
+            "siete"
+          ],
+          "frases": [
+            {
+              "texto": "Io ___ italiano",
+              "respuesta": "sono"
+            },
+            {
+              "texto": "Tu ___ spagnolo",
+              "respuesta": "sei"
+            },
+            {
+              "texto": "Lui ___ francese",
+              "respuesta": "è"
+            },
+            {
+              "texto": "Noi ___ amici",
+              "respuesta": "siamo"
+            },
+            {
+              "texto": "Voi ___ studenti",
+              "respuesta": "siete"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Usa la forma correcta de essere en cada frase.",
+          "traducciones": [
+            {
+              "spanishWord": "Yo soy italiano",
+              "englishWord": "Io sono italiano"
+            },
+            {
+              "spanishWord": "Ella es profesora",
+              "englishWord": "Lei è insegnante"
+            },
+            {
+              "spanishWord": "Nosotros somos amigos",
+              "englishWord": "Noi siamo amici"
+            }
+          ]
+        }
+      }
+    ],
+    "2": [
+      {
+        "titulo": "Presente del verbo Avere (tener)",
+        "introduccion": "'Avere' significa 'tener' y es, junto con 'essere', el otro verbo más importante del italiano. Se usa para hablar de posesión (tener algo), de familia (tener hermanos), de edad (tener X años) y de sensaciones (tener hambre, tener frío). Conjugación en presente:\nio ho (yo tengo) · tu hai (tú tienes) · lui/lei ha (él/ella tiene) · noi abbiamo (nosotros tenemos) · voi avete (vosotros tenéis) · loro hanno (ellos tienen).\nEjemplo: 'Io ho un fratello' (Yo tengo un hermano). 'Noi abbiamo una casa' (Nosotros tenemos una casa). Ojo: aunque se escriba con H, la H de 'ho/hai/ha/hanno' NO se pronuncia — es muda, igual que en español.",
+        "ejercicio1": {
+          "subtitulo": "Selecciona la conjugación correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cómo se dice 'yo tengo' con avere?",
+              "opciones": [
+                {
+                  "texto": "io ho",
+                  "correcta": true,
+                  "explicacion": "Correcto: io ho (yo tengo)."
+                },
+                {
+                  "texto": "io hai",
+                  "correcta": false,
+                  "explicacion": "'Hai' es la forma de 'tu' (tú), no de 'io' (yo)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'nosotros tenemos' con avere?",
+              "opciones": [
+                {
+                  "texto": "noi avete",
+                  "correcta": false,
+                  "explicacion": "'Avete' es la forma de 'voi' (vosotros), no de 'noi' (nosotros)."
+                },
+                {
+                  "texto": "noi abbiamo",
+                  "correcta": true,
+                  "explicacion": "Correcto: noi abbiamo (nosotros tenemos)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'ella tiene' con avere?",
+              "opciones": [
+                {
+                  "texto": "lei ha",
+                  "correcta": true,
+                  "explicacion": "Correcto: lei ha (ella tiene)."
+                },
+                {
+                  "texto": "lei hanno",
+                  "correcta": false,
+                  "explicacion": "'Hanno' se usa con 'loro' (ellos), no con 'lei' (ella)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'ellos tienen' con avere?",
+              "opciones": [
+                {
+                  "texto": "loro hanno",
+                  "correcta": true,
+                  "explicacion": "Correcto: loro hanno (ellos tienen)."
+                },
+                {
+                  "texto": "loro ha",
+                  "correcta": false,
+                  "explicacion": "'Ha' es la forma de 'lui/lei' (él/ella), no de 'loro' (ellos)."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa con la forma correcta de avere",
+          "banco": [
+            "ho",
+            "hai",
+            "ha",
+            "abbiamo",
+            "avete",
+            "hanno"
+          ],
+          "frases": [
+            {
+              "texto": "Io ___ un fratello",
+              "respuesta": "ho"
+            },
+            {
+              "texto": "Tu ___ una sorella",
+              "respuesta": "hai"
+            },
+            {
+              "texto": "Lui ___ un cane",
+              "respuesta": "ha"
+            },
+            {
+              "texto": "Noi ___ una casa",
+              "respuesta": "abbiamo"
+            },
+            {
+              "texto": "Voi ___ due amici",
+              "respuesta": "avete"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Usa la forma correcta de avere en cada frase.",
+          "traducciones": [
+            {
+              "spanishWord": "Yo tengo un hermano",
+              "englishWord": "Io ho un fratello"
+            },
+            {
+              "spanishWord": "Ella tiene un gato",
+              "englishWord": "Lei ha un gatto"
+            },
+            {
+              "spanishWord": "Nosotros tenemos una casa",
+              "englishWord": "Noi abbiamo una casa"
+            }
+          ]
+        }
+      }
+    ],
+    "8": [
+      {
+        "titulo": "Presente de verbos regulares terminados en -ARE",
+        "introduccion": "La mayoría de los verbos italianos terminan en -are, -ere o -ire. Los verbos en -ARE son los más comunes y siguen un patrón regular: se les quita la terminación -are y se agrega una terminación distinta para cada persona. Usemos 'parlare' (hablar) como modelo:\nio parl-o (yo hablo) · tu parl-i (tú hablas) · lui/lei parl-a (él/ella habla) · noi parl-iamo (nosotros hablamos) · voi parl-ate (vosotros habláis) · loro parl-ano (ellos hablan).\nOtros verbos -are muy comunes que siguen EXACTAMENTE el mismo patrón: abitare (vivir/habitar), lavorare (trabajar), guardare (mirar), ascoltare (escuchar), comprare (comprar), amare (amar), cantare (cantar), tornare (volver). Ejemplo: 'Io lavoro' (yo trabajo), 'Noi ascoltiamo' (nosotros escuchamos).",
+        "ejercicio1": {
+          "subtitulo": "Selecciona la conjugación correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cómo se dice 'yo hablo' con parlare?",
+              "opciones": [
+                {
+                  "texto": "io parlo",
+                  "correcta": true,
+                  "explicacion": "Correcto: io parlo (yo hablo)."
+                },
+                {
+                  "texto": "io parli",
+                  "correcta": false,
+                  "explicacion": "'Parli' es la forma de 'tu' (tú), no de 'io' (yo)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'nosotros hablamos' con parlare?",
+              "opciones": [
+                {
+                  "texto": "noi parlate",
+                  "correcta": false,
+                  "explicacion": "'Parlate' es la forma de 'voi' (vosotros), no de 'noi' (nosotros)."
+                },
+                {
+                  "texto": "noi parliamo",
+                  "correcta": true,
+                  "explicacion": "Correcto: noi parliamo (nosotros hablamos)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'ella trabaja' con lavorare?",
+              "opciones": [
+                {
+                  "texto": "lei lavora",
+                  "correcta": true,
+                  "explicacion": "Correcto: lei lavora (ella trabaja) — mismo patrón que parlare: lavor-a."
+                },
+                {
+                  "texto": "lei lavori",
+                  "correcta": false,
+                  "explicacion": "'Lavori' es la forma de 'tu' (tú), no de 'lei' (ella)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'ellos compran' con comprare?",
+              "opciones": [
+                {
+                  "texto": "loro comprano",
+                  "correcta": true,
+                  "explicacion": "Correcto: loro comprano (ellos compran) — mismo patrón: compr-ano."
+                },
+                {
+                  "texto": "loro compra",
+                  "correcta": false,
+                  "explicacion": "'Compra' es la forma de 'lui/lei' (él/ella), no de 'loro' (ellos)."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa con la forma correcta de parlare",
+          "banco": [
+            "parlo",
+            "parli",
+            "parla",
+            "parliamo",
+            "parlate",
+            "parlano"
+          ],
+          "frases": [
+            {
+              "texto": "Io ___ italiano",
+              "respuesta": "parlo"
+            },
+            {
+              "texto": "Tu ___ spagnolo",
+              "respuesta": "parli"
+            },
+            {
+              "texto": "Lui ___ francese",
+              "respuesta": "parla"
+            },
+            {
+              "texto": "Noi ___ italiano",
+              "respuesta": "parliamo"
+            },
+            {
+              "texto": "Voi ___ inglese",
+              "respuesta": "parlate"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Usa la forma correcta del verbo -are en cada frase.",
+          "traducciones": [
+            {
+              "spanishWord": "Yo hablo italiano",
+              "englishWord": "Io parlo italiano"
+            },
+            {
+              "spanishWord": "Ella trabaja mucho",
+              "englishWord": "Lei lavora molto"
+            },
+            {
+              "spanishWord": "Nosotros escuchamos música",
+              "englishWord": "Noi ascoltiamo la musica"
+            }
+          ]
+        }
+      }
+    ],
+    "10": [
+      {
+        "titulo": "Presente de verbos regulares terminados en -IRE",
+        "introduccion": "Ya conocés los verbos -ARE (parlare) y -ERE (leggere). Los verbos -IRE son el tercer y último grupo regular. Usemos 'dormire' (dormir) como modelo:\nio dorm-o (yo duermo) · tu dorm-i (tú duermes) · lui/lei dorm-e (él/ella duerme) · noi dorm-iamo (nosotros dormimos) · voi dorm-ite (vosotros dormís) · loro dorm-ono (ellos duermen).\n¡OJO con la diferencia clave frente a -ERE! Casi todo es igual (io -o, tu -i, lui/lei -e, noi -iamo, loro -ono), pero la forma de 'voi' cambia: los verbos -ERE usan -ETE (voi leggete) y los verbos -IRE usan -ITE (voi dormite).\nOtros verbos -IRE muy comunes que siguen este mismo patrón: partire (salir/partir), aprire (abrir), sentire (sentir/oír), seguire (seguir). Ejemplo: 'Lui parte alle otto' (Él sale a las ocho). 'Noi apriamo la porta' (Nosotros abrimos la puerta).",
+        "ejercicio1": {
+          "subtitulo": "Selecciona la conjugación correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cómo se dice 'yo duermo' con dormire?",
+              "opciones": [
+                {
+                  "texto": "io dormo",
+                  "correcta": true,
+                  "explicacion": "Correcto: io dormo (yo duermo)."
+                },
+                {
+                  "texto": "io dormi",
+                  "correcta": false,
+                  "explicacion": "'Dormi' es la forma de 'tu' (tú), no de 'io' (yo)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'vosotros abrís' con aprire?",
+              "opciones": [
+                {
+                  "texto": "voi aprete",
+                  "correcta": false,
+                  "explicacion": "Los verbos -IRE no usan -ete (eso es de los verbos -ERE, como 'leggete')."
+                },
+                {
+                  "texto": "voi aprite",
+                  "correcta": true,
+                  "explicacion": "Correcto: voi aprite. Los verbos -IRE usan -ITE para 'voi', no -ETE."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'ellos sienten' con sentire?",
+              "opciones": [
+                {
+                  "texto": "loro sentono",
+                  "correcta": true,
+                  "explicacion": "Correcto: loro sentono (ellos sienten) — mismo patrón que dormire: sent-ono."
+                },
+                {
+                  "texto": "loro sente",
+                  "correcta": false,
+                  "explicacion": "'Sente' es la forma de 'lui/lei' (él/ella), no de 'loro' (ellos)."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'nosotros dormimos' con dormire?",
+              "opciones": [
+                {
+                  "texto": "noi dormiamo",
+                  "correcta": true,
+                  "explicacion": "Correcto: noi dormiamo (nosotros dormimos)."
+                },
+                {
+                  "texto": "noi dormono",
+                  "correcta": false,
+                  "explicacion": "'Dormono' es la forma de 'loro' (ellos), no de 'noi' (nosotros)."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa con la forma correcta de dormire",
+          "banco": [
+            "dormo",
+            "dormi",
+            "dorme",
+            "dormiamo",
+            "dormite",
+            "dormono"
+          ],
+          "frases": [
+            {
+              "texto": "Io ___ molto",
+              "respuesta": "dormo"
+            },
+            {
+              "texto": "Tu ___ poco",
+              "respuesta": "dormi"
+            },
+            {
+              "texto": "Lui ___ qui",
+              "respuesta": "dorme"
+            },
+            {
+              "texto": "Noi ___ bene",
+              "respuesta": "dormiamo"
+            },
+            {
+              "texto": "Voi ___ tanto",
+              "respuesta": "dormite"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Usa la forma correcta del verbo -ire en cada frase.",
+          "traducciones": [
+            {
+              "spanishWord": "Yo duermo mucho",
+              "englishWord": "Io dormo molto"
+            },
+            {
+              "spanishWord": "Él abre la puerta",
+              "englishWord": "Lui apre la porta"
+            },
+            {
+              "spanishWord": "Vosotros salís a las ocho",
+              "englishWord": "Voi partite alle otto"
+            }
+          ]
+        }
+      }
+    ],
+    "11": [
+      {
+        "titulo": "Presente del verbo Andare (ir)",
+        "introduccion": "'Andare' significa 'ir' y es uno de los verbos más usados del italiano — sirve para hablar de a dónde vas, qué planes tenés, etc. Es IRREGULAR (no sigue el patrón de parlare/leggere/dormire), así que hay que memorizar su conjugación:\nio vado (yo voy) · tu vai (tú vas) · lui/lei va (él/ella va) · noi andiamo (nosotros vamos) · voi andate (vosotros vais) · loro vanno (ellos van).\nPara decir A DÓNDE vas, normalmente se usa 'a' + lugar (a scuola, a casa) o 'in' + lugar (in biblioteca, in piazza) o 'al/allo/alla' (a + el artículo, contraídos) cuando el lugar lleva artículo: al mercato (a + il mercato), al museo (a + il museo). Ejemplo: 'Io vado al parco' (Yo voy al parque). 'Noi andiamo a casa' (Nosotros vamos a casa) — 'a casa' no lleva artículo, es una excepción que hay que memorizar tal cual.",
+        "ejercicio1": {
+          "subtitulo": "Selecciona la conjugación correcta",
+          "preguntas": [
+            {
+              "texto": "¿Cómo se dice 'yo voy' con andare?",
+              "opciones": [
+                {
+                  "texto": "io vado",
+                  "correcta": true,
+                  "explicacion": "Correcto: io vado (yo voy). Andare es irregular, no sigue el patrón de -are normal."
+                },
+                {
+                  "texto": "io ando",
+                  "correcta": false,
+                  "explicacion": "Esa sería la forma 'regular' esperada, pero andare es irregular: la forma correcta es 'vado'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'nosotros vamos' con andare?",
+              "opciones": [
+                {
+                  "texto": "noi andiamo",
+                  "correcta": true,
+                  "explicacion": "Correcto: noi andiamo. A diferencia de io/tu/lui/loro, 'noi' y 'voi' sí usan la raíz 'and-' normal."
+                },
+                {
+                  "texto": "noi vadiamo",
+                  "correcta": false,
+                  "explicacion": "'Vado' solo se usa en la forma de 'io'. Para 'noi' es 'andiamo'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'ellos van' con andare?",
+              "opciones": [
+                {
+                  "texto": "loro vanno",
+                  "correcta": true,
+                  "explicacion": "Correcto: loro vanno (ellos van)."
+                },
+                {
+                  "texto": "loro andano",
+                  "correcta": false,
+                  "explicacion": "La forma irregular correcta es 'vanno', no 'andano'."
+                }
+              ]
+            },
+            {
+              "texto": "¿Cómo se dice 'tú vas' con andare?",
+              "opciones": [
+                {
+                  "texto": "tu vai",
+                  "correcta": true,
+                  "explicacion": "Correcto: tu vai (tú vas)."
+                },
+                {
+                  "texto": "tu vado",
+                  "correcta": false,
+                  "explicacion": "'Vado' es la forma de 'io' (yo), no de 'tu' (tú)."
+                }
+              ]
+            }
+          ]
+        },
+        "ejercicio2": {
+          "subtitulo": "Completa con la forma correcta de andare",
+          "banco": [
+            "vado",
+            "vai",
+            "va",
+            "andiamo",
+            "andate",
+            "vanno"
+          ],
+          "frases": [
+            {
+              "texto": "Io ___ a scuola",
+              "respuesta": "vado"
+            },
+            {
+              "texto": "Tu ___ al parco",
+              "respuesta": "vai"
+            },
+            {
+              "texto": "Lui ___ al lavoro",
+              "respuesta": "va"
+            },
+            {
+              "texto": "Noi ___ a casa",
+              "respuesta": "andiamo"
+            },
+            {
+              "texto": "Voi ___ al museo",
+              "respuesta": "andate"
+            }
+          ]
+        },
+        "ejercicio3": {
+          "subtitulo": "Traduce",
+          "explicacion": "Usa la forma correcta de andare en cada frase.",
+          "traducciones": [
+            {
+              "spanishWord": "Yo voy a la escuela",
+              "englishWord": "Io vado a scuola"
+            },
+            {
+              "spanishWord": "Ella va al mercado",
+              "englishWord": "Lei va al mercato"
+            },
+            {
+              "spanishWord": "Ellos van a casa",
+              "englishWord": "Loro vanno a casa"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

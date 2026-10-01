@@ -1,7 +1,12 @@
 // exercises/traduccion.js
 
 export function normalizeWord(w) {
-  return String(w || "").toLowerCase().replace(/[^a-záéíóúüñ]/g, '');
+  // a-z + acentos españoles (á é í ó ú) Y los graves del italiano
+  // (à è ì ò ù, MUY comunes: "è", "città", "però") — antes solo se
+  // aceptaban los agudos, así que estas letras se recortaban mal en el
+  // resaltado palabra-por-palabra y en el % de precisión de las frases
+  // en italiano.
+  return String(w || "").toLowerCase().replace(/[^a-zàèìòùáéíóúüñ]/g, '');
 }
 
 export function alignWords(correct, user) {

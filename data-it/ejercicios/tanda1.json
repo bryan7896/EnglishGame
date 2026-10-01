@@ -1,0 +1,2029 @@
+{
+  "traducciones": [
+    {
+      "spanishWord": "Yo soy italiano",
+      "englishWord": "Io sono italiano",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú eres español",
+      "englishWord": "Tu sei spagnolo",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él es francés",
+      "englishWord": "Lui è francese",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella es alemana",
+      "englishWord": "Lei è tedesca",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros somos americanos",
+      "englishWord": "Noi siamo americani",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Vosotros sois mexicanos",
+      "englishWord": "Voi siete messicani",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos son colombianos",
+      "englishWord": "Loro sono colombiani",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo soy inglesa",
+      "englishWord": "Io sono inglese",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú eres italiana",
+      "englishWord": "Tu sei italiana",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella es española",
+      "englishWord": "Lei è spagnola",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros somos franceses",
+      "englishWord": "Noi siamo francesi",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos son alemanes",
+      "englishWord": "Loro sono tedeschi",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo soy médico",
+      "englishWord": "Io sono medico",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú eres profesora",
+      "englishWord": "Tu sei insegnante",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él es cocinero",
+      "englishWord": "Lui è cuoco",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella es camarera",
+      "englishWord": "Lei è cameriera",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él es estudiante",
+      "englishWord": "Lui è studente",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú eres enfermero",
+      "englishWord": "Tu sei infermiere",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo soy abogada",
+      "englishWord": "Io sono avvocata",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella es doctora",
+      "englishWord": "Lei è dottoressa",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "el libro",
+      "englishWord": "il libro",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "el chico",
+      "englishWord": "il ragazzo",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "la chica",
+      "englishWord": "la ragazza",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "el gato",
+      "englishWord": "il gatto",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "el perro",
+      "englishWord": "il cane",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "la flor",
+      "englishWord": "il fiore",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "la noche",
+      "englishWord": "la notte",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "el nombre",
+      "englishWord": "il nome",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "el reloj",
+      "englishWord": "l'orologio",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "el estudiante",
+      "englishWord": "lo studente",
+      "reglaIds": [
+        3
+      ]
+    },
+    {
+      "spanishWord": "un libro",
+      "englishWord": "un libro",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "una chica",
+      "englishWord": "una ragazza",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "un gato",
+      "englishWord": "un gatto",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "una flor",
+      "englishWord": "un fiore",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "un estudiante",
+      "englishWord": "uno studente",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "una estudiante",
+      "englishWord": "una studentessa",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "un amigo",
+      "englishWord": "un amico",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "una amiga",
+      "englishWord": "un'amica",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "spanishWord": "Hola",
+      "englishWord": "Ciao",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Buenos días",
+      "englishWord": "Buongiorno",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Buenas tardes",
+      "englishWord": "Buonasera",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Buenas noches",
+      "englishWord": "Buonanotte",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Adiós",
+      "englishWord": "Arrivederci",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "Hasta pronto",
+      "englishWord": "A presto",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "spanishWord": "La casa es grande",
+      "englishWord": "La casa è grande",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "El libro es nuevo",
+      "englishWord": "Il libro è nuovo",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La chica es alta",
+      "englishWord": "La ragazza è alta",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El chico es bajo",
+      "englishWord": "Il ragazzo è basso",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El gato es pequeño",
+      "englishWord": "Il gatto è piccolo",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La ciudad es bonita",
+      "englishWord": "La città è bella",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    }
+  ],
+  "completar": [
+    {
+      "spanishWord": "El libro está aquí.",
+      "englishSentence": "___ libro è qui.",
+      "options": [
+        "il"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "El chico está aquí.",
+      "englishSentence": "___ ragazzo è qui.",
+      "options": [
+        "il"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "El gato está aquí.",
+      "englishSentence": "___ gatto è qui.",
+      "options": [
+        "il"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "El perro está aquí.",
+      "englishSentence": "___ cane è qui.",
+      "options": [
+        "il"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "La noche está aquí.",
+      "englishSentence": "___ notte è qui.",
+      "options": [
+        "la"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "La llave está aquí.",
+      "englishSentence": "___ chiave è qui.",
+      "options": [
+        "la"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "La clase está aquí.",
+      "englishSentence": "___ classe è qui.",
+      "options": [
+        "la"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "El nombre está aquí.",
+      "englishSentence": "___ nome è qui.",
+      "options": [
+        "il"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "El reloj está aquí.",
+      "englishSentence": "___orologio è qui.",
+      "options": [
+        "l'"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "El estudiante está aquí.",
+      "englishSentence": "___ studente è qui.",
+      "options": [
+        "lo"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "Un libro está aquí.",
+      "englishSentence": "___ libro è qui.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Un chico está aquí.",
+      "englishSentence": "___ ragazzo è qui.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Un gato está aquí.",
+      "englishSentence": "___ gatto è qui.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Un estudiante está aquí.",
+      "englishSentence": "___ studente è qui.",
+      "options": [
+        "uno"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Una estudiante está aquí.",
+      "englishSentence": "___ studentessa è qui.",
+      "options": [
+        "una"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Un amigo está aquí.",
+      "englishSentence": "___ amico è qui.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Una amiga está aquí.",
+      "englishSentence": "___amica è qui.",
+      "options": [
+        "un'"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Una flor está aquí.",
+      "englishSentence": "___ fiore è qui.",
+      "options": [
+        "un"
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishWord": "Yo soy italiano.",
+      "englishSentence": "Io ___ italiano.",
+      "options": [
+        "sono"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Tú eres español.",
+      "englishSentence": "Tu ___ spagnolo.",
+      "options": [
+        "sei"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Él es francés.",
+      "englishSentence": "Lui ___ francese.",
+      "options": [
+        "è"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ella es alemana.",
+      "englishSentence": "Lei ___ tedesca.",
+      "options": [
+        "è"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Nosotros somos americanos.",
+      "englishSentence": "Noi ___ americani.",
+      "options": [
+        "siamo"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Vosotros sois mexicanos.",
+      "englishSentence": "Voi ___ messicani.",
+      "options": [
+        "siete"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Ellos son colombianos.",
+      "englishSentence": "Loro ___ colombiani.",
+      "options": [
+        "sono"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "Yo soy profesor.",
+      "englishSentence": "Io ___ insegnante.",
+      "options": [
+        "sono"
+      ],
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishWord": "La chica es alta.",
+      "englishSentence": "La ragazza è ___.",
+      "options": [
+        "alta"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "El chico es alto.",
+      "englishSentence": "Il ragazzo è ___.",
+      "options": [
+        "alto"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishWord": "La casa es grande.",
+      "englishSentence": "La casa è ___.",
+      "options": [
+        "grande"
+      ],
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishWord": "El libro es nuevo.",
+      "englishSentence": "Il libro è ___.",
+      "options": [
+        "nuovo"
+      ],
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    }
+  ],
+  "seleccionar": [
+    {
+      "pairs": [
+        {
+          "englishWord": "ciao",
+          "spanishWord": "hola"
+        },
+        {
+          "englishWord": "buongiorno",
+          "spanishWord": "buenos días"
+        },
+        {
+          "englishWord": "buonasera",
+          "spanishWord": "buenas tardes"
+        },
+        {
+          "englishWord": "buonanotte",
+          "spanishWord": "buenas noches"
+        },
+        {
+          "englishWord": "arrivederci",
+          "spanishWord": "adiós"
+        },
+        {
+          "englishWord": "a presto",
+          "spanishWord": "hasta pronto"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "come stai?",
+          "spanishWord": "¿cómo estás?"
+        },
+        {
+          "englishWord": "sto bene",
+          "spanishWord": "estoy bien"
+        },
+        {
+          "englishWord": "piacere",
+          "spanishWord": "mucho gusto"
+        },
+        {
+          "englishWord": "come ti chiami?",
+          "spanishWord": "¿cómo te llamas?"
+        },
+        {
+          "englishWord": "mi chiamo Ana",
+          "spanishWord": "me llamo Ana"
+        },
+        {
+          "englishWord": "di dove sei?",
+          "spanishWord": "¿de dónde eres?"
+        }
+      ],
+      "reglaIds": [
+        1,
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "madre",
+          "spanishWord": "la madre"
+        },
+        {
+          "englishWord": "padre",
+          "spanishWord": "el padre"
+        },
+        {
+          "englishWord": "fratello",
+          "spanishWord": "el hermano"
+        },
+        {
+          "englishWord": "sorella",
+          "spanishWord": "la hermana"
+        },
+        {
+          "englishWord": "figlio",
+          "spanishWord": "el hijo"
+        },
+        {
+          "englishWord": "figlia",
+          "spanishWord": "la hija"
+        },
+        {
+          "englishWord": "nonno",
+          "spanishWord": "el abuelo"
+        },
+        {
+          "englishWord": "nonna",
+          "spanishWord": "la abuela"
+        },
+        {
+          "englishWord": "zio",
+          "spanishWord": "el tío"
+        },
+        {
+          "englishWord": "zia",
+          "spanishWord": "la tía"
+        },
+        {
+          "englishWord": "cugino",
+          "spanishWord": "el primo"
+        },
+        {
+          "englishWord": "cugina",
+          "spanishWord": "la prima"
+        },
+        {
+          "englishWord": "famiglia",
+          "spanishWord": "la familia"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "italiano",
+          "spanishWord": "italiano"
+        },
+        {
+          "englishWord": "spagnolo",
+          "spanishWord": "español"
+        },
+        {
+          "englishWord": "francese",
+          "spanishWord": "francés"
+        },
+        {
+          "englishWord": "tedesco",
+          "spanishWord": "alemán"
+        },
+        {
+          "englishWord": "inglese",
+          "spanishWord": "inglés"
+        },
+        {
+          "englishWord": "americano",
+          "spanishWord": "americano"
+        },
+        {
+          "englishWord": "messicano",
+          "spanishWord": "mexicano"
+        },
+        {
+          "englishWord": "colombiano",
+          "spanishWord": "colombiano"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "medico",
+          "spanishWord": "médico"
+        },
+        {
+          "englishWord": "insegnante",
+          "spanishWord": "profesor"
+        },
+        {
+          "englishWord": "cuoco",
+          "spanishWord": "cocinero"
+        },
+        {
+          "englishWord": "cameriere",
+          "spanishWord": "camarero"
+        },
+        {
+          "englishWord": "infermiere",
+          "spanishWord": "enfermero"
+        },
+        {
+          "englishWord": "avvocato",
+          "spanishWord": "abogado"
+        },
+        {
+          "englishWord": "dottore",
+          "spanishWord": "doctor"
+        },
+        {
+          "englishWord": "studente",
+          "spanishWord": "estudiante"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "cucina",
+          "spanishWord": "la cocina"
+        },
+        {
+          "englishWord": "bagno",
+          "spanishWord": "el baño"
+        },
+        {
+          "englishWord": "camera da letto",
+          "spanishWord": "el dormitorio"
+        },
+        {
+          "englishWord": "salotto",
+          "spanishWord": "la sala"
+        },
+        {
+          "englishWord": "giardino",
+          "spanishWord": "el jardín"
+        },
+        {
+          "englishWord": "porta",
+          "spanishWord": "la puerta"
+        },
+        {
+          "englishWord": "finestra",
+          "spanishWord": "la ventana"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "tavolo",
+          "spanishWord": "la mesa"
+        },
+        {
+          "englishWord": "sedia",
+          "spanishWord": "la silla"
+        },
+        {
+          "englishWord": "letto",
+          "spanishWord": "la cama"
+        },
+        {
+          "englishWord": "armadio",
+          "spanishWord": "el armario"
+        },
+        {
+          "englishWord": "specchio",
+          "spanishWord": "el espejo"
+        },
+        {
+          "englishWord": "lampada",
+          "spanishWord": "la lámpara"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "strada",
+          "spanishWord": "la calle"
+        },
+        {
+          "englishWord": "piazza",
+          "spanishWord": "la plaza"
+        },
+        {
+          "englishWord": "parco",
+          "spanishWord": "el parque"
+        },
+        {
+          "englishWord": "negozio",
+          "spanishWord": "la tienda"
+        },
+        {
+          "englishWord": "stazione",
+          "spanishWord": "la estación"
+        },
+        {
+          "englishWord": "ospedale",
+          "spanishWord": "el hospital"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "autobus",
+          "spanishWord": "el autobús"
+        },
+        {
+          "englishWord": "aereo",
+          "spanishWord": "el avión"
+        },
+        {
+          "englishWord": "bicicletta",
+          "spanishWord": "la bicicleta"
+        },
+        {
+          "englishWord": "taxi",
+          "spanishWord": "el taxi"
+        },
+        {
+          "englishWord": "nave",
+          "spanishWord": "el barco"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "pane",
+          "spanishWord": "el pan"
+        },
+        {
+          "englishWord": "acqua",
+          "spanishWord": "el agua"
+        },
+        {
+          "englishWord": "latte",
+          "spanishWord": "la leche"
+        },
+        {
+          "englishWord": "caffè",
+          "spanishWord": "el café"
+        },
+        {
+          "englishWord": "frutta",
+          "spanishWord": "la fruta"
+        },
+        {
+          "englishWord": "verdura",
+          "spanishWord": "la verdura"
+        },
+        {
+          "englishWord": "carne",
+          "spanishWord": "la carne"
+        },
+        {
+          "englishWord": "pesce",
+          "spanishWord": "el pescado"
+        },
+        {
+          "englishWord": "riso",
+          "spanishWord": "el arroz"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "vino",
+          "spanishWord": "el vino"
+        },
+        {
+          "englishWord": "birra",
+          "spanishWord": "la cerveza"
+        },
+        {
+          "englishWord": "succo",
+          "spanishWord": "el jugo"
+        },
+        {
+          "englishWord": "tè",
+          "spanishWord": "el té"
+        },
+        {
+          "englishWord": "acqua",
+          "spanishWord": "el agua"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "maglietta",
+          "spanishWord": "la camiseta"
+        },
+        {
+          "englishWord": "pantaloni",
+          "spanishWord": "los pantalones"
+        },
+        {
+          "englishWord": "gonna",
+          "spanishWord": "la falda"
+        },
+        {
+          "englishWord": "vestito",
+          "spanishWord": "el vestido"
+        },
+        {
+          "englishWord": "scarpe",
+          "spanishWord": "los zapatos"
+        },
+        {
+          "englishWord": "giacca",
+          "spanishWord": "la chaqueta"
+        },
+        {
+          "englishWord": "cappello",
+          "spanishWord": "el sombrero"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "rosso",
+          "spanishWord": "rojo"
+        },
+        {
+          "englishWord": "blu",
+          "spanishWord": "azul"
+        },
+        {
+          "englishWord": "verde",
+          "spanishWord": "verde"
+        },
+        {
+          "englishWord": "giallo",
+          "spanishWord": "amarillo"
+        },
+        {
+          "englishWord": "nero",
+          "spanishWord": "negro"
+        },
+        {
+          "englishWord": "bianco",
+          "spanishWord": "blanco"
+        },
+        {
+          "englishWord": "grigio",
+          "spanishWord": "gris"
+        },
+        {
+          "englishWord": "marrone",
+          "spanishWord": "marrón"
+        },
+        {
+          "englishWord": "rosa",
+          "spanishWord": "rosa"
+        },
+        {
+          "englishWord": "viola",
+          "spanishWord": "morado"
+        }
+      ],
+      "reglaIds": [
+        7
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "uno",
+          "spanishWord": "uno"
+        },
+        {
+          "englishWord": "due",
+          "spanishWord": "dos"
+        },
+        {
+          "englishWord": "tre",
+          "spanishWord": "tres"
+        },
+        {
+          "englishWord": "quattro",
+          "spanishWord": "cuatro"
+        },
+        {
+          "englishWord": "cinque",
+          "spanishWord": "cinco"
+        },
+        {
+          "englishWord": "sei",
+          "spanishWord": "seis"
+        },
+        {
+          "englishWord": "sette",
+          "spanishWord": "siete"
+        },
+        {
+          "englishWord": "otto",
+          "spanishWord": "ocho"
+        },
+        {
+          "englishWord": "nove",
+          "spanishWord": "nueve"
+        },
+        {
+          "englishWord": "dieci",
+          "spanishWord": "diez"
+        }
+      ],
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "undici",
+          "spanishWord": "once"
+        },
+        {
+          "englishWord": "dodici",
+          "spanishWord": "doce"
+        },
+        {
+          "englishWord": "tredici",
+          "spanishWord": "trece"
+        },
+        {
+          "englishWord": "quattordici",
+          "spanishWord": "catorce"
+        },
+        {
+          "englishWord": "quindici",
+          "spanishWord": "quince"
+        },
+        {
+          "englishWord": "sedici",
+          "spanishWord": "dieciséis"
+        },
+        {
+          "englishWord": "diciassette",
+          "spanishWord": "diecisiete"
+        },
+        {
+          "englishWord": "diciotto",
+          "spanishWord": "dieciocho"
+        },
+        {
+          "englishWord": "diciannove",
+          "spanishWord": "diecinueve"
+        },
+        {
+          "englishWord": "venti",
+          "spanishWord": "veinte"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "libro",
+          "spanishWord": "el libro"
+        },
+        {
+          "englishWord": "gatto",
+          "spanishWord": "el gato"
+        },
+        {
+          "englishWord": "telefono",
+          "spanishWord": "el teléfono"
+        },
+        {
+          "englishWord": "orologio",
+          "spanishWord": "el reloj"
+        },
+        {
+          "englishWord": "treno",
+          "spanishWord": "el tren"
+        },
+        {
+          "englishWord": "zaino",
+          "spanishWord": "la mochila"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "casa",
+          "spanishWord": "la casa"
+        },
+        {
+          "englishWord": "sedia",
+          "spanishWord": "la silla"
+        },
+        {
+          "englishWord": "borsa",
+          "spanishWord": "el bolso"
+        },
+        {
+          "englishWord": "macchina",
+          "spanishWord": "el carro"
+        },
+        {
+          "englishWord": "scuola",
+          "spanishWord": "la escuela"
+        },
+        {
+          "englishWord": "chiave",
+          "spanishWord": "la llave"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "testa",
+          "spanishWord": "la cabeza"
+        },
+        {
+          "englishWord": "mano",
+          "spanishWord": "la mano"
+        },
+        {
+          "englishWord": "piede",
+          "spanishWord": "el pie"
+        },
+        {
+          "englishWord": "occhio",
+          "spanishWord": "el ojo"
+        },
+        {
+          "englishWord": "bocca",
+          "spanishWord": "la boca"
+        },
+        {
+          "englishWord": "naso",
+          "spanishWord": "la nariz"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "sole",
+          "spanishWord": "el sol"
+        },
+        {
+          "englishWord": "pioggia",
+          "spanishWord": "la lluvia"
+        },
+        {
+          "englishWord": "vento",
+          "spanishWord": "el viento"
+        },
+        {
+          "englishWord": "nuvola",
+          "spanishWord": "la nube"
+        },
+        {
+          "englishWord": "freddo",
+          "spanishWord": "el frío"
+        },
+        {
+          "englishWord": "caldo",
+          "spanishWord": "el calor"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "pairs": [
+        {
+          "englishWord": "lunedì",
+          "spanishWord": "lunes"
+        },
+        {
+          "englishWord": "martedì",
+          "spanishWord": "martes"
+        },
+        {
+          "englishWord": "mercoledì",
+          "spanishWord": "miércoles"
+        },
+        {
+          "englishWord": "giovedì",
+          "spanishWord": "jueves"
+        },
+        {
+          "englishWord": "venerdì",
+          "spanishWord": "viernes"
+        },
+        {
+          "englishWord": "sabato",
+          "spanishWord": "sábado"
+        },
+        {
+          "englishWord": "domenica",
+          "spanishWord": "domingo"
+        }
+      ],
+      "reglaIds": [
+        12
+      ]
+    }
+  ],
+  "corregir": [
+    {
+      "spanishPhrase": "El libro es nuevo",
+      "fraseCorrecta": "Il libro è nuovo",
+      "fraseConError": "La libro è nuovo",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "El gato es negro",
+      "fraseCorrecta": "Il gatto è nero",
+      "fraseConError": "Lo gatto è nero",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishPhrase": "La casa es grande",
+      "fraseCorrecta": "La casa è grande",
+      "fraseConError": "Il casa è grande",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishPhrase": "La chica es alta",
+      "fraseCorrecta": "La ragazza è alta",
+      "fraseConError": "Lo ragazza è alta",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "El estudiante es italiano",
+      "fraseCorrecta": "Lo studente è italiano",
+      "fraseConError": "Il studente è italiano",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishPhrase": "El reloj es nuevo",
+      "fraseCorrecta": "L'orologio è nuovo",
+      "fraseConError": "Il orologio è nuovo",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "El amigo es simpático",
+      "fraseCorrecta": "L'amico è simpatico",
+      "fraseConError": "Lo amico è simpatico",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "La noche es larga",
+      "fraseCorrecta": "La notte è lunga",
+      "fraseConError": "Il notte è lunga",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "spanishPhrase": "El nombre es bonito",
+      "fraseCorrecta": "Il nome è bello",
+      "fraseConError": "La nome è bello",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Los amigos son italianos",
+      "fraseCorrecta": "Gli amici sono italiani",
+      "fraseConError": "I amici sono italiani",
+      "reglaIds": [
+        1,
+        3,
+        6
+      ]
+    },
+    {
+      "spanishPhrase": "Es un estudiante",
+      "fraseCorrecta": "È uno studente",
+      "fraseConError": "È un studente",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Es un amigo",
+      "fraseCorrecta": "È un amico",
+      "fraseConError": "È uno amico",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Es una amiga",
+      "fraseCorrecta": "È un'amica",
+      "fraseConError": "È una amica",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Es un libro",
+      "fraseCorrecta": "È un libro",
+      "fraseConError": "È uno libro",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Es una flor",
+      "fraseCorrecta": "È un fiore",
+      "fraseConError": "È una fiore",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "spanishPhrase": "Es un chico alto",
+      "fraseCorrecta": "È un ragazzo alto",
+      "fraseConError": "È uno ragazzo alto",
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Yo soy italiano",
+      "fraseCorrecta": "Io sono italiano",
+      "fraseConError": "Io è italiano",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Tú eres español",
+      "fraseCorrecta": "Tu sei spagnolo",
+      "fraseConError": "Tu è spagnolo",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Él es francés",
+      "fraseCorrecta": "Lui è francese",
+      "fraseConError": "Lui sono francese",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Ella es profesora",
+      "fraseCorrecta": "Lei è insegnante",
+      "fraseConError": "Lei sei insegnante",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros somos amigos",
+      "fraseCorrecta": "Noi siamo amici",
+      "fraseConError": "Noi è amici",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Vosotros sois estudiantes",
+      "fraseCorrecta": "Voi siete studenti",
+      "fraseConError": "Voi sono studenti",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Ellos son colombianos",
+      "fraseCorrecta": "Loro sono colombiani",
+      "fraseConError": "Loro siamo colombiani",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Yo soy médico",
+      "fraseCorrecta": "Io sono medico",
+      "fraseConError": "Io sei medico",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "Ella es alta",
+      "fraseCorrecta": "Lei è alta",
+      "fraseConError": "Lei sono alta",
+      "reglaIds": [
+        1,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "Nosotros somos italianos",
+      "fraseCorrecta": "Noi siamo italiani",
+      "fraseConError": "Noi siete italiani",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "spanishPhrase": "La chica es alta",
+      "fraseCorrecta": "La ragazza è alta",
+      "fraseConError": "La ragazza è alto",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "El chico es bajo",
+      "fraseCorrecta": "Il ragazzo è basso",
+      "fraseConError": "Il ragazzo è bassa",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "La casa es bonita",
+      "fraseCorrecta": "La casa è bella",
+      "fraseConError": "La casa è bello",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "spanishPhrase": "El gato es pequeño",
+      "fraseCorrecta": "Il gatto è piccolo",
+      "fraseConError": "Il gatto è piccola",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    }
+  ],
+  "dictado": [
+    {
+      "text": "Ciao, come stai?",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Sto bene, grazie",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Mi chiamo Ana",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Piacere di conoscerti",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Di dove sei?",
+      "reglaIds": [
+        1,
+        12
+      ]
+    },
+    {
+      "text": "Sono italiano",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Sono spagnola",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Sei francese?",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Lui è tedesco",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Lei è americana",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Noi siamo amici",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Voi siete studenti",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Loro sono colombiani",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Io sono medico",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Tu sei insegnante",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Il libro è nuovo",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "text": "La casa è grande",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "text": "Il gatto è nero",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "text": "La ragazza è alta",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "text": "Il ragazzo è basso",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "text": "Lo studente è italiano",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "text": "L'amico è simpatico",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "text": "L'orologio è nuovo",
+      "reglaIds": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "text": "La notte è lunga",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "text": "Un libro è sul tavolo",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "text": "Una casa è bella",
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "text": "Uno studente arriva",
+      "reglaIds": [
+        4
+      ]
+    },
+    {
+      "text": "Un'amica è qui",
+      "reglaIds": [
+        1,
+        4
+      ]
+    },
+    {
+      "text": "Un amico è simpatico",
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "text": "Un fiore è rosso",
+      "reglaIds": [
+        1,
+        4,
+        7
+      ]
+    },
+    {
+      "text": "Buongiorno a tutti",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Buonasera",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Buonanotte",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Arrivederci",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "A presto",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Grazie mille",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Prego",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Scusa",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Per favore",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Come ti chiami?",
+      "reglaIds": [
+        12
+      ]
+    },
+    {
+      "text": "Dove abiti?",
+      "reglaIds": [
+        8
+      ]
+    },
+    {
+      "text": "Ho una sorella",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "text": "Ho un fratello",
+      "reglaIds": [
+        2,
+        4
+      ]
+    },
+    {
+      "text": "La mia famiglia è grande",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "text": "Questo è mio padre",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Questa è mia madre",
+      "reglaIds": [
+        1
+      ]
+    },
+    {
+      "text": "Il tavolo è nella cucina",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "text": "La sedia è nel salotto",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "text": "Il gatto è sul letto",
+      "reglaIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "text": "Quanti anni hai?",
+      "reglaIds": [
+        2
+      ]
+    }
+  ]
+}

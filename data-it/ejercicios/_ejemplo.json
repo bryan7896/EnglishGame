@@ -1,0 +1,48 @@
+{
+  "_comentario": "Archivo de EJEMPLO para italiano — cubre solo 3 de las 14 reglas (para que puedas probar el flujo de selección por reglas ya mismo). Bórralo o complétalo con más tandas siguiendo _LEEME.md, igual que en data-en/ejercicios/.",
+  "traducciones": [
+    { "spanishWord": "Yo soy estudiante.", "englishWord": "Io sono studente.", "reglaIds": [1] },
+    { "spanishWord": "Ella es profesora.", "englishWord": "Lei è professoressa.", "reglaIds": [1] },
+    { "spanishWord": "Nosotros somos amigos.", "englishWord": "Noi siamo amici.", "reglaIds": [1] },
+    { "spanishWord": "Yo tengo un perro.", "englishWord": "Io ho un cane.", "reglaIds": [1] },
+    { "spanishWord": "Ella tiene dos hijos.", "englishWord": "Lei ha due figli.", "reglaIds": [1] },
+    { "spanishWord": "Nosotros tenemos hambre.", "englishWord": "Noi abbiamo fame.", "reglaIds": [1] },
+    { "spanishWord": "El libro está en la mesa.", "englishWord": "Il libro è sul tavolo.", "reglaIds": [3, 8] },
+    { "spanishWord": "La casa es grande.", "englishWord": "La casa è grande.", "reglaIds": [3] },
+    { "spanishWord": "Los niños juegan afuera.", "englishWord": "I bambini giocano fuori.", "reglaIds": [3] },
+    { "spanishWord": "Las llaves están en el bolso.", "englishWord": "Le chiavi sono nella borsa.", "reglaIds": [3, 8] },
+    { "spanishWord": "Tengo un carro nuevo.", "englishWord": "Ho una macchina nuova.", "reglaIds": [4] },
+    { "spanishWord": "Ella compró un vestido.", "englishWord": "Lei ha comprato un vestito.", "reglaIds": [4, 9] },
+    { "spanishWord": "Voy a la escuela todos los días.", "englishWord": "Vado a scuola tutti i giorni.", "reglaIds": [7] },
+    { "spanishWord": "El regalo es de mi hermana.", "englishWord": "Il regalo è di mia sorella.", "reglaIds": [7] },
+    { "spanishWord": "Vivimos en Roma.", "englishWord": "Viviamo a Roma.", "reglaIds": [7] }
+  ],
+  "completar": [
+    { "spanishWord": "Yo soy estudiante.", "englishSentence": "Io ___ studente.", "options": ["sono"], "reglaIds": [1] },
+    { "spanishWord": "Nosotros tenemos hambre.", "englishSentence": "Noi ___ fame.", "options": ["abbiamo"], "reglaIds": [1] },
+    { "spanishWord": "El libro está en la mesa.", "englishSentence": "___ libro è sul tavolo.", "options": ["Il"], "reglaIds": [3] },
+    { "spanishWord": "Voy a la escuela todos los días.", "englishSentence": "Vado ___ scuola tutti i giorni.", "options": ["a"], "reglaIds": [7] }
+  ],
+  "seleccionar": [
+    {
+      "pairs": [
+        { "englishWord": "sono", "spanishWord": "soy/son" },
+        { "englishWord": "hai", "spanishWord": "tienes" },
+        { "englishWord": "abbiamo", "spanishWord": "tenemos" },
+        { "englishWord": "è", "spanishWord": "es/está" },
+        { "englishWord": "siamo", "spanishWord": "somos" }
+      ],
+      "reglaIds": [1]
+    }
+  ],
+  "corregir": [
+    { "spanishPhrase": "Yo soy estudiante.", "fraseConError": "Io è studente.", "fraseCorrecta": "Io sono studente.", "reglaIds": [1] },
+    { "spanishPhrase": "Nosotros tenemos hambre.", "fraseConError": "Noi ha fame.", "fraseCorrecta": "Noi abbiamo fame.", "reglaIds": [1] },
+    { "spanishPhrase": "El libro está en la mesa.", "fraseConError": "Il libro è su il tavolo.", "fraseCorrecta": "Il libro è sul tavolo.", "reglaIds": [8] }
+  ],
+  "dictado": [
+    { "text": "Io sono studente.", "reglaIds": [1] },
+    { "text": "Noi abbiamo fame.", "reglaIds": [1] },
+    { "text": "Il libro è sul tavolo.", "reglaIds": [3, 8] }
+  ]
+}
