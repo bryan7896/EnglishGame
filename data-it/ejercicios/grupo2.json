@@ -250,7 +250,7 @@
         { "englishWord": "cuoco", "spanishWord": "cocinero" },
         { "englishWord": "cuoca", "spanishWord": "cocinera" },
         { "englishWord": "studente", "spanishWord": "estudiante" },
-        { "englishWord": "studentessa", "spanishWord": "estudiante (f.)" }
+        { "englishWord": "studentessa", "spanishWord": "estudiante" }
       ], "reglaIds": [5] },
 
     { "pairs": [
@@ -335,26 +335,26 @@
         { "englishWord": "forte", "spanishWord": "fuerte" }
       ], "reglaIds": [7] },
     { "pairs": [
-        { "englishWord": "belli (m.pl)", "spanishWord": "bonitos" },
-        { "englishWord": "belle (f.pl)", "spanishWord": "bonitas" },
-        { "englishWord": "alti (m.pl)", "spanishWord": "altos" },
-        { "englishWord": "alte (f.pl)", "spanishWord": "altas" },
-        { "englishWord": "piccoli (m.pl)", "spanishWord": "pequeños" },
-        { "englishWord": "piccole (f.pl)", "spanishWord": "pequeñas" }
+        { "englishWord": "belli", "spanishWord": "bonitos" },
+        { "englishWord": "belle", "spanishWord": "bonitas" },
+        { "englishWord": "alti", "spanishWord": "altos" },
+        { "englishWord": "alte", "spanishWord": "altas" },
+        { "englishWord": "piccoli", "spanishWord": "pequeños" },
+        { "englishWord": "piccole", "spanishWord": "pequeñas" }
       ], "reglaIds": [7, 6] },
     { "pairs": [
-        { "englishWord": "vecchi (m.pl)", "spanishWord": "viejos" },
-        { "englishWord": "vecchie (f.pl)", "spanishWord": "viejas" },
-        { "englishWord": "nuovi (m.pl)", "spanishWord": "nuevos" },
-        { "englishWord": "nuove (f.pl)", "spanishWord": "nuevas" },
-        { "englishWord": "stanchi (m.pl)", "spanishWord": "cansados" },
-        { "englishWord": "stanche (f.pl)", "spanishWord": "cansadas" }
+        { "englishWord": "vecchi", "spanishWord": "viejos" },
+        { "englishWord": "vecchie", "spanishWord": "viejas" },
+        { "englishWord": "nuovi", "spanishWord": "nuevos" },
+        { "englishWord": "nuove", "spanishWord": "nuevas" },
+        { "englishWord": "stanchi", "spanishWord": "cansados" },
+        { "englishWord": "stanche", "spanishWord": "cansadas" }
       ], "reglaIds": [7, 6] },
     { "pairs": [
-        { "englishWord": "simpatici (m.pl)", "spanishWord": "simpáticos" },
-        { "englishWord": "simpatiche (f.pl)", "spanishWord": "simpáticas" },
-        { "englishWord": "cattivi (m.pl)", "spanishWord": "traviesos" },
-        { "englishWord": "cattive (f.pl)", "spanishWord": "traviesas" },
+        { "englishWord": "simpatici", "spanishWord": "simpáticos" },
+        { "englishWord": "simpatiche", "spanishWord": "simpáticas" },
+        { "englishWord": "cattivi", "spanishWord": "traviesos" },
+        { "englishWord": "cattive", "spanishWord": "traviesas" },
         { "englishWord": "giovani", "spanishWord": "jóvenes" },
         { "englishWord": "forti", "spanishWord": "fuertes" }
       ], "reglaIds": [7, 6] },
@@ -377,8 +377,8 @@
     { "pairs": [
         { "englishWord": "occupato", "spanishWord": "ocupado" },
         { "englishWord": "occupata", "spanishWord": "ocupada" },
-        { "englishWord": "occupati (m.pl)", "spanishWord": "ocupados" },
-        { "englishWord": "occupate (f.pl)", "spanishWord": "ocupadas" },
+        { "englishWord": "occupati", "spanishWord": "ocupados" },
+        { "englishWord": "occupate", "spanishWord": "ocupadas" },
         { "englishWord": "basso", "spanishWord": "bajo" },
         { "englishWord": "bassa", "spanishWord": "baja" }
       ], "reglaIds": [7] }
