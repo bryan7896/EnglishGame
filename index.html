@@ -282,7 +282,7 @@ textarea:focus-visible,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 4px;
+  padding: calc(10px + env(safe-area-inset-top, 0px)) 4px 10px;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -2183,8 +2183,7 @@ textarea:focus-visible,
 
 .rule-type-breakdown-sum { font-weight: 800; }
 .rule-type-breakdown-sum.sum-ok { color: var(--good); }
-.rule-type-breakdown-sum.sum-bad { color: var(--bad); }
-</style>
+.rule-type-breakdown-sum.sum-bad { color: var(--bad); }</style>
 </head>
 <body>
 <div class="app-container">
