@@ -311,26 +311,26 @@
       ], "reglaIds": [6] },
 
     { "pairs": [
-        { "englishWord": "bello (m.sing)", "spanishWord": "bonito" },
-        { "englishWord": "bella (f.sing)", "spanishWord": "bonita" },
-        { "englishWord": "alto (m.sing)", "spanishWord": "alto" },
-        { "englishWord": "alta (f.sing)", "spanishWord": "alta" },
-        { "englishWord": "piccolo (m.sing)", "spanishWord": "pequeño" },
-        { "englishWord": "piccola (f.sing)", "spanishWord": "pequeña" }
+        { "englishWord": "bello", "spanishWord": "bonito" },
+        { "englishWord": "bella", "spanishWord": "bonita" },
+        { "englishWord": "alto", "spanishWord": "alto" },
+        { "englishWord": "alta", "spanishWord": "alta" },
+        { "englishWord": "piccolo", "spanishWord": "pequeño" },
+        { "englishWord": "piccola", "spanishWord": "pequeña" }
       ], "reglaIds": [7] },
     { "pairs": [
-        { "englishWord": "vecchio (m.sing)", "spanishWord": "viejo" },
-        { "englishWord": "vecchia (f.sing)", "spanishWord": "vieja" },
-        { "englishWord": "nuovo (m.sing)", "spanishWord": "nuevo" },
-        { "englishWord": "nuova (f.sing)", "spanishWord": "nueva" },
-        { "englishWord": "stanco (m.sing)", "spanishWord": "cansado" },
-        { "englishWord": "stanca (f.sing)", "spanishWord": "cansada" }
+        { "englishWord": "vecchio", "spanishWord": "viejo" },
+        { "englishWord": "vecchia", "spanishWord": "vieja" },
+        { "englishWord": "nuovo", "spanishWord": "nuevo" },
+        { "englishWord": "nuova", "spanishWord": "nueva" },
+        { "englishWord": "stanco", "spanishWord": "cansado" },
+        { "englishWord": "stanca", "spanishWord": "cansada" }
       ], "reglaIds": [7] },
     { "pairs": [
-        { "englishWord": "simpatico (m.sing)", "spanishWord": "simpático" },
-        { "englishWord": "simpatica (f.sing)", "spanishWord": "simpática" },
-        { "englishWord": "cattivo (m.sing)", "spanishWord": "travieso" },
-        { "englishWord": "cattiva (f.sing)", "spanishWord": "traviesa" },
+        { "englishWord": "simpatico", "spanishWord": "simpático" },
+        { "englishWord": "simpatica", "spanishWord": "simpática" },
+        { "englishWord": "cattivo", "spanishWord": "travieso" },
+        { "englishWord": "cattiva", "spanishWord": "traviesa" },
         { "englishWord": "giovane", "spanishWord": "joven" },
         { "englishWord": "forte", "spanishWord": "fuerte" }
       ], "reglaIds": [7] },
@@ -375,12 +375,12 @@
         { "englishWord": "interessanti", "spanishWord": "interesantes" }
       ], "reglaIds": [7] },
     { "pairs": [
-        { "englishWord": "occupato (m.sing)", "spanishWord": "ocupado" },
-        { "englishWord": "occupata (f.sing)", "spanishWord": "ocupada" },
+        { "englishWord": "occupato", "spanishWord": "ocupado" },
+        { "englishWord": "occupata", "spanishWord": "ocupada" },
         { "englishWord": "occupati (m.pl)", "spanishWord": "ocupados" },
         { "englishWord": "occupate (f.pl)", "spanishWord": "ocupadas" },
-        { "englishWord": "basso (m.sing)", "spanishWord": "bajo" },
-        { "englishWord": "bassa (f.sing)", "spanishWord": "baja" }
+        { "englishWord": "basso", "spanishWord": "bajo" },
+        { "englishWord": "bassa", "spanishWord": "baja" }
       ], "reglaIds": [7] }
   ]
 }
