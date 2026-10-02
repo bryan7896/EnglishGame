@@ -390,7 +390,37 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
     firstUnlocked = i + 1;
   }
 
+  // Nodos completados consecutivos desde el inicio. Con 0 o 1 nodo
+  // completado el mapa se ve igual que siempre; desde el 2.º nodo terminado
+  // esos nodos se "pliegan" en una sola pila de tarjetas (sin imagen y sin
+  // acción), para que el siguiente nodo objetivo quede visible sin scroll.
+  let leadingDone = 0;
+  while (leadingDone < mainNodes.length && progress[leadingDone]?.completed) leadingDone++;
+  const stackedCount = leadingDone >= 2 ? leadingDone : 0;
+
+  let doneStackHtml = '';
+  if (stackedCount >= 2) {
+    const segsHtml = mainNodes
+      .map((_, i) => `<span class="done-stack-seg ${i < stackedCount ? 'on' : ''}"></span>`)
+      .join('');
+    const allDone = stackedCount === totalMainNodes;
+    doneStackHtml = `
+      <div class="done-stack ${practicaPendiente ? 'practica-dim' : ''}"
+           role="group" aria-label="${stackedCount} nodos completados">
+        <div class="done-stack-front">
+          <div class="done-stack-check">✓</div>
+          <div class="done-stack-content">
+            <div class="done-stack-title">Nodos 1–${stackedCount} completados</div>
+            <div class="done-stack-desc">${allDone ? '¡Completaste todos los nodos!' : `${stackedCount} de ${totalMainNodes} nodos`}</div>
+            <div class="done-stack-segs">${segsHtml}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   const mainNodesHtml = mainNodes.map((node, idx) => {
+    if (idx < stackedCount) return ''; // ya está dentro de la pila
     const prog = progress[idx] || { completed: false, exercisesDone: 0 };
     const total = node.totalExercises || node.exercises?.length || 1;
     const done = Math.min(prog.exercisesDone || 0, total);
@@ -454,7 +484,7 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
     `;
   }).join('');
 
-  mapList.innerHTML = practicaHtml + mainNodesHtml + repasoHtml;
+  mapList.innerHTML = practicaHtml + doneStackHtml + mainNodesHtml + repasoHtml;
 
   const practicaEl = mapList.querySelector('[data-practica-inicial]');
   if (practicaEl) {

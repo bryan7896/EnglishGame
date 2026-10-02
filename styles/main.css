@@ -639,6 +639,83 @@ textarea:focus-visible,
 
 .netflix-node.empty { cursor: not-allowed; opacity: 0.5; }
 
+/* ---- Pila de nodos completados (se ve desde el 2.º nodo terminado) ---- */
+.done-stack {
+  position: relative;
+  pointer-events: none;
+  user-select: none;
+}
+
+.done-stack-front {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 96px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--good);
+  background: linear-gradient(135deg, var(--good-wash), var(--surface) 70%);
+  box-shadow: 0 var(--press-depth) 0 0 rgba(0, 0, 0, 0.25);
+}
+
+.done-stack-check {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--good);
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 900;
+  box-shadow: 0 3px 0 0 var(--good-dark);
+}
+
+.done-stack-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.done-stack-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.done-stack-desc {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--good);
+}
+
+/* Una barrita por nodo principal: llenas = completados */
+.done-stack-segs { display: flex; gap: 3px; }
+
+.done-stack-seg {
+  flex: 1;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.done-stack-seg.on { background: var(--good); }
+
+.done-stack.practica-dim {
+  opacity: 0.35;
+  filter: grayscale(70%);
+}
+
+
 /* ============ 10. ÁREA DE EJERCICIO ============ */
 .exercise-area { display: flex; flex-direction: column; gap: 14px; }
 
