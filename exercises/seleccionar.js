@@ -165,7 +165,7 @@ function renderListeningPractice(practicePairs, container, onDone) {
         `).join('')}
       </div>
       <div class="mini-listen-footer">
-        <button class="fun-btn primary-btn mini-listen-continue" type="button" disabled>▶️ Continuar</button>
+        <button class="fun-btn primary-btn mini-listen-continue" type="button" disabled>Continuar</button>
       </div>
     </div>
   `;
@@ -406,7 +406,7 @@ export function showSeleccionarCompleteModal(pairs, onContinue) {
         `).join('')}
       </div>
       <div class="modal-buttons">
-        <button class="fun-btn primary-btn seleccionar-continue">▶️ Continuar</button>
+        <button class="fun-btn primary-btn seleccionar-continue">Continuar</button>
       </div>
     </div>
   `;

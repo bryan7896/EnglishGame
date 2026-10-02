@@ -103,7 +103,7 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
       
       <textarea class="answer-input corregir-answer" rows="2" placeholder="Escribe la frase corregida en ${getTargetLangMeta().labelLower}..."></textarea>
       <div class="button-group">
-        <button class="btn-action btn-check corregir-check">✅ Comprobar</button>
+        <button class="btn-action btn-check corregir-check">Comprobar</button>
       </div>
     </div>
   `;
@@ -232,7 +232,7 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
       ${reviewButtonsHTML()}
       <div class="modal-buttons">
         ${!passed ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
-        <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
+        <button class="fun-btn primary-btn modal-continue">Continuar</button>
       </div>
     </div>
   `;

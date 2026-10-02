@@ -3249,7 +3249,7 @@ export function renderTraduccionExercise(exercise, container) {
     <div class="question-bubble">${exercise.spanishWord || exercise.spanishWords}</div>
     <textarea class="answer-input traduccion-answer" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
     <div class="button-group">
-      <button class="btn-action btn-check traduccion-check">✅ Comprobar</button>
+      <button class="btn-action btn-check traduccion-check">Comprobar</button>
     </div>
   `;
 }
@@ -3371,7 +3371,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
       </div>
       ${reviewButtonsHTML()}
       <div class="modal-buttons">
-        <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
+        <button class="fun-btn primary-btn modal-continue">Continuar</button>
       </div>
     </div>
   `;
@@ -3426,7 +3426,7 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
       <div class="completar-sentence">${html}</div>
     </div>
     <div class="button-group">
-      <button class="btn-action btn-check completar-check">✅ Comprobar</button>
+      <button class="btn-action btn-check completar-check">Comprobar</button>
     </div>
   `;
   
@@ -3500,7 +3500,7 @@ export function showCompletarModal(exercise, results, onContinue, onRetry) {
       </div>
       <div class="modal-buttons">
         ${!allCorrect ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
-        <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
+        <button class="fun-btn primary-btn modal-continue">Continuar</button>
       </div>
     </div>
   `;
@@ -3708,7 +3708,7 @@ function renderListeningPractice(practicePairs, container, onDone) {
         `).join('')}
       </div>
       <div class="mini-listen-footer">
-        <button class="fun-btn primary-btn mini-listen-continue" type="button" disabled>▶️ Continuar</button>
+        <button class="fun-btn primary-btn mini-listen-continue" type="button" disabled>Continuar</button>
       </div>
     </div>
   `;
@@ -3949,7 +3949,7 @@ export function showSeleccionarCompleteModal(pairs, onContinue) {
         `).join('')}
       </div>
       <div class="modal-buttons">
-        <button class="fun-btn primary-btn seleccionar-continue">▶️ Continuar</button>
+        <button class="fun-btn primary-btn seleccionar-continue">Continuar</button>
       </div>
     </div>
   `;
@@ -4078,7 +4078,7 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
       
       <textarea class="answer-input corregir-answer" rows="2" placeholder="Escribe la frase corregida en ${getTargetLangMeta().labelLower}..."></textarea>
       <div class="button-group">
-        <button class="btn-action btn-check corregir-check">✅ Comprobar</button>
+        <button class="btn-action btn-check corregir-check">Comprobar</button>
       </div>
     </div>
   `;
@@ -4207,7 +4207,7 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
       ${reviewButtonsHTML()}
       <div class="modal-buttons">
         ${!passed ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
-        <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
+        <button class="fun-btn primary-btn modal-continue">Continuar</button>
       </div>
     </div>
   `;
@@ -4482,7 +4482,7 @@ export function renderDictadoExercise(exercise, container) {
       <div class="dictado-input-footer"><span class="dictado-chars">0 caracteres</span></div>
       <div class="dictado-actions">
         <button class="dictado-btn dictado-btn-outline dictado-clear" type="button">🗑️ Limpiar</button>
-        <button class="dictado-btn dictado-btn-primary dictado-check" type="button">✅ Comprobar</button>
+        <button class="dictado-btn dictado-btn-primary dictado-check" type="button">Comprobar</button>
       </div>
     </div>
   `;
@@ -4686,7 +4686,7 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
       </div>
       <div class="dictado-modal-footer" style="padding:16px 24px;border-top:1px solid #222;">
         ${reviewButtonsHTML()}
-        <button class="dictado-modal-btn dictado-modal-continue" style="width:100%;background:#e50914;color:#fff;border:none;border-radius:8px;padding:14px;font-size:0.9rem;font-weight:600;cursor:pointer;">▶️ Continuar</button>
+        <button class="dictado-modal-btn dictado-modal-continue" style="width:100%;background:#e50914;color:#fff;border:none;border-radius:8px;padding:14px;font-size:0.9rem;font-weight:600;cursor:pointer;">Continuar</button>
       </div>
     </div>
   `;
@@ -4866,7 +4866,7 @@ function renderEj3Item(leccion, state, tIdx, status) {
         <button class="fun-btn info-next-btn" data-action="ej3-next">Siguiente ▶</button>
       ` : `
         <textarea class="answer-input info-ej3-answer" rows="2" placeholder="Escribe tu traducción..."></textarea>
-        <div class="button-group"><button class="btn-action btn-check" data-action="ej3-check">✅ Comprobar</button></div>
+        <div class="button-group"><button class="btn-action btn-check" data-action="ej3-check">Comprobar</button></div>
       `}
     </div>
   `;

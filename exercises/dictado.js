@@ -215,7 +215,7 @@ export function renderDictadoExercise(exercise, container) {
       <div class="dictado-input-footer"><span class="dictado-chars">0 caracteres</span></div>
       <div class="dictado-actions">
         <button class="dictado-btn dictado-btn-outline dictado-clear" type="button">🗑️ Limpiar</button>
-        <button class="dictado-btn dictado-btn-primary dictado-check" type="button">✅ Comprobar</button>
+        <button class="dictado-btn dictado-btn-primary dictado-check" type="button">Comprobar</button>
       </div>
     </div>
   `;
@@ -419,7 +419,7 @@ export function showDictadoModal(correctText, result, userAnswer, onContinue) {
       </div>
       <div class="dictado-modal-footer" style="padding:16px 24px;border-top:1px solid #222;">
         ${reviewButtonsHTML()}
-        <button class="dictado-modal-btn dictado-modal-continue" style="width:100%;background:#e50914;color:#fff;border:none;border-radius:8px;padding:14px;font-size:0.9rem;font-weight:600;cursor:pointer;">▶️ Continuar</button>
+        <button class="dictado-modal-btn dictado-modal-continue" style="width:100%;background:#e50914;color:#fff;border:none;border-radius:8px;padding:14px;font-size:0.9rem;font-weight:600;cursor:pointer;">Continuar</button>
       </div>
     </div>
   `;

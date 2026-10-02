@@ -52,7 +52,7 @@ export function renderTraduccionExercise(exercise, container) {
     <div class="question-bubble">${exercise.spanishWord || exercise.spanishWords}</div>
     <textarea class="answer-input traduccion-answer" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
     <div class="button-group">
-      <button class="btn-action btn-check traduccion-check">✅ Comprobar</button>
+      <button class="btn-action btn-check traduccion-check">Comprobar</button>
     </div>
   `;
 }
@@ -174,7 +174,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
       </div>
       ${reviewButtonsHTML()}
       <div class="modal-buttons">
-        <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
+        <button class="fun-btn primary-btn modal-continue">Continuar</button>
       </div>
     </div>
   `;

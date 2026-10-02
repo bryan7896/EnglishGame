@@ -20,7 +20,7 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
       <div class="completar-sentence">${html}</div>
     </div>
     <div class="button-group">
-      <button class="btn-action btn-check completar-check">✅ Comprobar</button>
+      <button class="btn-action btn-check completar-check">Comprobar</button>
     </div>
   `;
   
@@ -94,7 +94,7 @@ export function showCompletarModal(exercise, results, onContinue, onRetry) {
       </div>
       <div class="modal-buttons">
         ${!allCorrect ? '<button class="fun-btn modal-retry" style="background:#f59e0b;color:#1a120b;">🔄 Reintentar</button>' : ''}
-        <button class="fun-btn primary-btn modal-continue">▶️ Continuar</button>
+        <button class="fun-btn primary-btn modal-continue">Continuar</button>
       </div>
     </div>
   `;

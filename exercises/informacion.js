@@ -146,7 +146,7 @@ function renderEj3Item(leccion, state, tIdx, status) {
         <button class="fun-btn info-next-btn" data-action="ej3-next">Siguiente ▶</button>
       ` : `
         <textarea class="answer-input info-ej3-answer" rows="2" placeholder="Escribe tu traducción..."></textarea>
-        <div class="button-group"><button class="btn-action btn-check" data-action="ej3-check">✅ Comprobar</button></div>
+        <div class="button-group"><button class="btn-action btn-check" data-action="ej3-check">Comprobar</button></div>
       `}
     </div>
   `;
