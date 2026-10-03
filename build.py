@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "11.3 (2-10-2026)"
+VERSION = "11.4 (3-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -355,9 +355,6 @@ def get_html_template():
       <div class="magic-card rules-card">
         <h2>📊 Porcentajes por regla</h2>
         <p>Así vas en cada regla gramatical. Toca el ícono de barras para ver cómo ha cambiado en el tiempo.</p>
-        <div class="button-group">
-          <button class="fun-btn primary-btn full-width" id="percentagesUpdateBtn" style="width:100%;">🔄 Actualizar % de reglas</button>
-        </div>
         <div id="percentagesList" class="rules-select-list" style="margin-top:14px;"></div>
         <div class="button-group">
           <button class="fun-btn full-width" id="percentagesBackBtn" style="width:100%;">← Volver al mapa</button>
@@ -452,8 +449,8 @@ def get_main_logic():
   // sale de su propia carpeta (data-en/, data-it/, ver DATA_LANGUAGES en
   // build.py), no de una carpeta única "data". Las constantes de abajo son
   // objetos {en: ..., it: ...}; current*() resuelve el idioma activo.
-  // GRAMMAR_RULES_SEED es solo el % INICIAL de cada idioma; el % real vive
-  // en localStorage bajo rulesStorageKey() (también por idioma) y sobrevive
+  // GRAMMAR_RULES_SEED solo aporta id + nombre (su % se ignora); el % real se
+  // calcula desde la tabla y se cachea en localStorage bajo rulesStorageKey() (también por idioma) y sobrevive
   // a "Borrar todo" (esa acción solo toca currentStorageKey()).
   const GRAMMAR_RULES_SEED_BY_LANG = __GRAMMAR_RULES_JSON__;
   const ALL_STUDY_EXERCISES_BY_LANG = __STUDY_EXERCISES_JSON__;
@@ -463,10 +460,17 @@ def get_main_logic():
   function currentStudyExercises() { return ALL_STUDY_EXERCISES_BY_LANG[getTargetLanguage()] || []; }
   function currentInformacionPorRegla() { return INFORMACION_POR_REGLA_BY_LANG[getTargetLanguage()] || {}; }
 
+  // v2: se descartan los % viejos guardados antes (podían venir de un JSON
+  // pegado a mano o de la semilla del proyecto). Ahora el % SOLO se calcula
+  // a partir del historial de la tabla de Google (ver computeRulePercentage).
   function rulesStorageKey() {
-    return "english_trainer_grammar_rules_v1_" + getTargetLanguage();
+    return "english_trainer_grammar_rules_v2_" + getTargetLanguage();
   }
 
+  // La semilla (reglas-gramaticales.json) solo aporta id + nombre de la
+  // regla. Su "porcentaje" se ignora por completo: arranca en 0 y el valor
+  // real llega del historial de la tabla. localStorage solo guarda el
+  // ÚLTIMO valor calculado desde la tabla, para mostrar algo sin conexión.
   function loadGrammarRules() {
     let saved = [];
     try {
@@ -475,7 +479,7 @@ def get_main_logic():
     } catch (e) { /* noop */ }
     return currentGrammarSeed().map((r) => {
       const found = saved.find((s) => s.id === r.id);
-      return { ...r, porcentaje: found ? found.porcentaje : r.porcentaje };
+      return { ...r, porcentaje: found && typeof found.porcentaje === "number" ? found.porcentaje : 0 };
     });
   }
 
@@ -528,31 +532,6 @@ def get_main_logic():
     return data;
   }
 
-  // Envía el estado ACTUAL de AppRules (del idioma activo) como una nueva
-  // fila de historial por regla. Se llama después de guardar porcentajes
-  // nuevos (showUpdateRulesModal). No bloquea nada si falla (sin
-  // conexión, por ejemplo) — solo se pierde ese punto del historial. Como
-  // el historial en el backend queda desactualizado respecto al cache
-  // local, se invalida el cache para que la próxima consulta (p. ej. abrir
-  // el modal de estadísticas) traiga la fila nueva en vez de servir la
-  // versión vieja.
-  async function syncPercentagesToBackend() {
-    const idioma = getTargetLanguage();
-    const registros = AppRules.map((r) => ({ reglaId: r.id, regla: r.regla, porcentaje: r.porcentaje }));
-    try {
-      await fetch(API_URL, {
-        method: "POST",
-        body: JSON.stringify({ sheet: "porcentajes", action: "add", idioma, registros })
-      });
-      cachedPercentageHistory = null;
-      cachedPercentageHistoryLang = null;
-      return true;
-    } catch (e) {
-      console.log("⚠️ No se pudo sincronizar con el backend:", e.message);
-      return false;
-    }
-  }
-
   // Trae TODO el historial del idioma activo para una regla puntual,
   // ordenado de más viejo a más nuevo (para la gráfica de barras). Usa el
   // cache si ya está listo (idioma correcto) en vez de volver a pedírselo
@@ -569,31 +548,40 @@ def get_main_logic():
       .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
   }
 
-  // Trae el ÚLTIMO registro de cada regla (idioma activo) y, si hay algo
-  // más nuevo que lo que tenemos en local, actualiza AppRules + localStorage.
-  // Se usa al entrar a "Seleccionar reglas a estudiar" y a "Ver
-  // porcentajes", para que el % mostrado sea siempre el más reciente sin
-  // importar desde qué dispositivo se actualizó por última vez. Devuelve
-  // true si cambió algo (para saber si hay que volver a pintar). De paso
-  // deja el historial completo cacheado (fetchAllPercentageHistory), que
-  // es lo que evita la consulta duplicada al abrir el modal de
-  // estadísticas justo después.
+  // Porcentaje de dominio de UNA regla a partir de TODOS sus resultados en
+  // la tabla: promedio donde cada resultado >= 80% suma un bono de +5%
+  // (tope 100 por resultado). Ej.: 50, 85, 80 -> (50 + 90 + 85) / 3 = 75.
+  const PCT_BONUS_THRESHOLD = 80;
+  const PCT_BONUS = 10;
+  function computeRulePercentage(results) {
+    const valid = results.filter((p) => typeof p === "number" && !Number.isNaN(p));
+    if (!valid.length) return 0;
+    const adjusted = valid.map((p) => Math.min(100, p >= PCT_BONUS_THRESHOLD ? p + PCT_BONUS : p));
+    const avg = adjusted.reduce((sum, p) => sum + p, 0) / adjusted.length;
+    return Math.round(avg * 10) / 10;
+  }
+
+  // Trae el historial completo de la tabla (idioma activo), recalcula el %
+  // de cada regla con computeRulePercentage y, si cambió algo, actualiza
+  // AppRules + localStorage. La tabla es la ÚNICA fuente de verdad: las
+  // reglas sin filas quedan en 0. Se usa al entrar a "Seleccionar reglas a
+  // estudiar" y a "Ver porcentajes". Devuelve true si cambió algo (para
+  // saber si hay que volver a pintar). De paso deja el historial completo
+  // cacheado (fetchAllPercentageHistory), que evita la consulta duplicada
+  // al abrir el modal de estadísticas justo después.
   async function syncLatestPercentagesFromBackend() {
     try {
       const data = await fetchAllPercentageHistory();
-      const latestByRule = {};
+      const resultsByRule = {};
       data.forEach((it) => {
         const id = Number(it.reglaId);
-        const t = new Date(it.fecha).getTime();
-        if (!latestByRule[id] || t > latestByRule[id].t) {
-          latestByRule[id] = { t, porcentaje: Number(it.porcentaje) };
-        }
+        (resultsByRule[id] = resultsByRule[id] || []).push(Number(it.porcentaje));
       });
       let changed = false;
       AppRules.forEach((r) => {
-        const latest = latestByRule[r.id];
-        if (latest && !Number.isNaN(latest.porcentaje) && latest.porcentaje !== r.porcentaje) {
-          r.porcentaje = latest.porcentaje;
+        const pct = computeRulePercentage(resultsByRule[r.id] || []);
+        if (pct !== r.porcentaje) {
+          r.porcentaje = pct;
           changed = true;
         }
       });
@@ -1090,10 +1078,6 @@ def get_main_logic():
     }
   }
 
-  // "🔄 Actualizar % de reglas": pega un JSON tipo [{"id":1,"porcentaje":55}, ...]
-  // (parcial o completo) y se fusiona por id contra AppRules; lo que no
-  // venga en el JSON queda intacto. Persiste en RULES_STORAGE_KEY, que
-  // "Borrar todo" nunca toca.
   // ==================== PANTALLA "VER PORCENTAJES" ====================
   function openPercentagesScreen() {
     renderPercentagesScreen();
@@ -1129,7 +1113,7 @@ def get_main_logic():
 
   // Modal con una gráfica de barras (CSS puro, sin librerías) del
   // historial de % de UNA regla, leído del backend. Si nunca se ha usado
-  // "Actualizar % de reglas" todavía no hay nada que graficar, y si no
+  // registros en la tabla todavía no hay nada que graficar, y si no
   // hay conexión se avisa sin romper nada.
   async function showRuleStatsModal(reglaId) {
     const regla = findRegla(reglaId);
@@ -1159,7 +1143,7 @@ def get_main_logic():
     try {
       const history = await fetchPercentageHistory(reglaId);
       if (!history.length) {
-        container.innerHTML = `<p class="sub-fun">Todavía no hay historial guardado para esta regla. Se va llenando cada vez que usas "🔄 Actualizar % de reglas".</p>`;
+        container.innerHTML = `<p class="sub-fun">Todavía no hay historial guardado para esta regla. Se va llenando con los resultados que se registran en la tabla.</p>`;
         return;
       }
       const points = history.slice(-10);
@@ -1177,58 +1161,6 @@ def get_main_logic():
     } catch (e) {
       container.innerHTML = `<p class="sub-fun">⚠️ No se pudo cargar el historial (¿sin conexión?). Intenta de nuevo más tarde.</p>`;
     }
-  }
-
-  function showUpdateRulesModal() {
-    const existing = document.querySelector('.modal-overlay');
-    if (existing) existing.remove();
-
-    const modal = document.createElement("div");
-    modal.className = "modal-overlay modal-active";
-    modal.innerHTML = `
-      <div class="modal-friend menu-modal">
-        <div class="menu-modal-header">
-          <h3>🔄 Actualizar % de reglas</h3>
-          <button class="menu-modal-close" id="updateRulesClose" aria-label="Cerrar">✕</button>
-        </div>
-        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">
-          Pega un JSON con los porcentajes nuevos, por ejemplo:<br>
-          <code style="font-size:0.72rem;">[{"id":1,"porcentaje":55},{"id":2,"porcentaje":60}]</code><br>
-          Solo se actualizan las reglas que incluyas; el resto queda igual.
-        </p>
-        <textarea id="updateRulesInput" class="answer-input" rows="8" placeholder='[{"id":1,"porcentaje":55}]'></textarea>
-        <div class="action-buttons">
-          <button class="fun-btn primary-btn" id="updateRulesApply">✅ Aplicar</button>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-
-    const close = () => modal.remove();
-    modal.querySelector('#updateRulesClose').addEventListener('click', close);
-    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
-
-    modal.querySelector('#updateRulesApply').addEventListener('click', () => {
-      const raw = document.getElementById("updateRulesInput").value.trim();
-      if (!raw) { toast("📝 Pega el JSON primero"); return; }
-      let updates;
-      try { updates = JSON.parse(raw); } catch (e) { toast("❌ JSON inválido: " + e.message); return; }
-      if (!Array.isArray(updates)) { toast("❌ Debe ser un array de {id, porcentaje}"); return; }
-
-      let count = 0;
-      updates.forEach((u) => {
-        const r = findRegla(u.id);
-        if (r && typeof u.porcentaje === "number") { r.porcentaje = u.porcentaje; count++; }
-      });
-      saveGrammarRules(AppRules);
-      close();
-      renderPercentagesScreen();
-      renderRulesSelectScreen();
-      toast(count > 0 ? ("🔄 " + count + " regla(s) actualizadas") : "⚠️ No se encontraron coincidencias por id");
-      if (count > 0) {
-        syncPercentagesToBackend().then((ok) => { if (ok) toast("☁️ Guardado en el historial"); });
-      }
-    });
   }
 
   // "🔀 Mezclar JSON manual": el mismo formato de siempre (traducciones/
@@ -2003,7 +1935,7 @@ def get_main_logic():
   }
 
   // Nombre de las reglas de una entrada del informe, ya resuelto contra
-  // AppRules (por si el usuario actualizó % o cambió de dispositivo, el
+  // AppRules (por si cambió de dispositivo, el
   // NOMBRE de la regla siempre se toma de la lista vigente).
   function reglaGroupLabel(reglaIds) {
     if (!reglaIds || !reglaIds.length) return "📎 Sin regla gramatical asociada";
@@ -2447,7 +2379,6 @@ def get_main_logic():
     document.getElementById("rulesSelectFinishBtn")?.addEventListener("click", finishRulesSelect);
     document.getElementById("rulesConfigBackBtn")?.addEventListener("click", () => { renderRulesSelectScreen(); showMainView("rulesSelect"); });
     document.getElementById("rulesConfigStartBtn")?.addEventListener("click", handleStartStudyFromRules);
-    document.getElementById("percentagesUpdateBtn")?.addEventListener("click", showUpdateRulesModal);
     document.getElementById("percentagesBackBtn")?.addEventListener("click", () => { renderMapView(); showMainView("map"); });
   }
   
