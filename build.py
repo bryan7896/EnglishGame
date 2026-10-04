@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "11.5 (3-10-2026)"
+VERSION = "11.6 (3-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
@@ -548,27 +548,57 @@ def get_main_logic():
       .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
   }
 
-  // Porcentaje de dominio de UNA regla a partir de TODOS sus resultados en
-  // la tabla: promedio donde cada resultado >= 80% suma un bono de +5%
-  // (tope 100 por resultado). Ej.: 50, 85, 80 -> (50 + 90 + 85) / 3 = 75.
   const PCT_BONUS_THRESHOLD = 80;
   const PCT_BONUS = 10;
+
   function computeRulePercentage(results) {
-    const valid = results.filter((p) => typeof p === "number" && !Number.isNaN(p));
+    const valid = results.filter(
+      (p) => typeof p === "number" && !Number.isNaN(p)
+    );
+
     if (!valid.length) return 0;
-    const adjusted = valid.map((p) => Math.min(100, p >= PCT_BONUS_THRESHOLD ? p + PCT_BONUS : p));
-    const avg = adjusted.reduce((sum, p) => sum + p, 0) / adjusted.length;
+
+    // Si hay más de un resultado, los ceros son valores iniciales
+    // y no deben participar en el cálculo.
+    const filtered = valid.length > 1
+      ? valid.filter((p) => p !== 0)
+      : valid;
+
+    // Si solamente existían ceros, el resultado es 0
+    if (!filtered.length) return 0;
+
+    // Un único resultado
+    if (filtered.length === 1) {
+      const p = filtered[0];
+
+      const adjusted = p >= PCT_BONUS_THRESHOLD
+        ? Math.min(100, p + PCT_BONUS)
+        : p;
+
+      return Math.round((adjusted / 2) * 10) / 10;
+    }
+
+    // Si hay más de 4 resultados, tomar los 4 últimos
+    const values = filtered.length > 4
+      ? filtered.slice(-4)
+      : filtered;
+
+    // Regla normal: aplicar bonus y calcular promedio
+    const adjusted = values.map((p) =>
+      Math.min(
+        100,
+        p >= PCT_BONUS_THRESHOLD
+          ? p + PCT_BONUS
+          : p
+      )
+    );
+
+    const avg =
+      adjusted.reduce((sum, p) => sum + p, 0) / adjusted.length;
+
     return Math.round(avg * 10) / 10;
   }
 
-  // Trae el historial completo de la tabla (idioma activo), recalcula el %
-  // de cada regla con computeRulePercentage y, si cambió algo, actualiza
-  // AppRules + localStorage. La tabla es la ÚNICA fuente de verdad: las
-  // reglas sin filas quedan en 0. Se usa al entrar a "Seleccionar reglas a
-  // estudiar" y a "Ver porcentajes". Devuelve true si cambió algo (para
-  // saber si hay que volver a pintar). De paso deja el historial completo
-  // cacheado (fetchAllPercentageHistory), que evita la consulta duplicada
-  // al abrir el modal de estadísticas justo después.
   async function syncLatestPercentagesFromBackend() {
     try {
       const data = await fetchAllPercentageHistory();
