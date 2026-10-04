@@ -24,11 +24,11 @@
     { "spanishWord": "Es casi medianoche.", "englishWord": "It's almost midnight.", "reglaIds": [33] },
     { "spanishWord": "Está a media hora del centro.", "englishWord": "It's half an hour from downtown.", "reglaIds": [33] },
     { "spanishWord": "Es viernes por la noche.", "englishWord": "It's Friday night.", "reglaIds": [33] },
-    { "spanishWord": "Está helando afuera.", "englishWord": "It's freezing outside.", "reglaIds": [33] },
+    { "spanishWord": "Hace mucho frío afuera.", "englishWord": "It's very cold outside.", "reglaIds": [33] },
     { "spanishWord": "Hace mucho calor en agosto.", "englishWord": "It's very hot in August.", "reglaIds": [33] },
     { "spanishWord": "Está a cien millas de distancia.", "englishWord": "It's a hundred miles away.", "reglaIds": [33] },
     { "spanishWord": "Son las nueve en punto.", "englishWord": "It's nine o'clock.", "reglaIds": [33] },
-    { "spanishWord": "Está lloviznando afuera.", "englishWord": "It's drizzling outside.", "reglaIds": [33] },
+    { "spanishWord": "Está lloviendo un poco afuera.", "englishWord": "It's raining a little outside.", "reglaIds": [33] },
     { "spanishWord": "Es primavera ya.", "englishWord": "It's spring already.", "reglaIds": [33, 32] },
     { "spanishWord": "Está a un kilómetro de la estación.", "englishWord": "It's one kilometer from the station.", "reglaIds": [33] },
     { "spanishWord": "Hace fresco por la mañana.", "englishWord": "It's cool in the morning.", "reglaIds": [33] }

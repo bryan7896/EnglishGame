@@ -18,8 +18,8 @@
     { "spanishWord": "Mi vecino, que tiene tres perros, es muy amable.", "englishWord": "My neighbor, who has three dogs, is very kind.", "reglaIds": [5] },
     { "spanishWord": "El museo que visitamos estaba cerrado.", "englishWord": "The museum that we visited was closed.", "reglaIds": [5] },
     { "spanishWord": "Los estudiantes que estudian mucho aprueban el examen.", "englishWord": "The students who study a lot pass the exam.", "reglaIds": [5] },
-    { "spanishWord": "Mi abuela, que vive cerca, nos visita cada semana.", "englishWord": "My grandmother, who lives nearby, visits us every week.", "reglaIds": [5] },
-    { "spanishWord": "El hotel que reservamos tiene piscina.", "englishWord": "The hotel that we booked has a pool.", "reglaIds": [5] },
+    { "spanishWord": "Mi abuela, que vive cerca de la escuela, nos visita cada semana.", "englishWord": "My grandmother, who lives near the school, visits us every week.", "reglaIds": [5] },
+    { "spanishWord": "El hotel que elegimos tiene piscina.", "englishWord": "The hotel that we chose has a pool.", "reglaIds": [5] },
     { "spanishWord": "La película que vimos anoche fue aburrida.", "englishWord": "The movie that we watched last night was boring.", "reglaIds": [5] },
     { "spanishWord": "Mi colega, que habla francés, trabaja en esa empresa.", "englishWord": "My colleague, who speaks French, works at that company.", "reglaIds": [5] },
     { "spanishWord": "El parque que está cerca de mi casa es grande.", "englishWord": "The park that is near my house is big.", "reglaIds": [5] },
@@ -30,6 +30,6 @@
     { "spanishWord": "Mi tío, que es piloto, viaja mucho.", "englishWord": "My uncle, who is a pilot, travels a lot.", "reglaIds": [5] },
     { "spanishWord": "El proyecto que terminamos fue un éxito.", "englishWord": "The project that we finished was a success.", "reglaIds": [5] },
     { "spanishWord": "Los pasajeros que llegaron tarde perdieron el vuelo.", "englishWord": "The passengers who arrived late missed the flight.", "reglaIds": [5] },
-    { "spanishWord": "Mi compañero, que trabaja en el banco, me prestó dinero.", "englishWord": "My coworker, who works at the bank, lent me money.", "reglaIds": [5] }
+    { "spanishWord": "Mi amigo, que trabaja en el banco, me dio dinero.", "englishWord": "My friend, who works at the bank, gave me money.", "reglaIds": [5] }
   ]
 }

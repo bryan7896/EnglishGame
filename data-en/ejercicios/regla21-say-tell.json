@@ -24,7 +24,7 @@
     { "spanishWord": "¿Quién te dijo eso?", "englishWord": "Who told you that?", "reglaIds": [21, 2] },
     { "spanishWord": "Ella les contó a sus padres las noticias.", "englishWord": "She told her parents the news.", "reglaIds": [21] },
     { "spanishWord": "Él dijo algo gracioso.", "englishWord": "He said something funny.", "reglaIds": [21] },
-    { "spanishWord": "Cuéntame un chiste.", "englishWord": "Tell me a joke.", "reglaIds": [21] },
+    { "spanishWord": "Cuéntame una historia.", "englishWord": "Tell me a story.", "reglaIds": [21] },
     { "spanishWord": "Ella no dijo nada.", "englishWord": "She didn't say anything.", "reglaIds": [21] },
     { "spanishWord": "Él me contó sobre su nuevo trabajo.", "englishWord": "He told me about his new job.", "reglaIds": [21] },
     { "spanishWord": "¿Qué te dijo el doctor?", "englishWord": "What did the doctor tell you?", "reglaIds": [21, 2] },

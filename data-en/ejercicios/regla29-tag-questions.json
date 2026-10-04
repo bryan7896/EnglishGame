@@ -34,7 +34,7 @@
     { "spanishWord": "Él no llegó a tiempo, ¿verdad?", "englishWord": "He didn't arrive on time, did he?", "reglaIds": [29] },
     { "spanishWord": "Ustedes hablan inglés en el trabajo, ¿no?", "englishWord": "You speak English at work, don't you?", "reglaIds": [29] },
     { "spanishWord": "Ella no puede cocinar hoy, ¿verdad?", "englishWord": "She can't cook today, can she?", "reglaIds": [29] },
-    { "spanishWord": "Vivías en Bogotá antes, ¿no?", "englishWord": "You used to live in Bogotá, didn't you?", "reglaIds": [29, 17] },
+    { "spanishWord": "Vivías en España antes, ¿no?", "englishWord": "You used to live in Spain, didn't you?", "reglaIds": [29, 17] },
     { "spanishWord": "Él no está enfermo, ¿verdad?", "englishWord": "He isn't sick, is he?", "reglaIds": [29] },
     { "spanishWord": "Terminaron el informe a tiempo, ¿no?", "englishWord": "They finished the report on time, didn't they?", "reglaIds": [29] },
     { "spanishWord": "Ella no ha comido todavía, ¿verdad?", "englishWord": "She hasn't eaten yet, has she?", "reglaIds": [29, 32] },

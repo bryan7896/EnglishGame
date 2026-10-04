@@ -27,7 +27,7 @@
     { "spanishWord": "¿Cómo te sientes hoy?", "englishWord": "How do you feel today?", "reglaIds": [2] },
     { "spanishWord": "¿Qué libro estás leyendo?", "englishWord": "What book are you reading?", "reglaIds": [2] },
     { "spanishWord": "¿Dónde nació tu padre?", "englishWord": "Where was your father born?", "reglaIds": [2] },
-    { "spanishWord": "¿Por qué renunció ella a su trabajo?", "englishWord": "Why did she quit her job?", "reglaIds": [2] },
+    { "spanishWord": "¿Por qué dejó ella su trabajo?", "englishWord": "Why did she leave her job?", "reglaIds": [2] },
     { "spanishWord": "¿Quién escribió esta carta?", "englishWord": "Who wrote this letter?", "reglaIds": [2] },
     { "spanishWord": "¿Cuándo fue la última vez que viajaste?", "englishWord": "When was the last time you traveled?", "reglaIds": [2] },
     { "spanishWord": "¿Cómo se llama tu perro?", "englishWord": "What is your dog's name?", "reglaIds": [2] }

@@ -14,7 +14,7 @@
     { "spanishWord": "Necesito hablar contigo.", "englishWord": "I need to talk to you.", "reglaIds": [6] },
     { "spanishWord": "Ella necesita cambiar de trabajo.", "englishWord": "She needs to change jobs.", "reglaIds": [6] },
     { "spanishWord": "Necesitamos reservar un hotel.", "englishWord": "We need to book a hotel.", "reglaIds": [6] },
-    { "spanishWord": "Él necesita arreglar su carro.", "englishWord": "He needs to fix his car.", "reglaIds": [6] },
+    { "spanishWord": "Él necesita limpiar su carro.", "englishWord": "He needs to clean his car.", "reglaIds": [6] },
     { "spanishWord": "Necesitas traer tu pasaporte.", "englishWord": "You need to bring your passport.", "reglaIds": [6, 11] },
     { "spanishWord": "Ellos necesitan comprar boletos.", "englishWord": "They need to buy tickets.", "reglaIds": [6] },
     { "spanishWord": "Necesito enviar este correo hoy.", "englishWord": "I need to send this email today.", "reglaIds": [6] },
@@ -30,6 +30,6 @@
     { "spanishWord": "Necesito lavar mi ropa.", "englishWord": "I need to wash my clothes.", "reglaIds": [6] },
     { "spanishWord": "Ella necesita mejorar su inglés.", "englishWord": "She needs to improve her English.", "reglaIds": [6] },
     { "spanishWord": "Necesitamos comprar más agua.", "englishWord": "We need to buy more water.", "reglaIds": [6] },
-    { "spanishWord": "Él necesita cortarse el pelo.", "englishWord": "He needs to get a haircut.", "reglaIds": [6] }
+    { "spanishWord": "Él necesita cortarse el pelo.", "englishWord": "He needs to cut his hair.", "reglaIds": [6] }
   ]
 }

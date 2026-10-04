@@ -26,7 +26,7 @@
     { "spanishWord": "Ese libro es muy interesante.", "englishWord": "That book is very interesting.", "reglaIds": [27] },
     { "spanishWord": "Ese libro es demasiado largo para leerlo en un día.", "englishWord": "That book is too long to read in a day.", "reglaIds": [27] },
     { "spanishWord": "Ella cocina muy bien.", "englishWord": "She cooks very well.", "reglaIds": [27] },
-    { "spanishWord": "La comida está demasiado picante para mí.", "englishWord": "The food is too spicy for me.", "reglaIds": [27] },
+    { "spanishWord": "La comida está demasiado caliente para mí.", "englishWord": "The food is too hot for me.", "reglaIds": [27] },
     { "spanishWord": "Él trabaja muy duro.", "englishWord": "He works very hard.", "reglaIds": [27] },
     { "spanishWord": "Él trabaja demasiado y no descansa.", "englishWord": "He works too much and doesn't rest.", "reglaIds": [27] },
     { "spanishWord": "Estamos muy ocupados esta semana.", "englishWord": "We are very busy this week.", "reglaIds": [27] },
@@ -45,7 +45,7 @@
     { "spanishWord": "Esta caja es demasiado pesada para llevarla sola.", "englishWord": "This box is too heavy to carry alone.", "reglaIds": [27] },
     { "spanishWord": "El vestido es muy bonito.", "englishWord": "The dress is very pretty.", "reglaIds": [27] },
     { "spanishWord": "El vestido es demasiado grande para ella.", "englishWord": "The dress is too big for her.", "reglaIds": [27] },
-    { "spanishWord": "Ellos son muy generosos.", "englishWord": "They are very generous.", "reglaIds": [27] },
+    { "spanishWord": "Ellos son muy amables.", "englishWord": "They are very nice.", "reglaIds": [27] },
     { "spanishWord": "Hay demasiadas personas en esta fiesta.", "englishWord": "There are too many people at this party.", "reglaIds": [27, 37] },
     { "spanishWord": "Ella canta muy bien.", "englishWord": "She sings very well.", "reglaIds": [27] },
     { "spanishWord": "La música está demasiado alta.", "englishWord": "The music is too loud.", "reglaIds": [27] },
@@ -58,7 +58,7 @@
     { "spanishWord": "El parque está muy lleno los domingos.", "englishWord": "The park is very crowded on Sundays.", "reglaIds": [27] },
     { "spanishWord": "Hay demasiado tráfico esta mañana.", "englishWord": "There's too much traffic this morning.", "reglaIds": [27] },
     { "spanishWord": "Él es muy responsable en su trabajo.", "englishWord": "He is very responsible at his job.", "reglaIds": [27] },
-    { "spanishWord": "Es demasiado arriesgado hacer eso.", "englishWord": "It's too risky to do that.", "reglaIds": [27] },
+    { "spanishWord": "Es demasiado peligroso hacer eso.", "englishWord": "It's too dangerous to do that.", "reglaIds": [27] },
     { "spanishWord": "Ella está muy feliz con su nuevo trabajo.", "englishWord": "She is very happy with her new job.", "reglaIds": [27] },
     { "spanishWord": "Estoy demasiado ocupado para hablar ahora.", "englishWord": "I'm too busy to talk right now.", "reglaIds": [27] }
   ]
