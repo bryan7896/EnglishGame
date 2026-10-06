@@ -2,13 +2,26 @@
 # build.py - Script para generar index.html (con PWA)
 
 import os
+import re
 import sys
 import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "11.6 (3-10-2026)"
+VERSION = "12.0 (6-10-2026)"
 LS_KEY = "english_trainer_v6"
+
+
+def cache_name_for_version():
+    """Deriva el CACHE_NAME del service worker a partir de VERSION, para
+    que cada bump de versión fuerce una caché nueva (el 'activate' del SW
+    ya borra cualquier caché con nombre distinto al actual). Antes
+    CACHE_NAME era un string fijo ('english-trainer-v1') que nunca
+    cambiaba entre builds, así que el navegador podía quedarse sirviendo
+    un index.html viejo para siempre aunque se regenerara el build — por
+    eso un cambio de JS/CSS podía parecer que "no hacía nada"."""
+    slug = re.sub(r'[^a-zA-Z0-9]+', '-', VERSION).strip('-').lower()
+    return f"english-trainer-{slug}"
 
 ICON_URL = "https://cdn-icons-png.flaticon.com/512/3898/3898082.png"
 
@@ -36,6 +49,19 @@ EXERCISE_FILES = {
     "exercises/dictado.js": "__DICTADO_JS__",
     "exercises/informacion.js": "__INFORMACION_JS__",
 }
+
+# Módulos del Listening Trainer (Nivel 0) — carpeta aparte, propia llave de
+# localStorage, propio dataset (listening/data/nivel0.json). No comparten
+# nada con EXERCISE_FILES/data-en/data-it a propósito: es otra sección de
+# la app que vive detrás de su propio botón en el header.
+LISTENING_EXERCISE_FILES = {
+    "listening/exercises/listening-core.js": "__LISTENING_CORE_JS__",
+    "listening/exercises/listening-map.js": "__LISTENING_MAP_JS__",
+    "listening/exercises/listening-play.js": "__LISTENING_PLAY_JS__",
+}
+
+LISTENING_DATA_FILE = os.path.join("listening", "data", "nivel0.json")
+LISTENING_STYLES_FILE = os.path.join("listening", "styles", "listening.css")
 
 
 DATA_LANGUAGES = ["en", "it"]
@@ -153,6 +179,19 @@ def load_informacion_por_regla(lang):
     return data.get('porRegla', data if isinstance(data, dict) else {})
 
 
+def load_listening_exercises():
+    """Lee listening/data/nivel0.json: los 700 ejercicios del Nivel 0 de
+    Listening, con sus rutas de audio (campo "audios"). Si el archivo no
+    existe todavía, el build sigue funcionando (NIVEL0_EXERCISES queda
+    vacío) en vez de romperse — útil mientras se termina de armar la
+    carpeta listening/."""
+    if not os.path.exists(LISTENING_DATA_FILE):
+        print(f"⚠️  No encontrado: {LISTENING_DATA_FILE} (Listening quedará vacío en este build)")
+        return []
+    with open(LISTENING_DATA_FILE, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+
 def read_file(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -226,7 +265,7 @@ def create_manifest():
 
 def create_service_worker():
     sw_code = '''// service-worker.js
-const CACHE_NAME = 'english-trainer-v1';
+const CACHE_NAME = '__CACHE_NAME__';
 const ASSETS = [
   './',
   './index.html',
@@ -263,9 +302,10 @@ self.addEventListener('fetch', (event) => {
   );
 });
 '''
+    sw_code = sw_code.replace('__CACHE_NAME__', cache_name_for_version())
     with open('service-worker.js', 'w', encoding='utf-8') as f:
         f.write(sw_code)
-    print(f"  ✅ service-worker.js creado")
+    print(f"  ✅ service-worker.js creado (cache: {cache_name_for_version()})")
 
 
 def get_html_template():
@@ -305,6 +345,7 @@ def get_html_template():
       </div>
       <div class="topbar-actions">
         <button class="menu-btn help-btn" id="toggleHelpBtn" title="Ayuda de gramática" style="display:none;">❓</button>
+        <button class="menu-btn listening-btn" id="toggleListeningBtn" title="Listening (Nivel 0)" style="display:none;">🎧</button>
         <button class="menu-btn" id="toggleMenuBtn">☰</button>
       </div>
     </div>
@@ -392,6 +433,66 @@ def get_html_template():
         <div id="infoContainer"></div>
       </div>
     </div>
+
+    <div id="listeningHomeScreen" class="screen listening-theme">
+      <div class="magic-card">
+        <div class="l0-intro" id="listeningNivel0Toggle" role="button" tabindex="0" aria-expanded="false">
+          <span class="l0-intro-icon">🎧</span>
+          <div class="l0-intro-text">
+            <h2>Nivel 0 — Diagnóstico de listening</h2>
+            <p>700 ejercicios de dictado en 7 bloques. Cada audio tiene 4 voces distintas generadas por IA.</p>
+          </div>
+          <span class="l0-intro-chevron" id="listeningNivel0Chevron">▸</span>
+        </div>
+        <div id="listeningNivel0Body" class="l0-nivel0-body is-collapsed">
+          <div id="listeningSummaryRow" class="l0-summary-row"></div>
+          <div id="listeningMapList" class="l0-level-list"></div>
+        </div>
+        <button class="fun-btn full-width" id="listeningReportBtn" style="width:100%;margin-top:12px;">📊 Ver reporte</button>
+      </div>
+
+      <div class="magic-card">
+        <div id="listeningFutureLevels" class="l0-future-levels"></div>
+      </div>
+    </div>
+
+    <div id="listeningReportScreen" class="screen listening-theme">
+      <div class="magic-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <button class="l0-play-exit-btn" id="listeningReportBackBtn" aria-label="Volver" title="Volver"><svg viewBox="0 0 24 24"><path d="M15.4 7.4 13.8 6 8 12l5.8 6 1.4-1.4L10.8 12z"/></svg></button>
+          <h2 style="margin:0;font-family:var(--font-display);color:var(--ink);font-size:1.05rem;">📊 Reporte de Listening</h2>
+        </div>
+        <div id="listeningReportContainer"></div>
+      </div>
+    </div>
+
+    <div id="listeningPlayScreen" class="screen listening-theme">
+      <div class="exercise-area">
+        <div class="l0-play-topbar">
+          <button class="l0-play-exit-btn" id="l0PlayExitBtn" aria-label="Salir del bloque" title="Salir del bloque"><svg viewBox="0 0 24 24"><path d="M15.4 7.4 13.8 6 8 12l5.8 6 1.4-1.4L10.8 12z"/></svg></button>
+          <div class="l0-play-progress-track">
+            <div class="l0-play-progress-fill" id="l0PlayProgressFill" style="width:0%;"></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <span class="pill-status" id="l0PlayBloqueTag">Bloque 1</span>
+          <span class="pill-status" id="l0PlayExTag">Ejercicio 1/100</span>
+          <span class="pill-status" id="l0PlayCategoriaTag">🔊</span>
+        </div>
+        <div id="listeningPlayContainer" class="l0-play-container"></div>
+        <div id="l0PlayResultLine" class="sub-fun" style="text-align:center;">🎧 Escucha y elige</div>
+      </div>
+    </div>
+
+    <div id="listeningResultScreen" class="screen listening-theme">
+      <div class="magic-card">
+        <div id="listeningResultContainer"></div>
+        <div class="button-group">
+          <button class="fun-btn full-width" id="l0ResultRetryBtn" style="width:100%;margin-bottom:8px;"><svg viewBox="0 0 24 24" style="width:1.1em;height:1.1em;vertical-align:-0.15em;margin-right:6px;fill:currentColor;"><path d="M12 5V2L7 7l5 5V9a5 5 0 1 1-5 5H5a7 7 0 1 0 7-9z"/></svg>Reintentar bloque</button>
+          <button class="fun-btn primary-btn full-width" id="l0ResultBackBtn" style="width:100%;">🎧 Volver a Listening</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -415,6 +516,10 @@ def get_html_template():
   __CORREGIR_JS__
   __DICTADO_JS__
   __INFORMACION_JS__
+  const NIVEL0_EXERCISES = __NIVEL0_EXERCISES_JSON__;
+  __LISTENING_CORE_JS__
+  __LISTENING_MAP_JS__
+  __LISTENING_PLAY_JS__
   __MAIN_LOGIC__
 </script>
 </body>
@@ -432,7 +537,7 @@ def get_main_logic():
   // hay conexión, todas las funciones que lo usan fallan en silencio y la
   // app sigue funcionando 100% con lo que haya en localStorage (nunca es
   // obligatorio para jugar).
-  const API_URL = "https://script.google.com/macros/s/AKfycbwyu6wOJYkUXa8A-50Qzay61jC9eCRliTUA9TlXJkd7qL3TRpkyCImilgFfG88E_gKH/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbzHax9Z2BPYCGmIDjNZyzRyY8LLk5It79bFyi2aoIIa5hLtG4OZOmeKCknMTFNLm05a/exec";
 
   // El progreso (nodos/ejercicios cargados, avance, repaso, informe) se
   // guarda en una llave de localStorage DISTINTA por idioma objetivo, así
@@ -724,7 +829,11 @@ def get_main_logic():
     percentages: document.getElementById("percentagesScreen"),
     map: document.getElementById("mapScreen"),
     exercise: document.getElementById("exerciseScreen"),
-    info: document.getElementById("infoScreen")
+    info: document.getElementById("infoScreen"),
+    listeningHome: document.getElementById("listeningHomeScreen"),
+    listeningPlay: document.getElementById("listeningPlayScreen"),
+    listeningResult: document.getElementById("listeningResultScreen"),
+    listeningReport: document.getElementById("listeningReportScreen")
   };
   
   function showMainView(name) {
@@ -1202,14 +1311,17 @@ def get_main_logic():
   // (lo viejo + lo nuevo) se reparte de nuevo entre los nodos, el progreso
   // y la cola de repaso se reinician — igual que al cargar cualquier tanda
   // nueva o iniciar el estudio por reglas.
-  // Botón de ayuda (❓, junto al de menú): solo tiene sentido estudiando
-  // inglés (el contenido es la chuleta de gramática inglesa), así que se
-  // oculta por completo cuando el idioma objetivo es italiano. Se
-  // actualiza al boot y cada vez que se cambia de idioma.
+  // Botón de ayuda (❓) y botón de Listening (🎧), junto al de menú: ambos
+  // solo tienen sentido estudiando inglés (la chuleta de gramática y el
+  // banco de audio del Nivel 0 son solo de inglés), así que se ocultan
+  // por completo cuando el idioma objetivo es italiano. Se actualiza al
+  // boot y cada vez que se cambia de idioma.
   function updateHelpBtnVisibility() {
-    const btn = document.getElementById("toggleHelpBtn");
-    if (!btn) return;
-    btn.style.display = getTargetLanguage() === "en" ? "flex" : "none";
+    const isEnglish = getTargetLanguage() === "en";
+    const helpBtn = document.getElementById("toggleHelpBtn");
+    if (helpBtn) helpBtn.style.display = isEnglish ? "flex" : "none";
+    const listeningBtn = document.getElementById("toggleListeningBtn");
+    if (listeningBtn) listeningBtn.style.display = isEnglish ? "flex" : "none";
   }
 
   function showHelpModal() {
@@ -2405,6 +2517,31 @@ def get_main_logic():
     document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("toggleMenuBtn")?.addEventListener("click", showMenuModal);
     document.getElementById("toggleHelpBtn")?.addEventListener("click", showHelpModal);
+    document.getElementById("toggleListeningBtn")?.addEventListener("click", () => {
+      renderListeningHome();
+      showMainView("listeningHome");
+    });
+    document.getElementById("l0ResultBackBtn")?.addEventListener("click", () => {
+      renderListeningHome();
+      showMainView("listeningHome");
+    });
+    document.getElementById("l0ResultRetryBtn")?.addEventListener("click", () => {
+      if (typeof ListeningPlaySession !== "undefined" && ListeningPlaySession.bloque) {
+        startListeningBlock(ListeningPlaySession.bloque);
+      } else {
+        renderListeningHome();
+        showMainView("listeningHome");
+      }
+    });
+    document.getElementById("l0PlayExitBtn")?.addEventListener("click", () => {
+      renderListeningHome();
+      showMainView("listeningHome");
+    });
+    document.getElementById("listeningReportBtn")?.addEventListener("click", openListeningReportScreen);
+    document.getElementById("listeningReportBackBtn")?.addEventListener("click", () => {
+      renderListeningHome();
+      showMainView("listeningHome");
+    });
     document.getElementById("goToRulesSelectBtn")?.addEventListener("click", openRulesSelect);
     document.getElementById("rulesSelectFinishBtn")?.addEventListener("click", finishRulesSelect);
     document.getElementById("rulesConfigBackBtn")?.addEventListener("click", () => { renderRulesSelectScreen(); showMainView("rulesSelect"); });
@@ -2419,7 +2556,20 @@ def get_main_logic():
 def build_html():
     print("📂 Leyendo archivos...")
     styles = read_file('styles/main.css')
+    if os.path.exists(LISTENING_STYLES_FILE):
+        styles += "\n\n" + read_file(LISTENING_STYLES_FILE)
+    else:
+        print(f"⚠️  No encontrado: {LISTENING_STYLES_FILE} (tema de Listening quedará sin estilos)")
     map_js = read_file('mapa/map.js')
+
+    listening_exercises = load_listening_exercises()
+    print(f"  ✅ [listening] {len(listening_exercises)} ejercicios desde {LISTENING_DATA_FILE}")
+
+    listening_modules = {}
+    for filepath, marker in LISTENING_EXERCISE_FILES.items():
+        content = read_file(filepath)
+        listening_modules[marker] = content
+        print(f"  ✅ {filepath} -> {marker} ({len(content):,} bytes)")
 
     grammar_rules_by_lang = {}
     study_exercises_by_lang = {}
@@ -2447,7 +2597,12 @@ def build_html():
     
     for marker, content in exercise_modules.items():
         html = html.replace(marker, content)
-    
+
+    for marker, content in listening_modules.items():
+        html = html.replace(marker, content)
+
+    html = html.replace('__NIVEL0_EXERCISES_JSON__', json.dumps(listening_exercises, ensure_ascii=False))
+
     main_logic = get_main_logic()
     main_logic = main_logic.replace('__LS_KEY__', LS_KEY)
     main_logic = main_logic.replace('__VERSION__', VERSION)

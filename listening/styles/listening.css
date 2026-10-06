@@ -1,0 +1,661 @@
+/* ============================================================
+   listening.css -- Nivel 0 (Listening Trainer)
+   ------------------------------------------------------------
+   Seccion aparte del English Trainer de siempre: mismos
+   componentes base (fun-btn, magic-card, radius, font), pero con
+   su propia paleta azul cielo para que se sienta como otra
+   seccion, sin tocar un solo token global. Todo vive detras de
+   la clase listening-theme, que redefine localmente brand,
+   brand-light, brand-dark, brand-wash y shadow-glow-brand:
+   cualquier componente ya existente (botones, barras de
+   progreso) que use esas variables se repinta solo, sin CSS
+   adicional.
+   ============================================================ */
+
+.listening-theme {
+  --brand: #38bdf8;
+  --brand-light: #7dd3fc;
+  --brand-dark: #0284c7;
+  --brand-wash: rgba(56, 189, 248, 0.16);
+  --shadow-glow-brand: 0 0 0 1px rgba(56, 189, 248, 0.35), 0 8px 22px rgba(56, 189, 248, 0.22);
+}
+
+/* ============ Header: botón de listening junto al de ayuda ============ */
+.listening-btn { }
+
+/* ============ Pantalla de inicio: lista de niveles ============ */
+/* Informativa/visual a propósito: nada de imagen de fondo ni hero grande.
+   Cada card es su propio bloque de datos (número, foco fonético, estado,
+   progreso) — se entiende de un vistazo sin decoración de relleno. */
+
+.l0-intro {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  background: var(--brand-wash);
+  border: 2px solid var(--brand);
+  cursor: pointer;
+  user-select: none;
+}
+
+.l0-intro:focus-visible {
+  outline: 2px solid var(--brand-light);
+  outline-offset: 2px;
+}
+
+.l0-intro-chevron {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  color: var(--brand-light);
+  transition: transform 0.15s;
+}
+
+/* Cuerpo colapsable del Nivel 0 (resumen + las 7 level cards). Colapsado
+   por defecto: arranca oculto y solo se abre al tocar .l0-intro. */
+.l0-nivel0-body {
+  margin-top: 16px;
+}
+
+.l0-nivel0-body.is-collapsed {
+  display: none;
+}
+
+.l0-intro-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.l0-intro-text h2 {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.l0-intro-text p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  line-height: 1.4;
+}
+
+.l0-summary-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.l0-summary-stat {
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.l0-summary-stat .l0-stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--brand-light);
+}
+
+.l0-summary-stat .l0-stat-label {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.l0-level-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.l0-level-card {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.15s, transform 0.1s;
+  cursor: pointer;
+}
+
+.l0-level-card:not(.is-locked):hover {
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+
+.l0-level-card:not(.is-locked):active {
+  transform: translateY(1px);
+}
+
+.l0-level-card.is-current {
+  border-color: var(--brand);
+  box-shadow: var(--shadow-glow-brand);
+}
+
+.l0-level-card.is-done {
+  border-color: var(--brand-dark);
+}
+
+.l0-level-card.is-locked {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.l0-level-badge {
+  flex-shrink: 0;
+  width: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background: var(--surface-2);
+  border-right: 2px solid var(--line);
+}
+
+.l0-level-card.is-current .l0-level-badge,
+.l0-level-card.is-done .l0-level-badge {
+  background: var(--brand-wash);
+  border-right-color: var(--brand);
+}
+
+.l0-level-badge .l0-level-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.l0-level-badge .l0-level-num {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+
+.l0-level-card.is-current .l0-level-num,
+.l0-level-card.is-done .l0-level-num {
+  color: var(--brand-light);
+}
+
+.l0-level-body {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+}
+
+.l0-level-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.l0-level-desc {
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  line-height: 1.35;
+}
+
+.l0-level-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.l0-level-progress-track {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.l0-level-progress-fill {
+  height: 100%;
+  background: var(--brand);
+  border-radius: 999px;
+  transition: width 0.3s;
+}
+
+.l0-level-score {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--brand-light);
+  white-space: nowrap;
+}
+
+.l0-level-view-btn {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--ink-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.l0-level-view-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.l0-level-view-btn:hover {
+  color: var(--brand-light);
+}
+
+.l0-level-status {
+  flex-shrink: 0;
+  width: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+}
+
+.l0-level-status svg {
+  width: 18px;
+  height: 18px;
+}
+
+.l0-level-card.is-current .l0-level-status,
+.l0-level-card.is-done .l0-level-status {
+  color: var(--brand-light);
+}
+
+/* ============ Espacio reservado: Niveles 1-4 (deshabilitados) ============ */
+.l0-future-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.l0-future-level-card {
+  cursor: default;
+}
+
+.l0-future-level-card:hover {
+  border-color: var(--line);
+  transform: none;
+}
+
+.l0-future-level-card .l0-level-desc {
+  font-style: italic;
+  color: var(--ink-faint);
+}
+
+/* ============ Pantalla de juego: boton "Reproducir" ============ */
+/* Circulo grande y con intencion: imita el boton de play de un
+   reproductor real (disco de color solido, icono centrado, sombra 3D
+   igual al resto de fun-btn, pulso sutil para invitar al primer tap).
+   Crece/se achica al presionar y cambia de tono cada vez que se toca
+   (contador de voz 1/3, 2/3, 3/3) via la clase .is-tapped. */
+.l0-play-audio-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 22px;
+}
+
+.l0-play-audio-btn {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: none;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 30%, var(--brand-light), var(--brand) 70%);
+  box-shadow:
+    0 6px 0 0 var(--brand-dark),
+    0 10px 18px rgba(0, 0, 0, 0.25),
+    var(--shadow-glow-brand);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  animation: l0-play-pulse 2.2s ease-in-out infinite;
+}
+
+.l0-play-audio-btn svg {
+  width: 34px;
+  height: 34px;
+  fill: #fff;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+}
+
+.l0-play-audio-btn:hover {
+  transform: translateY(-2px);
+}
+
+.l0-play-audio-btn:active {
+  transform: translateY(4px);
+  box-shadow:
+    0 2px 0 0 var(--brand-dark),
+    0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: none;
+}
+
+.l0-play-audio-btn.is-tapped {
+  animation: none;
+}
+
+@keyframes l0-play-pulse {
+  0%, 100% { box-shadow: 0 6px 0 0 var(--brand-dark), 0 10px 18px rgba(0, 0, 0, 0.25), var(--shadow-glow-brand); }
+  50% { box-shadow: 0 6px 0 0 var(--brand-dark), 0 10px 18px rgba(0, 0, 0, 0.25), 0 0 0 10px rgba(56, 189, 248, 0.12); }
+}
+
+.l0-play-audio-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink-dim);
+  letter-spacing: 0.01em;
+}
+
+.l0-play-audio-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.l0-play-audio-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--line-strong);
+  transition: background 0.15s, transform 0.15s;
+}
+
+.l0-play-audio-dots span.is-played {
+  background: var(--brand);
+  transform: scale(1.15);
+}
+
+/* Iconos SVG inline dentro de botones de texto (siguiente / terminar
+   bloque / resultado) -- reemplazan los emoji, heredan currentColor. */
+.l0-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+.l0-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.fun-btn .l0-icon {
+  margin-right: 6px;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ============ Pantalla de juego: dictado (bloques 3-7) ============ */
+/* Reutiliza .word-correct/.word-error (ya definidas en main.css para el
+   dictado del English Trainer) para la comparacion palabra por palabra;
+   aqui solo se les da forma de chip para que se lean bien sobre el fondo
+   de la tarjeta de ejercicio. */
+.l0-play-audio-wrap + .answer-input {
+  text-align: center;
+  font-size: 1rem;
+}
+
+#listeningPlayContainer .word-correct,
+#listeningPlayContainer .word-error {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* ============ Pantalla de juego: barra superior (salir + progreso) ============ */
+.l0-play-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.l0-play-exit-btn {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, transform 0.1s;
+}
+
+.l0-play-exit-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.l0-play-exit-btn:hover {
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.l0-play-exit-btn:active {
+  transform: scale(0.92);
+}
+
+.l0-play-progress-track {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.l0-play-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand-dark), var(--brand-light));
+  transition: width 0.3s var(--ease);
+}
+
+/* ============ Pantalla de juego: transicion entre ejercicios ============ */
+/* Entrada suave (fade + slide) cada vez que se pinta un ejercicio nuevo;
+   la clase se agrega por JS y se autolimpia con animationend, asi que no
+   interfiere si el contenedor se vuelve a repintar antes de terminar. */
+.l0-play-container.l0-anim-in {
+  animation: l0-exercise-in 0.28s var(--ease);
+}
+
+@keyframes l0-exercise-in {
+  from { opacity: 0; transform: translateX(14px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Sacude las opciones/el input cuando la respuesta es incorrecta, para dar
+   feedback físico sin depender solo del color rojo. */
+.l0-shake {
+  animation: l0-shake-kf 0.32s;
+}
+
+@keyframes l0-shake-kf {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* ============ Pantalla de resultado ============ */
+.l0-result-ring-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 18px;
+}
+
+.l0-result-ring {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.l0-result-ring svg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+
+.l0-result-ring circle {
+  fill: none;
+  stroke-width: 10;
+}
+
+.l0-result-ring .l0-ring-track {
+  stroke: var(--surface-3);
+}
+
+.l0-result-ring .l0-ring-fill {
+  stroke: var(--brand);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s var(--ease);
+}
+
+.l0-result-ring-value {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.l0-result-cat-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.l0-result-cat-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+
+.l0-result-cat-name {
+  flex: 1;
+  font-size: 0.82rem;
+  color: var(--ink-dim);
+}
+
+.l0-result-cat-track {
+  width: 70px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.l0-result-cat-fill {
+  height: 100%;
+  background: var(--brand);
+  border-radius: 999px;
+}
+
+.l0-result-cat-pct {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--brand-light);
+  width: 68px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ============ Pantalla de juego: seleccionar -> comprobar ============ */
+/* Paso 1 (tap en una opcion): solo resalta la elegida, sin calificar
+   todavia -- habilita "Comprobar". Paso 2 (tap en "Comprobar"): recien
+   ahi corre la calificacion real (ver checkListeningSeleccionAnswer en
+   listening-play.js), igual para correcto e incorrecto. */
+.l0-play-option.is-selected {
+  border-color: var(--brand);
+  background: var(--brand-wash);
+  box-shadow: var(--shadow-glow-brand);
+}
+
+#l0SeleccionCheckBtn:disabled,
+#l0DictadoCheckBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Insignia de logro: aparece con un "pop" sobre la opcion correcta al
+   comprobar y se disuelve sola -- puramente decorativa, no bloquea clicks. */
+.l0-achievement {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--good);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: l0-achievement-pop 0.9s var(--ease-bounce) forwards;
+}
+
+.l0-achievement svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+@keyframes l0-achievement-pop {
+  0% { transform: translateY(-50%) scale(0); opacity: 0; }
+  40% { transform: translateY(-50%) scale(1.25); opacity: 1; }
+  65% { transform: translateY(-50%) scale(1); opacity: 1; }
+  100% { transform: translateY(-50%) scale(1); opacity: 0; }
+}

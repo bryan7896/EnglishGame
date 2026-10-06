@@ -361,7 +361,29 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
   const hasPractica = !!(practicaInicial && practicaInicial.lecciones?.length);
 
   if (!nodes?.length || (!hasAnyMain && !hasPractica)) {
-    mapList.innerHTML = `<div style="text-align:center;padding:40px;color:#94a3b8;"><p>Carga tus ejercicios para ver el mapa</p></div>`;
+    // En vez de dejar la pantalla vacía con solo un texto, se ofrecen de
+    // una vez las dos formas de cargar datos (las mismas que ya existen en
+    // #importScreen): elegir reglas para que la IA genere la tanda, o
+    // pegar un JSON manual. openRulesSelect()/showMainView() son funciones
+    // de main_logic en build.py, disponibles aquí porque todo el JS se
+    // concatena en un solo <script type="module"> (mismo scope).
+    mapList.innerHTML = `
+      <div style="text-align:center;padding:40px 20px;color:var(--ink-faint, #94a3b8);">
+        <p style="margin-bottom:20px;">Todavía no tienes ejercicios cargados para ver el mapa.</p>
+        <div class="button-group" style="max-width:320px;margin:0 auto;">
+          <button class="fun-btn primary-btn full-width" id="mapEmptyGoRulesBtn" style="width:100%;margin-bottom:10px;">🎯 Seleccionar reglas a estudiar</button>
+          <button class="fun-btn full-width" id="mapEmptyGoImportBtn" style="width:100%;">⚙️ Avanzado: pegar JSON manual</button>
+        </div>
+      </div>
+    `;
+    document.getElementById("mapEmptyGoRulesBtn")?.addEventListener("click", () => {
+      if (typeof openRulesSelect === "function") openRulesSelect();
+    });
+    document.getElementById("mapEmptyGoImportBtn")?.addEventListener("click", () => {
+      if (typeof showMainView === "function") showMainView("import");
+      const details = document.querySelector("#importScreen .advanced-import-details");
+      if (details) details.open = true;
+    });
     return;
   }
 
