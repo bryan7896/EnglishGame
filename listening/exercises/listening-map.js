@@ -62,15 +62,21 @@ function renderListeningNivel0() {
     const prog = listeningBlockProgress(bloque);
     const isCurrent = unlocked && !prog.completed && bloque === current;
     const isDone = !!prog.completed;
+    // Bloque empezado pero no terminado (se salió a mitad de camino en
+    // algún momento) -- autoguardado por persistListeningSessionProgress()
+    // en listening-play.js. Solo importa cuando el bloque NO está
+    // completado todavía.
+    const enCurso = !isDone ? listeningInProgressFor(bloque) : null;
+    const isInProgress = !!enCurso;
 
-    const stateClass = !unlocked ? "is-locked" : isDone ? "is-done" : isCurrent ? "is-current" : "";
+    const stateClass = !unlocked ? "is-locked" : isDone ? "is-done" : isInProgress ? "is-inprogress" : isCurrent ? "is-current" : "";
     const statusIcon = !unlocked ? ListeningIcons.lock() : isDone ? ListeningIcons.check() : ListeningIcons.play();
 
     const ejerciciosEnBloque = listeningExercisesByBloque(bloque).length || 100;
-    const progressPct = isDone ? 100 : 0;
+    const progressPct = isDone ? 100 : (isInProgress ? Math.round((enCurso.index / ejerciciosEnBloque) * 100) : 0);
     const scoreLabel = isDone && typeof prog.bestScore === "number"
       ? `${prog.bestScore}%`
-      : (unlocked ? `0/${ejerciciosEnBloque}` : "");
+      : (isInProgress ? `${enCurso.index}/${ejerciciosEnBloque} · continuar` : (unlocked ? `0/${ejerciciosEnBloque}` : ""));
     // Botón "ver resultado": solo en bloques ya completados, para repasar
     // el desglose por categoría guardado en localStorage sin tener que
     // rejugar el bloque entero. Lleva su propio data-bloque y se wirea

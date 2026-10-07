@@ -50,14 +50,42 @@ function startListeningBlock(bloque) {
   }
   ListeningPlaySession.bloque = bloque;
   ListeningPlaySession.exercises = exercises;
-  ListeningPlaySession.index = 0;
-  ListeningPlaySession.correctCount = 0;
-  ListeningPlaySession.categoriaStats = {};
   ListeningPlaySession.voiceTap = 0;
   ListeningPlaySession.answered = false;
 
+  // Si quedó un intento a medias de este mismo bloque (autoguardado tras
+  // cada ejercicio contestado), se continúa justo ahí en vez de reiniciar
+  // desde el ejercicio 1 -- así no hay que hacer los 100 de una sola vez.
+  const saved = listeningInProgressFor(bloque);
+  if (saved && saved.index > 0 && saved.index < exercises.length) {
+    ListeningPlaySession.index = saved.index;
+    ListeningPlaySession.correctCount = saved.correctCount || 0;
+    ListeningPlaySession.categoriaStats = saved.categoriaStats || {};
+    toast(`▶️ Continuando donde quedaste (ejercicio ${saved.index + 1}/${exercises.length})`);
+  } else {
+    ListeningPlaySession.index = 0;
+    ListeningPlaySession.correctCount = 0;
+    ListeningPlaySession.categoriaStats = {};
+  }
+
   showMainView("listeningPlay");
   renderCurrentListeningExercise();
+}
+
+// Autoguardado: se llama justo después de calificar cada ejercicio (ya
+// con sus stats actualizadas), guardando el ÍNDICE SIGUIENTE -- el que
+// toca mostrar si el usuario vuelve más tarde -- junto con lo acumulado
+// hasta ahora. Si el usuario sale antes de calificar el ejercicio actual,
+// no hay nada nuevo que guardar: al volver se le muestra ese mismo
+// ejercicio sin contestar todavía, nada se pierde.
+function persistListeningSessionProgress() {
+  const session = ListeningPlaySession;
+  if (!session.bloque) return;
+  saveListeningInProgress(session.bloque, {
+    index: session.index + 1,
+    correctCount: session.correctCount,
+    categoriaStats: session.categoriaStats,
+  });
 }
 
 // Markup + wiring del botón redondo de reproducir, compartido por ambas
@@ -283,6 +311,7 @@ function checkListeningSeleccionAnswer(btn, ex) {
   } else {
     listeningShake(optionsEl);
   }
+  persistListeningSessionProgress();
   appendListeningContinueButton();
 }
 
@@ -352,6 +381,7 @@ function checkListeningDictadoAnswer(ex, userAnswer) {
   } else {
     listeningShake(feedback);
   }
+  persistListeningSessionProgress();
   appendListeningContinueButton();
 }
 
@@ -463,6 +493,8 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
   const sinDesglose = viewOnly && !filas
     ? `
       <p class="sub-fun" style="text-align:center;margin:12px 0 0;opacity:.8;">
+        Este resultado se guardó antes de que empezáramos a registrar el desglose por categoría.
+        Vuelve a jugar este bloque para ver aquí las notas por categoría la próxima vez.
       </p>
     `
     : "";

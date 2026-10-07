@@ -91,6 +91,38 @@ function listeningBlockProgress(bloque) {
   return ListeningState.progress[bloque] || { completed: false, bestScore: null, intentos: 0 };
 }
 
+// ============== PROGRESO A MITAD DE BLOQUE (autoguardado) ==============
+// Antes, salir de un bloque a mitad de camino perdía todo: había que
+// hacer los 100 ejercicios de una sola sentada. Esto guarda en qué
+// ejercicio va el usuario (y lo que ya acertó/falló) cada vez que
+// contesta uno, para poder continuar justo ahí la próxima vez que entre
+// a ese bloque — sin tocar "completed"/"bestScore", que solo se escriben
+// cuando el bloque se termina de verdad.
+function listeningInProgressFor(bloque) {
+  const prog = ListeningState.progress[bloque];
+  return prog && prog.enCurso ? prog.enCurso : null;
+}
+
+function saveListeningInProgress(bloque, enCurso) {
+  const prog = ListeningState.progress[bloque] || { completed: false, bestScore: null, intentos: 0 };
+  prog.enCurso = enCurso;
+  ListeningState.progress[bloque] = prog;
+  saveListeningProgress();
+}
+
+// Se usa al terminar el bloque de verdad: finishListeningBlock() ya
+// reemplaza por completo ListeningState.progress[bloque] con el resumen
+// final (sin campo enCurso), así que normalmente no hace falta llamar
+// esto aparte — queda disponible para el caso de "empezar de nuevo"
+// explícito.
+function clearListeningInProgress(bloque) {
+  const prog = ListeningState.progress[bloque];
+  if (prog && prog.enCurso) {
+    delete prog.enCurso;
+    saveListeningProgress();
+  }
+}
+
 // Desbloqueo secuencial: el bloque 1 siempre disponible; el bloque N+1 se
 // habilita solo cuando el bloque N está marcado completed. Vive en una
 // función propia para poder cambiar la regla después (p. ej. acceso

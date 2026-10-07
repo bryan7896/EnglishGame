@@ -141,13 +141,21 @@
   transform: translateY(1px);
 }
 
-.l0-level-card.is-current {
+.l0-level-card.is-current,
+.l0-level-card.is-inprogress {
   border-color: var(--brand);
   box-shadow: var(--shadow-glow-brand);
 }
 
 .l0-level-card.is-done {
   border-color: var(--brand-dark);
+}
+
+/* Bloque empezado y no terminado: mismo acento que is-current, pero con
+   el borde punteado para distinguir "a medio camino" de "siguiente por
+   empezar" a simple vista. */
+.l0-level-card.is-inprogress {
+  border-style: dashed;
 }
 
 .l0-level-card.is-locked {
@@ -168,6 +176,7 @@
 }
 
 .l0-level-card.is-current .l0-level-badge,
+.l0-level-card.is-inprogress .l0-level-badge,
 .l0-level-card.is-done .l0-level-badge {
   background: var(--brand-wash);
   border-right-color: var(--brand);
@@ -187,6 +196,7 @@
 }
 
 .l0-level-card.is-current .l0-level-num,
+.l0-level-card.is-inprogress .l0-level-num,
 .l0-level-card.is-done .l0-level-num {
   color: var(--brand-light);
 }
@@ -286,6 +296,7 @@
 }
 
 .l0-level-card.is-current .l0-level-status,
+.l0-level-card.is-inprogress .l0-level-status,
 .l0-level-card.is-done .l0-level-status {
   color: var(--brand-light);
 }

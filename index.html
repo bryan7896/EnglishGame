@@ -2405,13 +2405,21 @@ textarea:focus-visible,
   transform: translateY(1px);
 }
 
-.l0-level-card.is-current {
+.l0-level-card.is-current,
+.l0-level-card.is-inprogress {
   border-color: var(--brand);
   box-shadow: var(--shadow-glow-brand);
 }
 
 .l0-level-card.is-done {
   border-color: var(--brand-dark);
+}
+
+/* Bloque empezado y no terminado: mismo acento que is-current, pero con
+   el borde punteado para distinguir "a medio camino" de "siguiente por
+   empezar" a simple vista. */
+.l0-level-card.is-inprogress {
+  border-style: dashed;
 }
 
 .l0-level-card.is-locked {
@@ -2432,6 +2440,7 @@ textarea:focus-visible,
 }
 
 .l0-level-card.is-current .l0-level-badge,
+.l0-level-card.is-inprogress .l0-level-badge,
 .l0-level-card.is-done .l0-level-badge {
   background: var(--brand-wash);
   border-right-color: var(--brand);
@@ -2451,6 +2460,7 @@ textarea:focus-visible,
 }
 
 .l0-level-card.is-current .l0-level-num,
+.l0-level-card.is-inprogress .l0-level-num,
 .l0-level-card.is-done .l0-level-num {
   color: var(--brand-light);
 }
@@ -2550,6 +2560,7 @@ textarea:focus-visible,
 }
 
 .l0-level-card.is-current .l0-level-status,
+.l0-level-card.is-inprogress .l0-level-status,
 .l0-level-card.is-done .l0-level-status {
   color: var(--brand-light);
 }
@@ -5880,6 +5891,38 @@ function listeningBlockProgress(bloque) {
   return ListeningState.progress[bloque] || { completed: false, bestScore: null, intentos: 0 };
 }
 
+// ============== PROGRESO A MITAD DE BLOQUE (autoguardado) ==============
+// Antes, salir de un bloque a mitad de camino perdía todo: había que
+// hacer los 100 ejercicios de una sola sentada. Esto guarda en qué
+// ejercicio va el usuario (y lo que ya acertó/falló) cada vez que
+// contesta uno, para poder continuar justo ahí la próxima vez que entre
+// a ese bloque — sin tocar "completed"/"bestScore", que solo se escriben
+// cuando el bloque se termina de verdad.
+function listeningInProgressFor(bloque) {
+  const prog = ListeningState.progress[bloque];
+  return prog && prog.enCurso ? prog.enCurso : null;
+}
+
+function saveListeningInProgress(bloque, enCurso) {
+  const prog = ListeningState.progress[bloque] || { completed: false, bestScore: null, intentos: 0 };
+  prog.enCurso = enCurso;
+  ListeningState.progress[bloque] = prog;
+  saveListeningProgress();
+}
+
+// Se usa al terminar el bloque de verdad: finishListeningBlock() ya
+// reemplaza por completo ListeningState.progress[bloque] con el resumen
+// final (sin campo enCurso), así que normalmente no hace falta llamar
+// esto aparte — queda disponible para el caso de "empezar de nuevo"
+// explícito.
+function clearListeningInProgress(bloque) {
+  const prog = ListeningState.progress[bloque];
+  if (prog && prog.enCurso) {
+    delete prog.enCurso;
+    saveListeningProgress();
+  }
+}
+
 // Desbloqueo secuencial: el bloque 1 siempre disponible; el bloque N+1 se
 // habilita solo cuando el bloque N está marcado completed. Vive en una
 // función propia para poder cambiar la regla después (p. ej. acceso
@@ -5998,15 +6041,21 @@ function renderListeningNivel0() {
     const prog = listeningBlockProgress(bloque);
     const isCurrent = unlocked && !prog.completed && bloque === current;
     const isDone = !!prog.completed;
+    // Bloque empezado pero no terminado (se salió a mitad de camino en
+    // algún momento) -- autoguardado por persistListeningSessionProgress()
+    // en listening-play.js. Solo importa cuando el bloque NO está
+    // completado todavía.
+    const enCurso = !isDone ? listeningInProgressFor(bloque) : null;
+    const isInProgress = !!enCurso;
 
-    const stateClass = !unlocked ? "is-locked" : isDone ? "is-done" : isCurrent ? "is-current" : "";
+    const stateClass = !unlocked ? "is-locked" : isDone ? "is-done" : isInProgress ? "is-inprogress" : isCurrent ? "is-current" : "";
     const statusIcon = !unlocked ? ListeningIcons.lock() : isDone ? ListeningIcons.check() : ListeningIcons.play();
 
     const ejerciciosEnBloque = listeningExercisesByBloque(bloque).length || 100;
-    const progressPct = isDone ? 100 : 0;
+    const progressPct = isDone ? 100 : (isInProgress ? Math.round((enCurso.index / ejerciciosEnBloque) * 100) : 0);
     const scoreLabel = isDone && typeof prog.bestScore === "number"
       ? `${prog.bestScore}%`
-      : (unlocked ? `0/${ejerciciosEnBloque}` : "");
+      : (isInProgress ? `${enCurso.index}/${ejerciciosEnBloque} · continuar` : (unlocked ? `0/${ejerciciosEnBloque}` : ""));
     // Botón "ver resultado": solo en bloques ya completados, para repasar
     // el desglose por categoría guardado en localStorage sin tener que
     // rejugar el bloque entero. Lleva su propio data-bloque y se wirea
@@ -6271,14 +6320,42 @@ function startListeningBlock(bloque) {
   }
   ListeningPlaySession.bloque = bloque;
   ListeningPlaySession.exercises = exercises;
-  ListeningPlaySession.index = 0;
-  ListeningPlaySession.correctCount = 0;
-  ListeningPlaySession.categoriaStats = {};
   ListeningPlaySession.voiceTap = 0;
   ListeningPlaySession.answered = false;
 
+  // Si quedó un intento a medias de este mismo bloque (autoguardado tras
+  // cada ejercicio contestado), se continúa justo ahí en vez de reiniciar
+  // desde el ejercicio 1 -- así no hay que hacer los 100 de una sola vez.
+  const saved = listeningInProgressFor(bloque);
+  if (saved && saved.index > 0 && saved.index < exercises.length) {
+    ListeningPlaySession.index = saved.index;
+    ListeningPlaySession.correctCount = saved.correctCount || 0;
+    ListeningPlaySession.categoriaStats = saved.categoriaStats || {};
+    toast(`▶️ Continuando donde quedaste (ejercicio ${saved.index + 1}/${exercises.length})`);
+  } else {
+    ListeningPlaySession.index = 0;
+    ListeningPlaySession.correctCount = 0;
+    ListeningPlaySession.categoriaStats = {};
+  }
+
   showMainView("listeningPlay");
   renderCurrentListeningExercise();
+}
+
+// Autoguardado: se llama justo después de calificar cada ejercicio (ya
+// con sus stats actualizadas), guardando el ÍNDICE SIGUIENTE -- el que
+// toca mostrar si el usuario vuelve más tarde -- junto con lo acumulado
+// hasta ahora. Si el usuario sale antes de calificar el ejercicio actual,
+// no hay nada nuevo que guardar: al volver se le muestra ese mismo
+// ejercicio sin contestar todavía, nada se pierde.
+function persistListeningSessionProgress() {
+  const session = ListeningPlaySession;
+  if (!session.bloque) return;
+  saveListeningInProgress(session.bloque, {
+    index: session.index + 1,
+    correctCount: session.correctCount,
+    categoriaStats: session.categoriaStats,
+  });
 }
 
 // Markup + wiring del botón redondo de reproducir, compartido por ambas
@@ -6504,6 +6581,7 @@ function checkListeningSeleccionAnswer(btn, ex) {
   } else {
     listeningShake(optionsEl);
   }
+  persistListeningSessionProgress();
   appendListeningContinueButton();
 }
 
@@ -6573,6 +6651,7 @@ function checkListeningDictadoAnswer(ex, userAnswer) {
   } else {
     listeningShake(feedback);
   }
+  persistListeningSessionProgress();
   appendListeningContinueButton();
 }
 
@@ -6684,6 +6763,8 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
   const sinDesglose = viewOnly && !filas
     ? `
       <p class="sub-fun" style="text-align:center;margin:12px 0 0;opacity:.8;">
+        Este resultado se guardó antes de que empezáramos a registrar el desglose por categoría.
+        Vuelve a jugar este bloque para ver aquí las notas por categoría la próxima vez.
       </p>
     `
     : "";
@@ -8494,7 +8575,7 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">12.0 (6-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">12.1 (6-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
           <button class="fun-btn" id="menuPercentagesBtn">📊 Ver porcentajes</button>
