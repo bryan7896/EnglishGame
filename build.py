@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "12.1 (6-10-2026)"
+VERSION = "12.2 (10-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -1676,7 +1676,7 @@ def get_main_logic():
 
   // Etiquetas del tipo de ejercicio de origen, para que la entrada "manual"
   // del informe deje constancia de qué tipo era el ejercicio original.
-  const ORIGIN_TYPE_LABELS = { traduccion: "Traducción", corregir: "Corregir", dictado: "Dictado" };
+  const ORIGIN_TYPE_LABELS = { traduccion: "Traducción", completar: "Completar", corregir: "Corregir", dictado: "Dictado" };
 
   // Cuando el usuario manda un ejercicio a [Repasar] (fin del nodo actual),
   // queda registrado en el informe como una entrada de tipo "corregir" —
@@ -1689,11 +1689,15 @@ def get_main_logic():
       ? (exercise.spanishWord || exercise.spanishWords || "")
       : originType === "corregir"
       ? (exercise.spanishPhrase || "")
+      : originType === "completar"
+      ? (exercise.spanishWord || "")
       : "";
     const correctText = originType === "traduccion"
       ? (exercise.englishWord || exercise.englishWords || "")
       : originType === "corregir"
       ? (exercise.fraseCorrecta || "")
+      : originType === "completar"
+      ? fillCompletarBlanks(exercise.englishSentence, exercise.options)
       : (exercise.text || exercise.phrase || exercise.original || "");
     const cleanAnswer = (userAnswer && userAnswer.trim()) ? userAnswer.trim() : "(respuesta no registrada)";
     return {
@@ -1709,10 +1713,10 @@ def get_main_logic():
   }
 
   // Tipos cuyo modal de resultado muestra [Repasar] / [Repasar luego]. Para
-  // estos ya NO hay envío automático al repaso: lo decide el usuario. Los
-  // demás tipos (completar, emparejar) conservan la regla anterior al
-  // cerrar el nodo (ver renderExercise).
-  const MANUAL_REVIEW_TYPES = ["traduccion", "corregir", "dictado"];
+  // estos ya NO hay envío automático al repaso: lo decide el usuario. El
+  // único tipo que conserva la regla anterior al cerrar el nodo (< 80% →
+  // repaso automático) es emparejar (ver renderExercise).
+  const MANUAL_REVIEW_TYPES = ["traduccion", "completar", "corregir", "dictado"];
 
   // [Repasar]: una copia del ejercicio se agrega al FINAL del nodo actual.
   // La copia se marca con __requeue para que, si luego se cambia la cantidad
@@ -1956,21 +1960,19 @@ def get_main_logic():
     const checkBtn = container.querySelector('.completar-check');
     if (checkBtn) {
       checkBtn.onclick = () => {
-        const result = checkCompletarAnswers(exercise, container);
-        const { allCorrect, userAnswers, results } = result;
-        showCompletarModal(exercise, results, 
-          (success, duda) => { 
-            recordExerciseResult(success);
-            AppState.reportEntries.push(tagEntryMeta(getCompletarReportEntry(exercise, userAnswers, duda), exercise)); 
-            advanceExercise(); 
-          },
-          (duda) => { 
-            if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) {
-              AppState.failedExercises.push(AppState.activeExerciseIndex);
-            }
-            renderExercise(); 
-          }
-        );
+        const { userAnswers, results } = checkCompletarAnswers(exercise, container);
+        // Frase completa con lo que escribió el usuario (para el informe y
+        // para la pool de repaso).
+        const filledAnswer = fillCompletarBlanks(exercise.englishSentence, userAnswers);
+        showCompletarModal(exercise, results, (duda, passed, decision) => {
+          AppState.sessionAnswers[AppState.activeExerciseIndex] = filledAnswer;
+          recordExerciseResult(passed, decision);
+          const entry = decision === "repasar"
+            ? buildManualCorreccionEntry(exercise, filledAnswer, duda)
+            : getCompletarReportEntry(exercise, userAnswers, duda);
+          AppState.reportEntries.push(tagEntryMeta(entry, exercise));
+          advanceExercise();
+        });
       };
     }
   }
