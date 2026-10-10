@@ -15,6 +15,16 @@ const LISTENING_STORAGE_KEY = "listening_nivel0_v1";
 const LISTENING_TOTAL_BLOQUES = 7;
 const LISTENING_EJERCICIOS_POR_BLOQUE = 100;
 
+// Versión del sistema de calificación de los bloques 4-7 (dictado de frases).
+// v2 = calificación por "objetivo" (la contracción / la forma completa / el
+// posesivo / el número / el homófono según la categoría) en vez de la frase
+// completa. Un intento a medias guardado con otra versión no se puede
+// mezclar con el nuevo criterio, así que se descarta (ver
+// loadListeningProgress). Los bloques 1-3 NO cambian de criterio, por eso
+// su progreso y sus resultados no se tocan nunca.
+const LISTENING_SCORING_VERSION = 2;
+const LISTENING_SCORING_FROM_BLOQUE = 4;
+
 // Metadata fija de los 7 bloques del Nivel 0 — nombre corto, ícono y
 // descripción de qué mide cada uno, para que la pantalla de inicio sea
 // informativa sin depender de una imagen de fondo.
@@ -55,6 +65,9 @@ const ListeningIcons = {
   eye() {
     return '<span class="l0-icon"><svg viewBox="0 0 24 24"><path d="M12 5c-5 0-9 4.5-10 7 1 2.5 5 7 10 7s9-4.5 10-7c-1-2.5-5-7-10-7zm0 11.5A4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 0 1 0 9zm0-2.3a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4z"/></svg></span>';
   },
+  copy() {
+    return '<span class="l0-icon"><svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg></span>';
+  },
   listen() {
     return '<svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9v6a2 2 0 0 0 2 2h2v-7H5v-1a7 7 0 0 1 14 0v1h-2v7h2a2 2 0 0 0 2-2v-6a9 9 0 0 0-9-9z"/></svg>';
   },
@@ -64,7 +77,8 @@ const ListeningIcons = {
 
 const ListeningState = {
   exercises: (typeof NIVEL0_EXERCISES !== "undefined" ? NIVEL0_EXERCISES : []),
-  progress: {}, // { [bloque]: { completed: bool, bestScore: number, intentos: number } }
+  progress: {}, // { [bloque]: { completed, bestScore, intentos, lastPorcentaje, lastCategoriaStats, lastRespuestas, enCurso } }
+  reiniciados: [], // bloques cuyo intento a medias se descartó al migrar el criterio (se avisa una vez en la pantalla de inicio)
 };
 
 function listeningExercisesByBloque(bloque) {
@@ -78,6 +92,26 @@ function loadListeningProgress() {
   } catch (e) {
     ListeningState.progress = {};
   }
+
+  // Migración del criterio de calificación: un intento a medias (enCurso)
+  // de los bloques 4-7 hecho con el criterio anterior se descarta -- el
+  // contador de ese bloque vuelve a 0. completed / bestScore / intentos y
+  // los resultados ya cerrados NO se tocan, y los bloques 1-3 tampoco.
+  let migrado = false;
+  Object.keys(ListeningState.progress).forEach((k) => {
+    const bloque = Number(k);
+    const prog = ListeningState.progress[k];
+    if (
+      bloque >= LISTENING_SCORING_FROM_BLOQUE &&
+      prog && prog.enCurso &&
+      prog.enCurso.scoringVersion !== LISTENING_SCORING_VERSION
+    ) {
+      delete prog.enCurso;
+      ListeningState.reiniciados.push(bloque);
+      migrado = true;
+    }
+  });
+  if (migrado) saveListeningProgress();
   return ListeningState.progress;
 }
 
@@ -100,7 +134,10 @@ function listeningBlockProgress(bloque) {
 // cuando el bloque se termina de verdad.
 function listeningInProgressFor(bloque) {
   const prog = ListeningState.progress[bloque];
-  return prog && prog.enCurso ? prog.enCurso : null;
+  const en = prog && prog.enCurso;
+  if (!en) return null;
+  if (bloque >= LISTENING_SCORING_FROM_BLOQUE && en.scoringVersion !== LISTENING_SCORING_VERSION) return null;
+  return en;
 }
 
 function saveListeningInProgress(bloque, enCurso) {
@@ -175,4 +212,47 @@ function listeningOverallSummary() {
     totalBloques: LISTENING_TOTAL_BLOQUES,
     totalEjercicios,
   };
+}
+
+// ============== DETALLE DE RESPUESTAS (para copiar y analizar) ==============
+// Cada ejercicio contestado deja un registro { id, categoria, palabra,
+// usuario, correcto, ... } (lo arma listening-play.js). Al terminar el
+// bloque queda guardado en progress[bloque].lastRespuestas; este helper lo
+// devuelve como un arreglo JSON con un objeto por línea, listo para pegar
+// en el chat y analizar dónde están las mayores falencias.
+function listeningRespuestasJSON(bloque) {
+  const lista = listeningBlockProgress(bloque).lastRespuestas;
+  if (!Array.isArray(lista) || !lista.length) return "";
+  return "[\n" + lista.map((r) => "  " + JSON.stringify(r)).join(",\n") + "\n]";
+}
+
+async function copyListeningRespuestas(bloque) {
+  const texto = listeningRespuestasJSON(bloque);
+  if (!texto) {
+    toast("⚠️ Este bloque todavía no tiene detalle guardado");
+    return false;
+  }
+  let ok = false;
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(texto);
+      ok = true;
+    }
+  } catch (e) { /* cae al plan B */ }
+  if (!ok) {
+    // Plan B (contextos sin Clipboard API, p. ej. http o webviews viejos).
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = texto;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      ok = document.execCommand("copy");
+      ta.remove();
+    } catch (e) { ok = false; }
+  }
+  toast(ok ? "📋 Respuestas copiadas — pégalas en el chat" : "⚠️ No se pudo copiar automáticamente");
+  return ok;
 }

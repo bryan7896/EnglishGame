@@ -26,6 +26,13 @@ const LISTENING_NIVELES_FUTUROS = [
 
 function renderListeningHome() {
   loadListeningProgress();
+  // Aviso único cuando se descartó un intento a medias por el cambio de
+  // criterio de calificación (ver loadListeningProgress en listening-core.js).
+  if (ListeningState.reiniciados.length) {
+    const bloques = ListeningState.reiniciados.slice().sort((a, b) => a - b).join(", ");
+    ListeningState.reiniciados = [];
+    toast(`♻️ Bloque ${bloques} reiniciado: ahora se califica el objetivo de cada ejercicio`);
+  }
   renderListeningNivel0();
   renderListeningFutureLevels();
   wireListeningNivel0Toggle();
@@ -219,7 +226,8 @@ async function openListeningReportScreen() {
       container.innerHTML = `
         <p class="sub-fun" style="text-align:center;">⚠️ No se pudo cargar el historial remoto.</p>
         <p class="sub-fun" style="text-align:center;">Puede ser que no haya conexión, o que falte crear la hoja "Listening" en el Sheet. Mientras tanto tu mejor puntaje por bloque sigue disponible en la pantalla de Niveles.</p>
-      `;
+      ` + listeningLocalDetailHTML();
+      wireListeningLocalDetail(container);
     }
   }
 }
@@ -229,7 +237,8 @@ function renderListeningReportScreen(data) {
   if (!container) return;
 
   if (!data.length) {
-    container.innerHTML = `<p class="sub-fun" style="text-align:center;">Todavía no hay historial registrado. Termina un bloque para que aparezca aquí.</p>`;
+    container.innerHTML = `<p class="sub-fun" style="text-align:center;">Todavía no hay historial registrado. Termina un bloque para que aparezca aquí.</p>` + listeningLocalDetailHTML();
+    wireListeningLocalDetail(container);
     return;
   }
 
@@ -286,5 +295,36 @@ function renderListeningReportScreen(data) {
         </div>
       </div>
     `;
+  }).join("") + listeningLocalDetailHTML();
+  wireListeningLocalDetail(container);
+}
+
+// Sección "Detalle de respuestas": una fila por bloque que tenga guardado el
+// detalle del último intento EN ESTE dispositivo (viene de localStorage, no
+// del Sheet, así que se muestra aunque el historial remoto falle o esté
+// vacío). Cada botón copia el JSON [{palabra, usuario, correcto, ...}].
+function listeningLocalDetailHTML() {
+  const filas = LISTENING_BLOQUES_META.map((meta) => {
+    const n = (listeningBlockProgress(meta.bloque).lastRespuestas || []).length;
+    if (!n) return "";
+    return `
+      <button class="fun-btn full-width l0-copy-btn" data-copy-bloque="${meta.bloque}" style="width:100%;margin-bottom:8px;">
+        ${ListeningIcons.copy()} Bloque ${meta.bloque} — ${window._escHTML(meta.titulo)} (${n} respuestas)
+      </button>
+    `;
   }).join("");
+  if (!filas) return "";
+  return `
+    <div style="margin-top:18px;">
+      <div class="l0-level-title" style="margin-bottom:4px;">Detalle de respuestas</div>
+      <p class="sub-fun" style="margin:0 0 10px;">Copia lo que respondiste en el último intento de cada bloque y pégalo en el chat para analizar tus mayores falencias.</p>
+      ${filas}
+    </div>
+  `;
+}
+
+function wireListeningLocalDetail(container) {
+  container.querySelectorAll(".l0-copy-btn").forEach((btn) => {
+    btn.addEventListener("click", () => copyListeningRespuestas(Number(btn.dataset.copyBloque)));
+  });
 }

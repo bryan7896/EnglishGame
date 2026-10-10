@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "12.2 (10-10-2026)"
+VERSION = "12.3 (10-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 

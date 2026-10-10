@@ -23,6 +23,7 @@ const ListeningPlaySession = {
   index: 0,
   correctCount: 0,
   categoriaStats: {}, // { [categoria]: { correct, total } }
+  respuestas: [], // detalle por ejercicio contestado: { palabra, usuario, correcto, categoria, id, ... } (se puede copiar desde el reporte)
   voiceTap: 0,
   answered: false,
 };
@@ -61,11 +62,13 @@ function startListeningBlock(bloque) {
     ListeningPlaySession.index = saved.index;
     ListeningPlaySession.correctCount = saved.correctCount || 0;
     ListeningPlaySession.categoriaStats = saved.categoriaStats || {};
+    ListeningPlaySession.respuestas = Array.isArray(saved.respuestas) ? saved.respuestas.slice() : [];
     toast(`▶️ Continuando donde quedaste (ejercicio ${saved.index + 1}/${exercises.length})`);
   } else {
     ListeningPlaySession.index = 0;
     ListeningPlaySession.correctCount = 0;
     ListeningPlaySession.categoriaStats = {};
+    ListeningPlaySession.respuestas = [];
   }
 
   showMainView("listeningPlay");
@@ -85,6 +88,8 @@ function persistListeningSessionProgress() {
     index: session.index + 1,
     correctCount: session.correctCount,
     categoriaStats: session.categoriaStats,
+    respuestas: session.respuestas,
+    scoringVersion: LISTENING_SCORING_VERSION,
   });
 }
 
@@ -235,8 +240,12 @@ function renderListeningSeleccionExercise(ex, container) {
 // Palabra suelta (dictado_palabra) vs frase (dictado_frase_corta/media):
 // misma mecánica de input, solo cambia el placeholder para orientar al
 // usuario sobre qué tan largo es lo que viene.
-function listeningDictadoPlaceholder(familia) {
-  if (familia === "dictado_palabra") return "Escribe la palabra que escuchaste...";
+function listeningDictadoPlaceholder(ex) {
+  if (["numeros_grandes", "horas", "fechas", "precios"].includes(ex.categoria)) {
+    return "Escribe con letras lo que escuchaste (ej. twenty five)...";
+  }
+  if (ex.bloque === 4) return "Escribe la frase tal como la escuchas...";
+  if (ex.familia === "dictado_palabra") return "Escribe la palabra que escuchaste...";
   return "Escribe la frase que escuchaste...";
 }
 
@@ -248,7 +257,7 @@ function renderListeningDictadoExercise(ex, container) {
       class="answer-input"
       id="l0DictadoInput"
       style="width:100%;margin-bottom:12px;"
-      placeholder="${listeningDictadoPlaceholder(ex.familia)}"
+      placeholder="${listeningDictadoPlaceholder(ex)}"
       autocomplete="off"
       autocapitalize="off"
       autocorrect="off"
@@ -281,6 +290,14 @@ function checkListeningSeleccionAnswer(btn, ex) {
   stats.total += 1;
   if (correct) { stats.correct += 1; session.correctCount += 1; }
   session.categoriaStats[ex.categoria] = stats;
+  session.respuestas.push({
+    palabra: ex.contenido_audio,
+    usuario: selected,
+    correcto: correct,
+    categoria: ex.categoria,
+    id: ex.id,
+    reproducciones: session.voiceTap,
+  });
 
   const resultLine = document.getElementById("l0PlayResultLine");
   const optionsEl = document.getElementById("l0PlayOptions");
@@ -331,22 +348,136 @@ function listeningShowAchievement(anchorEl) {
   setTimeout(() => badge.remove(), 900);
 }
 
-// Dictado (sin opciones): reutiliza checkDictadoAnswer() de exercises/dictado.js
-// (mismo scope de módulo concatenado) para no reimplementar la lógica de
-// normalización/precisión por palabra que ya usa el resto de la app. Se
-// acepta como acierto lo mismo que ahí: exacto o ≥80% de palabras iguales.
+// ==================== CALIFICACIÓN POR OBJETIVO (bloques 4-7) ====================
+// Cada categoría de dictado evalúa algo puntual dentro de la frase: la
+// contracción (bloque 4), el posesivo/plural (bloque 5), el número, la hora,
+// la fecha, el precio o el homófono (bloque 7). Antes se calificaba la frase
+// completa (>=80% de palabras iguales), y un error de tipeo en una palabra
+// sin relación con el objetivo bajaba la nota de la categoría igual que un
+// error de oído. Ahora el criterio principal de acierto es el OBJETIVO; el
+// resto de la frase queda como contexto (se muestra y se guarda en el
+// detalle como precision_frase, pero no decide el acierto).
+//
+// Las categorías sin objetivo puntual (bloque 3, palabras sueltas de
+// morfología, habla conectada del bloque 6, longitudes, control holístico)
+// siguen con el criterio de frase completa de siempre -- ahí el objetivo ES
+// la frase entera.
+const LISTENING_FORMA_COMPLETA = new Set(["is", "are", "am", "has", "have", "had", "would", "will", "do", "does", "did", "not", "was", "were"]);
+const LISTENING_NO_PLURAL = new Set(["is", "this", "his", "has", "was", "its", "yes", "as", "us", "does", "always"]);
+const LISTENING_NUM_CARD = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety", "hundred", "thousand", "million", "billion"];
+const LISTENING_NUM_ORD = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth", "thirteenth", "fourteenth", "fifteenth", "sixteenth", "seventeenth", "eighteenth", "nineteenth", "twentieth", "thirtieth"];
+const LISTENING_MESES = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+const LISTENING_DIAS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+const LISTENING_VOCAB_HORAS = new Set([...LISTENING_NUM_CARD, "half", "past", "quarter", "to", "o'clock", "noon", "midnight", "almost", "after", "just", "morning", "afternoon", "evening"]);
+const LISTENING_VOCAB_FECHAS = new Set([...LISTENING_NUM_CARD, ...LISTENING_NUM_ORD, ...LISTENING_MESES, ...LISTENING_DIAS]);
+const LISTENING_VOCAB_PRECIOS = new Set([...LISTENING_NUM_CARD, "dollar", "dollars", "cent", "cents"]);
+const LISTENING_HOMOFONOS = new Set(["write", "right", "buy", "by", "bye", "they're", "their", "there", "hear", "here", "two", "too", "to", "sun", "son", "know", "no", "one", "won", "tree", "three"]);
+
+// Texto -> tokens en minúscula: apóstrofes curvos a rectos, guiones a
+// espacio ("twenty-one" = "twenty one") y sin puntuación.
+function listeningTokens(text) {
+  return String(text || "")
+    .toLowerCase()
+    .replace(/[‘’ʼ`´]/g, "'")
+    .replace(/-/g, " ")
+    .replace(/[^a-z0-9'\s]/g, " ")
+    .split(/\s+/)
+    .map((t) => t.replace(/^'+|'+$/g, ""))
+    .filter(Boolean);
+}
+
+// Qué palabras de la frase son el objetivo según la categoría, o null si la
+// categoría se califica con la frase completa.
+//  - strict: el apóstrofe cuenta (posesivo 's vs plural -s vs "is": ahí el
+//    apóstrofe ES el contenido). En el resto se ignora ("dont" = "don't").
+//  - mode "exact": la respuesta completa debe coincidir (números).
+//    "subsequence": los objetivos deben aparecer en orden dentro de lo
+//    escrito, sin importar el resto.
+function listeningTargetSpec(ex) {
+  const toks = listeningTokens(ex.contenido_audio);
+  const pick = (fn, strict) => {
+    const t = toks.filter(fn);
+    return t.length ? { tokens: t, strict: !!strict, mode: "subsequence" } : null;
+  };
+  switch (ex.categoria) {
+    case "contraccion_afirmativa":
+    case "contraccion_negativa":
+      return pick((t) => t.includes("'"));
+    case "falso_positivo_forma_completa":
+      return pick((t) => LISTENING_FORMA_COMPLETA.has(t));
+    case "posesivo_vs_is":
+      return pick((t) => /'s$/.test(t), true);
+    case "posesivo_vs_plural":
+      return pick((t) => t.length > 2 && t.endsWith("s") && !LISTENING_NO_PLURAL.has(t), true);
+    case "numeros_grandes": {
+      const t = toks.filter((x) => x !== "and");
+      return t.length ? { tokens: t, strict: false, mode: "exact" } : null;
+    }
+    case "horas":
+      return pick((t) => LISTENING_VOCAB_HORAS.has(t));
+    case "fechas":
+      return pick((t) => LISTENING_VOCAB_FECHAS.has(t));
+    case "precios":
+      return pick((t) => LISTENING_VOCAB_PRECIOS.has(t));
+    case "homofonos_reales_contexto":
+      return pick((t) => LISTENING_HOMOFONOS.has(t));
+    default:
+      return null;
+  }
+}
+
+function listeningMatchTargets(spec, userText) {
+  const key = (t) => (spec.strict ? t : t.replace(/'/g, ""));
+  let user = listeningTokens(userText).map(key);
+  const target = spec.tokens.map(key);
+  if (spec.mode === "exact") {
+    user = user.filter((t) => t !== "and"); // "two hundred and fifty" también vale
+    const detalle = target.map((t, i) => user[i] === t);
+    return { ok: user.length === target.length && detalle.every(Boolean), detalle };
+  }
+  const detalle = target.map(() => false);
+  let j = 0;
+  for (const u of user) {
+    if (j < target.length && u === target[j]) { detalle[j] = true; j++; }
+  }
+  return { ok: j === target.length, detalle };
+}
+
+function gradeListeningDictado(ex, userAnswer) {
+  // La comparación de frase completa se calcula siempre (contexto y
+  // precision_frase); decide el acierto solo si no hay objetivo puntual.
+  const frase = checkDictadoAnswer(ex.contenido_audio, userAnswer);
+  const spec = listeningTargetSpec(ex);
+  if (!spec) return { modo: "frase", correct: frase.passed, frase, objetivo: null };
+  const m = listeningMatchTargets(spec, userAnswer);
+  return { modo: "objetivo", correct: m.ok, frase, objetivo: { tokens: spec.tokens, detalle: m.detalle } };
+}
+
 function checkListeningDictadoAnswer(ex, userAnswer) {
   const session = ListeningPlaySession;
   if (session.answered) return;
   session.answered = true;
 
-  const result = checkDictadoAnswer(ex.contenido_audio, userAnswer);
-  const correct = result.passed;
+  const g = gradeListeningDictado(ex, userAnswer);
+  const result = g.frase;
+  const correct = g.correct;
 
   const stats = session.categoriaStats[ex.categoria] || { correct: 0, total: 0 };
   stats.total += 1;
   if (correct) { stats.correct += 1; session.correctCount += 1; }
   session.categoriaStats[ex.categoria] = stats;
+
+  const rec = {
+    palabra: ex.contenido_audio,
+    usuario: String(userAnswer || "").trim(),
+    correcto: correct,
+    categoria: ex.categoria,
+    id: ex.id,
+  };
+  if (g.objetivo) rec.objetivo = g.objetivo.tokens;
+  rec.precision_frase = Math.round(result.accuracy * 100);
+  rec.reproducciones = session.voiceTap;
+  session.respuestas.push(rec);
 
   const input = document.getElementById("l0DictadoInput");
   const checkBtn = document.getElementById("l0DictadoCheckBtn");
@@ -360,11 +491,19 @@ function checkListeningDictadoAnswer(ex, userAnswer) {
 
   const resultLine = document.getElementById("l0PlayResultLine");
   if (resultLine) {
-    resultLine.innerHTML = result.isExact
-      ? `${ListeningIcons.check()} ¡Perfecto!`
-      : correct
-        ? `${ListeningIcons.check()} ¡Aceptado! (${Math.round(result.accuracy * 100)}%)`
-        : `Era "${window._escHTML(ex.contenido_audio)}" (${Math.round(result.accuracy * 100)}%)`;
+    if (g.modo === "objetivo") {
+      resultLine.innerHTML = correct
+        ? (result.isExact
+            ? `${ListeningIcons.check()} ¡Perfecto!`
+            : `${ListeningIcons.check()} ¡Objetivo acertado! Revisa el resto de la frase`)
+        : `Era "${window._escHTML(ex.contenido_audio)}"`;
+    } else {
+      resultLine.innerHTML = result.isExact
+        ? `${ListeningIcons.check()} ¡Perfecto!`
+        : correct
+          ? `${ListeningIcons.check()} ¡Aceptado! (${Math.round(result.accuracy * 100)}%)`
+          : `Era "${window._escHTML(ex.contenido_audio)}" (${Math.round(result.accuracy * 100)}%)`;
+    }
   }
 
   const container = document.getElementById("listeningPlayContainer");
@@ -373,7 +512,16 @@ function checkListeningDictadoAnswer(ex, userAnswer) {
   feedback.style.display = "flex";
   feedback.style.flexWrap = "wrap";
   feedback.style.gap = "4px";
-  feedback.innerHTML = compHtml;
+  if (g.objetivo) {
+    const chips = g.objetivo.tokens.map((t, i) =>
+      `<span class="${g.objetivo.detalle[i] ? "word-correct" : "word-error"}">${window._escHTML(t)}</span>`
+    ).join(" ");
+    feedback.innerHTML =
+      `<div style="width:100%;font-size:.78rem;opacity:.75;">Se evaluó:</div>${chips}` +
+      `<div style="width:100%;margin-top:6px;font-size:.78rem;opacity:.75;">Tu respuesta:</div>${compHtml}`;
+  } else {
+    feedback.innerHTML = compHtml;
+  }
   container.appendChild(feedback);
 
   if (correct) {
@@ -415,6 +563,9 @@ function finishListeningBlock() {
     // intento, que es el mismo que se acaba de mostrar aquí.
     lastPorcentaje: porcentaje,
     lastCategoriaStats: session.categoriaStats,
+    // Detalle de cada ejercicio de este intento (palabra / lo que escribió
+    // o eligió / acierto...), para copiarlo desde el reporte y analizarlo.
+    lastRespuestas: session.respuestas,
   };
   saveListeningProgress();
 
@@ -490,13 +641,25 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
   // ANTES de que empezáramos a guardar el desglose por categoría en
   // localStorage), no dejamos la cuadrícula en blanco sin explicación --
   // mostramos un aviso breve en su lugar.
+  const respuestas = listeningBlockProgress(bloque).lastRespuestas;
+  const hayDetalle = Array.isArray(respuestas) && respuestas.length > 0;
   const sinDesglose = viewOnly && !filas
     ? `
       <p class="sub-fun" style="text-align:center;margin:12px 0 0;opacity:.8;">
-        Este resultado se guardó antes de que empezáramos a registrar el desglose por categoría.
-        Vuelve a jugar este bloque para ver aquí las notas por categoría la próxima vez.
+        Este resultado se guardó antes de que empezáramos a registrar el desglose por categoría y el detalle de cada respuesta.
+        Vuelve a jugar este bloque para verlos aquí la próxima vez.
       </p>
     `
+    : (viewOnly && !hayDetalle
+      ? `
+      <p class="sub-fun" style="text-align:center;margin:12px 0 0;opacity:.8;">
+        Este intento no guardó el detalle de cada respuesta (se agregó después).
+        Vuelve a jugar este bloque para poder copiarlo.
+      </p>
+    `
+      : "");
+  const botonCopiar = hayDetalle
+    ? `<button class="fun-btn full-width" id="l0ResultCopyBtn" style="width:100%;margin-top:14px;">${ListeningIcons.copy()} Copiar respuestas (${respuestas.length})</button>`
     : "";
 
   const titulo = porcentaje >= 80 ? "¡Excelente trabajo!" : porcentaje >= 50 ? "Bloque completado" : "Sigue practicando";
@@ -515,7 +678,10 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
       ${filas}
     </div>
     ${sinDesglose}
+    ${botonCopiar}
   `;
+
+  document.getElementById("l0ResultCopyBtn")?.addEventListener("click", () => copyListeningRespuestas(bloque));
 
   // Anima el anillo desde 0 hasta el % real en el siguiente frame (si se
   // pone el dashoffset final de una vez, nunca se ve la transición).
