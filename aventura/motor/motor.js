@@ -50,9 +50,8 @@
   /* ------------------------------------------------------------------ escenario */
   function medir() {
     const hud = $('#hud').offsetHeight;
-    const hoja = $('#hoja');
-    const reserva = hoja && !hoja.hidden ? hoja.offsetHeight : 0;   // la hoja de respuestas no tapa a los personajes
-    const w = Math.min(window.innerWidth - 12, (window.innerHeight - hud - reserva - 12) * 16 / 9);
+    const lado = window.innerHeight <= 520 ? 56 : 72;   // columnas laterales: repetir (izq.) y respuestas (der.) no tapan el escenario
+    const w = Math.min(window.innerWidth - 2 * lado, (window.innerHeight - hud - 12) * 16 / 9);
     const esc = $('#escenario');
     esc.style.width = w + 'px'; esc.style.height = (w * 9 / 16) + 'px';
     esc.style.setProperty('--u', (w / 100) + 'px');
@@ -134,6 +133,15 @@
   }
 
   /* ------------------------------------------------------------------ voz + burbujas */
+  let ultima = null, hablando = 0;
+  function actualizarRepetir() { const b = $('#repetir'); if (b) b.disabled = hablando > 0; }
+  // Repite lo ultimo que dijo un personaje (no el jugador). Se bloquea mientras el juego habla para no cortar el dialogo.
+  function repetirUltima() {
+    if (!ultima || hablando > 0) return;
+    SONIDO.sfx.toque();
+    SONIDO.decir(url(ultima.file), { pan: ultima.pan });
+  }
+
   async function decir(quien, linea, opc) {
     opc = opc || {};
     const cont = opc.sobre ? (pj(opc.sobre) || ob(opc.sobre)) : (pj(quien) || ob(quien));
@@ -141,7 +149,10 @@
     if (cont) { b = el('div', 'burbuja ' + (quien === 'bryan' ? 'bryan' : ''), `<span class="onda">${quien === 'bryan' ? '🎙️' : '🔊'}</span>`); cont.appendChild(b); cont.classList.add('habla'); }
     E.log.push({ quien, texto: linea.texto, mal: !!opc.mal, escena: E.escena });
     if (opc.cara && cont) ARTE.setCara(cont, opc.cara);
+    if (quien !== 'bryan') { ultima = { file: linea.file, pan: opc.pan }; $('#repetir').hidden = false; }
+    hablando++; actualizarRepetir();
     await SONIDO.decir(url(linea.file), { pan: opc.pan });
+    hablando--; actualizarRepetir();
     if (cont) { cont.classList.remove('habla'); if (b) b.remove(); const c0 = personaje(quien); if (opc.cara && c0) ARTE.setCara(cont, c0.cara_base); }
     await sleep(160);
   }
@@ -154,14 +165,13 @@
       let sel = null;
       const render = () => {
         hoja.innerHTML = '';
-        hoja.appendChild(el('div', 'tit', naranja ? '🟠 Try again! Listen carefully.' : '🎧 Listen and choose what Bryan says'));
         const fila = el('div', 'fila'), cont = el('div', 'ops');
         ops.forEach((o, i) => {
           const b = el('button', 'op' + (sel === o ? ' sel' : '') + (estado.malas.has(o.file) ? ' mal' : ''),
-            `<span class="mic">🎙️<span class="let">${'ABC'[i]}</span></span>` +
+            `<span class="mic">🎙️</span>` +
             (estado.reveladas.has(o.file) ? `<span class="txt">${o.texto}</span>` : ''));
           if (DEBUG && o.ok) b.dataset.ok = '1';
-          b.dataset.i = i;
+          b.dataset.i = i; b.setAttribute('aria-label', 'Option ' + 'ABC'[i]);
           b.addEventListener('click', () => {
             SONIDO.sfx.toque();
             const n = (estado.pulsaciones[o.file] = (estado.pulsaciones[o.file] || 0) + 1);
@@ -508,7 +518,7 @@
     M = m; L = l;
     document.title = M.titulo;
     medir(); window.addEventListener('resize', () => { medir(); actualizarLuz(); });
-    $('#btn-musica').onclick = () => { SONIDO.silenciar(!SONIDO.silenciada); $('#btn-musica').textContent = SONIDO.silenciada ? '🔇' : '🎵'; };
+    $('#repetir').onclick = repetirUltima;
     $('#btn-objetivo').onclick = () => { if (E.terminado) return; const mo = $('#modal'); mo.hidden = false; mo.innerHTML = `<div class="tarjeta"><div class="obj-en">🎯 ${M.objetivo}</div><div class="obj-es">${M.objetivo_es}</div><button class="btn" id="b-ok">OK</button></div>`; $('#b-ok').onclick = () => { mo.hidden = true; }; };
     if (EMBED) { const bs = $('#btn-salir'); bs.hidden = false; bs.onclick = () => avisar({ tipo: 'salir' }); }
     pantallaInicio();
