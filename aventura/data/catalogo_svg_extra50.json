@@ -1,0 +1,205 @@
+{
+ "_comentario": "50 SVG extra (animales y cosas de tu banco de palabras). Todas las palabras estan en tu lista de 3000.",
+ "extra": [
+  {
+   "id": "dog",
+   "es": "perro"
+  },
+  {
+   "id": "cat",
+   "es": "gato"
+  },
+  {
+   "id": "bird",
+   "es": "pájaro"
+  },
+  {
+   "id": "fish",
+   "es": "pez"
+  },
+  {
+   "id": "horse",
+   "es": "caballo"
+  },
+  {
+   "id": "cow",
+   "es": "vaca"
+  },
+  {
+   "id": "pig",
+   "es": "cerdo"
+  },
+  {
+   "id": "sheep",
+   "es": "oveja"
+  },
+  {
+   "id": "chicken",
+   "es": "pollo/gallina"
+  },
+  {
+   "id": "duck",
+   "es": "pato"
+  },
+  {
+   "id": "rabbit",
+   "es": "conejo"
+  },
+  {
+   "id": "mouse",
+   "es": "ratón"
+  },
+  {
+   "id": "monkey",
+   "es": "mono"
+  },
+  {
+   "id": "lion",
+   "es": "león"
+  },
+  {
+   "id": "tiger",
+   "es": "tigre"
+  },
+  {
+   "id": "bear",
+   "es": "oso"
+  },
+  {
+   "id": "elephant",
+   "es": "elefante"
+  },
+  {
+   "id": "snake",
+   "es": "serpiente"
+  },
+  {
+   "id": "butterfly",
+   "es": "mariposa"
+  },
+  {
+   "id": "spider",
+   "es": "araña"
+  },
+  {
+   "id": "turtle",
+   "es": "tortuga"
+  },
+  {
+   "id": "dolphin",
+   "es": "delfín"
+  },
+  {
+   "id": "owl",
+   "es": "búho"
+  },
+  {
+   "id": "insect",
+   "es": "insecto"
+  },
+  {
+   "id": "fridge",
+   "es": "nevera"
+  },
+  {
+   "id": "bed",
+   "es": "cama"
+  },
+  {
+   "id": "mirror",
+   "es": "espejo"
+  },
+  {
+   "id": "phone",
+   "es": "teléfono"
+  },
+  {
+   "id": "computer",
+   "es": "computador"
+  },
+  {
+   "id": "bottle",
+   "es": "botella"
+  },
+  {
+   "id": "bag",
+   "es": "bolso"
+  },
+  {
+   "id": "key",
+   "es": "llave"
+  },
+  {
+   "id": "umbrella",
+   "es": "paraguas"
+  },
+  {
+   "id": "hat",
+   "es": "sombrero"
+  },
+  {
+   "id": "glasses",
+   "es": "gafas"
+  },
+  {
+   "id": "watch",
+   "es": "reloj de pulsera"
+  },
+  {
+   "id": "book",
+   "es": "libro"
+  },
+  {
+   "id": "ball",
+   "es": "balón"
+  },
+  {
+   "id": "guitar",
+   "es": "guitarra"
+  },
+  {
+   "id": "piano",
+   "es": "piano"
+  },
+  {
+   "id": "camera",
+   "es": "cámara"
+  },
+  {
+   "id": "flag",
+   "es": "bandera"
+  },
+  {
+   "id": "train",
+   "es": "tren"
+  },
+  {
+   "id": "plane",
+   "es": "avión"
+  },
+  {
+   "id": "boat",
+   "es": "bote"
+  },
+  {
+   "id": "bicycle",
+   "es": "bicicleta"
+  },
+  {
+   "id": "hospital",
+   "es": "hospital"
+  },
+  {
+   "id": "school",
+   "es": "escuela"
+  },
+  {
+   "id": "bank",
+   "es": "banco"
+  },
+  {
+   "id": "market",
+   "es": "mercado"
+  }
+ ]
+}

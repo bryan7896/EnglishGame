@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "12.3 (10-10-2026)"
+VERSION = "13.0 (11-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -62,6 +62,45 @@ LISTENING_EXERCISE_FILES = {
 
 LISTENING_DATA_FILE = os.path.join("listening", "data", "nivel0.json")
 LISTENING_STYLES_FILE = os.path.join("listening", "styles", "listening.css")
+
+
+# Aventura (juego de conversaciones por audio): carpeta aparte aventura/ con su propio
+# juego (jugar.html), su propia llave de localStorage ("aventura_v1") y sus audios.
+# Se abre en un iframe a pantalla completa y horizontal. Solo se precachean los
+# archivos que el juego usa en runtime (no las herramientas ni los SVG sueltos).
+AVENTURA_DIR = "aventura"
+
+
+def aventura_asset_list():
+    """Rutas (relativas al index.html) que el service worker precachea para jugar sin conexion."""
+    base = AVENTURA_DIR
+    if not os.path.isdir(base):
+        return []
+    assets = [f"./{base}/jugar.html"]
+    for sub in ("motor", ):
+        d = os.path.join(base, sub)
+        if os.path.isdir(d):
+            assets += [f"./{base}/{sub}/{f}" for f in sorted(os.listdir(d))]
+    for rel in ("svg/biblioteca.js",):
+        if os.path.exists(os.path.join(base, rel)):
+            assets.append(f"./{base}/{rel}")
+    for sub, ext in (("data/compilado", ".json"), ("data/layouts", ".json")):
+        d = os.path.join(base, sub)
+        if os.path.isdir(d):
+            assets += [f"./{base}/{sub}/{f}" for f in sorted(os.listdir(d)) if f.endswith(ext)]
+    # solo los mp3 que alguna mision compilada realmente usa
+    comp = os.path.join(base, "data", "compilado")
+    usados = set()
+    if os.path.isdir(comp):
+        for f in os.listdir(comp):
+            if f.endswith(".json"):
+                try:
+                    usados |= set(re.findall(r'"file":\s*"([^"]+\.mp3)"', open(os.path.join(comp, f), encoding="utf-8").read()))
+                except OSError:
+                    pass
+    audio_dir = os.path.join(base, "audio")
+    assets += [f"./{base}/audio/{f}" for f in sorted(usados) if os.path.exists(os.path.join(audio_dir, f))]
+    return assets
 
 
 DATA_LANGUAGES = ["en", "it"]
@@ -274,9 +313,15 @@ const ASSETS = [
   'https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Baloo+2:wght@500;600;700;800&display=swap',
   'https://cdn-icons-png.flaticon.com/512/3898/3898082.png',
 ];
+const AVENTURA_ASSETS = __AVENTURA_ASSETS__;
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
+  // Los archivos de la Aventura se precachean uno a uno: si falta alguno (por ejemplo un audio),
+  // no se rompe la instalacion del resto de la app.
+  event.waitUntil(caches.open(CACHE_NAME).then(async (cache) => {
+    await cache.addAll(ASSETS);
+    await Promise.all(AVENTURA_ASSETS.map((u) => cache.add(u).catch(() => null)));
+  }));
   self.skipWaiting();
 });
 
@@ -303,6 +348,7 @@ self.addEventListener('fetch', (event) => {
 });
 '''
     sw_code = sw_code.replace('__CACHE_NAME__', cache_name_for_version())
+    sw_code = sw_code.replace('__AVENTURA_ASSETS__', json.dumps(aventura_asset_list(), indent=2))
     with open('service-worker.js', 'w', encoding='utf-8') as f:
         f.write(sw_code)
     print(f"  ✅ service-worker.js creado (cache: {cache_name_for_version()})")
@@ -346,6 +392,7 @@ def get_html_template():
       <div class="topbar-actions">
         <button class="menu-btn help-btn" id="toggleHelpBtn" title="Ayuda de gramática" style="display:none;">❓</button>
         <button class="menu-btn listening-btn" id="toggleListeningBtn" title="Listening (Nivel 0)" style="display:none;">🎧</button>
+        <button class="menu-btn aventura-btn" id="toggleAventuraBtn" title="Aventura (juego de conversaciones)" style="display:none;">🎮</button>
         <button class="menu-btn" id="toggleMenuBtn">☰</button>
       </div>
     </div>
@@ -494,6 +541,10 @@ def get_html_template():
       </div>
     </div>
   </div>
+</div>
+
+<div id="aventuraOverlay" class="aventura-overlay" hidden>
+  <iframe id="aventuraFrame" title="Aventura" allow="autoplay; fullscreen" referrerpolicy="same-origin"></iframe>
 </div>
 
 <div id="toastFun" class="toast-fun"></div>
@@ -1322,6 +1373,69 @@ def get_main_logic():
     if (helpBtn) helpBtn.style.display = isEnglish ? "flex" : "none";
     const listeningBtn = document.getElementById("toggleListeningBtn");
     if (listeningBtn) listeningBtn.style.display = isEnglish ? "flex" : "none";
+    const aventuraBtn = document.getElementById("toggleAventuraBtn");
+    if (aventuraBtn) aventuraBtn.style.display = isEnglish ? "flex" : "none";
+  }
+
+  // ==================== AVENTURA (juego de conversaciones por audio) ====================
+  // Corre en un iframe de pantalla completa (aventura/jugar.html): su propio documento, CSS y
+  // localStorage ("aventura_v1"), asi no choca con nada de la app. Solo se juega en horizontal:
+  // al abrir se pide pantalla completa y se intenta bloquear la orientacion horizontal (Android);
+  // si el sistema no deja, el juego muestra "gira el celular". Al salir se libera la orientacion.
+  async function openAventura() {
+    const overlay = document.getElementById("aventuraOverlay");
+    const frame = document.getElementById("aventuraFrame");
+    if (!overlay || !frame) return;
+    overlay.hidden = false;
+    frame.src = "./aventura/jugar.html?m=m001&embed=1";
+    try { await overlay.requestFullscreen?.(); } catch (e) { /* no soportado (iOS): sigue sin pantalla completa */ }
+    try { await screen.orientation?.lock?.("landscape"); } catch (e) { /* no soportado: el juego pedira girar */ }
+  }
+
+  function closeAventura(fromFullscreenEvent) {
+    const overlay = document.getElementById("aventuraOverlay");
+    const frame = document.getElementById("aventuraFrame");
+    if (!overlay || overlay.hidden) return;
+    overlay.hidden = true;
+    if (frame) frame.src = "about:blank";   // corta audio y musica
+    try { screen.orientation?.unlock?.(); } catch (e) { /* nada */ }
+    if (!fromFullscreenEvent && document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) { /* nada */ } }
+  }
+
+  function onAventuraMessage(ev) {
+    const d = ev.data;
+    if (!d || d.aventura !== true || ev.origin !== window.location.origin) return;
+    if (d.tipo === "salir") closeAventura(false);
+  }
+
+  // Resultados de la Aventura de HOY (la partida guarda su historial en "aventura_v1").
+  // Se agregan al informe como una seccion mas, con reglaId, para calificar igual que lo demas.
+  function buildAventuraReportLines() {
+    let db = null;
+    try { db = JSON.parse(localStorage.getItem("aventura_v1") || "null"); } catch (e) { db = null; }
+    if (!db) return [];
+    const hoy = new Date().toLocaleDateString("en-CA");   // AAAA-MM-DD en hora local
+    const lines = [];
+    Object.keys(db).forEach((mid) => {
+      const m = db[mid];
+      if (!m || !Array.isArray(m.historial)) return;
+      m.historial.filter((r) => r.fecha && new Date(r.fecha).toLocaleDateString("en-CA") === hoy).forEach((r, i) => {
+        lines.push("🎮 " + mid + " — intento " + (i + 1) + ": " + "⭐".repeat(r.estrellas || 0) + " · errores " + r.errores + " · turnos " + r.turnos);
+        const ids = Object.keys(r.reglas || {});
+        if (ids.length) {
+          lines.push("  Reglas practicadas (comprensión auditiva):");
+          ids.forEach((id) => {
+            const x = r.reglas[id];
+            const regla = findRegla(Number(id));
+            const pct = x.turnos ? Math.round((x.limpios / x.turnos) * 100) : 0;
+            lines.push("  - Regla " + id + " · " + (regla ? regla.regla : "?") + " · " + x.limpios + "/" + x.turnos + " sin error (" + pct + ")");
+          });
+        }
+        (r.repaso || []).forEach((q) => lines.push("  ✗ " + q.texto + (q.reglaIds && q.reglaIds.length ? "  [regla " + q.reglaIds.join(", ") + "]" : "") + " · errores " + q.errores + (q.texto_revelado ? " · vio el texto" : "")));
+        lines.push("");
+      });
+    });
+    return lines;
   }
 
   function showHelpModal() {
@@ -2127,7 +2241,14 @@ def get_main_logic():
     lines.push("=".repeat(40));
     lines.push("");
     
+    const aventuraLines = buildAventuraReportLines();
     if (AppState.reportEntries.length === 0) { 
+      if (aventuraLines.length) {
+        lines.push("🎮 AVENTURA (juego de conversaciones por audio)");
+        lines.push("=".repeat(40));
+        lines.push(...aventuraLines);
+        return lines.join("\n");
+      }
       lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); 
       return lines.join("\n");
     }
@@ -2167,6 +2288,12 @@ def get_main_logic():
       lines.push("donde cada ejercicio fallado se repite hasta que se aprueba de verdad.");
       lines.push("");
       renderEntriesByRegla(repasoEntries, lines, counterRef);
+    }
+
+    if (aventuraLines.length) {
+      lines.push("🎮 AVENTURA (juego de conversaciones por audio)");
+      lines.push("=".repeat(40));
+      lines.push(...aventuraLines);
     }
     
     return lines.join("\n");
@@ -2519,6 +2646,12 @@ def get_main_logic():
     document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("toggleMenuBtn")?.addEventListener("click", showMenuModal);
     document.getElementById("toggleHelpBtn")?.addEventListener("click", showHelpModal);
+    document.getElementById("toggleAventuraBtn")?.addEventListener("click", openAventura);
+    window.addEventListener("message", onAventuraMessage);
+    document.addEventListener("fullscreenchange", () => {
+      // si el usuario sale de pantalla completa con el gesto del sistema, se cierra el juego
+      if (!document.fullscreenElement && !document.getElementById("aventuraOverlay")?.hidden) closeAventura(true);
+    });
     document.getElementById("toggleListeningBtn")?.addEventListener("click", () => {
       renderListeningHome();
       showMainView("listeningHome");

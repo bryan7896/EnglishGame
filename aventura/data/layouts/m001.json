@@ -1,0 +1,295 @@
+{
+ "_comentario": "Colocacion de cada escena. x = % del ancho del escenario; y = % del alto (la base del objeto o de los pies); s = tamano en unidades (1u = 1% del ancho). El arte final (SVG) respetara este mismo contrato.",
+ "fiesta": {
+  "jugador": {
+   "x": 6,
+   "y": 88
+  },
+  "slots": [
+   [
+    28,
+    80
+   ],
+   [
+    36,
+    85
+   ],
+   [
+    44,
+    80
+   ],
+   [
+    52,
+    85
+   ],
+   [
+    60,
+    80
+   ],
+   [
+    68,
+    85
+   ],
+   [
+    76,
+    80
+   ]
+  ],
+  "objetos": {
+   "window": {
+    "x": 22,
+    "y": 40,
+    "s": 9,
+    "capa": "pared"
+   },
+   "picture": {
+    "x": 62,
+    "y": 36,
+    "s": 7,
+    "capa": "pared"
+   },
+   "lamp": {
+    "x": 22,
+    "y": 80,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "balloon": {
+    "x": 10,
+    "y": 44,
+    "s": 6,
+    "capa": "pared"
+   },
+   "sofa": {
+    "x": 11,
+    "y": 80,
+    "s": 12,
+    "capa": "fondo"
+   },
+   "table": {
+    "x": 84,
+    "y": 83,
+    "s": 12,
+    "capa": "fondo"
+   },
+   "cake": {
+    "x": 81,
+    "y": 70.5,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "pizza": {
+    "x": 87,
+    "y": 70.5,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "speaker": {
+    "x": 95,
+    "y": 81,
+    "s": 8,
+    "capa": "fondo"
+   },
+   "plant": {
+    "x": 97.5,
+    "y": 89,
+    "s": 5,
+    "capa": "fondo"
+   }
+  }
+ },
+ "calle": {
+  "jugador": {
+   "x": 14,
+   "y": 84
+  },
+  "sara_sigue": true,
+  "personajes": {
+   "rosa": {
+    "x": 40,
+    "y": 84
+   },
+   "frank": {
+    "x": 78,
+    "y": 84
+   }
+  },
+  "objetos": {
+   "moon": {
+    "x": 85,
+    "y": 18,
+    "s": 6,
+    "capa": "cielo"
+   },
+   "star": {
+    "x": 62,
+    "y": 10,
+    "s": 3,
+    "capa": "cielo"
+   },
+   "cloud": {
+    "x": 30,
+    "y": 16,
+    "s": 10,
+    "capa": "cielo"
+   },
+   "house": {
+    "x": 24,
+    "y": 70,
+    "s": 15,
+    "capa": "pared"
+   },
+   "tree": {
+    "x": 35,
+    "y": 79,
+    "s": 12,
+    "capa": "fondo"
+   },
+   "bus": {
+    "x": 62,
+    "y": 89,
+    "s": 17,
+    "capa": "fondo"
+   },
+   "sign": {
+    "x": 51,
+    "y": 79,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "lamp": {
+    "x": 44,
+    "y": 79,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "road": {
+    "x": 50,
+    "y": 100,
+    "s": 100,
+    "h": 20,
+    "capa": "hotspot"
+   },
+   "water": {
+    "x": 18,
+    "y": 96,
+    "s": 7,
+    "capa": "suelo"
+   },
+   "taxi_rosa": {
+    "x": 30,
+    "y": 95,
+    "s": 13,
+    "capa": "fondo"
+   },
+   "taxi_frank": {
+    "x": 86,
+    "y": 95,
+    "s": 13,
+    "capa": "fondo"
+   }
+  }
+ },
+ "taxi": {
+  "jugador": {
+   "x": 68,
+   "y": 88
+  },
+  "personajes": {
+   "frank": {
+    "x": 26,
+    "y": 88
+   },
+   "sara": {
+    "x": 82,
+    "y": 88
+   }
+  },
+  "objetos": {
+   "clock": {
+    "x": 40,
+    "y": 36,
+    "s": 6,
+    "capa": "pared"
+   },
+   "radio": {
+    "x": 48,
+    "y": 50,
+    "s": 6,
+    "capa": "pared"
+   },
+   "window": {
+    "x": 70,
+    "y": 42,
+    "s": 16,
+    "capa": "pared"
+   },
+   "seat": {
+    "x": 74,
+    "y": 84,
+    "s": 26,
+    "capa": "fondo"
+   }
+  }
+ },
+ "casa": {
+  "jugador": {
+   "x": 14,
+   "y": 84
+  },
+  "sara_sigue": true,
+  "personajes": {
+   "frank": {
+    "x": 38,
+    "y": 84
+   },
+   "mom": {
+    "x": 64,
+    "y": 82
+   }
+  },
+  "objetos": {
+   "moon": {
+    "x": 90,
+    "y": 14,
+    "s": 6,
+    "capa": "cielo"
+   },
+   "house": {
+    "x": 80,
+    "y": 80,
+    "s": 30,
+    "capa": "pared"
+   },
+   "puerta": {
+    "sobre": "house",
+    "punto": "puerta",
+    "capa": "hotspot"
+   },
+   "tree": {
+    "x": 54,
+    "y": 81,
+    "s": 13.5,
+    "capa": "pared"
+   },
+   "garden": {
+    "x": 50,
+    "y": 87,
+    "s": 9,
+    "capa": "suelo"
+   },
+   "flowers": {
+    "x": 92,
+    "y": 90,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "taxi_frank": {
+    "x": 28,
+    "y": 96,
+    "s": 14,
+    "capa": "fondo"
+   }
+  }
+ }
+}

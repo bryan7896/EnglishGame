@@ -1,0 +1,805 @@
+{
+  "_comentario": "Nombre en audio de cada objeto SVG tocable (voz del narrador). Generado por construir_svg.py. 'water' es el charco: 'puddle' no esta en tu lista.",
+  "objetos": [
+    {
+      "id": "tree",
+      "texto": "Tree"
+    },
+    {
+      "id": "forest",
+      "texto": "Forest"
+    },
+    {
+      "id": "flowers",
+      "texto": "Flowers"
+    },
+    {
+      "id": "leaf",
+      "texto": "Leaf"
+    },
+    {
+      "id": "cloud",
+      "texto": "Cloud"
+    },
+    {
+      "id": "sun",
+      "texto": "Sun"
+    },
+    {
+      "id": "moon",
+      "texto": "Moon"
+    },
+    {
+      "id": "star",
+      "texto": "Star"
+    },
+    {
+      "id": "rain",
+      "texto": "Rain"
+    },
+    {
+      "id": "snow",
+      "texto": "Snow"
+    },
+    {
+      "id": "wind",
+      "texto": "Wind"
+    },
+    {
+      "id": "fire",
+      "texto": "Fire"
+    },
+    {
+      "id": "mountain",
+      "texto": "Mountain"
+    },
+    {
+      "id": "sea",
+      "texto": "Sea"
+    },
+    {
+      "id": "island",
+      "texto": "Island"
+    },
+    {
+      "id": "beach",
+      "texto": "Beach"
+    },
+    {
+      "id": "water",
+      "texto": "Water"
+    },
+    {
+      "id": "earth",
+      "texto": "Earth"
+    },
+    {
+      "id": "grass",
+      "texto": "Grass"
+    },
+    {
+      "id": "rock",
+      "texto": "Rock"
+    },
+    {
+      "id": "hill",
+      "texto": "Hill"
+    },
+    {
+      "id": "river",
+      "texto": "River"
+    },
+    {
+      "id": "lake",
+      "texto": "Lake"
+    },
+    {
+      "id": "field",
+      "texto": "Field"
+    },
+    {
+      "id": "sand",
+      "texto": "Sand"
+    },
+    {
+      "id": "garden",
+      "texto": "Garden"
+    },
+    {
+      "id": "path",
+      "texto": "Path"
+    },
+    {
+      "id": "house",
+      "texto": "House"
+    },
+    {
+      "id": "building",
+      "texto": "Building"
+    },
+    {
+      "id": "store",
+      "texto": "Store"
+    },
+    {
+      "id": "shop",
+      "texto": "Shop"
+    },
+    {
+      "id": "church",
+      "texto": "Church"
+    },
+    {
+      "id": "hotel",
+      "texto": "Hotel"
+    },
+    {
+      "id": "station",
+      "texto": "Station"
+    },
+    {
+      "id": "library",
+      "texto": "Library"
+    },
+    {
+      "id": "park",
+      "texto": "Park"
+    },
+    {
+      "id": "bridge",
+      "texto": "Bridge"
+    },
+    {
+      "id": "farm",
+      "texto": "Farm"
+    },
+    {
+      "id": "tooth",
+      "texto": "Tooth"
+    },
+    {
+      "id": "hospital",
+      "texto": "Hospital"
+    },
+    {
+      "id": "school",
+      "texto": "School"
+    },
+    {
+      "id": "bank",
+      "texto": "Bank"
+    },
+    {
+      "id": "market",
+      "texto": "Market"
+    },
+    {
+      "id": "street",
+      "texto": "Street"
+    },
+    {
+      "id": "road",
+      "texto": "Road"
+    },
+    {
+      "id": "pool",
+      "texto": "Pool"
+    },
+    {
+      "id": "wall",
+      "texto": "Wall"
+    },
+    {
+      "id": "floor",
+      "texto": "Floor"
+    },
+    {
+      "id": "sign",
+      "texto": "Sign"
+    },
+    {
+      "id": "street_lamp",
+      "texto": "Street lamp"
+    },
+    {
+      "id": "taxi",
+      "texto": "Taxi"
+    },
+    {
+      "id": "car",
+      "texto": "Car"
+    },
+    {
+      "id": "bus",
+      "texto": "Bus"
+    },
+    {
+      "id": "motorcycle",
+      "texto": "Motorcycle"
+    },
+    {
+      "id": "helicopter",
+      "texto": "Helicopter"
+    },
+    {
+      "id": "boat",
+      "texto": "Boat"
+    },
+    {
+      "id": "train",
+      "texto": "Train"
+    },
+    {
+      "id": "plane",
+      "texto": "Plane"
+    },
+    {
+      "id": "bicycle",
+      "texto": "Bicycle"
+    },
+    {
+      "id": "door",
+      "texto": "Door"
+    },
+    {
+      "id": "window",
+      "texto": "Window"
+    },
+    {
+      "id": "table",
+      "texto": "Table"
+    },
+    {
+      "id": "chair",
+      "texto": "Chair"
+    },
+    {
+      "id": "sofa",
+      "texto": "Sofa"
+    },
+    {
+      "id": "bed",
+      "texto": "Bed"
+    },
+    {
+      "id": "lamp",
+      "texto": "Lamp"
+    },
+    {
+      "id": "light",
+      "texto": "Light"
+    },
+    {
+      "id": "speaker",
+      "texto": "Speaker"
+    },
+    {
+      "id": "radio",
+      "texto": "Radio"
+    },
+    {
+      "id": "tv",
+      "texto": "TV"
+    },
+    {
+      "id": "clock",
+      "texto": "Clock"
+    },
+    {
+      "id": "picture",
+      "texto": "Picture"
+    },
+    {
+      "id": "plant",
+      "texto": "Plant"
+    },
+    {
+      "id": "fridge",
+      "texto": "Fridge"
+    },
+    {
+      "id": "stove",
+      "texto": "Stove"
+    },
+    {
+      "id": "sink",
+      "texto": "Sink"
+    },
+    {
+      "id": "shelf",
+      "texto": "Shelf"
+    },
+    {
+      "id": "desk",
+      "texto": "Desk"
+    },
+    {
+      "id": "carpet",
+      "texto": "Carpet"
+    },
+    {
+      "id": "curtain",
+      "texto": "Curtain"
+    },
+    {
+      "id": "stairs",
+      "texto": "Stairs"
+    },
+    {
+      "id": "seat",
+      "texto": "Seat"
+    },
+    {
+      "id": "pillow",
+      "texto": "Pillow"
+    },
+    {
+      "id": "blanket",
+      "texto": "Blanket"
+    },
+    {
+      "id": "towel",
+      "texto": "Towel"
+    },
+    {
+      "id": "elevator",
+      "texto": "Elevator"
+    },
+    {
+      "id": "box",
+      "texto": "Box"
+    },
+    {
+      "id": "mirror",
+      "texto": "Mirror"
+    },
+    {
+      "id": "shower",
+      "texto": "Shower"
+    },
+    {
+      "id": "toilet",
+      "texto": "Toilet"
+    },
+    {
+      "id": "bath",
+      "texto": "Bath"
+    },
+    {
+      "id": "basket",
+      "texto": "Basket"
+    },
+    {
+      "id": "bottle",
+      "texto": "Bottle"
+    },
+    {
+      "id": "cake",
+      "texto": "Cake"
+    },
+    {
+      "id": "pizza",
+      "texto": "Pizza"
+    },
+    {
+      "id": "cup",
+      "texto": "Cup"
+    },
+    {
+      "id": "glass",
+      "texto": "Glass"
+    },
+    {
+      "id": "plate",
+      "texto": "Plate"
+    },
+    {
+      "id": "bread",
+      "texto": "Bread"
+    },
+    {
+      "id": "apple",
+      "texto": "Apple"
+    },
+    {
+      "id": "banana",
+      "texto": "Banana"
+    },
+    {
+      "id": "orange",
+      "texto": "Orange"
+    },
+    {
+      "id": "milk",
+      "texto": "Milk"
+    },
+    {
+      "id": "coffee",
+      "texto": "Coffee"
+    },
+    {
+      "id": "tea",
+      "texto": "Tea"
+    },
+    {
+      "id": "burger",
+      "texto": "Burger"
+    },
+    {
+      "id": "sandwich",
+      "texto": "Sandwich"
+    },
+    {
+      "id": "salad",
+      "texto": "Salad"
+    },
+    {
+      "id": "soup",
+      "texto": "Soup"
+    },
+    {
+      "id": "cheese",
+      "texto": "Cheese"
+    },
+    {
+      "id": "egg",
+      "texto": "Egg"
+    },
+    {
+      "id": "rice",
+      "texto": "Rice"
+    },
+    {
+      "id": "juice",
+      "texto": "Juice"
+    },
+    {
+      "id": "candy",
+      "texto": "Candy"
+    },
+    {
+      "id": "chocolate",
+      "texto": "Chocolate"
+    },
+    {
+      "id": "potato",
+      "texto": "Potato"
+    },
+    {
+      "id": "tomato",
+      "texto": "Tomato"
+    },
+    {
+      "id": "carrot",
+      "texto": "Carrot"
+    },
+    {
+      "id": "onion",
+      "texto": "Onion"
+    },
+    {
+      "id": "lemon",
+      "texto": "Lemon"
+    },
+    {
+      "id": "grape",
+      "texto": "Grape"
+    },
+    {
+      "id": "strawberry",
+      "texto": "Strawberry"
+    },
+    {
+      "id": "fruit",
+      "texto": "Fruit"
+    },
+    {
+      "id": "beer",
+      "texto": "Beer"
+    },
+    {
+      "id": "wine",
+      "texto": "Wine"
+    },
+    {
+      "id": "cookie",
+      "texto": "Cookie"
+    },
+    {
+      "id": "salt",
+      "texto": "Salt"
+    },
+    {
+      "id": "pepper",
+      "texto": "Pepper"
+    },
+    {
+      "id": "honey",
+      "texto": "Honey"
+    },
+    {
+      "id": "pasta",
+      "texto": "Pasta"
+    },
+    {
+      "id": "steak",
+      "texto": "Steak"
+    },
+    {
+      "id": "sausage",
+      "texto": "Sausage"
+    },
+    {
+      "id": "corn",
+      "texto": "Corn"
+    },
+    {
+      "id": "ice",
+      "texto": "Ice"
+    },
+    {
+      "id": "ice_cream",
+      "texto": "Ice cream"
+    },
+    {
+      "id": "fork",
+      "texto": "Fork"
+    },
+    {
+      "id": "spoon",
+      "texto": "Spoon"
+    },
+    {
+      "id": "knife",
+      "texto": "Knife"
+    },
+    {
+      "id": "money",
+      "texto": "Money"
+    },
+    {
+      "id": "coin",
+      "texto": "Coin"
+    },
+    {
+      "id": "bill",
+      "texto": "Bill"
+    },
+    {
+      "id": "card",
+      "texto": "Card"
+    },
+    {
+      "id": "wallet",
+      "texto": "Wallet"
+    },
+    {
+      "id": "balloon",
+      "texto": "Balloon"
+    },
+    {
+      "id": "gift",
+      "texto": "Gift"
+    },
+    {
+      "id": "ticket",
+      "texto": "Ticket"
+    },
+    {
+      "id": "map",
+      "texto": "Map"
+    },
+    {
+      "id": "letter",
+      "texto": "Letter"
+    },
+    {
+      "id": "pen",
+      "texto": "Pen"
+    },
+    {
+      "id": "pencil",
+      "texto": "Pencil"
+    },
+    {
+      "id": "paper",
+      "texto": "Paper"
+    },
+    {
+      "id": "notebook",
+      "texto": "Notebook"
+    },
+    {
+      "id": "suitcase",
+      "texto": "Suitcase"
+    },
+    {
+      "id": "heart",
+      "texto": "Heart"
+    },
+    {
+      "id": "soccer",
+      "texto": "Soccer"
+    },
+    {
+      "id": "shirt",
+      "texto": "Shirt"
+    },
+    {
+      "id": "pants",
+      "texto": "Pants"
+    },
+    {
+      "id": "dress",
+      "texto": "Dress"
+    },
+    {
+      "id": "shoes",
+      "texto": "Shoes"
+    },
+    {
+      "id": "coat",
+      "texto": "Coat"
+    },
+    {
+      "id": "jacket",
+      "texto": "Jacket"
+    },
+    {
+      "id": "sock",
+      "texto": "Sock"
+    },
+    {
+      "id": "scarf",
+      "texto": "Scarf"
+    },
+    {
+      "id": "dog",
+      "texto": "Dog"
+    },
+    {
+      "id": "cat",
+      "texto": "Cat"
+    },
+    {
+      "id": "bird",
+      "texto": "Bird"
+    },
+    {
+      "id": "fish",
+      "texto": "Fish"
+    },
+    {
+      "id": "horse",
+      "texto": "Horse"
+    },
+    {
+      "id": "cow",
+      "texto": "Cow"
+    },
+    {
+      "id": "pig",
+      "texto": "Pig"
+    },
+    {
+      "id": "sheep",
+      "texto": "Sheep"
+    },
+    {
+      "id": "chicken",
+      "texto": "Chicken"
+    },
+    {
+      "id": "duck",
+      "texto": "Duck"
+    },
+    {
+      "id": "rabbit",
+      "texto": "Rabbit"
+    },
+    {
+      "id": "mouse",
+      "texto": "Mouse"
+    },
+    {
+      "id": "monkey",
+      "texto": "Monkey"
+    },
+    {
+      "id": "lion",
+      "texto": "Lion"
+    },
+    {
+      "id": "tiger",
+      "texto": "Tiger"
+    },
+    {
+      "id": "bear",
+      "texto": "Bear"
+    },
+    {
+      "id": "elephant",
+      "texto": "Elephant"
+    },
+    {
+      "id": "snake",
+      "texto": "Snake"
+    },
+    {
+      "id": "butterfly",
+      "texto": "Butterfly"
+    },
+    {
+      "id": "spider",
+      "texto": "Spider"
+    },
+    {
+      "id": "turtle",
+      "texto": "Turtle"
+    },
+    {
+      "id": "dolphin",
+      "texto": "Dolphin"
+    },
+    {
+      "id": "owl",
+      "texto": "Owl"
+    },
+    {
+      "id": "insect",
+      "texto": "Insect"
+    },
+    {
+      "id": "phone",
+      "texto": "Phone"
+    },
+    {
+      "id": "computer",
+      "texto": "Computer"
+    },
+    {
+      "id": "bag",
+      "texto": "Bag"
+    },
+    {
+      "id": "key",
+      "texto": "Key"
+    },
+    {
+      "id": "umbrella",
+      "texto": "Umbrella"
+    },
+    {
+      "id": "hat",
+      "texto": "Hat"
+    },
+    {
+      "id": "glasses",
+      "texto": "Glasses"
+    },
+    {
+      "id": "watch",
+      "texto": "Watch"
+    },
+    {
+      "id": "book",
+      "texto": "Book"
+    },
+    {
+      "id": "camera",
+      "texto": "Camera"
+    },
+    {
+      "id": "flag",
+      "texto": "Flag"
+    },
+    {
+      "id": "guitar",
+      "texto": "Guitar"
+    },
+    {
+      "id": "piano",
+      "texto": "Piano"
+    }
+  ]
+}

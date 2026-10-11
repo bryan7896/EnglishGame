@@ -1,0 +1,1085 @@
+{
+  "id": "m001",
+  "titulo": "Home before midnight",
+  "titulo_es": "A casa antes de la medianoche",
+  "objetivo": "Find Sara. Take her home before midnight.",
+  "objetivo_es": "Encuentra a Sara. Llevala a casa antes de la medianoche.",
+  "nivel": "A2-B1",
+  "resumen": "Es de noche y estas en la fiesta de Tom. Tu mama le pidio a Sara que te lleve a casa antes de la medianoche, pero hay mucha musica y poca luz. Encuentra a Sara, consigue un taxi y llega a tiempo.",
+  "musica_inicial": "party_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "fiesta",
+      "titulo": "The party",
+      "fondo": "fiesta_noche",
+      "luz_inicial": 0.25,
+      "musica": "party_loop",
+      "slots": 7,
+      "personajes": [
+        {
+          "id": "tom",
+          "rol": "decoy",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "tom",
+                "ref": "saludo"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "I'm looking for Sara. Have you seen her?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I travel to Spain tomorrow."
+                  },
+                  {
+                    "texto": "I want a cup of coffee, please."
+                  }
+                ],
+                "reglaIds": [
+                  10
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Sara? She was here a minute ago, but I don't know where she went."
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "decoys_hablados",
+                "suma": 1
+              },
+              {
+                "luz": 0.1
+              }
+            ]
+          }
+        },
+        {
+          "id": "emma",
+          "rol": "decoy",
+          "pista": "chaqueta_roja",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "emma",
+                "ref": "saludo"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Excuse me, do you know a girl called Sara?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "My brother has a new car."
+                  },
+                  {
+                    "texto": "Where is the restroom?"
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Sara? Yes, I met her earlier. I think she was wearing a red jacket."
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "decoys_hablados",
+                "suma": 1
+              },
+              {
+                "luz": 0.1
+              }
+            ]
+          }
+        },
+        {
+          "id": "max",
+          "rol": "decoy",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "max",
+                "ref": "saludo"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Do you know where Sara is?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "The music is very loud!"
+                  },
+                  {
+                    "texto": "Can I have some water?"
+                  }
+                ],
+                "reglaIds": [
+                  2
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Sara? Sorry, I haven't seen her. I'm working and it's very loud here."
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "decoys_hablados",
+                "suma": 1
+              },
+              {
+                "luz": 0.1
+              }
+            ]
+          }
+        },
+        {
+          "id": "lily",
+          "rol": "decoy",
+          "pista": "junto_a_max",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "lily",
+                "ref": "saludo"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Is Sara at the party tonight?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Do you like pizza?"
+                  },
+                  {
+                    "texto": "I am a student at the university."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Um... I think she was talking to Max a few minutes ago."
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "decoys_hablados",
+                "suma": 1
+              },
+              {
+                "luz": 0.1
+              }
+            ]
+          }
+        },
+        {
+          "id": "george",
+          "rol": "decoy",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "george",
+                "ref": "saludo"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Could you tell me where Sara is, please?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I want a cup of coffee, please."
+                  },
+                  {
+                    "texto": "Where is the restroom?"
+                  }
+                ],
+                "reglaIds": [
+                  2
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Sara? Oh, I don't know, my boy. I can't see well in the dark."
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "decoys_hablados",
+                "suma": 1
+              },
+              {
+                "luz": 0.1
+              }
+            ]
+          }
+        },
+        {
+          "id": "bella",
+          "rol": "decoy",
+          "pista": "cerca_musica",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "bella",
+                "ref": "saludo"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Did you see Sara earlier tonight?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I travel to Spain tomorrow."
+                  },
+                  {
+                    "texto": "Can I have some water?"
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Oh, Sara! I saw her ten minutes ago, near the music!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "decoys_hablados",
+                "suma": 1
+              },
+              {
+                "luz": 0.1
+              }
+            ]
+          }
+        },
+        {
+          "id": "sara",
+          "rol": "target",
+          "colocacion": {
+            "junto_a": "max"
+          },
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "sara",
+                "ref": "saludo"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "I'm looking for Sara. Have you seen her?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I travel to Spain tomorrow."
+                  },
+                  {
+                    "texto": "I want a cup of coffee, please."
+                  }
+                ],
+                "reglaIds": [
+                  10
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Bryan, it's me! I am Sara. Don't you know me?"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Sorry, Sara. It's very dark and I didn't see you.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I am Bryan. What is your name?"
+                  },
+                  {
+                    "texto": "Yes, I know you. You are a doctor."
+                  }
+                ],
+                "reglaIds": [
+                  27,
+                  33
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Ha ha! It's OK, Bryan."
+              },
+              {
+                "quien": "sara",
+                "texto": "Listen, we have to go home now.",
+                "reglaIds": [
+                  6
+                ]
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Why? What's the problem?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I love this party."
+                  },
+                  {
+                    "texto": "I need a coffee."
+                  }
+                ],
+                "reglaIds": [
+                  2
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Your mother called me. She is worried because you didn't answer your phone."
+              },
+              {
+                "quien": "sara",
+                "texto": "She wants you at home before midnight."
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Oh no! What time is it now?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great! I want to stay here."
+                  },
+                  {
+                    "texto": "My mother is a teacher."
+                  }
+                ],
+                "reglaIds": [
+                  2,
+                  33
+                ],
+                "escucha": [
+                  "hora"
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "It's half past eleven. We only have thirty minutes to get home!",
+                "escucha": [
+                  "hora",
+                  "numeros"
+                ]
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Can you call a taxi for us?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Can you call the police for us?"
+                  },
+                  {
+                    "texto": "Can you play the guitar for us?"
+                  }
+                ],
+                "reglaIds": [
+                  17
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "I wanted to, but my battery is dead. What about yours?"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Mine is dead too. We have to find a taxi.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Mine is new and very expensive."
+                  },
+                  {
+                    "texto": "I don't have a battery."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "OK. Follow me. Let's go outside and look for one!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "calle"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "speaker",
+          "svg": "altavoz",
+          "texto_ref": "speaker"
+        },
+        {
+          "id": "balloon",
+          "svg": "globo",
+          "texto_ref": "balloon"
+        },
+        {
+          "id": "table",
+          "svg": "mesa",
+          "texto_ref": "table"
+        },
+        {
+          "id": "cake",
+          "svg": "pastel",
+          "texto_ref": "cake"
+        },
+        {
+          "id": "pizza",
+          "svg": "pizza",
+          "texto_ref": "pizza"
+        },
+        {
+          "id": "lamp",
+          "svg": "lampara",
+          "texto_ref": "lamp"
+        },
+        {
+          "id": "window",
+          "svg": "ventana",
+          "texto_ref": "window"
+        },
+        {
+          "id": "picture",
+          "svg": "cuadro",
+          "texto_ref": "picture"
+        },
+        {
+          "id": "sofa",
+          "svg": "sofa",
+          "texto_ref": "sofa"
+        },
+        {
+          "id": "plant",
+          "svg": "planta",
+          "texto_ref": "plant"
+        }
+      ],
+      "disparadores": [
+        {
+          "id": "sara_llama",
+          "una_vez": true,
+          "cuando": {
+            "cualquiera": [
+              {
+                "errores_seguidos": ">=3"
+              },
+              {
+                "interacciones": ">=6"
+              }
+            ]
+          },
+          "efectos": [
+            {
+              "llamada": {
+                "quien": "sara",
+                "pan": "segun_posicion",
+                "resalta": 1.5,
+                "sonido": "pop",
+                "linea": {
+                  "quien": "sara",
+                  "texto": "Bryan! Over here!"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "al_cumplir": {
+        "ir_escena": "calle"
+      }
+    },
+    {
+      "id": "calle",
+      "titulo": "The street",
+      "fondo": "calle_noche",
+      "luz_inicial": 0.35,
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "sara",
+          "rol": "guia",
+          "frases_loop": [
+            {
+              "quien": "sara",
+              "texto": "Bryan, we need to find a taxi soon!"
+            },
+            {
+              "quien": "sara",
+              "texto": "Hurry up, Bryan! We don't have much time."
+            },
+            {
+              "quien": "sara",
+              "texto": "Come on, Bryan! I think the drivers are over there."
+            }
+          ],
+          "frase_taxi_primero": {
+            "quien": "sara",
+            "texto": "Talk to the driver first."
+          }
+        },
+        {
+          "id": "rosa",
+          "rol": "decoy",
+          "objeto_asociado": "taxi_rosa",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "rosa",
+                "ref": "saludo"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Good evening. Could you take us home, please?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Good evening. I would like a pizza, please."
+                  },
+                  {
+                    "texto": "Excuse me, where is the zoo?"
+                  }
+                ],
+                "reglaIds": [
+                  17
+                ]
+              },
+              {
+                "quien": "rosa",
+                "texto": "Sorry, I already have a passenger. Ask the other driver, he is free."
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "frank",
+          "rol": "target",
+          "objeto_asociado": "taxi_frank",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "frank",
+                "ref": "saludo"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Yes, please. Could you take us home?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, thank you. I have my own car."
+                  },
+                  {
+                    "texto": "Good morning. I want some coffee."
+                  }
+                ],
+                "reglaIds": [
+                  17
+                ]
+              },
+              {
+                "quien": "frank",
+                "texto": "Sure! Where do you live?"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "We live at number ten, Main Street.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I live with my mother and my dog."
+                  },
+                  {
+                    "texto": "I am twenty years old."
+                  }
+                ],
+                "escucha": [
+                  "numeros"
+                ]
+              },
+              {
+                "quien": "frank",
+                "texto": "Main Street? That's far, and it's late. But OK, get in!",
+                "reglaIds": [
+                  33
+                ]
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "taxi_frank"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "taxi_rosa",
+          "svg": "taxi",
+          "texto_ref": "taxi",
+          "variante": "rojo"
+        },
+        {
+          "id": "taxi_frank",
+          "svg": "taxi",
+          "texto_ref": "taxi",
+          "variante": "amarillo",
+          "dialogo": {
+            "requiere": "frank_hablado",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Sara, let's get in. We don't have much time!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sara, let's go back to the party."
+                  },
+                  {
+                    "texto": "Sara, the taxi is yellow."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Finally! Thank you, Frank."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "taxi"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tree",
+          "svg": "arbol",
+          "texto_ref": "tree"
+        },
+        {
+          "id": "cloud",
+          "svg": "nube",
+          "texto_ref": "cloud"
+        },
+        {
+          "id": "moon",
+          "svg": "luna",
+          "texto_ref": "moon"
+        },
+        {
+          "id": "star",
+          "svg": "estrella",
+          "texto_ref": "star"
+        },
+        {
+          "id": "lamp",
+          "svg": "farola",
+          "texto_ref": "lamp"
+        },
+        {
+          "id": "water",
+          "svg": "charco",
+          "texto_ref": "water"
+        },
+        {
+          "id": "house",
+          "svg": "casa",
+          "texto_ref": "house"
+        },
+        {
+          "id": "road",
+          "svg": "carretera",
+          "texto_ref": "road"
+        },
+        {
+          "id": "sign",
+          "svg": "senal",
+          "texto_ref": "sign"
+        },
+        {
+          "id": "bus",
+          "svg": "bus",
+          "texto_ref": "bus"
+        }
+      ]
+    },
+    {
+      "id": "taxi",
+      "titulo": "In the taxi",
+      "fondo": "taxi_interior_noche",
+      "musica": "ride_loop",
+      "inicio_automatico": true,
+      "personajes": [
+        {
+          "id": "frank",
+          "rol": "conductor",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "frank",
+                "texto": "So, how was the party? Did you have fun?"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Yes, it was great, but the music was too loud.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I am a student at the university."
+                  },
+                  {
+                    "texto": "No, the party is tomorrow."
+                  }
+                ],
+                "reglaIds": [
+                  27
+                ]
+              },
+              {
+                "quien": "frank",
+                "texto": "Ha ha! Young people love loud music. I did too, years ago."
+              },
+              {
+                "quien": "frank",
+                "texto": "Oh no. There's a lot of traffic on the bridge tonight."
+              },
+              {
+                "quien": "sara",
+                "texto": "Bryan, look at the clock! It's a quarter to twelve!",
+                "escucha": [
+                  "hora"
+                ]
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Frank, could you drive a little faster, please?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Frank, could you go to the bank first, please?"
+                  },
+                  {
+                    "texto": "Frank, I have a fast bike."
+                  }
+                ],
+                "reglaIds": [
+                  17,
+                  54
+                ]
+              },
+              {
+                "quien": "frank",
+                "texto": "I'll try. I know a short road. Hold on!",
+                "efectos": [
+                  {
+                    "sacudir": 1.0
+                  },
+                  {
+                    "musica_rapida": true
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Wow! I think we're almost there!"
+              },
+              {
+                "quien": "frank",
+                "texto": "Here we are. Number ten, Main Street."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "casa"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "clock",
+          "svg": "reloj",
+          "texto_ref": "clock"
+        },
+        {
+          "id": "radio",
+          "svg": "radio",
+          "texto_ref": "radio"
+        },
+        {
+          "id": "window",
+          "svg": "ventana_taxi",
+          "texto_ref": "window"
+        },
+        {
+          "id": "seat",
+          "svg": "asiento",
+          "texto_ref": "seat"
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "Home",
+      "fondo": "casa_noche",
+      "musica": "home_loop",
+      "inicio_automatico": true,
+      "personajes": [
+        {
+          "id": "frank",
+          "rol": "conductor",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "frank",
+                "texto": "That's fifteen dollars, please.",
+                "escucha": [
+                  "numeros"
+                ]
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Here you are. Thank you for the ride!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Fifteen? I'm twenty years old."
+                  },
+                  {
+                    "texto": "It's fifteen o'clock."
+                  }
+                ],
+                "escucha": [
+                  "numeros"
+                ]
+              },
+              {
+                "quien": "frank",
+                "texto": "Thank you! Good night, and be careful."
+              }
+            ],
+            "al_terminar": [
+              {
+                "desaparece": {
+                  "id": [
+                    "taxi_frank",
+                    "frank"
+                  ],
+                  "anim": "salir_derecha",
+                  "sonido": "motor"
+                }
+              },
+              {
+                "habilita": "puerta"
+              }
+            ]
+          }
+        },
+        {
+          "id": "mom",
+          "rol": "target",
+          "objeto_asociado": "puerta",
+          "dialogo": {
+            "requiere": "puerta",
+            "pasos": [
+              {
+                "quien": "mom",
+                "texto": "Bryan! Sara! Where were you? I was very worried!"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Sorry, Mom. We had a problem, but we're home before midnight!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Mom, I am hungry. Is there a pizza?"
+                  },
+                  {
+                    "texto": "Mom, I don't know this girl."
+                  }
+                ],
+                "reglaIds": [
+                  2
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "It's eleven fifty-five. Just in time!",
+                "escucha": [
+                  "hora",
+                  "numeros"
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Come in, it's cold. Now go to bed, it's very late!"
+              },
+              {
+                "quien": "bryan",
+                "opciones": [
+                  {
+                    "texto": "Good night, Mom. Good night, Sara.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Good morning, Mom. It's noon."
+                  },
+                  {
+                    "texto": "Goodbye, Mom. I'm going back to the party."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Good night, Bryan. Thanks for helping me tonight!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "taxi_frank",
+          "svg": "taxi",
+          "texto_ref": "taxi",
+          "variante": "amarillo"
+        },
+        {
+          "id": "puerta",
+          "svg": "puerta",
+          "texto_ref": "door",
+          "inicia_deshabilitado": true
+        },
+        {
+          "id": "house",
+          "svg": "casa",
+          "texto_ref": "house"
+        },
+        {
+          "id": "tree",
+          "svg": "arbol",
+          "texto_ref": "tree"
+        },
+        {
+          "id": "flowers",
+          "svg": "flores",
+          "texto_ref": "flowers"
+        },
+        {
+          "id": "garden",
+          "svg": "jardin",
+          "texto_ref": "garden"
+        },
+        {
+          "id": "moon",
+          "svg": "luna",
+          "texto_ref": "moon"
+        }
+      ]
+    }
+  ]
+}

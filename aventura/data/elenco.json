@@ -1,0 +1,236 @@
+{
+  "_comentario": "Elenco reutilizable. voz = voz de Kokoro; vel = velocidad (1.0 normal). saludos/errores/ocupado se generan una sola vez y los usan TODAS las misiones donde aparezca el personaje. cara_base = emoji sin manos para la cabeza; ropa/accesorio = guia para los SVG.",
+  "narrador": {
+    "voz": "af_alloy",
+    "vel": 1.0
+  },
+  "personajes": {
+    "bryan": {
+      "nombre": "Bryan",
+      "rol": "jugador",
+      "voz": "am_adam",
+      "vel": 1.0,
+      "cara_base": "🙂",
+      "ropa": "#2f6fdb",
+      "accesorio": "mochila",
+      "estilo": "Neutral y claro. Sus 3 opciones de audio siempre usan esta voz."
+    },
+    "sara": {
+      "nombre": "Sara",
+      "voz": "af_heart",
+      "vel": 1.0,
+      "cara_base": "😊",
+      "ropa": "#d64545",
+      "accesorio": "chaqueta",
+      "estilo": "Calida y burlona. Frases cortas y directas.",
+      "saludos": [
+        "Hello! How are you?"
+      ],
+      "errores": [
+        "Bryan? Are you OK?",
+        "What? That's a strange thing to say.",
+        "Ha ha! Are you thinking out loud?",
+        "Sorry, I don't understand you.",
+        "Bryan, listen to me, please."
+      ],
+      "ocupado": []
+    },
+    "tom": {
+      "nombre": "Tom",
+      "voz": "am_michael",
+      "vel": 1.05,
+      "cara_base": "😄",
+      "ropa": "#3fa66b",
+      "accesorio": "gorra",
+      "estilo": "Anfitrion alegre y ruidoso. Exclamaciones.",
+      "saludos": [
+        "Hey, hey! Welcome to my party!"
+      ],
+      "errores": [
+        "What? I can't hear you!",
+        "The music is too loud, Bryan!",
+        "Sorry, what did you say?",
+        "Are you talking to me?",
+        "Ha ha! I don't understand, my friend!"
+      ],
+      "ocupado": [
+        "Go and have fun, Bryan!",
+        "Try the cake! It is very good!"
+      ]
+    },
+    "emma": {
+      "nombre": "Emma",
+      "voz": "bf_emma",
+      "vel": 0.95,
+      "cara_base": "🙂",
+      "ropa": "#4a78c9",
+      "accesorio": "bolso",
+      "estilo": "Britanica, educada y formal. 'Excuse me', 'I'm afraid'.",
+      "saludos": [
+        "Good evening, Bryan. Nice party, isn't it?"
+      ],
+      "errores": [
+        "Sorry? I don't understand.",
+        "I'm afraid I don't understand you.",
+        "Excuse me? Is that a question for me?",
+        "Sorry, are you talking to me?",
+        "I'm sorry, could you say that again?"
+      ],
+      "ocupado": [
+        "Enjoy the evening, Bryan.",
+        "Excuse me, I must go now."
+      ]
+    },
+    "max": {
+      "nombre": "Max",
+      "voz": "bm_lewis",
+      "vel": 1.1,
+      "cara_base": "😎",
+      "ropa": "#3b3b3b",
+      "accesorio": "audifonos",
+      "estilo": "El DJ. Ocupado, rapido, respuestas muy cortas.",
+      "saludos": [
+        "Hey. I'm working. Be quick."
+      ],
+      "errores": [
+        "What? Say it again!",
+        "I can't hear you. Music, man!",
+        "Sorry. I'm busy. Try again.",
+        "That is not for me.",
+        "Are you OK? What are you saying?"
+      ],
+      "ocupado": [
+        "Not now. I'm busy!",
+        "Ask someone else, please."
+      ]
+    },
+    "lily": {
+      "nombre": "Lily",
+      "voz": "af_nicole",
+      "vel": 0.9,
+      "cara_base": "🥺",
+      "ropa": "#7b5ea7",
+      "accesorio": "lentes",
+      "estilo": "Timida y suave. Duda, pausas con '...'.",
+      "saludos": [
+        "Oh... hello, Bryan."
+      ],
+      "errores": [
+        "Um... sorry? I don't understand.",
+        "Oh... are you talking to me?",
+        "I'm sorry... what?",
+        "Um... can you say it again?",
+        "I think... that's not right."
+      ],
+      "ocupado": [
+        "Um... see you later, Bryan.",
+        "Good luck... with Sara."
+      ]
+    },
+    "george": {
+      "nombre": "Uncle George",
+      "voz": "bm_george",
+      "vel": 0.85,
+      "cara_base": "🧐",
+      "ropa": "#8a6d3b",
+      "accesorio": "sombrero",
+      "estilo": "Tio mayor, lento y olvidadizo. Bromea sobre su edad.",
+      "saludos": [
+        "Well, well... Bryan! How are you, my boy?"
+      ],
+      "errores": [
+        "What? Speak more slowly, please.",
+        "I'm old, my boy. Say it again.",
+        "Are you talking to me, or to the wall?",
+        "Oh, I don't understand young people.",
+        "What did you say? I can't hear."
+      ],
+      "ocupado": [
+        "Where is my glass? I had a glass here.",
+        "Young people! Always in a hurry."
+      ]
+    },
+    "bella": {
+      "nombre": "Bella",
+      "voz": "af_bella",
+      "vel": 1.1,
+      "cara_base": "🤩",
+      "ropa": "#e08f2e",
+      "accesorio": "lazo",
+      "estilo": "Emocionada y habladora. Habla rapido, mucha exclamacion.",
+      "saludos": [
+        "Oh wow, Bryan! Hi! Isn't this party great?"
+      ],
+      "errores": [
+        "Wait, what? I didn't get that!",
+        "Oh no, I don't understand!",
+        "Ha ha, you are so funny, Bryan!",
+        "What? Say that again, please!",
+        "Are you OK? That is a strange question!"
+      ],
+      "ocupado": [
+        "Come on, dance with me later!",
+        "I love this song!"
+      ]
+    },
+    "rosa": {
+      "nombre": "Rosa",
+      "voz": "af_sky",
+      "vel": 1.0,
+      "cara_base": "😒",
+      "ropa": "#444444",
+      "accesorio": "gorra_taxi",
+      "estilo": "Taxista cansada y seca. No tiene paciencia.",
+      "saludos": [
+        "Yes? What do you need?"
+      ],
+      "errores": [
+        "What? I don't understand.",
+        "Are you talking to me?",
+        "I don't have time for this.",
+        "That is not a question for a driver.",
+        "Speak slowly, please."
+      ],
+      "ocupado": [
+        "Ask the other driver, please.",
+        "I'm full. Sorry."
+      ]
+    },
+    "frank": {
+      "nombre": "Frank",
+      "voz": "am_onyx",
+      "vel": 0.95,
+      "cara_base": "🙂",
+      "ropa": "#e0b100",
+      "accesorio": "gorra_taxi",
+      "estilo": "Taxista calmado y amable, voz grave. Conversa.",
+      "saludos": [
+        "Good evening! Do you need a taxi?"
+      ],
+      "errores": [
+        "Sorry, my friend. What did you say?",
+        "I don't understand. Say it again.",
+        "Are you OK? Is that for me?",
+        "Ha ha! No, no. Try again.",
+        "Oh... I'm a taxi driver, not a doctor."
+      ],
+      "ocupado": []
+    },
+    "mom": {
+      "nombre": "Mom",
+      "voz": "bf_isabella",
+      "vel": 0.95,
+      "cara_base": "😟",
+      "ropa": "#b0527a",
+      "accesorio": "delantal",
+      "estilo": "Preocupada pero carinosa.",
+      "saludos": [],
+      "errores": [
+        "Bryan, what are you saying?",
+        "I don't understand. Are you OK?",
+        "Bryan! Answer my question, please."
+      ],
+      "ocupado": []
+    }
+  }
+}

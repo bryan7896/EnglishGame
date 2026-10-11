@@ -1,0 +1,1402 @@
+[
+ {
+  "id": "tree",
+  "es": "árbol",
+  "en": "Tree",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "forest",
+  "es": "bosque",
+  "en": "Forest",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "flowers",
+  "es": "flores",
+  "en": "Flowers",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "leaf",
+  "es": "hoja",
+  "en": "Leaf",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "cloud",
+  "es": "nube",
+  "en": "Cloud",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "sun",
+  "es": "sol",
+  "en": "Sun",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "moon",
+  "es": "luna",
+  "en": "Moon",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "star",
+  "es": "estrella",
+  "en": "Star",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "rain",
+  "es": "lluvia",
+  "en": "Rain",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "snow",
+  "es": "nieve",
+  "en": "Snow",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "wind",
+  "es": "viento",
+  "en": "Wind",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "fire",
+  "es": "fuego",
+  "en": "Fire",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "mountain",
+  "es": "montaña",
+  "en": "Mountain",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "sea",
+  "es": "mar",
+  "en": "Sea",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "island",
+  "es": "isla",
+  "en": "Island",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "beach",
+  "es": "playa",
+  "en": "Beach",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "water",
+  "es": "charco de agua",
+  "en": "Water",
+  "cat": "naturaleza",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "earth",
+  "es": "planeta tierra",
+  "en": "Earth",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "grass",
+  "es": "pasto",
+  "en": "Grass",
+  "cat": "naturaleza",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "rock",
+  "es": "roca",
+  "en": "Rock",
+  "cat": "naturaleza",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "hill",
+  "es": "colina",
+  "en": "Hill",
+  "cat": "naturaleza",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "river",
+  "es": "río",
+  "en": "River",
+  "cat": "naturaleza",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "lake",
+  "es": "lago",
+  "en": "Lake",
+  "cat": "naturaleza",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "field",
+  "es": "campo",
+  "en": "Field",
+  "cat": "naturaleza",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "sand",
+  "es": "arena",
+  "en": "Sand",
+  "cat": "naturaleza",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "garden",
+  "es": "jardín",
+  "en": "Garden",
+  "cat": "naturaleza",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "path",
+  "es": "sendero",
+  "en": "Path",
+  "cat": "naturaleza",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "house",
+  "es": "casa",
+  "en": "House",
+  "cat": "lugares",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "building",
+  "es": "edificio",
+  "en": "Building",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "store",
+  "es": "tienda",
+  "en": "Store",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "shop",
+  "es": "almacén",
+  "en": "Shop",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "church",
+  "es": "iglesia",
+  "en": "Church",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "hotel",
+  "es": "hotel",
+  "en": "Hotel",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "station",
+  "es": "estación",
+  "en": "Station",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "library",
+  "es": "biblioteca",
+  "en": "Library",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "park",
+  "es": "parque",
+  "en": "Park",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bridge",
+  "es": "puente",
+  "en": "Bridge",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "farm",
+  "es": "granja",
+  "en": "Farm",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "tooth",
+  "es": "diente",
+  "en": "Tooth",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "hospital",
+  "es": "hospital",
+  "en": "Hospital",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "school",
+  "es": "escuela",
+  "en": "School",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bank",
+  "es": "banco",
+  "en": "Bank",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "market",
+  "es": "mercado",
+  "en": "Market",
+  "cat": "lugares",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "street",
+  "es": "calle",
+  "en": "Street",
+  "cat": "lugares",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "road",
+  "es": "carretera",
+  "en": "Road",
+  "cat": "lugares",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "pool",
+  "es": "piscina",
+  "en": "Pool",
+  "cat": "lugares",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "wall",
+  "es": "pared",
+  "en": "Wall",
+  "cat": "lugares",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "floor",
+  "es": "piso",
+  "en": "Floor",
+  "cat": "lugares",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "sign",
+  "es": "señal",
+  "en": "Sign",
+  "cat": "lugares",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "street_lamp",
+  "es": "farola",
+  "en": "Street lamp",
+  "cat": "lugares",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "taxi",
+  "es": "taxi",
+  "en": "Taxi",
+  "cat": "transporte",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "car",
+  "es": "carro",
+  "en": "Car",
+  "cat": "transporte",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bus",
+  "es": "bus",
+  "en": "Bus",
+  "cat": "transporte",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "motorcycle",
+  "es": "moto",
+  "en": "Motorcycle",
+  "cat": "transporte",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "helicopter",
+  "es": "helicóptero",
+  "en": "Helicopter",
+  "cat": "transporte",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "boat",
+  "es": "bote",
+  "en": "Boat",
+  "cat": "transporte",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "train",
+  "es": "tren",
+  "en": "Train",
+  "cat": "transporte",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "plane",
+  "es": "avión",
+  "en": "Plane",
+  "cat": "transporte",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bicycle",
+  "es": "bicicleta",
+  "en": "Bicycle",
+  "cat": "transporte",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "door",
+  "es": "puerta",
+  "en": "Door",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "window",
+  "es": "ventana",
+  "en": "Window",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "table",
+  "es": "mesa",
+  "en": "Table",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "chair",
+  "es": "silla",
+  "en": "Chair",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "sofa",
+  "es": "sofá",
+  "en": "Sofa",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bed",
+  "es": "cama",
+  "en": "Bed",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "lamp",
+  "es": "lámpara",
+  "en": "Lamp",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "light",
+  "es": "bombillo",
+  "en": "Light",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "speaker",
+  "es": "altavoz",
+  "en": "Speaker",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "radio",
+  "es": "radio",
+  "en": "Radio",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "tv",
+  "es": "televisor",
+  "en": "TV",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "clock",
+  "es": "reloj de pared",
+  "en": "Clock",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "picture",
+  "es": "cuadro",
+  "en": "Picture",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "plant",
+  "es": "planta",
+  "en": "Plant",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "fridge",
+  "es": "nevera",
+  "en": "Fridge",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "stove",
+  "es": "estufa",
+  "en": "Stove",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "sink",
+  "es": "lavamanos",
+  "en": "Sink",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "shelf",
+  "es": "estante",
+  "en": "Shelf",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "desk",
+  "es": "escritorio",
+  "en": "Desk",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "carpet",
+  "es": "alfombra",
+  "en": "Carpet",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "curtain",
+  "es": "cortina",
+  "en": "Curtain",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "stairs",
+  "es": "escaleras",
+  "en": "Stairs",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "seat",
+  "es": "asiento",
+  "en": "Seat",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "pillow",
+  "es": "almohada",
+  "en": "Pillow",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "blanket",
+  "es": "cobija",
+  "en": "Blanket",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "towel",
+  "es": "toalla",
+  "en": "Towel",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "elevator",
+  "es": "ascensor",
+  "en": "Elevator",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "box",
+  "es": "caja",
+  "en": "Box",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "mirror",
+  "es": "espejo",
+  "en": "Mirror",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "shower",
+  "es": "ducha",
+  "en": "Shower",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "toilet",
+  "es": "inodoro",
+  "en": "Toilet",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bath",
+  "es": "bañera",
+  "en": "Bath",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "basket",
+  "es": "canasta",
+  "en": "Basket",
+  "cat": "casa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bottle",
+  "es": "botella",
+  "en": "Bottle",
+  "cat": "casa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "cake",
+  "es": "torta",
+  "en": "Cake",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "pizza",
+  "es": "pizza",
+  "en": "Pizza",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "cup",
+  "es": "vaso",
+  "en": "Cup",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "glass",
+  "es": "copa",
+  "en": "Glass",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "plate",
+  "es": "plato",
+  "en": "Plate",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bread",
+  "es": "pan",
+  "en": "Bread",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "apple",
+  "es": "manzana",
+  "en": "Apple",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "banana",
+  "es": "banano",
+  "en": "Banana",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "orange",
+  "es": "naranja",
+  "en": "Orange",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "milk",
+  "es": "leche",
+  "en": "Milk",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "coffee",
+  "es": "café",
+  "en": "Coffee",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "tea",
+  "es": "té",
+  "en": "Tea",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "burger",
+  "es": "hamburguesa",
+  "en": "Burger",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "sandwich",
+  "es": "sándwich",
+  "en": "Sandwich",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "salad",
+  "es": "ensalada",
+  "en": "Salad",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "soup",
+  "es": "sopa",
+  "en": "Soup",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "cheese",
+  "es": "queso",
+  "en": "Cheese",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "egg",
+  "es": "huevo",
+  "en": "Egg",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "rice",
+  "es": "arroz",
+  "en": "Rice",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "juice",
+  "es": "jugo",
+  "en": "Juice",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "candy",
+  "es": "dulce",
+  "en": "Candy",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "chocolate",
+  "es": "chocolate",
+  "en": "Chocolate",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "potato",
+  "es": "papa",
+  "en": "Potato",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "tomato",
+  "es": "tomate",
+  "en": "Tomato",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "carrot",
+  "es": "zanahoria",
+  "en": "Carrot",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "onion",
+  "es": "cebolla",
+  "en": "Onion",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "lemon",
+  "es": "limón",
+  "en": "Lemon",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "grape",
+  "es": "uva",
+  "en": "Grape",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "strawberry",
+  "es": "fresa",
+  "en": "Strawberry",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "fruit",
+  "es": "sandía",
+  "en": "Fruit",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "beer",
+  "es": "cerveza",
+  "en": "Beer",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "wine",
+  "es": "vino",
+  "en": "Wine",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "cookie",
+  "es": "galleta",
+  "en": "Cookie",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "salt",
+  "es": "sal",
+  "en": "Salt",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "pepper",
+  "es": "ají",
+  "en": "Pepper",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "honey",
+  "es": "miel",
+  "en": "Honey",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "pasta",
+  "es": "pasta",
+  "en": "Pasta",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "steak",
+  "es": "carne",
+  "en": "Steak",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "sausage",
+  "es": "salchicha",
+  "en": "Sausage",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "corn",
+  "es": "maíz",
+  "en": "Corn",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "ice",
+  "es": "hielo",
+  "en": "Ice",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "ice_cream",
+  "es": "helado",
+  "en": "Ice cream",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "fork",
+  "es": "tenedor",
+  "en": "Fork",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "spoon",
+  "es": "cuchara",
+  "en": "Spoon",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "knife",
+  "es": "cuchillo",
+  "en": "Knife",
+  "cat": "comida",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "money",
+  "es": "dinero",
+  "en": "Money",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "coin",
+  "es": "moneda",
+  "en": "Coin",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bill",
+  "es": "billete",
+  "en": "Bill",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "card",
+  "es": "tarjeta",
+  "en": "Card",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "wallet",
+  "es": "billetera",
+  "en": "Wallet",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "balloon",
+  "es": "globo",
+  "en": "Balloon",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "gift",
+  "es": "regalo",
+  "en": "Gift",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "ticket",
+  "es": "boleto",
+  "en": "Ticket",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "map",
+  "es": "mapa",
+  "en": "Map",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "letter",
+  "es": "carta",
+  "en": "Letter",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "pen",
+  "es": "esfero",
+  "en": "Pen",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "pencil",
+  "es": "lápiz",
+  "en": "Pencil",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "paper",
+  "es": "papel",
+  "en": "Paper",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "notebook",
+  "es": "cuaderno",
+  "en": "Notebook",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "suitcase",
+  "es": "maleta",
+  "en": "Suitcase",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "heart",
+  "es": "corazón",
+  "en": "Heart",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "soccer",
+  "es": "balón de fútbol",
+  "en": "Soccer",
+  "cat": "objetos",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "shirt",
+  "es": "camiseta",
+  "en": "Shirt",
+  "cat": "ropa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "pants",
+  "es": "pantalones",
+  "en": "Pants",
+  "cat": "ropa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "dress",
+  "es": "vestido",
+  "en": "Dress",
+  "cat": "ropa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "shoes",
+  "es": "zapatos",
+  "en": "Shoes",
+  "cat": "ropa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "coat",
+  "es": "abrigo",
+  "en": "Coat",
+  "cat": "ropa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "jacket",
+  "es": "chaqueta",
+  "en": "Jacket",
+  "cat": "ropa",
+  "fuente": "dibujo"
+ },
+ {
+  "id": "sock",
+  "es": "medias",
+  "en": "Sock",
+  "cat": "ropa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "scarf",
+  "es": "bufanda",
+  "en": "Scarf",
+  "cat": "ropa",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "dog",
+  "es": "perro",
+  "en": "Dog",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "cat",
+  "es": "gato",
+  "en": "Cat",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bird",
+  "es": "pájaro",
+  "en": "Bird",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "fish",
+  "es": "pez",
+  "en": "Fish",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "horse",
+  "es": "caballo",
+  "en": "Horse",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "cow",
+  "es": "vaca",
+  "en": "Cow",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "pig",
+  "es": "cerdo",
+  "en": "Pig",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "sheep",
+  "es": "oveja",
+  "en": "Sheep",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "chicken",
+  "es": "pollo",
+  "en": "Chicken",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "duck",
+  "es": "pato",
+  "en": "Duck",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "rabbit",
+  "es": "conejo",
+  "en": "Rabbit",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "mouse",
+  "es": "ratón",
+  "en": "Mouse",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "monkey",
+  "es": "mono",
+  "en": "Monkey",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "lion",
+  "es": "león",
+  "en": "Lion",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "tiger",
+  "es": "tigre",
+  "en": "Tiger",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bear",
+  "es": "oso",
+  "en": "Bear",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "elephant",
+  "es": "elefante",
+  "en": "Elephant",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "snake",
+  "es": "serpiente",
+  "en": "Snake",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "butterfly",
+  "es": "mariposa",
+  "en": "Butterfly",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "spider",
+  "es": "araña",
+  "en": "Spider",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "turtle",
+  "es": "tortuga",
+  "en": "Turtle",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "dolphin",
+  "es": "delfín",
+  "en": "Dolphin",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "owl",
+  "es": "búho",
+  "en": "Owl",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "insect",
+  "es": "insecto",
+  "en": "Insect",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "phone",
+  "es": "teléfono",
+  "en": "Phone",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "computer",
+  "es": "computador",
+  "en": "Computer",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "bag",
+  "es": "bolso",
+  "en": "Bag",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "key",
+  "es": "llave",
+  "en": "Key",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "umbrella",
+  "es": "paraguas",
+  "en": "Umbrella",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "hat",
+  "es": "sombrero",
+  "en": "Hat",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "glasses",
+  "es": "gafas",
+  "en": "Glasses",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "watch",
+  "es": "reloj de pulsera",
+  "en": "Watch",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "book",
+  "es": "libro",
+  "en": "Book",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "camera",
+  "es": "cámara",
+  "en": "Camera",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "flag",
+  "es": "bandera",
+  "en": "Flag",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "guitar",
+  "es": "guitarra",
+  "en": "Guitar",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ },
+ {
+  "id": "piano",
+  "es": "piano",
+  "en": "Piano",
+  "cat": "animales y extras (50 nuevos)",
+  "fuente": "twemoji"
+ }
+]

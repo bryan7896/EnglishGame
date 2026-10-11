@@ -1,0 +1,13 @@
+# Palabras permitidas aunque NO esten en tu lista de ~3000 (nombres propios e interjecciones)
+bryan
+sara
+tom
+emma
+max
+lily
+george
+bella
+frank
+rosa
+ha
+um

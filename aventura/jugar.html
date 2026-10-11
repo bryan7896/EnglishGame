@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>English Adventure</title>
+<link rel="stylesheet" href="motor/estilos.css">
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <button id="btn-salir" class="chip" aria-label="Exit" hidden>✕</button>
+    <button id="btn-objetivo" class="chip" aria-label="Objective">🎯 <span id="hud-objetivo"></span></button>
+    <span class="chip" id="hud-monedas">🪙 0</span>
+    <button id="btn-musica" class="chip" aria-label="Music">🎵</button>
+  </header>
+  <main id="escenario">
+    <div id="fondo"></div>
+    <div id="capa-objetos"></div>
+    <div id="capa-personajes"></div>
+    <div id="oscuridad"></div>
+    <div id="titulo-escena"></div>
+  </main>
+  <section id="hoja" hidden></section>
+  <div id="velo"></div>
+  <div id="girar" hidden><div class="tel">📱</div><p>Turn your phone sideways to play</p><small>Gira el celular en horizontal para jugar</small></div>
+  <div id="modal" hidden></div>
+</div>
+<script src="svg/biblioteca.js"></script>
+<script src="motor/arte.js"></script>
+<script src="motor/sonido.js"></script>
+<script src="motor/motor.js"></script>
+</body>
+</html>

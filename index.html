@@ -2262,6 +2262,12 @@ textarea:focus-visible,
 .rule-type-breakdown-sum.sum-ok { color: var(--good); }
 .rule-type-breakdown-sum.sum-bad { color: var(--bad); }
 
+/* ============ AVENTURA (juego de conversaciones por audio) ============ */
+.aventura-overlay { position: fixed; inset: 0; z-index: 3000; background: #0e0f1a; }
+.aventura-overlay[hidden] { display: none; }
+.aventura-overlay iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #0e0f1a; }
+
+
 /* ============================================================
    listening.css -- Nivel 0 (Listening Trainer)
    ------------------------------------------------------------
@@ -2957,6 +2963,7 @@ textarea:focus-visible,
       <div class="topbar-actions">
         <button class="menu-btn help-btn" id="toggleHelpBtn" title="Ayuda de gramática" style="display:none;">❓</button>
         <button class="menu-btn listening-btn" id="toggleListeningBtn" title="Listening (Nivel 0)" style="display:none;">🎧</button>
+        <button class="menu-btn aventura-btn" id="toggleAventuraBtn" title="Aventura (juego de conversaciones)" style="display:none;">🎮</button>
         <button class="menu-btn" id="toggleMenuBtn">☰</button>
       </div>
     </div>
@@ -3112,6 +3119,10 @@ textarea:focus-visible,
       </div>
     </div>
   </div>
+</div>
+
+<div id="aventuraOverlay" class="aventura-overlay" hidden>
+  <iframe id="aventuraFrame" title="Aventura" allow="autoplay; fullscreen" referrerpolicy="same-origin"></iframe>
 </div>
 
 <div id="toastFun" class="toast-fun"></div>
@@ -7907,6 +7918,69 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
     if (helpBtn) helpBtn.style.display = isEnglish ? "flex" : "none";
     const listeningBtn = document.getElementById("toggleListeningBtn");
     if (listeningBtn) listeningBtn.style.display = isEnglish ? "flex" : "none";
+    const aventuraBtn = document.getElementById("toggleAventuraBtn");
+    if (aventuraBtn) aventuraBtn.style.display = isEnglish ? "flex" : "none";
+  }
+
+  // ==================== AVENTURA (juego de conversaciones por audio) ====================
+  // Corre en un iframe de pantalla completa (aventura/jugar.html): su propio documento, CSS y
+  // localStorage ("aventura_v1"), asi no choca con nada de la app. Solo se juega en horizontal:
+  // al abrir se pide pantalla completa y se intenta bloquear la orientacion horizontal (Android);
+  // si el sistema no deja, el juego muestra "gira el celular". Al salir se libera la orientacion.
+  async function openAventura() {
+    const overlay = document.getElementById("aventuraOverlay");
+    const frame = document.getElementById("aventuraFrame");
+    if (!overlay || !frame) return;
+    overlay.hidden = false;
+    frame.src = "./aventura/jugar.html?m=m001&embed=1";
+    try { await overlay.requestFullscreen?.(); } catch (e) { /* no soportado (iOS): sigue sin pantalla completa */ }
+    try { await screen.orientation?.lock?.("landscape"); } catch (e) { /* no soportado: el juego pedira girar */ }
+  }
+
+  function closeAventura(fromFullscreenEvent) {
+    const overlay = document.getElementById("aventuraOverlay");
+    const frame = document.getElementById("aventuraFrame");
+    if (!overlay || overlay.hidden) return;
+    overlay.hidden = true;
+    if (frame) frame.src = "about:blank";   // corta audio y musica
+    try { screen.orientation?.unlock?.(); } catch (e) { /* nada */ }
+    if (!fromFullscreenEvent && document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) { /* nada */ } }
+  }
+
+  function onAventuraMessage(ev) {
+    const d = ev.data;
+    if (!d || d.aventura !== true || ev.origin !== window.location.origin) return;
+    if (d.tipo === "salir") closeAventura(false);
+  }
+
+  // Resultados de la Aventura de HOY (la partida guarda su historial en "aventura_v1").
+  // Se agregan al informe como una seccion mas, con reglaId, para calificar igual que lo demas.
+  function buildAventuraReportLines() {
+    let db = null;
+    try { db = JSON.parse(localStorage.getItem("aventura_v1") || "null"); } catch (e) { db = null; }
+    if (!db) return [];
+    const hoy = new Date().toLocaleDateString("en-CA");   // AAAA-MM-DD en hora local
+    const lines = [];
+    Object.keys(db).forEach((mid) => {
+      const m = db[mid];
+      if (!m || !Array.isArray(m.historial)) return;
+      m.historial.filter((r) => r.fecha && new Date(r.fecha).toLocaleDateString("en-CA") === hoy).forEach((r, i) => {
+        lines.push("🎮 " + mid + " — intento " + (i + 1) + ": " + "⭐".repeat(r.estrellas || 0) + " · errores " + r.errores + " · turnos " + r.turnos);
+        const ids = Object.keys(r.reglas || {});
+        if (ids.length) {
+          lines.push("  Reglas practicadas (comprensión auditiva):");
+          ids.forEach((id) => {
+            const x = r.reglas[id];
+            const regla = findRegla(Number(id));
+            const pct = x.turnos ? Math.round((x.limpios / x.turnos) * 100) : 0;
+            lines.push("  - Regla " + id + " · " + (regla ? regla.regla : "?") + " · " + x.limpios + "/" + x.turnos + " sin error (" + pct + ")");
+          });
+        }
+        (r.repaso || []).forEach((q) => lines.push("  ✗ " + q.texto + (q.reglaIds && q.reglaIds.length ? "  [regla " + q.reglaIds.join(", ") + "]" : "") + " · errores " + q.errores + (q.texto_revelado ? " · vio el texto" : "")));
+        lines.push("");
+      });
+    });
+    return lines;
   }
 
   function showHelpModal() {
@@ -8712,7 +8786,14 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
     lines.push("=".repeat(40));
     lines.push("");
     
+    const aventuraLines = buildAventuraReportLines();
     if (AppState.reportEntries.length === 0) { 
+      if (aventuraLines.length) {
+        lines.push("🎮 AVENTURA (juego de conversaciones por audio)");
+        lines.push("=".repeat(40));
+        lines.push(...aventuraLines);
+        return lines.join("\n");
+      }
       lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); 
       return lines.join("\n");
     }
@@ -8752,6 +8833,12 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
       lines.push("donde cada ejercicio fallado se repite hasta que se aprueba de verdad.");
       lines.push("");
       renderEntriesByRegla(repasoEntries, lines, counterRef);
+    }
+
+    if (aventuraLines.length) {
+      lines.push("🎮 AVENTURA (juego de conversaciones por audio)");
+      lines.push("=".repeat(40));
+      lines.push(...aventuraLines);
     }
     
     return lines.join("\n");
@@ -8883,7 +8970,7 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">12.3 (10-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">13.0 (11-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
           <button class="fun-btn" id="menuPercentagesBtn">📊 Ver porcentajes</button>
@@ -9104,6 +9191,12 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
     document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("toggleMenuBtn")?.addEventListener("click", showMenuModal);
     document.getElementById("toggleHelpBtn")?.addEventListener("click", showHelpModal);
+    document.getElementById("toggleAventuraBtn")?.addEventListener("click", openAventura);
+    window.addEventListener("message", onAventuraMessage);
+    document.addEventListener("fullscreenchange", () => {
+      // si el usuario sale de pantalla completa con el gesto del sistema, se cierra el juego
+      if (!document.fullscreenElement && !document.getElementById("aventuraOverlay")?.hidden) closeAventura(true);
+    });
     document.getElementById("toggleListeningBtn")?.addEventListener("click", () => {
       renderListeningHome();
       showMainView("listeningHome");

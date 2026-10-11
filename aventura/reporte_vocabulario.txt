@@ -1,0 +1,24 @@
+REPORTE DE VOCABULARIO Y AUDIO
+========================================
+Líneas habladas revisadas: 370
+Audios únicos a generar:   363
+Palabras distintas usadas: 458 (de tu lista de 3210)
+Palabras fuera de tu lista: 0
+
+Audios por voz:
+  af_alloy: 200
+  af_bella: 9
+  af_heart: 23
+  af_nicole: 9
+  af_sky: 9
+  am_adam: 56
+  am_michael: 9
+  am_onyx: 15
+  bf_emma: 9
+  bf_isabella: 6
+  bm_george: 9
+  bm_lewis: 9
+
+AVISOS (1):
+  - m001.escenas[3].personajes[1].dialogo.pasos[1].opciones[0]: opción larga (11 palabras): «Sorry, Mom. We had a problem, but we're home before midnight!»
+
