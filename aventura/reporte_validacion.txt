@@ -2,7 +2,7 @@ REPORTE DE VALIDACION - AVENTURA
 ================================================
 Historias en el plan:      40
 Misiones escritas:         40
-Reglas en el plan:         51  (archivo: ../../z13/data-en/reglas-gramaticales.json)
+Reglas en el plan:         51  (archivo: ../data-en/reglas-gramaticales.json)
 Arte pendiente:            0 fondos, 0 objetos, 0 accesorios, 0 caras
 Errores: 0   Avisos: 1
 

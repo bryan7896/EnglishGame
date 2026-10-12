@@ -69,9 +69,9 @@ html,body{margin:0;height:100%;background:var(--fondo);color:var(--texto);font-f
 .op.mal .mic::after{content:"✖";position:absolute;left:-2px;top:-4px;font-size:14px;color:#ff5d73}
 #enviar{width:var(--bt);height:var(--bt);border:0;border-radius:50%;background:#33c26b;color:#fff;font-size:calc(var(--bt)*.6);line-height:1;font-weight:700;cursor:pointer;padding:0 0 3px}
 #enviar:disabled{background:#556;opacity:.5;cursor:default}
-#repetir{position:fixed;left:calc(8px + env(safe-area-inset-left));top:50%;transform:translateY(-50%);z-index:9;width:var(--bt);height:var(--bt);border:0;border-radius:50%;background:#2f6fdb;color:#fff;font-size:calc(var(--bt)*.5);line-height:1;cursor:pointer;box-shadow:0 4px 14px #0008;padding:0}
+#repetir{position:fixed;left:calc(8px + env(safe-area-inset-left));bottom:calc(10px + env(safe-area-inset-bottom));z-index:9;width:var(--bt);height:var(--bt);border:0;border-radius:50%;background:#2f6fdb;color:#fff;font-size:calc(var(--bt)*.5);line-height:1;cursor:pointer;box-shadow:0 4px 14px #0008;padding:0}
 #repetir:disabled{opacity:.4;cursor:default}
-#repetir:active:not(:disabled){transform:translateY(-50%) scale(.92)}
+#repetir:active:not(:disabled){transform:scale(.92)}
 #repetir[hidden]{display:none}
 /* modales */
 #modal{position:fixed;inset:0;z-index:30;background:#000c;display:grid;place-items:center;padding:16px}
@@ -141,3 +141,16 @@ body.modo-lista #girar{display:none!important}
 .estado.nueva{background:var(--azul);color:#fff}
 .estado.pronto{background:#3a3e5a;color:#c9cbe0}
 #lista .vacio{opacity:.6;text-align:center;margin-top:40px}
+
+/* panel del guion (izquierda): ultimo intercambio correcto. Mismo tamano y fuente que el texto de las opciones (.op .txt) */
+#guion{position:fixed;left:calc(8px + env(safe-area-inset-left));top:var(--gtop,48px);z-index:8;width:min(30vw,280px);display:flex;align-items:flex-start;transition:transform .25s ease;pointer-events:none}
+#guion[hidden]{display:none}
+#guion .g-cuerpo,#guion-tog{pointer-events:auto}
+#guion .g-cuerpo{flex:1;min-width:0;background:rgba(0,0,0,.8);color:#fff;border-radius:12px;padding:6px 10px;font-size:13px;line-height:1.25;font-weight:300;max-height:calc(100vh - var(--gtop,48px) - var(--bt) - 24px);overflow:auto;box-shadow:0 2px 10px #0008}
+#guion .g-cuerpo p{margin:0 0 .4em}
+#guion .g-cuerpo p:last-child{margin:0}
+#guion .q{opacity:.55}
+#guion .yo .q{opacity:.85;color:#9fd0ff}
+#guion-tog{flex:none;width:22px;height:34px;margin-left:4px;border:0;border-radius:10px;background:rgba(0,0,0,.8);color:#fff;font-size:15px;line-height:1;cursor:pointer;padding:0}
+#guion.plegado{transform:translateX(calc(-100% + 18px - env(safe-area-inset-left)))}
+@media (max-height:520px){#guion .g-cuerpo{font-size:11px}}

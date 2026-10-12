@@ -7,96 +7,96 @@ Es de noche y estas en la fiesta de Tom. Tu mama le pidio a Sara que te lleve a 
  [tom]
   BRYAN  [regla 10 Presente perfecto: have/has/had + participio (incluye "just": acaba de/acababa de)]
      ✔ I'm looking for Sara. Have you seen her?
-     ✗ I travel to Spain tomorrow.
-     ✗ I want a cup of coffee, please.
+     ✗ How many bottles of water does he need?
+     ✗ Lost? Where had she gone before she called?
   TOM: Sara? She was here a minute ago, but I don't know where she went.
  [emma]
   BRYAN  [regla ]
      ✔ Excuse me, do you know a girl called Sara?
-     ✗ My brother has a new car.
-     ✗ Where is the restroom?
+     ✗ A little. How do I get to the station?
+     ✗ OK. Is this the paper for the new card?
   EMMA: Sara? Yes, I met her earlier. I think she was wearing a red jacket.
  [max]
   BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
      ✔ Do you know where Sara is?
-     ✗ The music is very loud!
-     ✗ Can I have some water?
+     ✗ Had she already taken the train?
+     ✗ That's bad. Was the bed hard?
   MAX: Sara? Sorry, I haven't seen her. I'm working and it's very loud here.
  [lily]
   BRYAN  [regla ]
      ✔ Is Sara at the party tonight?
-     ✗ Do you like pizza?
-     ✗ I am a student at the university.
+     ✗ Was she seen by the camera?
+     ✗ Not many. How much are they?
   LILY: Um... I think she was talking to Max a few minutes ago.
  [george]
   BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
      ✔ Could you tell me where Sara is, please?
-     ✗ I want a cup of coffee, please.
-     ✗ Where is the restroom?
+     ✗ OK. Do I need to come back here?
+     ✗ Is he the chef who made our pasta?
   GEORGE: Sara? Oh, I don't know, my boy. I can't see well in the dark.
  [bella]
   BRYAN  [regla ]
      ✔ Did you see Sara earlier tonight?
-     ✗ I travel to Spain tomorrow.
-     ✗ Can I have some water?
+     ✗ What exactly did she tell you?
+     ✗ Hello? Is this the building manager?
   BELLA: Oh, Sara! I saw her ten minutes ago, near the music!
  [sara]
   BRYAN  [regla 10 Presente perfecto: have/has/had + participio (incluye "just": acaba de/acababa de)]
      ✔ I'm looking for Sara. Have you seen her?
-     ✗ I travel to Spain tomorrow.
-     ✗ I want a cup of coffee, please.
+     ✗ No, I've never tried it. Is it good?
+     ✗ OK. Do you need to eat something, too?
   SARA: Bryan, it's me! I am Sara. Don't you know me?
   BRYAN  [regla 27 Too vs Very, 33 Sujeto "it" (clima, tiempo, distancia)]
      ✔ Sorry, Sara. It's very dark and I didn't see you.
-     ✗ I am Bryan. What is your name?
-     ✗ Yes, I know you. You are a doctor.
+     ✗ By next month, I'll have been working here a year.
+     ✗ OK! I don't have any photos, but I'll take some.
   SARA: Ha ha! It's OK, Bryan.
   SARA: Listen, we have to go home now.
   BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
      ✔ Why? What's the problem?
-     ✗ Yes, I love this party.
-     ✗ I need a coffee.
+     ✗ Wow. For twelve hours?
+     ✗ Did you eat much today?
   SARA: Your mother called me. She is worried because you didn't answer your phone.
   SARA: She wants you at home before midnight.
   BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how), 33 Sujeto "it" (clima, tiempo, distancia)]
      ✔ Oh no! What time is it now?
-     ✗ Great! I want to stay here.
-     ✗ My mother is a teacher.
+     ✗ Great. Are you going to dance, too?
+     ✗ Can I help you take it off?
   SARA: It's half past eleven. We only have thirty minutes to get home!
   BRYAN  [regla 17 Modales básicos (can, could, should, must, will, would, used to + verbo)]
      ✔ Can you call a taxi for us?
-     ✗ Can you call the police for us?
-     ✗ Can you play the guitar for us?
+     ✗ Is it going to rain a lot?
+     ✗ Yes. Can you bring us some water?
   SARA: I wanted to, but my battery is dead. What about yours?
   BRYAN  [regla ]
      ✔ Mine is dead too. We have to find a taxi.
-     ✗ Mine is new and very expensive.
-     ✗ I don't have a battery.
+     ✗ Don't worry. If you try again, you'll win one day.
+     ✗ Yes! The man who works at the door helped us.
   SARA: OK. Follow me. Let's go outside and look for one!
 
 --- Escena: The street
  [rosa]
   BRYAN  [regla 17 Modales básicos (can, could, should, must, will, would, used to + verbo)]
      ✔ Good evening. Could you take us home, please?
-     ✗ Good evening. I would like a pizza, please.
-     ✗ Excuse me, where is the zoo?
+     ✗ Sure. Do I need to sign here too?
+     ✗ Yes, please. Can you make a big coffee?
   ROSA: Sorry, I already have a passenger. Ask the other driver, he is free.
  [frank]
   BRYAN  [regla 17 Modales básicos (can, could, should, must, will, would, used to + verbo)]
      ✔ Yes, please. Could you take us home?
-     ✗ No, thank you. I have my own car.
-     ✗ Good morning. I want some coffee.
+     ✗ Please! Can you give us one minute?
+     ✗ Yes. Do you know where she went?
   FRANK: Sure! Where do you live?
   BRYAN  [regla ]
      ✔ We live at number ten, Main Street.
-     ✗ I live with my mother and my dog.
-     ✗ I am twenty years old.
+     ✗ And we'll be playing music all afternoon!
+     ✗ We had been walking in the park.
   FRANK: Main Street? That's far, and it's late. But OK, get in!
  [objeto taxi_frank]
   BRYAN  [regla ]
      ✔ Sara, let's get in. We don't have much time!
-     ✗ Sara, let's go back to the party.
-     ✗ Sara, the taxi is yellow.
+     ✗ If you came with us, it would be fun!
+     ✗ I will. Thanks! I can't do anything without it.
   SARA: Finally! Thank you, Frank.
 
 --- Escena: In the taxi
@@ -104,15 +104,15 @@ Es de noche y estas en la fiesta de Tom. Tu mama le pidio a Sara que te lleve a 
   FRANK: So, how was the party? Did you have fun?
   BRYAN  [regla 27 Too vs Very]
      ✔ Yes, it was great, but the music was too loud.
-     ✗ Yes, I am a student at the university.
-     ✗ No, the party is tomorrow.
+     ✗ By summer, you'll have been reading it a long time!
+     ✗ We're going to the university. We took the wrong bus.
   FRANK: Ha ha! Young people love loud music. I did too, years ago.
   FRANK: Oh no. There's a lot of traffic on the bridge tonight.
   SARA: Bryan, look at the clock! It's a quarter to twelve!
   BRYAN  [regla 17 Modales básicos (can, could, should, must, will, would, used to + verbo), 54 Comparativos y superlativos]
      ✔ Frank, could you drive a little faster, please?
-     ✗ Frank, could you go to the bank first, please?
-     ✗ Frank, I have a fast bike.
+     ✗ OK. Can you tell me when it arrives?
+     ✗ So he had taken it before you arrived?
   FRANK: I'll try. I know a short road. Hold on!
   SARA: Wow! I think we're almost there!
   FRANK: Here we are. Number ten, Main Street.
@@ -122,20 +122,20 @@ Es de noche y estas en la fiesta de Tom. Tu mama le pidio a Sara que te lleve a 
   FRANK: That's fifteen dollars, please.
   BRYAN  [regla ]
      ✔ Here you are. Thank you for the ride!
-     ✗ Fifteen? I'm twenty years old.
-     ✗ It's fifteen o'clock.
+     ✗ Me too! Let's go before we get cold.
+     ✗ We had been walking for hours. I'm tired!
   FRANK: Thank you! Good night, and be careful.
  [mom]
   MOM: Bryan! Sara! Where were you? I was very worried!
   BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
      ✔ Sorry, Mom. We had a problem, but we're home before midnight!
-     ✗ Mom, I am hungry. Is there a pizza?
-     ✗ Mom, I don't know this girl.
+     ✗ Yes. I think I had left my wallet on this table.
+     ✗ A letter from the university. I still hope it comes today.
   MOM: It's eleven fifty-five. Just in time!
   MOM: Come in, it's cold. Now go to bed, it's very late!
   BRYAN  [regla ]
      ✔ Good night, Mom. Good night, Sara.
-     ✗ Good morning, Mom. It's noon.
-     ✗ Goodbye, Mom. I'm going back to the party.
+     ✗ OK. I'll take it off now.
+     ✗ I've studied English for two years.
   SARA: Good night, Bryan. Thanks for helping me tonight!
 

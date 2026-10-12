@@ -19,6 +19,29 @@
   let M, L, E;            // mision, layout, estado
   let ocupado = false;    // hay una accion en curso (no se aceptan toques)
   let idleTimer = null;
+  let guionPend = [];     // lineas del personaje desde la ultima respuesta de Bryan (para el panel del guion)
+
+  /* ------------------------------------------------------------------ panel del guion (izquierda) */
+  const nombreDe = id => (M && M.elenco[id] && M.elenco[id].nombre) || (id ? id.charAt(0).toUpperCase() + id.slice(1) : '');
+  function mostrarGuion(ls) {
+    const g = $('#guion'), c = g && $('.g-cuerpo', g);
+    if (!c) return;
+    c.innerHTML = '';
+    ls.forEach(l => {
+      const p = el('p', l.quien === 'bryan' ? 'yo' : '');
+      const q = el('span', 'q'); q.textContent = nombreDe(l.quien) + ': ';
+      p.appendChild(q); p.appendChild(document.createTextNode(l.texto));
+      c.appendChild(p);
+    });
+    g.hidden = false;
+  }
+  function prepararGuion() {
+    const g = $('#guion'); if (!g) return;
+    const tog = $('#guion-tog', g);
+    const poner = pleg => { g.classList.toggle('plegado', pleg); tog.textContent = pleg ? '›' : '‹'; tog.setAttribute('aria-label', pleg ? 'Show script' : 'Hide script'); };
+    poner(leerLS('aventura_guion_plegado', '0') === '1');
+    tog.onclick = () => { const pleg = !g.classList.contains('plegado'); poner(pleg); escribirLS('aventura_guion_plegado', pleg ? '1' : '0'); };
+  }
 
   function estadoNuevo() {
     return {
@@ -59,6 +82,7 @@
     esc.style.width = w + 'px'; esc.style.height = (w * 9 / 16) + 'px';
     esc.style.setProperty('--u', (w / 100) + 'px');
     document.documentElement.style.setProperty('--u', (w / 100) + 'px');
+    document.documentElement.style.setProperty('--gtop', (hud + 6) + 'px');   // el panel del guion empieza bajo el HUD
   }
 
   function pj(id) { return $(`#capa-personajes [data-id="${id}"]`); }
@@ -154,7 +178,9 @@
     if (opc.cara && cont) ARTE.setCara(cont, opc.cara);
     if (quien !== 'bryan') { ultima = { file: linea.file, pan: opc.pan }; $('#repetir').hidden = false; }
     hablando++; actualizarRepetir();
-    await SONIDO.decir(url(linea.file), { pan: opc.pan });
+    // yaSono: el jugador ya escucho esta frase al seleccionarla; al enviar no se repite (solo se espera a que termine)
+    if (opc.yaSono) await opc.yaSono;
+    else await SONIDO.decir(url(linea.file), { pan: opc.pan });
     hablando--; actualizarRepetir();
     if (cont) { cont.classList.remove('habla'); if (b) b.remove(); const c0 = personaje(quien); if (opc.cara && c0) ARTE.setCara(cont, c0.cara_base); }
     await sleep(160);
@@ -180,12 +206,12 @@
             const n = (estado.pulsaciones[o.file] = (estado.pulsaciones[o.file] || 0) + 1);
             if (n >= 3 && !estado.reveladas.has(o.file)) { estado.reveladas.add(o.file); estado.textoUsado = true; }
             sel = o; render();
-            SONIDO.decir(url(o.file));
+            estado.sonando = { file: o.file, fin: SONIDO.decir(url(o.file)) };
           });
           cont.appendChild(b);
         });
         const env = el('button', '', '›'); env.id = 'enviar'; env.disabled = !sel; env.setAttribute('aria-label', 'Send');
-        env.addEventListener('click', () => { if (!sel) return; SONIDO.detener(); hoja.hidden = true; medir(); resolve(sel); });
+        env.addEventListener('click', () => { if (!sel) return; hoja.hidden = true; medir(); resolve(sel); });   // no se corta ni se repite el audio
         fila.appendChild(cont); fila.appendChild(env); hoja.appendChild(fila);
         medir();
       };
@@ -199,12 +225,13 @@
     const estado = { pulsaciones: {}, reveladas: new Set(), malas: new Set(), textoUsado: false };
     let errores = 0, ops = todas, naranja = false, reveladaPorErrores = false;
     E.turnos++;
+    const yaSono = o => (estado.sonando && estado.sonando.file === o.file) ? estado.sonando.fin : Promise.resolve();
     for (;;) {
       const elegido = await mostrarHoja(ops, estado, naranja);
-      if (elegido.ok) { await decir('bryan', elegido); break; }
+      if (elegido.ok) { await decir('bryan', elegido, { yaSono: yaSono(elegido) }); break; }
       errores++; E.errores++; E.erroresSeguidos++;
       estado.malas.add(elegido.file);
-      await decir('bryan', elegido, { mal: true });
+      await decir('bryan', elegido, { mal: true, yaSono: yaSono(elegido) });
       SONIDO.sfx.error();
       const npc = personaje(duenio);
       const errs = lineas(duenio, 'errores');
@@ -217,6 +244,9 @@
       }
       if (!naranja) { naranja = true; ops = barajar([correcta, rnd(todas.filter(o => !o.ok && !estado.malas.has(o.file)))]); }
     }
+    // panel del guion: lo que dijo el personaje desde tu ultima respuesta + tu respuesta correcta
+    mostrarGuion(guionPend.concat([{ quien: 'bryan', texto: correcta.texto }]));
+    guionPend = [];
     let pts = errores === 0 ? 1 : (errores < 3 ? 0.5 : 0);
     if (estado.textoUsado) pts = Math.max(0, pts - 0.5);
     E.puntos += pts;
@@ -297,11 +327,13 @@
 
   /* ------------------------------------------------------------------ dialogos */
   async function correrDialogo(duenio, dialogo) {
+    guionPend = [];
     for (const p of dialogo.pasos) {
       if (p.opciones) await turnoJugador(p, duenio);
       else {
         const l = resolver(p);
         await decir(l.quien, l);
+        if (l.texto) guionPend.push({ quien: l.quien, texto: l.texto });
         if (l.efectos) { const r = await efectos(l.efectos, { duenio }); if (r) return r; }
       }
     }
@@ -539,6 +571,7 @@
     document.title = M.titulo;
     medir(); window.addEventListener('resize', () => { medir(); actualizarLuz(); });
     $('#repetir').onclick = repetirUltima;
+    prepararGuion();
     $('#btn-lista').onclick = () => {
       const mo = $('#modal'); mo.hidden = false;
       mo.innerHTML = `<div class="tarjeta"><div class="obj-en">Leave this story?</div><div class="obj-es">¿Salir de esta historia? Perderas el avance de esta partida.</div>

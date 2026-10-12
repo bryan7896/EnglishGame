@@ -57,10 +57,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Oh no! When did you got sick?"
+                    "texto": "OK. Do I need to bring it back soon?"
                   },
                   {
-                    "texto": "Oh no! When did you get a dog?"
+                    "texto": "No, I have never waited this long."
                   }
                 ]
               },
@@ -79,10 +79,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Did you eat many today?"
+                    "texto": "I need it by Friday."
                   },
                   {
-                    "texto": "Did you buy many cars today?"
+                    "texto": "Yes, I've moved two times."
                   }
                 ]
               },
@@ -101,10 +101,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Only half it? I'll go to the pharmacy now."
+                    "texto": "I know. It's too hot to lie in the sun."
                   },
                   {
-                    "texto": "Only half of it? I'll go to the beach now."
+                    "texto": "Ha ha! She wants a bigger garden, not a house!"
                   }
                 ]
               },
@@ -125,10 +125,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Because of you're sick? Stay in bed."
+                    "texto": "OK. I'll take them off now."
                   },
                   {
-                    "texto": "Because you're hungry? Eat a car."
+                    "texto": "We're going to the library together."
                   }
                 ]
               },
@@ -149,10 +149,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Sure. I'll do you some soup."
+                    "texto": "On Main Street, near the park."
                   },
                   {
-                    "texto": "Sure. I'll make you a car."
+                    "texto": "It will be ready by four."
                   }
                 ]
               },
@@ -228,10 +228,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "My friend Jake get sick last night."
+                    "texto": "Yes, I've talked to him many times."
                   },
                   {
-                    "texto": "My friend Jake got a new job."
+                    "texto": "No. I had only sent one letter."
                   }
                 ]
               },
@@ -250,10 +250,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Wow, half them? That's a lot!"
+                    "texto": "She has gone to the station, maybe."
                   },
                   {
-                    "texto": "Wow, half of the pizza? That's a lot!"
+                    "texto": "I don't know. Somebody has taken them."
                   }
                 ]
               },
@@ -274,10 +274,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Yes. He live near the park."
+                    "texto": "Don't worry. We'll finish by nine."
                   },
                   {
-                    "texto": "Yes. He lives on the moon."
+                    "texto": "Yes. And it's very cold today."
                   }
                 ]
               },
@@ -313,10 +313,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "My friend getted sick. He feels very hot."
+                    "texto": "Wow. I listen to music while I work."
                   },
                   {
-                    "texto": "My friend got married. He feels very happy."
+                    "texto": "Let's do the kitchen, then make the bed."
                   }
                 ]
               },
@@ -335,10 +335,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "A little. And he can't eat many food."
+                    "texto": "Ha ha. It can't be older than you!"
                   },
                   {
-                    "texto": "A little. And he can drive a bus."
+                    "texto": "I lost my phone at the bus stop."
                   }
                 ]
               },
@@ -357,10 +357,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Half a of spoon, two times a day. OK."
+                    "texto": "Good idea! Over the holidays, we'll have more time."
                   },
                   {
-                    "texto": "Half of a pizza, two times a day. OK."
+                    "texto": "I will. I had never lost my wallet before!"
                   }
                 ]
               },
@@ -379,10 +379,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "How much bottles of water does he need?"
+                    "texto": "Has it gone? When does the next one come?"
                   },
                   {
-                    "texto": "How many cats does he need?"
+                    "texto": "That's OK. Have you worked here for a long time?"
                   }
                 ]
               },
@@ -401,10 +401,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Great. I hope he gets good quickly."
+                    "texto": "Yes, I'm here. But nobody ordered anything."
                   },
                   {
-                    "texto": "Great. I hope he gets a new car."
+                    "texto": "Great. She lives very near us, then."
                   }
                 ]
               },
@@ -425,10 +425,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "No, it's for he. He's at home."
+                    "texto": "Don't worry. Put the lights on first."
                   },
                   {
-                    "texto": "No, it's for the bus. He's at home."
+                    "texto": "Yes. I want to learn more English."
                   }
                 ]
               },
@@ -449,10 +449,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Thanks. I'll gave it to him tonight."
+                    "texto": "To Japan. Our flight is at ten."
                   },
                   {
-                    "texto": "Thanks. I'll give it to the cat tonight."
+                    "texto": "Because I forgot my umbrella this morning."
                   }
                 ]
               },
@@ -473,10 +473,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Yes. After breakfast, lunch and bed."
+                    "texto": "I don't know where she went."
                   },
                   {
-                    "texto": "Yes. After the bus, the beach and the moon."
+                    "texto": "No, I've never stayed here before."
                   }
                 ]
               },
@@ -538,10 +538,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Yes. Take the half this spoon now."
+                    "texto": "Only for three hours, during the morning."
                   },
                   {
-                    "texto": "Yes. Take half of my pizza now."
+                    "texto": "Let's make a list of the problems."
                   }
                 ]
               },
@@ -560,10 +560,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Sleep well. You'll getting better tomorrow."
+                    "texto": "Yes. It was taken this morning."
                   },
                   {
-                    "texto": "Sleep well. You'll get a new car tomorrow."
+                    "texto": "No, it stopped. It's sunny now."
                   }
                 ]
               },

@@ -8,73 +8,73 @@ Llegas tarde al concierto de Nina, mojado por la lluvia. Habla con Max, pasa al 
   MAX: Bryan! Where were you? The concert has already started!
   BRYAN  [regla 32 Already / Yet / Just]
      ✔ Sorry! Has Nina already started singing?
-     ✗ Sorry! Has Nina yet started singing?
-     ✗ Sorry! Has your dog already had dinner?
+     ✗ Not many. How much are they?
+     ✗ What exactly did she tell you?
   MAX: Yes. When I arrived, the first song had already started.
   BRYAN  [regla 43 Past Perfect]
      ✔ Oh no! I had missed the bus, so I walked.
-     ✗ Oh no! I had miss the bus, so I walked.
-     ✗ Oh no! I had a sandwich, so I sang.
+     ✗ Yes. This shop is better than the old one.
+     ✗ I've checked the mail every day over the last week.
   MAX: I had been waiting for you at the door!
   BRYAN  [regla 1 Past Perfect Continuous]
      ✔ Sorry! How long had you been waiting?
-     ✗ Sorry! How long had you been wait?
-     ✗ Sorry! How long had you been swimming?
+     ✗ Sure. Do I need to sign anything?
+     ✗ Can I help you take it off?
   MAX: For an hour!
   MAX: Where's your brother? He was coming too.
   BRYAN  [regla 15 Gone vs Left]
      ✔ He has gone home. He was tired.
-     ✗ He has went home. He was tired.
-     ✗ He has gone to the moon. He was tired.
+     ✗ OK... Yes! I got in! Let's talk over dinner!
+     ✗ Look at his face! It must be the dog!
   MAX: And why are you so wet?
   BRYAN  [regla 38 Bad vs Badly]
      ✔ The weather is really bad tonight.
-     ✗ The weather is really badly tonight.
-     ✗ The weather is really good tonight.
+     ✗ Yes, please. A big shopping bag.
+     ✗ His mother gave them to him.
   MAX: Ha ha. Come on, show your ticket to the guard.
  [hank]
   HANK: Good evening. Ticket, please.
   BRYAN  [regla 32 Already / Yet / Just]
      ✔ Here it is. I've just found it in my bag.
-     ✗ Here it is. I've yet found it in my bag.
-     ✗ Here it is. I've just bought a cat.
+     ✗ I had my wallet an hour ago, and now it's gone.
+     ✗ Yes. A man took it and left five minutes ago.
   HANK: Hmm, this ticket is very wet. Are you OK?
   BRYAN  [regla 38 Bad vs Badly]
      ✔ Yes. But I fell badly in the rain.
-     ✗ Yes. But I fell bad in the rain.
-     ✗ Yes. But I sang badly in the shower.
+     ✗ We need to cut the onions before cooking them.
+     ✗ Good luck! Don't forget to bring it back.
   HANK: Oh no. You look tired, too.
   BRYAN  [regla 43 Past Perfect]
      ✔ I'm OK. I had run all the way here.
-     ✗ I'm OK. I had ran all the way here.
-     ✗ I'm OK. I had a long sleep here.
+     ✗ I will. I had never lost my wallet before!
+     ✗ Thank you! I need to get to it fast.
   HANK: Why are you so late?
   BRYAN  [regla 49 because of / because]
      ✔ Because of the rain. The buses were slow.
-     ✗ Because the rain. The buses were slow.
-     ✗ Because of my dog. The buses were slow.
+     ✗ Me too. I'm thinking about taking more classes.
+     ✗ Ha ha. It can't be older than you!
   HANK: Where's your friend Max? Is he inside?
   BRYAN  [regla 46 Modales de posibilidad/deducción (there might be, must/might/can't + be)]
      ✔ He must be inside. He has a ticket.
-     ✗ He must is inside. He has a ticket.
-     ✗ He must be a bird. He has a ticket.
+     ✗ I'm going to visit my grandmother on Saturday.
+     ✗ I think there are a few sandwiches left.
   HANK: The show is almost over.
   BRYAN  [regla 26 Still + hope]
      ✔ I still hope I can see one song!
-     ✗ I hope still I can see one song!
-     ✗ I still have one shoe!
+     ✗ I'll be waiting for my suitcase at home.
+     ✗ He has gone to the park, I think.
   HANK: OK, go in. Enjoy the show!
  [bella]
   BELLA: Bryan! I came late too!
   BRYAN  [regla 43 Past Perfect]
      ✔ Really? I thought you had gone in already.
-     ✗ Really? I thought you had went in already.
-     ✗ Really? I thought you had a blue car.
+     ✗ That's right. And we still hope for next week!
+     ✗ Hi! I need to order for four people.
   BELLA: No! My taxi driver drove so badly!
   BRYAN  [regla 38 Bad vs Badly]
      ✔ That's bad. Are you OK?
-     ✗ That's badly. Are you OK?
-     ✗ That's great. Did you eat?
+     ✗ Did you say tomorrow morning?
+     ✗ Did you eat much today?
   BELLA: Yes, I'm fine. Let's go!
 
 --- Escena: The concert
@@ -82,28 +82,28 @@ Llegas tarde al concierto de Nina, mojado por la lluvia. Habla con Max, pasa al 
   NINA: Thank you, everybody! Did you like the show?
   BRYAN  [regla 38 Bad vs Badly]
      ✔ Yes! You sing really well. I sing badly!
-     ✗ Yes! You sing really well. I sing bad!
-     ✗ Yes! You sing really well. I cook in the car!
+     ✗ Welcome! I hope you have a great time here.
+     ✗ Don't worry. I'll clean while you finish dinner.
   NINA: Was the music too loud for you?
   BRYAN  [regla 27 Too vs Very]
      ✔ No! It was very loud, but I loved it.
-     ✗ No! It was too loud, but I loved it.
-     ✗ No! It was very quiet, and I hated it.
+     ✗ Did you see it? I had put it next to my cup.
+     ✗ Can you give them to me? I can check.
   NINA: Ha ha! When did you arrive?
   BRYAN  [regla 43 Past Perfect]
      ✔ Late. You had already played three songs.
-     ✗ Late. You had already play three songs.
-     ✗ Late. You had already bought a car.
+     ✗ As a student, I always worked hard.
+     ✗ Yes, it's more expensive, but it's safer.
   NINA: How long did you wait outside?
   BRYAN  [regla 40 For + período / During + evento]
      ✔ For twenty minutes, during the first song.
-     ✗ During twenty minutes, for the first song.
-     ✗ For twenty dogs, during the first song.
+     ✗ Yes, I'm here. But nobody ordered anything.
+     ✗ Yes. I've worked there for two months.
   NINA: Oh no! Have you heard my new song yet?
   BRYAN  [regla 32 Already / Yet / Just]
      ✔ No, not yet. Can you sing it again?
-     ✗ No, not already. Can you sing it again?
-     ✗ No, not yet. Can you cook it again?
+     ✗ Is it the book that the teacher likes?
+     ✗ How many bottles of water does he need?
   NINA: For you, yes! This one is called Night Rain!
 
 ======================================================================
@@ -116,36 +116,36 @@ El ascensor del edificio se dano otra vez. Ayuda a Linda, llama al encargado y e
   LINDA: Bryan, the elevator isn't working again!
   BRYAN  [regla 46 Modales de posibilidad/deducción (there might be, must/might/can't + be)]
      ✔ Really? It must be broken.
-     ✗ Really? It must to be broken.
-     ✗ Really? It must be my birthday.
+     ✗ Because I like teaching English.
+     ✗ I need it by Friday.
   LINDA: I have three heavy bags, and I live on the fifth floor!
   BRYAN  [regla 3 Orden de sustantivos compuestos (bus stop, phone number)]
      ✔ Let's call the building manager.
-     ✗ Let's call the manager building.
-     ✗ Let's call the pizza place.
+     ✗ We'll be walking in Japan!
+     ✗ Just a little sugar, please.
   LINDA: Good idea. His phone number is next to the elevator.
  [george]
   GEORGE: This elevator! It was built fifty years ago.
   BRYAN  [regla 45 Voz pasiva (presente y con modales)]
      ✔ Wow! When was it last checked?
-     ✗ Wow! When was it last check?
-     ✗ Wow! When was it born?
+     ✗ Yes. Has the mail arrived yet?
+     ✗ Had she already taken the train?
   GEORGE: Who knows! It might be older than me!
   BRYAN  [regla 46 Modales de posibilidad/deducción (there might be, must/might/can't + be)]
      ✔ Ha ha. It can't be older than you!
-     ✗ Ha ha. It can't being older than you!
-     ✗ Ha ha. It can't be a dog!
+     ✗ It's at Sara's house now. It's very close.
+     ✗ No, I think it's going to the airport.
   GEORGE: Ha ha! Maybe not.
  [objeto phone]
   BRYAN  [regla 3 Orden de sustantivos compuestos (bus stop, phone number)]
      ✔ Hello? Is this the building manager?
-     ✗ Hello? Is this the manager building?
-     ✗ Hello? Is this the pizza place?
+     ✗ Yes. Which eggs are the cheapest?
+     ✗ Was she seen by the camera?
   JOE: Hi, this is Joe. I'm the repair man. What's the problem?
   BRYAN  [regla 45 Voz pasiva (presente y con modales)]
      ✔ The elevator is broken. Can it be repaired today?
-     ✗ The elevator is broken. Can it be repair today?
-     ✗ The elevator is broken. Can it be eaten today?
+     ✗ OK. Do I need to bring it back soon?
+     ✗ This is room two hundred and five, isn't it?
   JOE: Yes. It will be repaired this afternoon. I'm coming now.
 
 --- Escena: In front of the building
@@ -153,34 +153,34 @@ El ascensor del edificio se dano otra vez. Ayuda a Linda, llama al encargado y e
   JOE: Hi! Are you the one who called about the elevator?
   BRYAN  [regla 45 Voz pasiva (presente y con modales)]
      ✔ Yes. It was used this morning, then it stopped.
-     ✗ Yes. It was use this morning, then it stopped.
-     ✗ Yes. It was cooked this morning, then it stopped.
+     ✗ Yes, corn for my dad. He cooks with us.
+     ✗ Yes. This shop is better than the old one.
   JOE: Hmm. The door might be the problem. Or the power.
   JOE: Which door is the problem?
   BRYAN  [regla 3 Orden de sustantivos compuestos (bus stop, phone number)]
      ✔ The elevator door. It doesn't close.
-     ✗ The door elevator. It doesn't close.
-     ✗ The kitchen door. It's blue.
+     ✗ So the figure was returned! Great!
+     ✗ Then take half of my piece!
   JOE: OK. Or maybe it's the power.
   BRYAN  [regla 46 Modales de posibilidad/deducción (there might be, must/might/can't + be)]
      ✔ It can't be the power. The lights are on.
-     ✗ It can't is the power. The lights are on.
-     ✗ It can't be the pizza. The lights are on.
+     ✗ For two nights. We can rest during the day.
+     ✗ Yes. And half of the things were on sale.
   JOE: Good point. Now, where is my repair box?
   BRYAN  [regla 3 Orden de sustantivos compuestos (bus stop, phone number)]
      ✔ Maybe it's in your car park.
-     ✗ Maybe it's in your park car.
-     ✗ Maybe it's in your ice cream.
+     ✗ And we'll be eating ice cream!
+     ✗ Great! I've never made pasta before.
   JOE: Yes, there it is! The elevator will be repaired in an hour.
   BRYAN  [regla 45 Voz pasiva (presente y con modales)]
      ✔ Great! Can it be checked every month?
-     ✗ Great! Can it be check every month?
-     ✗ Great! Can it be painted blue?
+     ✗ Yes, please. Could you take us home?
+     ✗ I will. People like stories, don't they?
   JOE: Good idea. I'll tell the manager.
   BRYAN  [regla 46 Modales de posibilidad/deducción (there might be, must/might/can't + be)]
      ✔ Thanks! Linda must be very happy now.
-     ✗ Thanks! Linda must being very happy now.
-     ✗ Thanks! Linda must be very blue now.
+     ✗ Not many. Only a few cookies today.
+     ✗ I had been talking with my friends.
   JOE: Ha ha. I hope so!
 
 ======================================================================
@@ -193,23 +193,23 @@ Alguien se comio el pastel de chocolate. Interroga a Tom, Bella y Max hasta desc
   MOM: Bryan! The chocolate cake is gone! Somebody has eaten it!
   BRYAN  [regla 19 Participios irregulares (incluye take/took/taken, leave/left/left)]
      ✔ Oh no! Who has taken it?
-     ✗ Oh no! Who has took it?
-     ✗ Oh no! Who has a bike?
+     ✗ Sure. Can I use your pen?
+     ✗ Of course. Can we sit together?
   MOM: I don't know. There's nothing on the plate. Only a fork.
   BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
      ✔ I didn't see anybody in the kitchen.
-     ✗ I didn't see nobody in the kitchen.
-     ✗ I didn't see the moon in the kitchen.
+     ✗ OK. I'll take the bigger eggs, please.
+     ✗ No, it isn't bad! You speak well.
   MOM: Look! There's some chocolate on the floor. It goes to the living room.
   BRYAN  [regla 46 Modales de posibilidad/deducción (there might be, must/might/can't + be)]
      ✔ Then somebody must be in the living room!
-     ✗ Then somebody must is in the living room!
-     ✗ Then somebody must be in the shower!
+     ✗ Tell her to go to the information desk.
+     ✗ No problem. I brought some water for us.
   MOM: I made the cake this morning. Half of it was for Grandma!
   BRYAN  [regla 47 Half of]
      ✔ Half of it? Then she will be sad!
-     ✗ The half it? Then she will be sad!
-     ✗ Half of it? Then the dog will be a cat!
+     ✗ Yes. But I fell badly in the rain.
+     ✗ I work as an engineer on this project.
   MOM: Go and ask everybody!
 
 --- Escena: The living room
@@ -217,55 +217,55 @@ Alguien se comio el pastel de chocolate. Interroga a Tom, Bella y Max hasta desc
   TOM: Hey, Bryan. Why are you looking at me like that?
   BRYAN  [regla 19 Participios irregulares (incluye take/took/taken, leave/left/left), 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
      ✔ Have you eaten any cake today?
-     ✗ Have you ate any cake today?
-     ✗ Have you seen any shoes today?
+     ✗ Wow! When was it last checked?
+     ✗ Thanks! Is it a long walk?
   TOM: No! I've been at work all day. I've just come home.
   BRYAN  [regla 46 Modales de posibilidad/deducción (there might be, must/might/can't + be)]
      ✔ OK. Then it can't be you.
-     ✗ OK. Then it can't to be you.
-     ✗ OK. Then it can't be Monday.
+     ✗ Yes. And it's getting dark, too.
+     ✗ We will! We enjoy studying here.
   TOM: Of course not!
   TOM: Wait... who has eaten my cookies too?
   BRYAN  [regla 19 Participios irregulares (incluye take/took/taken, leave/left/left)]
      ✔ I don't know. Somebody has taken them.
-     ✗ I don't know. Somebody has took them.
-     ✗ I don't know. Somebody has bought a car.
+     ✗ Only during the summer. Not in December.
+     ✗ To Japan. Our flight is at ten.
   TOM: Hmm. Somebody loves sweet things!
  [bella]
   BELLA: Cake? I never eat chocolate!
   BRYAN  [regla 46 Modales de posibilidad/deducción (there might be, must/might/can't + be)]
      ✔ Really? Then it might be Max.
-     ✗ Really? Then it might is Max.
-     ✗ Really? Then it might be rain.
+     ✗ OK. Let's swim for an hour.
+     ✗ Oh! The letter has just arrived!
   BELLA: Maybe. He loves chocolate!
   BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
      ✔ But Max has no chocolate on his face.
-     ✗ But Max hasn't no chocolate on his face.
-     ✗ But Max has no car in his garden.
+     ✗ Me too! Let's go before we get cold.
+     ✗ So he had found it, not taken it!
   BELLA: Hmm, that's true.
  [max]
   MAX: Hey, I didn't take anything! I've been playing games.
   BRYAN  [regla 19 Participios irregulares (incluye take/took/taken, leave/left/left), 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
      ✔ OK. Have you seen anybody near the kitchen?
-     ✗ OK. Have you saw anybody near the kitchen?
-     ✗ OK. Have you seen my shoes on the moon?
+     ✗ No, not yet. Can you sing it again?
+     ✗ Do we need to pay for the card?
   MAX: Only the dog. He was running from the kitchen!
  [objeto dog]
   BRYAN  [regla 46 Modales de posibilidad/deducción (there might be, must/might/can't + be)]
      ✔ Look at his face! It must be the dog!
-     ✗ Look at his face! It must being the dog!
-     ✗ Look at his face! It must be a cat!
+     ✗ Me too! I'm trying to get to the fruit.
+     ✗ It was sunny an hour ago. Now it's cloudy.
   MOM: Ha ha! Bad dog! Well, I'll make another cake.
   BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
      ✔ Can I help? I don't have anything to do.
-     ✗ Can I help? I don't have nothing to do.
-     ✗ Can I help? I don't have any shoes.
+     ✗ I will. I don't want to get wet again.
+     ✗ By tonight, we'll have been working for twelve hours.
   MOM: Of course! But this time, the dog is staying outside!
-  MOM: Good. Let's make a chocolate cake again!
+  MOM: Let's make a chocolate cake again!
   BRYAN  [regla 14 Make vs Do]
      ✔ Sure! Let's make it together.
-     ✗ Sure! Let's do a new cake together.
-     ✗ Sure! Let's make a car together.
+     ✗ No, I've never used them.
+     ✗ No, it hasn't arrived yet.
   MOM: Great! Bring me the eggs, please.
 
 ======================================================================
@@ -278,112 +278,112 @@ Llegas a un hotel y no encuentran tu reserva. Resuelvelo con la recepcionista y 
   GRACE: Good evening. Welcome to the hotel. Do you have a reservation?
   BRYAN  [regla 41 Orden natural de la oración en inglés]
      ✔ Yes. I have a room for two nights.
-     ✗ Yes. I have for two nights a room.
-     ✗ Yes. I have a dog for two nights.
+     ✗ A piece of cake and an apple juice.
+     ✗ Yes! You sing really well. I sing badly!
   GRACE: Have you stayed with us before?
   BRYAN  [regla 28 Preguntas con presente/pasado perfecto (Have...ever...? / Had...?)]
      ✔ No, I've never stayed here before.
-     ✗ No, I've never stay here before.
-     ✗ No, I've never stayed on the moon before.
+     ✗ Sure. I'll do the dishes later.
+     ✗ OK. I'll put them down here.
   GRACE: Do you want a room with a view?
   BRYAN  [regla 5 Cláusulas relativas (who/which/that, incluyendo explicativas con comas)]
      ✔ Yes, a room that has a view of the sea.
-     ✗ Yes, a room who has a view of the sea.
-     ✗ Yes, a room that has a view of my dog.
+     ✗ No. All the bags have gone, and mine isn't here.
+     ✗ Good. By six, we'll have been working for ten hours!
   GRACE: Hmm... I'm sorry. I can't find your name.
   BRYAN  [regla 29 Tag Questions]
      ✔ I paid online. That's strange, isn't it?
-     ✗ I paid online. That's strange, is it?
-     ✗ I paid online. That's a cat, isn't it?
+     ✗ Great! Can it be checked every month?
+     ✗ Yes. What did the woman look like?
   GRACE: Yes, it is. Why are you visiting the city?
   BRYAN  [regla 49 because of / because]
      ✔ Because I have a job interview tomorrow.
-     ✗ Because of I have a job interview tomorrow.
-     ✗ Because I have a green bicycle.
+     ✗ We had been walking in the park.
+     ✗ No, sorry. It's for the new neighbor.
   GRACE: Oh! Here it is. But your room isn't ready because of a problem with the water.
   BRYAN  [regla 29 Tag Questions]
      ✔ But I can wait here, can't I?
-     ✗ But I can wait here, can I?
-     ✗ But I can swim here, can't you?
+     ✗ Is it going to rain a lot?
+     ✗ Can you call a taxi for us?
   GRACE: Of course. Now it's ready. Here is your key.
   GRACE: Your room is on the second floor.
   BRYAN  [regla 39 Preposiciones (to/at/in/on/for/during/from/of)]
      ✔ On the second floor? OK, thank you.
-     ✗ In the second floor? OK, thank you.
-     ✗ On the second moon? OK, thank you.
+     ✗ I don't know. I'll tell you later.
+     ✗ The money machine outside took my card.
   GRACE: The pool is open now.
   BRYAN  [regla 42 Vocabulario específico]
      ✔ Great. Do I need a towel for the pool?
-     ✗ Great. Do I need a pillow for the pool?
-     ✗ Great. Do I need a dog for the pool?
+     ✗ They're beautiful. When did she give them to you?
+     ✗ A little. How do I get to the station?
   GRACE: No, there are towels at the pool.
   BRYAN  [regla 41 Orden natural de la oración en inglés]
      ✔ Thank you. Where is the elevator, please?
-     ✗ Thank you. Where the elevator is, please?
-     ✗ Thank you. Where is the airport, please?
+     ✗ Oh no! When did you get sick?
+     ✗ Please! Can you give us one minute?
   GRACE: On your left. Room two hundred and five.
  [george]
   GEORGE: Waiting too? This hotel is very slow, isn't it?
   BRYAN  [regla 29 Tag Questions]
      ✔ Yes, it is. But it's beautiful, isn't it?
-     ✗ Yes, it is. But it's beautiful, doesn't it?
-     ✗ Yes, it is. But it's a dog, isn't it?
+     ✗ It's at ten thirty. How far is it?
+     ✗ Oh no. Has he gone to the doctor?
   GEORGE: True. I'm here because my house is being painted.
   BRYAN  [regla 49 because of / because]
      ✔ So you're here because of your house?
-     ✗ So you're here because your house?
-     ✗ So you're here because of the moon?
+     ✗ Yes. Do you know where she went?
+     ✗ Yes. Can you bring us some water?
   GEORGE: Exactly!
   GEORGE: My room is smaller than my house!
   BRYAN  [regla 54 Comparativos y superlativos]
      ✔ But this hotel is nicer than my old one.
-     ✗ But this hotel is more nice than my old one.
-     ✗ But this hotel is bigger than the moon.
+     ✗ If I were you, I would save the money.
+     ✗ Yes. It's on the corner, next to the tree.
   GEORGE: And I slept badly last night.
   BRYAN  [regla 38 Bad vs Badly]
      ✔ That's bad. Was the bed hard?
-     ✗ That's badly. Was the bed hard?
-     ✗ That's great. Was the bed a cat?
+     ✗ Hello? Is this the building manager?
+     ✗ Sure. Is it a chocolate cake?
   GEORGE: Yes! It was like a rock!
  [objeto elevator]
   BRYAN  [regla 41 Orden natural de la oración en inglés]
      ✔ OK. I'll take my bag to the room.
-     ✗ OK. I'll take to the room my bag.
-     ✗ OK. I'll take my dog to the moon.
+     ✗ Yes. I still hope the sun comes back.
+     ✗ Wow! Nobody has given me a photo before!
 
 --- Escena: Room two hundred and five
  [emma]
   EMMA: Excuse me! I think this is my room!
   BRYAN  [regla 29 Tag Questions]
      ✔ This is room two hundred and five, isn't it?
-     ✗ This is room two hundred and five, doesn't it?
-     ✗ This is a big pizza, isn't it?
+     ✗ Here you are. Do I need to wait here?
+     ✗ Great. What will you be doing in the morning?
   EMMA: Oh dear, no. I'm in two hundred and six. I came in because the door was open.
   BRYAN  [regla 49 because of / because]
      ✔ No problem. It was open because of the cleaning.
-     ✗ No problem. It was open because the cleaning.
-     ✗ No problem. It was open because of my birthday.
+     ✗ Me too. I want to learn to cook pizza.
+     ✗ Look at his face! It must be the dog!
   EMMA: Your TV is very loud!
   BRYAN  [regla 27 Too vs Very]
      ✔ Sorry! It's too loud. I'll change it.
-     ✗ Sorry! It's too much loud. I'll change it.
-     ✗ Sorry! It's too quiet. I'll change it.
+     ✗ Yes, I love studying here. It's quiet.
+     ✗ Yes. I still hope it's here somewhere.
   EMMA: Thanks. Well, have a nice stay!
   BRYAN  [regla 41 Orden natural de la oración en inglés]
      ✔ You too. I really like this hotel.
-     ✗ You too. I like really this hotel.
-     ✗ You too. I really like your dog.
+     ✗ I didn't see anybody in the kitchen.
+     ✗ The car stopped, so we got out.
   EMMA: Me too.
   EMMA: Oh, before I go... where is the elevator from here?
   BRYAN  [regla 41 Orden natural de la oración en inglés]
      ✔ It's on the left, near the stairs.
-     ✗ Near the stairs, on the left it is.
-     ✗ It's on the moon, near the stairs.
+     ✗ OK. I'll be free by three o'clock.
+     ✗ Yes. One ticket to River Town, please.
   EMMA: Thank you! Oh, I found your umbrella in the hall. Here!
   BRYAN  [regla 50 (put, try, get, trying, take, lie) + (down, off, on)]
      ✔ OK, thanks. I'll put it down here.
-     ✗ OK, thanks. I'll put down it here.
-     ✗ OK, thanks. I'll put it on the moon.
+     ✗ Not much. Only half of a bottle.
+     ✗ Thanks. I'll give it to him tonight.
   EMMA: Good night!
 
 ======================================================================
@@ -396,55 +396,55 @@ Organiza con tus amigos un plan para el domingo en la playa, segun lo que cada u
   JAKE: Bryan, what are you doing this weekend?
   BRYAN  [regla 36 Diferencia entre "will" y "going to"]
      ✔ I'm going to visit my grandmother on Saturday.
-     ✗ I going to visit my grandmother on Saturday.
-     ✗ I'm going to visit the moon on Saturday.
+     ✗ Because of the rain. The buses were slow.
+     ✗ Yes, there's a small supermarket on the corner.
   JAKE: Nice! And over the holidays? Where will you go?
   BRYAN  [regla 52 Expresiones de tiempo con over]
      ✔ Over the holidays, I'll visit my uncle.
-     ✗ Over of the holidays, I'll visit my uncle.
-     ✗ Over the holidays, I'll visit the moon.
+     ✗ Yes. We spent less than last week.
+     ✗ It's on the left, near the stairs.
   JAKE: Cool. And on Sunday? Let's go to the beach!
   BRYAN  [regla 53 Future Continuous]
      ✔ Sorry. I'll be working on Sunday morning.
-     ✗ Sorry. I'll be work on Sunday morning.
-     ✗ Sorry. I'll be a doctor on Sunday morning.
+     ✗ I'll give you a new one tomorrow.
+     ✗ Yes, I've taken it out. It's soft!
   JAKE: Oh. What about Sunday afternoon?
   BRYAN  [regla 48 Oraciones con "by" para tiempo futuro]
      ✔ OK. I'll be free by three o'clock.
-     ✗ OK. I'll be free until three o'clock.
-     ✗ OK. I'll be free by next year.
+     ✗ Yes. I told them dinner was ready.
+     ✗ It's on Green Street, in the city.
   JAKE: How long will you have been working by Sunday?
   BRYAN  [regla 44 Future Perfect Continuous]
      ✔ By Sunday, I'll have been working for six days!
-     ✗ By Sunday, I'll have been work for six days!
-     ✗ By Sunday, I'll have been swimming for six days!
+     ✗ By Friday? OK, it will be ready by then.
+     ✗ I wanted to tell you, but you were cooking.
   JAKE: If you had more money, where would you go?
   BRYAN  [regla 4 Segundo condicional (if + pasado, would + infinitivo)]
      ✔ If I had more money, I would go to the beach.
-     ✗ If I have more money, I would go to the beach.
-     ✗ If I had more money, I would go to the moon.
+     ✗ Ha ha. And I'll have been drinking coffee all night!
+     ✗ I had my wallet an hour ago, and now it's gone.
   JAKE: Ha ha. Well, on Sunday we can go! Let's ask Sara.
  [sara]
   SARA: The beach on Sunday? I'd love that!
   BRYAN  [regla 53 Future Continuous]
      ✔ Great. What will you be doing in the morning?
-     ✗ Great. What will you be do in the morning?
-     ✗ Great. What will you be eating at midnight?
+     ✗ That's my phone case! But where is my phone?
+     ✗ No, I haven't seen her yet. Where is she?
   SARA: I'll be studying. But I'll finish by noon.
   BRYAN  [regla 48 Oraciones con "by" para tiempo futuro]
      ✔ Perfect. By three, we will all be ready.
-     ✗ Perfect. Until three, we will all be ready.
-     ✗ Perfect. By three, we will all be old.
+     ✗ It's the most beautiful country in the world.
+     ✗ Great! I'll bring the bread while you serve.
   SARA: How long are you working on Sunday?
   BRYAN  [regla 40 For + período / During + evento]
      ✔ Only for three hours, during the morning.
-     ✗ Only during three hours, for the morning.
-     ✗ Only for three dogs, during the morning.
+     ✗ Good idea. I'll look them up tonight.
+     ✗ Of course! You should see your face!
   SARA: Last year we went to the mountains. And this year?
   BRYAN  [regla 13 Past Perfect vs Presente vs Futuro]
      ✔ This year, we'll go to the beach!
-     ✗ This year, we went to the beach!
-     ✗ This year, we'll go to the moon!
+     ✗ Me too. I still hope he's lucky.
+     ✗ We live at number ten, Main Street.
   SARA: Great! Ask Max and Lily at the coffee shop.
 
 --- Escena: The coffee shop
@@ -452,35 +452,35 @@ Organiza con tus amigos un plan para el domingo en la playa, segun lo que cada u
   MAX: The beach? Sure! Who's going to drive?
   BRYAN  [regla 36 Diferencia entre "will" y "going to"]
      ✔ I'm going to ask my dad for his car.
-     ✗ I'm going ask my dad for his car.
-     ✗ I'm going to ask my dog for his car.
+     ✗ OK... Yes! I got in! Let's talk over dinner!
+     ✗ No! It was very loud, but I loved it.
   MAX: Cool. This time on Sunday, we'll be swimming!
   BRYAN  [regla 53 Future Continuous]
      ✔ And we'll be eating ice cream!
-     ✗ And we'll be eat ice cream!
-     ✗ And we'll be sleeping at work!
+     ✗ You need to check these numbers.
+     ✗ Good idea. It's very wet here.
   MAX: Sara doesn't swim, does she?
   BRYAN  [regla 29 Tag Questions]
      ✔ No, she doesn't. But Lily does, doesn't she?
-     ✗ No, she doesn't. But Lily does, don't she?
-     ✗ No, she doesn't. But the moon does, doesn't it?
+     ✗ You look tired. Had you been working all day?
+     ✗ Lost? Where had she gone before she called?
   MAX: Ask Lily. She never comes with us.
  [lily]
   LILY: Um... I can't go. I'll be working all day.
   BRYAN  [regla 48 Oraciones con "by" para tiempo futuro]
      ✔ Can you finish by four? We'll wait for you.
-     ✗ Can you finish until four? We'll wait for you.
-     ✗ Can you finish by four? We'll eat your car.
+     ✗ I was looking at my phone when it stopped.
+     ✗ But this hotel is nicer than my old one.
   LILY: Um... why do you want me to come?
   BRYAN  [regla 49 because of / because]
      ✔ Because it's more fun with you!
-     ✗ Because of it's more fun with you!
-     ✗ Because it's more fun with a cat!
+     ✗ Good idea. That's the easiest way.
+     ✗ Put it down on the table!
   LILY: Um... OK! I'll be there by five.
   BRYAN  [regla 36 Diferencia entre "will" y "going to"]
      ✔ Great! It's going to be a perfect day!
-     ✗ Great! It's going be a perfect day!
-     ✗ Great! It's going to be a perfect cat!
+     ✗ A tea with a little milk. Got it.
+     ✗ I know. It's too late to go back.
   LILY: See you on Sunday!
 
 ======================================================================
@@ -493,87 +493,87 @@ Tu jefe necesita el proyecto para el viernes. Organiza con Grace y Jake como ter
   CLARK: Bryan, we need the project by Friday.
   BRYAN  [regla 48 Oraciones con "by" para tiempo futuro]
      ✔ By Friday? OK, it will be ready by then.
-     ✗ Until Friday? OK, it will be ready until then.
-     ✗ By Friday? OK, I will go to the beach.
+     ✗ If you get lost again, I'll find you again!
+     ✗ As you can see, it's a very old car.
   CLARK: How long will you have been working on it by Friday?
   BRYAN  [regla 44 Future Perfect Continuous]
      ✔ By Friday, I'll have been working on it for a month.
-     ✗ By Friday, I'll have been work on it for a month.
-     ✗ By Friday, I'll have been sleeping for a month.
+     ✗ A letter from the university. I still hope it comes today.
+     ✗ Yes. I think I had left my wallet on this table.
   CLARK: Have you finished the first part yet?
   BRYAN  [regla 32 Already / Yet / Just]
      ✔ Yes, I've already finished it.
-     ✗ Yes, I've yet finished it.
-     ✗ Yes, I've already eaten it.
+     ✗ Let's look for it together.
+     ✗ Let's call the building manager.
   CLARK: How long will you have been working here next month?
   BRYAN  [regla 44 Future Perfect Continuous]
      ✔ By next month, I'll have been working here a year.
-     ✗ By next month, I'll have been work here a year.
-     ✗ By next month, I'll have been sleeping here a year.
+     ✗ Yes, a room that has a view of the sea.
+     ✗ Mine is dead too. We have to find a taxi.
   CLARK: What do you do on this project exactly?
   BRYAN  [regla 9 Uso básico de "as" = como]
      ✔ I work as an engineer on this project.
-     ✗ I work like an engineer on this project.
-     ✗ I work as a cat on this project.
+     ✗ We had been walking for hours. I'm tired!
+     ✗ I still hope I can see one song!
   CLARK: OK. What do you need to finish it?
   BRYAN  [regla 6 Need to + infinitivo]
      ✔ I need to talk to Grace about the design.
-     ✗ I need talk to Grace about the design.
-     ✗ I need to buy a new dog.
+     ✗ It can't be the power. The lights are on.
+     ✗ Yes, but I played badly. It was very wet.
   CLARK: Talk to her now.
  [grace]
   GRACE: Hi, Bryan! Clark says you need help.
   BRYAN  [regla 6 Need to + infinitivo]
      ✔ Yes. We need to finish the design today.
-     ✗ Yes. We need finish the design today.
-     ✗ Yes. We need to swim today.
+     ✗ Perfect. By three, we will all be ready.
+     ✗ Yes. It's the oldest car on the street!
   GRACE: OK. Jake can help, too. He's very fast.
   BRYAN  [regla 44 Future Perfect Continuous]
      ✔ Good. By six, we'll have been working for ten hours!
-     ✗ Good. By six, we'll have been work for ten hours!
-     ✗ Good. By six, we'll have been dancing for ten hours!
+     ✗ If you cut the cake, we will stay all night!
+     ✗ OK. I'll take it off and put it down here.
   GRACE: Ha ha. Then let's order pizza by seven!
   BRYAN  [regla 48 Oraciones con "by" para tiempo futuro]
      ✔ Good idea. And we can finish by midnight.
-     ✗ Good idea. And we can finish until midnight.
-     ✗ Good idea. And we can sleep by the pool.
+     ✗ OK. I'll take my bag to the room.
+     ✗ Yes. I still hope we can get there.
   GRACE: We must do a good job.
   BRYAN  [regla 14 Make vs Do]
      ✔ Don't worry. We'll do our best.
-     ✗ Don't worry. We'll make our best.
-     ✗ Don't worry. We'll do a cake.
+     ✗ I had been looking for wood.
+     ✗ Sure. I'll make you some soup.
   GRACE: By tonight, how long will we have been working?
   BRYAN  [regla 44 Future Perfect Continuous]
      ✔ By tonight, we'll have been working for twelve hours.
-     ✗ By tonight, we'll have been work for twelve hours.
-     ✗ By tonight, we'll have been dancing for twelve hours.
+     ✗ I will. Thanks! I can't do anything without it.
+     ✗ Me too! I was reading when I got on.
   GRACE: What have you done over the last two weeks?
   BRYAN  [regla 52 Expresiones de tiempo con over]
      ✔ Over the last two weeks, I made the design.
-     ✗ Since the last two weeks, I made the design.
-     ✗ Over the last two weeks, I made a cake.
+     ✗ If you came with us, it would be fun!
+     ✗ Half of a spoon, two times a day. OK.
   GRACE: Talk to Jake. He's at his desk.
  [jake]
   JAKE: Did someone say pizza? I'm in! When does Clark want the project?
   BRYAN  [regla 48 Oraciones con "by" para tiempo futuro]
      ✔ He wants it by Friday morning.
-     ✗ He wants it until Friday morning.
-     ✗ He wants it by bicycle.
+     ✗ OK. I'll take them off now.
+     ✗ No, I haven't called him yet.
   JAKE: No problem. What can I do?
   BRYAN  [regla 6 Need to + infinitivo]
      ✔ You need to check these numbers.
-     ✗ You need check these numbers.
-     ✗ You need to wash my car.
+     ✗ I'm going to the train station.
+     ✗ I know. They have just arrived!
   JAKE: Easy! By tomorrow, I'll have been working here for a year!
   BRYAN  [regla 44 Future Perfect Continuous]
      ✔ Ha ha. And I'll have been drinking coffee all night!
-     ✗ Ha ha. And I'll have been drink coffee all night!
-     ✗ Ha ha. And I'll have been swimming all night!
+     ✗ Only half of it? I'll go to the pharmacy now.
+     ✗ Yes, I was listening to music when I got on.
   JAKE: I'm getting really tired.
   BRYAN  [regla 30 Get + adjetivo (cambios de estado: get worried, se puso...)]
      ✔ Me too. I'm getting hungry, too.
-     ✗ Me too. I'm get hungry, too.
-     ✗ Me too. I'm getting a car, too.
+     ✗ No, it stopped. It's sunny now.
+     ✗ Because it's more fun with you!
   JAKE: Ha ha! Let's do it!
 
 ======================================================================
@@ -586,84 +586,84 @@ Kenji necesita un libro de gramatica. Ayudalo a buscarlo, saca el carne de la bi
   KENJI: Bryan, I need to find a book about English grammar.
   BRYAN  [regla 23 Phrasal verbs con "look" (look for / look up / look at / look like)]
      ✔ Let's look for it together.
-     ✗ Let's look at it together.
-     ✗ Let's look for a pizza together.
+     ✗ I work as an engineer.
+     ✗ Yes, I brought it inside.
   KENJI: Good idea. I can never find books here.
   BRYAN  [regla 18 Gerundio vs infinitivo (incluye tras preposiciones y before/after + ing)]
      ✔ Let's ask Ruth before looking.
-     ✗ Let's ask Ruth before look.
-     ✗ Let's ask Ruth before swimming.
+     ✗ Yes. Here's my train ticket.
+     ✗ Yes, I've already finished it.
   KENJI: Do you enjoy reading?
   BRYAN  [regla 18 Gerundio vs infinitivo (incluye tras preposiciones y before/after + ing)]
      ✔ Yes. I enjoy reading before sleeping.
-     ✗ Yes. I enjoy to read before sleeping.
-     ✗ Yes. I enjoy reading the bus.
+     ✗ Me too. I'm getting hungry, too.
+     ✗ Don't worry. You're going to see!
   KENJI: OK!
  [ruth]
   RUTH: Hello. Can I help you?
   BRYAN  [regla 23 Phrasal verbs con "look" (look for / look up / look at / look like)]
      ✔ Yes. We're looking for a grammar book.
-     ✗ Yes. We're looking at a grammar book.
-     ✗ Yes. We're looking for a big pizza.
+     ✗ Yes, and I slept during the afternoon!
+     ✗ She has gone to the station, maybe.
   RUTH: You can look it up on the computer. But first, you need a card.
   BRYAN  [regla 6 Need to + infinitivo]
      ✔ Do we need to pay for the card?
-     ✗ Do we need pay for the card?
-     ✗ Do we need to have a dog?
+     ✗ OK. Can you tell me when it arrives?
+     ✗ Is he the chef who made our pasta?
   RUTH: No, it's free. Do you like studying in the library?
   BRYAN  [regla 18 Gerundio vs infinitivo (incluye tras preposiciones y before/after + ing)]
      ✔ Yes, I love studying here. It's quiet.
-     ✗ Yes, I love study here. It's quiet.
-     ✗ Yes, I love studying at the beach.
+     ✗ Over the holidays, I visited my friends.
+     ✗ Yes. I can't find my phone anywhere.
   RUTH: Are you students? How long have you studied at the university?
   BRYAN  [regla 34 Since vs For]
      ✔ I've studied there since last year.
-     ✗ I've studied there for last year.
-     ✗ I've studied there since I was a dog.
+     ✗ The elevator door. It doesn't close.
+     ✗ Yes, there are too many people.
   RUTH: Have you ever used our computers?
   BRYAN  [regla 28 Preguntas con presente/pasado perfecto (Have...ever...? / Had...?)]
      ✔ No, I've never used them.
-     ✗ No, I've never use them.
-     ✗ No, I've never eaten them.
+     ✗ We're staying for five hours.
+     ✗ Yes, here's my bus ticket.
   RUTH: Look at the computer. This is the book that you need.
   BRYAN  [regla 5 Cláusulas relativas (who/which/that, incluyendo explicativas con comas)]
      ✔ Is it the book that the teacher likes?
-     ✗ Is it the book who the teacher likes?
-     ✗ Is it the dog that the teacher likes?
+     ✗ Sure. What do you want to know?
+     ✗ If you win, will you buy a new car?
   RUTH: Yes, it is. Everybody likes it.
   RUTH: It's on the third shelf.
   BRYAN  [regla 23 Phrasal verbs con "look" (look for / look up / look at / look like)]
      ✔ Thank you. What does the book look like?
-     ✗ Thank you. How does the book look like?
-     ✗ Thank you. What does the dog look like?
+     ✗ Great! And the steak? Is it ready yet?
+     ✗ So he had taken it before you arrived?
   RUTH: It's big and blue. You can't miss it.
   BRYAN  [regla 6 Need to + infinitivo]
      ✔ OK. Do I need to bring it back soon?
-     ✗ OK. Do I need bring it back soon?
-     ✗ OK. Do I need to sing for it?
+     ✗ We were worried! Where had you been all day?
+     ✗ Yes, please. Can you call my phone for me?
   RUTH: In two weeks, please.
  [lily]
   LILY: Um... Bryan? Are you studying here too?
   BRYAN  [regla 18 Gerundio vs infinitivo (incluye tras preposiciones y before/after + ing)]
      ✔ Yes. I want to learn more English.
-     ✗ Yes. I want learning more English.
-     ✗ Yes. I want to learn more cooking.
+     ✗ Oh no! I forgot my secret number.
+     ✗ Don't worry. Put the lights on first.
   LILY: Me too. We have a test on Monday.
   BRYAN  [regla 6 Need to + infinitivo]
      ✔ Then we need to study a lot!
-     ✗ Then we need study a lot!
-     ✗ Then we need to sleep a lot!
+     ✗ Only for three hours, during the morning.
+     ✗ I don't know. Somebody has taken them.
   LILY: Um... yes. Good luck!
  [objeto shelf]
   BRYAN  [regla 23 Phrasal verbs con "look" (look for / look up / look at / look like)]
      ✔ Look at this! Here it is, Kenji.
-     ✗ Look for this! Here it is, Kenji.
-     ✗ Look at this! Here is a cat, Kenji.
+     ✗ Yes. She always drinks tea with milk.
+     ✗ Late. You had already played three songs.
   KENJI: Great! Now I can start studying.
   BRYAN  [regla 18 Gerundio vs infinitivo (incluye tras preposiciones y before/after + ing)]
      ✔ Good luck! Don't forget to bring it back.
-     ✗ Good luck! Don't forget bringing it back.
-     ✗ Good luck! Don't forget to eat it.
+     ✗ He's worried because he thinks he speaks badly.
+     ✗ A little. And he can't eat much food.
   KENJI: Thank you, Bryan!
 
 ======================================================================
@@ -676,85 +676,85 @@ Tu mama te mando al mercado a comprarle fruta a Pedro. Buscalo entre los puestos
   ROSA: Bryan! What are you looking for?
   BRYAN  [regla 23 Phrasal verbs con "look" (look for / look up / look at / look like)]
      ✔ I'm looking for the man who sells fruit.
-     ✗ I'm looking at the man who sells fruit.
-     ✗ I'm looking for the moon.
+     ✗ Yes. I have a room for two nights.
+     ✗ Don't worry. By Friday, everything will be ready.
   ROSA: Pedro? I know him. Go to the end of the market.
   BRYAN  [regla 16 Preposiciones de movimiento (to/at/for/of con destinos)]
      ✔ Thanks! I'll go to the end now.
-     ✗ Thanks! I'll go at the end now.
-     ✗ Thanks! I'll go to bed now.
+     ✗ No, I have never waited this long.
+     ✗ Sorry! It's too loud. I'll change it.
   ROSA: And say hello to him from me!
   BRYAN  [regla 8 Pronombre objeto tras preposición (him/her/them, no he/she/they)]
      ✔ Sure. I'll say hello to him.
-     ✗ Sure. I'll say hello to he.
-     ✗ Sure. I'll say hello to the fish.
+     ✗ Sure. I'll buy it tomorrow morning.
+     ✗ There's something soft... and a letter!
   ROSA: Does Pedro work every day?
   BRYAN  [regla 20 3ra persona singular (-s)]
      ✔ I think he works every day.
-     ✗ I think he work every day.
-     ✗ I think he swims every day.
+     ✗ Yes. The machine has my card.
+     ✗ Yes. He lives near the park.
   ROSA: Thanks!
  [george]
   GEORGE: Bryan! Look at this honey. Is it good?
   BRYAN  [regla 23 Phrasal verbs con "look" (look for / look up / look at / look like)]
      ✔ Let me look at it. Yes, it's good!
-     ✗ Let me look for it. Yes, it's good!
-     ✗ Let me look at the bus. Yes, it's good!
+     ✗ He must be inside. He has a ticket.
+     ✗ Maybe it fell out while we were walking.
   GEORGE: I'll buy it for my wife.
   BRYAN  [regla 8 Pronombre objeto tras preposición (him/her/them, no he/she/they)]
      ✔ Good idea. Buy some for her!
-     ✗ Good idea. Buy some for she!
-     ✗ Good idea. Buy some for the bus!
+     ✗ Because you're sick? Stay in bed.
+     ✗ It will be ready by four.
   GEORGE: Ha ha, I will!
  [emma]
   EMMA: Excuse me, can you help me? I'm lost.
   BRYAN  [regla 16 Preposiciones de movimiento (to/at/for/of con destinos)]
      ✔ Me too! I'm trying to get to the fruit.
-     ✗ Me too! I'm trying to get at the fruit.
-     ✗ Me too! I'm trying to get a new hat.
+     ✗ Can you finish by four? We'll wait for you.
+     ✗ No. My card isn't working at the money machine.
   EMMA: Oh, I'll go with you, then.
  [pedro]
   PEDRO: Hello, young man! Fresh fruit! What do you need?
   BRYAN  [regla 8 Pronombre objeto tras preposición (him/her/them, no he/she/they)]
      ✔ Hi! My mom sent me. The fruit is for her.
-     ✗ Hi! My mom sent me. The fruit is for she.
-     ✗ Hi! My mom sent me. The fruit is for the car.
+     ✗ Yes, please. Bring it to the table by the window.
+     ✗ Here it is. I've just found it in my bag.
   PEDRO: Ha ha, good boy. What does she want?
   BRYAN  [regla 23 Phrasal verbs con "look" (look for / look up / look at / look like)]
      ✔ Bananas. Can you look for some good bananas?
-     ✗ Bananas. Can you look at some good bananas?
-     ✗ Bananas. Can you look for my dog?
+     ✗ Can you bring the lamp to the house?
+     ✗ No, I've never tried it. Is it good?
   PEDRO: These bananas are cheaper than those.
   BRYAN  [regla 54 Comparativos y superlativos]
      ✔ OK. I'll take the cheaper bananas.
-     ✗ OK. I'll take the more cheap bananas.
-     ✗ OK. I'll take the cheaper dog.
+     ✗ OK. I won't make any noise.
+     ✗ I've studied there since last year.
   PEDRO: Here. Anything else? Tomatoes, corn?
   BRYAN  [regla 8 Pronombre objeto tras preposición (him/her/them, no he/she/they)]
      ✔ Yes, corn for my dad. He cooks with us.
-     ✗ Yes, corn for my dad. He cooks with we.
-     ✗ Yes, corn for my dad. He cooks with the moon.
+     ✗ That's right. And we still hope for next week!
+     ✗ Good. He can help us as fast as possible.
   PEDRO: This is the honey that my wife makes.
   BRYAN  [regla 5 Cláusulas relativas (who/which/that, incluyendo explicativas con comas)]
      ✔ Is it the honey that George bought?
-     ✗ Is it the honey who George bought?
-     ✗ Is it the dog that George bought?
+     ✗ So the station is on the left?
+     ✗ How can we get to the university?
   PEDRO: Yes! He loves it.
   PEDRO: OK! That's six dollars. Where are you going after this?
   BRYAN  [regla 16 Preposiciones de movimiento (to/at/for/of con destinos)]
      ✔ I'm going to the bus stop, then home.
-     ✗ I'm going at the bus stop, then home.
-     ✗ I'm going to the bus stop, then to the moon.
+     ✗ Sure. I'll tell them about my new job.
+     ✗ Good idea. And we can finish by midnight.
   PEDRO: Where do you live?
   BRYAN  [regla 39 Preposiciones (to/at/in/on/for/during/from/of)]
      ✔ On Main Street, near the park.
-     ✗ In Main Street, near of the park.
-     ✗ On the moon, near the park.
+     ✗ Yes. And it's very cold today.
+     ✗ No, I didn't ask anybody yet.
   PEDRO: Good. Be careful. The street is busy.
   BRYAN  [regla 23 Phrasal verbs con "look" (look for / look up / look at / look like)]
      ✔ Thanks! The market looks like a big party!
-     ✗ Thanks! The market looks a big party!
-     ✗ Thanks! The market looks like a big dog!
+     ✗ Really? I thought you had gone in already.
+     ✗ I didn't bring it because it was sunny.
   PEDRO: Ha ha! Come back soon!
 
 ======================================================================
@@ -767,18 +767,18 @@ Tu tio George y la vecina Linda llegan una hora antes a cenar. Atiendelos mientr
   GEORGE: Hello, Bryan! Surprise! We're early!
   BRYAN  [regla 21 Say vs Tell]
      ✔ Hi! Mom told me you would come at seven.
-     ✗ Hi! Mom said me you would come at seven.
-     ✗ Hi! Mom told me a story about dogs.
+     ✗ By Sunday, I'll have been working for six days!
+     ✗ Yes! We can plan the weekend over ice cream.
   LINDA: Sorry, Bryan! I wanted to see your garden.
   BRYAN  [regla 40 For + período / During + evento]
      ✔ No problem. Mom has cooked for three hours!
-     ✗ No problem. Mom has cooked during three hours!
-     ✗ No problem. Mom has cooked for three dogs!
+     ✗ I know. There isn't any bus before nine.
+     ✗ I had been drinking coffee with a friend.
   GEORGE: Here, this is for your mom.
   BRYAN  [regla 25 Give / Gave / Given]
      ✔ Thank you! I'll give it to her.
-     ✗ Thank you! I'll gave it to her.
-     ✗ Thank you! I'll give it to the dog.
+     ✗ Yes. We're looking for a grammar book.
+     ✗ Great! We need to leave at ten.
   GEORGE: Great! Can we come in?
 
 --- Escena: The living room
@@ -786,60 +786,60 @@ Tu tio George y la vecina Linda llegan una hora antes a cenar. Atiendelos mientr
   MOM: George! Linda! You're early! Bryan, why didn't you tell me?
   BRYAN  [regla 21 Say vs Tell]
      ✔ I wanted to tell you, but you were cooking.
-     ✗ I wanted to say you, but you were cooking.
-     ✗ I wanted to tell you, but you were swimming.
+     ✗ This morning it said sun. Now it says rain!
+     ✗ I'm going to study with you at the library.
   MOM: Oh dear. The house isn't clean!
   BRYAN  [regla 35 Uso de "when / while"]
      ✔ Don't worry. I'll clean while you finish dinner.
-     ✗ Don't worry. I'll clean during you finish dinner.
-     ✗ Don't worry. I'll sleep while you finish dinner.
+     ✗ Oh no! I've broken one glass. I'm sorry!
+     ✗ When it gets dark, we'll use the fire.
   MOM: Thank you. Please talk to them while I change.
   BRYAN  [regla 21 Say vs Tell]
      ✔ Sure. I'll tell them about my new job.
-     ✗ Sure. I'll say them about my new job.
-     ✗ Sure. I'll tell them to go home.
+     ✗ Let's do the kitchen, then make the bed.
+     ✗ Ha ha. You've never given me money before!
   MOM: Can you do something for me?
   BRYAN  [regla 14 Make vs Do]
      ✔ Sure. I'll do the dishes later.
-     ✗ Sure. I'll make the dishes later.
-     ✗ Sure. I'll do a dog later.
+     ✗ I've studied English for two years.
+     ✗ Yes. Your dog runs very fast!
   MOM: Good boy.
  [george]
   GEORGE: So, Bryan, your mom said you have a new job?
   BRYAN  [regla 40 For + período / During + evento]
      ✔ Yes. I've worked there for two months.
-     ✗ Yes. I've worked there during two months.
-     ✗ Yes. I've worked there for two cats.
+     ✗ You too. I really like this hotel.
+     ✗ I was walking home when it started.
   GEORGE: Do you work during the holidays?
   BRYAN  [regla 40 For + período / During + evento]
      ✔ Only during the summer. Not in December.
-     ✗ Only while the summer. Not in December.
-     ✗ Only during my dreams. Not in December.
+     ✗ Yes. I still hope they say yes.
+     ✗ Yes. We only have a few eggs.
   GEORGE: Good for you! When I was young, I worked while I studied.
   BRYAN  [regla 35 Uso de "when / while"]
      ✔ Wow. I listen to music while I work.
-     ✗ Wow. I listen to music during I work.
-     ✗ Wow. I eat my shoes while I work.
+     ✗ If it were free, we would take it!
+     ✗ I'm looking for the man who sells fruit.
   GEORGE: What had you been doing before we arrived?
   BRYAN  [regla 1 Past Perfect Continuous]
      ✔ I had been cleaning the house all day.
-     ✗ I had been clean the house all day.
-     ✗ I had been swimming in the house all day.
+     ✗ If I were lost, I would ask somebody.
+     ✗ Yes. We need to finish the design today.
   GEORGE: How long have you known Linda?
   BRYAN  [regla 34 Since vs For]
      ✔ I've known her since she moved here.
-     ✗ I've known her for she moved here.
-     ✗ I've known her since the moon was blue.
+     ✗ Yes. It's next to the bus stop.
+     ✗ Yes, I've talked to him many times.
   GEORGE: What did you do over the holidays?
   BRYAN  [regla 52 Expresiones de tiempo con over]
      ✔ Over the holidays, I visited my friends.
-     ✗ Since the holidays, I visited my friends.
-     ✗ Over the holidays, I visited the moon.
+     ✗ Wow, half of them? That's a lot!
+     ✗ No, not yet. I've just got it!
   GEORGE: This is the lamp that I gave your mom.
   BRYAN  [regla 5 Cláusulas relativas (who/which/that, incluyendo explicativas con comas)]
      ✔ Is it the lamp that was in your house?
-     ✗ Is it the lamp who was in your house?
-     ✗ Is it the dog that was in your house?
+     ✗ Is it the figure that was in the glass box?
+     ✗ Great. Do I need a towel for the pool?
   MOM: Dinner is ready! Come to the kitchen!
 
 --- Escena: Dinner
@@ -847,22 +847,22 @@ Tu tio George y la vecina Linda llegan una hora antes a cenar. Atiendelos mientr
   MOM: Did you tell them to sit down?
   BRYAN  [regla 21 Say vs Tell]
      ✔ Yes. I told them dinner was ready.
-     ✗ Yes. I said them dinner was ready.
-     ✗ Yes. I told them a story about a cat.
+     ✗ Yes. I've put them in the car.
+     ✗ Yes, I enjoy cooking for my family.
   MOM: Good. Let's eat while the soup is hot.
   BRYAN  [regla 35 Uso de "when / while"]
      ✔ Great! I'll bring the bread while you serve.
-     ✗ Great! I'll bring the bread during you serve.
-     ✗ Great! I'll bring the bread while you sleep.
+     ✗ Thank you! Please give them to him later.
+     ✗ Yes. It's on Main Street, near the bank.
   MOM: Dinner must be finished before nine.
   BRYAN  [regla 48 Oraciones con "by" para tiempo futuro]
      ✔ Don't worry. We'll finish by nine.
-     ✗ Don't worry. We'll finish until nine.
-     ✗ Don't worry. We'll finish by bicycle.
+     ✗ The weather is really bad tonight.
+     ✗ I don't know where she went.
   MOM: Can you bring the glasses?
   BRYAN  [regla 11 Bring / Brought]
      ✔ Sure. I'll bring them now.
-     ✗ Sure. I'll brought them now.
-     ✗ Sure. I'll bring the car now.
+     ✗ I've wanted it since March.
+     ✗ Sure. Here's my phone number.
   MOM: Thank you for your help today, Bryan.
 

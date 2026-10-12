@@ -43,7 +43,7 @@ Para 120 historias: cada historia nueva = 1 JSON en data/misiones + 1 layout; el
 
 ## Version final (40 historias) - como dejar todo funcionando
 Orden de los pasos, desde la carpeta `aventura/` (el ultimo, desde la raiz del proyecto):
-1. `python generar_audio_tts.py`  - genera con Kokoro los audios que falten de `frases.json` (3205 en total; los que ya tienes se saltan).
+1. `python generar_audio_tts.py`  - genera con Kokoro los audios que falten de `frases.json` (1982 en total; los que ya tienes se saltan).
 2. `bash verificar_audios_todos.sh`  - escribe `reporte_audios.txt`. Debe terminar en "RESULTADO: TODO BIEN".
    Si faltan o hay danados: borra los danados, vuelve al paso 1 y verifica otra vez.
 3. `cd ..` y `python build.py`  - va DESPUES de generar los audios: el service worker solo guarda para uso sin conexion los mp3 que existen.
@@ -65,3 +65,15 @@ Contenido:
 - `frases.json` paso de 3173 a 3205 audios (lineas nuevas o cambiadas). Si ya tenias audios, `generar_audio_tts.py` solo
   genera los que falten; `verificar_audios_todos.sh` lista los sobrantes (puedes borrarlos).
 - `guiones/historia_01.txt`: guion de la historia 1, que faltaba.
+
+## Version 16 - el juego es para divertirse, no un examen de gramatica
+- Opciones incorrectas: ya no son "la correcta con un error". Ahora son frases reales que Bryan dice en OTRAS historias y que
+  no encajan en esa conversacion (no comparten palabras ni tema con el dialogo). Se reutiliza su audio: `frases.json` bajo de
+  3205 a 1982 audios. Las genero `distractores.py` (filtros: otra historia, sin palabras ni tema en comun, largo parecido,
+  cada frase se usa como maximo 3 veces). `data/errores_intencionales.txt` ya no se usa en ninguna opcion.
+- Audio: la opcion suena al seleccionarla; al enviarla ya no se vuelve a reproducir (si aun esta sonando, se espera a que termine).
+- Panel del guion (izquierda): muestra el ultimo intercambio correcto, es decir lo que dijo el personaje desde tu respuesta
+  anterior y tu respuesta. Se queda igual hasta que vuelves a responder bien y no cambia al pasar de escena. Si fallas tres
+  veces, muestra la respuesta correcta que revela el juego. Con ‹ se contrae a la izquierda y con › se abre (se recuerda).
+  Negro al 80%, letra blanca pequena y delgada (mismo tamano que el texto de las opciones).
+- El boton 🔁 (repetir lo ultimo que dijo el personaje) paso a la esquina inferior izquierda para no chocar con el panel.

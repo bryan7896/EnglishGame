@@ -8,59 +8,59 @@ Llega una vecina nueva a tu calle. Tu mama te pide llevarle un pastel. Pregunta 
   MOM: Bryan, can you help me? We have a new neighbor.
   BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
      ✔ Really? What is her name?
-     ✗ Really? What her name is?
-     ✗ Really? I have a new phone.
+     ✗ But you still hope, right?
+     ✗ Thanks! Is it a long walk?
   MOM: I don't know. Please take her this cake and say hello.
   BRYAN  [regla 22 Artículos (a/an/the)]
      ✔ Sure. Is it a chocolate cake?
-     ✗ Sure. Is it an chocolate cake?
-     ✗ Sure. Is it a new car?
+     ✗ Oh no! When did you get sick?
+     ✗ Yes. Has the mail arrived yet?
   MOM: Yes, it is. Ask Lily. She knows everybody on this street.
  [lily]
   LILY: Hi, Bryan! Is that cake for me?
   BRYAN  [regla 22 Artículos (a/an/the)]
      ✔ No, sorry. It's for the new neighbor.
-     ✗ No, sorry. It's for new neighbor.
-     ✗ Yes, I'm going to the beach.
+     ✗ Yes. One ticket to River Town, please.
+     ✗ You too. I really like this hotel.
   LILY: Oh, Linda! She's really nice. She works at the hospital.
   BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
      ✔ Where does she live?
-     ✗ Where she does live?
-     ✗ When does the bus come?
+     ✗ Did you say tomorrow morning?
+     ✗ I still hope so!
   LILY: In the blue house, next to the big tree. She's in the garden now.
   BRYAN  [regla 20 3ra persona singular (-s)]
      ✔ Great. She lives very near us, then.
-     ✗ Great. She live very near us, then.
-     ✗ Great. I live in a big city.
+     ✗ Oh no! I forgot my secret number.
+     ✗ Yes. I can't find my phone anywhere.
   LILY: Can you see the blue house?
   BRYAN  [regla 39 Preposiciones (to/at/in/on/for/during/from/of)]
      ✔ Yes. It's on the corner, next to the tree.
-     ✗ Yes. It's in the corner, next of the tree.
-     ✗ Yes. It's on the moon, next to the tree.
+     ✗ I wanted to tell you, but you were cooking.
+     ✗ If I had money, I would go to Japan.
   LILY: Yes! And she has a white cat.
  [george]
   GEORGE: Good morning, Bryan. Nice day, isn't it?
   BRYAN  [regla 20 3ra persona singular (-s)]
      ✔ Yes. Your dog runs very fast!
-     ✗ Yes. Your dog run very fast!
-     ✗ Yes. I am a doctor.
+     ✗ Yes! At five, we'll be dancing!
+     ✗ No, I've never met one before!
   GEORGE: Ha ha, he loves the park. Who is that cake for?
   BRYAN  [regla 22 Artículos (a/an/the)]
      ✔ It's for the woman in the blue house.
-     ✗ It's for woman in the blue house.
-     ✗ It's for my bicycle.
+     ✗ He works as a cook in a restaurant.
+     ✗ Yes. I still hope the sun comes back.
   GEORGE: Ah, the new neighbor. Say hello from me!
  [linda]
   LINDA: Oh, hello! Can I help you?
   BRYAN  [regla 22 Artículos (a/an/the)]
      ✔ Hi! I'm Bryan. I live in the white house.
-     ✗ Hi! I'm Bryan. I live in white house.
-     ✗ Hi! I'm Bryan. I want a taxi.
+     ✗ By Friday? OK, it will be ready by then.
+     ✗ I will. I don't want to get wet again.
   LINDA: Nice to meet you, Bryan. I'm Linda. Is that cake for me?
   BRYAN  [regla 20 3ra persona singular (-s)]
      ✔ Yes. My mom makes the best cakes.
-     ✗ Yes. My mom make the best cakes.
-     ✗ Yes. My mom is at the airport.
+     ✗ On the second floor? OK, thank you.
+     ✗ For twenty minutes, during the first song.
   LINDA: How nice! Please, come in. Let's have some tea.
 
 --- Escena: Linda's house
@@ -68,55 +68,55 @@ Llega una vecina nueva a tu calle. Tu mama te pide llevarle un pastel. Pregunta 
   LINDA: So, Bryan, tell me about this street.
   BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
      ✔ Sure. What do you want to know?
-     ✗ Sure. What you want to know?
-     ✗ Sure. Where is my phone?
+     ✗ So the station is on the left?
+     ✗ Great! Can it be checked every month?
   LINDA: Is there a supermarket near here?
   BRYAN  [regla 22 Artículos (a/an/the)]
      ✔ Yes, there's a small supermarket on the corner.
-     ✗ Yes, there's an small supermarket on the corner.
-     ✗ No, thanks. I don't drink coffee.
+     ✗ Thank you! Please give them to him later.
+     ✗ Thank you! You've given us a great night!
   LINDA: Great. And what about you? What do you do?
   BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
      ✔ I'm a student. And where do you work?
-     ✗ I'm a student. And where you work?
-     ✗ I'm a student. How old is the tree?
+     ✗ Oh no. Has he gone to the doctor?
+     ✗ Do we need to pay for the card?
   LINDA: I work at the city hospital. I'm a nurse.
   BRYAN  [regla 20 3ra persona singular (-s)]
      ✔ Cool! My uncle works there, too.
-     ✗ Cool! My uncle work there, too.
-     ✗ Cool! I don't like tea.
+     ✗ Yes, there are too many people.
+     ✗ Good idea. That's the easiest way.
   LINDA: Really? What's his name?
   BRYAN  [regla 20 3ra persona singular (-s)]
      ✔ George. He lives in the green house.
-     ✗ George. He live in the green house.
-     ✗ George. He is a cat.
+     ✗ Yes. It's next to the bus stop.
+     ✗ Not much. Only half of a bottle.
   LINDA: Oh, I met him this morning! He has a nice dog.
   LINDA: How long have you lived on this street?
   BRYAN  [regla 34 Since vs For]
      ✔ We've lived here since I was a child.
-     ✗ We've lived here for I was a child.
-     ✗ We've lived here since the moon was blue.
+     ✗ Yes, but there are too many people today.
+     ✗ Good idea. And we can finish by midnight.
   LINDA: I've just moved in. Have you met my cat yet?
   BRYAN  [regla 10 Presente perfecto: have/has/had + participio (incluye "just": acaba de/acababa de)]
      ✔ No, I haven't seen her yet. Where is she?
-     ✗ No, I haven't saw her yet. Where is she?
-     ✗ No, I haven't seen the bus yet. Where is it?
+     ✗ The elevator is broken. Can it be repaired today?
+     ✗ Yes, please. Can you call my phone for me?
   LINDA: She's sleeping upstairs. She's very quiet.
   BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
      ✔ Why did you move to this street?
-     ✗ Why you moved to this street?
-     ✗ Why is the sky blue?
+     ✗ Yes. What did the woman look like?
+     ✗ Sure. Do I need to sign anything?
   LINDA: Because my new job is very close. And it's a quiet street.
   LINDA: It's a nice place to live, isn't it?
   BRYAN  [regla 29 Tag Questions]
      ✔ Yes, it is. The neighbors are nice, aren't they?
-     ✗ Yes, it is. The neighbors are nice, isn't it?
-     ✗ Yes, it is. The neighbors are cats, aren't they?
+     ✗ They're beautiful. When did she give them to you?
+     ✗ It's at ten thirty. How far is it?
   LINDA: Yes, they are! I'm very happy here.
   BRYAN  [regla 22 Artículos (a/an/the)]
      ✔ Welcome! I hope you have a great time here.
-     ✗ Welcome! I hope you have an great time here.
-     ✗ Welcome! I hope the bus is late.
+     ✗ If you bought it, we would have a party!
+     ✗ Can you give them to me? I can check.
   LINDA: Thank you, Bryan. And thank your mom for the cake!
 
 ======================================================================
@@ -129,92 +129,92 @@ Perdiste tu celular en la parada del bus. Pregunta a la gente de la parada y des
   TOM: Hi, Bryan! You look worried. What's wrong?
   BRYAN  [regla 3 Orden de sustantivos compuestos (bus stop, phone number)]
      ✔ I lost my phone at the bus stop.
-     ✗ I lost my phone at the stop bus.
-     ✗ I lost my shoes at the beach.
+     ✗ It's for the woman in the blue house.
+     ✗ A little. And he can't eat much food.
   TOM: Oh no! Did you ask anybody?
   BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
      ✔ No, I didn't ask anybody yet.
-     ✗ No, I didn't ask nobody yet.
-     ✗ No, I didn't eat anything.
+     ✗ There's something soft... and a letter!
+     ✗ And we'll be eating ice cream!
   TOM: Ask Emma. She was here before you.
  [emma]
   EMMA: Good morning. Are you looking for something?
   BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
      ✔ Yes. I can't find my phone anywhere.
-     ✗ Yes. I can't find my phone somewhere.
-     ✗ Yes. I can't find the moon tonight.
+     ✗ Yes, I enjoy cooking for my family.
+     ✗ I don't know. I'll tell you later.
   EMMA: Hmm, I saw something black under the park seat.
   BRYAN  [regla 8 Pronombre objeto tras preposición (him/her/them, no he/she/they)]
      ✔ Really? Can you show it to me?
-     ✗ Really? Can you show it to I?
-     ✗ Really? Can you show me the beach?
+     ✗ Really? How long had you been reading?
+     ✗ Are they late because of the storm?
   EMMA: Here. Oh, it's not a phone. It's an empty phone case.
   BRYAN  [regla 3 Orden de sustantivos compuestos (bus stop, phone number)]
      ✔ That's my phone case! But where is my phone?
-     ✗ That's my case phone! But where is my phone?
-     ✗ That's my pizza! But where is my phone?
+     ✗ Great. Do I need a towel for the pool?
+     ✗ No, I haven't seen her yet. Where is she?
   EMMA: Maybe it's on the bus. The bus driver is very kind. Ask him.
  [george]
   GEORGE: Morning, Bryan. The bus is late again!
   BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
      ✔ I know. There isn't any bus before nine.
-     ✗ I know. There isn't no bus before nine.
-     ✗ I know. I have some apples.
+     ✗ I've worked at a small company since July.
+     ✗ It's the most beautiful country in the world.
   GEORGE: Ha ha. Do you need some help?
   BRYAN  [regla 8 Pronombre objeto tras preposición (him/her/them, no he/she/they)]
      ✔ Yes, please. Can you call my phone for me?
-     ✗ Yes, please. Can you call my phone for I?
-     ✗ Yes, please. Can you sing a song?
+     ✗ This is room two hundred and five, isn't it?
+     ✗ We were worried! Where had you been all day?
   GEORGE: Sorry, my boy. I left my phone at home.
   BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
      ✔ That's OK. Maybe somebody found it.
-     ✗ That's OK. Maybe nobody didn't find it.
-     ✗ That's OK. Maybe it's raining.
+     ✗ His mother gave them to him.
+     ✗ OK. Let's swim for an hour.
   GEORGE: I hope so!
   GEORGE: What does your phone look like?
   BRYAN  [regla 22 Artículos (a/an/the)]
      ✔ It's a black phone with an orange case.
-     ✗ It's a black phone with a orange case.
-     ✗ It's a black dog with an orange case.
+     ✗ We've lived here since I was a child.
+     ✗ When it gets dark, we'll use the fire.
   GEORGE: OK. If I see it, I'll tell you.
  [objeto bus]
   BRYAN  [regla 8 Pronombre objeto tras preposición (him/her/them, no he/she/they)]
      ✔ Wait for me, please!
-     ✗ Wait for I, please!
-     ✗ Wait for the rain, please!
+     ✗ Wow! For forty years!
+     ✗ No, I've never used them.
 
 --- Escena: On the bus
  [sam]
   SAM: Good morning! Do you have a ticket?
   BRYAN  [regla 3 Orden de sustantivos compuestos (bus stop, phone number)]
      ✔ Yes, here's my bus ticket.
-     ✗ Yes, here's my ticket bus.
-     ✗ Yes, here's my pizza.
+     ✗ Sure! Let's make it together.
+     ✗ Because I like teaching English.
   SAM: Thanks. Take a seat, please.
   BRYAN  [regla 3 Orden de sustantivos compuestos (bus stop, phone number)]
      ✔ Excuse me. I left my phone on a bus seat.
-     ✗ Excuse me. I left my phone on a seat bus.
-     ✗ Excuse me. I left my dog at the hotel.
+     ✗ Yes, I was listening to music when I got on.
+     ✗ Over the last year, I learned a lot of English.
   SAM: A phone? Somebody gave me a phone this morning. What color is it?
   BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
      ✔ It's black, and it has no case.
-     ✗ It's black, and it hasn't no case.
-     ✗ It's black, and it has four legs.
+     ✗ Great! We need to leave at ten.
+     ✗ Yes. I told them dinner was ready.
   SAM: Hmm, I have two black phones here.
   BRYAN  [regla 8 Pronombre objeto tras preposición (him/her/them, no he/she/they)]
      ✔ Can you give them to me? I can check.
-     ✗ Can you give they to me? I can check.
-     ✗ Can you give me a ticket to the moon?
+     ✗ No! It was very loud, but I loved it.
+     ✗ I was making the fire when I heard it.
   SAM: Here you are. Is one of them yours?
   BRYAN  [regla 3 Orden de sustantivos compuestos (bus stop, phone number)]
      ✔ Yes! You can see my phone number here.
-     ✗ Yes! You can see my number phone here.
-     ✗ Yes! You can see my house from here.
+     ✗ Sorry! I'm in a hurry for my train.
+     ✗ No problem. I brought some water for us.
   SAM: Great! Be careful next time, OK?
   BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
      ✔ I will. Thanks! I can't do anything without it.
-     ✗ I will. Thanks! I can't do nothing without it.
-     ✗ I will. Thanks! I don't like buses.
+     ✗ Thank you! I need to get to it fast.
+     ✗ Yes. And half of the things were on sale.
   SAM: Ha ha, nobody can! Have a nice day.
 
 ======================================================================
@@ -227,95 +227,95 @@ Estas en una cafeteria llena con tus amigos. Pregunta que quiere cada uno y haz 
   SARA: Bryan, I need to drink something hot. It's so cold today!
   BRYAN  [regla 6 Need to + infinitivo]
      ✔ OK. Do you need to eat something, too?
-     ✗ OK. Do you need eat something, too?
-     ✗ OK. Do you need to sleep now?
+     ✗ Is it the book that the teacher likes?
+     ✗ Is it the biggest city in the world?
   SARA: No, thanks. Just a tea with a little milk.
   BRYAN  [regla 37 Contables vs incontables (few/little, less/fewer, much/many)]
      ✔ A tea with a little milk. Got it.
-     ✗ A tea with a few milk. Got it.
-     ✗ Two cups of coffee with ice. Got it.
+     ✗ He must be inside. He has a ticket.
+     ✗ I sent them in May. Now I'm waiting.
   SARA: Thanks!
  [max]
   MAX: I'm so hungry! Are there any sandwiches?
   BRYAN  [regla 37 Contables vs incontables (few/little, less/fewer, much/many)]
      ✔ I think there are a few sandwiches left.
-     ✗ I think there are a little sandwiches left.
-     ✗ I think there is a sandwich in my bag.
+     ✗ Not really. We have waited for forty minutes.
+     ✗ Let me look at it. Yes, it's mine!
   MAX: Great. Can I have a sandwich and an orange juice?
   BRYAN  [regla 22 Artículos (a/an/the)]
      ✔ Sure. A sandwich and an orange juice.
-     ✗ Sure. A sandwich and a orange juice.
-     ✗ Sure. A pizza and a big cake.
+     ✗ Yes. I've put them in the car.
+     ✗ This year, we'll go to the beach!
   MAX: Thanks, man. I need to eat before class.
   MAX: Sara always orders the same thing, right?
   BRYAN  [regla 20 3ra persona singular (-s)]
      ✔ Yes. She always drinks tea with milk.
-     ✗ Yes. She always drink tea with milk.
-     ✗ Yes. She always drives a bus.
+     ✗ The one that you sang last night!
+     ✗ Great idea! I'm going to call everybody.
   MAX: Ha ha. Some things never change!
  [bella]
   BELLA: Oh, I want everything! How many cookies do they have?
   BRYAN  [regla 37 Contables vs incontables (few/little, less/fewer, much/many)]
      ✔ Not many. Only a few cookies today.
-     ✗ Not much. Only a few cookies today.
-     ✗ Not many. Only a few cars today.
+     ✗ As a student, I always worked hard.
+     ✗ No, not yet. I've just got it!
   BELLA: Then I want a piece of cake. And an apple juice.
   BRYAN  [regla 22 Artículos (a/an/the)]
      ✔ A piece of cake and an apple juice.
-     ✗ A piece of cake and a apple juice.
-     ✗ A piece of paper and a pen.
+     ✗ Because of the rain. The buses were slow.
+     ✗ Good luck! Don't forget to bring it back.
   BELLA: Hmm, wait. I only want a small piece of cake.
   BRYAN  [regla 47 Half of]
      ✔ Then take half of my piece!
-     ✗ Then take the half of piece!
-     ✗ Then take half of my car!
+     ✗ No, I didn't ask anybody yet.
+     ✗ Yes, please. A big shopping bag.
   BELLA: Perfect!
  [mia]
   MIA: Hi! Welcome to the coffee shop. What can I get you?
   BRYAN  [regla 6 Need to + infinitivo]
      ✔ Hi! I need to order for four people.
-     ✗ Hi! I need order for four people.
-     ✗ Hi! I need to go to the doctor.
+     ✗ Tell her to go to the information desk.
+     ✗ If it were free, we would take it!
   MIA: No problem. What would you like?
   BRYAN  [regla 22 Artículos (a/an/the)]
      ✔ A tea, a sandwich and an orange juice, please.
-     ✗ A tea, a sandwich and a orange juice, please.
-     ✗ A pizza, a burger and a beer, please.
+     ✗ Yes, my wallet. A man took it and left.
+     ✗ By tonight, we'll have been working for twelve hours.
   MIA: OK. And for the fourth person?
   BRYAN  [regla 22 Artículos (a/an/the)]
      ✔ A piece of cake and an apple juice.
-     ✗ A piece of cake and a apple juice.
-     ✗ A piece of bread and a cup of soup.
+     ✗ Yes. It's the oldest car on the street!
+     ✗ It's at Sara's house now. It's very close.
   MIA: Do you want sugar in the tea?
   BRYAN  [regla 37 Contables vs incontables (few/little, less/fewer, much/many)]
      ✔ Just a little sugar, please.
-     ✗ Just a few sugar, please.
-     ✗ Just a big burger, please.
+     ✗ Yes, here's my bus ticket.
+     ✗ I work as an engineer.
   MIA: And how many cookies do you want? We only have a few.
   BRYAN  [regla 37 Contables vs incontables (few/little, less/fewer, much/many)]
      ✔ Not many. How much are they?
-     ✗ Not many. How many are they?
-     ✗ Not many. Where is the beach?
+     ✗ Of course. Can we sit together?
+     ✗ Wow! When was it last checked?
   MIA: They're two dollars each. So, twenty-two dollars, please.
   BRYAN  [regla 6 Need to + infinitivo]
      ✔ Here you are. Do I need to wait here?
-     ✗ Here you are. Do I need wait here?
-     ✗ Here you are. Do I need to sing?
+     ✗ Is it the lamp that was in your house?
+     ✗ You look tired. Had you been working all day?
   MIA: No, you don't need to wait. I can bring it to your table.
   BRYAN  [regla 6 Need to + infinitivo]
      ✔ Great! We need to leave at ten.
-     ✗ Great! We need leave at ten.
-     ✗ Great! We need a new car.
+     ✗ It's on Green Street, in the city.
+     ✗ OK. I'll be free by three o'clock.
   MIA: Do you want me to make some coffee too?
   BRYAN  [regla 14 Make vs Do]
      ✔ Yes, please. Can you make a big coffee?
-     ✗ Yes, please. Can you do a big coffee?
-     ✗ Yes, please. Can you make a big car?
+     ✗ I'm a student. And where do you work?
+     ✗ Good evening. Could you take us home, please?
   MIA: So I'll bring the food to your table, OK?
   BRYAN  [regla 11 Bring / Brought]
      ✔ Yes, please. Bring it to the table by the window.
-     ✗ Yes, please. Brought it to the table by the window.
-     ✗ Yes, please. Bring it to the beach.
+     ✗ Excuse me. I left my phone on a bus seat.
+     ✗ My card. I will show you my name on it.
   MIA: No problem. Your food is ready in five minutes!
 
 ======================================================================
@@ -328,18 +328,18 @@ Tienes que tomar el tren de las diez y media. Pide indicaciones por la calle y e
   GEORGE: Bryan, where are you going with that bag?
   BRYAN  [regla 16 Preposiciones de movimiento (to/at/for/of con destinos)]
      ✔ I'm going to the train station.
-     ✗ I'm going at the train station.
-     ✗ I'm going to bed.
+     ✗ Good idea. It's very wet here.
+     ✗ OK. I'll take the cheaper bananas.
   GEORGE: The station? What time is your train?
   BRYAN  [regla 33 Sujeto "it" (clima, tiempo, distancia)]
      ✔ It's at ten thirty. How far is it?
-     ✗ Is at ten thirty. How far is it?
-     ✗ It's my birthday. How old are you?
+     ✗ Can you bring the lamp to the house?
+     ✗ Bananas. Can you look for some good bananas?
   GEORGE: It's about two kilometers. You need to go through the park.
   BRYAN  [regla 39 Preposiciones (to/at/in/on/for/during/from/of)]
      ✔ OK. Is the park on Main Street?
-     ✗ OK. Is the park in Main Street?
-     ✗ OK. Is the park a good restaurant?
+     ✗ Can you call a taxi for us?
+     ✗ I paid online. That's strange, isn't it?
   GEORGE: Yes. Go now, and ask Lily in the park. Hurry!
 
 --- Escena: The park
@@ -347,77 +347,77 @@ Tienes que tomar el tren de las diez y media. Pide indicaciones por la calle y e
   LILY: Hi, Bryan! Are you lost?
   BRYAN  [regla 16 Preposiciones de movimiento (to/at/for/of con destinos)]
      ✔ A little. How do I get to the station?
-     ✗ A little. How do I get at the station?
-     ✗ A little. How do I get a dog?
+     ✗ Thank you. What does the book look like?
+     ✗ Great. What will you be doing in the morning?
   LILY: Walk across the bridge. Then turn left.
   BRYAN  [regla 39 Preposiciones (to/at/in/on/for/during/from/of)]
      ✔ So the station is on the left?
-     ✗ So the station is at the left?
-     ✗ So the station is in my bag?
+     ✗ I will. People like stories, don't they?
+     ✗ Yes. Which eggs are the cheapest?
   LILY: Yes, next to the big supermarket. You can't miss it.
   LILY: Do you know where the supermarket is?
   BRYAN  [regla 39 Preposiciones (to/at/in/on/for/during/from/of)]
      ✔ Yes. It's on Main Street, near the bank.
-     ✗ Yes. It's in Main Street, near of the bank.
-     ✗ Yes. It's on the moon, near the bank.
+     ✗ If we came every week, I'd love it!
+     ✗ My friend got sick. He feels very hot.
   LILY: Good. Then you can't get lost.
   BRYAN  [regla 33 Sujeto "it" (clima, tiempo, distancia)]
      ✔ Thanks! Is it a long walk?
-     ✗ Thanks! Is a long walk?
-     ✗ Thanks! Is it a big pizza?
+     ✗ Sure. Is it a chocolate cake?
+     ✗ Have you eaten any cake today?
   LILY: No, it's only ten minutes. But hurry!
  [hank]
   HANK: Good morning. Please don't walk on the grass.
   BRYAN  [regla 39 Preposiciones (to/at/in/on/for/during/from/of)]
      ✔ Sorry! I'm in a hurry for my train.
-     ✗ Sorry! I'm on a hurry for my train.
-     ✗ Sorry! I'm a doctor.
+     ✗ I think there are a few sandwiches left.
+     ✗ I had been cleaning the house all day.
   HANK: OK, OK. The station is across the bridge.
   BRYAN  [regla 16 Preposiciones de movimiento (to/at/for/of con destinos)]
      ✔ Thank you! I need to get to it fast.
-     ✗ Thank you! I need to get at it fast.
-     ✗ Thank you! I need a new jacket.
+     ✗ Yes. It's on the corner, next to the tree.
+     ✗ I'm going to study with you at the library.
   HANK: Then run! Have a good trip.
  [objeto bridge]
   BRYAN  [regla 16 Preposiciones de movimiento (to/at/for/of con destinos)]
      ✔ Let's walk across the bridge to the station.
-     ✗ Let's walk across the bridge at the station.
-     ✗ Let's walk across the bridge to the beach.
+     ✗ A piece of cake and an apple juice.
+     ✗ I still hope I can see one song!
 
 --- Escena: The train station
  [sam]
   SAM: Good morning. Can I help you?
   BRYAN  [regla 16 Preposiciones de movimiento (to/at/for/of con destinos)]
      ✔ Yes. One ticket to River Town, please.
-     ✗ Yes. One ticket at River Town, please.
-     ✗ Yes. One cup of coffee, please.
+     ✗ Sure. A sandwich and an orange juice.
+     ✗ Yes. I still hope they say yes.
   SAM: Here you are. That's fifteen dollars.
   SAM: Do you want a seat next to the window?
   BRYAN  [regla 42 Vocabulario específico]
      ✔ Yes, please. A window seat is great.
-     ✗ Yes, please. A window door is great.
-     ✗ Yes, please. A window pizza is great.
+     ✗ Wow, half of them? That's a lot!
+     ✗ Yes, it's more expensive, but it's safer.
   SAM: OK. Seat twelve, next to the window.
   BRYAN  [regla 33 Sujeto "it" (clima, tiempo, distancia)]
      ✔ Thanks. What time is it now?
-     ✗ Thanks. What time is now?
-     ✗ Thanks. What color is it now?
+     ✗ Sure. Can I use your pen?
+     ✗ Yes, please. Could you take us home?
   SAM: It's ten twenty-five. Your train is the green one.
   BRYAN  [regla 39 Preposiciones (to/at/in/on/for/during/from/of)]
      ✔ Great! Does it leave from here?
-     ✗ Great! Does it leave of here?
-     ✗ Great! Does it have a pool?
+     ✗ So you're here because of your house?
+     ✗ Why did you move to this street?
   SAM: Yes, in five minutes. It's cold in River Town today.
   BRYAN  [regla 33 Sujeto "it" (clima, tiempo, distancia)]
      ✔ Thanks! Is it very cold there?
-     ✗ Thanks! Is very cold there?
-     ✗ Thanks! Is it very small there?
+     ✗ Could I order a big birthday cake?
+     ✗ How can we get to the university?
   SAM: Yes, it's snowing there. Have a good trip!
   SAM: Wait! Do you have your ticket with you?
   BRYAN  [regla 3 Orden de sustantivos compuestos (bus stop, phone number)]
      ✔ Yes. Here's my train ticket.
-     ✗ Yes. Here's my ticket train.
-     ✗ Yes. Here's my sandwich.
+     ✗ Let's call the building manager.
+     ✗ No, it hasn't arrived yet.
   SAM: Good. Show it on the train.
 
 ======================================================================
@@ -430,52 +430,52 @@ Te agarra un aguacero sin paraguas. Refugiate en la parada con Jake, espera a qu
   JAKE: Bryan! It's raining so hard! Where's your umbrella?
   BRYAN  [regla 49 because of / because]
      ✔ I didn't bring it because it was sunny.
-     ✗ I didn't bring it because of it was sunny.
-     ✗ I didn't bring it because I love pizza.
+     ✗ Over the last month? Only food and books.
+     ✗ Yes. I have a room for two nights.
   JAKE: Ha! Now you're getting wet.
   BRYAN  [regla 30 Get + adjetivo (cambios de estado: get worried, se puso...)]
      ✔ I know. I'm getting cold, too.
-     ✗ I know. I'm get cold, too.
-     ✗ I know. I'm getting a new car.
+     ✗ I'll be waiting behind the door.
+     ✗ Good idea. Buy some for her!
   JAKE: And your shoes are full of water!
   BRYAN  [regla 27 Too vs Very]
      ✔ I know. It's too late to go back.
-     ✗ I know. It's too much late to go back.
-     ✗ I know. My shoes are very new.
+     ✗ No, I think it's going to the airport.
+     ✗ Sure. I'll tell them about my new job.
   JAKE: What were you doing when it started to rain?
   BRYAN  [regla 35 Uso de "when / while"]
      ✔ I was walking home when it started.
-     ✗ I was walking home while it started.
-     ✗ I was flying home when it started.
+     ✗ I've known her since she moved here.
+     ✗ OK. I'll take the bigger eggs, please.
   JAKE: Let's go to the bus stop. Come on!
  [objeto bus_stop]
   BRYAN  [regla 33 Sujeto "it" (clima, tiempo, distancia)]
      ✔ Good idea. It's very wet here.
-     ✗ Good idea. Is very wet here.
-     ✗ Good idea. It's very sunny here.
+     ✗ OK. I won't make any noise.
+     ✗ Sure. I'll do the dishes later.
 
 --- Escena: At the bus stop
  [emma]
   EMMA: Oh dear, you two are very wet!
   BRYAN  [regla 27 Too vs Very]
      ✔ Yes. And it's very cold today.
-     ✗ Yes. And it's too much cold today.
-     ✗ Yes. And it's very hot today.
+     ✗ The elevator door. It doesn't close.
+     ✗ Good idea. I'll tell them everything.
   EMMA: The buses are late because of the rain.
   BRYAN  [regla 49 because of / because]
      ✔ Are they late because of the storm?
-     ✗ Are they late because the storm?
-     ✗ Are they late because of the pizza?
+     ✗ OK. Is the park on Main Street?
+     ✗ Great! And the steak? Is it ready yet?
   EMMA: Yes. Oh, look! The rain stopped.
   BRYAN  [regla 33 Sujeto "it" (clima, tiempo, distancia), 30 Get + adjetivo (cambios de estado: get worried, se puso...)]
      ✔ Yes! It's getting better now.
-     ✗ Yes! Is getting better now.
-     ✗ Yes! It's getting dark at noon.
+     ✗ Sure. Here's my phone number.
+     ✗ They'll call me by Friday.
   EMMA: Take my umbrella anyway. Go home before you get sick.
   BRYAN  [regla 30 Get + adjetivo (cambios de estado: get worried, se puso...)]
      ✔ Thanks, Emma. I don't want to get sick.
-     ✗ Thanks, Emma. I don't want to sick.
-     ✗ Thanks, Emma. I don't want to get married.
+     ✗ If I were lost, I would ask somebody.
+     ✗ As you know, I always have a plan!
   EMMA: You're welcome. Go, go!
 
 --- Escena: Home
@@ -483,37 +483,37 @@ Te agarra un aguacero sin paraguas. Refugiate en la parada con Jake, espera a qu
   MOM: Bryan! Look at you! Why are you so wet?
   BRYAN  [regla 49 because of / because]
      ✔ Because I forgot my umbrella this morning.
-     ✗ Because of I forgot my umbrella this morning.
-     ✗ Because I ate too much cake.
+     ✗ Sorry! It's too loud. I'll change it.
+     ✗ At five, I'll be eating ice cream.
   MOM: Take this towel. Do you want some hot tea?
   BRYAN  [regla 27 Too vs Very]
      ✔ Yes, please. But not too hot.
-     ✗ Yes, please. But not too much hot.
-     ✗ Yes, please. But not too cold.
+     ✗ Practicing every day will help you.
+     ✗ I'm going to bring the music.
   MOM: Take off your wet shoes, please.
   BRYAN  [regla 50 (put, try, get, trying, take, lie) + (down, off, on)]
      ✔ OK. I'll take them off now.
-     ✗ OK. I'll take off them now.
-     ✗ OK. I'll take them to the park.
+     ✗ OK. I'll put them down here.
+     ✗ You need to check these numbers.
   MOM: If you don't dry your hair, you'll get sick.
   BRYAN  [regla 12 Primer condicional (if + presente, will/won't + infinitivo)]
      ✔ OK. If I dry it now, I'll be fine.
-     ✗ OK. If I will dry it now, I'll be fine.
-     ✗ OK. If I dry it now, I'll be a fish.
+     ✗ Yes, I had heard about it from a friend.
+     ✗ It can't be the power. The lights are on.
   MOM: Here. Is it still raining outside?
   BRYAN  [regla 33 Sujeto "it" (clima, tiempo, distancia)]
      ✔ No, it stopped. It's sunny now.
-     ✗ No, stopped. Is sunny now.
-     ✗ No, it's my birthday now.
+     ✗ So the figure was returned! Great!
+     ✗ She told me nothing about moving.
   MOM: Good. Next time, look at the weather before you go out.
   BRYAN  [regla 30 Get + adjetivo (cambios de estado: get worried, se puso...)]
      ✔ I will. I don't want to get wet again.
-     ✗ I will. I don't want to getting wet again.
-     ✗ I will. I want to get a dog.
+     ✗ Good. He can help us as fast as possible.
+     ✗ Yes, corn for my dad. He cooks with us.
   MOM: Did you play football in the rain?
   BRYAN  [regla 38 Bad vs Badly]
      ✔ Yes, but I played badly. It was very wet.
-     ✗ Yes, but I played bad. It was very wet.
-     ✗ Yes, but I cooked badly. It was very wet.
+     ✗ Can you finish by four? We'll wait for you.
+     ✗ No. My card isn't working at the money machine.
   MOM: Ha ha. Now drink your tea before it gets cold.
 

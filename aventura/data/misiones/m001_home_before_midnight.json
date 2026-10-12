@@ -56,10 +56,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "I travel to Spain tomorrow."
+                    "texto": "How many bottles of water does he need?"
                   },
                   {
-                    "texto": "I want a cup of coffee, please."
+                    "texto": "Lost? Where had she gone before she called?"
                   }
                 ],
                 "reglaIds": [
@@ -103,10 +103,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "My brother has a new car."
+                    "texto": "A little. How do I get to the station?"
                   },
                   {
-                    "texto": "Where is the restroom?"
+                    "texto": "OK. Is this the paper for the new card?"
                   }
                 ]
               },
@@ -146,10 +146,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "The music is very loud!"
+                    "texto": "Had she already taken the train?"
                   },
                   {
-                    "texto": "Can I have some water?"
+                    "texto": "That's bad. Was the bed hard?"
                   }
                 ],
                 "reglaIds": [
@@ -193,10 +193,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Do you like pizza?"
+                    "texto": "Was she seen by the camera?"
                   },
                   {
-                    "texto": "I am a student at the university."
+                    "texto": "Not many. How much are they?"
                   }
                 ]
               },
@@ -236,10 +236,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "I want a cup of coffee, please."
+                    "texto": "OK. Do I need to come back here?"
                   },
                   {
-                    "texto": "Where is the restroom?"
+                    "texto": "Is he the chef who made our pasta?"
                   }
                 ],
                 "reglaIds": [
@@ -283,10 +283,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "I travel to Spain tomorrow."
+                    "texto": "What exactly did she tell you?"
                   },
                   {
-                    "texto": "Can I have some water?"
+                    "texto": "Hello? Is this the building manager?"
                   }
                 ]
               },
@@ -329,10 +329,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "I travel to Spain tomorrow."
+                    "texto": "No, I've never tried it. Is it good?"
                   },
                   {
-                    "texto": "I want a cup of coffee, please."
+                    "texto": "OK. Do you need to eat something, too?"
                   }
                 ],
                 "reglaIds": [
@@ -351,10 +351,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "I am Bryan. What is your name?"
+                    "texto": "By next month, I'll have been working here a year."
                   },
                   {
-                    "texto": "Yes, I know you. You are a doctor."
+                    "texto": "OK! I don't have any photos, but I'll take some."
                   }
                 ],
                 "reglaIds": [
@@ -381,10 +381,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Yes, I love this party."
+                    "texto": "Wow. For twelve hours?"
                   },
                   {
-                    "texto": "I need a coffee."
+                    "texto": "Did you eat much today?"
                   }
                 ],
                 "reglaIds": [
@@ -407,10 +407,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Great! I want to stay here."
+                    "texto": "Great. Are you going to dance, too?"
                   },
                   {
-                    "texto": "My mother is a teacher."
+                    "texto": "Can I help you take it off?"
                   }
                 ],
                 "reglaIds": [
@@ -437,10 +437,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Can you call the police for us?"
+                    "texto": "Is it going to rain a lot?"
                   },
                   {
-                    "texto": "Can you play the guitar for us?"
+                    "texto": "Yes. Can you bring us some water?"
                   }
                 ],
                 "reglaIds": [
@@ -459,10 +459,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Mine is new and very expensive."
+                    "texto": "Don't worry. If you try again, you'll win one day."
                   },
                   {
-                    "texto": "I don't have a battery."
+                    "texto": "Yes! The man who works at the door helped us."
                   }
                 ]
               },
@@ -613,10 +613,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Good evening. I would like a pizza, please."
+                    "texto": "Sure. Do I need to sign here too?"
                   },
                   {
-                    "texto": "Excuse me, where is the zoo?"
+                    "texto": "Yes, please. Can you make a big coffee?"
                   }
                 ],
                 "reglaIds": [
@@ -653,10 +653,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "No, thank you. I have my own car."
+                    "texto": "Please! Can you give us one minute?"
                   },
                   {
-                    "texto": "Good morning. I want some coffee."
+                    "texto": "Yes. Do you know where she went?"
                   }
                 ],
                 "reglaIds": [
@@ -675,10 +675,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "I live with my mother and my dog."
+                    "texto": "And we'll be playing music all afternoon!"
                   },
                   {
-                    "texto": "I am twenty years old."
+                    "texto": "We had been walking in the park."
                   }
                 ],
                 "escucha": [
@@ -724,10 +724,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Sara, let's go back to the party."
+                    "texto": "If you came with us, it would be fun!"
                   },
                   {
-                    "texto": "Sara, the taxi is yellow."
+                    "texto": "I will. Thanks! I can't do anything without it."
                   }
                 ]
               },
@@ -819,10 +819,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Yes, I am a student at the university."
+                    "texto": "By summer, you'll have been reading it a long time!"
                   },
                   {
-                    "texto": "No, the party is tomorrow."
+                    "texto": "We're going to the university. We took the wrong bus."
                   }
                 ],
                 "reglaIds": [
@@ -852,10 +852,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Frank, could you go to the bank first, please?"
+                    "texto": "OK. Can you tell me when it arrives?"
                   },
                   {
-                    "texto": "Frank, I have a fast bike."
+                    "texto": "So he had taken it before you arrived?"
                   }
                 ],
                 "reglaIds": [
@@ -942,10 +942,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Fifteen? I'm twenty years old."
+                    "texto": "Me too! Let's go before we get cold."
                   },
                   {
-                    "texto": "It's fifteen o'clock."
+                    "texto": "We had been walking for hours. I'm tired!"
                   }
                 ],
                 "escucha": [
@@ -993,10 +993,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Mom, I am hungry. Is there a pizza?"
+                    "texto": "Yes. I think I had left my wallet on this table."
                   },
                   {
-                    "texto": "Mom, I don't know this girl."
+                    "texto": "A letter from the university. I still hope it comes today."
                   }
                 ],
                 "reglaIds": [
@@ -1023,10 +1023,10 @@
                     "ok": true
                   },
                   {
-                    "texto": "Good morning, Mom. It's noon."
+                    "texto": "OK. I'll take it off now."
                   },
                   {
-                    "texto": "Goodbye, Mom. I'm going back to the party."
+                    "texto": "I've studied English for two years."
                   }
                 ]
               },
