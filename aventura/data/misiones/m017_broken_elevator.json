@@ -1,0 +1,449 @@
+{
+  "id": "m017",
+  "titulo": "The broken elevator",
+  "titulo_es": "El ascensor dañado",
+  "objetivo": "The elevator is broken. Tell the right people so they can repair it.",
+  "objetivo_es": "El ascensor está dañado. Avisa a quien corresponde para que lo arreglen.",
+  "nivel": "A2-B1",
+  "resumen": "El ascensor del edificio se dano otra vez. Ayuda a Linda, llama al encargado y explicale al tecnico que paso.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "pasillo",
+      "titulo": "The building",
+      "fondo": "pasillo_edificio",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "linda",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "phone"
+          },
+          "ocupado": [
+            {
+              "quien": "linda",
+              "texto": "Please call the building manager, Bryan."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "linda",
+                "texto": "Bryan, the elevator isn't working again!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  46
+                ],
+                "opciones": [
+                  {
+                    "texto": "Really? It must be broken.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Really? It must to be broken."
+                  },
+                  {
+                    "texto": "Really? It must be my birthday."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "I have three heavy bags, and I live on the fifth floor!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "opciones": [
+                  {
+                    "texto": "Let's call the building manager.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Let's call the manager building."
+                  },
+                  {
+                    "texto": "Let's call the pizza place."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Good idea. His phone number is next to the elevator."
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "phone"
+              }
+            ]
+          }
+        },
+        {
+          "id": "george",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "george",
+              "texto": "Stairs again! My poor legs."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "This elevator! It was built fifty years ago."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  45
+                ],
+                "opciones": [
+                  {
+                    "texto": "Wow! When was it last checked?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Wow! When was it last check?"
+                  },
+                  {
+                    "texto": "Wow! When was it born?"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Who knows! It might be older than me!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  46
+                ],
+                "opciones": [
+                  {
+                    "texto": "Ha ha. It can't be older than you!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Ha ha. It can't being older than you!"
+                  },
+                  {
+                    "texto": "Ha ha. It can't be a dog!"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Ha ha! Maybe not."
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "elevator",
+          "svg": "elevator",
+          "texto_ref": "elevator"
+        },
+        {
+          "id": "stairs",
+          "svg": "stairs",
+          "texto_ref": "stairs"
+        },
+        {
+          "id": "sign",
+          "svg": "sign",
+          "texto_ref": "sign"
+        },
+        {
+          "id": "bag",
+          "svg": "bag",
+          "texto_ref": "bag"
+        },
+        {
+          "id": "phone",
+          "svg": "phone",
+          "texto_ref": "phone",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "phone",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "opciones": [
+                  {
+                    "texto": "Hello? Is this the building manager?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Hello? Is this the manager building?"
+                  },
+                  {
+                    "texto": "Hello? Is this the pizza place?"
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Hi, this is Joe. I'm the repair man. What's the problem?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  45
+                ],
+                "opciones": [
+                  {
+                    "texto": "The elevator is broken. Can it be repaired today?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "The elevator is broken. Can it be repair today?"
+                  },
+                  {
+                    "texto": "The elevator is broken. Can it be eaten today?"
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Yes. It will be repaired this afternoon. I'm coming now."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "calle"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "calle",
+      "titulo": "In front of the building",
+      "fondo": "ciudad_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "joe",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "joe",
+                "texto": "Hi! Are you the one who called about the elevator?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  45
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. It was used this morning, then it stopped.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. It was use this morning, then it stopped."
+                  },
+                  {
+                    "texto": "Yes. It was cooked this morning, then it stopped."
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Hmm. The door might be the problem. Or the power."
+              },
+              {
+                "quien": "joe",
+                "texto": "Which door is the problem?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "The elevator door. It doesn't close.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "The door elevator. It doesn't close."
+                  },
+                  {
+                    "texto": "The kitchen door. It's blue."
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "OK. Or maybe it's the power.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  46
+                ],
+                "opciones": [
+                  {
+                    "texto": "It can't be the power. The lights are on.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "It can't is the power. The lights are on."
+                  },
+                  {
+                    "texto": "It can't be the pizza. The lights are on."
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Good point. Now, where is my repair box?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "opciones": [
+                  {
+                    "texto": "Maybe it's in your car park.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Maybe it's in your park car."
+                  },
+                  {
+                    "texto": "Maybe it's in your ice cream."
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Yes, there it is! The elevator will be repaired in an hour."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  45
+                ],
+                "opciones": [
+                  {
+                    "texto": "Great! Can it be checked every month?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great! Can it be check every month?"
+                  },
+                  {
+                    "texto": "Great! Can it be painted blue?"
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Good idea. I'll tell the manager."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  46
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thanks! Linda must be very happy now.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thanks! Linda must being very happy now."
+                  },
+                  {
+                    "texto": "Thanks! Linda must be very blue now."
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Ha ha. I hope so!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "building",
+          "svg": "building",
+          "texto_ref": "building"
+        },
+        {
+          "id": "toolbox",
+          "svg": "toolbox",
+          "texto_ref": "toolbox"
+        },
+        {
+          "id": "car",
+          "svg": "car",
+          "texto_ref": "car"
+        },
+        {
+          "id": "traffic_light",
+          "svg": "traffic_light",
+          "texto_ref": "traffic_light"
+        }
+      ]
+    }
+  ]
+}

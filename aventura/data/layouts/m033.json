@@ -1,0 +1,93 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "calle": {
+  "jugador": {
+   "x": 10,
+   "y": 88
+  },
+  "personajes": {
+   "max": {
+    "x": 28,
+    "y": 87
+   },
+   "hank": {
+    "x": 70,
+    "y": 86
+   }
+  },
+  "objetos": {
+   "poster": {
+    "x": 50,
+    "y": 52,
+    "s": 6,
+    "capa": "pared"
+   },
+   "ticket": {
+    "x": 60,
+    "y": 89,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "street_lamp": {
+    "x": 90,
+    "y": 80,
+    "s": 4,
+    "capa": "pared"
+   },
+   "door": {
+    "x": 80,
+    "y": 78,
+    "s": 9,
+    "capa": "pared"
+   }
+  }
+ },
+ "concierto": {
+  "jugador": {
+   "x": 32,
+   "y": 86
+  },
+  "personajes": {
+   "nina": {
+    "x": 55,
+    "y": 56
+   },
+   "max": {
+    "x": 20,
+    "y": 86
+   }
+  },
+  "objetos": {
+   "stage": {
+    "x": 55,
+    "y": 78,
+    "s": 70,
+    "capa": "pared"
+   },
+   "microphone": {
+    "x": 61,
+    "y": 56,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "guitar": {
+    "x": 46,
+    "y": 56,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "camera": {
+    "x": 40,
+    "y": 87,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "flowers": {
+    "x": 70,
+    "y": 88,
+    "s": 5,
+    "capa": "fondo"
+   }
+  }
+ }
+}

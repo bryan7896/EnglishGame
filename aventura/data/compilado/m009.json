@@ -1,0 +1,3035 @@
+{
+  "id": "m009",
+  "titulo": "Lost luggage",
+  "titulo_es": "Equipaje perdido",
+  "objetivo": "Find your suitcase at the airport.",
+  "objetivo_es": "Encuentra tu maleta en el aeropuerto.",
+  "nivel": "A2",
+  "resumen": "Llegas al aeropuerto y tu maleta no sale. Pregunta, ve al mostrador de informacion y averigua donde esta.",
+  "musica_inicial": "ride_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "llegadas",
+      "titulo": "Arrivals",
+      "fondo": "aeropuerto",
+      "musica": "ride_loop",
+      "personajes": [
+        {
+          "id": "george",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "desk"
+          },
+          "ocupado": [
+            {
+              "quien": "george",
+              "texto": "Go to the information desk, my boy.",
+              "file": "go-to-the-information-desk-my-boy__bm_george__6edad7.mp3",
+              "voz": "bm_george"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "Is your bag here, Bryan? Mine came out first.",
+                "file": "is-your-bag-here-bryan-mine-came-out__bm_george__a23b0e.mp3",
+                "voz": "bm_george"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "No. All the bags have gone, and mine isn't here.",
+                    "ok": true,
+                    "file": "no-all-the-bags-have-gone-and-mine-isnt__am_adam__6d3f7e.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "No. All the bags have went, and mine isn't here.",
+                    "file": "no-all-the-bags-have-went-and-mine-isnt__am_adam__586f8e.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "No. All the planes have gone to the beach.",
+                    "file": "no-all-the-planes-have-gone-to-the-beach__am_adam__dbbaed.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Do you still hope to find it today?",
+                "refuerzo": true,
+                "file": "do-you-still-hope-to-find-it-today__bm_george__443b84.mp3",
+                "voz": "bm_george"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. I still hope it's here somewhere.",
+                    "ok": true,
+                    "file": "yes-i-still-hope-its-here-somewhere__am_adam__3e198c.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Yes. I hope still it's here somewhere.",
+                    "file": "yes-i-hope-still-its-here-somewhere__am_adam__fa0540.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Yes. I still have a dog somewhere.",
+                    "file": "yes-i-still-have-a-dog-somewhere__am_adam__3f6206.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Then go to the information desk. Tell them your flight number.",
+                "file": "then-go-to-the-information-desk-tell__bm_george__4b0fda.mp3",
+                "voz": "bm_george"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "Good idea. I'll tell them everything.",
+                    "ok": true,
+                    "file": "good-idea-ill-tell-them-everything__am_adam__0f8100.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Good idea. I'll say them everything.",
+                    "file": "good-idea-ill-say-them-everything__am_adam__bf0d5f.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Good idea. I'll tell them a story.",
+                    "file": "good-idea-ill-tell-them-a-story__am_adam__55e1bc.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "And keep your ticket with you!",
+                "file": "and-keep-your-ticket-with-you__bm_george__ee0c77.mp3",
+                "voz": "bm_george"
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "desk"
+              }
+            ]
+          }
+        },
+        {
+          "id": "emma",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "emma",
+              "texto": "Thank you. I hope you find your bag, too.",
+              "file": "thank-you-i-hope-you-find-your-bag-too__bf_emma__d2e865.mp3",
+              "voz": "bf_emma"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "emma",
+                "texto": "Excuse me, did you see a red suitcase?",
+                "file": "excuse-me-did-you-see-a-red-suitcase__bf_emma__5535aa.mp3",
+                "voz": "bf_emma"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. A man took it and left five minutes ago.",
+                    "ok": true,
+                    "file": "yes-a-man-took-it-and-left-five-minutes__am_adam__0ecc5f.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Yes. A man took it and gone five minutes ago.",
+                    "file": "yes-a-man-took-it-and-gone-five-minutes__am_adam__803534.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Yes. It's on the plane to the moon.",
+                    "file": "yes-its-on-the-plane-to-the-moon__am_adam__900c37.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Oh dear! It's my friend's bag. I must tell her.",
+                "file": "oh-dear-its-my-friends-bag-i-must-tell__bf_emma__0469e4.mp3",
+                "voz": "bf_emma"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "Tell her to go to the information desk.",
+                    "ok": true,
+                    "file": "tell-her-to-go-to-the-information-desk__am_adam__8d4496.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Say her to go to the information desk.",
+                    "file": "say-her-to-go-to-the-information-desk__am_adam__8b8dd3.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Tell her to buy a new car.",
+                    "file": "tell-her-to-buy-a-new-car__am_adam__c3ef44.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Thank you!",
+                "file": "thank-you__bf_emma__7f14d7.mp3",
+                "voz": "bf_emma"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "baggage_belt",
+          "svg": "baggage_belt",
+          "texto_ref": "baggage_belt"
+        },
+        {
+          "id": "flight_board",
+          "svg": "flight_board",
+          "texto_ref": "flight_board"
+        },
+        {
+          "id": "suitcase",
+          "svg": "suitcase",
+          "texto_ref": "suitcase"
+        },
+        {
+          "id": "plane",
+          "svg": "plane",
+          "texto_ref": "plane"
+        },
+        {
+          "id": "desk",
+          "svg": "desk",
+          "texto_ref": "desk",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "desk",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "opciones": [
+                  {
+                    "texto": "I need help with my suitcase, please.",
+                    "ok": true,
+                    "file": "i-need-help-with-my-suitcase-please__am_adam__f7b4c8.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "I need help with my passport, please.",
+                    "file": "i-need-help-with-my-passport-please__am_adam__f09335.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "I need help with my homework, please.",
+                    "file": "i-need-help-with-my-homework-please__am_adam__4de85a.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "oficina"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "oficina",
+      "titulo": "Information desk",
+      "fondo": "aeropuerto",
+      "musica": "ride_loop",
+      "personajes": [
+        {
+          "id": "olivia",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "olivia",
+                "texto": "Good afternoon. How can I help you?",
+                "file": "good-afternoon-how-can-i-help-you__bf_alice__0d7f8e.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "opciones": [
+                  {
+                    "texto": "My suitcase didn't arrive. It's black.",
+                    "ok": true,
+                    "file": "my-suitcase-didnt-arrive-its-black__am_adam__5698f2.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "My passport didn't arrive. It's black.",
+                    "file": "my-passport-didnt-arrive-its-black__am_adam__9e5297.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "My sandwich didn't arrive. It's cold.",
+                    "file": "my-sandwich-didnt-arrive-its-cold__am_adam__cb6c95.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "What's in your suitcase?",
+                "refuerzo": true,
+                "file": "whats-in-your-suitcase__bf_alice__3bdd1a.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "My clothes, my shoes and a towel.",
+                    "ok": true,
+                    "file": "my-clothes-my-shoes-and-a-towel__am_adam__df154e.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "My clothes, my shoes and a stove.",
+                    "file": "my-clothes-my-shoes-and-a-stove__am_adam__08e0d9.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "My clothes, my dog and a car.",
+                    "file": "my-clothes-my-dog-and-a-car__am_adam__b265eb.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Have you ever lost a suitcase before?",
+                "refuerzo": true,
+                "file": "have-you-ever-lost-a-suitcase-before__bf_alice__b16f0a.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, I've never lost one before.",
+                    "ok": true,
+                    "file": "no-ive-never-lost-one-before__am_adam__0df115.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "No, I've never lose one before.",
+                    "file": "no-ive-never-lose-one-before__am_adam__04fd02.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "No, I've never had a horse before.",
+                    "file": "no-ive-never-had-a-horse-before__am_adam__05f307.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "I'm sorry. Can you tell me your flight number?",
+                "file": "im-sorry-can-you-tell-me-your-flight__bf_alice__b1b35a.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sure. It's on my ticket. Here you are.",
+                    "ok": true,
+                    "file": "sure-its-on-my-ticket-here-you-are__am_adam__a5b39e.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Sure. It's on my pillow. Here you are.",
+                    "file": "sure-its-on-my-pillow-here-you-are__am_adam__ffcf22.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Sure. It's my birthday today.",
+                    "file": "sure-its-my-birthday-today__am_adam__e44dd6.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Thank you. Oh, I see. Your suitcase has gone to another city.",
+                "file": "thank-you-oh-i-see-your-suitcase-has__bf_alice__3a466f.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "Gone? Where has it gone?",
+                    "ok": true,
+                    "file": "gone-where-has-it-gone__am_adam__8f8152.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Gone? Where has it went?",
+                    "file": "gone-where-has-it-went__am_adam__868e1f.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Gone? Where is the beach?",
+                    "file": "gone-where-is-the-beach__am_adam__2589f4.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "It went to the wrong city. But don't worry. It will come back tomorrow.",
+                "file": "it-went-to-the-wrong-city-but-dont__bf_alice__66d848.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. Can you tell me when it arrives?",
+                    "ok": true,
+                    "file": "okay-can-you-tell-me-when-it-arrives__am_adam__6cac22.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "OK. Can you say me when it arrives?",
+                    "file": "okay-can-you-say-me-when-it-arrives__am_adam__771078.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "OK. Can you tell me a story?",
+                    "file": "okay-can-you-tell-me-a-story__am_adam__69e1a8.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Of course. We'll bring it to your house tomorrow morning.",
+                "file": "of-course-well-bring-it-to-your-house__bf_alice__2fccdd.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "Did you say tomorrow morning?",
+                    "ok": true,
+                    "file": "did-you-say-tomorrow-morning__am_adam__21993c.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Did you tell tomorrow morning?",
+                    "file": "did-you-tell-tomorrow-morning__am_adam__d7d026.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Did you eat breakfast?",
+                    "file": "did-you-eat-breakfast__am_adam__7ac9dd.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Yes, I said tomorrow morning.",
+                "file": "yes-i-said-tomorrow-morning__bf_alice__f3e2c4.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "olivia",
+                "texto": "Where is your house?",
+                "refuerzo": true,
+                "file": "where-is-your-house__bf_alice__dd4195.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "It's on Green Street, in the city.",
+                    "ok": true,
+                    "file": "its-on-green-street-in-the-city__am_adam__8c9e3f.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "It's in Green Street, on the city.",
+                    "file": "its-in-green-street-on-the-city__am_adam__428f6d.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "It's on the moon, in the city.",
+                    "file": "its-on-the-moon-in-the-city__am_adam__203da2.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Can you write your phone number here?",
+                "refuerzo": true,
+                "file": "can-you-write-your-phone-number-here__bf_alice__7678f9.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Sure. Here's my phone number.",
+                    "ok": true,
+                    "file": "sure-heres-my-phone-number__am_adam__a7d140.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Sure. Here's my number phone.",
+                    "file": "sure-heres-my-number-phone__am_adam__7bb6ec.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Sure. Here's my phone cake.",
+                    "file": "sure-heres-my-phone-cake__am_adam__52ed2b.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "What will you be doing tomorrow morning?",
+                "refuerzo": true,
+                "file": "what-will-you-be-doing-tomorrow-morning__bf_alice__511ff5.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I'll be waiting for my suitcase at home.",
+                    "ok": true,
+                    "file": "ill-be-waiting-for-my-suitcase-at-home__am_adam__4dba5b.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "I'll be wait for my suitcase at home.",
+                    "file": "ill-be-wait-for-my-suitcase-at-home__am_adam__584a33.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "I'll be swimming in my suitcase.",
+                    "file": "ill-be-swimming-in-my-suitcase__am_adam__aefce9.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "When did you get to the airport today?",
+                "refuerzo": true,
+                "file": "when-did-you-get-to-the-airport-today__bf_alice__6e9497.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I arrived at ten. Now I'll go home.",
+                    "ok": true,
+                    "file": "i-arrived-at-ten-now-ill-go-home__am_adam__9f3f9a.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "I arrive at ten. Now I went home.",
+                    "file": "i-arrive-at-ten-now-i-went-home__am_adam__54d78c.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "I arrived at ten. Now I'll be a bird.",
+                    "file": "i-arrived-at-ten-now-ill-be-a-bird__am_adam__2bad20.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Good idea. Have a nice day!",
+                "refuerzo": true,
+                "file": "good-idea-have-a-nice-day__bf_alice__bf301b.mp3",
+                "voz": "bf_alice"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thanks. All my friends have left. I need a taxi.",
+                    "ok": true,
+                    "file": "thanks-all-my-friends-have-left-i-need__am_adam__c15474.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Thanks. All my friends have leaved. I need a taxi.",
+                    "file": "thanks-all-my-friends-have-leaved-i__am_adam__8366a1.mp3",
+                    "voz": "am_adam"
+                  },
+                  {
+                    "texto": "Thanks. All my friends have green hair.",
+                    "file": "thanks-all-my-friends-have-green-hair__am_adam__501e65.mp3",
+                    "voz": "am_adam"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "There are taxis outside. Good luck!",
+                "file": "there-are-taxis-outside-good-luck__bf_alice__33ab71.mp3",
+                "voz": "bf_alice"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "desk",
+          "svg": "desk",
+          "texto_ref": "desk"
+        },
+        {
+          "id": "computer",
+          "svg": "computer",
+          "texto_ref": "computer"
+        },
+        {
+          "id": "passport",
+          "svg": "passport",
+          "texto_ref": "passport"
+        },
+        {
+          "id": "ticket",
+          "svg": "ticket",
+          "texto_ref": "ticket"
+        },
+        {
+          "id": "clock",
+          "svg": "clock",
+          "texto_ref": "clock"
+        }
+      ]
+    }
+  ],
+  "elenco": {
+    "bella": {
+      "nombre": "Bella",
+      "voz": "af_bella",
+      "vel": 1.1,
+      "cara_base": "🤩",
+      "ropa": "#e08f2e",
+      "accesorio": "lazo",
+      "estilo": "Emocionada y habladora. Habla rapido, mucha exclamacion.",
+      "saludos": [
+        {
+          "texto": "Oh wow, Bryan! Hi! Isn't this party great?",
+          "file": "oh-wow-bryan-hi-isnt-this-party-great__af_bella__df917c.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Wait, what? I didn't get that!",
+          "file": "wait-what-i-didnt-get-that__af_bella__0ac464.mp3"
+        },
+        {
+          "texto": "Oh no, I don't understand!",
+          "file": "oh-no-i-dont-understand__af_bella__e08f87.mp3"
+        },
+        {
+          "texto": "Ha ha, you are so funny, Bryan!",
+          "file": "ha-ha-you-are-so-funny-bryan__af_bella__d7d3ed.mp3"
+        },
+        {
+          "texto": "What? Say that again, please!",
+          "file": "what-say-that-again-please__af_bella__3e1c7e.mp3"
+        },
+        {
+          "texto": "Are you OK? That is a strange question!",
+          "file": "are-you-okay-that-is-a-strange-question__af_bella__dc70ee.mp3"
+        }
+      ],
+      "ocupado": [],
+      "ocupado_fiesta": [
+        {
+          "texto": "Come on, dance with me later!",
+          "file": "come-on-dance-with-me-later__af_bella__117a34.mp3"
+        },
+        {
+          "texto": "I love this song!",
+          "file": "i-love-this-song__af_bella__771c27.mp3"
+        }
+      ]
+    },
+    "ben": {
+      "nombre": "Ben",
+      "rol": "cajero del banco",
+      "voz": "bm_lewis",
+      "vel": 1.0,
+      "cara_base": "🙂",
+      "ropa": "#3B88C3",
+      "accesorio": "corbata",
+      "estilo": "Cajero del banco, amable y ordenado.",
+      "saludos": [
+        {
+          "texto": "Good morning. How can I help you?",
+          "file": "good-morning-how-can-i-help-you__bm_lewis__8f102d.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Sorry, I don't understand.",
+          "file": "sorry-i-dont-understand__bm_lewis__37eed4.mp3"
+        },
+        {
+          "texto": "Could you say that again, please?",
+          "file": "could-you-say-that-again-please__bm_lewis__1a76a6.mp3"
+        },
+        {
+          "texto": "Hmm, what do you mean?",
+          "file": "hmm-what-do-you-mean__bm_lewis__eb61b9.mp3"
+        },
+        {
+          "texto": "I'm sorry, that's not clear.",
+          "file": "im-sorry-thats-not-clear__bm_lewis__b65e0c.mp3"
+        },
+        {
+          "texto": "Can you repeat that, please?",
+          "file": "can-you-repeat-that-please__bm_lewis__909281.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Next, please.",
+          "file": "next-please__bm_lewis__1e572b.mp3"
+        },
+        {
+          "texto": "Have a nice day.",
+          "file": "have-a-nice-day__bm_lewis__ec59b5.mp3"
+        }
+      ]
+    },
+    "bryan": {
+      "nombre": "Bryan",
+      "rol": "jugador",
+      "voz": "am_adam",
+      "vel": 1.0,
+      "cara_base": "🙂",
+      "ropa": "#2f6fdb",
+      "accesorio": "mochila",
+      "estilo": "Neutral y claro. Sus 3 opciones de audio siempre usan esta voz."
+    },
+    "clark": {
+      "nombre": "Mister Clark",
+      "rol": "jefe",
+      "voz": "am_fenrir",
+      "vel": 1.0,
+      "cara_base": "😐",
+      "ropa": "#3A3E75",
+      "accesorio": "corbata",
+      "estilo": "Jefe serio pero justo.",
+      "saludos": [
+        {
+          "texto": "Good morning.",
+          "file": "good-morning__am_fenrir__a34250.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "I'm sorry, that's not an answer to my question.",
+          "file": "im-sorry-thats-not-an-answer-to-my__am_fenrir__2f2603.mp3"
+        },
+        {
+          "texto": "Hmm. Can you explain that again?",
+          "file": "hmm-can-you-explain-that-again__am_fenrir__80683e.mp3"
+        },
+        {
+          "texto": "I don't understand. Try again, please.",
+          "file": "i-dont-understand-try-again-please__am_fenrir__6127a3.mp3"
+        },
+        {
+          "texto": "Sorry? What do you mean?",
+          "file": "sorry-what-do-you-mean__am_fenrir__4030ba.mp3"
+        },
+        {
+          "texto": "That's not what I asked.",
+          "file": "thats-not-what-i-asked__am_fenrir__77b351.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Thank you for coming.",
+          "file": "thank-you-for-coming__am_fenrir__e4e719.mp3"
+        },
+        {
+          "texto": "We'll call you soon.",
+          "file": "well-call-you-soon__am_fenrir__5bd614.mp3"
+        }
+      ]
+    },
+    "emma": {
+      "nombre": "Emma",
+      "voz": "bf_emma",
+      "vel": 0.95,
+      "cara_base": "🙂",
+      "ropa": "#4a78c9",
+      "accesorio": "bolso",
+      "estilo": "Britanica, educada y formal. 'Excuse me', 'I'm afraid'.",
+      "saludos": [
+        {
+          "texto": "Good evening, Bryan. Nice party, isn't it?",
+          "file": "good-evening-bryan-nice-party-isnt-it__bf_emma__0ad961.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Sorry? I don't understand.",
+          "file": "sorry-i-dont-understand__bf_emma__fc9f14.mp3"
+        },
+        {
+          "texto": "I'm afraid I don't understand you.",
+          "file": "im-afraid-i-dont-understand-you__bf_emma__5e26bd.mp3"
+        },
+        {
+          "texto": "Excuse me? Is that a question for me?",
+          "file": "excuse-me-is-that-a-question-for-me__bf_emma__d7e554.mp3"
+        },
+        {
+          "texto": "Sorry, are you talking to me?",
+          "file": "sorry-are-you-talking-to-me__bf_emma__feb609.mp3"
+        },
+        {
+          "texto": "I'm sorry, could you say that again?",
+          "file": "im-sorry-could-you-say-that-again__bf_emma__96ec90.mp3"
+        }
+      ],
+      "ocupado": [],
+      "ocupado_fiesta": [
+        {
+          "texto": "Enjoy the evening, Bryan.",
+          "file": "enjoy-the-evening-bryan__bf_emma__a5662e.mp3"
+        },
+        {
+          "texto": "Excuse me, I must go now.",
+          "file": "excuse-me-i-must-go-now__bf_emma__92018a.mp3"
+        }
+      ]
+    },
+    "frank": {
+      "nombre": "Frank",
+      "voz": "am_onyx",
+      "vel": 0.95,
+      "cara_base": "🙂",
+      "ropa": "#e0b100",
+      "accesorio": "gorra_taxi",
+      "estilo": "Taxista calmado y amable, voz grave. Conversa.",
+      "saludos": [
+        {
+          "texto": "Good evening! Do you need a taxi?",
+          "file": "good-evening-do-you-need-a-taxi__am_onyx__72fd3e.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Sorry, my friend. What did you say?",
+          "file": "sorry-my-friend-what-did-you-say__am_onyx__448e56.mp3"
+        },
+        {
+          "texto": "I don't understand. Say it again.",
+          "file": "i-dont-understand-say-it-again__am_onyx__c741d3.mp3"
+        },
+        {
+          "texto": "Are you OK? Is that for me?",
+          "file": "are-you-okay-is-that-for-me__am_onyx__8c52a9.mp3"
+        },
+        {
+          "texto": "Ha ha! No, no. Try again.",
+          "file": "ha-ha-no-no-try-again__am_onyx__d7c1d8.mp3"
+        },
+        {
+          "texto": "Oh... I'm a taxi driver, not a doctor.",
+          "file": "oh-im-a-taxi-driver-not-a-doctor__am_onyx__2495d7.mp3"
+        }
+      ],
+      "ocupado": []
+    },
+    "george": {
+      "nombre": "Uncle George",
+      "voz": "bm_george",
+      "vel": 0.85,
+      "cara_base": "🧐",
+      "ropa": "#8a6d3b",
+      "accesorio": "sombrero",
+      "estilo": "Tio mayor, lento y olvidadizo. Bromea sobre su edad.",
+      "saludos": [
+        {
+          "texto": "Well, well... Bryan! How are you, my boy?",
+          "file": "well-well-bryan-how-are-you-my-boy__bm_george__be9902.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "What? Speak more slowly, please.",
+          "file": "what-speak-more-slowly-please__bm_george__81c09d.mp3"
+        },
+        {
+          "texto": "I'm old, my boy. Say it again.",
+          "file": "im-old-my-boy-say-it-again__bm_george__8657cc.mp3"
+        },
+        {
+          "texto": "Are you talking to me, or to the wall?",
+          "file": "are-you-talking-to-me-or-to-the-wall__bm_george__403bd3.mp3"
+        },
+        {
+          "texto": "Oh, I don't understand young people.",
+          "file": "oh-i-dont-understand-young-people__bm_george__b20d04.mp3"
+        },
+        {
+          "texto": "What did you say? I can't hear.",
+          "file": "what-did-you-say-i-cant-hear__bm_george__e61565.mp3"
+        }
+      ],
+      "ocupado": [],
+      "ocupado_fiesta": [
+        {
+          "texto": "Where is my glass? I had a glass here.",
+          "file": "where-is-my-glass-i-had-a-glass-here__bm_george__b42880.mp3"
+        },
+        {
+          "texto": "Young people! Always in a hurry.",
+          "file": "young-people-always-in-a-hurry__bm_george__b5ce6e.mp3"
+        }
+      ]
+    },
+    "grace": {
+      "nombre": "Grace",
+      "rol": "recepcionista",
+      "voz": "af_jessica",
+      "vel": 1.0,
+      "cara_base": "😊",
+      "ropa": "#BE1931",
+      "accesorio": "corbata",
+      "estilo": "Recepcionista amable y profesional.",
+      "saludos": [
+        {
+          "texto": "Good morning. Welcome.",
+          "file": "good-morning-welcome__af_jessica__363b5a.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Sorry, I don't understand.",
+          "file": "sorry-i-dont-understand__af_jessica__5e13d4.mp3"
+        },
+        {
+          "texto": "Could you repeat that, please?",
+          "file": "could-you-repeat-that-please__af_jessica__39f5a3.mp3"
+        },
+        {
+          "texto": "Sorry, what was that?",
+          "file": "sorry-what-was-that__af_jessica__b484af.mp3"
+        },
+        {
+          "texto": "Hmm, I'm not sure what you mean.",
+          "file": "hmm-im-not-sure-what-you-mean__af_jessica__7c7fa3.mp3"
+        },
+        {
+          "texto": "I'm sorry, can you say that again?",
+          "file": "im-sorry-can-you-say-that-again__af_jessica__574b1e.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Please take a seat.",
+          "file": "please-take-a-seat__af_jessica__7cc887.mp3"
+        },
+        {
+          "texto": "Have a nice day.",
+          "file": "have-a-nice-day__af_jessica__ce1e8a.mp3"
+        }
+      ]
+    },
+    "hank": {
+      "nombre": "Hank",
+      "rol": "guardia de seguridad",
+      "voz": "am_onyx",
+      "vel": 1.0,
+      "cara_base": "😐",
+      "ropa": "#292F33",
+      "accesorio": "gorra",
+      "estilo": "Guardia serio pero amable.",
+      "saludos": [
+        {
+          "texto": "Good morning. Can I help you?",
+          "file": "good-morning-can-i-help-you__am_onyx__6c5dc8.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Excuse me? I don't understand.",
+          "file": "excuse-me-i-dont-understand__am_onyx__2eb3bd.mp3"
+        },
+        {
+          "texto": "What do you mean?",
+          "file": "what-do-you-mean__am_onyx__2de009.mp3"
+        },
+        {
+          "texto": "Hmm. Say that again, please.",
+          "file": "hmm-say-that-again-please__am_onyx__20094e.mp3"
+        },
+        {
+          "texto": "Sorry, that's not right.",
+          "file": "sorry-thats-not-right__am_onyx__b29b8f.mp3"
+        },
+        {
+          "texto": "Can you repeat that, please?",
+          "file": "can-you-repeat-that-please__am_onyx__52cb26.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Have a good day.",
+          "file": "have-a-good-day__am_onyx__fccbf7.mp3"
+        },
+        {
+          "texto": "Sorry, I'm working.",
+          "file": "sorry-im-working__am_onyx__0dd7dd.mp3"
+        }
+      ]
+    },
+    "jake": {
+      "nombre": "Jake",
+      "rol": "amigo de Bryan",
+      "voz": "am_liam",
+      "vel": 1.05,
+      "cara_base": "😎",
+      "ropa": "#F4900C",
+      "accesorio": "audifonos",
+      "estilo": "Amigo de Bryan, relajado y bromista.",
+      "saludos": [
+        {
+          "texto": "Hey, Bryan! What's up?",
+          "file": "hey-bryan-whats-up__am_liam__295d4b.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Ha ha, what? I don't get it.",
+          "file": "ha-ha-what-i-dont-get-it__am_liam__22bdba.mp3"
+        },
+        {
+          "texto": "Man, what are you talking about?",
+          "file": "man-what-are-you-talking-about__am_liam__ca83ae.mp3"
+        },
+        {
+          "texto": "Hmm, that's strange. Say it again.",
+          "file": "hmm-thats-strange-say-it-again__am_liam__90780b.mp3"
+        },
+        {
+          "texto": "Sorry, man. I don't understand.",
+          "file": "sorry-man-i-dont-understand__am_liam__ce9dcd.mp3"
+        },
+        {
+          "texto": "What? Are you OK, Bryan?",
+          "file": "what-are-you-okay-bryan__am_liam__c1fb58.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Ha ha, come on, Bryan!",
+          "file": "ha-ha-come-on-bryan__am_liam__533a85.mp3"
+        },
+        {
+          "texto": "Later, man.",
+          "file": "later-man__am_liam__580741.mp3"
+        }
+      ]
+    },
+    "joe": {
+      "nombre": "Joe",
+      "rol": "mecánico",
+      "voz": "am_echo",
+      "vel": 1.0,
+      "cara_base": "😅",
+      "ropa": "#55ACEE",
+      "accesorio": "gorra",
+      "estilo": "Tecnico de reparaciones, practico y bromista.",
+      "saludos": [
+        {
+          "texto": "Hi! I'm Joe. I'm here to help.",
+          "file": "hi-im-joe-im-here-to-help__am_echo__d324a1.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Hmm? That doesn't help me.",
+          "file": "hmm-that-doesnt-help-me__am_echo__269039.mp3"
+        },
+        {
+          "texto": "Sorry, what do you mean?",
+          "file": "sorry-what-do-you-mean__am_echo__c57c14.mp3"
+        },
+        {
+          "texto": "Say that again, please.",
+          "file": "say-that-again-please__am_echo__3bea05.mp3"
+        },
+        {
+          "texto": "Ha ha, I don't understand.",
+          "file": "ha-ha-i-dont-understand__am_echo__0f0bbb.mp3"
+        },
+        {
+          "texto": "Hmm, I don't think so.",
+          "file": "hmm-i-dont-think-so__am_echo__acedf9.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "I'm working on it!",
+          "file": "im-working-on-it__am_echo__c80fa1.mp3"
+        },
+        {
+          "texto": "Give me one minute.",
+          "file": "give-me-one-minute__am_echo__c1b14d.mp3"
+        }
+      ]
+    },
+    "kenji": {
+      "nombre": "Kenji",
+      "rol": "compañero de intercambio",
+      "voz": "am_puck",
+      "vel": 0.9,
+      "cara_base": "🙂",
+      "ropa": "#77B255",
+      "accesorio": "mochila",
+      "estilo": "Estudiante extranjero, timido y amable; habla despacio.",
+      "saludos": [
+        {
+          "texto": "Hello. Nice to meet you.",
+          "file": "hello-nice-to-meet-you__am_puck__e72fc5.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Sorry, my English is not very good. Again, please?",
+          "file": "sorry-my-english-is-not-very-good-again__am_puck__db6b99.mp3"
+        },
+        {
+          "texto": "Hmm, I don't understand.",
+          "file": "hmm-i-dont-understand__am_puck__df380f.mp3"
+        },
+        {
+          "texto": "Can you speak more slowly?",
+          "file": "can-you-speak-more-slowly__am_puck__4c0331.mp3"
+        },
+        {
+          "texto": "Sorry, what does that mean?",
+          "file": "sorry-what-does-that-mean__am_puck__679783.mp3"
+        },
+        {
+          "texto": "Oh... I'm not sure.",
+          "file": "oh-im-not-sure__am_puck__cc7f3e.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Thank you, Bryan.",
+          "file": "thank-you-bryan__am_puck__29f02e.mp3"
+        },
+        {
+          "texto": "See you later!",
+          "file": "see-you-later__am_puck__c7d550.mp3"
+        }
+      ]
+    },
+    "leo": {
+      "nombre": "Leo",
+      "rol": "mesero",
+      "voz": "am_liam",
+      "vel": 1.0,
+      "cara_base": "🙂",
+      "ropa": "#292F33",
+      "accesorio": "corbata",
+      "estilo": "Mesero elegante y educado.",
+      "saludos": [
+        {
+          "texto": "Good evening. Welcome.",
+          "file": "good-evening-welcome__am_liam__674f7d.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "I'm sorry?",
+          "file": "im-sorry__am_liam__89f28c.mp3"
+        },
+        {
+          "texto": "Excuse me, I don't understand.",
+          "file": "excuse-me-i-dont-understand__am_liam__0f4b85.mp3"
+        },
+        {
+          "texto": "Could you say that again, please?",
+          "file": "could-you-say-that-again-please__am_liam__165c02.mp3"
+        },
+        {
+          "texto": "Sorry, that's not on our menu.",
+          "file": "sorry-thats-not-on-our-menu__am_liam__d17d34.mp3"
+        },
+        {
+          "texto": "Excuse me?",
+          "file": "excuse-me__am_liam__d30261.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "One moment, please.",
+          "file": "one-moment-please__am_liam__c0b488.mp3"
+        },
+        {
+          "texto": "Enjoy your evening.",
+          "file": "enjoy-your-evening__am_liam__1dfef8.mp3"
+        }
+      ]
+    },
+    "lily": {
+      "nombre": "Lily",
+      "voz": "af_nicole",
+      "vel": 0.9,
+      "cara_base": "🥺",
+      "ropa": "#7b5ea7",
+      "accesorio": "lentes",
+      "estilo": "Timida y suave. Duda, pausas con '...'.",
+      "saludos": [
+        {
+          "texto": "Oh... hello, Bryan.",
+          "file": "oh-hello-bryan__af_nicole__019aff.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Um... sorry? I don't understand.",
+          "file": "um-sorry-i-dont-understand__af_nicole__577e09.mp3"
+        },
+        {
+          "texto": "Oh... are you talking to me?",
+          "file": "oh-are-you-talking-to-me__af_nicole__b85d92.mp3"
+        },
+        {
+          "texto": "I'm sorry... what?",
+          "file": "im-sorry-what__af_nicole__106ea0.mp3"
+        },
+        {
+          "texto": "Um... can you say it again?",
+          "file": "um-can-you-say-it-again__af_nicole__dce33b.mp3"
+        },
+        {
+          "texto": "I think... that's not right.",
+          "file": "i-think-thats-not-right__af_nicole__79d561.mp3"
+        }
+      ],
+      "ocupado": [],
+      "ocupado_fiesta": [
+        {
+          "texto": "Um... see you later, Bryan.",
+          "file": "um-see-you-later-bryan__af_nicole__1eb83d.mp3"
+        },
+        {
+          "texto": "Good luck... with Sara.",
+          "file": "good-luck-with-sara__af_nicole__721aa1.mp3"
+        }
+      ]
+    },
+    "linda": {
+      "nombre": "Linda",
+      "rol": "vecina nueva",
+      "voz": "af_kore",
+      "vel": 1.0,
+      "cara_base": "😊",
+      "ropa": "#8E6BC4",
+      "accesorio": "lazo",
+      "estilo": "Amable, tranquila, recien llegada al barrio.",
+      "saludos": [
+        {
+          "texto": "Oh, hello! Nice to meet you.",
+          "file": "oh-hello-nice-to-meet-you__af_kore__7a69d6.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Sorry, I don't understand.",
+          "file": "sorry-i-dont-understand__af_kore__6eb2dc.mp3"
+        },
+        {
+          "texto": "Hmm, what do you mean?",
+          "file": "hmm-what-do-you-mean__af_kore__88ca48.mp3"
+        },
+        {
+          "texto": "Sorry? Can you say that again?",
+          "file": "sorry-can-you-say-that-again__af_kore__3a9c0d.mp3"
+        },
+        {
+          "texto": "I'm not sure I understand you.",
+          "file": "im-not-sure-i-understand-you__af_kore__cdf373.mp3"
+        },
+        {
+          "texto": "Oh, sorry. I don't follow you.",
+          "file": "oh-sorry-i-dont-follow-you__af_kore__942559.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Sorry, I'm busy with these boxes.",
+          "file": "sorry-im-busy-with-these-boxes__af_kore__69bf53.mp3"
+        },
+        {
+          "texto": "See you later, Bryan!",
+          "file": "see-you-later-bryan__af_kore__b3fb01.mp3"
+        }
+      ]
+    },
+    "marco": {
+      "nombre": "Marco",
+      "rol": "chef",
+      "voz": "bm_fable",
+      "vel": 1.0,
+      "cara_base": "😄",
+      "ropa": "#F5F8FA",
+      "accesorio": "gorro_chef",
+      "estilo": "Chef italiano, alegre y expresivo.",
+      "saludos": [
+        {
+          "texto": "Hello, my friend!",
+          "file": "hello-my-friend__bm_fable__46ecd3.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "What? No, no, no!",
+          "file": "what-no-no-no__bm_fable__6acebd.mp3"
+        },
+        {
+          "texto": "Sorry, I don't understand, my friend.",
+          "file": "sorry-i-dont-understand-my-friend__bm_fable__5b9533.mp3"
+        },
+        {
+          "texto": "Hmm? Say it again, please.",
+          "file": "hmm-say-it-again-please__bm_fable__8b9ac4.mp3"
+        },
+        {
+          "texto": "Ha ha, what do you mean?",
+          "file": "ha-ha-what-do-you-mean__bm_fable__58de2e.mp3"
+        },
+        {
+          "texto": "No, that's not right!",
+          "file": "no-thats-not-right__bm_fable__78e137.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Sorry, the kitchen is very busy!",
+          "file": "sorry-the-kitchen-is-very-busy__bm_fable__fa72f5.mp3"
+        },
+        {
+          "texto": "Enjoy your food!",
+          "file": "enjoy-your-food__bm_fable__0c11f8.mp3"
+        }
+      ]
+    },
+    "max": {
+      "nombre": "Max",
+      "voz": "bm_lewis",
+      "vel": 1.1,
+      "cara_base": "😎",
+      "ropa": "#3b3b3b",
+      "accesorio": "audifonos",
+      "estilo": "El DJ. Ocupado, rapido, respuestas muy cortas.",
+      "saludos": [
+        {
+          "texto": "Hey. I'm working. Be quick.",
+          "file": "hey-im-working-be-quick__bm_lewis__b6e7e9.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "What? Say it again!",
+          "file": "what-say-it-again__bm_lewis__5d8430.mp3"
+        },
+        {
+          "texto": "Sorry. I'm busy. Try again.",
+          "file": "sorry-im-busy-try-again__bm_lewis__766947.mp3"
+        },
+        {
+          "texto": "That is not for me.",
+          "file": "that-is-not-for-me__bm_lewis__515716.mp3"
+        },
+        {
+          "texto": "Are you OK? What are you saying?",
+          "file": "are-you-okay-what-are-you-saying__bm_lewis__10db2a.mp3"
+        }
+      ],
+      "ocupado": [],
+      "errores_fiesta": [
+        {
+          "texto": "I can't hear you. Music, man!",
+          "file": "i-cant-hear-you-music-man__bm_lewis__071abf.mp3"
+        }
+      ],
+      "ocupado_fiesta": [
+        {
+          "texto": "Not now. I'm busy!",
+          "file": "not-now-im-busy__bm_lewis__d527e0.mp3"
+        },
+        {
+          "texto": "Ask someone else, please.",
+          "file": "ask-someone-else-please__bm_lewis__93b7c2.mp3"
+        }
+      ]
+    },
+    "mia": {
+      "nombre": "Mia",
+      "rol": "barista",
+      "voz": "af_river",
+      "vel": 1.0,
+      "cara_base": "😄",
+      "ropa": "#7B4A2E",
+      "accesorio": "delantal",
+      "estilo": "Barista rapida y simpatica.",
+      "saludos": [
+        {
+          "texto": "Hi! Welcome to the coffee shop.",
+          "file": "hi-welcome-to-the-coffee-shop__af_river__2955e9.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Sorry? I didn't hear you.",
+          "file": "sorry-i-didnt-hear-you__af_river__c3b439.mp3"
+        },
+        {
+          "texto": "Hmm, that's not on the menu.",
+          "file": "hmm-thats-not-on-the-menu__af_river__f69298.mp3"
+        },
+        {
+          "texto": "Can you say that again, please?",
+          "file": "can-you-say-that-again-please__af_river__09d87a.mp3"
+        },
+        {
+          "texto": "Sorry, what was that?",
+          "file": "sorry-what-was-that__af_river__fda9db.mp3"
+        },
+        {
+          "texto": "Sorry, I don't understand your order.",
+          "file": "sorry-i-dont-understand-your-order__af_river__8238ed.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "One moment, please!",
+          "file": "one-moment-please__af_river__40b283.mp3"
+        },
+        {
+          "texto": "I'm making your drinks now.",
+          "file": "im-making-your-drinks-now__af_river__9df875.mp3"
+        }
+      ]
+    },
+    "mom": {
+      "nombre": "Mom",
+      "voz": "bf_isabella",
+      "vel": 0.95,
+      "cara_base": "😟",
+      "ropa": "#b0527a",
+      "accesorio": "delantal",
+      "estilo": "Preocupada pero carinosa.",
+      "saludos": [],
+      "errores": [
+        {
+          "texto": "Bryan, what are you saying?",
+          "file": "bryan-what-are-you-saying__bf_isabella__a0e452.mp3"
+        },
+        {
+          "texto": "I don't understand. Are you OK?",
+          "file": "i-dont-understand-are-you-okay__bf_isabella__259ca4.mp3"
+        },
+        {
+          "texto": "Bryan! Answer my question, please.",
+          "file": "bryan-answer-my-question-please__bf_isabella__ac7452.mp3"
+        }
+      ],
+      "ocupado": []
+    },
+    "nina": {
+      "nombre": "Nina",
+      "rol": "cantante famosa",
+      "voz": "af_aoede",
+      "vel": 1.0,
+      "cara_base": "🤩",
+      "ropa": "#DD2E44",
+      "accesorio": "lentes_sol",
+      "estilo": "Cantante famosa, alegre y cercana con sus fans.",
+      "saludos": [
+        {
+          "texto": "Hi there! Thanks for coming!",
+          "file": "hi-there-thanks-for-coming__af_aoede__730311.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Ha ha, what? I can't hear you!",
+          "file": "ha-ha-what-i-cant-hear-you__af_aoede__9163a7.mp3"
+        },
+        {
+          "texto": "Sorry, say that again?",
+          "file": "sorry-say-that-again__af_aoede__995cff.mp3"
+        },
+        {
+          "texto": "Hmm, I don't understand.",
+          "file": "hmm-i-dont-understand__af_aoede__4f3d74.mp3"
+        },
+        {
+          "texto": "What do you mean, my friend?",
+          "file": "what-do-you-mean-my-friend__af_aoede__337907.mp3"
+        },
+        {
+          "texto": "Oh, sorry. What was that?",
+          "file": "oh-sorry-what-was-that__af_aoede__0ce6f3.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Thank you for coming!",
+          "file": "thank-you-for-coming__af_aoede__ed2caa.mp3"
+        },
+        {
+          "texto": "Enjoy the show!",
+          "file": "enjoy-the-show__af_aoede__e06b5a.mp3"
+        }
+      ]
+    },
+    "olivia": {
+      "nombre": "Olivia",
+      "rol": "agente del aeropuerto",
+      "voz": "bf_alice",
+      "vel": 1.0,
+      "cara_base": "🙂",
+      "ropa": "#1F4E8C",
+      "accesorio": "corbata",
+      "estilo": "Agente del aeropuerto, formal y eficiente.",
+      "saludos": [
+        {
+          "texto": "Good afternoon. How can I help you?",
+          "file": "good-afternoon-how-can-i-help-you__bf_alice__0d7f8e.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "I'm sorry, I don't understand.",
+          "file": "im-sorry-i-dont-understand__bf_alice__8bcb5e.mp3"
+        },
+        {
+          "texto": "Could you say that again, please?",
+          "file": "could-you-say-that-again-please__bf_alice__bc0ea7.mp3"
+        },
+        {
+          "texto": "Sorry, what do you mean?",
+          "file": "sorry-what-do-you-mean__bf_alice__f61a67.mp3"
+        },
+        {
+          "texto": "I'm afraid that's not clear.",
+          "file": "im-afraid-thats-not-clear__bf_alice__0ed842.mp3"
+        },
+        {
+          "texto": "Sorry? Can you repeat that?",
+          "file": "sorry-can-you-repeat-that__bf_alice__59bf80.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "One moment, please.",
+          "file": "one-moment-please__bf_alice__9beed1.mp3"
+        },
+        {
+          "texto": "Please wait in line.",
+          "file": "please-wait-in-line__bf_alice__52f430.mp3"
+        }
+      ]
+    },
+    "patel": {
+      "nombre": "Doctor Patel",
+      "rol": "farmaceuta",
+      "voz": "bm_daniel",
+      "vel": 1.0,
+      "cara_base": "🧐",
+      "ropa": "#F5F8FA",
+      "accesorio": "bata",
+      "estilo": "Farmaceuta tranquilo y amable.",
+      "saludos": [
+        {
+          "texto": "Good afternoon. What can I do for you?",
+          "file": "good-afternoon-what-can-i-do-for-you__bm_daniel__ce0514.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Hmm, I don't understand.",
+          "file": "hmm-i-dont-understand__bm_daniel__3ca93e.mp3"
+        },
+        {
+          "texto": "Sorry, can you say that again?",
+          "file": "sorry-can-you-say-that-again__bm_daniel__ca8d8d.mp3"
+        },
+        {
+          "texto": "What do you mean, young man?",
+          "file": "what-do-you-mean-young-man__bm_daniel__c76f89.mp3"
+        },
+        {
+          "texto": "I'm not sure I follow you.",
+          "file": "im-not-sure-i-follow-you__bm_daniel__72d5c8.mp3"
+        },
+        {
+          "texto": "Sorry? Say it more slowly, please.",
+          "file": "sorry-say-it-more-slowly-please__bm_daniel__e146ee.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Next, please.",
+          "file": "next-please__bm_daniel__191109.mp3"
+        },
+        {
+          "texto": "Get well soon!",
+          "file": "get-well-soon__bm_daniel__91cf3f.mp3"
+        }
+      ]
+    },
+    "pedro": {
+      "nombre": "Pedro",
+      "rol": "vendedor del mercado",
+      "voz": "am_santa",
+      "vel": 1.0,
+      "cara_base": "😄",
+      "ropa": "#F4900C",
+      "accesorio": "sombrero",
+      "estilo": "Vendedor del mercado, ruidoso y amable.",
+      "saludos": [
+        {
+          "texto": "Hello, young man! Fresh fruit!",
+          "file": "hello-young-man-fresh-fruit__am_santa__4aa435.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "What? The market is very noisy!",
+          "file": "what-the-market-is-very-noisy__am_santa__fb4d88.mp3"
+        },
+        {
+          "texto": "Ha ha, I don't understand!",
+          "file": "ha-ha-i-dont-understand__am_santa__fb0325.mp3"
+        },
+        {
+          "texto": "Say it again, my friend!",
+          "file": "say-it-again-my-friend__am_santa__64a019.mp3"
+        },
+        {
+          "texto": "Hmm? What do you want?",
+          "file": "hmm-what-do-you-want__am_santa__5c4bb5.mp3"
+        },
+        {
+          "texto": "Sorry, what was that?",
+          "file": "sorry-what-was-that__am_santa__9edd66.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Fresh fruit! Fresh fruit!",
+          "file": "fresh-fruit-fresh-fruit__am_santa__b89fa6.mp3"
+        },
+        {
+          "texto": "Come back soon!",
+          "file": "come-back-soon__am_santa__a3aeda.mp3"
+        }
+      ]
+    },
+    "rosa": {
+      "nombre": "Rosa",
+      "voz": "af_sky",
+      "vel": 1.0,
+      "cara_base": "😒",
+      "ropa": "#444444",
+      "accesorio": "gorra_taxi",
+      "estilo": "Taxista cansada y seca. No tiene paciencia.",
+      "saludos": [
+        {
+          "texto": "Yes? What do you need?",
+          "file": "yes-what-do-you-need__af_sky__e4e813.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "What? I don't understand.",
+          "file": "what-i-dont-understand__af_sky__bf1b59.mp3"
+        },
+        {
+          "texto": "Are you talking to me?",
+          "file": "are-you-talking-to-me__af_sky__59c682.mp3"
+        },
+        {
+          "texto": "I don't have time for this.",
+          "file": "i-dont-have-time-for-this__af_sky__27cf39.mp3"
+        },
+        {
+          "texto": "That is not a question for a driver.",
+          "file": "that-is-not-a-question-for-a-driver__af_sky__72509a.mp3"
+        },
+        {
+          "texto": "Speak slowly, please.",
+          "file": "speak-slowly-please__af_sky__93e7ed.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Ask the other driver, please.",
+          "file": "ask-the-other-driver-please__af_sky__1c478a.mp3"
+        },
+        {
+          "texto": "I'm full. Sorry.",
+          "file": "im-full-sorry__af_sky__cc8d60.mp3"
+        }
+      ]
+    },
+    "ruth": {
+      "nombre": "Ruth",
+      "rol": "bibliotecaria",
+      "voz": "bf_lily",
+      "vel": 1.0,
+      "cara_base": "🙂",
+      "ropa": "#5C913B",
+      "accesorio": "lentes",
+      "estilo": "Bibliotecaria tranquila; habla en voz baja.",
+      "saludos": [
+        {
+          "texto": "Hello. Welcome to the library.",
+          "file": "hello-welcome-to-the-library__bf_lily__7ca818.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Sorry? I don't understand.",
+          "file": "sorry-i-dont-understand__bf_lily__0f6a78.mp3"
+        },
+        {
+          "texto": "Please say that again, more slowly.",
+          "file": "please-say-that-again-more-slowly__bf_lily__aa0464.mp3"
+        },
+        {
+          "texto": "Hmm, what do you mean?",
+          "file": "hmm-what-do-you-mean__bf_lily__476884.mp3"
+        },
+        {
+          "texto": "I'm not sure I understand.",
+          "file": "im-not-sure-i-understand__bf_lily__d315d8.mp3"
+        },
+        {
+          "texto": "Sorry, can you repeat that?",
+          "file": "sorry-can-you-repeat-that__bf_lily__ccc296.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Please be quiet in the library.",
+          "file": "please-be-quiet-in-the-library__bf_lily__58835f.mp3"
+        },
+        {
+          "texto": "Enjoy your book.",
+          "file": "enjoy-your-book__bf_lily__3414c1.mp3"
+        }
+      ]
+    },
+    "sam": {
+      "nombre": "Sam",
+      "rol": "conductor de bus",
+      "voz": "am_eric",
+      "vel": 1.0,
+      "cara_base": "🙂",
+      "ropa": "#3B88C3",
+      "accesorio": "gorra",
+      "estilo": "Conductor de bus, alegre y paciente.",
+      "saludos": [
+        {
+          "texto": "Good morning! Take a seat, please.",
+          "file": "good-morning-take-a-seat-please__am_eric__339ba9.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "What? Sorry, the bus is very noisy.",
+          "file": "what-sorry-the-bus-is-very-noisy__am_eric__0af1a9.mp3"
+        },
+        {
+          "texto": "Hmm, I don't understand.",
+          "file": "hmm-i-dont-understand__am_eric__e95675.mp3"
+        },
+        {
+          "texto": "Say that again, please.",
+          "file": "say-that-again-please__am_eric__10ec32.mp3"
+        },
+        {
+          "texto": "Sorry, what do you mean?",
+          "file": "sorry-what-do-you-mean__am_eric__7ca88a.mp3"
+        },
+        {
+          "texto": "Hmm? I didn't get that.",
+          "file": "hmm-i-didnt-get-that__am_eric__7d9047.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Have a nice day!",
+          "file": "have-a-nice-day__am_eric__3649b3.mp3"
+        },
+        {
+          "texto": "Sorry, I'm working now.",
+          "file": "sorry-im-working-now__am_eric__e41e20.mp3"
+        }
+      ]
+    },
+    "sara": {
+      "nombre": "Sara",
+      "voz": "af_heart",
+      "vel": 1.0,
+      "cara_base": "😊",
+      "ropa": "#d64545",
+      "accesorio": "chaqueta",
+      "estilo": "Calida y burlona. Frases cortas y directas.",
+      "saludos": [
+        {
+          "texto": "Hello! How are you?",
+          "file": "hello-how-are-you__af_heart__36823d.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Bryan? Are you OK?",
+          "file": "bryan-are-you-okay__af_heart__39efc8.mp3"
+        },
+        {
+          "texto": "What? That's a strange thing to say.",
+          "file": "what-thats-a-strange-thing-to-say__af_heart__3794c7.mp3"
+        },
+        {
+          "texto": "Ha ha! Are you thinking out loud?",
+          "file": "ha-ha-are-you-thinking-out-loud__af_heart__e43c24.mp3"
+        },
+        {
+          "texto": "Sorry, I don't understand you.",
+          "file": "sorry-i-dont-understand-you__af_heart__8e51e5.mp3"
+        },
+        {
+          "texto": "Bryan, listen to me, please.",
+          "file": "bryan-listen-to-me-please__af_heart__e6b52d.mp3"
+        }
+      ],
+      "ocupado": []
+    },
+    "tom": {
+      "nombre": "Tom",
+      "voz": "am_michael",
+      "vel": 1.05,
+      "cara_base": "😄",
+      "ropa": "#3fa66b",
+      "accesorio": "gorra",
+      "estilo": "Anfitrion alegre y ruidoso. Exclamaciones.",
+      "saludos": [
+        {
+          "texto": "Hey, hey! Welcome to my party!",
+          "file": "hey-hey-welcome-to-my-party__am_michael__783731.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "What? I can't hear you!",
+          "file": "what-i-cant-hear-you__am_michael__de0c8d.mp3"
+        },
+        {
+          "texto": "Sorry, what did you say?",
+          "file": "sorry-what-did-you-say__am_michael__c86754.mp3"
+        },
+        {
+          "texto": "Are you talking to me?",
+          "file": "are-you-talking-to-me__am_michael__6ad6df.mp3"
+        },
+        {
+          "texto": "Ha ha! I don't understand, my friend!",
+          "file": "ha-ha-i-dont-understand-my-friend__am_michael__f00abc.mp3"
+        }
+      ],
+      "ocupado": [],
+      "errores_fiesta": [
+        {
+          "texto": "The music is too loud, Bryan!",
+          "file": "the-music-is-too-loud-bryan__am_michael__d82d34.mp3"
+        }
+      ],
+      "ocupado_fiesta": [
+        {
+          "texto": "Go and have fun, Bryan!",
+          "file": "go-and-have-fun-bryan__am_michael__41151e.mp3"
+        },
+        {
+          "texto": "Try the cake! It is very good!",
+          "file": "try-the-cake-it-is-very-good__am_michael__d89aa9.mp3"
+        }
+      ]
+    },
+    "walter": {
+      "nombre": "Walter",
+      "rol": "señor mayor del pueblo",
+      "voz": "bm_george",
+      "vel": 0.85,
+      "cara_base": "😌",
+      "ropa": "#8A6E4B",
+      "accesorio": "baston",
+      "estilo": "Senor mayor del pueblo, habla despacio y con carino.",
+      "saludos": [
+        {
+          "texto": "Hello, young people.",
+          "file": "hello-young-people__bm_george__e565ad.mp3"
+        }
+      ],
+      "errores": [
+        {
+          "texto": "Eh? Say that again, please.",
+          "file": "eh-say-that-again-please__bm_george__baba25.mp3"
+        },
+        {
+          "texto": "My ears are old. What did you say?",
+          "file": "my-ears-are-old-what-did-you-say__bm_george__19076b.mp3"
+        },
+        {
+          "texto": "Hmm, I don't understand you.",
+          "file": "hmm-i-dont-understand-you__bm_george__f9523d.mp3"
+        },
+        {
+          "texto": "Speak more slowly, please.",
+          "file": "speak-more-slowly-please__bm_george__008c8c.mp3"
+        },
+        {
+          "texto": "What was that, my friend?",
+          "file": "what-was-that-my-friend__bm_george__db7e39.mp3"
+        }
+      ],
+      "ocupado": [
+        {
+          "texto": "Come back any time.",
+          "file": "come-back-any-time__bm_george__c7ae24.mp3"
+        },
+        {
+          "texto": "Take care, young people.",
+          "file": "take-care-young-people__bm_george__92a0f0.mp3"
+        }
+      ]
+    }
+  },
+  "objetos_audio": {
+    "tree": {
+      "texto": "Tree",
+      "file": "tree__af_alloy__23e0be.mp3"
+    },
+    "forest": {
+      "texto": "Forest",
+      "file": "forest__af_alloy__dd4a9c.mp3"
+    },
+    "flowers": {
+      "texto": "Flowers",
+      "file": "flowers__af_alloy__34e7ec.mp3"
+    },
+    "leaf": {
+      "texto": "Leaf",
+      "file": "leaf__af_alloy__713ab4.mp3"
+    },
+    "cloud": {
+      "texto": "Cloud",
+      "file": "cloud__af_alloy__d545b3.mp3"
+    },
+    "sun": {
+      "texto": "Sun",
+      "file": "sun__af_alloy__4b5dcb.mp3"
+    },
+    "moon": {
+      "texto": "Moon",
+      "file": "moon__af_alloy__059c01.mp3"
+    },
+    "star": {
+      "texto": "Star",
+      "file": "star__af_alloy__ab2e50.mp3"
+    },
+    "rain": {
+      "texto": "Rain",
+      "file": "rain__af_alloy__1b69d0.mp3"
+    },
+    "snow": {
+      "texto": "Snow",
+      "file": "snow__af_alloy__ec7a2a.mp3"
+    },
+    "wind": {
+      "texto": "Wind",
+      "file": "wind__af_alloy__7bdba9.mp3"
+    },
+    "fire": {
+      "texto": "Fire",
+      "file": "fire__af_alloy__680962.mp3"
+    },
+    "mountain": {
+      "texto": "Mountain",
+      "file": "mountain__af_alloy__5b0d01.mp3"
+    },
+    "sea": {
+      "texto": "Sea",
+      "file": "sea__af_alloy__2c9388.mp3"
+    },
+    "island": {
+      "texto": "Island",
+      "file": "island__af_alloy__04a00f.mp3"
+    },
+    "beach": {
+      "texto": "Beach",
+      "file": "beach__af_alloy__563088.mp3"
+    },
+    "water": {
+      "texto": "Water",
+      "file": "water__af_alloy__2b9002.mp3"
+    },
+    "earth": {
+      "texto": "Earth",
+      "file": "earth__af_alloy__b00f29.mp3"
+    },
+    "grass": {
+      "texto": "Grass",
+      "file": "grass__af_alloy__ac6f26.mp3"
+    },
+    "rock": {
+      "texto": "Rock",
+      "file": "rock__af_alloy__09f503.mp3"
+    },
+    "hill": {
+      "texto": "Hill",
+      "file": "hill__af_alloy__c7222d.mp3"
+    },
+    "river": {
+      "texto": "River",
+      "file": "river__af_alloy__518756.mp3"
+    },
+    "lake": {
+      "texto": "Lake",
+      "file": "lake__af_alloy__fcb409.mp3"
+    },
+    "field": {
+      "texto": "Field",
+      "file": "field__af_alloy__8101ea.mp3"
+    },
+    "sand": {
+      "texto": "Sand",
+      "file": "sand__af_alloy__3c309c.mp3"
+    },
+    "garden": {
+      "texto": "Garden",
+      "file": "garden__af_alloy__189f2f.mp3"
+    },
+    "path": {
+      "texto": "Path",
+      "file": "path__af_alloy__27148e.mp3"
+    },
+    "house": {
+      "texto": "House",
+      "file": "house__af_alloy__7dff86.mp3"
+    },
+    "building": {
+      "texto": "Building",
+      "file": "building__af_alloy__bca7ff.mp3"
+    },
+    "store": {
+      "texto": "Store",
+      "file": "store__af_alloy__3d7382.mp3"
+    },
+    "shop": {
+      "texto": "Shop",
+      "file": "shop__af_alloy__1cda6a.mp3"
+    },
+    "church": {
+      "texto": "Church",
+      "file": "church__af_alloy__6a2101.mp3"
+    },
+    "hotel": {
+      "texto": "Hotel",
+      "file": "hotel__af_alloy__64bf44.mp3"
+    },
+    "station": {
+      "texto": "Station",
+      "file": "station__af_alloy__2dcbb2.mp3"
+    },
+    "library": {
+      "texto": "Library",
+      "file": "library__af_alloy__757f91.mp3"
+    },
+    "park": {
+      "texto": "Park",
+      "file": "park__af_alloy__4edc6e.mp3"
+    },
+    "bridge": {
+      "texto": "Bridge",
+      "file": "bridge__af_alloy__4c208b.mp3"
+    },
+    "farm": {
+      "texto": "Farm",
+      "file": "farm__af_alloy__8e1ada.mp3"
+    },
+    "tooth": {
+      "texto": "Tooth",
+      "file": "tooth__af_alloy__27d51f.mp3"
+    },
+    "hospital": {
+      "texto": "Hospital",
+      "file": "hospital__af_alloy__6f3b03.mp3"
+    },
+    "school": {
+      "texto": "School",
+      "file": "school__af_alloy__1be5af.mp3"
+    },
+    "bank": {
+      "texto": "Bank",
+      "file": "bank__af_alloy__39cde9.mp3"
+    },
+    "market": {
+      "texto": "Market",
+      "file": "market__af_alloy__51d39f.mp3"
+    },
+    "street": {
+      "texto": "Street",
+      "file": "street__af_alloy__5ca86d.mp3"
+    },
+    "road": {
+      "texto": "Road",
+      "file": "road__af_alloy__342b46.mp3"
+    },
+    "pool": {
+      "texto": "Pool",
+      "file": "pool__af_alloy__69483c.mp3"
+    },
+    "wall": {
+      "texto": "Wall",
+      "file": "wall__af_alloy__1feaa8.mp3"
+    },
+    "floor": {
+      "texto": "Floor",
+      "file": "floor__af_alloy__61409e.mp3"
+    },
+    "sign": {
+      "texto": "Sign",
+      "file": "sign__af_alloy__b8a23d.mp3"
+    },
+    "street_lamp": {
+      "texto": "Street lamp",
+      "file": "street-lamp__af_alloy__4bc491.mp3"
+    },
+    "taxi": {
+      "texto": "Taxi",
+      "file": "taxi__af_alloy__0ed7d7.mp3"
+    },
+    "car": {
+      "texto": "Car",
+      "file": "car__af_alloy__73eee5.mp3"
+    },
+    "bus": {
+      "texto": "Bus",
+      "file": "bus__af_alloy__7043c2.mp3"
+    },
+    "motorcycle": {
+      "texto": "Motorcycle",
+      "file": "motorcycle__af_alloy__f56157.mp3"
+    },
+    "helicopter": {
+      "texto": "Helicopter",
+      "file": "helicopter__af_alloy__7aeede.mp3"
+    },
+    "boat": {
+      "texto": "Boat",
+      "file": "boat__af_alloy__b52713.mp3"
+    },
+    "train": {
+      "texto": "Train",
+      "file": "train__af_alloy__03e6e0.mp3"
+    },
+    "plane": {
+      "texto": "Plane",
+      "file": "plane__af_alloy__7f2467.mp3"
+    },
+    "bicycle": {
+      "texto": "Bicycle",
+      "file": "bicycle__af_alloy__d4e990.mp3"
+    },
+    "door": {
+      "texto": "Door",
+      "file": "door__af_alloy__b30000.mp3"
+    },
+    "window": {
+      "texto": "Window",
+      "file": "window__af_alloy__d88af2.mp3"
+    },
+    "table": {
+      "texto": "Table",
+      "file": "table__af_alloy__1377b7.mp3"
+    },
+    "chair": {
+      "texto": "Chair",
+      "file": "chair__af_alloy__1ee897.mp3"
+    },
+    "sofa": {
+      "texto": "Sofa",
+      "file": "sofa__af_alloy__4f2373.mp3"
+    },
+    "bed": {
+      "texto": "Bed",
+      "file": "bed__af_alloy__6b573a.mp3"
+    },
+    "lamp": {
+      "texto": "Lamp",
+      "file": "lamp__af_alloy__f11028.mp3"
+    },
+    "light": {
+      "texto": "Light",
+      "file": "light__af_alloy__6768e3.mp3"
+    },
+    "speaker": {
+      "texto": "Speaker",
+      "file": "speaker__af_alloy__d0b056.mp3"
+    },
+    "radio": {
+      "texto": "Radio",
+      "file": "radio__af_alloy__7a2006.mp3"
+    },
+    "tv": {
+      "texto": "TV",
+      "file": "tv__af_alloy__580856.mp3"
+    },
+    "clock": {
+      "texto": "Clock",
+      "file": "clock__af_alloy__a3a2f8.mp3"
+    },
+    "picture": {
+      "texto": "Picture",
+      "file": "picture__af_alloy__557a46.mp3"
+    },
+    "plant": {
+      "texto": "Plant",
+      "file": "plant__af_alloy__1a5c81.mp3"
+    },
+    "fridge": {
+      "texto": "Fridge",
+      "file": "fridge__af_alloy__8a53d4.mp3"
+    },
+    "stove": {
+      "texto": "Stove",
+      "file": "stove__af_alloy__0664ae.mp3"
+    },
+    "sink": {
+      "texto": "Sink",
+      "file": "sink__af_alloy__2417e4.mp3"
+    },
+    "shelf": {
+      "texto": "Shelf",
+      "file": "shelf__af_alloy__cc1635.mp3"
+    },
+    "desk": {
+      "texto": "Desk",
+      "file": "desk__af_alloy__a4de88.mp3"
+    },
+    "carpet": {
+      "texto": "Carpet",
+      "file": "carpet__af_alloy__4bf5a4.mp3"
+    },
+    "curtain": {
+      "texto": "Curtain",
+      "file": "curtain__af_alloy__354376.mp3"
+    },
+    "stairs": {
+      "texto": "Stairs",
+      "file": "stairs__af_alloy__625929.mp3"
+    },
+    "seat": {
+      "texto": "Seat",
+      "file": "seat__af_alloy__92379a.mp3"
+    },
+    "pillow": {
+      "texto": "Pillow",
+      "file": "pillow__af_alloy__06200f.mp3"
+    },
+    "blanket": {
+      "texto": "Blanket",
+      "file": "blanket__af_alloy__aff473.mp3"
+    },
+    "towel": {
+      "texto": "Towel",
+      "file": "towel__af_alloy__67dbd9.mp3"
+    },
+    "elevator": {
+      "texto": "Elevator",
+      "file": "elevator__af_alloy__ccf39b.mp3"
+    },
+    "box": {
+      "texto": "Box",
+      "file": "box__af_alloy__a5b0be.mp3"
+    },
+    "mirror": {
+      "texto": "Mirror",
+      "file": "mirror__af_alloy__45e008.mp3"
+    },
+    "shower": {
+      "texto": "Shower",
+      "file": "shower__af_alloy__d4b295.mp3"
+    },
+    "toilet": {
+      "texto": "Toilet",
+      "file": "toilet__af_alloy__7401f8.mp3"
+    },
+    "bath": {
+      "texto": "Bath",
+      "file": "bath__af_alloy__7afea5.mp3"
+    },
+    "basket": {
+      "texto": "Basket",
+      "file": "basket__af_alloy__56640d.mp3"
+    },
+    "bottle": {
+      "texto": "Bottle",
+      "file": "bottle__af_alloy__fa79ed.mp3"
+    },
+    "cake": {
+      "texto": "Cake",
+      "file": "cake__af_alloy__9955c6.mp3"
+    },
+    "pizza": {
+      "texto": "Pizza",
+      "file": "pizza__af_alloy__2abf9b.mp3"
+    },
+    "cup": {
+      "texto": "Cup",
+      "file": "cup__af_alloy__37f758.mp3"
+    },
+    "glass": {
+      "texto": "Glass",
+      "file": "glass__af_alloy__5f4b4f.mp3"
+    },
+    "plate": {
+      "texto": "Plate",
+      "file": "plate__af_alloy__b7a1af.mp3"
+    },
+    "bread": {
+      "texto": "Bread",
+      "file": "bread__af_alloy__7701dd.mp3"
+    },
+    "apple": {
+      "texto": "Apple",
+      "file": "apple__af_alloy__661eed.mp3"
+    },
+    "banana": {
+      "texto": "Banana",
+      "file": "banana__af_alloy__39da73.mp3"
+    },
+    "orange": {
+      "texto": "Orange",
+      "file": "orange__af_alloy__4b3da5.mp3"
+    },
+    "milk": {
+      "texto": "Milk",
+      "file": "milk__af_alloy__01182e.mp3"
+    },
+    "coffee": {
+      "texto": "Coffee",
+      "file": "coffee__af_alloy__32036c.mp3"
+    },
+    "tea": {
+      "texto": "Tea",
+      "file": "tea__af_alloy__0801cf.mp3"
+    },
+    "burger": {
+      "texto": "Burger",
+      "file": "burger__af_alloy__a5ae84.mp3"
+    },
+    "sandwich": {
+      "texto": "Sandwich",
+      "file": "sandwich__af_alloy__640167.mp3"
+    },
+    "salad": {
+      "texto": "Salad",
+      "file": "salad__af_alloy__479bb5.mp3"
+    },
+    "soup": {
+      "texto": "Soup",
+      "file": "soup__af_alloy__a6e67e.mp3"
+    },
+    "cheese": {
+      "texto": "Cheese",
+      "file": "cheese__af_alloy__e1121a.mp3"
+    },
+    "egg": {
+      "texto": "Egg",
+      "file": "egg__af_alloy__eb012e.mp3"
+    },
+    "rice": {
+      "texto": "Rice",
+      "file": "rice__af_alloy__a27508.mp3"
+    },
+    "juice": {
+      "texto": "Juice",
+      "file": "juice__af_alloy__2f568b.mp3"
+    },
+    "candy": {
+      "texto": "Candy",
+      "file": "candy__af_alloy__fd703c.mp3"
+    },
+    "chocolate": {
+      "texto": "Chocolate",
+      "file": "chocolate__af_alloy__b55f85.mp3"
+    },
+    "potato": {
+      "texto": "Potato",
+      "file": "potato__af_alloy__fff7ce.mp3"
+    },
+    "tomato": {
+      "texto": "Tomato",
+      "file": "tomato__af_alloy__ec01e1.mp3"
+    },
+    "carrot": {
+      "texto": "Carrot",
+      "file": "carrot__af_alloy__07da2b.mp3"
+    },
+    "onion": {
+      "texto": "Onion",
+      "file": "onion__af_alloy__8f6c7e.mp3"
+    },
+    "lemon": {
+      "texto": "Lemon",
+      "file": "lemon__af_alloy__ca1883.mp3"
+    },
+    "grape": {
+      "texto": "Grape",
+      "file": "grape__af_alloy__01c7da.mp3"
+    },
+    "strawberry": {
+      "texto": "Strawberry",
+      "file": "strawberry__af_alloy__0a4a06.mp3"
+    },
+    "fruit": {
+      "texto": "Fruit",
+      "file": "fruit__af_alloy__64e3f6.mp3"
+    },
+    "beer": {
+      "texto": "Beer",
+      "file": "beer__af_alloy__4782ad.mp3"
+    },
+    "wine": {
+      "texto": "Wine",
+      "file": "wine__af_alloy__4fe46a.mp3"
+    },
+    "cookie": {
+      "texto": "Cookie",
+      "file": "cookie__af_alloy__ce53c0.mp3"
+    },
+    "salt": {
+      "texto": "Salt",
+      "file": "salt__af_alloy__0a6a27.mp3"
+    },
+    "pepper": {
+      "texto": "Pepper",
+      "file": "pepper__af_alloy__577815.mp3"
+    },
+    "honey": {
+      "texto": "Honey",
+      "file": "honey__af_alloy__71bce7.mp3"
+    },
+    "pasta": {
+      "texto": "Pasta",
+      "file": "pasta__af_alloy__51558c.mp3"
+    },
+    "steak": {
+      "texto": "Steak",
+      "file": "steak__af_alloy__21b01e.mp3"
+    },
+    "sausage": {
+      "texto": "Sausage",
+      "file": "sausage__af_alloy__62a22e.mp3"
+    },
+    "corn": {
+      "texto": "Corn",
+      "file": "corn__af_alloy__2a02fa.mp3"
+    },
+    "ice": {
+      "texto": "Ice",
+      "file": "ice__af_alloy__be99f2.mp3"
+    },
+    "ice_cream": {
+      "texto": "Ice cream",
+      "file": "ice-cream__af_alloy__f322f4.mp3"
+    },
+    "fork": {
+      "texto": "Fork",
+      "file": "fork__af_alloy__f8014e.mp3"
+    },
+    "spoon": {
+      "texto": "Spoon",
+      "file": "spoon__af_alloy__578e92.mp3"
+    },
+    "knife": {
+      "texto": "Knife",
+      "file": "knife__af_alloy__2448f8.mp3"
+    },
+    "money": {
+      "texto": "Money",
+      "file": "money__af_alloy__1b5a80.mp3"
+    },
+    "coin": {
+      "texto": "Coin",
+      "file": "coin__af_alloy__aa54e1.mp3"
+    },
+    "bill": {
+      "texto": "Bill",
+      "file": "bill__af_alloy__59c162.mp3"
+    },
+    "card": {
+      "texto": "Card",
+      "file": "card__af_alloy__b8703f.mp3"
+    },
+    "wallet": {
+      "texto": "Wallet",
+      "file": "wallet__af_alloy__9ffa52.mp3"
+    },
+    "balloon": {
+      "texto": "Balloon",
+      "file": "balloon__af_alloy__9264e8.mp3"
+    },
+    "gift": {
+      "texto": "Gift",
+      "file": "gift__af_alloy__d05e36.mp3"
+    },
+    "ticket": {
+      "texto": "Ticket",
+      "file": "ticket__af_alloy__dcb84e.mp3"
+    },
+    "map": {
+      "texto": "Map",
+      "file": "map__af_alloy__65c901.mp3"
+    },
+    "letter": {
+      "texto": "Letter",
+      "file": "letter__af_alloy__c0edda.mp3"
+    },
+    "pen": {
+      "texto": "Pen",
+      "file": "pen__af_alloy__25e638.mp3"
+    },
+    "pencil": {
+      "texto": "Pencil",
+      "file": "pencil__af_alloy__5e8381.mp3"
+    },
+    "paper": {
+      "texto": "Paper",
+      "file": "paper__af_alloy__0c17f5.mp3"
+    },
+    "notebook": {
+      "texto": "Notebook",
+      "file": "notebook__af_alloy__fd70f9.mp3"
+    },
+    "suitcase": {
+      "texto": "Suitcase",
+      "file": "suitcase__af_alloy__377546.mp3"
+    },
+    "heart": {
+      "texto": "Heart",
+      "file": "heart__af_alloy__3d0cac.mp3"
+    },
+    "soccer": {
+      "texto": "Soccer",
+      "file": "soccer__af_alloy__cc651f.mp3"
+    },
+    "shirt": {
+      "texto": "Shirt",
+      "file": "shirt__af_alloy__86697e.mp3"
+    },
+    "pants": {
+      "texto": "Pants",
+      "file": "pants__af_alloy__1d0062.mp3"
+    },
+    "dress": {
+      "texto": "Dress",
+      "file": "dress__af_alloy__189642.mp3"
+    },
+    "shoes": {
+      "texto": "Shoes",
+      "file": "shoes__af_alloy__758fab.mp3"
+    },
+    "coat": {
+      "texto": "Coat",
+      "file": "coat__af_alloy__37b735.mp3"
+    },
+    "jacket": {
+      "texto": "Jacket",
+      "file": "jacket__af_alloy__9b8b4d.mp3"
+    },
+    "sock": {
+      "texto": "Sock",
+      "file": "sock__af_alloy__30348e.mp3"
+    },
+    "scarf": {
+      "texto": "Scarf",
+      "file": "scarf__af_alloy__a567b2.mp3"
+    },
+    "dog": {
+      "texto": "Dog",
+      "file": "dog__af_alloy__aedcab.mp3"
+    },
+    "cat": {
+      "texto": "Cat",
+      "file": "cat__af_alloy__3d7f12.mp3"
+    },
+    "bird": {
+      "texto": "Bird",
+      "file": "bird__af_alloy__76260c.mp3"
+    },
+    "fish": {
+      "texto": "Fish",
+      "file": "fish__af_alloy__a87ea1.mp3"
+    },
+    "horse": {
+      "texto": "Horse",
+      "file": "horse__af_alloy__44703b.mp3"
+    },
+    "cow": {
+      "texto": "Cow",
+      "file": "cow__af_alloy__7731b3.mp3"
+    },
+    "pig": {
+      "texto": "Pig",
+      "file": "pig__af_alloy__32f70b.mp3"
+    },
+    "sheep": {
+      "texto": "Sheep",
+      "file": "sheep__af_alloy__1195aa.mp3"
+    },
+    "chicken": {
+      "texto": "Chicken",
+      "file": "chicken__af_alloy__1d48d1.mp3"
+    },
+    "duck": {
+      "texto": "Duck",
+      "file": "duck__af_alloy__d1cccb.mp3"
+    },
+    "rabbit": {
+      "texto": "Rabbit",
+      "file": "rabbit__af_alloy__90afa9.mp3"
+    },
+    "mouse": {
+      "texto": "Mouse",
+      "file": "mouse__af_alloy__481efd.mp3"
+    },
+    "monkey": {
+      "texto": "Monkey",
+      "file": "monkey__af_alloy__a5313b.mp3"
+    },
+    "lion": {
+      "texto": "Lion",
+      "file": "lion__af_alloy__7bd1cb.mp3"
+    },
+    "tiger": {
+      "texto": "Tiger",
+      "file": "tiger__af_alloy__f7db31.mp3"
+    },
+    "bear": {
+      "texto": "Bear",
+      "file": "bear__af_alloy__ea7571.mp3"
+    },
+    "elephant": {
+      "texto": "Elephant",
+      "file": "elephant__af_alloy__bf46ca.mp3"
+    },
+    "snake": {
+      "texto": "Snake",
+      "file": "snake__af_alloy__001856.mp3"
+    },
+    "butterfly": {
+      "texto": "Butterfly",
+      "file": "butterfly__af_alloy__80f9de.mp3"
+    },
+    "spider": {
+      "texto": "Spider",
+      "file": "spider__af_alloy__1611a9.mp3"
+    },
+    "turtle": {
+      "texto": "Turtle",
+      "file": "turtle__af_alloy__ba62c3.mp3"
+    },
+    "dolphin": {
+      "texto": "Dolphin",
+      "file": "dolphin__af_alloy__8db9cd.mp3"
+    },
+    "owl": {
+      "texto": "Owl",
+      "file": "owl__af_alloy__f643b3.mp3"
+    },
+    "insect": {
+      "texto": "Insect",
+      "file": "insect__af_alloy__479582.mp3"
+    },
+    "phone": {
+      "texto": "Phone",
+      "file": "phone__af_alloy__fa38b8.mp3"
+    },
+    "computer": {
+      "texto": "Computer",
+      "file": "computer__af_alloy__249faa.mp3"
+    },
+    "bag": {
+      "texto": "Bag",
+      "file": "bag__af_alloy__36c268.mp3"
+    },
+    "key": {
+      "texto": "Key",
+      "file": "key__af_alloy__5c3085.mp3"
+    },
+    "umbrella": {
+      "texto": "Umbrella",
+      "file": "umbrella__af_alloy__cc1b07.mp3"
+    },
+    "hat": {
+      "texto": "Hat",
+      "file": "hat__af_alloy__dc54d1.mp3"
+    },
+    "glasses": {
+      "texto": "Glasses",
+      "file": "glasses__af_alloy__ea2de0.mp3"
+    },
+    "watch": {
+      "texto": "Watch",
+      "file": "watch__af_alloy__9a7439.mp3"
+    },
+    "book": {
+      "texto": "Book",
+      "file": "book__af_alloy__ac4ef2.mp3"
+    },
+    "camera": {
+      "texto": "Camera",
+      "file": "camera__af_alloy__c88035.mp3"
+    },
+    "flag": {
+      "texto": "Flag",
+      "file": "flag__af_alloy__72f7cd.mp3"
+    },
+    "guitar": {
+      "texto": "Guitar",
+      "file": "guitar__af_alloy__e70f2e.mp3"
+    },
+    "piano": {
+      "texto": "Piano",
+      "file": "piano__af_alloy__d1b6d4.mp3"
+    },
+    "bus_stop": {
+      "texto": "Bus stop",
+      "file": "bus-stop__af_alloy__38a9aa.mp3"
+    },
+    "bench": {
+      "texto": "Park seat",
+      "file": "park-seat__af_alloy__2e9736.mp3"
+    },
+    "coffee_machine": {
+      "texto": "Coffee machine",
+      "file": "coffee-machine__af_alloy__828698.mp3"
+    },
+    "cash_register": {
+      "texto": "Cash register",
+      "file": "cash-register__af_alloy__414668.mp3"
+    },
+    "menu": {
+      "texto": "Menu",
+      "file": "menu__af_alloy__bb7cec.mp3"
+    },
+    "baggage_belt": {
+      "texto": "Bag belt",
+      "file": "bag-belt__af_alloy__632e6c.mp3"
+    },
+    "flight_board": {
+      "texto": "Flight board",
+      "file": "flight-board__af_alloy__57089f.mp3"
+    },
+    "passport": {
+      "texto": "Passport",
+      "file": "passport__af_alloy__b6b0c7.mp3"
+    },
+    "display_case": {
+      "texto": "Glass box",
+      "file": "glass-box__af_alloy__c80020.mp3"
+    },
+    "doorbell": {
+      "texto": "Door bell",
+      "file": "door-bell__af_alloy__9419bd.mp3"
+    },
+    "fence": {
+      "texto": "Garden wall",
+      "file": "garden-wall__af_alloy__cfc5fa.mp3"
+    },
+    "market_stall": {
+      "texto": "Market table",
+      "file": "market-table__af_alloy__b47e5f.mp3"
+    },
+    "stage": {
+      "texto": "Stage",
+      "file": "stage__af_alloy__c51d2a.mp3"
+    },
+    "poster": {
+      "texto": "Poster",
+      "file": "poster__af_alloy__60386a.mp3"
+    },
+    "sleeping_bag": {
+      "texto": "Sleeping bag",
+      "file": "sleeping-bag__af_alloy__83b55a.mp3"
+    },
+    "statue": {
+      "texto": "Stone figure",
+      "file": "stone-figure__af_alloy__b240f5.mp3"
+    },
+    "surfboard": {
+      "texto": "Surf board",
+      "file": "surf-board__af_alloy__9fb158.mp3"
+    },
+    "whiteboard": {
+      "texto": "Whiteboard",
+      "file": "whiteboard__af_alloy__86eb89.mp3"
+    },
+    "photo_album": {
+      "texto": "Photo album",
+      "file": "photo-album__af_alloy__6d81bf.mp3"
+    },
+    "atm": {
+      "texto": "Money machine",
+      "file": "money-machine__af_alloy__8891ea.mp3"
+    },
+    "medicine": {
+      "texto": "Medicine",
+      "file": "medicine__af_alloy__e282de.mp3"
+    },
+    "backpack": {
+      "texto": "Backpack",
+      "file": "backpack__af_alloy__1167ef.mp3"
+    },
+    "calendar": {
+      "texto": "Calendar",
+      "file": "calendar__af_alloy__3e6a76.mp3"
+    },
+    "candle": {
+      "texto": "Small light",
+      "file": "small-light__af_alloy__804009.mp3"
+    },
+    "reception_bell": {
+      "texto": "Desk bell",
+      "file": "desk-bell__af_alloy__0037c4.mp3"
+    },
+    "security_camera": {
+      "texto": "Security camera",
+      "file": "security-camera__af_alloy__fa1af8.mp3"
+    },
+    "shopping_cart": {
+      "texto": "Shopping basket",
+      "file": "shopping-basket__af_alloy__b48a71.mp3"
+    },
+    "traffic_light": {
+      "texto": "Traffic light",
+      "file": "traffic-light__af_alloy__6a4772.mp3"
+    },
+    "moving_truck": {
+      "texto": "Moving car",
+      "file": "moving-car__af_alloy__20783d.mp3"
+    },
+    "package": {
+      "texto": "Small box",
+      "file": "small-box__af_alloy__e46503.mp3"
+    },
+    "pan": {
+      "texto": "Pan",
+      "file": "pan__af_alloy__8d3cba.mp3"
+    },
+    "pot": {
+      "texto": "Cooking pan",
+      "file": "cooking-pan__af_alloy__71f67a.mp3"
+    },
+    "laptop": {
+      "texto": "Laptop",
+      "file": "laptop__af_alloy__d94627.mp3"
+    },
+    "printer": {
+      "texto": "Printer",
+      "file": "printer__af_alloy__9e8425.mp3"
+    },
+    "folder": {
+      "texto": "Folder",
+      "file": "folder__af_alloy__adc798.mp3"
+    },
+    "mailbox": {
+      "texto": "Mail box",
+      "file": "mail-box__af_alloy__69ef80.mp3"
+    },
+    "globe": {
+      "texto": "World map",
+      "file": "world-map__af_alloy__5a9bff.mp3"
+    },
+    "tent": {
+      "texto": "Tent",
+      "file": "tent__af_alloy__f97241.mp3"
+    },
+    "flashlight": {
+      "texto": "Hand light",
+      "file": "hand-light__af_alloy__71e4f6.mp3"
+    },
+    "toolbox": {
+      "texto": "Repair box",
+      "file": "repair-box__af_alloy__da8a1c.mp3"
+    },
+    "tire": {
+      "texto": "Tire",
+      "file": "tire__af_alloy__577ff8.mp3"
+    },
+    "trash_can": {
+      "texto": "Trash can",
+      "file": "trash-can__af_alloy__14ff60.mp3"
+    }
+  },
+  "audio_dir": "audio/"
+}

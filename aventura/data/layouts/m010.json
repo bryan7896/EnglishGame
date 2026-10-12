@@ -1,0 +1,121 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "cuarto": {
+  "jugador": {
+   "x": 24,
+   "y": 88
+  },
+  "personajes": {
+   "jake": {
+    "x": 54,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "bed": {
+    "x": 70,
+    "y": 86,
+    "s": 22,
+    "capa": "fondo"
+   },
+   "blanket": {
+    "x": 70,
+    "y": 79,
+    "s": 14,
+    "capa": "fondo"
+   },
+   "window": {
+    "x": 40,
+    "y": 42,
+    "s": 12,
+    "capa": "pared"
+   },
+   "thermometer": {
+    "x": 86,
+    "y": 76,
+    "s": 2,
+    "capa": "fondo"
+   },
+   "water": {
+    "x": 90,
+    "y": 86,
+    "s": 2.5,
+    "capa": "fondo"
+   }
+  }
+ },
+ "farmacia": {
+  "jugador": {
+   "x": 14,
+   "y": 88
+  },
+  "personajes": {
+   "lily": {
+    "x": 32,
+    "y": 87
+   },
+   "patel": {
+    "x": 66,
+    "y": 82
+   }
+  },
+  "objetos": {
+   "medicine": {
+    "x": 56,
+    "y": 49,
+    "s": 3,
+    "capa": "pared"
+   },
+   "cash_register": {
+    "x": 78,
+    "y": 49,
+    "s": 5,
+    "capa": "pared"
+   },
+   "water": {
+    "x": 46,
+    "y": 88,
+    "s": 2.5,
+    "capa": "fondo"
+   }
+  }
+ },
+ "casa": {
+  "jugador": {
+   "x": 24,
+   "y": 88
+  },
+  "personajes": {
+   "jake": {
+    "x": 54,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "bed": {
+    "x": 70,
+    "y": 86,
+    "s": 22,
+    "capa": "fondo"
+   },
+   "blanket": {
+    "x": 70,
+    "y": 79,
+    "s": 14,
+    "capa": "fondo"
+   },
+   "window": {
+    "x": 40,
+    "y": 42,
+    "s": 12,
+    "capa": "pared"
+   },
+   "medicine": {
+    "x": 86,
+    "y": 86,
+    "s": 3,
+    "capa": "fondo"
+   }
+  }
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "banco": {
+  "jugador": {
+   "x": 12,
+   "y": 88
+  },
+  "personajes": {
+   "hank": {
+    "x": 26,
+    "y": 87
+   },
+   "george": {
+    "x": 46,
+    "y": 87
+   },
+   "ben": {
+    "x": 78,
+    "y": 82
+   }
+  },
+  "objetos": {
+   "atm": {
+    "x": 6,
+    "y": 80,
+    "s": 6,
+    "capa": "pared"
+   },
+   "money": {
+    "x": 70,
+    "y": 64,
+    "s": 3,
+    "capa": "pared"
+   },
+   "card": {
+    "x": 84,
+    "y": 64,
+    "s": 2.5,
+    "capa": "pared"
+   },
+   "paper": {
+    "x": 74,
+    "y": 64,
+    "s": 3,
+    "capa": "pared"
+   },
+   "pen": {
+    "x": 78,
+    "y": 64,
+    "s": 2,
+    "capa": "pared"
+   }
+  }
+ }
+}

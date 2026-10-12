@@ -1,0 +1,460 @@
+{
+  "id": "m038",
+  "titulo": "Learning together",
+  "titulo_es": "Aprendiendo juntos",
+  "objetivo": "Help Kenji practice English and understand him.",
+  "objetivo_es": "Ayuda a Kenji a practicar inglés y entenderlo.",
+  "nivel": "B1",
+  "resumen": "Kenji quiere practicar ingles contigo. Animalo en la cafeteria y acompanalo a la biblioteca.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "cafe",
+      "titulo": "The coffee shop",
+      "fondo": "cafe_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "kenji",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "mia"
+          },
+          "ocupado": [
+            {
+              "quien": "kenji",
+              "texto": "Let's get some coffee first."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "kenji",
+                "texto": "Bryan, thank you for meeting me. My English is very bad."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  38
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, it isn't bad! You speak well.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, it isn't badly! You speak well."
+                  },
+                  {
+                    "texto": "No, it isn't bad! You cook well."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "But I speak slowly. And I say some words badly."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "opciones": [
+                  {
+                    "texto": "Practicing every day will help you.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Practice every day will help you."
+                  },
+                  {
+                    "texto": "Swimming every day will help you."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Can you help me? I want to practice with you."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "opciones": [
+                  {
+                    "texto": "Of course. You can practice with me.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Of course. You can practice with I."
+                  },
+                  {
+                    "texto": "Of course. You can practice with the coffee."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "What are you going to do after this?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  36
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I'm going to study with you at the library.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I going to study with you at the library."
+                  },
+                  {
+                    "texto": "I'm going to swim at the library."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Why do you help me?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  49
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Because I like teaching English.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Because of I like teaching English."
+                  },
+                  {
+                    "texto": "Because I like eating English."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Let's ask Mia for some coffee first."
+              }
+            ]
+          }
+        },
+        {
+          "id": "mia",
+          "rol": "target",
+          "antes": {
+            "quien": "mia",
+            "texto": "One moment, please!"
+          },
+          "dialogo": {
+            "requiere": "kenji_hablado",
+            "pasos": [
+              {
+                "quien": "mia",
+                "texto": "Hi! Is your friend new here?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. I'm helping him with his English.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I'm helping he with his English."
+                  },
+                  {
+                    "texto": "Yes. I'm helping the cat with his English."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "That's nice! He looks a little worried."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  38
+                ],
+                "opciones": [
+                  {
+                    "texto": "He's worried because he thinks he speaks badly.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "He's worried because he thinks he speaks bad."
+                  },
+                  {
+                    "texto": "He's worried because he thinks he cooks badly."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "Where are you going after this?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  41
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "We're going to the library together.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Together we're going the library to."
+                  },
+                  {
+                    "texto": "We're going to the moon together."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "Tell him not to worry! Here's your coffee."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "biblioteca"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "coffee",
+          "svg": "coffee",
+          "texto_ref": "coffee"
+        },
+        {
+          "id": "cup",
+          "svg": "cup",
+          "texto_ref": "cup"
+        },
+        {
+          "id": "table",
+          "svg": "table",
+          "texto_ref": "table"
+        },
+        {
+          "id": "coffee_machine",
+          "svg": "coffee_machine",
+          "texto_ref": "coffee_machine"
+        },
+        {
+          "id": "notebook",
+          "svg": "notebook",
+          "texto_ref": "notebook"
+        }
+      ]
+    },
+    {
+      "id": "biblioteca",
+      "titulo": "The library",
+      "fondo": "biblioteca",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "ruth",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "ruth",
+                "texto": "Hello, boys. Are you here to study?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. Kenji wants to learn new words.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. Kenji wants learning new words."
+                  },
+                  {
+                    "texto": "Yes. Kenji wants to learn new dances."
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "Then this book is for him. Please give it to him."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thank you. I'll give it to him now.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you. I'll give it to he now."
+                  },
+                  {
+                    "texto": "Thank you. I'll give it to the shelf now."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Thank you, Bryan. So my English isn't so bad?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  38
+                ],
+                "opciones": [
+                  {
+                    "texto": "Not at all! You did really well today.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Not at all! You did really good today."
+                  },
+                  {
+                    "texto": "Not at all! You ate really well today."
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "Come back any time. I like seeing students learn."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "opciones": [
+                  {
+                    "texto": "We will! We enjoy studying here.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We will! We enjoy to study here."
+                  },
+                  {
+                    "texto": "We will! We enjoy sleeping here."
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "What does Kenji do?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  9
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "He works as a cook in a restaurant.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "He works like a cook in a restaurant."
+                  },
+                  {
+                    "texto": "He works as a fish in a restaurant."
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "Wonderful. Good luck, boys!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "book",
+          "svg": "book",
+          "texto_ref": "book"
+        },
+        {
+          "id": "desk",
+          "svg": "desk",
+          "texto_ref": "desk"
+        },
+        {
+          "id": "computer",
+          "svg": "computer",
+          "texto_ref": "computer"
+        },
+        {
+          "id": "whiteboard",
+          "svg": "whiteboard",
+          "texto_ref": "whiteboard"
+        },
+        {
+          "id": "lamp",
+          "svg": "lamp",
+          "texto_ref": "lamp"
+        }
+      ]
+    }
+  ]
+}

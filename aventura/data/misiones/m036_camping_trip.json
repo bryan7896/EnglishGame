@@ -1,0 +1,499 @@
+{
+  "id": "m036",
+  "titulo": "The camping trip",
+  "titulo_es": "El viaje de camping",
+  "objetivo": "Spend one night camping in the forest.",
+  "objetivo_es": "Pasa una noche de camping en el bosque.",
+  "nivel": "B1",
+  "resumen": "Una noche de camping en el bosque con Jake, Tom y Kenji. Armen el campamento, hagan fuego y pasen la noche.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "bosque",
+      "titulo": "The forest",
+      "fondo": "bosque_noche",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "tom"
+          },
+          "ocupado": [
+            {
+              "quien": "jake",
+              "texto": "Help Tom, man!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "Finally! We've been walking for three hours!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "opciones": [
+                  {
+                    "texto": "We had been walking for hours. I'm tired!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We had been walk for hours. I'm tired!"
+                  },
+                  {
+                    "texto": "We had been swimming for hours. I'm wet!"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Why are you so tired? You walked less than me!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "opciones": [
+                  {
+                    "texto": "I had been working all week before this!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I had been work all week before this!"
+                  },
+                  {
+                    "texto": "I had been eating all week before this!"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Ha ha. Let's put the tent here. Take off your backpack."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  50
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. I'll take it off and put it down here.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. I'll take off it and put down it here."
+                  },
+                  {
+                    "texto": "OK. I'll take it to the beach and swim."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "How long are we staying here?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "For two nights. We can rest during the day.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "During two nights. We can rest for the day."
+                  },
+                  {
+                    "texto": "For two dogs. We can rest during the day."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Next month, we'll have been doing this for five years!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  44
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Wow! By then, we'll have been camping for five years!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Wow! By then, we'll have been camp for five years!"
+                  },
+                  {
+                    "texto": "Wow! By then, we'll have been swimming for five years!"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "I cooked dinner badly last time.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  38
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Ha ha. It was really bad!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Ha ha. It was really badly!"
+                  },
+                  {
+                    "texto": "Ha ha. It was a really big car!"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Tom has the hand light, I think."
+              }
+            ]
+          }
+        },
+        {
+          "id": "tom",
+          "rol": "target",
+          "antes": {
+            "quien": "tom",
+            "texto": "One moment, Bryan!"
+          },
+          "pista": {
+            "marca": "kenji"
+          },
+          "dialogo": {
+            "requiere": "jake_hablado",
+            "pasos": [
+              {
+                "quien": "tom",
+                "texto": "Bryan, I can't find the hand light! It was in my bag while we were walking."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  35
+                ],
+                "opciones": [
+                  {
+                    "texto": "Maybe it fell out while we were walking.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Maybe it fell out during we were walking."
+                  },
+                  {
+                    "texto": "Maybe it fell out while we were sleeping at home."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Oh no! What do we do when it gets dark?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  35
+                ],
+                "opciones": [
+                  {
+                    "texto": "When it gets dark, we'll use the fire.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "While it gets dark, we'll use the fire."
+                  },
+                  {
+                    "texto": "When it gets dark, we'll use the pizza."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Good idea! Kenji is making the fire."
+              },
+              {
+                "quien": "tom",
+                "texto": "It's getting cold.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  30
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. And it's getting dark, too.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. And it's get dark, too."
+                  },
+                  {
+                    "texto": "Yes. And it's getting a cat, too."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Let's sit near the fire, then!",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "luz": 0.2
+              }
+            ]
+          }
+        },
+        {
+          "id": "kenji",
+          "rol": "target",
+          "antes": {
+            "quien": "kenji",
+            "texto": "Wait, Bryan. I'm busy."
+          },
+          "dialogo": {
+            "requiere": "tom_hablado",
+            "pasos": [
+              {
+                "quien": "kenji",
+                "texto": "Bryan, I'm cold. Can I try on your jacket?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  50
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sure. Try it on. It's very warm.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. Try on it. It's very warm."
+                  },
+                  {
+                    "texto": "Sure. Try it on. It's very blue."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Thank you. Listen! What were you doing when you heard that noise?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  35
+                ],
+                "opciones": [
+                  {
+                    "texto": "I was making the fire when I heard it.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I was making the fire while I heard it."
+                  },
+                  {
+                    "texto": "I was swimming when I heard it."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "It was an owl! Ha ha. Before we came, I had been reading about owls."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "opciones": [
+                  {
+                    "texto": "Really? How long had you been reading?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Really? How long had you been read?"
+                  },
+                  {
+                    "texto": "Really? How long had you been flying?"
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "All week! Now let's lie down and look at the stars."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  50
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. Let's lie down near the fire.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. Let's lie it down near the fire."
+                  },
+                  {
+                    "texto": "OK. Let's lie down in the river."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Is the fire too big?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  27
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, it's very big, but it's OK.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, it's too big, but it's OK."
+                  },
+                  {
+                    "texto": "No, it's very small, and it's a fish."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "What had you been doing before I arrived?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I had been looking for wood.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I had been look for wood."
+                  },
+                  {
+                    "texto": "I had been swimming in the river."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "This is the best night ever."
+              }
+            ],
+            "al_terminar": [
+              {
+                "luz": 0.3
+              },
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "tent",
+          "svg": "tent",
+          "texto_ref": "tent"
+        },
+        {
+          "id": "fire",
+          "svg": "fire",
+          "texto_ref": "fire"
+        },
+        {
+          "id": "backpack",
+          "svg": "backpack",
+          "texto_ref": "backpack"
+        },
+        {
+          "id": "sleeping_bag",
+          "svg": "sleeping_bag",
+          "texto_ref": "sleeping_bag"
+        },
+        {
+          "id": "owl",
+          "svg": "owl",
+          "texto_ref": "owl"
+        },
+        {
+          "id": "flashlight",
+          "svg": "flashlight",
+          "texto_ref": "flashlight"
+        },
+        {
+          "id": "moon",
+          "svg": "moon",
+          "texto_ref": "moon"
+        }
+      ],
+      "luz_inicial": 0.55
+    }
+  ]
+}

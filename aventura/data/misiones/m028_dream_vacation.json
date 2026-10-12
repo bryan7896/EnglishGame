@@ -1,0 +1,526 @@
+{
+  "id": "m028",
+  "titulo": "Dream vacation",
+  "titulo_es": "Las vacaciones soñadas",
+  "objetivo": "Plan the vacation of your dreams.",
+  "objetivo_es": "Planea las vacaciones de tus sueños.",
+  "nivel": "B1",
+  "resumen": "Planea con Sara el viaje de tus suenos: elige pais, pide consejos a George y haz el check-in en el aeropuerto.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "sala",
+      "titulo": "Planning the trip",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "sara",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "george"
+          },
+          "ocupado": [
+            {
+              "quien": "sara",
+              "texto": "Ask George, Bryan. He travels a lot."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "sara",
+                "texto": "Bryan, if you could go anywhere, where would you go?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "opciones": [
+                  {
+                    "texto": "If I had money, I would go to Japan.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If I have money, I would go to Japan."
+                  },
+                  {
+                    "texto": "If I had money, I would buy a cat."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Japan! Why?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  54
+                ],
+                "opciones": [
+                  {
+                    "texto": "It's the most beautiful country in the world.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "It's the more beautiful country in the world."
+                  },
+                  {
+                    "texto": "It's the cheapest car in the world."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Let's look at the world map. Where is it?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "opciones": [
+                  {
+                    "texto": "Look. Japan is in Asia, near China.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Look. Japan is on Asia, near China."
+                  },
+                  {
+                    "texto": "Look. Japan is in my bag, near the bed."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "When does spring start there?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "opciones": [
+                  {
+                    "texto": "In March, I think. On the first day.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "On March, I think. In the first day."
+                  },
+                  {
+                    "texto": "In March, I think. On the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Is Japan more expensive than here?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  54
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, it's more expensive, but it's safer.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, it's expensiver, but it's more safe."
+                  },
+                  {
+                    "texto": "Yes, it's more expensive, but it's a cat."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Why do you love Japan so much?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  49
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Because of the flowers. They're beautiful.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Because the flowers. They're beautiful."
+                  },
+                  {
+                    "texto": "Because of the snow. It's hot."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "What will we be doing this time next year?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "We'll be walking in Japan!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We'll be walk in Japan!"
+                  },
+                  {
+                    "texto": "We'll be swimming on the moon!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Let's ask George. He travels a lot."
+              }
+            ]
+          }
+        },
+        {
+          "id": "george",
+          "rol": "target",
+          "antes": {
+            "quien": "george",
+            "texto": "One moment, my boy."
+          },
+          "dialogo": {
+            "requiere": "sara_hablado",
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "Japan? You should go in spring."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  17
+                ],
+                "opciones": [
+                  {
+                    "texto": "Why should we go in spring?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Why should we to go in spring?"
+                  },
+                  {
+                    "texto": "Why should we eat in spring?"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Because of the flowers! And their big city is wonderful."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  54
+                ],
+                "opciones": [
+                  {
+                    "texto": "Is it the biggest city in the world?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Is it the most big city in the world?"
+                  },
+                  {
+                    "texto": "Is it the biggest dog in the world?"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "One of them! If I were young, I would go with you!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "opciones": [
+                  {
+                    "texto": "If you came with us, it would be fun!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If you come with us, it would be fun!"
+                  },
+                  {
+                    "texto": "If you came with us, it would be a cat!"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Have you ever been to Japan?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, I've never been there.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I've never went there."
+                  },
+                  {
+                    "texto": "No, I've never been a fish."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "You can look up the hotels on your phone.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  23
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Good idea. I'll look them up tonight.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Good idea. I'll look up them tonight."
+                  },
+                  {
+                    "texto": "Good idea. I'll look at the moon tonight."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Good! Have a great trip!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "aeropuerto"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "globe",
+          "svg": "globe",
+          "texto_ref": "globe"
+        },
+        {
+          "id": "computer",
+          "svg": "computer",
+          "texto_ref": "computer"
+        },
+        {
+          "id": "suitcase",
+          "svg": "suitcase",
+          "texto_ref": "suitcase"
+        },
+        {
+          "id": "camera",
+          "svg": "camera",
+          "texto_ref": "camera"
+        },
+        {
+          "id": "sofa",
+          "svg": "sofa",
+          "texto_ref": "sofa"
+        }
+      ]
+    },
+    {
+      "id": "aeropuerto",
+      "titulo": "The airport",
+      "fondo": "aeropuerto",
+      "musica": "ride_loop",
+      "personajes": [
+        {
+          "id": "olivia",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "olivia",
+                "texto": "Good morning. Where are you flying today?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "opciones": [
+                  {
+                    "texto": "To Japan. Our flight is at ten.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "To Japan. Our flight is on ten."
+                  },
+                  {
+                    "texto": "To Japan. Our flight is a bird."
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Can I see your passports, please?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  17
+                ],
+                "opciones": [
+                  {
+                    "texto": "Of course. Can we sit together?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Of course. Can we to sit together?"
+                  },
+                  {
+                    "texto": "Of course. Can we swim together?"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Yes. If you wanted a window seat, I would give you one."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "opciones": [
+                  {
+                    "texto": "If it were free, we would take it!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If it was free, we will take it!"
+                  },
+                  {
+                    "texto": "If it were free, we would eat it!"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Ha ha, it's free. But you must be at the gate in one hour."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  17
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. We should go now.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. We should going now."
+                  },
+                  {
+                    "texto": "OK. We should be fish now."
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Have a great trip!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "flight_board",
+          "svg": "flight_board",
+          "texto_ref": "flight_board"
+        },
+        {
+          "id": "passport",
+          "svg": "passport",
+          "texto_ref": "passport"
+        },
+        {
+          "id": "plane",
+          "svg": "plane",
+          "texto_ref": "plane"
+        },
+        {
+          "id": "desk",
+          "svg": "desk",
+          "texto_ref": "desk"
+        },
+        {
+          "id": "suitcase",
+          "svg": "suitcase",
+          "texto_ref": "suitcase"
+        }
+      ]
+    }
+  ]
+}

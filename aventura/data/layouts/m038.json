@@ -1,0 +1,99 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "cafe": {
+  "jugador": {
+   "x": 42,
+   "y": 88
+  },
+  "personajes": {
+   "kenji": {
+    "x": 58,
+    "y": 88
+   },
+   "mia": {
+    "x": 22,
+    "y": 84
+   }
+  },
+  "objetos": {
+   "table": {
+    "x": 72,
+    "y": 86,
+    "s": 12,
+    "capa": "fondo"
+   },
+   "coffee": {
+    "x": 70,
+    "y": 73.5,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "cup": {
+    "x": 75,
+    "y": 73.5,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "notebook": {
+    "x": 66,
+    "y": 73.5,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "coffee_machine": {
+    "x": 8,
+    "y": 49,
+    "s": 5,
+    "capa": "pared"
+   }
+  }
+ },
+ "biblioteca": {
+  "jugador": {
+   "x": 26,
+   "y": 88
+  },
+  "personajes": {
+   "ruth": {
+    "x": 60,
+    "y": 82
+   },
+   "kenji": {
+    "x": 40,
+    "y": 88
+   }
+  },
+  "objetos": {
+   "desk": {
+    "x": 60,
+    "y": 88,
+    "s": 14,
+    "capa": "fondo"
+   },
+   "book": {
+    "x": 56,
+    "y": 75.5,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "computer": {
+    "x": 65,
+    "y": 75,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "whiteboard": {
+    "x": 86,
+    "y": 70,
+    "s": 12,
+    "capa": "pared"
+   },
+   "lamp": {
+    "x": 10,
+    "y": 84,
+    "s": 4.5,
+    "capa": "fondo"
+   }
+  }
+ }
+}

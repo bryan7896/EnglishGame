@@ -1,0 +1,512 @@
+{
+  "id": "m023",
+  "titulo": "Lost in the market",
+  "titulo_es": "Perdido en el mercado",
+  "objetivo": "Find the man who sells fruit in the big market.",
+  "objetivo_es": "Encuentra al señor que vende fruta en el mercado grande.",
+  "nivel": "A2-B1",
+  "resumen": "Tu mama te mando al mercado a comprarle fruta a Pedro. Buscalo entre los puestos y haz la compra.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "mercado",
+      "titulo": "The market",
+      "fondo": "mercado_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "rosa",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "pedro"
+          },
+          "ocupado": [
+            {
+              "quien": "rosa",
+              "texto": "Pedro is at the end of the market!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "rosa",
+                "texto": "Bryan! What are you looking for?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  23
+                ],
+                "opciones": [
+                  {
+                    "texto": "I'm looking for the man who sells fruit.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'm looking at the man who sells fruit."
+                  },
+                  {
+                    "texto": "I'm looking for the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "rosa",
+                "texto": "Pedro? I know him. Go to the end of the market."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thanks! I'll go to the end now.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thanks! I'll go at the end now."
+                  },
+                  {
+                    "texto": "Thanks! I'll go to bed now."
+                  }
+                ]
+              },
+              {
+                "quien": "rosa",
+                "texto": "And say hello to him from me!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sure. I'll say hello to him.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. I'll say hello to he."
+                  },
+                  {
+                    "texto": "Sure. I'll say hello to the fish."
+                  }
+                ]
+              },
+              {
+                "quien": "rosa",
+                "texto": "Does Pedro work every day?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I think he works every day.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I think he work every day."
+                  },
+                  {
+                    "texto": "I think he swims every day."
+                  }
+                ]
+              },
+              {
+                "quien": "rosa",
+                "texto": "Thanks!"
+              }
+            ]
+          }
+        },
+        {
+          "id": "george",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "george",
+              "texto": "My wife loves honey."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "Bryan! Look at this honey. Is it good?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  23
+                ],
+                "opciones": [
+                  {
+                    "texto": "Let me look at it. Yes, it's good!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Let me look for it. Yes, it's good!"
+                  },
+                  {
+                    "texto": "Let me look at the bus. Yes, it's good!"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "I'll buy it for my wife."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "opciones": [
+                  {
+                    "texto": "Good idea. Buy some for her!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Good idea. Buy some for she!"
+                  },
+                  {
+                    "texto": "Good idea. Buy some for the bus!"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Ha ha, I will!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "emma",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "emma",
+              "texto": "Thank you, Bryan."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "emma",
+                "texto": "Excuse me, can you help me? I'm lost."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "Me too! I'm trying to get to the fruit.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Me too! I'm trying to get at the fruit."
+                  },
+                  {
+                    "texto": "Me too! I'm trying to get a new hat."
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Oh, I'll go with you, then."
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "pedro",
+          "rol": "target",
+          "antes": {
+            "quien": "pedro",
+            "texto": "One moment, young man!"
+          },
+          "dialogo": {
+            "requiere": "rosa_hablado",
+            "pasos": [
+              {
+                "quien": "pedro",
+                "texto": "Hello, young man! Fresh fruit! What do you need?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "opciones": [
+                  {
+                    "texto": "Hi! My mom sent me. The fruit is for her.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Hi! My mom sent me. The fruit is for she."
+                  },
+                  {
+                    "texto": "Hi! My mom sent me. The fruit is for the car."
+                  }
+                ]
+              },
+              {
+                "quien": "pedro",
+                "texto": "Ha ha, good boy. What does she want?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  23
+                ],
+                "opciones": [
+                  {
+                    "texto": "Bananas. Can you look for some good bananas?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Bananas. Can you look at some good bananas?"
+                  },
+                  {
+                    "texto": "Bananas. Can you look for my dog?"
+                  }
+                ]
+              },
+              {
+                "quien": "pedro",
+                "texto": "These bananas are cheaper than those.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  54
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "OK. I'll take the cheaper bananas.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. I'll take the more cheap bananas."
+                  },
+                  {
+                    "texto": "OK. I'll take the cheaper dog."
+                  }
+                ]
+              },
+              {
+                "quien": "pedro",
+                "texto": "Here. Anything else? Tomatoes, corn?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, corn for my dad. He cooks with us.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, corn for my dad. He cooks with we."
+                  },
+                  {
+                    "texto": "Yes, corn for my dad. He cooks with the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "pedro",
+                "texto": "This is the honey that my wife makes.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  5
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Is it the honey that George bought?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Is it the honey who George bought?"
+                  },
+                  {
+                    "texto": "Is it the dog that George bought?"
+                  }
+                ]
+              },
+              {
+                "quien": "pedro",
+                "texto": "Yes! He loves it.",
+                "refuerzo": true
+              },
+              {
+                "quien": "pedro",
+                "texto": "OK! That's six dollars. Where are you going after this?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "I'm going to the bus stop, then home.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'm going at the bus stop, then home."
+                  },
+                  {
+                    "texto": "I'm going to the bus stop, then to the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "pedro",
+                "texto": "Where do you live?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "On Main Street, near the park.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "In Main Street, near of the park."
+                  },
+                  {
+                    "texto": "On the moon, near the park."
+                  }
+                ]
+              },
+              {
+                "quien": "pedro",
+                "texto": "Good. Be careful. The street is busy."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  23
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thanks! The market looks like a big party!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thanks! The market looks a big party!"
+                  },
+                  {
+                    "texto": "Thanks! The market looks like a big dog!"
+                  }
+                ]
+              },
+              {
+                "quien": "pedro",
+                "texto": "Ha ha! Come back soon!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "banana",
+          "svg": "banana",
+          "texto_ref": "banana"
+        },
+        {
+          "id": "tomato",
+          "svg": "tomato",
+          "texto_ref": "tomato"
+        },
+        {
+          "id": "corn",
+          "svg": "corn",
+          "texto_ref": "corn"
+        },
+        {
+          "id": "honey",
+          "svg": "honey",
+          "texto_ref": "honey"
+        },
+        {
+          "id": "basket",
+          "svg": "basket",
+          "texto_ref": "basket"
+        },
+        {
+          "id": "sign",
+          "svg": "sign",
+          "texto_ref": "sign"
+        },
+        {
+          "id": "fruit",
+          "svg": "fruit",
+          "texto_ref": "fruit"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,493 @@
+{
+  "id": "m029",
+  "titulo": "If I won a million",
+  "titulo_es": "Si me ganara un millón",
+  "objetivo": "Decide what to do with a big prize.",
+  "objetivo_es": "Decide qué hacer con un premio grande.",
+  "nivel": "B1",
+  "resumen": "Tom compro un boleto para el gran premio. Imaginen que harian con un millon y vean juntos los numeros en la TV.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "tienda",
+      "titulo": "The shop",
+      "fondo": "tienda_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "tom",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "tom",
+                "texto": "Bryan, I just bought a ticket for the big prize!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  12
+                ],
+                "opciones": [
+                  {
+                    "texto": "If you win, will you buy a new car?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If you will win, will you buy a new car?"
+                  },
+                  {
+                    "texto": "If you win, will you eat a new car?"
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Of course! What would you do with a million dollars?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "opciones": [
+                  {
+                    "texto": "If I had a million, I would travel.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If I have a million, I would travel."
+                  },
+                  {
+                    "texto": "If I had a million, I would be a fish."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "I've played for ten years. I've never won anything."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "opciones": [
+                  {
+                    "texto": "But you still hope, right?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "But you hope still, right?"
+                  },
+                  {
+                    "texto": "But you still have a dog, right?"
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Ha ha, yes! The numbers are on TV tonight. Come to my house!"
+              },
+              {
+                "quien": "tom",
+                "texto": "So, what are you going to do tonight?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  36
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I'm going to watch the numbers with you!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I going to watch the numbers with you!"
+                  },
+                  {
+                    "texto": "I'm going to watch the moon with you!"
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "If I win, I'll give you some money!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  25
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Ha ha. You've never given me money before!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Ha ha. You've never gave me money before!"
+                  },
+                  {
+                    "texto": "Ha ha. You've never given me a horse before!"
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "And half of it goes to my mom.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  47
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Half of a million? She'll be happy!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "The half of a million? She'll be happy!"
+                  },
+                  {
+                    "texto": "Half of a banana? She'll be happy!"
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Ha ha. See you tonight!",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "sala"
+              }
+            ]
+          }
+        },
+        {
+          "id": "max",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "max",
+              "texto": "A big speaker, man!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "max",
+                "texto": "A million? If I won, I'd buy a big speaker!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "opciones": [
+                  {
+                    "texto": "If you bought it, we would have a party!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If you buy it, we would have a party!"
+                  },
+                  {
+                    "texto": "If you bought it, we would sing to the moon!"
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Ha ha, every week!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "ticket",
+          "svg": "ticket",
+          "texto_ref": "ticket"
+        },
+        {
+          "id": "cash_register",
+          "svg": "cash_register",
+          "texto_ref": "cash_register"
+        },
+        {
+          "id": "money",
+          "svg": "money",
+          "texto_ref": "money"
+        }
+      ]
+    },
+    {
+      "id": "sala",
+      "titulo": "TV night",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "mom",
+          "rol": "anfitrion",
+          "auto": true,
+          "pista": {
+            "marca": "tv"
+          },
+          "ocupado": [
+            {
+              "quien": "mom",
+              "texto": "Look at the TV, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "mom",
+                "texto": "Are you watching the prize numbers?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  12
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. If Tom wins, he'll buy you flowers.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. If Tom will win, he'll buy you flowers."
+                  },
+                  {
+                    "texto": "Yes. If Tom wins, he'll buy you a lion."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Ha ha. And you? What would you do with a million?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "opciones": [
+                  {
+                    "texto": "If I won, I would buy you a new house.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If I win, I would buy you a new house."
+                  },
+                  {
+                    "texto": "If I won, I would buy a new moon."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Oh, Bryan! I still hope Tom wins something."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "opciones": [
+                  {
+                    "texto": "Me too. I still hope he's lucky.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Me too. I hope still he's lucky."
+                  },
+                  {
+                    "texto": "Me too. I still have his phone."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "What have you bought over the last month?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  52
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Over the last month? Only food and books.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Since the last month? Only food and books."
+                  },
+                  {
+                    "texto": "Over the last month? Only dogs and cats."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Look, the numbers are coming!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "tv"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "sofa",
+          "svg": "sofa",
+          "texto_ref": "sofa"
+        },
+        {
+          "id": "gift",
+          "svg": "gift",
+          "texto_ref": "gift"
+        },
+        {
+          "id": "window",
+          "svg": "window",
+          "texto_ref": "window"
+        },
+        {
+          "id": "tv",
+          "svg": "tv",
+          "texto_ref": "tv",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "tv",
+            "pasos": [
+              {
+                "quien": "tom",
+                "texto": "The numbers are... seven, twelve, twenty... Oh no! I lost again!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "opciones": [
+                  {
+                    "texto": "If I were you, I would save the money.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If I was you, I will save the money."
+                  },
+                  {
+                    "texto": "If I were you, I would eat the ticket."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Ha ha. Maybe you're right."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  12
+                ],
+                "opciones": [
+                  {
+                    "texto": "Don't worry. If you try again, you'll win one day.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Don't worry. If you will try again, you win one day."
+                  },
+                  {
+                    "texto": "Don't worry. If you try again, you'll be a cat."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Ha ha. Maybe. But I still have my friends!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "opciones": [
+                  {
+                    "texto": "That's right. And we still hope for next week!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "That's right. And we hope still for next week!"
+                  },
+                  {
+                    "texto": "That's right. And we still have pizza in the fridge!"
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Thanks, Bryan!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -50,6 +50,9 @@ window.ARTE = (() => {
       const tw = t * (ANCHO[acc] || 1);   // las gorras son 30% mas anchas
       arriba = `<svg x="${A.x - tw / 2}" y="${A.y - t / 2}" width="${tw}" height="${t}" viewBox="0 0 36 36" preserveAspectRatio="none">${interior(A.svg)}</svg>`;
     }
+    if (acc === 'gorro_chef') {
+      arriba = '<path d="M17 14Q11 2 20 -2Q24 -10 31 -6Q39 -11 42 -2Q50 2 43 14Z" fill="#F5F8FA"/><rect x="17" y="10" width="26" height="7" rx="2" fill="#E1E8ED"/>';
+    }
     if (acc === 'audifonos') {
       arriba = '<path d="M7 28Q7 3 30 3Q53 3 53 28" stroke="#292F33" stroke-width="4.5" fill="none" stroke-linecap="round"/>' +
         '<rect x="1.5" y="21" width="10" height="17" rx="4.5" fill="#DD2E44"/><rect x="48.5" y="21" width="10" height="17" rx="4.5" fill="#DD2E44"/>';
@@ -62,6 +65,15 @@ window.ARTE = (() => {
         '<rect x="37" y="80" width="17" height="13" rx="3.5" fill="#C1694F"/><rect x="37" y="80" width="17" height="5" rx="2.5" fill="#A0523C"/><circle cx="45.5" cy="86" r="1.3" fill="#FFCC4D"/>';
     } else if (acc === 'delantal') {
       delante = '<rect x="21" y="62" width="18" height="26" rx="4" fill="#F5F8FA"/><path d="M25 62L25 52M35 62L35 52" stroke="#F5F8FA" stroke-width="2.4"/>';
+    } else if (acc === 'corbata') {
+      delante = '<path d="M24 51L30 56L36 51L35 58L30 56L25 58Z" fill="#F5F8FA"/>' +
+        '<path d="M28.3 55.5H31.7L32.4 58L30.8 74L30 76L29.2 74L27.6 58Z" fill="#DD2E44"/><rect x="28.3" y="55" width="3.4" height="3" rx="1" fill="#BE1931"/>';
+    } else if (acc === 'bata') {
+      // bata blanca larga sobre la ropa (con solapas y bolsillo)
+      delante = '<path d="M16 58Q16 50 24 50H36Q44 50 44 58V96H32V62H28V96H16Z" fill="#F5F8FA"/>' +
+        '<path d="M24 50L30 62L36 50" fill="none" stroke="#CCD6DD" stroke-width="1.6"/><rect x="34" y="70" width="7" height="6" rx="1.5" fill="#E1E8ED"/><rect x="36" y="68" width="1.4" height="4" fill="#3B88C3"/>';
+    } else if (acc === 'baston') {
+      delante = '<path d="M52 117V84Q52 78 47 78Q43 78 43 82" stroke="#8A5A33" stroke-width="3" fill="none" stroke-linecap="round"/>';
     } else if (acc === 'chaqueta') {
       delante = `<rect x="29" y="52" width="2" height="34" fill="${oscurecer(c, 0.35)}"/><path d="M22 52L30 60L38 52" stroke="${oscurecer(c, 0.35)}" stroke-width="2.4" fill="none" stroke-linejoin="round"/>`;
     }

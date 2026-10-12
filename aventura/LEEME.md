@@ -29,3 +29,39 @@ Para 120 historias: cada historia nueva = 1 JSON en data/misiones + 1 layout; el
 - `medir_cajas.py` mide la caja real de cada SVG (`svg/cajas.json`) y `construir_svg.py` recorta el viewBox: la base toca el piso y el ancho `s` del layout es el real.
 - Zonas tocables ("hotspots"): una pieza puede anclarse a un punto de otro objeto, p. ej. `"puerta": {"sobre":"house","punto":"puerta"}` (la puerta ya dibujada en la casa; no se duplica).
 - Personajes con volumen (torso, brazos con manos, piernas con zapatos), sombras suaves en el piso, variantes de color por recoloreo del SVG (taxi rojo).
+
+## Plan de 40 historias (entrega 1 del plan)
+- `data/catalogo_misiones.json`: el plan cerrado (titulo, objetivo, nivel, reglas, escenas, objetos y personajes de cada historia).
+- Pantalla de lista: `jugar.html` sin `?m=` muestra las 40 historias con ✓, estrellas, veces jugada, filtros (All / To do / Done)
+  y la siguiente recomendada. Una historia se puede jugar cuando su mision compilada aparece en `data/compilado/indice.json`
+  (lo escribe `compilar_aventura.py`); las demas salen como "🔒 Soon". Durante una historia, ☰ vuelve a la lista.
+- `python validar_aventura.py [--inventario] [--reglas ../data-en/reglas-gramaticales.json]`: revisa nivel A2-B1, reglas por
+  mision (minimo 3 turnos por regla planeada), arte faltante y cobertura global por regla (meta 12+). Escribe `reporte_validacion.txt`
+  y, con `--inventario`, `INVENTARIO.md`.
+- `bash verificar_audios_todos.sh [carpeta]`: comprueba que esten todos los mp3 de todas las historias y de `frases.json`, que no
+  esten vacios o danados, y lista los sobrantes. Escribe `reporte_audios.txt`; sale con codigo 1 si falta algo.
+
+## Version final (40 historias) - como dejar todo funcionando
+Orden de los pasos, desde la carpeta `aventura/` (el ultimo, desde la raiz del proyecto):
+1. `python generar_audio_tts.py`  - genera con Kokoro los audios que falten de `frases.json` (3205 en total; los que ya tienes se saltan).
+2. `bash verificar_audios_todos.sh`  - escribe `reporte_audios.txt`. Debe terminar en "RESULTADO: TODO BIEN".
+   Si faltan o hay danados: borra los danados, vuelve al paso 1 y verifica otra vez.
+3. `cd ..` y `python build.py`  - va DESPUES de generar los audios: el service worker solo guarda para uso sin conexion los mp3 que existen.
+
+Contenido:
+- 40 historias (`data/misiones/`), con 12 o mas turnos por cada una de las 51 reglas en total (ver `reporte_validacion.txt`).
+- `guiones/`: el texto de todas las historias, turno por turno, con la regla de cada turno y la respuesta correcta marcada.
+- `data/errores_intencionales.txt`: formas mal hechas a proposito (bringed, leaved...) que solo pueden aparecer en opciones incorrectas.
+- Para agregar o cambiar historias: edita `data/misiones/*.json` y `data/layouts/*.json`, luego `python compilar_aventura.py`,
+  `python validar_aventura.py`, y los pasos 1 a 3 de arriba.
+
+## Revision final de dialogos (v15)
+- Los turnos de refuerzo (los que se agregaron para llegar a 12+ turnos por regla) estaban todos pegados antes de la ultima
+  linea del NPC, y esa linea muchas veces respondia a otra cosa. Se reubicaron uno por uno dentro de cada conversacion y se
+  ajustaron o agregaron lineas cortas del NPC para que todo tenga sentido. Ningun turno se perdio: siguen 616 turnos del jugador.
+- Errores de contenido corregidos: contradicciones (Kenji "dormido" al subir al bus, Walter con 80 vs 75 anos en el pueblo,
+  carne de biblioteca), opciones "fuera de contexto" que en realidad eran respuestas validas, una pregunta del jefe con
+  tiempo verbal que no casaba con la respuesta, el resumen de la historia 32 (jarron -> figura de piedra) y el titulo de la 31.
+- `frases.json` paso de 3173 a 3205 audios (lineas nuevas o cambiadas). Si ya tenias audios, `generar_audio_tts.py` solo
+  genera los que falten; `verificar_audios_todos.sh` lista los sobrantes (puedes borrarlos).
+- `guiones/historia_01.txt`: guion de la historia 1, que faltaba.

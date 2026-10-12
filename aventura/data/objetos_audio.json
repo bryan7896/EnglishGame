@@ -800,6 +800,174 @@
     {
       "id": "piano",
       "texto": "Piano"
+    },
+    {
+      "id": "bus_stop",
+      "texto": "Bus stop"
+    },
+    {
+      "id": "bench",
+      "texto": "Park seat"
+    },
+    {
+      "id": "coffee_machine",
+      "texto": "Coffee machine"
+    },
+    {
+      "id": "cash_register",
+      "texto": "Cash register"
+    },
+    {
+      "id": "menu",
+      "texto": "Menu"
+    },
+    {
+      "id": "baggage_belt",
+      "texto": "Bag belt"
+    },
+    {
+      "id": "flight_board",
+      "texto": "Flight board"
+    },
+    {
+      "id": "passport",
+      "texto": "Passport"
+    },
+    {
+      "id": "display_case",
+      "texto": "Glass box"
+    },
+    {
+      "id": "doorbell",
+      "texto": "Door bell"
+    },
+    {
+      "id": "fence",
+      "texto": "Garden wall"
+    },
+    {
+      "id": "market_stall",
+      "texto": "Market table"
+    },
+    {
+      "id": "stage",
+      "texto": "Stage"
+    },
+    {
+      "id": "poster",
+      "texto": "Poster"
+    },
+    {
+      "id": "sleeping_bag",
+      "texto": "Sleeping bag"
+    },
+    {
+      "id": "statue",
+      "texto": "Stone figure"
+    },
+    {
+      "id": "surfboard",
+      "texto": "Surf board"
+    },
+    {
+      "id": "whiteboard",
+      "texto": "Whiteboard"
+    },
+    {
+      "id": "photo_album",
+      "texto": "Photo album"
+    },
+    {
+      "id": "atm",
+      "texto": "Money machine"
+    },
+    {
+      "id": "medicine",
+      "texto": "Medicine"
+    },
+    {
+      "id": "backpack",
+      "texto": "Backpack"
+    },
+    {
+      "id": "calendar",
+      "texto": "Calendar"
+    },
+    {
+      "id": "candle",
+      "texto": "Small light"
+    },
+    {
+      "id": "reception_bell",
+      "texto": "Desk bell"
+    },
+    {
+      "id": "security_camera",
+      "texto": "Security camera"
+    },
+    {
+      "id": "shopping_cart",
+      "texto": "Shopping basket"
+    },
+    {
+      "id": "traffic_light",
+      "texto": "Traffic light"
+    },
+    {
+      "id": "moving_truck",
+      "texto": "Moving car"
+    },
+    {
+      "id": "package",
+      "texto": "Small box"
+    },
+    {
+      "id": "pan",
+      "texto": "Pan"
+    },
+    {
+      "id": "pot",
+      "texto": "Cooking pan"
+    },
+    {
+      "id": "laptop",
+      "texto": "Laptop"
+    },
+    {
+      "id": "printer",
+      "texto": "Printer"
+    },
+    {
+      "id": "folder",
+      "texto": "Folder"
+    },
+    {
+      "id": "mailbox",
+      "texto": "Mail box"
+    },
+    {
+      "id": "globe",
+      "texto": "World map"
+    },
+    {
+      "id": "tent",
+      "texto": "Tent"
+    },
+    {
+      "id": "flashlight",
+      "texto": "Hand light"
+    },
+    {
+      "id": "toolbox",
+      "texto": "Repair box"
+    },
+    {
+      "id": "tire",
+      "texto": "Tire"
+    },
+    {
+      "id": "trash_can",
+      "texto": "Trash can"
     }
   ]
 }

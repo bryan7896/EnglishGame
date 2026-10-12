@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "13.0 (11-10-2026)"
+VERSION = "15.0 (11-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -81,7 +81,7 @@ def aventura_asset_list():
         d = os.path.join(base, sub)
         if os.path.isdir(d):
             assets += [f"./{base}/{sub}/{f}" for f in sorted(os.listdir(d))]
-    for rel in ("svg/biblioteca.js",):
+    for rel in ("svg/biblioteca.js", "data/catalogo_misiones.json"):
         if os.path.exists(os.path.join(base, rel)):
             assets.append(f"./{base}/{rel}")
     for sub, ext in (("data/compilado", ".json"), ("data/layouts", ".json")):
@@ -343,7 +343,8 @@ self.addEventListener('fetch', (event) => {
         caches.open(CACHE_NAME).then((cache) => cache.put(event.request, cloned));
         return response;
       })
-      .catch(() => caches.match(event.request))
+      // sin red: busca la peticion exacta y, si no esta (p. ej. jugar.html?m=m007), la misma pagina sin parametros
+      .catch(() => caches.match(event.request).then((r) => r || caches.match(event.request, { ignoreSearch: true })))
   );
 });
 '''
@@ -1387,7 +1388,7 @@ def get_main_logic():
     const frame = document.getElementById("aventuraFrame");
     if (!overlay || !frame) return;
     overlay.hidden = false;
-    frame.src = "./aventura/jugar.html?m=m001&embed=1";
+    frame.src = "./aventura/jugar.html?embed=1";   // abre la lista de historias
     try { await overlay.requestFullscreen?.(); } catch (e) { /* no soportado (iOS): sigue sin pantalla completa */ }
     try { await screen.orientation?.lock?.("landscape"); } catch (e) { /* no soportado: el juego pedira girar */ }
   }

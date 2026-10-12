@@ -1,0 +1,93 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "parque": {
+  "jugador": {
+   "x": 10,
+   "y": 88
+  },
+  "personajes": {
+   "jake": {
+    "x": 28,
+    "y": 87
+   },
+   "sara": {
+    "x": 64,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "bench": {
+    "x": 48,
+    "y": 84,
+    "s": 11,
+    "capa": "fondo"
+   },
+   "bicycle": {
+    "x": 80,
+    "y": 88,
+    "s": 9,
+    "capa": "fondo"
+   },
+   "tree": {
+    "x": 90,
+    "y": 80,
+    "s": 14,
+    "capa": "pared"
+   },
+   "map": {
+    "x": 40,
+    "y": 83,
+    "s": 4,
+    "capa": "fondo"
+   }
+  }
+ },
+ "cafe": {
+  "jugador": {
+   "x": 42,
+   "y": 88
+  },
+  "personajes": {
+   "max": {
+    "x": 62,
+    "y": 88
+   },
+   "lily": {
+    "x": 86,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "table": {
+    "x": 72,
+    "y": 86,
+    "s": 12,
+    "capa": "fondo"
+   },
+   "coffee": {
+    "x": 70,
+    "y": 73.5,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "phone": {
+    "x": 75,
+    "y": 73.5,
+    "s": 2,
+    "capa": "fondo"
+   },
+   "calendar": {
+    "x": 56,
+    "y": 30,
+    "s": 4,
+    "capa": "pared"
+   },
+   "coffee_machine": {
+    "x": 8,
+    "y": 49,
+    "s": 5,
+    "capa": "pared"
+   }
+  }
+ }
+}

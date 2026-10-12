@@ -1,0 +1,158 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "calle": {
+  "jugador": {
+   "x": 14,
+   "y": 88
+  },
+  "personajes": {
+   "jake": {
+    "x": 32,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "phone": {
+    "x": 40,
+    "y": 89,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "map": {
+    "x": 60,
+    "y": 82,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "traffic_light": {
+    "x": 50,
+    "y": 81,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "taxi": {
+    "x": 80,
+    "y": 95,
+    "s": 14,
+    "capa": "fondo"
+   }
+  }
+ },
+ "cafe": {
+  "jugador": {
+   "x": 42,
+   "y": 88
+  },
+  "personajes": {
+   "mia": {
+    "x": 22,
+    "y": 84
+   }
+  },
+  "objetos": {
+   "coffee": {
+    "x": 46,
+    "y": 49,
+    "s": 2.5,
+    "capa": "pared"
+   },
+   "coffee_machine": {
+    "x": 8,
+    "y": 49,
+    "s": 5,
+    "capa": "pared"
+   },
+   "cash_register": {
+    "x": 30,
+    "y": 49,
+    "s": 5.5,
+    "capa": "pared"
+   }
+  }
+ },
+ "estacion": {
+  "jugador": {
+   "x": 22,
+   "y": 87
+  },
+  "personajes": {
+   "sam": {
+    "x": 55,
+    "y": 81
+   }
+  },
+  "objetos": {
+   "clock": {
+    "x": 30,
+    "y": 30,
+    "s": 6,
+    "capa": "pared"
+   },
+   "train": {
+    "x": 84,
+    "y": 64,
+    "s": 30,
+    "capa": "pared"
+   },
+   "desk": {
+    "x": 55,
+    "y": 87,
+    "s": 13,
+    "capa": "fondo"
+   },
+   "ticket": {
+    "x": 50,
+    "y": 74,
+    "s": 3,
+    "capa": "fondo"
+   }
+  }
+ },
+ "casa": {
+  "jugador": {
+   "x": 22,
+   "y": 86
+  },
+  "personajes": {
+   "sara": {
+    "x": 40,
+    "y": 85
+   },
+   "mom": {
+    "x": 64,
+    "y": 82
+   }
+  },
+  "objetos": {
+   "house": {
+    "x": 80,
+    "y": 80,
+    "s": 30,
+    "capa": "pared"
+   },
+   "door": {
+    "sobre": "house",
+    "punto": "puerta",
+    "capa": "hotspot"
+   },
+   "moon": {
+    "x": 90,
+    "y": 14,
+    "s": 6,
+    "capa": "cielo"
+   },
+   "taxi": {
+    "x": 14,
+    "y": 96,
+    "s": 14,
+    "capa": "fondo"
+   },
+   "tree": {
+    "x": 54,
+    "y": 81,
+    "s": 13.5,
+    "capa": "pared"
+   }
+  }
+ }
+}

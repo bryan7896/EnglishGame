@@ -1,12 +1,13 @@
 /* MOTOR DEL JUEGO DE AVENTURA (conversaciones por audio).
  * Lee una mision compilada (data/compilado/<id>.json) + su layout (data/layouts/<id>.json).
  * Para jugar:  python -m http.server  y abrir  http://localhost:8000/jugar.html?m=m001
+ * Sin ?m se muestra la lista de historias (data/catalogo_misiones.json).
  * Parametros: ?m=ID de mision | ?rapido (sin esperar audios, para pruebas) | ?debug (marca la respuesta correcta). */
 (() => {
   'use strict';
   const $ = (s, r) => (r || document).querySelector(s);
   const P = new URLSearchParams(location.search);
-  const MID = P.get('m') || 'm001';
+  const MID = P.get('m');
   const RAPIDO = P.has('rapido'), DEBUG = P.has('debug');
   const CLAVE = 'aventura_v1';
   const EMBED = P.has('embed');   // dentro de English Trainer (iframe): boton de salida y avisos al padre
@@ -31,6 +32,8 @@
   const url = f => (M.audio_dir || 'audio/') + f;
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
   const personaje = id => M.elenco[id];
+  // frases del elenco: las generales + las del contexto de la mision (p. ej. "errores_fiesta" solo en m001, con "contexto": "fiesta")
+  const lineas = (id, tipo) => { const p = M.elenco[id] || {}; return (p[tipo] || []).concat(M.contexto ? (p[tipo + '_' + M.contexto] || []) : []); };
   function resolver(paso) {
     if (paso.ref === 'saludo') { const p = personaje(paso.quien); return Object.assign({}, paso, p.saludos[0]); }
     return paso;
@@ -112,11 +115,11 @@
     const dist = Math.abs(dx);
     const t = RAPIDO || rapido ? 0 : Math.max(0.25, dist / 45);
     b.style.setProperty('--camino', t + 's');
-    const s = pj('sara');
-    if (s && E.sigue) { s.style.setProperty('--camino', (t + 0.25) + 's'); s.classList.toggle('izq', dx < 0); }
-    if (t) { b.classList.add('camina'); if (s && E.sigue) s.classList.add('camina'); }
+    const s = E.sigue ? pj(E.sigue) : null;   // quien acompana al jugador (Sara en m001)
+    if (s) { s.style.setProperty('--camino', (t + 0.25) + 's'); s.classList.toggle('izq', dx < 0); }
+    if (t) { b.classList.add('camina'); if (s) s.classList.add('camina'); }
     colocar(b, x, y != null ? y : parseFloat(b.style.top));
-    if (s && E.sigue) { const sx = x + (dx < 0 ? 5 : -5); colocar(s, Math.max(3, Math.min(97, sx)), parseFloat(b.style.top)); E.x.sara = sx; }
+    if (s) { const sx = x + (dx < 0 ? 5 : -5); colocar(s, Math.max(3, Math.min(97, sx)), parseFloat(b.style.top)); E.x[E.sigue] = sx; }
     E.jugadorX = x;
     actualizarLuz();
     return sleep(t * 1000 + (t ? 320 : 0)).then(() => { b.classList.remove('camina'); if (s) s.classList.remove('camina'); });
@@ -204,7 +207,8 @@
       await decir('bryan', elegido, { mal: true });
       SONIDO.sfx.error();
       const npc = personaje(duenio);
-      if (npc && npc.errores && npc.errores.length) await decir(duenio, rnd(npc.errores), { mal: true, cara: '😕' });
+      const errs = lineas(duenio, 'errores');
+      if (errs.length) await decir(duenio, rnd(errs), { mal: true, cara: '😕' });
       if (errores >= 3) {
         // tercer error: se revela la respuesta correcta, sin puntos, y va a repaso
         reveladaPorErrores = true; estado.reveladas.add(correcta.file);
@@ -230,6 +234,7 @@
     for (const f of lista || []) {
       if (f.bloquear) { E.bloqueados.add(ctx.duenio); const e = pj(ctx.duenio); if (e) e.classList.add('bloqueado'); }
       else if (f.contador) E.contadores[f.contador] = (E.contadores[f.contador] || 0) + (f.suma || 1);
+      else if (f.flag) E.flags.add(f.flag);
       else if (f.luz != null) { E.luz = Math.min(1, E.luz + f.luz); actualizarLuz(); }
       else if (f.habilita) { E.habilitados.add(f.habilita); const o = ob(f.habilita); if (o) { o.classList.remove('off'); o.classList.add('activa'); } SONIDO.sfx.pop(); }
       else if (f.desaparece) { await desaparecer(f.desaparece); }
@@ -262,6 +267,7 @@
   function pistas(clave) {
     if (!clave) return;
     const marcar = e => { if (e) { e.classList.add('pista'); setTimeout(() => e.classList.remove('pista'), 6000); } };
+    if (typeof clave === 'object') { marcar(pj(clave.marca) || ob(clave.marca)); return; }   // generico: {"marca": "id"}
     if (clave === 'chaqueta_roja') marcar(pj('sara'));
     else if (clave === 'junto_a_max') marcar(pj('max'));
     else if (clave === 'cerca_musica') marcar(ob('speaker'));
@@ -273,6 +279,8 @@
     if (c.todas) return c.todas.every(cond);
     if (c.errores_seguidos != null) return cmp(E.erroresSeguidos, c.errores_seguidos);
     if (c.interacciones != null) return cmp(E.dialogosHechos, c.interacciones);
+    if (c.contador) return Object.entries(c.contador).every(([k, v]) => cmp(E.contadores[k] || 0, v));
+    if (c.flag) return E.flags.has(c.flag);
     return false;
   }
   async function disparadores() {
@@ -298,6 +306,7 @@
       }
     }
     E.flags.add(duenio + '_hablado');
+    E.habladosEscena.add(duenio);   // para no repetir su dialogo en ESTA escena (en otra escena puede tener uno nuevo)
     E.dialogosHechos++;
     E.ultimaActividad = Date.now();
     return null;
@@ -329,9 +338,14 @@
     ejecutar(async () => {
       const def = defPersonaje(id);
       if (!def || id === 'bryan') return;
-      if (def.rol === 'guia' || (E.sigue && id === 'sara')) { const l = def.frases_loop && rnd(def.frases_loop); if (l) await decir('sara', l); return; }
-      if (E.bloqueados.has(id)) { const p = personaje(id); if (p.ocupado && p.ocupado.length) { await caminarHasta(id); await decir(id, rnd(p.ocupado)); } return; }
+      if (def.rol === 'guia' || id === E.sigue) { const l = def.frases_loop && rnd(def.frases_loop); if (l) await decir(id, l); return; }
+      // ya hablo (bloqueado, o su dialogo ya se hizo): responde con una frase corta de "ocupado" (la de la escena o la del elenco)
+      const yaHablo = E.bloqueados.has(id) || (E.habladosEscena.has(id) && def.dialogo && !def.repetible);
+      if (yaHablo) { const lista = def.ocupado || lineas(id, 'ocupado'); if (lista.length) { await caminarHasta(id); await decir(id, rnd(lista)); } return; }
       if (def.dialogo && !cumple(def.dialogo.requiere)) {
+        // aun no le toca: dice su frase de "antes" (o una de ocupado del elenco); si no tiene, el nombre de su objeto
+        const p = personaje(id), occ = def.ocupado || lineas(id, 'ocupado'), antes = def.antes || (occ.length && rnd(occ));
+        if (antes) { await caminarHasta(id); await decir(id, antes); return; }
         const o = def.objeto_asociado && ob(def.objeto_asociado); if (o) await nombreObjeto(def.objeto_asociado);
         return;
       }
@@ -354,11 +368,13 @@
       if (d.dialogo) {
         if (!cumple(d.dialogo.requiere)) {
           const g = E.escenaDef.personajes.find(p => p.rol === 'guia');
-          if (g && g.frase_taxi_primero) await decir('sara', g.frase_taxi_primero); else await nombreObjeto(id);
+          const fr = g && (g.frase_requiere || g.frase_taxi_primero);
+          if (fr) await decir(g.id, fr); else await nombreObjeto(id);
           return;
         }
         await caminarHasta(id);
-        const r = await correrDialogo('sara', d.dialogo);
+        const g = E.escenaDef.personajes.find(p => p.rol === 'guia');
+        const r = await correrDialogo(g ? g.id : 'bryan', d.dialogo);
         if (r) return;
         await efectos(d.dialogo.al_terminar, { duenio: id });
         return;
@@ -377,9 +393,9 @@
     idleTimer = setInterval(() => {
       if (ocupado || E.terminado || !E.escenaDef) return;
       const g = E.escenaDef.personajes.find(p => p.rol === 'guia');
-      if (!g || E.flags.has('frank_hablado')) return;
+      if (!g || !g.frases_loop || (g.silencio_tras && E.flags.has(g.silencio_tras))) return;
       if (Date.now() - E.ultimaActividad < (RAPIDO ? 300 : 14000)) return;
-      ejecutar(async () => { await decir('sara', rnd(g.frases_loop)); });
+      ejecutar(async () => { await decir(g.id, rnd(g.frases_loop)); });
     }, RAPIDO ? 150 : 1500);
   }
 
@@ -388,7 +404,7 @@
     if (!primera) { velo.classList.add('on'); await sleep(450); }
     const def = M.escenas.find(s => s.id === id);
     const lay = L[id];
-    E.escena = id; E.escenaDef = def; E.x = {}; E.sigue = !!lay.sara_sigue;
+    E.escena = id; E.escenaDef = def; E.x = {}; E.habladosEscena = new Set(); E.sigue = lay.sigue || (lay.sara_sigue ? 'sara' : null);
     if (def.luz_inicial != null) E.luz = def.luz_inicial; else E.luz = 1;
     $('#fondo').innerHTML = ARTE.fondo(def.fondo);
     $('#capa-objetos').innerHTML = ''; $('#capa-personajes').innerHTML = '';
@@ -413,8 +429,9 @@
     const sPos = lay.jugador;
     crearPersonaje('bryan', sPos.x, sPos.y);
     E.jugadorX = sPos.x;
-    if (E.sigue) { const s = crearPersonaje('sara', sPos.x - 5, sPos.y, { interactivo: true }); E.x.sara = sPos.x - 5; }
-    else if (!pj('sara') && lay.personajes && lay.personajes.sara) crearPersonaje('sara', lay.personajes.sara.x, lay.personajes.sara.y, { interactivo: true });
+    if (E.sigue && !pj(E.sigue)) { crearPersonaje(E.sigue, sPos.x - 5, sPos.y, { interactivo: true }); E.x[E.sigue] = sPos.x - 5; }
+    // personajes que solo estan en el layout (acompanan la escena sin dialogo propio)
+    Object.entries(lay.personajes || {}).forEach(([pid, pos]) => { if (!pj(pid) && pid !== E.sigue && M.elenco[pid]) crearPersonaje(pid, pos.x, pos.y, { interactivo: true }); });
     Array.from(E.bloqueados).forEach(id => { const e = pj(id); if (e) e.classList.add('bloqueado'); });
     actualizarLuz();
     medir();
@@ -423,7 +440,7 @@
     velo.classList.remove('on');
     await sleep(450);
     ocioLoop();
-    if (def.inicio_automatico) autoIniciar(def);
+    if (def.inicio_automatico || def.personajes.some(p => p.auto)) autoIniciar(def);
   }
 
   function autoIniciar(def) {
@@ -431,10 +448,11 @@
       while (ocupado) await sleep(60);
       await ejecutar(async () => {
         for (const p of def.personajes) {
-          if (!p.dialogo || p.dialogo.requiere) continue;
+          if (!p.dialogo || p.dialogo.requiere || !(p.auto || p.rol === 'conductor') || E.habladosEscena.has(p.id)) continue;   // solo los que hablan solos (y una vez)
           if (E.escena !== def.id) return;
           let r = await correrDialogo(p.id, p.dialogo);
           if (r) return;
+          pistas(p.pista);
           r = await efectos(p.dialogo.al_terminar, { duenio: p.id });
           if (r) return;
         }
@@ -465,9 +483,11 @@
       <div class="datos"><span>🪙 ${E.monedas}</span><span>✅ ${E.puntos.toFixed(1)}/${E.turnos}</span><span>❌ ${E.errores}</span></div>
       <button class="btn" id="b-conv">📜 Conversation</button>
       <button class="btn sec" id="b-rep">🔁 Review (${E.repaso.length})</button>
-      <button class="btn sec" id="b-otra">▶ Play again</button>${EMBED ? '<button class="btn sec" id="b-salir">✕ Exit</button>' : ''}</div>`;
+      <button class="btn sec" id="b-otra">▶ Play again</button>
+      <button class="btn sec" id="b-lista">📋 Stories</button>${EMBED ? '<button class="btn sec" id="b-salir">✕ Exit</button>' : ''}</div>`;
     if (EMBED) $('#b-salir').onclick = () => avisar({ tipo: 'salir' });
     $('#b-otra').onclick = () => location.reload();
+    $('#b-lista').onclick = irALista;
     $('#b-conv').onclick = () => verLog(false);
     $('#b-rep').onclick = () => verLog(true);
   }
@@ -519,9 +539,74 @@
     document.title = M.titulo;
     medir(); window.addEventListener('resize', () => { medir(); actualizarLuz(); });
     $('#repetir').onclick = repetirUltima;
+    $('#btn-lista').onclick = () => {
+      const mo = $('#modal'); mo.hidden = false;
+      mo.innerHTML = `<div class="tarjeta"><div class="obj-en">Leave this story?</div><div class="obj-es">¿Salir de esta historia? Perderas el avance de esta partida.</div>
+        <button class="btn" id="b-si">📋 Stories</button><button class="btn sec" id="b-no">Stay</button></div>`;
+      $('#b-si').onclick = irALista; $('#b-no').onclick = () => { mo.hidden = true; };
+    };
     $('#btn-objetivo').onclick = () => { if (E.terminado) return; const mo = $('#modal'); mo.hidden = false; mo.innerHTML = `<div class="tarjeta"><div class="obj-en">🎯 ${M.objetivo}</div><div class="obj-es">${M.objetivo_es}</div><button class="btn" id="b-ok">OK</button></div>`; $('#b-ok').onclick = () => { mo.hidden = true; }; };
     if (EMBED) { const bs = $('#btn-salir'); bs.hidden = false; bs.onclick = () => avisar({ tipo: 'salir' }); }
     pantallaInicio();
   }
+
+  /* ------------------------------------------------------------------ lista de historias */
+  function irALista() { SONIDO.detener(); location.href = 'jugar.html' + (EMBED ? '?embed=1' : ''); }
+  function irAMision(id) { location.href = `jugar.html?m=${id}` + (EMBED ? '&embed=1' : ''); }
+  const leerLS = (k, d) => { try { const v = localStorage.getItem(k); return v == null ? d : v; } catch (e) { return d; } };
+  const escribirLS = (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* sin almacenamiento */ } };
+
+  async function lista() {
+    document.body.classList.add('modo-lista');
+    $('#app').style.display = 'none';
+    const sec = $('#lista'); sec.hidden = false;
+    const [cat, ind] = await Promise.all([
+      fetch('data/catalogo_misiones.json').then(r => r.json()),
+      fetch('data/compilado/indice.json').then(r => r.json()).catch(() => ({ misiones: [] }))
+    ]);
+    let db = {};
+    try { db = JSON.parse(localStorage.getItem(CLAVE) || '{}'); } catch (e) { /* vacio */ }
+    const jugables = new Set(ind.misiones || []);
+    const ms = cat.misiones;
+    const hechas = ms.filter(m => db[m.id] && db[m.id].intentos > 0);
+    const siguiente = ms.find(m => jugables.has(m.id) && !(db[m.id] && db[m.id].intentos > 0));
+    let filtro = leerLS('aventura_filtro', 'todas');
+
+    const tarjeta = m => {
+      const d = db[m.id], hecha = d && d.intentos > 0, ok = jugables.has(m.id);
+      const est = hecha ? '⭐'.repeat(d.mejorEstrellas || 0) + '☆'.repeat(3 - (d.mejorEstrellas || 0)) : '';
+      const chip = !ok ? '<span class="estado pronto">🔒 Soon</span>'
+        : hecha ? `<span class="estado hecha">✓ Done${d.intentos > 1 ? ' ×' + d.intentos : ''}</span>`
+        : '<span class="estado nueva">New</span>';
+      const cls = ['hist', hecha ? 'hecha' : '', ok ? '' : 'bloq', siguiente && m.id === siguiente.id ? 'sig' : ''].join(' ');
+      return `<button class="${cls}" data-id="${m.id}" ${ok ? '' : 'disabled'}>
+        <div class="cab"><span class="num">#${m.n}</span><span class="niv">${m.nivel}</span><span class="est">${est}</span></div>
+        <div class="tit-en">${m.titulo}</div><div class="tit-es">${m.titulo_es}</div>${chip}</button>`;
+    };
+    const render = () => {
+      const visibles = ms.filter(m => filtro === 'todas' ? true : filtro === 'hechas' ? (db[m.id] && db[m.id].intentos > 0) : !(db[m.id] && db[m.id].intentos > 0));
+      const grupos = [['A2', 'A2 · Starting'], ['A2-B1', 'A2–B1 · Growing'], ['B1', 'B1 · Getting stronger']];
+      let html = `<header class="lcab">
+          <div class="ltit">🎮 Stories <span class="prog">${hechas.length}/${ms.length} ✓</span></div>
+          <div class="lfil">${[['todas', 'All'], ['pendientes', 'To do'], ['hechas', 'Done']].map(([k, t]) => `<button class="chip ${filtro === k ? 'on' : ''}" data-f="${k}">${t}</button>`).join('')}</div>
+          <span class="chip">🪙 ${db.monedas || 0}</span>${EMBED ? '<button class="chip" id="l-salir" aria-label="Exit">✕</button>' : ''}
+        </header>
+        <div class="barra"><div style="width:${(100 * hechas.length / ms.length).toFixed(1)}%"></div></div>`;
+      for (const [niv, nombre] of grupos) {
+        const g = visibles.filter(m => m.nivel === niv);
+        if (!g.length) continue;
+        html += `<h2>${nombre}</h2><div class="rejilla">${g.map(tarjeta).join('')}</div>`;
+      }
+      if (!visibles.length) html += '<p class="vacio">Nothing here yet.</p>';
+      sec.innerHTML = html;
+      sec.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { filtro = b.dataset.f; escribirLS('aventura_filtro', filtro); render(); });
+      sec.querySelectorAll('.hist:not(.bloq)').forEach(b => b.onclick = () => irAMision(b.dataset.id));
+      const ls = $('#l-salir'); if (ls) ls.onclick = () => avisar({ tipo: 'salir' });
+      const sig = sec.querySelector('.hist.sig'); if (sig) sig.scrollIntoView({ block: 'center' });
+    };
+    render();
+  }
+
+  if (!MID) { lista().catch(err => { document.body.innerHTML = '<pre style="padding:20px;color:#fff">No se pudo cargar la lista de historias.\n' + err + '</pre>'; }); return; }
   arrancar().catch(err => { document.body.innerHTML = '<pre style="padding:20px;color:#fff">No se pudo cargar la mision.\nAbre esta pagina con un servidor local (python -m http.server) y revisa data/compilado/' + MID + '.json\n\n' + err + '</pre>'; });
 })();

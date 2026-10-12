@@ -1,0 +1,564 @@
+{
+  "id": "m003",
+  "titulo": "Lost phone at the bus stop",
+  "titulo_es": "Celular perdido en la parada",
+  "objetivo": "Find your phone. Ask the people at the bus stop.",
+  "objetivo_es": "Encuentra tu celular. Pregunta a la gente de la parada.",
+  "nivel": "A2",
+  "resumen": "Perdiste tu celular en la parada del bus. Pregunta a la gente de la parada y despues al conductor del bus.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "parada",
+      "titulo": "The bus stop",
+      "fondo": "ciudad_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "tom",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "emma"
+          },
+          "ocupado": [
+            {
+              "quien": "tom",
+              "texto": "Ask Emma, Bryan. She was here before you."
+            },
+            {
+              "quien": "tom",
+              "texto": "I hope you find it, man!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "tom",
+                "texto": "Hi, Bryan! You look worried. What's wrong?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "opciones": [
+                  {
+                    "texto": "I lost my phone at the bus stop.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I lost my phone at the stop bus."
+                  },
+                  {
+                    "texto": "I lost my shoes at the beach."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Oh no! Did you ask anybody?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, I didn't ask anybody yet.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I didn't ask nobody yet."
+                  },
+                  {
+                    "texto": "No, I didn't eat anything."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Ask Emma. She was here before you."
+              }
+            ]
+          }
+        },
+        {
+          "id": "emma",
+          "rol": "target",
+          "antes": {
+            "quien": "emma",
+            "texto": "Good morning. Sorry, I'm waiting for my bus."
+          },
+          "ocupado": [
+            {
+              "quien": "emma",
+              "texto": "I hope you find your phone."
+            },
+            {
+              "quien": "emma",
+              "texto": "Ask the bus driver. He is very kind."
+            }
+          ],
+          "dialogo": {
+            "requiere": "tom_hablado",
+            "pasos": [
+              {
+                "quien": "emma",
+                "texto": "Good morning. Are you looking for something?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. I can't find my phone anywhere.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I can't find my phone somewhere."
+                  },
+                  {
+                    "texto": "Yes. I can't find the moon tonight."
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Hmm, I saw something black under the park seat."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "opciones": [
+                  {
+                    "texto": "Really? Can you show it to me?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Really? Can you show it to I?"
+                  },
+                  {
+                    "texto": "Really? Can you show me the beach?"
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Here. Oh, it's not a phone. It's an empty phone case."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "opciones": [
+                  {
+                    "texto": "That's my phone case! But where is my phone?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "That's my case phone! But where is my phone?"
+                  },
+                  {
+                    "texto": "That's my pizza! But where is my phone?"
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Maybe it's on the bus. The bus driver is very kind. Ask him."
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "bus"
+              }
+            ]
+          }
+        },
+        {
+          "id": "george",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "george",
+              "texto": "Buses! Always late, always late."
+            },
+            {
+              "quien": "george",
+              "texto": "Good luck, my boy."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "Morning, Bryan. The bus is late again!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "I know. There isn't any bus before nine.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I know. There isn't no bus before nine."
+                  },
+                  {
+                    "texto": "I know. I have some apples."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Ha ha. Do you need some help?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, please. Can you call my phone for me?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, please. Can you call my phone for I?"
+                  },
+                  {
+                    "texto": "Yes, please. Can you sing a song?"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Sorry, my boy. I left my phone at home."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "That's OK. Maybe somebody found it.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "That's OK. Maybe nobody didn't find it."
+                  },
+                  {
+                    "texto": "That's OK. Maybe it's raining."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "I hope so!"
+              },
+              {
+                "quien": "george",
+                "texto": "What does your phone look like?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  22
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "It's a black phone with an orange case.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "It's a black phone with a orange case."
+                  },
+                  {
+                    "texto": "It's a black dog with an orange case."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "OK. If I see it, I'll tell you.",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "bus_stop",
+          "svg": "bus_stop",
+          "texto_ref": "bus_stop"
+        },
+        {
+          "id": "bench",
+          "svg": "bench",
+          "texto_ref": "bench"
+        },
+        {
+          "id": "trash_can",
+          "svg": "trash_can",
+          "texto_ref": "trash_can"
+        },
+        {
+          "id": "sign",
+          "svg": "sign",
+          "texto_ref": "sign"
+        },
+        {
+          "id": "street_lamp",
+          "svg": "street_lamp",
+          "texto_ref": "street_lamp"
+        },
+        {
+          "id": "bus",
+          "svg": "bus",
+          "texto_ref": "bus",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "bus",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "opciones": [
+                  {
+                    "texto": "Wait for me, please!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Wait for I, please!"
+                  },
+                  {
+                    "texto": "Wait for the rain, please!"
+                  }
+                ]
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "bus"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "bus",
+      "titulo": "On the bus",
+      "fondo": "bus_interior",
+      "musica": "ride_loop",
+      "personajes": [
+        {
+          "id": "sam",
+          "rol": "conductor",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "sam",
+                "texto": "Good morning! Do you have a ticket?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes, here's my bus ticket.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, here's my ticket bus."
+                  },
+                  {
+                    "texto": "Yes, here's my pizza."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Thanks. Take a seat, please."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "opciones": [
+                  {
+                    "texto": "Excuse me. I left my phone on a bus seat.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Excuse me. I left my phone on a seat bus."
+                  },
+                  {
+                    "texto": "Excuse me. I left my dog at the hotel."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "A phone? Somebody gave me a phone this morning. What color is it?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "It's black, and it has no case.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "It's black, and it hasn't no case."
+                  },
+                  {
+                    "texto": "It's black, and it has four legs."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Hmm, I have two black phones here."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "opciones": [
+                  {
+                    "texto": "Can you give them to me? I can check.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Can you give they to me? I can check."
+                  },
+                  {
+                    "texto": "Can you give me a ticket to the moon?"
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Here you are. Is one of them yours?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes! You can see my phone number here.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes! You can see my number phone here."
+                  },
+                  {
+                    "texto": "Yes! You can see my house from here."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Great! Be careful next time, OK?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "I will. Thanks! I can't do anything without it.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I will. Thanks! I can't do nothing without it."
+                  },
+                  {
+                    "texto": "I will. Thanks! I don't like buses."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Ha ha, nobody can! Have a nice day."
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "bag",
+          "svg": "bag",
+          "texto_ref": "bag"
+        },
+        {
+          "id": "phone",
+          "svg": "phone",
+          "texto_ref": "phone"
+        }
+      ]
+    }
+  ]
+}

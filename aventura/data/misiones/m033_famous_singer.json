@@ -1,0 +1,407 @@
+{
+  "id": "m033",
+  "titulo": "The famous singer",
+  "titulo_es": "La cantante famosa",
+  "objetivo": "Get in to meet a famous singer.",
+  "objetivo_es": "Logra entrar a conocer a una cantante famosa.",
+  "nivel": "B1",
+  "resumen": "Nina, tu cantante favorita, esta en la ciudad y no tienes boletas. Convence al guardia y conocela.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "calle",
+      "titulo": "Outside the concert",
+      "fondo": "calle_noche",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "max",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "hank"
+          },
+          "ocupado": [
+            {
+              "quien": "max",
+              "texto": "Talk to the guard, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "max",
+                "texto": "Bryan, Nina is in there! The singer who sang Night Rain!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  5
+                ],
+                "opciones": [
+                  {
+                    "texto": "Really? Nina, who is my favorite singer, is here?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Really? Nina, which is my favorite singer, is here?"
+                  },
+                  {
+                    "texto": "Really? Nina, who is my favorite dog, is here?"
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "But we don't have tickets. The guard won't let us in."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  9
+                ],
+                "opciones": [
+                  {
+                    "texto": "As you know, I always have a plan!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Like you know, I always have a plan!"
+                  },
+                  {
+                    "texto": "As you know, I always have a cat!"
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Ha ha. OK, talk to Hank."
+              }
+            ]
+          }
+        },
+        {
+          "id": "hank",
+          "rol": "target",
+          "antes": {
+            "quien": "hank",
+            "texto": "One moment, please."
+          },
+          "dialogo": {
+            "requiere": "max_hablado",
+            "pasos": [
+              {
+                "quien": "hank",
+                "texto": "Sorry. No ticket, no concert."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  25
+                ],
+                "opciones": [
+                  {
+                    "texto": "Please! Can you give us one minute?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Please! Can you gave us one minute?"
+                  },
+                  {
+                    "texto": "Please! Can you give us one pizza?"
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "Hmm. Why do you want to see her?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  9
+                ],
+                "opciones": [
+                  {
+                    "texto": "I see her as the best singer in the world.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I see her like the best singer in the world."
+                  },
+                  {
+                    "texto": "I see her as the best cook in the world."
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "OK, OK. A man gave me these two tickets. Take them!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  25
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thank you! You've given us a great night!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you! You've gave us a great night!"
+                  },
+                  {
+                    "texto": "Thank you! You've given us a great dog!"
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "Enjoy the show!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "concierto"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "poster",
+          "svg": "poster",
+          "texto_ref": "poster"
+        },
+        {
+          "id": "ticket",
+          "svg": "ticket",
+          "texto_ref": "ticket"
+        },
+        {
+          "id": "street_lamp",
+          "svg": "street_lamp",
+          "texto_ref": "street_lamp"
+        },
+        {
+          "id": "door",
+          "svg": "door",
+          "texto_ref": "door"
+        }
+      ],
+      "luz_inicial": 0.7
+    },
+    {
+      "id": "concierto",
+      "titulo": "The concert",
+      "fondo": "concierto_noche",
+      "musica": "party_loop",
+      "personajes": [
+        {
+          "id": "nina",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "nina",
+                "texto": "Hello! Are you the boys who got the last tickets?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  5
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes! The man who works at the door helped us.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes! The man which works at the door helped us."
+                  },
+                  {
+                    "texto": "Yes! The dog who works at the door helped us."
+                  }
+                ]
+              },
+              {
+                "quien": "nina",
+                "texto": "Ha ha, Hank! Which song do you like?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  5
+                ],
+                "opciones": [
+                  {
+                    "texto": "The one that you sang last night!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "The one who you sang last night!"
+                  },
+                  {
+                    "texto": "The one that you ate last night!"
+                  }
+                ]
+              },
+              {
+                "quien": "nina",
+                "texto": "Here, I want to give you something. A photo!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  25
+                ],
+                "opciones": [
+                  {
+                    "texto": "Wow! Nobody has given me a photo before!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Wow! Nobody has gave me a photo before!"
+                  },
+                  {
+                    "texto": "Wow! Nobody has given me a cat before!"
+                  }
+                ]
+              },
+              {
+                "quien": "nina",
+                "texto": "Have you ever met a singer before?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, I've never met one before!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I've never meet one before!"
+                  },
+                  {
+                    "texto": "No, I've never been a singer before!"
+                  }
+                ]
+              },
+              {
+                "quien": "nina",
+                "texto": "Ha ha. Come again, as my friends!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  9
+                ],
+                "opciones": [
+                  {
+                    "texto": "We will! As soon as you have another concert!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We will! As soon like you have another concert!"
+                  },
+                  {
+                    "texto": "We will! As soon as you have another dog!"
+                  }
+                ]
+              },
+              {
+                "quien": "nina",
+                "texto": "And what do you do?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  9
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I work as an engineer.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I work like an engineer."
+                  },
+                  {
+                    "texto": "I work as a guitar."
+                  }
+                ]
+              },
+              {
+                "quien": "nina",
+                "texto": "Cool! See you soon!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "stage",
+          "svg": "stage",
+          "texto_ref": "stage"
+        },
+        {
+          "id": "microphone",
+          "svg": "microphone"
+        },
+        {
+          "id": "guitar",
+          "svg": "guitar",
+          "texto_ref": "guitar"
+        },
+        {
+          "id": "camera",
+          "svg": "camera",
+          "texto_ref": "camera"
+        },
+        {
+          "id": "flowers",
+          "svg": "flowers",
+          "texto_ref": "flowers"
+        }
+      ]
+    }
+  ]
+}

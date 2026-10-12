@@ -1,0 +1,87 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "calle": {
+  "jugador": {
+   "x": 10,
+   "y": 88
+  },
+  "personajes": {
+   "linda": {
+    "x": 28,
+    "y": 87
+   },
+   "tom": {
+    "x": 60,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "house": {
+    "x": 84,
+    "y": 77,
+    "s": 24,
+    "capa": "pared"
+   },
+   "fence": {
+    "x": 46,
+    "y": 78,
+    "s": 14,
+    "capa": "pared"
+   },
+   "mailbox": {
+    "x": 70,
+    "y": 80,
+    "s": 3.5,
+    "capa": "fondo"
+   },
+   "dog": {
+    "x": 66,
+    "y": 89,
+    "s": 5,
+    "capa": "fondo"
+   }
+  }
+ },
+ "tienda": {
+  "jugador": {
+   "x": 14,
+   "y": 88
+  },
+  "personajes": {
+   "rosa": {
+    "x": 34,
+    "y": 87
+   },
+   "pedro": {
+    "x": 72,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "cash_register": {
+    "x": 52,
+    "y": 86,
+    "s": 8,
+    "capa": "fondo"
+   },
+   "bread": {
+    "x": 30,
+    "y": 50,
+    "s": 4,
+    "capa": "pared"
+   },
+   "basket": {
+    "x": 84,
+    "y": 89,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "fruit": {
+    "x": 80,
+    "y": 36,
+    "s": 3,
+    "capa": "pared"
+   }
+  }
+ }
+}

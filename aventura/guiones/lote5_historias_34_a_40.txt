@@ -1,0 +1,602 @@
+======================================================================
+m034 · What the neighbors say (Lo que dicen los vecinos) · B1
+Objetivo: A story about you is going around. Find out the truth.
+En el barrio dicen que te vas a mudar. Pregunta quien lo dijo y descubre de donde salio el chisme.
+
+--- Escena: Your street
+ [linda]
+  LINDA: Bryan! People are saying you're moving to another city. You aren't, are you?
+  BRYAN  [regla 29 Tag Questions]
+     ✔ No, I'm not! You don't believe it, do you?
+     ✗ No, I'm not! You don't believe it, don't you?
+     ✗ No, I'm not! You like pizza, do you?
+  LINDA: No! But Rosa told me. She works at the shop.
+  BRYAN  [regla 21 Say vs Tell]
+     ✔ What exactly did she tell you?
+     ✗ What exactly did she say you?
+     ✗ What exactly did she tell the dog?
+  LINDA: She said that your mom was selling the house.
+  BRYAN  [regla 20 3ra persona singular (-s)]
+     ✔ My mom never sells anything!
+     ✗ My mom never sell anything!
+     ✗ My mom never eats a car!
+  LINDA: Ha ha. Go and ask Rosa at the shop.
+ [tom]
+  TOM: Hey, Bryan, I heard you're leaving! You're not, are you?
+  BRYAN  [regla 29 Tag Questions]
+     ✔ No, I'm not. It's a crazy story, isn't it?
+     ✗ No, I'm not. It's a crazy story, isn't she?
+     ✗ No, I'm not. It's a big pizza, isn't it?
+  TOM: Ha ha! Good. Who told everybody?
+  BRYAN  [regla 21 Say vs Tell]
+     ✔ I don't know. I'll tell you later.
+     ✗ I don't know. I'll say you later.
+     ✗ I don't know. I'll tell you a song.
+  TOM: OK!
+
+--- Escena: The shop
+ [rosa]
+  ROSA: Hi, Bryan! Your mom is moving, isn't she?
+  BRYAN  [regla 29 Tag Questions]
+     ✔ No, she isn't! Who told you that?
+     ✗ No, she doesn't! Who told you that?
+     ✗ No, she isn't! Who sold you that?
+  ROSA: Pedro said it. He says your mom wants a bigger house.
+  BRYAN  [regla 20 3ra persona singular (-s)]
+     ✔ But she loves our house. She always says that.
+     ✗ But she love our house. She always say that.
+     ✗ But she loves our dog. She always eats that.
+  ROSA: Hmm. What did your mom say to you?
+  BRYAN  [regla 21 Say vs Tell]
+     ✔ She told me nothing about moving.
+     ✗ She said me nothing about moving.
+     ✗ She told me nothing about pizza.
+  ROSA: Where did your mom go today?
+  BRYAN  [regla 41 Orden natural de la oración en inglés]
+     ✔ I don't know where she went.
+     ✗ I don't know where did she go.
+     ✗ I don't know where the moon went.
+  ROSA: Then ask Pedro. He's over there.
+ [pedro]
+  PEDRO: Hello, young man! Fresh fruit?
+  BRYAN  [regla 21 Say vs Tell]
+     ✔ No, thanks. Did you tell Rosa we're moving?
+     ✗ No, thanks. Did you say Rosa we're moving?
+     ✗ No, thanks. Did you tell Rosa a story?
+  PEDRO: Oh! Your mom said she wanted a bigger garden, not a new house!
+  BRYAN  [regla 20 3ra persona singular (-s)]
+     ✔ Ha ha! She wants a bigger garden, not a house!
+     ✗ Ha ha! She want a bigger garden, not a house!
+     ✗ Ha ha! She wants a bigger cat, not a house!
+  PEDRO: Sorry! I didn't hear well. Tell everybody it's not true.
+  BRYAN  [regla 29 Tag Questions]
+     ✔ I will. People like stories, don't they?
+     ✗ I will. People like stories, doesn't it?
+     ✗ I will. People like bananas, don't they?
+  PEDRO: Ha ha, they do!
+
+======================================================================
+m035 · The wrong weather report (El pronóstico equivocado) · B1
+Objetivo: The weather report was wrong. Save the party in the park.
+El pronostico dijo sol para la fiesta de Max en el parque... y empieza a llover. Salva la fiesta.
+
+--- Escena: The park
+ [jake]
+  JAKE: The weather report said it would be sunny all day!
+  BRYAN  [regla 33 Sujeto "it" (clima, tiempo, distancia)]
+     ✔ Yes, and it's really hot today.
+     ✗ Yes, and is really hot today.
+     ✗ Yes, and it's really a cat today.
+  JAKE: Max is coming at four. We'll be eating cake in the park!
+  BRYAN  [regla 53 Future Continuous]
+     ✔ And we'll be playing music all afternoon!
+     ✗ And we'll be play music all afternoon!
+     ✗ And we'll be sleeping at school all afternoon!
+  JAKE: What are you going to bring?
+  BRYAN  [regla 36 Diferencia entre "will" y "going to"]
+     ✔ I'm going to bring the music.
+     ✗ I going to bring the music.
+     ✗ I'm going to bring my bed.
+  JAKE: Max wants everything ready before four.
+  BRYAN  [regla 48 Oraciones con "by" para tiempo futuro]
+     ✔ It will be ready by four.
+     ✗ It will be ready until four.
+     ✗ It will be ready by bus.
+  JAKE: Look at the sky! Those clouds weren't there before.
+  BRYAN  [regla 13 Past Perfect vs Presente vs Futuro]
+     ✔ It was sunny an hour ago. Now it's cloudy.
+     ✗ It is sunny an hour ago. Now it was cloudy.
+     ✗ It was sunny an hour ago. Now it's my birthday.
+  JAKE: Oh no. Ask Sara. She knows a lot about the weather.
+ [sara]
+  SARA: Bryan! It's going to rain. I just saw it on my phone.
+  BRYAN  [regla 33 Sujeto "it" (clima, tiempo, distancia)]
+     ✔ Is it going to rain a lot?
+     ✗ Is going to rain a lot?
+     ✗ Is it going to rain pizza?
+  SARA: Yes. The report was wrong. It will rain in ten minutes.
+  BRYAN  [regla 13 Past Perfect vs Presente vs Futuro]
+     ✔ This morning it said sun. Now it says rain!
+     ✗ This morning it says sun. Now it said rain!
+     ✗ This morning it said sun. Now it sings!
+  SARA: Do you still hope it doesn't rain?
+  BRYAN  [regla 26 Still + hope]
+     ✔ Yes. I still hope the sun comes back.
+     ✗ Yes. I hope still the sun comes back.
+     ✗ Yes. I still have a sun in my bag.
+  SARA: What will you be doing at five?
+  BRYAN  [regla 53 Future Continuous]
+     ✔ I'll be helping you with the cake.
+     ✗ I'll be help you with the cake.
+     ✗ I'll be swimming with the cake.
+  SARA: Then let's take everything to my house. It's very near.
+ [bella]
+  BELLA: The party is still on, isn't it?
+  BRYAN  [regla 53 Future Continuous]
+     ✔ Yes! At five, we'll be dancing!
+     ✗ Yes! At five, we'll be dance!
+     ✗ Yes! At five, we'll be sleeping in the rain!
+  BELLA: Great!
+
+--- Escena: In the rain
+ [max]
+  MAX: Hey! Where's my party? It's raining a lot!
+  BRYAN  [regla 33 Sujeto "it" (clima, tiempo, distancia)]
+     ✔ It's at Sara's house now. It's very close.
+     ✗ Is at Sara's house now. Is very close.
+     ✗ It's at the moon now. It's very close.
+  MAX: Great! What will we be doing there?
+  BRYAN  [regla 53 Future Continuous]
+     ✔ We'll be eating your cake and listening to music!
+     ✗ We'll be eat your cake and listen to music!
+     ✗ We'll be washing the car in the rain!
+  MAX: Ha ha! The weather report was really wrong, wasn't it?
+  BRYAN  [regla 13 Past Perfect vs Presente vs Futuro]
+     ✔ Yes! Next time, I'll look at the sky.
+     ✗ Yes! Next time, I looked at the sky.
+     ✗ Yes! Next time, I'll look at the fish.
+  MAX: I'm getting really wet!
+  BRYAN  [regla 30 Get + adjetivo (cambios de estado: get worried, se puso...)]
+     ✔ Me too! Let's go before we get cold.
+     ✗ Me too! Let's go before we getting cold.
+     ✗ Me too! Let's go before we get a dog.
+  MAX: Put this on. It's my old jacket.
+  BRYAN  [regla 50 (put, try, get, trying, take, lie) + (down, off, on)]
+     ✔ Thanks! I'll put it on now.
+     ✗ Thanks! I'll put on it now.
+     ✗ Thanks! I'll put it in the fridge.
+  MAX: Ha ha! Let's go!
+
+======================================================================
+m036 · The camping trip (El viaje de camping) · B1
+Objetivo: Spend one night camping in the forest.
+Una noche de camping en el bosque con Jake, Tom y Kenji. Armen el campamento, hagan fuego y pasen la noche.
+
+--- Escena: The forest
+ [jake]
+  JAKE: Finally! We've been walking for three hours!
+  BRYAN  [regla 1 Past Perfect Continuous]
+     ✔ We had been walking for hours. I'm tired!
+     ✗ We had been walk for hours. I'm tired!
+     ✗ We had been swimming for hours. I'm wet!
+  JAKE: Why are you so tired? You walked less than me!
+  BRYAN  [regla 1 Past Perfect Continuous]
+     ✔ I had been working all week before this!
+     ✗ I had been work all week before this!
+     ✗ I had been eating all week before this!
+  JAKE: Ha ha. Let's put the tent here. Take off your backpack.
+  BRYAN  [regla 50 (put, try, get, trying, take, lie) + (down, off, on)]
+     ✔ OK. I'll take it off and put it down here.
+     ✗ OK. I'll take off it and put down it here.
+     ✗ OK. I'll take it to the beach and swim.
+  JAKE: How long are we staying here?
+  BRYAN  [regla 40 For + período / During + evento]
+     ✔ For two nights. We can rest during the day.
+     ✗ During two nights. We can rest for the day.
+     ✗ For two dogs. We can rest during the day.
+  JAKE: Next month, we'll have been doing this for five years!
+  BRYAN  [regla 44 Future Perfect Continuous]
+     ✔ Wow! By then, we'll have been camping for five years!
+     ✗ Wow! By then, we'll have been camp for five years!
+     ✗ Wow! By then, we'll have been swimming for five years!
+  JAKE: I cooked dinner badly last time.
+  BRYAN  [regla 38 Bad vs Badly]
+     ✔ Ha ha. It was really bad!
+     ✗ Ha ha. It was really badly!
+     ✗ Ha ha. It was a really big car!
+  JAKE: Tom has the hand light, I think.
+ [tom]
+  TOM: Bryan, I can't find the hand light! It was in my bag while we were walking.
+  BRYAN  [regla 35 Uso de "when / while"]
+     ✔ Maybe it fell out while we were walking.
+     ✗ Maybe it fell out during we were walking.
+     ✗ Maybe it fell out while we were sleeping at home.
+  TOM: Oh no! What do we do when it gets dark?
+  BRYAN  [regla 35 Uso de "when / while"]
+     ✔ When it gets dark, we'll use the fire.
+     ✗ While it gets dark, we'll use the fire.
+     ✗ When it gets dark, we'll use the pizza.
+  TOM: Good idea! Kenji is making the fire.
+  TOM: It's getting cold.
+  BRYAN  [regla 30 Get + adjetivo (cambios de estado: get worried, se puso...)]
+     ✔ Yes. And it's getting dark, too.
+     ✗ Yes. And it's get dark, too.
+     ✗ Yes. And it's getting a cat, too.
+  TOM: Let's sit near the fire, then!
+ [kenji]
+  KENJI: Bryan, I'm cold. Can I try on your jacket?
+  BRYAN  [regla 50 (put, try, get, trying, take, lie) + (down, off, on)]
+     ✔ Sure. Try it on. It's very warm.
+     ✗ Sure. Try on it. It's very warm.
+     ✗ Sure. Try it on. It's very blue.
+  KENJI: Thank you. Listen! What were you doing when you heard that noise?
+  BRYAN  [regla 35 Uso de "when / while"]
+     ✔ I was making the fire when I heard it.
+     ✗ I was making the fire while I heard it.
+     ✗ I was swimming when I heard it.
+  KENJI: It was an owl! Ha ha. Before we came, I had been reading about owls.
+  BRYAN  [regla 1 Past Perfect Continuous]
+     ✔ Really? How long had you been reading?
+     ✗ Really? How long had you been read?
+     ✗ Really? How long had you been flying?
+  KENJI: All week! Now let's lie down and look at the stars.
+  BRYAN  [regla 50 (put, try, get, trying, take, lie) + (down, off, on)]
+     ✔ OK. Let's lie down near the fire.
+     ✗ OK. Let's lie it down near the fire.
+     ✗ OK. Let's lie down in the river.
+  KENJI: Is the fire too big?
+  BRYAN  [regla 27 Too vs Very]
+     ✔ No, it's very big, but it's OK.
+     ✗ No, it's too big, but it's OK.
+     ✗ No, it's very small, and it's a fish.
+  KENJI: What had you been doing before I arrived?
+  BRYAN  [regla 1 Past Perfect Continuous]
+     ✔ I had been looking for wood.
+     ✗ I had been look for wood.
+     ✗ I had been swimming in the river.
+  KENJI: This is the best night ever.
+
+======================================================================
+m037 · The strange box (La caja extraña) · B1
+Objetivo: A strange box came. Find out who sent it.
+Llega una caja extrana con tu nombre. Averigua quien la trajo, quien la envio y que hay adentro.
+
+--- Escena: Your house
+ [sam]
+  SAM: Hello! I have a box for this house. Is anybody home?
+  BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
+     ✔ Yes, I'm here. But nobody ordered anything.
+     ✗ Yes, I'm here. But nobody didn't order anything.
+     ✗ Yes, I'm here. But nobody ordered a cat.
+  SAM: Well, your name is on it. It was sent from the city.
+  BRYAN  [regla 45 Voz pasiva (presente y con modales)]
+     ✔ Who was it sent by?
+     ✗ Who was it send by?
+     ✗ Who was it eaten by?
+  SAM: I don't know. There's no name. I just bring the boxes!
+  SAM: Have you opened it yet?
+  BRYAN  [regla 32 Already / Yet / Just]
+     ✔ No, not yet. I've just got it!
+     ✗ No, not already. I've just got it!
+     ✗ No, not yet. I've just eaten it!
+  SAM: Ha ha. Open it! Maybe it's a gift.
+  BRYAN  [regla 11 Bring / Brought]
+     ✔ Thanks for bringing it!
+     ✗ Thanks for brought it!
+     ✗ Thanks for eating it!
+  SAM: You're welcome! Have a nice day.
+ [linda]
+  LINDA: Did you get a box too? I got one yesterday!
+  BRYAN  [regla 45 Voz pasiva (presente y con modales)]
+     ✔ Really? Was it brought by Sam?
+     ✗ Really? Was it bring by Sam?
+     ✗ Really? Was it eaten by Sam?
+  LINDA: Yes! It was a gift from my sister.
+  LINDA: She gave me a lamp. Look!
+  BRYAN  [regla 25 Give / Gave / Given]
+     ✔ Nice! What did you give her?
+     ✗ Nice! What did you gave her?
+     ✗ Nice! What did you give the dog?
+  LINDA: Ha ha. Nothing yet!
+
+--- Escena: The living room
+ [mom]
+  MOM: What's that box, Bryan?
+  BRYAN  [regla 45 Voz pasiva (presente y con modales), 11 Bring / Brought]
+     ✔ I don't know. It was brought by Sam.
+     ✗ I don't know. It was bringed by Sam.
+     ✗ I don't know. It was cooked by Sam.
+  MOM: Open it! Is there anything inside?
+  BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
+     ✔ There's something soft... and a letter!
+     ✗ There's anything soft... and a letter!
+     ✗ There's something soft... and a car!
+  MOM: It's from your grandmother! She sent you a blanket!
+  BRYAN  [regla 45 Voz pasiva (presente y con modales)]
+     ✔ Wow! Was it made by her?
+     ✗ Wow! Was it make by her?
+     ✗ Wow! Was it made by a dog?
+  MOM: Yes, she made it with her hands.
+  MOM: Have you taken the blanket out?
+  BRYAN  [regla 19 Participios irregulares (incluye take/took/taken, leave/left/left)]
+     ✔ Yes, I've taken it out. It's soft!
+     ✗ Yes, I've took it out. It's soft!
+     ✗ Yes, I've eaten it. It's soft!
+  MOM: It's beautiful!
+  BRYAN  [regla 11 Bring / Brought]
+     ✔ How nice! I'll bring it to my room.
+     ✗ How nice! I'll brought it to my room.
+     ✗ How nice! I'll bring it to the beach.
+  MOM: And she says: next time, bring some photos when you visit!
+  BRYAN  [regla 31 Expresiones con "some / any / no" (incluye something/anything/nothing)]
+     ✔ OK! I don't have any photos, but I'll take some.
+     ✗ OK! I don't have no photos, but I'll take some.
+     ✗ OK! I don't have any cats, but I'll take some.
+  MOM: Good boy. Now call her and say thank you!
+
+======================================================================
+m038 · Learning together (Aprendiendo juntos) · B1
+Objetivo: Help Kenji practice English and understand him.
+Kenji quiere practicar ingles contigo. Animalo en la cafeteria y acompanalo a la biblioteca.
+
+--- Escena: The coffee shop
+ [kenji]
+  KENJI: Bryan, thank you for meeting me. My English is very bad.
+  BRYAN  [regla 38 Bad vs Badly]
+     ✔ No, it isn't bad! You speak well.
+     ✗ No, it isn't badly! You speak well.
+     ✗ No, it isn't bad! You cook well.
+  KENJI: But I speak slowly. And I say some words badly.
+  BRYAN  [regla 18 Gerundio vs infinitivo (incluye tras preposiciones y before/after + ing)]
+     ✔ Practicing every day will help you.
+     ✗ Practice every day will help you.
+     ✗ Swimming every day will help you.
+  KENJI: Can you help me? I want to practice with you.
+  BRYAN  [regla 8 Pronombre objeto tras preposición (him/her/them, no he/she/they)]
+     ✔ Of course. You can practice with me.
+     ✗ Of course. You can practice with I.
+     ✗ Of course. You can practice with the coffee.
+  KENJI: What are you going to do after this?
+  BRYAN  [regla 36 Diferencia entre "will" y "going to"]
+     ✔ I'm going to study with you at the library.
+     ✗ I going to study with you at the library.
+     ✗ I'm going to swim at the library.
+  KENJI: Why do you help me?
+  BRYAN  [regla 49 because of / because]
+     ✔ Because I like teaching English.
+     ✗ Because of I like teaching English.
+     ✗ Because I like eating English.
+  KENJI: Let's ask Mia for some coffee first.
+ [mia]
+  MIA: Hi! Is your friend new here?
+  BRYAN  [regla 8 Pronombre objeto tras preposición (him/her/them, no he/she/they)]
+     ✔ Yes. I'm helping him with his English.
+     ✗ Yes. I'm helping he with his English.
+     ✗ Yes. I'm helping the cat with his English.
+  MIA: That's nice! He looks a little worried.
+  BRYAN  [regla 38 Bad vs Badly]
+     ✔ He's worried because he thinks he speaks badly.
+     ✗ He's worried because he thinks he speaks bad.
+     ✗ He's worried because he thinks he cooks badly.
+  MIA: Where are you going after this?
+  BRYAN  [regla 41 Orden natural de la oración en inglés]
+     ✔ We're going to the library together.
+     ✗ Together we're going the library to.
+     ✗ We're going to the moon together.
+  MIA: Tell him not to worry! Here's your coffee.
+
+--- Escena: The library
+ [ruth]
+  RUTH: Hello, boys. Are you here to study?
+  BRYAN  [regla 18 Gerundio vs infinitivo (incluye tras preposiciones y before/after + ing)]
+     ✔ Yes. Kenji wants to learn new words.
+     ✗ Yes. Kenji wants learning new words.
+     ✗ Yes. Kenji wants to learn new dances.
+  RUTH: Then this book is for him. Please give it to him.
+  BRYAN  [regla 8 Pronombre objeto tras preposición (him/her/them, no he/she/they)]
+     ✔ Thank you. I'll give it to him now.
+     ✗ Thank you. I'll give it to he now.
+     ✗ Thank you. I'll give it to the shelf now.
+  KENJI: Thank you, Bryan. So my English isn't so bad?
+  BRYAN  [regla 38 Bad vs Badly]
+     ✔ Not at all! You did really well today.
+     ✗ Not at all! You did really good today.
+     ✗ Not at all! You ate really well today.
+  RUTH: Come back any time. I like seeing students learn.
+  BRYAN  [regla 18 Gerundio vs infinitivo (incluye tras preposiciones y before/after + ing)]
+     ✔ We will! We enjoy studying here.
+     ✗ We will! We enjoy to study here.
+     ✗ We will! We enjoy sleeping here.
+  RUTH: What does Kenji do?
+  BRYAN  [regla 9 Uso básico de "as" = como]
+     ✔ He works as a cook in a restaurant.
+     ✗ He works like a cook in a restaurant.
+     ✗ He works as a fish in a restaurant.
+  RUTH: Wonderful. Good luck, boys!
+
+======================================================================
+m039 · The bank visit (La visita al banco) · B1
+Objetivo: Get help with your card at the bank.
+El cajero automatico se trago tu tarjeta. Ve al banco y resuelvelo con Ben.
+
+--- Escena: The bank
+ [hank]
+  HANK: Good morning. How can I help you?
+  BRYAN  [regla 42 Vocabulario específico]
+     ✔ The money machine outside took my card.
+     ✗ The coffee machine outside took my card.
+     ✗ The bus outside took my dog.
+  HANK: Oh no. So your card is still in the machine?
+  BRYAN  [regla 41 Orden natural de la oración en inglés]
+     ✔ Yes. The machine has my card.
+     ✗ Yes. The machine my card has.
+     ✗ Yes. The machine has my dog.
+  HANK: OK. Do you know where to go?
+  BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
+     ✔ No. Where should I go?
+     ✗ No. Where I should go?
+     ✗ No. When is lunch?
+  HANK: Talk to Ben. He's at the second window.
+ [george]
+  GEORGE: Bryan! Are you taking money out too?
+  BRYAN  [regla 42 Vocabulario específico]
+     ✔ No. My card isn't working at the money machine.
+     ✗ No. My card isn't working at the fridge.
+     ✗ No. I'm buying a horse.
+  GEORGE: Oh dear. Good luck!
+ [ben]
+  BEN: Good morning. What's the problem?
+  BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
+     ✔ My card is in your machine. How can I get it back?
+     ✗ My card is in your machine. How I can get it back?
+     ✗ My card is in your machine. How old is the machine?
+  BEN: This is your bank card, isn't it?
+  BRYAN  [regla 29 Tag Questions]
+     ✔ Yes, it is. You can help me, can't you?
+     ✗ Yes, it is. You can help me, can you?
+     ✗ Yes, it is. You can fly, can't you?
+  BEN: Of course. Can I see your passport, please?
+  BRYAN  [regla 6 Need to + infinitivo]
+     ✔ Sure. Do I need to sign anything?
+     ✗ Sure. Do I need sign anything?
+     ✗ Sure. Do I need to sing for you?
+  BEN: Not now, thank you. The machine kept it because you wrote the wrong number.
+  BRYAN  [regla 42 Vocabulario específico]
+     ✔ Oh no! I forgot my secret number.
+     ✗ Oh no! I forgot my phone number.
+     ✗ Oh no! I forgot my shoes.
+  BEN: How long have you had this card?
+  BRYAN  [regla 34 Since vs For]
+     ✔ I've had it for two years.
+     ✗ I've had it since two years.
+     ✗ I've had it for two cats.
+  BEN: Don't worry. We'll give you a new card. You need to sign here.
+  BRYAN  [regla 6 Need to + infinitivo]
+     ✔ Sure. Do I need to sign here too?
+     ✗ Sure. Do I need sign here too?
+     ✗ Sure. Do I need to dance here too?
+  BEN: Yes. And you need to wait five days.
+  BEN: When do you need the money?
+  BRYAN  [regla 48 Oraciones con "by" para tiempo futuro]
+     ✔ I need it by Friday.
+     ✗ I need it until Friday.
+     ✗ I need it by plane.
+  BEN: No problem. You'll have it by then.
+  BRYAN  [regla 6 Need to + infinitivo]
+     ✔ OK. Do I need to come back here?
+     ✗ OK. Do I need come back here?
+     ✗ OK. Do I need to bring a cake?
+  BEN: No. We'll send it to your house.
+  BEN: Please write your address on this paper.
+  BRYAN  [regla 22 Artículos (a/an/the)]
+     ✔ OK. Is this the paper for the new card?
+     ✗ OK. Is this paper for an new card?
+     ✗ OK. Is this the paper for the new dog?
+  BEN: Yes, it is. Thank you.
+  BRYAN  [regla 2 Wh Questions (what/where/why/who/when/how)]
+     ✔ Great. When will it arrive?
+     ✗ Great. When it will arrive?
+     ✗ Great. Who is your dog?
+  BEN: On Friday. Have a nice day!
+
+======================================================================
+m040 · Find Sara again (Encuentra a Sara otra vez) · B1
+Objetivo: Sara is lost in the city. Use everything you learned to find her.
+Mision final: Sara se perdio en la ciudad sin bateria. Sigue su pista por la cafeteria y la estacion hasta encontrarla.
+
+--- Escena: The city
+ [jake]
+  JAKE: Bryan! Sara called me. She's lost in the city, and her phone has no battery!
+  BRYAN  [regla 43 Past Perfect]
+     ✔ Lost? Where had she gone before she called?
+     ✗ Lost? Where had she go before she called?
+     ✗ Lost? Where had she put the cake?
+  JAKE: She had been at the coffee shop. Then she took a walk.
+  BRYAN  [regla 12 Primer condicional (if + presente, will/won't + infinitivo)]
+     ✔ If we go to the coffee shop, Mia will know.
+     ✗ If we will go to the coffee shop, Mia will know.
+     ✗ If we go to the coffee shop, the dog will fly.
+  JAKE: Good idea! What would you do if you were lost?
+  BRYAN  [regla 4 Segundo condicional (if + pasado, would + infinitivo)]
+     ✔ If I were lost, I would ask somebody.
+     ✗ If I am lost, I would ask somebody.
+     ✗ If I were lost, I would sing a song.
+  JAKE: Do you still hope to find her before dark?
+  BRYAN  [regla 26 Still + hope]
+     ✔ Yes! I still hope she's OK.
+     ✗ Yes! I hope still she's OK.
+     ✗ Yes! I still have her cake.
+  JAKE: Then go! I'll look in the park.
+
+--- Escena: The coffee shop
+ [mia]
+  MIA: Bryan! Are you looking for Sara? She was here an hour ago.
+  BRYAN  [regla 41 Orden natural de la oración en inglés]
+     ✔ Yes. Do you know where she went?
+     ✗ Yes. Do you know where did she go?
+     ✗ Yes. Do you know where the beach is?
+  MIA: She said she wanted to see the trains.
+  BRYAN  [regla 4 Segundo condicional (if + pasado, would + infinitivo)]
+     ✔ If I were her, I would go to the station.
+     ✗ If I was her, I will go to the station.
+     ✗ If I were her, I would go to the moon.
+  MIA: Well, she isn't here now.
+  BRYAN  [regla 15 Gone vs Left]
+     ✔ She has gone to the station, maybe.
+     ✗ She has went to the station, maybe.
+     ✗ She has gone to the moon, maybe.
+  MIA: Hurry! The station is near.
+
+--- Escena: The train station
+ [sam]
+  SAM: Hello again, Bryan! Are you taking a train?
+  BRYAN  [regla 41 Orden natural de la oración en inglés]
+     ✔ No. Have you seen a girl with a red jacket?
+     ✗ No. Have you seen a girl with a jacket red?
+     ✗ No. Have you seen a dog with a red hat?
+  SAM: Yes! She had bought a ticket, but then she left.
+  BRYAN  [regla 43 Past Perfect]
+     ✔ Had she already taken the train?
+     ✗ Had she already take the train?
+     ✗ Had she already eaten the train?
+  SAM: No. She said she was going home. She lives near your house, right?
+  BRYAN  [regla 12 Primer condicional (if + presente, will/won't + infinitivo)]
+     ✔ Yes! If I hurry, I'll find her there.
+     ✗ Yes! If I will hurry, I'll find her there.
+     ✗ Yes! If I hurry, I'll find a cat there.
+  SAM: What will you be doing tonight?
+  BRYAN  [regla 53 Future Continuous]
+     ✔ I'll be having dinner with Sara and my mom.
+     ✗ I'll be have dinner with Sara and my mom.
+     ✗ I'll be swimming with Sara and my mom.
+  SAM: Take a taxi! It's faster.
+
+--- Escena: Home
+ [sara]
+  SARA: Bryan! You found me! My phone had no battery, and I got lost.
+  BRYAN  [regla 43 Past Perfect]
+     ✔ We were worried! Where had you been all day?
+     ✗ We were worried! Where had you be all day?
+     ✗ We were worried! Where had you put the cake?
+  SARA: I had walked all over the city. I don't know these streets.
+  BRYAN  [regla 4 Segundo condicional (if + pasado, would + infinitivo)]
+     ✔ If you lived here, you would know every street!
+     ✗ If you live here, you would know every street!
+     ✗ If you lived here, you would know every cat!
+  MOM: Sara! Come in. It's cold, and dinner is ready.
+  BRYAN  [regla 41 Orden natural de la oración en inglés]
+     ✔ Come in, Sara. We can eat together.
+     ✗ Come in, Sara. We together can eat.
+     ✗ Come in, Sara. We can swim together.
+  SARA: Thank you, Bryan. You're a real friend.
+  BRYAN  [regla 12 Primer condicional (if + presente, will/won't + infinitivo)]
+     ✔ If you get lost again, I'll find you again!
+     ✗ If you will get lost again, I find you again!
+     ✗ If you get lost again, I'll buy a cat!
+  SARA: Today I was lost, and you found me. And tomorrow?
+  BRYAN  [regla 13 Past Perfect vs Presente vs Futuro]
+     ✔ Tomorrow, I'll show you the city!
+     ✗ Tomorrow, I showed you the city!
+     ✗ Tomorrow, I'll show you the moon!
+  SARA: Ha ha. Deal!
+

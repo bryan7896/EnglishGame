@@ -1,0 +1,83 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "cafe": {
+  "jugador": {
+   "x": 42,
+   "y": 88
+  },
+  "personajes": {
+   "mia": {
+    "x": 22,
+    "y": 84
+   },
+   "sara": {
+    "x": 62,
+    "y": 88
+   },
+   "max": {
+    "x": 80,
+    "y": 88
+   },
+   "bella": {
+    "x": 93,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "coffee_machine": {
+    "x": 8,
+    "y": 49,
+    "s": 5,
+    "capa": "pared"
+   },
+   "cash_register": {
+    "x": 30,
+    "y": 49,
+    "s": 5.5,
+    "capa": "pared"
+   },
+   "menu": {
+    "x": 52,
+    "y": 30,
+    "s": 3,
+    "capa": "pared"
+   },
+   "table": {
+    "x": 71,
+    "y": 86,
+    "s": 13,
+    "capa": "fondo"
+   },
+   "chair": {
+    "x": 64,
+    "y": 86,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "chair2": {
+    "x": 78,
+    "y": 86,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "cake": {
+    "x": 68,
+    "y": 73.5,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "cup": {
+    "x": 74,
+    "y": 73.5,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "plant": {
+    "x": 98,
+    "y": 88,
+    "s": 5,
+    "capa": "fondo"
+   }
+  }
+ }
+}

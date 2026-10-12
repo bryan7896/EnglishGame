@@ -1,0 +1,535 @@
+{
+  "id": "m018",
+  "titulo": "Who took the cake?",
+  "titulo_es": "¿Quién se comió el pastel?",
+  "objetivo": "The cake is gone. Find out who took it.",
+  "objetivo_es": "El pastel desapareció. Descubre quién se lo llevó.",
+  "nivel": "A2-B1",
+  "resumen": "Alguien se comio el pastel de chocolate. Interroga a Tom, Bella y Max hasta descubrir quien fue.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "cocina",
+      "titulo": "The kitchen",
+      "fondo": "cocina_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "mom",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "mom",
+                "texto": "Bryan! The chocolate cake is gone! Somebody has eaten it!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  19
+                ],
+                "opciones": [
+                  {
+                    "texto": "Oh no! Who has taken it?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Oh no! Who has took it?"
+                  },
+                  {
+                    "texto": "Oh no! Who has a bike?"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "I don't know. There's nothing on the plate. Only a fork."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "I didn't see anybody in the kitchen.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I didn't see nobody in the kitchen."
+                  },
+                  {
+                    "texto": "I didn't see the moon in the kitchen."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Look! There's some chocolate on the floor. It goes to the living room."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  46
+                ],
+                "opciones": [
+                  {
+                    "texto": "Then somebody must be in the living room!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Then somebody must is in the living room!"
+                  },
+                  {
+                    "texto": "Then somebody must be in the shower!"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "I made the cake this morning. Half of it was for Grandma!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  47
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Half of it? Then she will be sad!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "The half it? Then she will be sad!"
+                  },
+                  {
+                    "texto": "Half of it? Then the dog will be a cat!"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Go and ask everybody!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "sala"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "plate",
+          "svg": "plate",
+          "texto_ref": "plate"
+        },
+        {
+          "id": "fork",
+          "svg": "fork",
+          "texto_ref": "fork"
+        },
+        {
+          "id": "fridge",
+          "svg": "fridge",
+          "texto_ref": "fridge"
+        },
+        {
+          "id": "table",
+          "svg": "table",
+          "texto_ref": "table"
+        },
+        {
+          "id": "cookie",
+          "svg": "cookie",
+          "texto_ref": "cookie"
+        }
+      ]
+    },
+    {
+      "id": "sala",
+      "titulo": "The living room",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "tom",
+          "rol": "sospechoso",
+          "ocupado": [
+            {
+              "quien": "tom",
+              "texto": "Find the cake, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "tom",
+                "texto": "Hey, Bryan. Why are you looking at me like that?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  19,
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "Have you eaten any cake today?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Have you ate any cake today?"
+                  },
+                  {
+                    "texto": "Have you seen any shoes today?"
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "No! I've been at work all day. I've just come home."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  46
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. Then it can't be you.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. Then it can't to be you."
+                  },
+                  {
+                    "texto": "OK. Then it can't be Monday."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Of course not!"
+              },
+              {
+                "quien": "tom",
+                "texto": "Wait... who has eaten my cookies too?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  19
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I don't know. Somebody has taken them.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I don't know. Somebody has took them."
+                  },
+                  {
+                    "texto": "I don't know. Somebody has bought a car."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Hmm. Somebody loves sweet things!",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "sospechosos"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bella",
+          "rol": "sospechoso",
+          "ocupado": [
+            {
+              "quien": "bella",
+              "texto": "Find the cake, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "bella",
+                "texto": "Cake? I never eat chocolate!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  46
+                ],
+                "opciones": [
+                  {
+                    "texto": "Really? Then it might be Max.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Really? Then it might is Max."
+                  },
+                  {
+                    "texto": "Really? Then it might be rain."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Maybe. He loves chocolate!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "But Max has no chocolate on his face.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "But Max hasn't no chocolate on his face."
+                  },
+                  {
+                    "texto": "But Max has no car in his garden."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Hmm, that's true."
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "sospechosos"
+              }
+            ]
+          }
+        },
+        {
+          "id": "max",
+          "rol": "sospechoso",
+          "ocupado": [
+            {
+              "quien": "max",
+              "texto": "Find the cake, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "max",
+                "texto": "Hey, I didn't take anything! I've been playing games."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  19,
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. Have you seen anybody near the kitchen?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. Have you saw anybody near the kitchen?"
+                  },
+                  {
+                    "texto": "OK. Have you seen my shoes on the moon?"
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Only the dog. He was running from the kitchen!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "sospechosos"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "sofa",
+          "svg": "sofa",
+          "texto_ref": "sofa"
+        },
+        {
+          "id": "window",
+          "svg": "window",
+          "texto_ref": "window"
+        },
+        {
+          "id": "plant",
+          "svg": "plant",
+          "texto_ref": "plant"
+        },
+        {
+          "id": "dog",
+          "svg": "dog",
+          "texto_ref": "dog",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "dog",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  46
+                ],
+                "opciones": [
+                  {
+                    "texto": "Look at his face! It must be the dog!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Look at his face! It must being the dog!"
+                  },
+                  {
+                    "texto": "Look at his face! It must be a cat!"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Ha ha! Bad dog! Well, I'll make another cake."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "Can I help? I don't have anything to do.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Can I help? I don't have nothing to do."
+                  },
+                  {
+                    "texto": "Can I help? I don't have any shoes."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Of course! But this time, the dog is staying outside!"
+              },
+              {
+                "quien": "mom",
+                "texto": "Let's make a chocolate cake again!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  14
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Sure! Let's make it together.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure! Let's do a new cake together."
+                  },
+                  {
+                    "texto": "Sure! Let's make a car together."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Great! Bring me the eggs, please.",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "disparadores": [
+        {
+          "id": "perro",
+          "una_vez": true,
+          "cuando": {
+            "contador": {
+              "sospechosos": ">=3"
+            }
+          },
+          "efectos": [
+            {
+              "habilita": "dog"
+            },
+            {
+              "llamada": {
+                "quien": "mom",
+                "linea": {
+                  "quien": "mom",
+                  "texto": "Bryan! Look at the dog!"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

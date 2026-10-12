@@ -1,0 +1,81 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "tienda": {
+  "jugador": {
+   "x": 20,
+   "y": 88
+  },
+  "personajes": {
+   "tom": {
+    "x": 40,
+    "y": 87
+   },
+   "max": {
+    "x": 70,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "cash_register": {
+    "x": 88,
+    "y": 86,
+    "s": 8,
+    "capa": "fondo"
+   },
+   "ticket": {
+    "x": 46,
+    "y": 89,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "money": {
+    "x": 84,
+    "y": 72,
+    "s": 3,
+    "capa": "fondo"
+   }
+  }
+ },
+ "sala": {
+  "jugador": {
+   "x": 14,
+   "y": 88
+  },
+  "personajes": {
+   "mom": {
+    "x": 34,
+    "y": 87
+   },
+   "tom": {
+    "x": 52,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "sofa": {
+    "x": 70,
+    "y": 84,
+    "s": 16,
+    "capa": "fondo"
+   },
+   "tv": {
+    "x": 86,
+    "y": 74,
+    "s": 10,
+    "capa": "fondo"
+   },
+   "gift": {
+    "x": 22,
+    "y": 89,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "window": {
+    "x": 46,
+    "y": 42,
+    "s": 12,
+    "capa": "pared"
+   }
+  }
+ }
+}

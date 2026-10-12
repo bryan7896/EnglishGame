@@ -5,6 +5,7 @@
   "objetivo": "Find Sara. Take her home before midnight.",
   "objetivo_es": "Encuentra a Sara. Llevala a casa antes de la medianoche.",
   "nivel": "A2-B1",
+  "contexto": "fiesta",
   "resumen": "Es de noche y estas en la fiesta de Tom. Tu mama le pidio a Sara que te lleve a casa antes de la medianoche, pero hay mucha musica y poca luz. Encuentra a Sara, consigue un taxi y llega a tiempo.",
   "musica_inicial": "party_loop",
   "reglas_juego": {
@@ -591,7 +592,8 @@
           "frase_taxi_primero": {
             "quien": "sara",
             "texto": "Talk to the driver first."
-          }
+          },
+          "silencio_tras": "frank_hablado"
         },
         {
           "id": "rosa",

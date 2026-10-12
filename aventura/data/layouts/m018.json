@@ -1,0 +1,97 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "cocina": {
+  "jugador": {
+   "x": 24,
+   "y": 88
+  },
+  "personajes": {
+   "mom": {
+    "x": 46,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "table": {
+    "x": 72,
+    "y": 85,
+    "s": 12,
+    "capa": "fondo"
+   },
+   "plate": {
+    "x": 70,
+    "y": 72.5,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "fork": {
+    "x": 75,
+    "y": 72.5,
+    "s": 2,
+    "capa": "fondo"
+   },
+   "fridge": {
+    "x": 10,
+    "y": 74,
+    "s": 9,
+    "capa": "pared"
+   },
+   "cookie": {
+    "x": 64,
+    "y": 72.5,
+    "s": 2.5,
+    "capa": "fondo"
+   }
+  }
+ },
+ "sala": {
+  "jugador": {
+   "x": 10,
+   "y": 88
+  },
+  "personajes": {
+   "tom": {
+    "x": 28,
+    "y": 87
+   },
+   "bella": {
+    "x": 52,
+    "y": 87
+   },
+   "max": {
+    "x": 74,
+    "y": 87
+   },
+   "mom": {
+    "x": 94,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "sofa": {
+    "x": 40,
+    "y": 84,
+    "s": 16,
+    "capa": "fondo"
+   },
+   "window": {
+    "x": 62,
+    "y": 42,
+    "s": 12,
+    "capa": "pared"
+   },
+   "plant": {
+    "x": 86,
+    "y": 87,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "dog": {
+    "x": 64,
+    "y": 89,
+    "s": 6,
+    "capa": "fondo"
+   }
+  }
+ }
+}

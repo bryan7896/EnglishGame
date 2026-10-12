@@ -1,0 +1,594 @@
+{
+  "id": "m009",
+  "titulo": "Lost luggage",
+  "titulo_es": "Equipaje perdido",
+  "objetivo": "Find your suitcase at the airport.",
+  "objetivo_es": "Encuentra tu maleta en el aeropuerto.",
+  "nivel": "A2",
+  "resumen": "Llegas al aeropuerto y tu maleta no sale. Pregunta, ve al mostrador de informacion y averigua donde esta.",
+  "musica_inicial": "ride_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "llegadas",
+      "titulo": "Arrivals",
+      "fondo": "aeropuerto",
+      "musica": "ride_loop",
+      "personajes": [
+        {
+          "id": "george",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "desk"
+          },
+          "ocupado": [
+            {
+              "quien": "george",
+              "texto": "Go to the information desk, my boy."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "Is your bag here, Bryan? Mine came out first."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "No. All the bags have gone, and mine isn't here.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No. All the bags have went, and mine isn't here."
+                  },
+                  {
+                    "texto": "No. All the planes have gone to the beach."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Do you still hope to find it today?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. I still hope it's here somewhere.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I hope still it's here somewhere."
+                  },
+                  {
+                    "texto": "Yes. I still have a dog somewhere."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Then go to the information desk. Tell them your flight number."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "Good idea. I'll tell them everything.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Good idea. I'll say them everything."
+                  },
+                  {
+                    "texto": "Good idea. I'll tell them a story."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "And keep your ticket with you!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "desk"
+              }
+            ]
+          }
+        },
+        {
+          "id": "emma",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "emma",
+              "texto": "Thank you. I hope you find your bag, too."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "emma",
+                "texto": "Excuse me, did you see a red suitcase?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. A man took it and left five minutes ago.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. A man took it and gone five minutes ago."
+                  },
+                  {
+                    "texto": "Yes. It's on the plane to the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Oh dear! It's my friend's bag. I must tell her."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "Tell her to go to the information desk.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Say her to go to the information desk."
+                  },
+                  {
+                    "texto": "Tell her to buy a new car."
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Thank you!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "baggage_belt",
+          "svg": "baggage_belt",
+          "texto_ref": "baggage_belt"
+        },
+        {
+          "id": "flight_board",
+          "svg": "flight_board",
+          "texto_ref": "flight_board"
+        },
+        {
+          "id": "suitcase",
+          "svg": "suitcase",
+          "texto_ref": "suitcase"
+        },
+        {
+          "id": "plane",
+          "svg": "plane",
+          "texto_ref": "plane"
+        },
+        {
+          "id": "desk",
+          "svg": "desk",
+          "texto_ref": "desk",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "desk",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "opciones": [
+                  {
+                    "texto": "I need help with my suitcase, please.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I need help with my passport, please."
+                  },
+                  {
+                    "texto": "I need help with my homework, please."
+                  }
+                ]
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "oficina"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "oficina",
+      "titulo": "Information desk",
+      "fondo": "aeropuerto",
+      "musica": "ride_loop",
+      "personajes": [
+        {
+          "id": "olivia",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "olivia",
+                "texto": "Good afternoon. How can I help you?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "opciones": [
+                  {
+                    "texto": "My suitcase didn't arrive. It's black.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "My passport didn't arrive. It's black."
+                  },
+                  {
+                    "texto": "My sandwich didn't arrive. It's cold."
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "What's in your suitcase?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "My clothes, my shoes and a towel.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "My clothes, my shoes and a stove."
+                  },
+                  {
+                    "texto": "My clothes, my dog and a car."
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Have you ever lost a suitcase before?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, I've never lost one before.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I've never lose one before."
+                  },
+                  {
+                    "texto": "No, I've never had a horse before."
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "I'm sorry. Can you tell me your flight number?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sure. It's on my ticket. Here you are.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. It's on my pillow. Here you are."
+                  },
+                  {
+                    "texto": "Sure. It's my birthday today."
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Thank you. Oh, I see. Your suitcase has gone to another city."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "Gone? Where has it gone?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Gone? Where has it went?"
+                  },
+                  {
+                    "texto": "Gone? Where is the beach?"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "It went to the wrong city. But don't worry. It will come back tomorrow."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. Can you tell me when it arrives?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. Can you say me when it arrives?"
+                  },
+                  {
+                    "texto": "OK. Can you tell me a story?"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Of course. We'll bring it to your house tomorrow morning."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "Did you say tomorrow morning?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Did you tell tomorrow morning?"
+                  },
+                  {
+                    "texto": "Did you eat breakfast?"
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Yes, I said tomorrow morning."
+              },
+              {
+                "quien": "olivia",
+                "texto": "Where is your house?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "It's on Green Street, in the city.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "It's in Green Street, on the city."
+                  },
+                  {
+                    "texto": "It's on the moon, in the city."
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Can you write your phone number here?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Sure. Here's my phone number.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. Here's my number phone."
+                  },
+                  {
+                    "texto": "Sure. Here's my phone cake."
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "What will you be doing tomorrow morning?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I'll be waiting for my suitcase at home.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'll be wait for my suitcase at home."
+                  },
+                  {
+                    "texto": "I'll be swimming in my suitcase."
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "When did you get to the airport today?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I arrived at ten. Now I'll go home.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I arrive at ten. Now I went home."
+                  },
+                  {
+                    "texto": "I arrived at ten. Now I'll be a bird."
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "Good idea. Have a nice day!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thanks. All my friends have left. I need a taxi.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thanks. All my friends have leaved. I need a taxi."
+                  },
+                  {
+                    "texto": "Thanks. All my friends have green hair."
+                  }
+                ]
+              },
+              {
+                "quien": "olivia",
+                "texto": "There are taxis outside. Good luck!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "desk",
+          "svg": "desk",
+          "texto_ref": "desk"
+        },
+        {
+          "id": "computer",
+          "svg": "computer",
+          "texto_ref": "computer"
+        },
+        {
+          "id": "passport",
+          "svg": "passport",
+          "texto_ref": "passport"
+        },
+        {
+          "id": "ticket",
+          "svg": "ticket",
+          "texto_ref": "ticket"
+        },
+        {
+          "id": "clock",
+          "svg": "clock",
+          "texto_ref": "clock"
+        }
+      ]
+    }
+  ]
+}

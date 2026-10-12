@@ -1,0 +1,519 @@
+{
+  "id": "m035",
+  "titulo": "The wrong weather report",
+  "titulo_es": "El pronóstico equivocado",
+  "objetivo": "The weather report was wrong. Save the party in the park.",
+  "objetivo_es": "El pronóstico se equivocó. Salva la fiesta del parque.",
+  "nivel": "B1",
+  "resumen": "El pronostico dijo sol para la fiesta de Max en el parque... y empieza a llover. Salva la fiesta.",
+  "musica_inicial": "party_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "parque",
+      "titulo": "The park",
+      "fondo": "parque_dia",
+      "musica": "party_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "sara"
+          },
+          "ocupado": [
+            {
+              "quien": "jake",
+              "texto": "Ask Sara about the weather!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "The weather report said it would be sunny all day!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  33
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, and it's really hot today.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, and is really hot today."
+                  },
+                  {
+                    "texto": "Yes, and it's really a cat today."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Max is coming at four. We'll be eating cake in the park!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "opciones": [
+                  {
+                    "texto": "And we'll be playing music all afternoon!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "And we'll be play music all afternoon!"
+                  },
+                  {
+                    "texto": "And we'll be sleeping at school all afternoon!"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "What are you going to bring?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  36
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I'm going to bring the music.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I going to bring the music."
+                  },
+                  {
+                    "texto": "I'm going to bring my bed."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Max wants everything ready before four.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  48
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "It will be ready by four.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "It will be ready until four."
+                  },
+                  {
+                    "texto": "It will be ready by bus."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Look at the sky! Those clouds weren't there before."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "opciones": [
+                  {
+                    "texto": "It was sunny an hour ago. Now it's cloudy.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "It is sunny an hour ago. Now it was cloudy."
+                  },
+                  {
+                    "texto": "It was sunny an hour ago. Now it's my birthday."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Oh no. Ask Sara. She knows a lot about the weather."
+              }
+            ]
+          }
+        },
+        {
+          "id": "sara",
+          "rol": "target",
+          "antes": {
+            "quien": "sara",
+            "texto": "One moment, Bryan."
+          },
+          "dialogo": {
+            "requiere": "jake_hablado",
+            "pasos": [
+              {
+                "quien": "sara",
+                "texto": "Bryan! It's going to rain. I just saw it on my phone."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  33
+                ],
+                "opciones": [
+                  {
+                    "texto": "Is it going to rain a lot?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Is going to rain a lot?"
+                  },
+                  {
+                    "texto": "Is it going to rain pizza?"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Yes. The report was wrong. It will rain in ten minutes."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "opciones": [
+                  {
+                    "texto": "This morning it said sun. Now it says rain!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "This morning it says sun. Now it said rain!"
+                  },
+                  {
+                    "texto": "This morning it said sun. Now it sings!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Do you still hope it doesn't rain?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. I still hope the sun comes back.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I hope still the sun comes back."
+                  },
+                  {
+                    "texto": "Yes. I still have a sun in my bag."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "What will you be doing at five?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "opciones": [
+                  {
+                    "texto": "I'll be helping you with the cake.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'll be help you with the cake."
+                  },
+                  {
+                    "texto": "I'll be swimming with the cake."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Then let's take everything to my house. It's very near."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "calle"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bella",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "bella",
+              "texto": "This party is going to be fun!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "bella",
+                "texto": "The party is still on, isn't it?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes! At five, we'll be dancing!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes! At five, we'll be dance!"
+                  },
+                  {
+                    "texto": "Yes! At five, we'll be sleeping in the rain!"
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Great!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "table",
+          "svg": "table",
+          "texto_ref": "table"
+        },
+        {
+          "id": "cake",
+          "svg": "cake",
+          "texto_ref": "cake"
+        },
+        {
+          "id": "speaker",
+          "svg": "speaker",
+          "texto_ref": "speaker"
+        },
+        {
+          "id": "cloud",
+          "svg": "cloud",
+          "texto_ref": "cloud"
+        },
+        {
+          "id": "tree",
+          "svg": "tree",
+          "texto_ref": "tree"
+        }
+      ]
+    },
+    {
+      "id": "calle",
+      "titulo": "In the rain",
+      "fondo": "calle_lluvia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "max",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "max",
+                "texto": "Hey! Where's my party? It's raining a lot!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  33
+                ],
+                "opciones": [
+                  {
+                    "texto": "It's at Sara's house now. It's very close.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Is at Sara's house now. Is very close."
+                  },
+                  {
+                    "texto": "It's at the moon now. It's very close."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Great! What will we be doing there?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "opciones": [
+                  {
+                    "texto": "We'll be eating your cake and listening to music!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We'll be eat your cake and listen to music!"
+                  },
+                  {
+                    "texto": "We'll be washing the car in the rain!"
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Ha ha! The weather report was really wrong, wasn't it?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes! Next time, I'll look at the sky.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes! Next time, I looked at the sky."
+                  },
+                  {
+                    "texto": "Yes! Next time, I'll look at the fish."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "I'm getting really wet!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  30
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Me too! Let's go before we get cold.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Me too! Let's go before we getting cold."
+                  },
+                  {
+                    "texto": "Me too! Let's go before we get a dog."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Put this on. It's my old jacket.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  50
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Thanks! I'll put it on now.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thanks! I'll put on it now."
+                  },
+                  {
+                    "texto": "Thanks! I'll put it in the fridge."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Ha ha! Let's go!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "umbrella",
+          "svg": "umbrella",
+          "texto_ref": "umbrella"
+        },
+        {
+          "id": "street_lamp",
+          "svg": "street_lamp",
+          "texto_ref": "street_lamp"
+        },
+        {
+          "id": "water",
+          "svg": "water",
+          "texto_ref": "water"
+        }
+      ]
+    }
+  ]
+}

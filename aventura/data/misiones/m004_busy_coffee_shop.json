@@ -1,0 +1,614 @@
+{
+  "id": "m004",
+  "titulo": "The busy coffee shop",
+  "titulo_es": "La cafetería llena",
+  "objetivo": "Order coffee and food for all your friends.",
+  "objetivo_es": "Pide café y comida para todos tus amigos.",
+  "nivel": "A2",
+  "resumen": "Estas en una cafeteria llena con tus amigos. Pregunta que quiere cada uno y haz el pedido completo a Mia.",
+  "musica_inicial": "party_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "cafe",
+      "titulo": "The coffee shop",
+      "fondo": "cafe_dia",
+      "musica": "party_loop",
+      "personajes": [
+        {
+          "id": "sara",
+          "rol": "amigo",
+          "ocupado": [
+            {
+              "quien": "sara",
+              "texto": "Thanks, Bryan!"
+            },
+            {
+              "quien": "sara",
+              "texto": "Go and order, Bryan. I'm hungry!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "sara",
+                "texto": "Bryan, I need to drink something hot. It's so cold today!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  6
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. Do you need to eat something, too?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. Do you need eat something, too?"
+                  },
+                  {
+                    "texto": "OK. Do you need to sleep now?"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "No, thanks. Just a tea with a little milk."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  37
+                ],
+                "opciones": [
+                  {
+                    "texto": "A tea with a little milk. Got it.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "A tea with a few milk. Got it."
+                  },
+                  {
+                    "texto": "Two cups of coffee with ice. Got it."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Thanks!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "pedidos"
+              }
+            ]
+          }
+        },
+        {
+          "id": "max",
+          "rol": "amigo",
+          "ocupado": [
+            {
+              "quien": "max",
+              "texto": "Thanks, Bryan!"
+            },
+            {
+              "quien": "max",
+              "texto": "Go and order, Bryan. I'm hungry!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "max",
+                "texto": "I'm so hungry! Are there any sandwiches?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  37
+                ],
+                "opciones": [
+                  {
+                    "texto": "I think there are a few sandwiches left.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I think there are a little sandwiches left."
+                  },
+                  {
+                    "texto": "I think there is a sandwich in my bag."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Great. Can I have a sandwich and an orange juice?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  22
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sure. A sandwich and an orange juice.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. A sandwich and a orange juice."
+                  },
+                  {
+                    "texto": "Sure. A pizza and a big cake."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Thanks, man. I need to eat before class."
+              },
+              {
+                "quien": "max",
+                "texto": "Sara always orders the same thing, right?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. She always drinks tea with milk.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. She always drink tea with milk."
+                  },
+                  {
+                    "texto": "Yes. She always drives a bus."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Ha ha. Some things never change!",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "pedidos"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bella",
+          "rol": "amigo",
+          "ocupado": [
+            {
+              "quien": "bella",
+              "texto": "Thanks, Bryan!"
+            },
+            {
+              "quien": "bella",
+              "texto": "Go and order, Bryan. I'm hungry!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "bella",
+                "texto": "Oh, I want everything! How many cookies do they have?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  37
+                ],
+                "opciones": [
+                  {
+                    "texto": "Not many. Only a few cookies today.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Not much. Only a few cookies today."
+                  },
+                  {
+                    "texto": "Not many. Only a few cars today."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Then I want a piece of cake. And an apple juice."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  22
+                ],
+                "opciones": [
+                  {
+                    "texto": "A piece of cake and an apple juice.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "A piece of cake and a apple juice."
+                  },
+                  {
+                    "texto": "A piece of paper and a pen."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Hmm, wait. I only want a small piece of cake.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  47
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Then take half of my piece!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Then take the half of piece!"
+                  },
+                  {
+                    "texto": "Then take half of my car!"
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Perfect!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              },
+              {
+                "contador": "pedidos"
+              }
+            ]
+          }
+        },
+        {
+          "id": "mia",
+          "rol": "target",
+          "antes": {
+            "quien": "mia",
+            "texto": "Hi! Ask your friends what they want first."
+          },
+          "dialogo": {
+            "requiere": "pedidos_listos",
+            "pasos": [
+              {
+                "quien": "mia",
+                "texto": "Hi! Welcome to the coffee shop. What can I get you?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  6
+                ],
+                "opciones": [
+                  {
+                    "texto": "Hi! I need to order for four people.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Hi! I need order for four people."
+                  },
+                  {
+                    "texto": "Hi! I need to go to the doctor."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "No problem. What would you like?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  22
+                ],
+                "opciones": [
+                  {
+                    "texto": "A tea, a sandwich and an orange juice, please.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "A tea, a sandwich and a orange juice, please."
+                  },
+                  {
+                    "texto": "A pizza, a burger and a beer, please."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "OK. And for the fourth person?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  22
+                ],
+                "opciones": [
+                  {
+                    "texto": "A piece of cake and an apple juice.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "A piece of cake and a apple juice."
+                  },
+                  {
+                    "texto": "A piece of bread and a cup of soup."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "Do you want sugar in the tea?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  37
+                ],
+                "opciones": [
+                  {
+                    "texto": "Just a little sugar, please.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Just a few sugar, please."
+                  },
+                  {
+                    "texto": "Just a big burger, please."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "And how many cookies do you want? We only have a few."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  37
+                ],
+                "opciones": [
+                  {
+                    "texto": "Not many. How much are they?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Not many. How many are they?"
+                  },
+                  {
+                    "texto": "Not many. Where is the beach?"
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "They're two dollars each. So, twenty-two dollars, please."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  6
+                ],
+                "opciones": [
+                  {
+                    "texto": "Here you are. Do I need to wait here?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Here you are. Do I need wait here?"
+                  },
+                  {
+                    "texto": "Here you are. Do I need to sing?"
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "No, you don't need to wait. I can bring it to your table."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  6
+                ],
+                "opciones": [
+                  {
+                    "texto": "Great! We need to leave at ten.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great! We need leave at ten."
+                  },
+                  {
+                    "texto": "Great! We need a new car."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "Do you want me to make some coffee too?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  14
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes, please. Can you make a big coffee?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, please. Can you do a big coffee?"
+                  },
+                  {
+                    "texto": "Yes, please. Can you make a big car?"
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "So I'll bring the food to your table, OK?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  11
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes, please. Bring it to the table by the window.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, please. Brought it to the table by the window."
+                  },
+                  {
+                    "texto": "Yes, please. Bring it to the beach."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "No problem. Your food is ready in five minutes!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "coffee_machine",
+          "svg": "coffee_machine",
+          "texto_ref": "coffee_machine"
+        },
+        {
+          "id": "cash_register",
+          "svg": "cash_register",
+          "texto_ref": "cash_register"
+        },
+        {
+          "id": "menu",
+          "svg": "menu",
+          "texto_ref": "menu"
+        },
+        {
+          "id": "table",
+          "svg": "table",
+          "texto_ref": "table"
+        },
+        {
+          "id": "chair",
+          "svg": "chair",
+          "texto_ref": "chair"
+        },
+        {
+          "id": "chair2",
+          "svg": "chair",
+          "texto_ref": "chair"
+        },
+        {
+          "id": "cake",
+          "svg": "cake",
+          "texto_ref": "cake"
+        },
+        {
+          "id": "cup",
+          "svg": "cup",
+          "texto_ref": "cup"
+        },
+        {
+          "id": "plant",
+          "svg": "plant",
+          "texto_ref": "plant"
+        }
+      ],
+      "disparadores": [
+        {
+          "id": "pedidos",
+          "una_vez": true,
+          "cuando": {
+            "contador": {
+              "pedidos": ">=3"
+            }
+          },
+          "efectos": [
+            {
+              "flag": "pedidos_listos"
+            },
+            {
+              "llamada": {
+                "quien": "mia",
+                "pan": "segun_posicion",
+                "linea": {
+                  "quien": "mia",
+                  "texto": "Hi there! Are you ready to order?"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

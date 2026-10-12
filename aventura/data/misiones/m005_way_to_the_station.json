@@ -1,0 +1,593 @@
+{
+  "id": "m005",
+  "titulo": "Which way to the station?",
+  "titulo_es": "¿Por dónde queda la estación?",
+  "objetivo": "Get to the train station on time. Ask for directions.",
+  "objetivo_es": "Llega a tiempo a la estación de tren. Pide indicaciones.",
+  "nivel": "A2",
+  "resumen": "Tienes que tomar el tren de las diez y media. Pide indicaciones por la calle y el parque hasta llegar a la estacion.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "calle",
+      "titulo": "Your street",
+      "fondo": "ciudad_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "george",
+          "rol": "guia_inicial",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "Bryan, where are you going with that bag?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "I'm going to the train station.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'm going at the train station."
+                  },
+                  {
+                    "texto": "I'm going to bed."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "The station? What time is your train?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  33
+                ],
+                "opciones": [
+                  {
+                    "texto": "It's at ten thirty. How far is it?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Is at ten thirty. How far is it?"
+                  },
+                  {
+                    "texto": "It's my birthday. How old are you?"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "It's about two kilometers. You need to go through the park."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. Is the park on Main Street?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. Is the park in Main Street?"
+                  },
+                  {
+                    "texto": "OK. Is the park a good restaurant?"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Yes. Go now, and ask Lily in the park. Hurry!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "parque"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "traffic_light",
+          "svg": "traffic_light",
+          "texto_ref": "traffic_light"
+        },
+        {
+          "id": "sign",
+          "svg": "sign",
+          "texto_ref": "sign"
+        },
+        {
+          "id": "street_lamp",
+          "svg": "street_lamp",
+          "texto_ref": "street_lamp"
+        },
+        {
+          "id": "bag",
+          "svg": "bag",
+          "texto_ref": "bag"
+        }
+      ]
+    },
+    {
+      "id": "parque",
+      "titulo": "The park",
+      "fondo": "parque_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "lily",
+          "rol": "target",
+          "pista": {
+            "marca": "bridge"
+          },
+          "ocupado": [
+            {
+              "quien": "lily",
+              "texto": "Um... hurry, Bryan! Cross the bridge."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "lily",
+                "texto": "Hi, Bryan! Are you lost?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "A little. How do I get to the station?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "A little. How do I get at the station?"
+                  },
+                  {
+                    "texto": "A little. How do I get a dog?"
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Walk across the bridge. Then turn left."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "opciones": [
+                  {
+                    "texto": "So the station is on the left?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "So the station is at the left?"
+                  },
+                  {
+                    "texto": "So the station is in my bag?"
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Yes, next to the big supermarket. You can't miss it."
+              },
+              {
+                "quien": "lily",
+                "texto": "Do you know where the supermarket is?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. It's on Main Street, near the bank.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. It's in Main Street, near of the bank."
+                  },
+                  {
+                    "texto": "Yes. It's on the moon, near the bank."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Good. Then you can't get lost.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  33
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thanks! Is it a long walk?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thanks! Is a long walk?"
+                  },
+                  {
+                    "texto": "Thanks! Is it a big pizza?"
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "No, it's only ten minutes. But hurry!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "bridge"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hank",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "hank",
+              "texto": "The station is across the bridge."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "hank",
+                "texto": "Good morning. Please don't walk on the grass."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sorry! I'm in a hurry for my train.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sorry! I'm on a hurry for my train."
+                  },
+                  {
+                    "texto": "Sorry! I'm a doctor."
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "OK, OK. The station is across the bridge."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thank you! I need to get to it fast.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you! I need to get at it fast."
+                  },
+                  {
+                    "texto": "Thank you! I need a new jacket."
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "Then run! Have a good trip."
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "bench",
+          "svg": "bench",
+          "texto_ref": "bench"
+        },
+        {
+          "id": "tree",
+          "svg": "tree",
+          "texto_ref": "tree"
+        },
+        {
+          "id": "map",
+          "svg": "map",
+          "texto_ref": "map"
+        },
+        {
+          "id": "flowers",
+          "svg": "flowers",
+          "texto_ref": "flowers"
+        },
+        {
+          "id": "bridge",
+          "svg": "bridge",
+          "texto_ref": "bridge",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "bridge",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "Let's walk across the bridge to the station.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Let's walk across the bridge at the station."
+                  },
+                  {
+                    "texto": "Let's walk across the bridge to the beach."
+                  }
+                ]
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "estacion"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "estacion",
+      "titulo": "The train station",
+      "fondo": "estacion_tren",
+      "musica": "ride_loop",
+      "personajes": [
+        {
+          "id": "sam",
+          "rol": "target",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "sam",
+                "texto": "Good morning. Can I help you?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. One ticket to River Town, please.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. One ticket at River Town, please."
+                  },
+                  {
+                    "texto": "Yes. One cup of coffee, please."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Here you are. That's fifteen dollars."
+              },
+              {
+                "quien": "sam",
+                "texto": "Do you want a seat next to the window?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes, please. A window seat is great.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, please. A window door is great."
+                  },
+                  {
+                    "texto": "Yes, please. A window pizza is great."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "OK. Seat twelve, next to the window.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  33
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thanks. What time is it now?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thanks. What time is now?"
+                  },
+                  {
+                    "texto": "Thanks. What color is it now?"
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "It's ten twenty-five. Your train is the green one."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "opciones": [
+                  {
+                    "texto": "Great! Does it leave from here?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great! Does it leave of here?"
+                  },
+                  {
+                    "texto": "Great! Does it have a pool?"
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Yes, in five minutes. It's cold in River Town today."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  33
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thanks! Is it very cold there?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thanks! Is very cold there?"
+                  },
+                  {
+                    "texto": "Thanks! Is it very small there?"
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Yes, it's snowing there. Have a good trip!"
+              },
+              {
+                "quien": "sam",
+                "texto": "Wait! Do you have your ticket with you?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. Here's my train ticket.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. Here's my ticket train."
+                  },
+                  {
+                    "texto": "Yes. Here's my sandwich."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Good. Show it on the train.",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "clock",
+          "svg": "clock",
+          "texto_ref": "clock"
+        },
+        {
+          "id": "train",
+          "svg": "train",
+          "texto_ref": "train"
+        },
+        {
+          "id": "desk",
+          "svg": "desk",
+          "texto_ref": "desk"
+        },
+        {
+          "id": "ticket",
+          "svg": "ticket",
+          "texto_ref": "ticket"
+        }
+      ]
+    }
+  ]
+}

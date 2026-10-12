@@ -1,0 +1,700 @@
+{
+  "id": "m002",
+  "titulo": "The new neighbor",
+  "titulo_es": "La vecina nueva",
+  "objetivo": "Meet your new neighbor and find out who she is.",
+  "objetivo_es": "Conoce a tu vecina nueva y averigua quién es.",
+  "nivel": "A2",
+  "resumen": "Llega una vecina nueva a tu calle. Tu mama te pide llevarle un pastel. Pregunta donde vive, conocela y averigua quien es.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "calle",
+      "titulo": "Your street",
+      "fondo": "ciudad_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "mom",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "lily"
+          },
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "mom",
+                "texto": "Bryan, can you help me? We have a new neighbor."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  2
+                ],
+                "opciones": [
+                  {
+                    "texto": "Really? What is her name?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Really? What her name is?"
+                  },
+                  {
+                    "texto": "Really? I have a new phone."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "I don't know. Please take her this cake and say hello."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  22
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sure. Is it a chocolate cake?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. Is it an chocolate cake?"
+                  },
+                  {
+                    "texto": "Sure. Is it a new car?"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Yes, it is. Ask Lily. She knows everybody on this street."
+              }
+            ]
+          }
+        },
+        {
+          "id": "lily",
+          "rol": "informante",
+          "pista": {
+            "marca": "linda"
+          },
+          "antes": {
+            "quien": "lily",
+            "texto": "Um... hi, Bryan. Is your mom looking for you?"
+          },
+          "ocupado": [
+            {
+              "quien": "lily",
+              "texto": "Um... good luck, Bryan."
+            },
+            {
+              "quien": "lily",
+              "texto": "Linda is really nice. You'll see."
+            }
+          ],
+          "dialogo": {
+            "requiere": "mom_hablado",
+            "pasos": [
+              {
+                "quien": "lily",
+                "texto": "Hi, Bryan! Is that cake for me?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  22
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, sorry. It's for the new neighbor.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, sorry. It's for new neighbor."
+                  },
+                  {
+                    "texto": "Yes, I'm going to the beach."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Oh, Linda! She's really nice. She works at the hospital."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  2
+                ],
+                "opciones": [
+                  {
+                    "texto": "Where does she live?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Where she does live?"
+                  },
+                  {
+                    "texto": "When does the bus come?"
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "In the blue house, next to the big tree. She's in the garden now."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "opciones": [
+                  {
+                    "texto": "Great. She lives very near us, then.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great. She live very near us, then."
+                  },
+                  {
+                    "texto": "Great. I live in a big city."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Can you see the blue house?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. It's on the corner, next to the tree.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. It's in the corner, next of the tree."
+                  },
+                  {
+                    "texto": "Yes. It's on the moon, next to the tree."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Yes! And she has a white cat."
+              }
+            ]
+          }
+        },
+        {
+          "id": "george",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "george",
+              "texto": "Say hello to your mother, my boy."
+            },
+            {
+              "quien": "george",
+              "texto": "My dog wants to go to the park."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "Good morning, Bryan. Nice day, isn't it?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. Your dog runs very fast!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. Your dog run very fast!"
+                  },
+                  {
+                    "texto": "Yes. I am a doctor."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Ha ha, he loves the park. Who is that cake for?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  22
+                ],
+                "opciones": [
+                  {
+                    "texto": "It's for the woman in the blue house.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "It's for woman in the blue house."
+                  },
+                  {
+                    "texto": "It's for my bicycle."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Ah, the new neighbor. Say hello from me!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "linda",
+          "rol": "target",
+          "antes": {
+            "quien": "linda",
+            "texto": "Sorry, I'm very busy with these boxes right now."
+          },
+          "dialogo": {
+            "requiere": "lily_hablado",
+            "pasos": [
+              {
+                "quien": "linda",
+                "texto": "Oh, hello! Can I help you?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  22
+                ],
+                "opciones": [
+                  {
+                    "texto": "Hi! I'm Bryan. I live in the white house.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Hi! I'm Bryan. I live in white house."
+                  },
+                  {
+                    "texto": "Hi! I'm Bryan. I want a taxi."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Nice to meet you, Bryan. I'm Linda. Is that cake for me?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. My mom makes the best cakes.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. My mom make the best cakes."
+                  },
+                  {
+                    "texto": "Yes. My mom is at the airport."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "How nice! Please, come in. Let's have some tea."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "sala"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "house",
+          "svg": "house",
+          "texto_ref": "house"
+        },
+        {
+          "id": "tree",
+          "svg": "tree",
+          "texto_ref": "tree"
+        },
+        {
+          "id": "mailbox",
+          "svg": "mailbox",
+          "texto_ref": "mailbox"
+        },
+        {
+          "id": "fence",
+          "svg": "fence",
+          "texto_ref": "fence"
+        },
+        {
+          "id": "box",
+          "svg": "box",
+          "texto_ref": "box"
+        },
+        {
+          "id": "box2",
+          "svg": "box",
+          "texto_ref": "box"
+        }
+      ]
+    },
+    {
+      "id": "sala",
+      "titulo": "Linda's house",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "linda",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "linda",
+                "texto": "So, Bryan, tell me about this street."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  2
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sure. What do you want to know?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. What you want to know?"
+                  },
+                  {
+                    "texto": "Sure. Where is my phone?"
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Is there a supermarket near here?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  22
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, there's a small supermarket on the corner.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, there's an small supermarket on the corner."
+                  },
+                  {
+                    "texto": "No, thanks. I don't drink coffee."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Great. And what about you? What do you do?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  2
+                ],
+                "opciones": [
+                  {
+                    "texto": "I'm a student. And where do you work?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'm a student. And where you work?"
+                  },
+                  {
+                    "texto": "I'm a student. How old is the tree?"
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "I work at the city hospital. I'm a nurse."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "opciones": [
+                  {
+                    "texto": "Cool! My uncle works there, too.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Cool! My uncle work there, too."
+                  },
+                  {
+                    "texto": "Cool! I don't like tea."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Really? What's his name?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "opciones": [
+                  {
+                    "texto": "George. He lives in the green house.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "George. He live in the green house."
+                  },
+                  {
+                    "texto": "George. He is a cat."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Oh, I met him this morning! He has a nice dog."
+              },
+              {
+                "quien": "linda",
+                "texto": "How long have you lived on this street?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  34
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "We've lived here since I was a child.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We've lived here for I was a child."
+                  },
+                  {
+                    "texto": "We've lived here since the moon was blue."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "I've just moved in. Have you met my cat yet?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  10
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, I haven't seen her yet. Where is she?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I haven't saw her yet. Where is she?"
+                  },
+                  {
+                    "texto": "No, I haven't seen the bus yet. Where is it?"
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "She's sleeping upstairs. She's very quiet.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  2
+                ],
+                "opciones": [
+                  {
+                    "texto": "Why did you move to this street?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Why you moved to this street?"
+                  },
+                  {
+                    "texto": "Why is the sky blue?"
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Because my new job is very close. And it's a quiet street."
+              },
+              {
+                "quien": "linda",
+                "texto": "It's a nice place to live, isn't it?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  29
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes, it is. The neighbors are nice, aren't they?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, it is. The neighbors are nice, isn't it?"
+                  },
+                  {
+                    "texto": "Yes, it is. The neighbors are cats, aren't they?"
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Yes, they are! I'm very happy here.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  22
+                ],
+                "opciones": [
+                  {
+                    "texto": "Welcome! I hope you have a great time here.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Welcome! I hope you have an great time here."
+                  },
+                  {
+                    "texto": "Welcome! I hope the bus is late."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Thank you, Bryan. And thank your mom for the cake!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "sofa",
+          "svg": "sofa",
+          "texto_ref": "sofa"
+        },
+        {
+          "id": "table",
+          "svg": "table",
+          "texto_ref": "table"
+        },
+        {
+          "id": "cup",
+          "svg": "cup",
+          "texto_ref": "cup"
+        },
+        {
+          "id": "picture",
+          "svg": "picture",
+          "texto_ref": "picture"
+        },
+        {
+          "id": "plant",
+          "svg": "plant",
+          "texto_ref": "plant"
+        },
+        {
+          "id": "lamp",
+          "svg": "lamp",
+          "texto_ref": "lamp"
+        },
+        {
+          "id": "window",
+          "svg": "window",
+          "texto_ref": "window"
+        },
+        {
+          "id": "box",
+          "svg": "box",
+          "texto_ref": "box"
+        },
+        {
+          "id": "box2",
+          "svg": "box",
+          "texto_ref": "box"
+        }
+      ]
+    }
+  ]
+}

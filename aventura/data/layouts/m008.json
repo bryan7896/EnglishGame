@@ -1,0 +1,153 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "calle": {
+  "jugador": {
+   "x": 10,
+   "y": 88
+  },
+  "personajes": {
+   "jake": {
+    "x": 26,
+    "y": 87
+   },
+   "tom": {
+    "x": 46,
+    "y": 87
+   },
+   "linda": {
+    "x": 88,
+    "y": 86
+   }
+  },
+  "objetos": {
+   "moving_truck": {
+    "x": 64,
+    "y": 92,
+    "s": 20,
+    "capa": "fondo"
+   },
+   "box": {
+    "x": 36,
+    "y": 88,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "box2": {
+    "x": 40,
+    "y": 88.5,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "lamp": {
+    "x": 32,
+    "y": 86,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "house": {
+    "x": 84,
+    "y": 77,
+    "s": 24,
+    "capa": "pared"
+   }
+  }
+ },
+ "sala": {
+  "jugador": {
+   "x": 30,
+   "y": 88
+  },
+  "personajes": {
+   "jake": {
+    "x": 50,
+    "y": 87
+   },
+   "tom": {
+    "x": 66,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "sofa": {
+    "x": 84,
+    "y": 84,
+    "s": 16,
+    "capa": "fondo"
+   },
+   "box": {
+    "x": 12,
+    "y": 87,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "bed": {
+    "x": 14,
+    "y": 80,
+    "s": 14,
+    "capa": "pared"
+   },
+   "lamp": {
+    "x": 40,
+    "y": 82,
+    "s": 4.5,
+    "capa": "fondo"
+   },
+   "stairs": {
+    "x": 94,
+    "y": 70,
+    "s": 10,
+    "capa": "pared"
+   }
+  }
+ },
+ "cocina": {
+  "jugador": {
+   "x": 30,
+   "y": 88
+  },
+  "personajes": {
+   "jake": {
+    "x": 52,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "table": {
+    "x": 72,
+    "y": 85,
+    "s": 12,
+    "capa": "fondo"
+   },
+   "glass": {
+    "x": 70,
+    "y": 72.5,
+    "s": 2,
+    "capa": "fondo"
+   },
+   "plate": {
+    "x": 75,
+    "y": 72.5,
+    "s": 3.5,
+    "capa": "fondo"
+   },
+   "fridge": {
+    "x": 10,
+    "y": 74,
+    "s": 9,
+    "capa": "pared"
+   },
+   "stove": {
+    "x": 88,
+    "y": 76,
+    "s": 9,
+    "capa": "pared"
+   },
+   "box": {
+    "x": 40,
+    "y": 88,
+    "s": 5,
+    "capa": "fondo"
+   }
+  }
+ }
+}

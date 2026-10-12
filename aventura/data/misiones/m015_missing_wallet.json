@@ -1,0 +1,507 @@
+{
+  "id": "m015",
+  "titulo": "The missing wallet",
+  "titulo_es": "La billetera perdida",
+  "objetivo": "Find out who was near your wallet before it was lost.",
+  "objetivo_es": "Descubre quién estuvo cerca de tu billetera antes de que se perdiera.",
+  "nivel": "A2-B1",
+  "resumen": "Olvidaste tu billetera en la cafeteria. Reconstruye quien estuvo cerca y siguele la pista hasta el parque.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "cafe",
+      "titulo": "The coffee shop",
+      "fondo": "cafe_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "mia",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "george"
+          },
+          "ocupado": [
+            {
+              "quien": "mia",
+              "texto": "Ask George, Bryan. He was here."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "mia",
+                "texto": "Hi, Bryan! Did you forget something?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. I think I had left my wallet on this table.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I think I had leave my wallet on this table."
+                  },
+                  {
+                    "texto": "Yes. I think I had a dream about cake."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "Hmm. After you left, a man sat at that table. Then he went out."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "Has he gone? Where did he go?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Has he went? Where did he go?"
+                  },
+                  {
+                    "texto": "Has he gone? Where is the beach?"
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "I don't know. But George was here, too. Ask him."
+              }
+            ]
+          }
+        },
+        {
+          "id": "george",
+          "rol": "target",
+          "antes": {
+            "quien": "george",
+            "texto": "Hmm? One moment, my boy."
+          },
+          "dialogo": {
+            "requiere": "mia_hablado",
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "Oh, hello, Bryan. A wallet? What had you been doing before you lost it?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I had been drinking coffee with a friend.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I had been drink coffee with a friend."
+                  },
+                  {
+                    "texto": "I had been swimming with a friend."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Hmm... a black wallet?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43
+                ],
+                "opciones": [
+                  {
+                    "texto": "Did you see it? I had put it next to my cup.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Did you see it? I had putted it next to my cup."
+                  },
+                  {
+                    "texto": "Did you see it? I had a cup of tea."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Yes! When I came in, the man had already taken something black."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "opciones": [
+                  {
+                    "texto": "So he had taken it before you arrived?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "So he has taken it before you arrived?"
+                  },
+                  {
+                    "texto": "So he will take a bus tomorrow?"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "I think so. He has gone to the park. Hurry!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "parque"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bella",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "bella",
+              "texto": "Good luck, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "bella",
+                "texto": "Bryan! What's wrong? You look worried."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "opciones": [
+                  {
+                    "texto": "I had my wallet an hour ago, and now it's gone.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I have my wallet an hour ago, and now it's gone."
+                  },
+                  {
+                    "texto": "I had a wallet, and now I have a cat."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Oh no! Where is the man now?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "He has gone to the park, I think.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "He has went to the park, I think."
+                  },
+                  {
+                    "texto": "He has gone to the moon, I think."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Do you think you'll find it?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I still hope so!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I hope still so!"
+                  },
+                  {
+                    "texto": "I still have a cat!"
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Run, then!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "table",
+          "svg": "table",
+          "texto_ref": "table"
+        },
+        {
+          "id": "cup",
+          "svg": "cup",
+          "texto_ref": "cup"
+        },
+        {
+          "id": "coffee_machine",
+          "svg": "coffee_machine",
+          "texto_ref": "coffee_machine"
+        },
+        {
+          "id": "cash_register",
+          "svg": "cash_register",
+          "texto_ref": "cash_register"
+        },
+        {
+          "id": "chair",
+          "svg": "chair",
+          "texto_ref": "chair"
+        }
+      ]
+    },
+    {
+      "id": "parque",
+      "titulo": "The park",
+      "fondo": "parque_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "hank",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "hank",
+                "texto": "Good afternoon. Are you looking for something?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, my wallet. A man took it and left.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, my wallet. A man took it and gone."
+                  },
+                  {
+                    "texto": "Yes, my wallet. A man took it and sang."
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "A man gave me this wallet. He had found it in the coffee shop."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43,
+                  13
+                ],
+                "opciones": [
+                  {
+                    "texto": "So he had found it, not taken it!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "So he has found it, not taken it!"
+                  },
+                  {
+                    "texto": "So he had a dog, not a cat!"
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "Yes. He was looking for you. What's in your wallet?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "opciones": [
+                  {
+                    "texto": "My card. I will show you my name on it.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "My card. I am show you my name on it."
+                  },
+                  {
+                    "texto": "My card. I will eat it now."
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "Is your name on the card?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  23
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Let me look at it. Yes, it's mine!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Let me look for it. Yes, it's mine!"
+                  },
+                  {
+                    "texto": "Let me look at the moon. Yes, it's mine!"
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "Here you are. Next time, be more careful!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43
+                ],
+                "opciones": [
+                  {
+                    "texto": "I will. I had never lost my wallet before!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I will. I had never lose my wallet before!"
+                  },
+                  {
+                    "texto": "I will. I had never seen a park before!"
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "What had you been doing when you lost it?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I had been talking with my friends.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I had been talk with my friends."
+                  },
+                  {
+                    "texto": "I had been flying with my friends."
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "Have a good day, Bryan."
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "bench",
+          "svg": "bench",
+          "texto_ref": "bench"
+        },
+        {
+          "id": "wallet",
+          "svg": "wallet",
+          "texto_ref": "wallet"
+        },
+        {
+          "id": "tree",
+          "svg": "tree",
+          "texto_ref": "tree"
+        },
+        {
+          "id": "trash_can",
+          "svg": "trash_can",
+          "texto_ref": "trash_can"
+        },
+        {
+          "id": "dog",
+          "svg": "dog",
+          "texto_ref": "dog"
+        }
+      ]
+    }
+  ]
+}

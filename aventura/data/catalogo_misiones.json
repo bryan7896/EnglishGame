@@ -1,0 +1,1783 @@
+{
+ "_comentario": "Plan cerrado de las 40 historias. Lo leen la pantalla de lista del juego, validar_aventura.py y el inventario. Una historia aparece como jugable cuando su mision compilada existe (data/compilado/indice.json).",
+ "version": 1,
+ "personajes_nuevos": {
+  "linda": {
+   "nombre": "Linda",
+   "rol_es": "vecina nueva",
+   "voz": "af_kore",
+   "cara_base": "😊",
+   "ropa": "#8E6BC4",
+   "accesorio": "lazo"
+  },
+  "sam": {
+   "nombre": "Sam",
+   "rol_es": "conductor de bus",
+   "voz": "am_eric",
+   "cara_base": "🙂",
+   "ropa": "#3B88C3",
+   "accesorio": "gorra"
+  },
+  "mia": {
+   "nombre": "Mia",
+   "rol_es": "barista",
+   "voz": "af_river",
+   "cara_base": "😄",
+   "ropa": "#7B4A2E",
+   "accesorio": "delantal"
+  },
+  "leo": {
+   "nombre": "Leo",
+   "rol_es": "mesero",
+   "voz": "am_liam",
+   "cara_base": "🙂",
+   "ropa": "#292F33",
+   "accesorio": "corbata"
+  },
+  "olivia": {
+   "nombre": "Olivia",
+   "rol_es": "agente del aeropuerto",
+   "voz": "bf_alice",
+   "cara_base": "🙂",
+   "ropa": "#1F4E8C",
+   "accesorio": "corbata"
+  },
+  "patel": {
+   "nombre": "Doctor Patel",
+   "rol_es": "farmaceuta",
+   "voz": "bm_daniel",
+   "cara_base": "🧐",
+   "ropa": "#F5F8FA",
+   "accesorio": "bata"
+  },
+  "grace": {
+   "nombre": "Grace",
+   "rol_es": "recepcionista",
+   "voz": "af_jessica",
+   "cara_base": "😊",
+   "ropa": "#BE1931",
+   "accesorio": "corbata"
+  },
+  "clark": {
+   "nombre": "Mister Clark",
+   "rol_es": "jefe",
+   "voz": "am_fenrir",
+   "cara_base": "😐",
+   "ropa": "#3A3E75",
+   "accesorio": "corbata"
+  },
+  "ruth": {
+   "nombre": "Ruth",
+   "rol_es": "bibliotecaria",
+   "voz": "bf_lily",
+   "cara_base": "🙂",
+   "ropa": "#5C913B",
+   "accesorio": "lentes"
+  },
+  "pedro": {
+   "nombre": "Pedro",
+   "rol_es": "vendedor del mercado",
+   "voz": "am_santa",
+   "cara_base": "😄",
+   "ropa": "#F4900C",
+   "accesorio": "sombrero"
+  },
+  "joe": {
+   "nombre": "Joe",
+   "rol_es": "mecánico",
+   "voz": "am_echo",
+   "cara_base": "😅",
+   "ropa": "#55ACEE",
+   "accesorio": "gorra"
+  },
+  "marco": {
+   "nombre": "Marco",
+   "rol_es": "chef",
+   "voz": "bm_fable",
+   "cara_base": "😄",
+   "ropa": "#F5F8FA",
+   "accesorio": "gorro_chef"
+  },
+  "nina": {
+   "nombre": "Nina",
+   "rol_es": "cantante famosa",
+   "voz": "af_aoede",
+   "cara_base": "🤩",
+   "ropa": "#DD2E44",
+   "accesorio": "lentes_sol"
+  },
+  "walter": {
+   "nombre": "Walter",
+   "rol_es": "señor mayor del pueblo",
+   "voz": "bm_george",
+   "cara_base": "😌",
+   "ropa": "#8A6E4B",
+   "accesorio": "baston",
+   "vel": 0.85
+  },
+  "hank": {
+   "nombre": "Hank",
+   "rol_es": "guardia de seguridad",
+   "voz": "am_onyx",
+   "cara_base": "😐",
+   "ropa": "#292F33",
+   "accesorio": "gorra"
+  },
+  "kenji": {
+   "nombre": "Kenji",
+   "rol_es": "compañero de intercambio",
+   "voz": "am_puck",
+   "cara_base": "🙂",
+   "ropa": "#77B255",
+   "accesorio": "mochila",
+   "vel": 0.9
+  },
+  "ben": {
+   "nombre": "Ben",
+   "rol_es": "cajero del banco",
+   "voz": "bm_lewis",
+   "cara_base": "🙂",
+   "ropa": "#3B88C3",
+   "accesorio": "corbata"
+  },
+  "jake": {
+   "nombre": "Jake",
+   "rol_es": "amigo de Bryan",
+   "voz": "am_liam",
+   "cara_base": "😎",
+   "ropa": "#F4900C",
+   "accesorio": "audifonos",
+   "vel": 1.05
+  }
+ },
+ "misiones": [
+  {
+   "id": "m001",
+   "n": 1,
+   "titulo": "Home before midnight",
+   "titulo_es": "A casa antes de la medianoche",
+   "objetivo": "Find Sara. Take her home before midnight.",
+   "objetivo_es": "Encuentra a Sara. Llévala a casa antes de la medianoche.",
+   "nivel": "A2",
+   "lote": 0,
+   "reglas": [
+    2,
+    17
+   ],
+   "escenas": [
+    {
+     "id": "fiesta",
+     "fondo": "fiesta_noche"
+    },
+    {
+     "id": "calle",
+     "fondo": "calle_noche"
+    },
+    {
+     "id": "taxi",
+     "fondo": "taxi_interior_noche"
+    },
+    {
+     "id": "casa",
+     "fondo": "casa_noche"
+    }
+   ],
+   "objetos": [
+    "balloon",
+    "cake",
+    "pizza",
+    "speaker",
+    "sofa",
+    "table",
+    "lamp",
+    "taxi",
+    "bus",
+    "house",
+    "door",
+    "clock",
+    "radio",
+    "seat"
+   ],
+   "personajes": [
+    "sara",
+    "tom",
+    "emma",
+    "max",
+    "lily",
+    "george",
+    "bella",
+    "rosa",
+    "frank",
+    "mom"
+   ]
+  },
+  {
+   "id": "m002",
+   "n": 2,
+   "titulo": "The new neighbor",
+   "titulo_es": "La vecina nueva",
+   "objetivo": "Meet your new neighbor and find out who she is.",
+   "objetivo_es": "Conoce a tu vecina nueva y averigua quién es.",
+   "nivel": "A2",
+   "lote": 1,
+   "reglas": [
+    2,
+    20,
+    22
+   ],
+   "escenas": [
+    {
+     "id": "calle",
+     "fondo": "ciudad_dia"
+    },
+    {
+     "id": "sala",
+     "fondo": "sala_dia"
+    }
+   ],
+   "objetos": [
+    "house",
+    "mailbox",
+    "fence",
+    "box",
+    "tree",
+    "cup",
+    "picture",
+    "plant"
+   ],
+   "personajes": [
+    "linda",
+    "mom",
+    "lily"
+   ]
+  },
+  {
+   "id": "m003",
+   "n": 3,
+   "titulo": "Lost phone at the bus stop",
+   "titulo_es": "Celular perdido en la parada",
+   "objetivo": "Find your phone. Ask the people at the bus stop.",
+   "objetivo_es": "Encuentra tu celular. Pregunta a la gente de la parada.",
+   "nivel": "A2",
+   "lote": 1,
+   "reglas": [
+    3,
+    31,
+    8
+   ],
+   "escenas": [
+    {
+     "id": "parada",
+     "fondo": "ciudad_dia"
+    },
+    {
+     "id": "bus",
+     "fondo": "bus_interior"
+    }
+   ],
+   "objetos": [
+    "bus_stop",
+    "bench",
+    "phone",
+    "bag",
+    "bus",
+    "sign",
+    "trash_can",
+    "street_lamp"
+   ],
+   "personajes": [
+    "sam",
+    "emma",
+    "tom",
+    "george"
+   ]
+  },
+  {
+   "id": "m004",
+   "n": 4,
+   "titulo": "The busy coffee shop",
+   "titulo_es": "La cafetería llena",
+   "objetivo": "Order coffee and food for all your friends.",
+   "objetivo_es": "Pide café y comida para todos tus amigos.",
+   "nivel": "A2",
+   "lote": 1,
+   "reglas": [
+    6,
+    37,
+    22
+   ],
+   "escenas": [
+    {
+     "id": "cafe",
+     "fondo": "cafe_dia"
+    }
+   ],
+   "objetos": [
+    "coffee_machine",
+    "cash_register",
+    "menu",
+    "coffee",
+    "tea",
+    "cake",
+    "cookie",
+    "sandwich",
+    "milk",
+    "cup",
+    "table",
+    "chair"
+   ],
+   "personajes": [
+    "mia",
+    "sara",
+    "max",
+    "bella"
+   ]
+  },
+  {
+   "id": "m005",
+   "n": 5,
+   "titulo": "Which way to the station?",
+   "titulo_es": "¿Por dónde queda la estación?",
+   "objetivo": "Get to the train station on time. Ask for directions.",
+   "objetivo_es": "Llega a tiempo a la estación de tren. Pide indicaciones.",
+   "nivel": "A2",
+   "lote": 1,
+   "reglas": [
+    16,
+    39,
+    33
+   ],
+   "escenas": [
+    {
+     "id": "calle",
+     "fondo": "ciudad_dia"
+    },
+    {
+     "id": "parque",
+     "fondo": "parque_dia"
+    },
+    {
+     "id": "estacion",
+     "fondo": "estacion_tren"
+    }
+   ],
+   "objetos": [
+    "traffic_light",
+    "map",
+    "sign",
+    "bench",
+    "station",
+    "train",
+    "clock",
+    "ticket",
+    "bridge"
+   ],
+   "personajes": [
+    "george",
+    "lily",
+    "hank",
+    "sam"
+   ]
+  },
+  {
+   "id": "m006",
+   "n": 6,
+   "titulo": "Out in the rain",
+   "titulo_es": "Bajo la lluvia",
+   "objetivo": "Stay dry and get home after the storm.",
+   "objetivo_es": "No te mojes y llega a casa después de la tormenta.",
+   "nivel": "A2",
+   "lote": 1,
+   "reglas": [
+    30,
+    49,
+    33,
+    27
+   ],
+   "escenas": [
+    {
+     "id": "calle",
+     "fondo": "calle_lluvia"
+    },
+    {
+     "id": "parada",
+     "fondo": "calle_lluvia"
+    },
+    {
+     "id": "casa",
+     "fondo": "sala_dia"
+    }
+   ],
+   "objetos": [
+    "umbrella",
+    "water",
+    "bus_stop",
+    "rain",
+    "cloud",
+    "towel",
+    "tea",
+    "coat"
+   ],
+   "personajes": [
+    "jake",
+    "emma",
+    "mom"
+   ]
+  },
+  {
+   "id": "m007",
+   "n": 7,
+   "titulo": "Birthday surprise plan",
+   "titulo_es": "Plan de cumpleaños sorpresa",
+   "objetivo": "Plan a surprise party. Sara must not find out!",
+   "objetivo_es": "Prepara una fiesta sorpresa. ¡Sara no se puede enterar!",
+   "nivel": "A2",
+   "lote": 2,
+   "reglas": [
+    36,
+    12,
+    17
+   ],
+   "escenas": [
+    {
+     "id": "sala",
+     "fondo": "sala_dia"
+    },
+    {
+     "id": "tienda",
+     "fondo": "tienda_dia"
+    },
+    {
+     "id": "fiesta",
+     "fondo": "fiesta_noche"
+    }
+   ],
+   "objetos": [
+    "cake",
+    "balloon",
+    "gift",
+    "candle",
+    "phone",
+    "calendar",
+    "speaker",
+    "table"
+   ],
+   "personajes": [
+    "tom",
+    "bella",
+    "max",
+    "sara"
+   ]
+  },
+  {
+   "id": "m008",
+   "n": 8,
+   "titulo": "Moving day",
+   "titulo_es": "Día de mudanza",
+   "objetivo": "Help your friend move. Put every box in the right place.",
+   "objetivo_es": "Ayuda a tu amigo a mudarse. Pon cada caja en su lugar.",
+   "nivel": "A2",
+   "lote": 2,
+   "reglas": [
+    11,
+    25,
+    19
+   ],
+   "escenas": [
+    {
+     "id": "calle",
+     "fondo": "ciudad_dia"
+    },
+    {
+     "id": "sala",
+     "fondo": "sala_dia"
+    },
+    {
+     "id": "cocina",
+     "fondo": "cocina_dia"
+    }
+   ],
+   "objetos": [
+    "moving_truck",
+    "box",
+    "sofa",
+    "lamp",
+    "bed",
+    "plate",
+    "glass",
+    "key",
+    "stairs"
+   ],
+   "personajes": [
+    "jake",
+    "tom",
+    "linda"
+   ]
+  },
+  {
+   "id": "m009",
+   "n": 9,
+   "titulo": "Lost luggage",
+   "titulo_es": "Equipaje perdido",
+   "objetivo": "Find your suitcase at the airport.",
+   "objetivo_es": "Encuentra tu maleta en el aeropuerto.",
+   "nivel": "A2",
+   "lote": 2,
+   "reglas": [
+    15,
+    21,
+    42
+   ],
+   "escenas": [
+    {
+     "id": "llegadas",
+     "fondo": "aeropuerto"
+    },
+    {
+     "id": "oficina",
+     "fondo": "aeropuerto"
+    }
+   ],
+   "objetos": [
+    "baggage_belt",
+    "suitcase",
+    "flight_board",
+    "passport",
+    "ticket",
+    "plane",
+    "clock",
+    "desk"
+   ],
+   "personajes": [
+    "olivia",
+    "george",
+    "emma"
+   ]
+  },
+  {
+   "id": "m010",
+   "n": 10,
+   "titulo": "The sick day",
+   "titulo_es": "El día de enfermo",
+   "objetivo": "Your friend is sick. Get what he needs at the pharmacy.",
+   "objetivo_es": "Tu amigo está enfermo. Consigue lo que necesita en la farmacia.",
+   "nivel": "A2",
+   "lote": 2,
+   "reglas": [
+    47,
+    37,
+    30
+   ],
+   "escenas": [
+    {
+     "id": "cuarto",
+     "fondo": "sala_dia"
+    },
+    {
+     "id": "farmacia",
+     "fondo": "farmacia"
+    }
+   ],
+   "objetos": [
+    "bed",
+    "blanket",
+    "thermometer",
+    "medicine",
+    "water",
+    "soup",
+    "cash_register",
+    "shelf"
+   ],
+   "personajes": [
+    "jake",
+    "patel",
+    "lily"
+   ]
+  },
+  {
+   "id": "m011",
+   "n": 11,
+   "titulo": "The lost shopping list",
+   "titulo_es": "La lista de compras perdida",
+   "objetivo": "You lost the shopping list. Remember what to buy.",
+   "objetivo_es": "Perdiste la lista de compras. Recuerda qué hay que comprar.",
+   "nivel": "A2",
+   "lote": 2,
+   "reglas": [
+    37,
+    47,
+    54
+   ],
+   "escenas": [
+    {
+     "id": "super",
+     "fondo": "tienda_dia"
+    }
+   ],
+   "objetos": [
+    "shopping_cart",
+    "bread",
+    "milk",
+    "egg",
+    "apple",
+    "rice",
+    "cheese",
+    "cash_register",
+    "paper",
+    "basket"
+   ],
+   "personajes": [
+    "mom",
+    "rosa",
+    "tom"
+   ]
+  },
+  {
+   "id": "m012",
+   "n": 12,
+   "titulo": "The wrong bus",
+   "titulo_es": "El bus equivocado",
+   "objetivo": "You took the wrong bus. Get to your class.",
+   "objetivo_es": "Tomaste el bus equivocado. Llega a tu clase.",
+   "nivel": "A2",
+   "lote": 2,
+   "reglas": [
+    15,
+    16,
+    35
+   ],
+   "escenas": [
+    {
+     "id": "bus",
+     "fondo": "bus_interior"
+    },
+    {
+     "id": "calle",
+     "fondo": "ciudad_dia"
+    },
+    {
+     "id": "escuela",
+     "fondo": "ciudad_dia"
+    }
+   ],
+   "objetos": [
+    "bus",
+    "bus_stop",
+    "map",
+    "school",
+    "sign",
+    "clock",
+    "phone"
+   ],
+   "personajes": [
+    "sam",
+    "kenji",
+    "lily"
+   ]
+  },
+  {
+   "id": "m013",
+   "n": 13,
+   "titulo": "Waiting at the restaurant",
+   "titulo_es": "Esperando en el restaurante",
+   "objetivo": "Your food has not come. Talk to the waiter and make it right.",
+   "objetivo_es": "Tu comida no llega. Habla con el mesero y arréglalo.",
+   "nivel": "A2-B1",
+   "lote": 2,
+   "reglas": [
+    32,
+    28,
+    10
+   ],
+   "escenas": [
+    {
+     "id": "restaurante",
+     "fondo": "restaurante_noche"
+    }
+   ],
+   "objetos": [
+    "menu",
+    "table",
+    "chair",
+    "plate",
+    "steak",
+    "pasta",
+    "glass",
+    "candle",
+    "bill"
+   ],
+   "personajes": [
+    "leo",
+    "sara",
+    "marco"
+   ]
+  },
+  {
+   "id": "m014",
+   "n": 14,
+   "titulo": "Job interview day",
+   "titulo_es": "Día de entrevista de trabajo",
+   "objetivo": "Get to your job interview on time and do it well.",
+   "objetivo_es": "Llega a tiempo a tu entrevista de trabajo y hazla bien.",
+   "nivel": "A2-B1",
+   "lote": 2,
+   "reglas": [
+    28,
+    10,
+    34
+   ],
+   "escenas": [
+    {
+     "id": "calle",
+     "fondo": "ciudad_dia"
+    },
+    {
+     "id": "recepcion",
+     "fondo": "oficina"
+    },
+    {
+     "id": "entrevista",
+     "fondo": "oficina"
+    }
+   ],
+   "objetos": [
+    "building",
+    "elevator",
+    "folder",
+    "desk",
+    "computer",
+    "clock",
+    "plant",
+    "coffee"
+   ],
+   "personajes": [
+    "grace",
+    "clark",
+    "jake"
+   ]
+  },
+  {
+   "id": "m015",
+   "n": 15,
+   "titulo": "The missing wallet",
+   "titulo_es": "La billetera perdida",
+   "objetivo": "Find out who was near your wallet before it was lost.",
+   "objetivo_es": "Descubre quién estuvo cerca de tu billetera antes de que se perdiera.",
+   "nivel": "A2-B1",
+   "lote": 2,
+   "reglas": [
+    43,
+    13,
+    15
+   ],
+   "escenas": [
+    {
+     "id": "cafe",
+     "fondo": "cafe_dia"
+    },
+    {
+     "id": "parque",
+     "fondo": "parque_dia"
+    }
+   ],
+   "objetos": [
+    "wallet",
+    "table",
+    "bench",
+    "bag",
+    "card",
+    "money",
+    "trash_can",
+    "dog"
+   ],
+   "personajes": [
+    "mia",
+    "george",
+    "bella",
+    "hank"
+   ]
+  },
+  {
+   "id": "m016",
+   "n": 16,
+   "titulo": "Late for the concert",
+   "titulo_es": "Tarde para el concierto",
+   "objetivo": "Get into the concert. It has already started!",
+   "objetivo_es": "Entra al concierto. ¡Ya empezó!",
+   "nivel": "A2-B1",
+   "lote": 3,
+   "reglas": [
+    43,
+    32,
+    38
+   ],
+   "escenas": [
+    {
+     "id": "calle",
+     "fondo": "calle_noche"
+    },
+    {
+     "id": "concierto",
+     "fondo": "concierto_noche"
+    }
+   ],
+   "objetos": [
+    "ticket",
+    "stage",
+    "microphone",
+    "guitar",
+    "speaker",
+    "poster",
+    "door"
+   ],
+   "personajes": [
+    "hank",
+    "max",
+    "nina",
+    "bella"
+   ]
+  },
+  {
+   "id": "m017",
+   "n": 17,
+   "titulo": "The broken elevator",
+   "titulo_es": "El ascensor dañado",
+   "objetivo": "The elevator is broken. Tell the right people so they can repair it.",
+   "objetivo_es": "El ascensor está dañado. Avisa a quien corresponde para que lo arreglen.",
+   "nivel": "A2-B1",
+   "lote": 3,
+   "reglas": [
+    45,
+    46,
+    3
+   ],
+   "escenas": [
+    {
+     "id": "pasillo",
+     "fondo": "pasillo_edificio"
+    },
+    {
+     "id": "calle",
+     "fondo": "ciudad_dia"
+    }
+   ],
+   "objetos": [
+    "elevator",
+    "stairs",
+    "sign",
+    "toolbox",
+    "phone",
+    "door",
+    "box"
+   ],
+   "personajes": [
+    "linda",
+    "joe",
+    "george"
+   ]
+  },
+  {
+   "id": "m018",
+   "n": 18,
+   "titulo": "Who took the cake?",
+   "titulo_es": "¿Quién se comió el pastel?",
+   "objetivo": "The cake is gone. Find out who took it.",
+   "objetivo_es": "El pastel desapareció. Descubre quién se lo llevó.",
+   "nivel": "A2-B1",
+   "lote": 3,
+   "reglas": [
+    46,
+    19,
+    31
+   ],
+   "escenas": [
+    {
+     "id": "cocina",
+     "fondo": "cocina_dia"
+    },
+    {
+     "id": "sala",
+     "fondo": "sala_dia"
+    }
+   ],
+   "objetos": [
+    "cake",
+    "plate",
+    "fridge",
+    "fork",
+    "cookie",
+    "dog",
+    "window"
+   ],
+   "personajes": [
+    "mom",
+    "tom",
+    "bella",
+    "max"
+   ]
+  },
+  {
+   "id": "m019",
+   "n": 19,
+   "titulo": "Hotel check-in",
+   "titulo_es": "Llegada al hotel",
+   "objetivo": "There is a problem with your room. Make it right.",
+   "objetivo_es": "Hay un problema con tu habitación. Resuélvelo.",
+   "nivel": "A2-B1",
+   "lote": 3,
+   "reglas": [
+    29,
+    41,
+    49
+   ],
+   "escenas": [
+    {
+     "id": "lobby",
+     "fondo": "hotel_lobby"
+    },
+    {
+     "id": "habitacion",
+     "fondo": "sala_dia"
+    }
+   ],
+   "objetos": [
+    "reception_bell",
+    "desk",
+    "key",
+    "card",
+    "suitcase",
+    "elevator",
+    "bed",
+    "tv"
+   ],
+   "personajes": [
+    "grace",
+    "george",
+    "emma"
+   ]
+  },
+  {
+   "id": "m020",
+   "n": 20,
+   "titulo": "Weekend plans",
+   "titulo_es": "Planes de fin de semana",
+   "objetivo": "Make plans with your friends for the weekend.",
+   "objetivo_es": "Haz planes con tus amigos para el fin de semana.",
+   "nivel": "A2-B1",
+   "lote": 3,
+   "reglas": [
+    53,
+    48,
+    36
+   ],
+   "escenas": [
+    {
+     "id": "parque",
+     "fondo": "parque_dia"
+    },
+    {
+     "id": "cafe",
+     "fondo": "cafe_dia"
+    }
+   ],
+   "objetos": [
+    "calendar",
+    "phone",
+    "bicycle",
+    "ticket",
+    "coffee",
+    "bench",
+    "map"
+   ],
+   "personajes": [
+    "jake",
+    "sara",
+    "max",
+    "lily"
+   ]
+  },
+  {
+   "id": "m021",
+   "n": 21,
+   "titulo": "The big project at work",
+   "titulo_es": "El gran proyecto del trabajo",
+   "objetivo": "Finish the project on time.",
+   "objetivo_es": "Termina el proyecto a tiempo.",
+   "nivel": "A2-B1",
+   "lote": 3,
+   "reglas": [
+    48,
+    44,
+    6
+   ],
+   "escenas": [
+    {
+     "id": "oficina",
+     "fondo": "oficina"
+    }
+   ],
+   "objetos": [
+    "laptop",
+    "printer",
+    "desk",
+    "calendar",
+    "clock",
+    "coffee",
+    "folder",
+    "whiteboard"
+   ],
+   "personajes": [
+    "clark",
+    "grace",
+    "jake"
+   ]
+  },
+  {
+   "id": "m022",
+   "n": 22,
+   "titulo": "At the library",
+   "titulo_es": "En la biblioteca",
+   "objetivo": "Find the book you need and learn to use the library.",
+   "objetivo_es": "Encuentra el libro que necesitas y aprende a usar la biblioteca.",
+   "nivel": "A2-B1",
+   "lote": 3,
+   "reglas": [
+    18,
+    23,
+    6
+   ],
+   "escenas": [
+    {
+     "id": "biblioteca",
+     "fondo": "biblioteca"
+    }
+   ],
+   "objetos": [
+    "shelf",
+    "book",
+    "computer",
+    "desk",
+    "card",
+    "lamp",
+    "notebook"
+   ],
+   "personajes": [
+    "ruth",
+    "kenji",
+    "lily"
+   ]
+  },
+  {
+   "id": "m023",
+   "n": 23,
+   "titulo": "Lost in the market",
+   "titulo_es": "Perdido en el mercado",
+   "objetivo": "Find the man who sells fruit in the big market.",
+   "objetivo_es": "Encuentra al señor que vende fruta en el mercado grande.",
+   "nivel": "A2-B1",
+   "lote": 3,
+   "reglas": [
+    23,
+    16,
+    8
+   ],
+   "escenas": [
+    {
+     "id": "mercado",
+     "fondo": "mercado_dia"
+    }
+   ],
+   "objetos": [
+    "market_stall",
+    "fruit",
+    "banana",
+    "tomato",
+    "basket",
+    "sign",
+    "honey",
+    "corn"
+   ],
+   "personajes": [
+    "pedro",
+    "rosa",
+    "george",
+    "emma"
+   ]
+  },
+  {
+   "id": "m024",
+   "n": 24,
+   "titulo": "The surprise visit",
+   "titulo_es": "La visita sorpresa",
+   "objetivo": "Your guests came early. Get the house ready.",
+   "objetivo_es": "Tus invitados llegaron temprano. Alista la casa.",
+   "nivel": "A2-B1",
+   "lote": 3,
+   "reglas": [
+    21,
+    35,
+    40
+   ],
+   "escenas": [
+    {
+     "id": "puerta",
+     "fondo": "casa_dia"
+    },
+    {
+     "id": "sala",
+     "fondo": "sala_dia"
+    },
+    {
+     "id": "cocina",
+     "fondo": "cocina_dia"
+    }
+   ],
+   "objetos": [
+    "doorbell",
+    "door",
+    "sofa",
+    "pillow",
+    "tea",
+    "cookie",
+    "stove",
+    "clock"
+   ],
+   "personajes": [
+    "george",
+    "mom",
+    "linda"
+   ]
+  },
+  {
+   "id": "m025",
+   "n": 25,
+   "titulo": "A day at the beach",
+   "titulo_es": "Un día en la playa",
+   "objetivo": "Plan a perfect day at the beach for everyone.",
+   "objetivo_es": "Planea un día perfecto en la playa para todos.",
+   "nivel": "A2-B1",
+   "lote": 4,
+   "reglas": [
+    40,
+    52,
+    27
+   ],
+   "escenas": [
+    {
+     "id": "playa",
+     "fondo": "playa_dia"
+    }
+   ],
+   "objetos": [
+    "umbrella",
+    "towel",
+    "surfboard",
+    "sea",
+    "sun",
+    "ice_cream",
+    "water",
+    "bag"
+   ],
+   "personajes": [
+    "jake",
+    "bella",
+    "max",
+    "sara"
+   ]
+  },
+  {
+   "id": "m026",
+   "n": 26,
+   "titulo": "The broken car",
+   "titulo_es": "El carro dañado",
+   "objetivo": "Your car broke down. Get it working again with the mechanic.",
+   "objetivo_es": "Tu carro se dañó. Haz que vuelva a funcionar con el mecánico.",
+   "nivel": "A2-B1",
+   "lote": 4,
+   "reglas": [
+    50,
+    14,
+    9
+   ],
+   "escenas": [
+    {
+     "id": "carretera",
+     "fondo": "ciudad_dia"
+    },
+    {
+     "id": "taller",
+     "fondo": "taller"
+    }
+   ],
+   "objetos": [
+    "car",
+    "tire",
+    "toolbox",
+    "wrench",
+    "phone",
+    "road",
+    "sign"
+   ],
+   "personajes": [
+    "joe",
+    "jake"
+   ]
+  },
+  {
+   "id": "m027",
+   "n": 27,
+   "titulo": "The cooking class",
+   "titulo_es": "La clase de cocina",
+   "objetivo": "Cook the meal with no mistakes.",
+   "objetivo_es": "Cocina la comida sin errores.",
+   "nivel": "A2-B1",
+   "lote": 4,
+   "reglas": [
+    14,
+    18,
+    50
+   ],
+   "escenas": [
+    {
+     "id": "cocina",
+     "fondo": "cocina_dia"
+    }
+   ],
+   "objetos": [
+    "pot",
+    "pan",
+    "stove",
+    "knife",
+    "onion",
+    "tomato",
+    "pasta",
+    "salt",
+    "paper"
+   ],
+   "personajes": [
+    "marco",
+    "bella",
+    "kenji"
+   ]
+  },
+  {
+   "id": "m028",
+   "n": 28,
+   "titulo": "Dream vacation",
+   "titulo_es": "Las vacaciones soñadas",
+   "objetivo": "Plan the vacation of your dreams.",
+   "objetivo_es": "Planea las vacaciones de tus sueños.",
+   "nivel": "B1",
+   "lote": 4,
+   "reglas": [
+    4,
+    17,
+    39,
+    54
+   ],
+   "escenas": [
+    {
+     "id": "sala",
+     "fondo": "sala_dia"
+    },
+    {
+     "id": "aeropuerto",
+     "fondo": "aeropuerto"
+    }
+   ],
+   "objetos": [
+    "globe",
+    "map",
+    "computer",
+    "suitcase",
+    "passport",
+    "plane",
+    "flight_board",
+    "camera"
+   ],
+   "personajes": [
+    "sara",
+    "olivia",
+    "george"
+   ]
+  },
+  {
+   "id": "m029",
+   "n": 29,
+   "titulo": "If I won a million",
+   "titulo_es": "Si me ganara un millón",
+   "objetivo": "Decide what to do with a big prize.",
+   "objetivo_es": "Decide qué hacer con un premio grande.",
+   "nivel": "B1",
+   "lote": 4,
+   "reglas": [
+    4,
+    12,
+    26
+   ],
+   "escenas": [
+    {
+     "id": "tienda",
+     "fondo": "tienda_dia"
+    },
+    {
+     "id": "sala",
+     "fondo": "sala_dia"
+    }
+   ],
+   "objetos": [
+    "ticket",
+    "tv",
+    "money",
+    "sofa",
+    "gift",
+    "house",
+    "car"
+   ],
+   "personajes": [
+    "tom",
+    "mom",
+    "max"
+   ]
+  },
+  {
+   "id": "m030",
+   "n": 30,
+   "titulo": "Waiting for news",
+   "titulo_es": "Esperando noticias",
+   "objetivo": "Wait for important news. Do not worry too much!",
+   "objetivo_es": "Espera una noticia importante. ¡No te preocupes demasiado!",
+   "nivel": "B1",
+   "lote": 4,
+   "reglas": [
+    26,
+    32,
+    52
+   ],
+   "escenas": [
+    {
+     "id": "casa",
+     "fondo": "casa_dia"
+    },
+    {
+     "id": "sala",
+     "fondo": "sala_dia"
+    }
+   ],
+   "objetos": [
+    "mailbox",
+    "letter",
+    "phone",
+    "computer",
+    "clock",
+    "tea",
+    "calendar"
+   ],
+   "personajes": [
+    "sara",
+    "linda",
+    "mom"
+   ]
+  },
+  {
+   "id": "m031",
+   "n": 31,
+   "titulo": "A long life in town",
+   "titulo_es": "Una larga vida en el pueblo",
+   "objetivo": "Learn the story of the oldest man in town.",
+   "objetivo_es": "Conoce la historia del hombre más viejo del pueblo.",
+   "nivel": "B1",
+   "lote": 4,
+   "reglas": [
+    1,
+    44,
+    34
+   ],
+   "escenas": [
+    {
+     "id": "parque",
+     "fondo": "parque_dia"
+    },
+    {
+     "id": "casa",
+     "fondo": "sala_dia"
+    }
+   ],
+   "objetos": [
+    "bench",
+    "photo_album",
+    "picture",
+    "clock",
+    "tree",
+    "bird",
+    "tea"
+   ],
+   "personajes": [
+    "walter",
+    "lily",
+    "george"
+   ]
+  },
+  {
+   "id": "m032",
+   "n": 32,
+   "titulo": "Something is missing",
+   "titulo_es": "Algo falta en el museo",
+   "objetivo": "Something is missing from the museum. Find out what happened.",
+   "objetivo_es": "Falta algo en el museo. Descubre qué pasó.",
+   "nivel": "B1",
+   "lote": 4,
+   "reglas": [
+    5,
+    46,
+    45
+   ],
+   "escenas": [
+    {
+     "id": "sala_museo",
+     "fondo": "museo"
+    },
+    {
+     "id": "oficina",
+     "fondo": "oficina"
+    }
+   ],
+   "objetos": [
+    "statue",
+    "vase",
+    "display_case",
+    "security_camera",
+    "picture",
+    "map",
+    "key"
+   ],
+   "personajes": [
+    "hank",
+    "ruth",
+    "george",
+    "bella"
+   ]
+  },
+  {
+   "id": "m033",
+   "n": 33,
+   "titulo": "The famous singer",
+   "titulo_es": "La cantante famosa",
+   "objetivo": "Get in to meet a famous singer.",
+   "objetivo_es": "Logra entrar a conocer a una cantante famosa.",
+   "nivel": "B1",
+   "lote": 4,
+   "reglas": [
+    5,
+    9,
+    25
+   ],
+   "escenas": [
+    {
+     "id": "calle",
+     "fondo": "calle_noche"
+    },
+    {
+     "id": "concierto",
+     "fondo": "concierto_noche"
+    }
+   ],
+   "objetos": [
+    "poster",
+    "stage",
+    "microphone",
+    "ticket",
+    "camera",
+    "flowers",
+    "pen"
+   ],
+   "personajes": [
+    "nina",
+    "hank",
+    "max"
+   ]
+  },
+  {
+   "id": "m034",
+   "n": 34,
+   "titulo": "What the neighbors say",
+   "titulo_es": "Lo que dicen los vecinos",
+   "objetivo": "A story about you is going around. Find out the truth.",
+   "objetivo_es": "Hay un chisme sobre ti en el barrio. Descubre la verdad.",
+   "nivel": "B1",
+   "lote": 5,
+   "reglas": [
+    29,
+    21,
+    20
+   ],
+   "escenas": [
+    {
+     "id": "calle",
+     "fondo": "ciudad_dia"
+    },
+    {
+     "id": "tienda",
+     "fondo": "tienda_dia"
+    }
+   ],
+   "objetos": [
+    "fence",
+    "mailbox",
+    "dog",
+    "house",
+    "cash_register",
+    "bread"
+   ],
+   "personajes": [
+    "linda",
+    "rosa",
+    "pedro",
+    "tom"
+   ]
+  },
+  {
+   "id": "m035",
+   "n": 35,
+   "titulo": "The wrong weather report",
+   "titulo_es": "El pronóstico equivocado",
+   "objetivo": "The weather report was wrong. Save the party in the park.",
+   "objetivo_es": "El pronóstico se equivocó. Salva la fiesta del parque.",
+   "nivel": "B1",
+   "lote": 5,
+   "reglas": [
+    33,
+    13,
+    53
+   ],
+   "escenas": [
+    {
+     "id": "parque",
+     "fondo": "parque_dia"
+    },
+    {
+     "id": "calle",
+     "fondo": "calle_lluvia"
+    }
+   ],
+   "objetos": [
+    "tv",
+    "microphone",
+    "umbrella",
+    "rain",
+    "sun",
+    "cloud",
+    "table",
+    "speaker"
+   ],
+   "personajes": [
+    "jake",
+    "sara",
+    "max",
+    "bella"
+   ]
+  },
+  {
+   "id": "m036",
+   "n": 36,
+   "titulo": "The camping trip",
+   "titulo_es": "El viaje de camping",
+   "objetivo": "Spend one night camping in the forest.",
+   "objetivo_es": "Pasa una noche de camping en el bosque.",
+   "nivel": "B1",
+   "lote": 5,
+   "reglas": [
+    1,
+    35,
+    50
+   ],
+   "escenas": [
+    {
+     "id": "bosque",
+     "fondo": "bosque_noche"
+    }
+   ],
+   "objetos": [
+    "tent",
+    "fire",
+    "flashlight",
+    "backpack",
+    "sleeping_bag",
+    "moon",
+    "owl",
+    "map"
+   ],
+   "personajes": [
+    "jake",
+    "tom",
+    "kenji"
+   ]
+  },
+  {
+   "id": "m037",
+   "n": 37,
+   "titulo": "The strange box",
+   "titulo_es": "La caja extraña",
+   "objetivo": "A strange box came. Find out who sent it.",
+   "objetivo_es": "Llegó una caja extraña. Descubre quién la envió.",
+   "nivel": "B1",
+   "lote": 5,
+   "reglas": [
+    11,
+    45,
+    31
+   ],
+   "escenas": [
+    {
+     "id": "casa",
+     "fondo": "casa_dia"
+    },
+    {
+     "id": "sala",
+     "fondo": "sala_dia"
+    }
+   ],
+   "objetos": [
+    "package",
+    "mailbox",
+    "box",
+    "letter",
+    "doorbell",
+    "gift"
+   ],
+   "personajes": [
+    "linda",
+    "mom",
+    "sam"
+   ]
+  },
+  {
+   "id": "m038",
+   "n": 38,
+   "titulo": "Learning together",
+   "titulo_es": "Aprendiendo juntos",
+   "objetivo": "Help Kenji practice English and understand him.",
+   "objetivo_es": "Ayuda a Kenji a practicar inglés y entenderlo.",
+   "nivel": "B1",
+   "lote": 5,
+   "reglas": [
+    18,
+    8,
+    38
+   ],
+   "escenas": [
+    {
+     "id": "cafe",
+     "fondo": "cafe_dia"
+    },
+    {
+     "id": "biblioteca",
+     "fondo": "biblioteca"
+    }
+   ],
+   "objetos": [
+    "book",
+    "notebook",
+    "coffee",
+    "whiteboard",
+    "phone",
+    "pen"
+   ],
+   "personajes": [
+    "kenji",
+    "ruth",
+    "mia"
+   ]
+  },
+  {
+   "id": "m039",
+   "n": 39,
+   "titulo": "The bank visit",
+   "titulo_es": "La visita al banco",
+   "objetivo": "Get help with your card at the bank.",
+   "objetivo_es": "Pide ayuda con tu tarjeta en el banco.",
+   "nivel": "B1",
+   "lote": 5,
+   "reglas": [
+    42,
+    6,
+    2
+   ],
+   "escenas": [
+    {
+     "id": "banco",
+     "fondo": "banco"
+    },
+    {
+     "id": "calle",
+     "fondo": "ciudad_dia"
+    }
+   ],
+   "objetos": [
+    "atm",
+    "card",
+    "money",
+    "desk",
+    "paper",
+    "pen",
+    "bank"
+   ],
+   "personajes": [
+    "ben",
+    "hank",
+    "george"
+   ]
+  },
+  {
+   "id": "m040",
+   "n": 40,
+   "titulo": "Find Sara again",
+   "titulo_es": "Encuentra a Sara otra vez",
+   "objetivo": "Sara is lost in the city. Use everything you learned to find her.",
+   "objetivo_es": "Sara se perdió en la ciudad. Usa todo lo que aprendiste para encontrarla.",
+   "nivel": "B1",
+   "lote": 5,
+   "reglas": [
+    12,
+    4,
+    43,
+    41
+   ],
+   "escenas": [
+    {
+     "id": "calle",
+     "fondo": "ciudad_dia"
+    },
+    {
+     "id": "cafe",
+     "fondo": "cafe_dia"
+    },
+    {
+     "id": "estacion",
+     "fondo": "estacion_tren"
+    },
+    {
+     "id": "casa",
+     "fondo": "casa_noche"
+    }
+   ],
+   "objetos": [
+    "phone",
+    "map",
+    "train",
+    "ticket",
+    "coffee",
+    "taxi",
+    "house",
+    "door"
+   ],
+   "personajes": [
+    "sara",
+    "mia",
+    "sam",
+    "mom",
+    "jake"
+   ]
+  }
+ ]
+}

@@ -1,24 +1,83 @@
 REPORTE DE VOCABULARIO Y AUDIO
 ========================================
-Líneas habladas revisadas: 370
-Audios únicos a generar:   363
-Palabras distintas usadas: 458 (de tu lista de 3210)
+Líneas habladas revisadas: 3225
+Audios únicos a generar:   3205
+Palabras distintas usadas: 1120 (de tu lista de 3210)
 Palabras fuera de tu lista: 0
 
 Audios por voz:
-  af_alloy: 200
-  af_bella: 9
-  af_heart: 23
-  af_nicole: 9
-  af_sky: 9
-  am_adam: 56
-  am_michael: 9
-  am_onyx: 15
-  bf_emma: 9
-  bf_isabella: 6
-  bm_george: 9
-  bm_lewis: 9
+  af_alloy: 242
+  af_aoede: 21
+  af_bella: 53
+  af_heart: 77
+  af_jessica: 31
+  af_kore: 50
+  af_nicole: 49
+  af_river: 38
+  af_sky: 30
+  am_adam: 1836
+  am_echo: 29
+  am_eric: 41
+  am_fenrir: 28
+  am_liam: 108
+  am_michael: 63
+  am_onyx: 62
+  am_puck: 46
+  am_santa: 23
+  bf_alice: 26
+  bf_emma: 36
+  bf_isabella: 72
+  bf_lily: 30
+  bm_daniel: 16
+  bm_fable: 24
+  bm_george: 98
+  bm_lewis: 76
 
-AVISOS (1):
+AVISOS (46):
   - m001.escenas[3].personajes[1].dialogo.pasos[1].opciones[0]: opción larga (11 palabras): «Sorry, Mom. We had a problem, but we're home before midnight!»
+  - m007.escenas[0].personajes[1].dialogo.pasos[3].opciones[1]: opción larga (11 palabras): «Yes. If Sara will find out, it won't be a surprise.»
+  - m007.escenas[1].personajes[0].dialogo.pasos[5].opciones[0]: opción larga (11 palabras): «If I pay now, will you write her name on it?»
+  - m007.escenas[1].personajes[0].dialogo.pasos[5].opciones[1]: opción larga (12 palabras): «If I will pay now, will you write her name on it?»
+  - m011.escenas[0].personajes[0].dialogo.pasos[7].opciones[1]: opción larga (11 palabras): «If we will buy them now, we can make it tonight.»
+  - m011.escenas[0].personajes[0].dialogo.pasos[7].opciones[2]: opción larga (11 palabras): «If we buy them now, we can make a car tonight.»
+  - m012.escenas[0].personajes[1].dialogo.pasos[7].opciones[2]: opción larga (11 palabras): «Oh no, it has a pool? When is the next one?»
+  - m013.escenas[0].personajes[1].dialogo.pasos[6]: línea larga (15 palabras): «Of course. I'm very sorry. Let me check... The chef has just finished your pasta!»
+  - m014.escenas[2].personajes[0].dialogo.pasos[21].opciones[0]: opción larga (11 palabras): «Thank you! I've waited for this day for a long time.»
+  - m014.escenas[2].personajes[0].dialogo.pasos[21].opciones[1]: opción larga (11 palabras): «Thank you! I've waited for this day since a long time.»
+  - m014.escenas[2].personajes[0].dialogo.pasos[21].opciones[2]: opción larga (11 palabras): «Thank you! I've waited for the rain for a long time.»
+  - m015.escenas[0].personajes[0].dialogo.pasos[1].opciones[0]: opción larga (11 palabras): «Yes. I think I had left my wallet on this table.»
+  - m015.escenas[0].personajes[0].dialogo.pasos[1].opciones[1]: opción larga (11 palabras): «Yes. I think I had leave my wallet on this table.»
+  - m015.escenas[0].personajes[1].dialogo.pasos[3].opciones[0]: opción larga (12 palabras): «Did you see it? I had put it next to my cup.»
+  - m015.escenas[0].personajes[1].dialogo.pasos[3].opciones[1]: opción larga (12 palabras): «Did you see it? I had putted it next to my cup.»
+  - m015.escenas[0].personajes[2].dialogo.pasos[1].opciones[0]: opción larga (11 palabras): «I had my wallet an hour ago, and now it's gone.»
+  - m015.escenas[0].personajes[2].dialogo.pasos[1].opciones[1]: opción larga (11 palabras): «I have my wallet an hour ago, and now it's gone.»
+  - m019.escenas[0].personajes[0].dialogo.pasos[10]: línea larga (16 palabras): «Oh! Here it is. But your room isn't ready because of a problem with the water.»
+  - m019.escenas[1].personajes[0].dialogo.pasos[2]: línea larga (17 palabras): «Oh dear, no. I'm in two hundred and six. I came in because the door was open.»
+  - m020.escenas[0].personajes[0].dialogo.pasos[11].opciones[0]: opción larga (11 palabras): «If I had more money, I would go to the beach.»
+  - m020.escenas[0].personajes[0].dialogo.pasos[11].opciones[1]: opción larga (11 palabras): «If I have more money, I would go to the beach.»
+  - m020.escenas[0].personajes[0].dialogo.pasos[11].opciones[2]: opción larga (11 palabras): «If I had more money, I would go to the moon.»
+  - m021.escenas[0].personajes[0].dialogo.pasos[3].opciones[0]: opción larga (11 palabras): «By Friday, I'll have been working on it for a month.»
+  - m021.escenas[0].personajes[0].dialogo.pasos[3].opciones[1]: opción larga (11 palabras): «By Friday, I'll have been work on it for a month.»
+  - m023.escenas[0].personajes[3].dialogo.pasos[1].opciones[2]: opción larga (11 palabras): «Hi! My mom sent me. The fruit is for the car.»
+  - m029.escenas[1].objetos[3].dialogo.pasos[3].opciones[1]: opción larga (11 palabras): «Don't worry. If you will try again, you win one day.»
+  - m030.escenas[0].personajes[0].dialogo.pasos[3].opciones[0]: opción larga (11 palabras): «A letter from the university. I still hope it comes today.»
+  - m030.escenas[0].personajes[0].dialogo.pasos[3].opciones[1]: opción larga (11 palabras): «A letter from the university. I hope still it comes today.»
+  - m030.escenas[0].personajes[0].dialogo.pasos[3].opciones[2]: opción larga (11 palabras): «A letter from the university. I still hope it rains today.»
+  - m031.escenas[0].personajes[1].dialogo.pasos[4]: línea larga (19 palabras): «I had been working with my father. Next year, I'll have been living in this town for seventy-five years!»
+  - m031.escenas[0].personajes[1].dialogo.pasos[5].opciones[0]: opción larga (11 palabras): «Wow! By then, you'll have been living here a long time.»
+  - m031.escenas[0].personajes[1].dialogo.pasos[5].opciones[1]: opción larga (11 palabras): «Wow! By then, you'll have been live here a long time.»
+  - m031.escenas[0].personajes[1].dialogo.pasos[5].opciones[2]: opción larga (11 palabras): «Wow! By then, you'll have been swimming here a long time.»
+  - m031.escenas[1].personajes[0].dialogo.pasos[9].opciones[0]: opción larga (11 palabras): «Wow! By then, you'll have been living together for fifty years!»
+  - m031.escenas[1].personajes[0].dialogo.pasos[9].opciones[1]: opción larga (11 palabras): «Wow! By then, you'll have been live together for fifty years!»
+  - m031.escenas[1].personajes[0].dialogo.pasos[9].opciones[2]: opción larga (11 palabras): «Wow! By then, you'll have been eating cake for fifty years!»
+  - m031.escenas[1].personajes[0].dialogo.pasos[14]: línea larga (15 palabras): «And look at this book. By summer, I'll have been reading it for a year!»
+  - m032.escenas[0].personajes[1].dialogo.pasos[2]: línea larga (16 palabras): «I saw a woman in a red hat. She was near the glass box at ten.»
+  - m036.escenas[0].personajes[1].dialogo.pasos[0]: línea larga (16 palabras): «Bryan, I can't find the hand light! It was in my bag while we were walking.»
+  - m036.escenas[0].personajes[2].dialogo.pasos[4]: línea larga (15 palabras): «It was an owl! Ha ha. Before we came, I had been reading about owls.»
+  - m039.escenas[0].personajes[2].dialogo.pasos[1].opciones[0]: opción larga (12 palabras): «My card is in your machine. How can I get it back?»
+  - m039.escenas[0].personajes[2].dialogo.pasos[1].opciones[1]: opción larga (12 palabras): «My card is in your machine. How I can get it back?»
+  - m039.escenas[0].personajes[2].dialogo.pasos[1].opciones[2]: opción larga (11 palabras): «My card is in your machine. How old is the machine?»
+  - m040.escenas[0].personajes[0].dialogo.pasos[0]: línea larga (15 palabras): «Bryan! Sara called me. She's lost in the city, and her phone has no battery!»
+  - m040.escenas[0].personajes[0].dialogo.pasos[3].opciones[1]: opción larga (11 palabras): «If we will go to the coffee shop, Mia will know.»
+  - m040.escenas[0].personajes[0].dialogo.pasos[3].opciones[2]: opción larga (11 palabras): «If we go to the coffee shop, the dog will fly.»
 

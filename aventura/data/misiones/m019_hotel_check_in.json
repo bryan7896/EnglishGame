@@ -1,0 +1,643 @@
+{
+  "id": "m019",
+  "titulo": "Hotel check-in",
+  "titulo_es": "Llegada al hotel",
+  "objetivo": "There is a problem with your room. Make it right.",
+  "objetivo_es": "Hay un problema con tu habitación. Resuélvelo.",
+  "nivel": "A2-B1",
+  "resumen": "Llegas a un hotel y no encuentran tu reserva. Resuelvelo con la recepcionista y llega a tu habitacion.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "lobby",
+      "titulo": "The hotel",
+      "fondo": "hotel_lobby",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "grace",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "grace",
+                "texto": "Good evening. Welcome to the hotel. Do you have a reservation?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  41
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. I have a room for two nights.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I have for two nights a room."
+                  },
+                  {
+                    "texto": "Yes. I have a dog for two nights."
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "Have you stayed with us before?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, I've never stayed here before.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I've never stay here before."
+                  },
+                  {
+                    "texto": "No, I've never stayed on the moon before."
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "Do you want a room with a view?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  5
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes, a room that has a view of the sea.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, a room who has a view of the sea."
+                  },
+                  {
+                    "texto": "Yes, a room that has a view of my dog."
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "Hmm... I'm sorry. I can't find your name."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  29
+                ],
+                "opciones": [
+                  {
+                    "texto": "I paid online. That's strange, isn't it?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I paid online. That's strange, is it?"
+                  },
+                  {
+                    "texto": "I paid online. That's a cat, isn't it?"
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "Yes, it is. Why are you visiting the city?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  49
+                ],
+                "opciones": [
+                  {
+                    "texto": "Because I have a job interview tomorrow.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Because of I have a job interview tomorrow."
+                  },
+                  {
+                    "texto": "Because I have a green bicycle."
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "Oh! Here it is. But your room isn't ready because of a problem with the water."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  29
+                ],
+                "opciones": [
+                  {
+                    "texto": "But I can wait here, can't I?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "But I can wait here, can I?"
+                  },
+                  {
+                    "texto": "But I can swim here, can't you?"
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "Of course. Now it's ready. Here is your key."
+              },
+              {
+                "quien": "grace",
+                "texto": "Your room is on the second floor.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  39
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "On the second floor? OK, thank you.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "In the second floor? OK, thank you."
+                  },
+                  {
+                    "texto": "On the second moon? OK, thank you."
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "The pool is open now.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Great. Do I need a towel for the pool?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great. Do I need a pillow for the pool?"
+                  },
+                  {
+                    "texto": "Great. Do I need a dog for the pool?"
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "No, there are towels at the pool.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  41
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thank you. Where is the elevator, please?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you. Where the elevator is, please?"
+                  },
+                  {
+                    "texto": "Thank you. Where is the airport, please?"
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "On your left. Room two hundred and five."
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "elevator"
+              }
+            ]
+          }
+        },
+        {
+          "id": "george",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "george",
+              "texto": "Enjoy your stay, my boy."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "Waiting too? This hotel is very slow, isn't it?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  29
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, it is. But it's beautiful, isn't it?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, it is. But it's beautiful, doesn't it?"
+                  },
+                  {
+                    "texto": "Yes, it is. But it's a dog, isn't it?"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "True. I'm here because my house is being painted."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  49
+                ],
+                "opciones": [
+                  {
+                    "texto": "So you're here because of your house?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "So you're here because your house?"
+                  },
+                  {
+                    "texto": "So you're here because of the moon?"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Exactly!"
+              },
+              {
+                "quien": "george",
+                "texto": "My room is smaller than my house!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  54
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "But this hotel is nicer than my old one.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "But this hotel is more nice than my old one."
+                  },
+                  {
+                    "texto": "But this hotel is bigger than the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "And I slept badly last night.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  38
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "That's bad. Was the bed hard?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "That's badly. Was the bed hard?"
+                  },
+                  {
+                    "texto": "That's great. Was the bed a cat?"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Yes! It was like a rock!",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "reception_bell",
+          "svg": "reception_bell",
+          "texto_ref": "reception_bell"
+        },
+        {
+          "id": "suitcase",
+          "svg": "suitcase",
+          "texto_ref": "suitcase"
+        },
+        {
+          "id": "plant",
+          "svg": "plant",
+          "texto_ref": "plant"
+        },
+        {
+          "id": "lamp",
+          "svg": "lamp",
+          "texto_ref": "lamp"
+        },
+        {
+          "id": "elevator",
+          "svg": "elevator",
+          "texto_ref": "elevator",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "elevator",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  41
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. I'll take my bag to the room.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. I'll take to the room my bag."
+                  },
+                  {
+                    "texto": "OK. I'll take my dog to the moon."
+                  }
+                ]
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "habitacion"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "habitacion",
+      "titulo": "Room two hundred and five",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "emma",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "emma",
+                "texto": "Excuse me! I think this is my room!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  29
+                ],
+                "opciones": [
+                  {
+                    "texto": "This is room two hundred and five, isn't it?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "This is room two hundred and five, doesn't it?"
+                  },
+                  {
+                    "texto": "This is a big pizza, isn't it?"
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Oh dear, no. I'm in two hundred and six. I came in because the door was open."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  49
+                ],
+                "opciones": [
+                  {
+                    "texto": "No problem. It was open because of the cleaning.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No problem. It was open because the cleaning."
+                  },
+                  {
+                    "texto": "No problem. It was open because of my birthday."
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Your TV is very loud!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  27
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Sorry! It's too loud. I'll change it.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sorry! It's too much loud. I'll change it."
+                  },
+                  {
+                    "texto": "Sorry! It's too quiet. I'll change it."
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Thanks. Well, have a nice stay!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  41
+                ],
+                "opciones": [
+                  {
+                    "texto": "You too. I really like this hotel.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "You too. I like really this hotel."
+                  },
+                  {
+                    "texto": "You too. I really like your dog."
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Me too."
+              },
+              {
+                "quien": "emma",
+                "texto": "Oh, before I go... where is the elevator from here?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  41
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "It's on the left, near the stairs.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Near the stairs, on the left it is."
+                  },
+                  {
+                    "texto": "It's on the moon, near the stairs."
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Thank you! Oh, I found your umbrella in the hall. Here!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  50
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "OK, thanks. I'll put it down here.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK, thanks. I'll put down it here."
+                  },
+                  {
+                    "texto": "OK, thanks. I'll put it on the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "emma",
+                "texto": "Good night!",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "bed",
+          "svg": "bed",
+          "texto_ref": "bed"
+        },
+        {
+          "id": "tv",
+          "svg": "tv",
+          "texto_ref": "tv"
+        },
+        {
+          "id": "window",
+          "svg": "window",
+          "texto_ref": "window"
+        },
+        {
+          "id": "suitcase",
+          "svg": "suitcase",
+          "texto_ref": "suitcase"
+        },
+        {
+          "id": "lamp",
+          "svg": "lamp",
+          "texto_ref": "lamp"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "casa": {
+  "jugador": {
+   "x": 40,
+   "y": 88
+  },
+  "personajes": {
+   "sam": {
+    "x": 58,
+    "y": 88
+   },
+   "linda": {
+    "x": 80,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "house": {
+    "x": 18,
+    "y": 77,
+    "s": 26,
+    "capa": "pared"
+   },
+   "package": {
+    "x": 50,
+    "y": 89,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "mailbox": {
+    "x": 70,
+    "y": 80,
+    "s": 3.5,
+    "capa": "fondo"
+   },
+   "doorbell": {
+    "x": 28,
+    "y": 62,
+    "s": 1.5,
+    "capa": "pared"
+   }
+  }
+ },
+ "sala": {
+  "jugador": {
+   "x": 26,
+   "y": 88
+  },
+  "personajes": {
+   "mom": {
+    "x": 46,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "package": {
+    "x": 36,
+    "y": 89,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "blanket": {
+    "x": 66,
+    "y": 79,
+    "s": 10,
+    "capa": "fondo"
+   },
+   "sofa": {
+    "x": 66,
+    "y": 84,
+    "s": 16,
+    "capa": "fondo"
+   },
+   "letter": {
+    "x": 40,
+    "y": 89,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "phone": {
+    "x": 90,
+    "y": 88,
+    "s": 2.5,
+    "capa": "fondo"
+   }
+  }
+ }
+}

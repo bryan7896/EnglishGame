@@ -1,0 +1,55 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "biblioteca": {
+  "jugador": {
+   "x": 30,
+   "y": 88
+  },
+  "personajes": {
+   "kenji": {
+    "x": 44,
+    "y": 88
+   },
+   "ruth": {
+    "x": 66,
+    "y": 82
+   },
+   "lily": {
+    "x": 88,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "desk": {
+    "x": 66,
+    "y": 88,
+    "s": 14,
+    "capa": "fondo"
+   },
+   "computer": {
+    "x": 70,
+    "y": 75,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "lamp": {
+    "x": 61,
+    "y": 75.5,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "notebook": {
+    "x": 14,
+    "y": 88,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "shelf": {
+    "x": 10,
+    "y": 84,
+    "s": 9,
+    "capa": "fondo"
+   }
+  }
+ }
+}

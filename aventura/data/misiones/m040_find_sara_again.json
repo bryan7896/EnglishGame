@@ -1,0 +1,586 @@
+{
+  "id": "m040",
+  "titulo": "Find Sara again",
+  "titulo_es": "Encuentra a Sara otra vez",
+  "objetivo": "Sara is lost in the city. Use everything you learned to find her.",
+  "objetivo_es": "Sara se perdió en la ciudad. Usa todo lo que aprendiste para encontrarla.",
+  "nivel": "B1",
+  "resumen": "Mision final: Sara se perdio en la ciudad sin bateria. Sigue su pista por la cafeteria y la estacion hasta encontrarla.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "calle",
+      "titulo": "The city",
+      "fondo": "ciudad_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "Bryan! Sara called me. She's lost in the city, and her phone has no battery!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43
+                ],
+                "opciones": [
+                  {
+                    "texto": "Lost? Where had she gone before she called?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Lost? Where had she go before she called?"
+                  },
+                  {
+                    "texto": "Lost? Where had she put the cake?"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "She had been at the coffee shop. Then she took a walk."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  12
+                ],
+                "opciones": [
+                  {
+                    "texto": "If we go to the coffee shop, Mia will know.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If we will go to the coffee shop, Mia will know."
+                  },
+                  {
+                    "texto": "If we go to the coffee shop, the dog will fly."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Good idea! What would you do if you were lost?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "opciones": [
+                  {
+                    "texto": "If I were lost, I would ask somebody.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If I am lost, I would ask somebody."
+                  },
+                  {
+                    "texto": "If I were lost, I would sing a song."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Do you still hope to find her before dark?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes! I still hope she's OK.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes! I hope still she's OK."
+                  },
+                  {
+                    "texto": "Yes! I still have her cake."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Then go! I'll look in the park."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "cafe"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "phone",
+          "svg": "phone",
+          "texto_ref": "phone"
+        },
+        {
+          "id": "map",
+          "svg": "map",
+          "texto_ref": "map"
+        },
+        {
+          "id": "traffic_light",
+          "svg": "traffic_light",
+          "texto_ref": "traffic_light"
+        },
+        {
+          "id": "taxi",
+          "svg": "taxi",
+          "texto_ref": "taxi"
+        }
+      ]
+    },
+    {
+      "id": "cafe",
+      "titulo": "The coffee shop",
+      "fondo": "cafe_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "mia",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "mia",
+                "texto": "Bryan! Are you looking for Sara? She was here an hour ago."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  41
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. Do you know where she went?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. Do you know where did she go?"
+                  },
+                  {
+                    "texto": "Yes. Do you know where the beach is?"
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "She said she wanted to see the trains."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "opciones": [
+                  {
+                    "texto": "If I were her, I would go to the station.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If I was her, I will go to the station."
+                  },
+                  {
+                    "texto": "If I were her, I would go to the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "Good idea. She left an hour ago.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "She has gone to the station, maybe.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "She has went to the station, maybe."
+                  },
+                  {
+                    "texto": "She has gone to the moon, maybe."
+                  }
+                ]
+              },
+              {
+                "quien": "mia",
+                "texto": "Hurry! The station is near."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "estacion"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "coffee",
+          "svg": "coffee",
+          "texto_ref": "coffee"
+        },
+        {
+          "id": "coffee_machine",
+          "svg": "coffee_machine",
+          "texto_ref": "coffee_machine"
+        },
+        {
+          "id": "cash_register",
+          "svg": "cash_register",
+          "texto_ref": "cash_register"
+        }
+      ]
+    },
+    {
+      "id": "estacion",
+      "titulo": "The train station",
+      "fondo": "estacion_tren",
+      "musica": "ride_loop",
+      "personajes": [
+        {
+          "id": "sam",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "sam",
+                "texto": "Hello again, Bryan! Are you taking a train?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  41
+                ],
+                "opciones": [
+                  {
+                    "texto": "No. Have you seen a girl with a red jacket?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No. Have you seen a girl with a jacket red?"
+                  },
+                  {
+                    "texto": "No. Have you seen a dog with a red hat?"
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Yes! She had bought a ticket, but then she left."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43
+                ],
+                "opciones": [
+                  {
+                    "texto": "Had she already taken the train?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Had she already take the train?"
+                  },
+                  {
+                    "texto": "Had she already eaten the train?"
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "No. She said she was going home. She lives near your house, right?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  12
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes! If I hurry, I'll find her there.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes! If I will hurry, I'll find her there."
+                  },
+                  {
+                    "texto": "Yes! If I hurry, I'll find a cat there."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "What will you be doing tonight?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I'll be having dinner with Sara and my mom.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'll be have dinner with Sara and my mom."
+                  },
+                  {
+                    "texto": "I'll be swimming with Sara and my mom."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Take a taxi! It's faster."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "casa"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "train",
+          "svg": "train",
+          "texto_ref": "train"
+        },
+        {
+          "id": "clock",
+          "svg": "clock",
+          "texto_ref": "clock"
+        },
+        {
+          "id": "ticket",
+          "svg": "ticket",
+          "texto_ref": "ticket"
+        },
+        {
+          "id": "desk",
+          "svg": "desk",
+          "texto_ref": "desk"
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "Home",
+      "fondo": "casa_noche",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "sara",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "sara",
+                "texto": "Bryan! You found me! My phone had no battery, and I got lost."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43
+                ],
+                "opciones": [
+                  {
+                    "texto": "We were worried! Where had you been all day?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We were worried! Where had you be all day?"
+                  },
+                  {
+                    "texto": "We were worried! Where had you put the cake?"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "I had walked all over the city. I don't know these streets."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "opciones": [
+                  {
+                    "texto": "If you lived here, you would know every street!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If you live here, you would know every street!"
+                  },
+                  {
+                    "texto": "If you lived here, you would know every cat!"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Sara! Come in. It's cold, and dinner is ready."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  41
+                ],
+                "opciones": [
+                  {
+                    "texto": "Come in, Sara. We can eat together.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Come in, Sara. We together can eat."
+                  },
+                  {
+                    "texto": "Come in, Sara. We can swim together."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Thank you, Bryan. You're a real friend."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  12
+                ],
+                "opciones": [
+                  {
+                    "texto": "If you get lost again, I'll find you again!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If you will get lost again, I find you again!"
+                  },
+                  {
+                    "texto": "If you get lost again, I'll buy a cat!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Today I was lost, and you found me. And tomorrow?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Tomorrow, I'll show you the city!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Tomorrow, I showed you the city!"
+                  },
+                  {
+                    "texto": "Tomorrow, I'll show you the moon!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Ha ha. Deal!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "house",
+          "svg": "house",
+          "texto_ref": "house"
+        },
+        {
+          "id": "door",
+          "svg": "door",
+          "texto_ref": "door"
+        },
+        {
+          "id": "moon",
+          "svg": "moon",
+          "texto_ref": "moon"
+        },
+        {
+          "id": "taxi",
+          "svg": "taxi",
+          "texto_ref": "taxi"
+        },
+        {
+          "id": "tree",
+          "svg": "tree",
+          "texto_ref": "tree"
+        }
+      ]
+    }
+  ]
+}

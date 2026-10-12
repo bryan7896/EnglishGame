@@ -1,0 +1,537 @@
+{
+  "id": "m012",
+  "titulo": "The wrong bus",
+  "titulo_es": "El bus equivocado",
+  "objetivo": "You took the wrong bus. Get to your class.",
+  "objetivo_es": "Tomaste el bus equivocado. Llega a tu clase.",
+  "nivel": "A2",
+  "resumen": "Te subiste al bus equivocado con Kenji, un estudiante nuevo. Pregunta al conductor, cambia de bus y llega a la universidad.",
+  "musica_inicial": "ride_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "bus",
+      "titulo": "The wrong bus",
+      "fondo": "bus_interior",
+      "musica": "ride_loop",
+      "personajes": [
+        {
+          "id": "kenji",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "sam"
+          },
+          "ocupado": [
+            {
+              "quien": "kenji",
+              "texto": "Let's ask the driver, Bryan."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "kenji",
+                "texto": "Excuse me. Is this bus going to the university?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, I think it's going to the airport.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I think it's going at the airport."
+                  },
+                  {
+                    "texto": "No, I think it's going to rain."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Oh no! I took the wrong bus."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  35
+                ],
+                "opciones": [
+                  {
+                    "texto": "Me too! I was reading when I got on.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Me too! I was reading while I got on."
+                  },
+                  {
+                    "texto": "Me too! I was eating when I was born."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Let's ask the driver."
+              }
+            ]
+          }
+        },
+        {
+          "id": "sam",
+          "rol": "target",
+          "antes": {
+            "quien": "sam",
+            "texto": "Please sit down. We're moving."
+          },
+          "dialogo": {
+            "requiere": "kenji_hablado",
+            "pasos": [
+              {
+                "quien": "sam",
+                "texto": "Yes? Can I help you? Where do you want to go?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  41
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "We want to go to the university.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "To the university we want to go."
+                  },
+                  {
+                    "texto": "We want to go to the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Oh no. This bus doesn't go to the university.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "How can we get to the university?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "How can we get at the university?"
+                  },
+                  {
+                    "texto": "How can we get a pizza?"
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Get off at the next stop. Then take bus number five."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  35
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. We'll get off when the bus stops.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. We'll get off while the bus stops."
+                  },
+                  {
+                    "texto": "OK. We'll get off when we are old."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Good. But bus number five has just left."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "Oh no, it has left? When is the next one?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Oh no, it has leaved? When is the next one?"
+                  },
+                  {
+                    "texto": "Oh no, it has a pool? When is the next one?"
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "In ten minutes. Here's your stop!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "calle"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "bag",
+          "svg": "bag",
+          "texto_ref": "bag"
+        },
+        {
+          "id": "map",
+          "svg": "map",
+          "texto_ref": "map"
+        }
+      ]
+    },
+    {
+      "id": "calle",
+      "titulo": "A new street",
+      "fondo": "ciudad_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "kenji",
+          "rol": "guia",
+          "frases_loop": [
+            {
+              "quien": "kenji",
+              "texto": "Bryan, is that your friend over there?"
+            },
+            {
+              "quien": "kenji",
+              "texto": "I hope the bus comes soon."
+            }
+          ],
+          "frase_requiere": {
+            "quien": "kenji",
+            "texto": "The bus isn't here yet. Let's talk to your friend."
+          }
+        },
+        {
+          "id": "lily",
+          "rol": "target",
+          "pista": {
+            "marca": "bus"
+          },
+          "ocupado": [
+            {
+              "quien": "lily",
+              "texto": "Um... your bus is here!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "lily",
+                "texto": "Bryan? What are you doing here?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "We're going to the university. We took the wrong bus.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We're going at the university. We took the wrong bus."
+                  },
+                  {
+                    "texto": "We're going to the moon. We took the wrong bus."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Ha ha. Your bus has gone. It left a minute ago."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "Has it gone? When does the next one come?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Has it went? When does the next one come?"
+                  },
+                  {
+                    "texto": "Has it a pool? When does the next one come?"
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "In five minutes. You can buy some water while you wait."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  35
+                ],
+                "opciones": [
+                  {
+                    "texto": "Good idea. I'll buy water while we wait.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Good idea. I'll buy water during we wait."
+                  },
+                  {
+                    "texto": "Good idea. I'll buy a house while we wait."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Do you still hope to be on time?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. I still hope we can get there.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I hope still we can get there."
+                  },
+                  {
+                    "texto": "Yes. I still have a cat there."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Look, the bus is coming!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "bus"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "bus_stop",
+          "svg": "bus_stop",
+          "texto_ref": "bus_stop"
+        },
+        {
+          "id": "sign",
+          "svg": "sign",
+          "texto_ref": "sign"
+        },
+        {
+          "id": "trash_can",
+          "svg": "trash_can",
+          "texto_ref": "trash_can"
+        },
+        {
+          "id": "bus",
+          "svg": "bus",
+          "texto_ref": "bus",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "bus",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  16
+                ],
+                "opciones": [
+                  {
+                    "texto": "Kenji, let's go to the university!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Kenji, let's go at the university!"
+                  },
+                  {
+                    "texto": "Kenji, let's go to bed!"
+                  }
+                ]
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "escuela"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "escuela",
+      "titulo": "The university",
+      "fondo": "ciudad_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "kenji",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "kenji",
+                "texto": "We're here! Thank you, Bryan."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "opciones": [
+                  {
+                    "texto": "Look, the teacher has gone inside!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Look, the teacher has went inside!"
+                  },
+                  {
+                    "texto": "Look, the teacher has a red car!"
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Does your teacher speak Spanish?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. She speaks Spanish and English.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. She speak Spanish and English."
+                  },
+                  {
+                    "texto": "Yes. She speaks dog and cat."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Ha ha. Did you listen to music on the bus, too?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  35
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, I was listening to music when I got on.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I was listening to music while I got on."
+                  },
+                  {
+                    "texto": "Yes, I was swimming when I got on."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Next time, look at the bus number!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "school",
+          "svg": "school",
+          "texto_ref": "school"
+        },
+        {
+          "id": "tree",
+          "svg": "tree",
+          "texto_ref": "tree"
+        },
+        {
+          "id": "clock",
+          "svg": "clock",
+          "texto_ref": "clock"
+        }
+      ]
+    }
+  ]
+}

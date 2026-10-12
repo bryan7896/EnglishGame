@@ -1,0 +1,71 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "mercado": {
+  "jugador": {
+   "x": 8,
+   "y": 88
+  },
+  "personajes": {
+   "rosa": {
+    "x": 22,
+    "y": 87
+   },
+   "george": {
+    "x": 42,
+    "y": 87
+   },
+   "emma": {
+    "x": 60,
+    "y": 87
+   },
+   "pedro": {
+    "x": 86,
+    "y": 82
+   }
+  },
+  "objetos": {
+   "banana": {
+    "x": 82,
+    "y": 50,
+    "s": 3,
+    "capa": "pared"
+   },
+   "tomato": {
+    "x": 88,
+    "y": 50,
+    "s": 2.5,
+    "capa": "pared"
+   },
+   "corn": {
+    "x": 94,
+    "y": 50,
+    "s": 2.5,
+    "capa": "pared"
+   },
+   "honey": {
+    "x": 36,
+    "y": 50,
+    "s": 2.5,
+    "capa": "pared"
+   },
+   "fruit": {
+    "x": 62,
+    "y": 50,
+    "s": 3,
+    "capa": "pared"
+   },
+   "basket": {
+    "x": 70,
+    "y": 88,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "sign": {
+    "x": 50,
+    "y": 80,
+    "s": 4,
+    "capa": "fondo"
+   }
+  }
+ }
+}

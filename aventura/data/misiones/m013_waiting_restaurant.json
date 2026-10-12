@@ -1,0 +1,495 @@
+{
+  "id": "m013",
+  "titulo": "Waiting at the restaurant",
+  "titulo_es": "Esperando en el restaurante",
+  "objetivo": "Your food has not come. Talk to the waiter and make it right.",
+  "objetivo_es": "Tu comida no llega. Habla con el mesero y arréglalo.",
+  "nivel": "A2-B1",
+  "resumen": "Llevas cuarenta minutos esperando la comida con Sara. Habla con el mesero y con el chef hasta que llegue tu pedido.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "restaurante",
+      "titulo": "The restaurant",
+      "fondo": "restaurante_noche",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "sara",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "leo"
+          },
+          "ocupado": [
+            {
+              "quien": "sara",
+              "texto": "Talk to the waiter, Bryan. I'm so hungry!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "sara",
+                "texto": "Bryan, we ordered forty minutes ago. Has the food arrived yet?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  32
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, it hasn't arrived yet.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, it hasn't arrived already."
+                  },
+                  {
+                    "texto": "No, I haven't seen the moon yet."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Look! That table has their food, and they came after us!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  32,
+                  10
+                ],
+                "opciones": [
+                  {
+                    "texto": "I know. They have just arrived!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I know. They have yet arrived!"
+                  },
+                  {
+                    "texto": "I know. They have just bought a bike!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Have you ever waited this long in a restaurant?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, I have never waited this long.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I have never wait this long."
+                  },
+                  {
+                    "texto": "No, I have never been to the beach."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "How long have we been here?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "For forty minutes!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "During forty minutes!"
+                  },
+                  {
+                    "texto": "For forty dogs!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Please, talk to the waiter."
+              }
+            ]
+          }
+        },
+        {
+          "id": "leo",
+          "rol": "target",
+          "antes": {
+            "quien": "leo",
+            "texto": "One moment, please."
+          },
+          "pista": {
+            "marca": "marco"
+          },
+          "dialogo": {
+            "requiere": "sara_hablado",
+            "pasos": [
+              {
+                "quien": "leo",
+                "texto": "Good evening. Is everything OK?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  10
+                ],
+                "opciones": [
+                  {
+                    "texto": "Not really. We have waited for forty minutes.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Not really. We have wait for forty minutes."
+                  },
+                  {
+                    "texto": "Not really. We have a big house."
+                  }
+                ]
+              },
+              {
+                "quien": "leo",
+                "texto": "Why are you looking at the other table?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  49
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Because they got their food before us.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Because of they got their food before us."
+                  },
+                  {
+                    "texto": "Because they have a big dog."
+                  }
+                ]
+              },
+              {
+                "quien": "leo",
+                "texto": "Can I get you anything while you wait?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  11
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. Can you bring us some water?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. Can you brought us some water?"
+                  },
+                  {
+                    "texto": "Yes. Can you bring us a horse?"
+                  }
+                ]
+              },
+              {
+                "quien": "leo",
+                "texto": "Of course. I'm very sorry. Let me check... The chef has just finished your pasta!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  32
+                ],
+                "opciones": [
+                  {
+                    "texto": "Great! And the steak? Is it ready yet?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great! And the steak? Is it ready just?"
+                  },
+                  {
+                    "texto": "Great! And the steak? Is it a cat?"
+                  }
+                ]
+              },
+              {
+                "quien": "leo",
+                "texto": "Almost. Have you ever tried our chocolate cake? It's free tonight."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, I've never tried it. Is it good?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I've never try it. Is it good?"
+                  },
+                  {
+                    "texto": "No, I've never had a dog. Is it good?"
+                  }
+                ]
+              },
+              {
+                "quien": "leo",
+                "texto": "It's the best in town! The chef wants to say sorry, too."
+              },
+              {
+                "quien": "leo",
+                "texto": "Look, that man in the white hat is our chef.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  5
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Is he the chef who made our pasta?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Is he the chef which made our pasta?"
+                  },
+                  {
+                    "texto": "Is he the chef who drives the bus?"
+                  }
+                ]
+              },
+              {
+                "quien": "leo",
+                "texto": "Yes, that's Marco. Here he comes!",
+                "refuerzo": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "marco",
+          "rol": "target",
+          "antes": {
+            "quien": "marco",
+            "texto": "Sorry, the kitchen is very busy!"
+          },
+          "dialogo": {
+            "requiere": "leo_hablado",
+            "pasos": [
+              {
+                "quien": "marco",
+                "texto": "Hello, my friend! I'm the chef. I'm so sorry about the wait."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "opciones": [
+                  {
+                    "texto": "That's OK. Have you worked here for a long time?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "That's OK. Have you work here for a long time?"
+                  },
+                  {
+                    "texto": "That's OK. Have you ever been to the moon?"
+                  }
+                ]
+              },
+              {
+                "quien": "marco",
+                "texto": "Yes, for ten years. But tonight a cook has gone home sick."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  10
+                ],
+                "opciones": [
+                  {
+                    "texto": "Oh no. Has he gone to the doctor?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Oh no. Has he went to the doctor?"
+                  },
+                  {
+                    "texto": "Oh no. Has he bought a car?"
+                  }
+                ]
+              },
+              {
+                "quien": "marco",
+                "texto": "Yes. But don't worry, your steak is ready now!"
+              },
+              {
+                "quien": "marco",
+                "texto": "Have you eaten here before?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  19
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No. I've never eaten here before.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No. I've never ate here before."
+                  },
+                  {
+                    "texto": "No. I've never eaten a horse before."
+                  }
+                ]
+              },
+              {
+                "quien": "marco",
+                "texto": "Then I hope you come back again!",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "table"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "menu",
+          "svg": "menu",
+          "texto_ref": "menu"
+        },
+        {
+          "id": "candle",
+          "svg": "candle",
+          "texto_ref": "candle"
+        },
+        {
+          "id": "chair",
+          "svg": "chair",
+          "texto_ref": "chair"
+        },
+        {
+          "id": "table",
+          "svg": "table",
+          "texto_ref": "table",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "table",
+            "pasos": [
+              {
+                "quien": "leo",
+                "texto": "Here is your food. Enjoy!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  32
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thank you! Sara has already started eating!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you! Sara has yet started eating!"
+                  },
+                  {
+                    "texto": "Thank you! Sara has already left the country!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "This is the best pasta I have ever eaten."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  10
+                ],
+                "opciones": [
+                  {
+                    "texto": "And this is the best steak I've ever had!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "And this is the best steak I've ever have!"
+                  },
+                  {
+                    "texto": "And this is the best car I've ever had!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "It was worth the wait!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "luz_inicial": 0.8
+    }
+  ]
+}

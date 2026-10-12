@@ -1,0 +1,95 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "llegadas": {
+  "jugador": {
+   "x": 10,
+   "y": 88
+  },
+  "personajes": {
+   "george": {
+    "x": 28,
+    "y": 87
+   },
+   "emma": {
+    "x": 60,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "baggage_belt": {
+    "x": 42,
+    "y": 82,
+    "s": 30,
+    "capa": "fondo"
+   },
+   "flight_board": {
+    "x": 80,
+    "y": 56,
+    "s": 12,
+    "capa": "pared"
+   },
+   "suitcase": {
+    "x": 22,
+    "y": 89,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "plane": {
+    "x": 64,
+    "y": 30,
+    "s": 10,
+    "capa": "pared"
+   },
+   "desk": {
+    "x": 86,
+    "y": 87,
+    "s": 13,
+    "capa": "fondo"
+   }
+  }
+ },
+ "oficina": {
+  "jugador": {
+   "x": 30,
+   "y": 89
+  },
+  "personajes": {
+   "olivia": {
+    "x": 58,
+    "y": 82
+   }
+  },
+  "objetos": {
+   "desk": {
+    "x": 58,
+    "y": 88,
+    "s": 16,
+    "capa": "fondo"
+   },
+   "computer": {
+    "x": 64,
+    "y": 75,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "passport": {
+    "x": 50,
+    "y": 75.5,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "ticket": {
+    "x": 54,
+    "y": 75.5,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "clock": {
+    "x": 20,
+    "y": 26,
+    "s": 6,
+    "capa": "pared"
+   }
+  }
+ }
+}

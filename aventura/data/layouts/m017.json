@@ -1,0 +1,89 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "pasillo": {
+  "jugador": {
+   "x": 12,
+   "y": 88
+  },
+  "personajes": {
+   "linda": {
+    "x": 30,
+    "y": 87
+   },
+   "george": {
+    "x": 78,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "elevator": {
+    "x": 55,
+    "y": 76,
+    "s": 11,
+    "capa": "pared"
+   },
+   "stairs": {
+    "x": 94,
+    "y": 76,
+    "s": 10,
+    "capa": "pared"
+   },
+   "sign": {
+    "x": 63,
+    "y": 76,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "bag": {
+    "x": 36,
+    "y": 88,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "phone": {
+    "x": 47,
+    "y": 50,
+    "s": 2.5,
+    "capa": "pared"
+   }
+  }
+ },
+ "calle": {
+  "jugador": {
+   "x": 14,
+   "y": 88
+  },
+  "personajes": {
+   "joe": {
+    "x": 36,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "building": {
+    "x": 78,
+    "y": 78,
+    "s": 26,
+    "capa": "pared"
+   },
+   "toolbox": {
+    "x": 46,
+    "y": 88,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "car": {
+    "x": 60,
+    "y": 94,
+    "s": 16,
+    "capa": "fondo"
+   },
+   "traffic_light": {
+    "x": 24,
+    "y": 81,
+    "s": 4,
+    "capa": "fondo"
+   }
+  }
+ }
+}

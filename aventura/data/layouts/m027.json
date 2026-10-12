@@ -1,0 +1,73 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "cocina": {
+  "jugador": {
+   "x": 30,
+   "y": 88
+  },
+  "personajes": {
+   "marco": {
+    "x": 12,
+    "y": 87
+   },
+   "kenji": {
+    "x": 50,
+    "y": 88
+   },
+   "bella": {
+    "x": 84,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "stove": {
+    "x": 68,
+    "y": 76,
+    "s": 10,
+    "capa": "pared"
+   },
+   "pot": {
+    "x": 66,
+    "y": 61,
+    "s": 4,
+    "capa": "pared"
+   },
+   "pan": {
+    "x": 71,
+    "y": 61,
+    "s": 4,
+    "capa": "pared"
+   },
+   "table": {
+    "x": 40,
+    "y": 85,
+    "s": 12,
+    "capa": "fondo"
+   },
+   "onion": {
+    "x": 36,
+    "y": 72.5,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "tomato": {
+    "x": 40,
+    "y": 72.5,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "pasta": {
+    "x": 44,
+    "y": 72.5,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "salt": {
+    "x": 48,
+    "y": 72.5,
+    "s": 1.8,
+    "capa": "fondo"
+   }
+  }
+ }
+}

@@ -7932,7 +7932,7 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
     const frame = document.getElementById("aventuraFrame");
     if (!overlay || !frame) return;
     overlay.hidden = false;
-    frame.src = "./aventura/jugar.html?m=m001&embed=1";
+    frame.src = "./aventura/jugar.html?embed=1";   // abre la lista de historias
     try { await overlay.requestFullscreen?.(); } catch (e) { /* no soportado (iOS): sigue sin pantalla completa */ }
     try { await screen.orientation?.lock?.("landscape"); } catch (e) { /* no soportado: el juego pedira girar */ }
   }
@@ -8970,7 +8970,7 @@ function renderListeningResultScreen(bloque, porcentaje, categoriaStats, isFirst
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">13.0 (11-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">15.0 (11-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
           <button class="fun-btn" id="menuPercentagesBtn">📊 Ver porcentajes</button>

@@ -1,0 +1,127 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "calle": {
+  "jugador": {
+   "x": 14,
+   "y": 87
+  },
+  "personajes": {
+   "george": {
+    "x": 40,
+    "y": 86
+   }
+  },
+  "objetos": {
+   "traffic_light": {
+    "x": 28,
+    "y": 81,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "sign": {
+    "x": 62,
+    "y": 80,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "street_lamp": {
+    "x": 85,
+    "y": 80,
+    "s": 4,
+    "capa": "pared"
+   },
+   "bag": {
+    "x": 19,
+    "y": 88,
+    "s": 3.5,
+    "capa": "fondo"
+   }
+  }
+ },
+ "parque": {
+  "jugador": {
+   "x": 6,
+   "y": 87
+  },
+  "personajes": {
+   "lily": {
+    "x": 36,
+    "y": 86
+   },
+   "hank": {
+    "x": 62,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "bench": {
+    "x": 22,
+    "y": 84,
+    "s": 11,
+    "capa": "fondo"
+   },
+   "tree": {
+    "x": 48,
+    "y": 80,
+    "s": 15,
+    "capa": "pared"
+   },
+   "map": {
+    "x": 72,
+    "y": 83,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "flowers": {
+    "x": 54,
+    "y": 88,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "bridge": {
+    "x": 88,
+    "y": 85,
+    "s": 22,
+    "capa": "fondo"
+   }
+  }
+ },
+ "estacion": {
+  "jugador": {
+   "x": 22,
+   "y": 87
+  },
+  "personajes": {
+   "sam": {
+    "x": 55,
+    "y": 81
+   }
+  },
+  "objetos": {
+   "clock": {
+    "x": 30,
+    "y": 30,
+    "s": 6,
+    "capa": "pared"
+   },
+   "train": {
+    "x": 84,
+    "y": 64,
+    "s": 30,
+    "capa": "pared"
+   },
+   "desk": {
+    "x": 55,
+    "y": 87,
+    "s": 13,
+    "capa": "fondo"
+   },
+   "ticket": {
+    "x": 50,
+    "y": 74,
+    "s": 3,
+    "capa": "fondo"
+   }
+  }
+ }
+}

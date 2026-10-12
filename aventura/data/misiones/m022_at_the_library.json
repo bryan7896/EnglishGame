@@ -1,0 +1,490 @@
+{
+  "id": "m022",
+  "titulo": "At the library",
+  "titulo_es": "En la biblioteca",
+  "objetivo": "Find the book you need and learn to use the library.",
+  "objetivo_es": "Encuentra el libro que necesitas y aprende a usar la biblioteca.",
+  "nivel": "A2-B1",
+  "resumen": "Kenji necesita un libro de gramatica. Ayudalo a buscarlo, saca el carne de la biblioteca y encuentren el libro.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "biblioteca",
+      "titulo": "The library",
+      "fondo": "biblioteca",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "kenji",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "ruth"
+          },
+          "ocupado": [
+            {
+              "quien": "kenji",
+              "texto": "Let's ask Ruth, Bryan."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "kenji",
+                "texto": "Bryan, I need to find a book about English grammar."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  23
+                ],
+                "opciones": [
+                  {
+                    "texto": "Let's look for it together.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Let's look at it together."
+                  },
+                  {
+                    "texto": "Let's look for a pizza together."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Good idea. I can never find books here."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "opciones": [
+                  {
+                    "texto": "Let's ask Ruth before looking.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Let's ask Ruth before look."
+                  },
+                  {
+                    "texto": "Let's ask Ruth before swimming."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Do you enjoy reading?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. I enjoy reading before sleeping.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I enjoy to read before sleeping."
+                  },
+                  {
+                    "texto": "Yes. I enjoy reading the bus."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "OK!"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ruth",
+          "rol": "target",
+          "antes": {
+            "quien": "ruth",
+            "texto": "One moment, please."
+          },
+          "dialogo": {
+            "requiere": "kenji_hablado",
+            "pasos": [
+              {
+                "quien": "ruth",
+                "texto": "Hello. Can I help you?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  23
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. We're looking for a grammar book.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. We're looking at a grammar book."
+                  },
+                  {
+                    "texto": "Yes. We're looking for a big pizza."
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "You can look it up on the computer. But first, you need a card."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  6
+                ],
+                "opciones": [
+                  {
+                    "texto": "Do we need to pay for the card?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Do we need pay for the card?"
+                  },
+                  {
+                    "texto": "Do we need to have a dog?"
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "No, it's free. Do you like studying in the library?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, I love studying here. It's quiet.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I love study here. It's quiet."
+                  },
+                  {
+                    "texto": "Yes, I love studying at the beach."
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "Are you students? How long have you studied at the university?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  34
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I've studied there since last year.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I've studied there for last year."
+                  },
+                  {
+                    "texto": "I've studied there since I was a dog."
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "Have you ever used our computers?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, I've never used them.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I've never use them."
+                  },
+                  {
+                    "texto": "No, I've never eaten them."
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "Look at the computer. This is the book that you need.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  5
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Is it the book that the teacher likes?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Is it the book who the teacher likes?"
+                  },
+                  {
+                    "texto": "Is it the dog that the teacher likes?"
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "Yes, it is. Everybody likes it.",
+                "refuerzo": true
+              },
+              {
+                "quien": "ruth",
+                "texto": "It's on the third shelf."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  23
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thank you. What does the book look like?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you. How does the book look like?"
+                  },
+                  {
+                    "texto": "Thank you. What does the dog look like?"
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "It's big and blue. You can't miss it."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  6
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. Do I need to bring it back soon?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. Do I need bring it back soon?"
+                  },
+                  {
+                    "texto": "OK. Do I need to sing for it?"
+                  }
+                ]
+              },
+              {
+                "quien": "ruth",
+                "texto": "In two weeks, please."
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "shelf"
+              }
+            ]
+          }
+        },
+        {
+          "id": "lily",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "lily",
+              "texto": "Um... good luck."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "lily",
+                "texto": "Um... Bryan? Are you studying here too?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. I want to learn more English.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I want learning more English."
+                  },
+                  {
+                    "texto": "Yes. I want to learn more cooking."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Me too. We have a test on Monday."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  6
+                ],
+                "opciones": [
+                  {
+                    "texto": "Then we need to study a lot!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Then we need study a lot!"
+                  },
+                  {
+                    "texto": "Then we need to sleep a lot!"
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Um... yes. Good luck!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "computer",
+          "svg": "computer",
+          "texto_ref": "computer"
+        },
+        {
+          "id": "desk",
+          "svg": "desk",
+          "texto_ref": "desk"
+        },
+        {
+          "id": "lamp",
+          "svg": "lamp",
+          "texto_ref": "lamp"
+        },
+        {
+          "id": "notebook",
+          "svg": "notebook",
+          "texto_ref": "notebook"
+        },
+        {
+          "id": "shelf",
+          "svg": "shelf",
+          "texto_ref": "shelf",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "shelf",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  23
+                ],
+                "opciones": [
+                  {
+                    "texto": "Look at this! Here it is, Kenji.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Look for this! Here it is, Kenji."
+                  },
+                  {
+                    "texto": "Look at this! Here is a cat, Kenji."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Great! Now I can start studying."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "opciones": [
+                  {
+                    "texto": "Good luck! Don't forget to bring it back.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Good luck! Don't forget bringing it back."
+                  },
+                  {
+                    "texto": "Good luck! Don't forget to eat it."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Thank you, Bryan!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

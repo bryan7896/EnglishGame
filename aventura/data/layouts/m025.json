@@ -1,0 +1,59 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "playa": {
+  "jugador": {
+   "x": 10,
+   "y": 88
+  },
+  "personajes": {
+   "jake": {
+    "x": 24,
+    "y": 87
+   },
+   "bella": {
+    "x": 44,
+    "y": 88
+   },
+   "max": {
+    "x": 64,
+    "y": 87
+   },
+   "sara": {
+    "x": 86,
+    "y": 88
+   }
+  },
+  "objetos": {
+   "umbrella": {
+    "x": 34,
+    "y": 86,
+    "s": 9,
+    "capa": "fondo"
+   },
+   "towel": {
+    "x": 52,
+    "y": 90,
+    "s": 6,
+    "capa": "fondo"
+   },
+   "surfboard": {
+    "x": 76,
+    "y": 86,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "ice_cream": {
+    "x": 70,
+    "y": 88,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "bag": {
+    "x": 16,
+    "y": 90,
+    "s": 4,
+    "capa": "fondo"
+   }
+  }
+ }
+}

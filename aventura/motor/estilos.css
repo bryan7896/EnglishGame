@@ -4,7 +4,7 @@ html,body{margin:0;height:100%;background:var(--fondo);color:var(--texto);font-f
 #app{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
 #hud{width:100%;display:flex;gap:8px;justify-content:space-between;align-items:center;padding:8px 10px;z-index:5}
 .chip{background:#1f2140;color:var(--texto);border:0;border-radius:999px;padding:6px 12px;font-size:14px;font-weight:600;max-width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}
-#escenario{position:relative;overflow:hidden;border-radius:14px;background:#000;touch-action:manipulation}
+#escenario{position:relative;z-index:1;isolation:isolate;overflow:hidden;border-radius:14px;background:#000;touch-action:manipulation}
 #fondo,#capa-objetos,#capa-personajes,#oscuridad{position:absolute;inset:0}
 #fondo svg{width:100%;height:100%;display:block}
 #capa-objetos,#capa-personajes{pointer-events:none}
@@ -109,3 +109,35 @@ body.vertical #girar{visibility:visible}
   .op .txt{font-size:11px}
   .tarjeta{padding:14px}.tarjeta h1{font-size:20px}.estrellas{font-size:30px}.btn{padding:8px 18px;font-size:15px}
 }
+
+/* lista de historias (jugar.html sin ?m). Funciona en cualquier orientacion. */
+body.modo-lista{overflow:auto}
+body.modo-lista #girar{display:none!important}
+#lista[hidden]{display:none}
+#lista{min-height:100%;padding:0 max(12px,env(safe-area-inset-right)) 24px max(12px,env(safe-area-inset-left))}
+#lista .lcab{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 0 8px;background:var(--fondo)}
+#lista .ltit{font-size:18px;font-weight:800;margin-right:auto}
+#lista .prog{font-size:13px;font-weight:600;opacity:.75;margin-left:6px}
+#lista .lfil{display:flex;gap:6px}
+#lista .chip.on{background:var(--azul)}
+#lista .barra{height:6px;border-radius:3px;background:#1f2140;overflow:hidden;margin-bottom:6px}
+#lista .barra div{height:100%;background:#33c26b;border-radius:3px}
+#lista h2{font-size:13px;text-transform:uppercase;letter-spacing:.06em;opacity:.6;margin:16px 0 8px}
+#lista .rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.hist{position:relative;text-align:left;background:#1b1e3a;color:var(--texto);border:2px solid transparent;border-radius:14px;padding:10px 10px 12px;font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:3px;min-height:112px}
+.hist:active:not(:disabled){transform:scale(.97)}
+.hist.hecha{background:#1d3328;border-color:#2f6b45}
+.hist.sig{border-color:#ffe066;box-shadow:0 0 0 3px #ffe06633}
+.hist.sig::after{content:"▶ Next";position:absolute;top:-9px;right:10px;background:#ffe066;color:#3a2c00;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px}
+.hist.bloq{opacity:.45;cursor:default}
+.hist .cab{display:flex;align-items:center;gap:6px;font-size:12px}
+.hist .num{font-weight:800;opacity:.8}
+.hist .niv{background:#2b2f5c;border-radius:6px;padding:1px 6px;font-size:10px;font-weight:700}
+.hist .est{margin-left:auto;font-size:11px;letter-spacing:1px}
+.hist .tit-en{font-weight:700;font-size:15px;line-height:1.2;margin-top:2px}
+.hist .tit-es{font-size:12px;opacity:.6;line-height:1.25}
+.hist .estado{margin-top:auto;align-self:flex-start;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+.estado.hecha{background:#33c26b;color:#06280f}
+.estado.nueva{background:var(--azul);color:#fff}
+.estado.pronto{background:#3a3e5a;color:#c9cbe0}
+#lista .vacio{opacity:.6;text-align:center;margin-top:40px}

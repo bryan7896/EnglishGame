@@ -1,0 +1,99 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "cafe": {
+  "jugador": {
+   "x": 40,
+   "y": 88
+  },
+  "personajes": {
+   "mia": {
+    "x": 22,
+    "y": 84
+   },
+   "george": {
+    "x": 64,
+    "y": 87
+   },
+   "bella": {
+    "x": 86,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "table": {
+    "x": 54,
+    "y": 86,
+    "s": 12,
+    "capa": "fondo"
+   },
+   "cup": {
+    "x": 54,
+    "y": 73.5,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "chair": {
+    "x": 74,
+    "y": 86,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "coffee_machine": {
+    "x": 8,
+    "y": 49,
+    "s": 5,
+    "capa": "pared"
+   },
+   "cash_register": {
+    "x": 30,
+    "y": 49,
+    "s": 5.5,
+    "capa": "pared"
+   }
+  }
+ },
+ "parque": {
+  "jugador": {
+   "x": 12,
+   "y": 88
+  },
+  "personajes": {
+   "hank": {
+    "x": 46,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "bench": {
+    "x": 70,
+    "y": 84,
+    "s": 11,
+    "capa": "fondo"
+   },
+   "wallet": {
+    "x": 52,
+    "y": 79,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "tree": {
+    "x": 86,
+    "y": 80,
+    "s": 15,
+    "capa": "pared"
+   },
+   "trash_can": {
+    "x": 30,
+    "y": 84,
+    "s": 3.5,
+    "capa": "fondo"
+   },
+   "dog": {
+    "x": 62,
+    "y": 88,
+    "s": 5,
+    "capa": "fondo"
+   }
+  }
+ }
+}

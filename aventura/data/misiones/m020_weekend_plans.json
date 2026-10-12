@@ -1,0 +1,547 @@
+{
+  "id": "m020",
+  "titulo": "Weekend plans",
+  "titulo_es": "Planes de fin de semana",
+  "objetivo": "Make plans with your friends for the weekend.",
+  "objetivo_es": "Haz planes con tus amigos para el fin de semana.",
+  "nivel": "A2-B1",
+  "resumen": "Organiza con tus amigos un plan para el domingo en la playa, segun lo que cada uno va a estar haciendo.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "parque",
+      "titulo": "The park",
+      "fondo": "parque_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "sara"
+          },
+          "ocupado": [
+            {
+              "quien": "jake",
+              "texto": "Ask Sara, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "Bryan, what are you doing this weekend?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  36
+                ],
+                "opciones": [
+                  {
+                    "texto": "I'm going to visit my grandmother on Saturday.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I going to visit my grandmother on Saturday."
+                  },
+                  {
+                    "texto": "I'm going to visit the moon on Saturday."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Nice! And over the holidays? Where will you go?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  52
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Over the holidays, I'll visit my uncle.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Over of the holidays, I'll visit my uncle."
+                  },
+                  {
+                    "texto": "Over the holidays, I'll visit the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Cool. And on Sunday? Let's go to the beach!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sorry. I'll be working on Sunday morning.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sorry. I'll be work on Sunday morning."
+                  },
+                  {
+                    "texto": "Sorry. I'll be a doctor on Sunday morning."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Oh. What about Sunday afternoon?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  48
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. I'll be free by three o'clock.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. I'll be free until three o'clock."
+                  },
+                  {
+                    "texto": "OK. I'll be free by next year."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "How long will you have been working by Sunday?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  44
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "By Sunday, I'll have been working for six days!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "By Sunday, I'll have been work for six days!"
+                  },
+                  {
+                    "texto": "By Sunday, I'll have been swimming for six days!"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "If you had more money, where would you go?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "If I had more money, I would go to the beach.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If I have more money, I would go to the beach."
+                  },
+                  {
+                    "texto": "If I had more money, I would go to the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Ha ha. Well, on Sunday we can go! Let's ask Sara."
+              }
+            ]
+          }
+        },
+        {
+          "id": "sara",
+          "rol": "target",
+          "antes": {
+            "quien": "sara",
+            "texto": "Hi, Bryan! One moment."
+          },
+          "dialogo": {
+            "requiere": "jake_hablado",
+            "pasos": [
+              {
+                "quien": "sara",
+                "texto": "The beach on Sunday? I'd love that!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "opciones": [
+                  {
+                    "texto": "Great. What will you be doing in the morning?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great. What will you be do in the morning?"
+                  },
+                  {
+                    "texto": "Great. What will you be eating at midnight?"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "I'll be studying. But I'll finish by noon."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  48
+                ],
+                "opciones": [
+                  {
+                    "texto": "Perfect. By three, we will all be ready.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Perfect. Until three, we will all be ready."
+                  },
+                  {
+                    "texto": "Perfect. By three, we will all be old."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "How long are you working on Sunday?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Only for three hours, during the morning.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Only during three hours, for the morning."
+                  },
+                  {
+                    "texto": "Only for three dogs, during the morning."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Last year we went to the mountains. And this year?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "This year, we'll go to the beach!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "This year, we went to the beach!"
+                  },
+                  {
+                    "texto": "This year, we'll go to the moon!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Great! Ask Max and Lily at the coffee shop."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "cafe"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "bench",
+          "svg": "bench",
+          "texto_ref": "bench"
+        },
+        {
+          "id": "bicycle",
+          "svg": "bicycle",
+          "texto_ref": "bicycle"
+        },
+        {
+          "id": "tree",
+          "svg": "tree",
+          "texto_ref": "tree"
+        },
+        {
+          "id": "map",
+          "svg": "map",
+          "texto_ref": "map"
+        }
+      ]
+    },
+    {
+      "id": "cafe",
+      "titulo": "The coffee shop",
+      "fondo": "cafe_dia",
+      "musica": "party_loop",
+      "personajes": [
+        {
+          "id": "max",
+          "rol": "anfitrion",
+          "auto": true,
+          "pista": {
+            "marca": "lily"
+          },
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "max",
+                "texto": "The beach? Sure! Who's going to drive?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  36
+                ],
+                "opciones": [
+                  {
+                    "texto": "I'm going to ask my dad for his car.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'm going ask my dad for his car."
+                  },
+                  {
+                    "texto": "I'm going to ask my dog for his car."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Cool. This time on Sunday, we'll be swimming!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "opciones": [
+                  {
+                    "texto": "And we'll be eating ice cream!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "And we'll be eat ice cream!"
+                  },
+                  {
+                    "texto": "And we'll be sleeping at work!"
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Sara doesn't swim, does she?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  29
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, she doesn't. But Lily does, doesn't she?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, she doesn't. But Lily does, don't she?"
+                  },
+                  {
+                    "texto": "No, she doesn't. But the moon does, doesn't it?"
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Ask Lily. She never comes with us."
+              }
+            ]
+          }
+        },
+        {
+          "id": "lily",
+          "rol": "target",
+          "antes": {
+            "quien": "lily",
+            "texto": "Um... hi, Bryan."
+          },
+          "dialogo": {
+            "requiere": "max_hablado",
+            "pasos": [
+              {
+                "quien": "lily",
+                "texto": "Um... I can't go. I'll be working all day."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  48
+                ],
+                "opciones": [
+                  {
+                    "texto": "Can you finish by four? We'll wait for you.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Can you finish until four? We'll wait for you."
+                  },
+                  {
+                    "texto": "Can you finish by four? We'll eat your car."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Um... why do you want me to come?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  49
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Because it's more fun with you!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Because of it's more fun with you!"
+                  },
+                  {
+                    "texto": "Because it's more fun with a cat!"
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Um... OK! I'll be there by five."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  36
+                ],
+                "opciones": [
+                  {
+                    "texto": "Great! It's going to be a perfect day!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great! It's going be a perfect day!"
+                  },
+                  {
+                    "texto": "Great! It's going to be a perfect cat!"
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "See you on Sunday!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "calendar",
+          "svg": "calendar",
+          "texto_ref": "calendar"
+        },
+        {
+          "id": "coffee",
+          "svg": "coffee",
+          "texto_ref": "coffee"
+        },
+        {
+          "id": "table",
+          "svg": "table",
+          "texto_ref": "table"
+        },
+        {
+          "id": "phone",
+          "svg": "phone",
+          "texto_ref": "phone"
+        },
+        {
+          "id": "coffee_machine",
+          "svg": "coffee_machine",
+          "texto_ref": "coffee_machine"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Formas incorrectas a proposito (errores tipicos de aprendiz). Solo se aceptan en opciones INCORRECTAS del jugador.
+bringed
+leaved
+readed
+putted
+getted
+broked
+taked
+gived
+buyed
+goed
+thinked
+expensiver

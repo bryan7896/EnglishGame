@@ -1,0 +1,87 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "parada": {
+  "jugador": {
+   "x": 8,
+   "y": 87
+  },
+  "personajes": {
+   "tom": {
+    "x": 20,
+    "y": 86
+   },
+   "emma": {
+    "x": 35,
+    "y": 85
+   },
+   "george": {
+    "x": 60,
+    "y": 86
+   }
+  },
+  "objetos": {
+   "bus_stop": {
+    "x": 47,
+    "y": 81,
+    "s": 17,
+    "capa": "pared"
+   },
+   "bench": {
+    "x": 31,
+    "y": 84,
+    "s": 10,
+    "capa": "fondo"
+   },
+   "trash_can": {
+    "x": 66,
+    "y": 82,
+    "s": 3.5,
+    "capa": "fondo"
+   },
+   "sign": {
+    "x": 73,
+    "y": 80,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "street_lamp": {
+    "x": 93,
+    "y": 80,
+    "s": 4,
+    "capa": "pared"
+   },
+   "bus": {
+    "x": 84,
+    "y": 96,
+    "s": 22,
+    "capa": "fondo"
+   }
+  }
+ },
+ "bus": {
+  "jugador": {
+   "x": 34,
+   "y": 87
+  },
+  "personajes": {
+   "sam": {
+    "x": 13,
+    "y": 86
+   }
+  },
+  "objetos": {
+   "bag": {
+    "x": 70,
+    "y": 87,
+    "s": 4.5,
+    "capa": "fondo"
+   },
+   "phone": {
+    "x": 58,
+    "y": 87,
+    "s": 2.5,
+    "capa": "fondo"
+   }
+  }
+ }
+}

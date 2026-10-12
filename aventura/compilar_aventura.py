@@ -8,9 +8,11 @@ ENTRADA (carpeta data/):
   misiones/*.json        una misión por archivo (escenas, diálogos, efectos)
   palabras.txt           tu lista de ~3000 palabras
   palabras_extra.txt     nombres propios e interjecciones permitidas aunque no estén en tu lista
+  errores_intencionales.txt  formas mal hechas a propósito (bringed, leaved...): solo valen en opciones INCORRECTAS
 
 SALIDA:
-  frases.json            lo que lee generar_audio_tts.py  [{"audio","voz","nameFile","vel"?}, ...]
+  frases.json            lo que lee generar_audio_tts.py
+  data/compilado/indice.json   misiones jugables (pantalla de lista)  [{"audio","voz","nameFile","vel"?}, ...]
   data/compilado/<id>.json   la misión lista para el motor del juego (cada línea trae su "file" mp3)
   reporte_vocabulario.txt    palabras fuera de tu lista, estadísticas y avisos
 
@@ -186,6 +188,8 @@ def main() -> None:
     errores, avisos = [], []
     lista = cargar_palabras(DATA / "palabras.txt")
     extra = cargar_palabras(DATA / "palabras_extra.txt") if (DATA / "palabras_extra.txt").exists() else set()
+    # formas incorrectas A PROPOSITO (bringed, leaved...): solo se aceptan en opciones incorrectas del jugador
+    errores_a_proposito = cargar_palabras(DATA / "errores_intencionales.txt") if (DATA / "errores_intencionales.txt").exists() else set()
     elenco = json.loads((DATA / "elenco.json").read_text(encoding="utf-8"))
     personajes = elenco["personajes"]
     narrador = elenco["narrador"]
@@ -238,7 +242,7 @@ def main() -> None:
         for esc in escenas:
             ids_obj_escena = {o["id"] for o in esc.get("objetos", [])}
             for o in esc.get("objetos", []):
-                if o.get("texto_ref") not in ids_objeto:
+                if "texto_ref" in o and o.get("texto_ref") not in ids_objeto:   # sin texto_ref = decorativo
                     errores.append(f"[{mid}/{esc['id']}] objeto '{o['id']}': texto_ref '{o.get('texto_ref')}' "
                                    f"no está en objetos_audio.json")
             for p in esc.get("personajes", []):
@@ -267,7 +271,7 @@ def main() -> None:
         p = personajes.get(pid)
         if not p:
             continue
-        for tipo in ("saludos", "errores", "ocupado"):
+        for tipo in [k for k in p if re.match(r"(saludos|errores|ocupado)(_\w+)?$", k)]:
             for i, t in enumerate(p.get(tipo, [])):
                 extras_elenco.append((t, pid, tipo, f"elenco.{pid}.{tipo}[{i}]"))
     extras_obj = [(o["texto"], "narrador", "objeto", f"objetos.{o['id']}") for o in objetos]
@@ -277,7 +281,7 @@ def main() -> None:
     usadas_lista = set()
     total_lineas = 0
 
-    def revisar(texto, ruta, tipo, quien):
+    def revisar(texto, ruta, tipo, quien, mala=False):
         nonlocal total_lineas
         total_lineas += 1
         toks = tokens(texto)
@@ -286,6 +290,8 @@ def main() -> None:
         for tk in toks:
             if palabra_valida(tk, lista, extra):
                 usadas_lista.add(tk)
+            elif mala and tk in errores_a_proposito:
+                pass
             else:
                 fuera[tk].append(f"{ruta}  «{texto}»")
         n = len(toks)
@@ -295,7 +301,7 @@ def main() -> None:
             avisos.append(f"{ruta}: línea larga ({n} palabras): «{texto}»")
 
     for l, ruta in todas:
-        revisar(l.dic["texto"], ruta, l.tipo, l.quien)
+        revisar(l.dic["texto"], ruta, l.tipo, l.quien, mala=(l.tipo == "opcion" and not l.dic.get("ok")))
     for t, pid, tipo, ruta in extras_elenco:
         revisar(t, ruta, "npc", pid)
     for t, pid, tipo, ruta in extras_obj:
@@ -356,7 +362,7 @@ def main() -> None:
     for pid in sorted(usados):
         p = personajes[pid]
         item = {k: p[k] for k in ("nombre", "rol", "voz", "vel", "cara_base", "ropa", "accesorio", "estilo") if k in p}
-        for tipo in ("saludos", "errores", "ocupado"):
+        for tipo in [k for k in p if re.match(r"(saludos|errores|ocupado)(_\w+)?$", k)]:
             lst = []
             for t in p.get(tipo, []):
                 d = {"texto": t}
@@ -383,6 +389,9 @@ def main() -> None:
             c["audio_dir"] = "audio/"
             (SALIDA_COMPILADO / f"{mid}.json").write_text(json.dumps(c, ensure_ascii=False, indent=2) + "\n",
                                                           encoding="utf-8")
+        # indice de misiones jugables (lo lee la pantalla de lista del juego)
+        jugables = sorted(f.stem for f in SALIDA_COMPILADO.glob("m*.json"))
+        (SALIDA_COMPILADO / "indice.json").write_text(json.dumps({"misiones": jugables}) + "\n", encoding="utf-8")
     _terminar(errores, avisos, fuera, usadas_lista, total_lineas, frases, lista, escribio=not args.solo_validar)
 
 

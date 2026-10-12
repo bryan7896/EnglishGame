@@ -1,0 +1,444 @@
+{
+  "id": "m037",
+  "titulo": "The strange box",
+  "titulo_es": "La caja extraña",
+  "objetivo": "A strange box came. Find out who sent it.",
+  "objetivo_es": "Llegó una caja extraña. Descubre quién la envió.",
+  "nivel": "B1",
+  "resumen": "Llega una caja extrana con tu nombre. Averigua quien la trajo, quien la envio y que hay adentro.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "casa",
+      "titulo": "Your house",
+      "fondo": "casa_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "sam",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "sam",
+                "texto": "Hello! I have a box for this house. Is anybody home?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, I'm here. But nobody ordered anything.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I'm here. But nobody didn't order anything."
+                  },
+                  {
+                    "texto": "Yes, I'm here. But nobody ordered a cat."
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Well, your name is on it. It was sent from the city."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  45
+                ],
+                "opciones": [
+                  {
+                    "texto": "Who was it sent by?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Who was it send by?"
+                  },
+                  {
+                    "texto": "Who was it eaten by?"
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "I don't know. There's no name. I just bring the boxes!"
+              },
+              {
+                "quien": "sam",
+                "texto": "Have you opened it yet?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  32
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, not yet. I've just got it!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, not already. I've just got it!"
+                  },
+                  {
+                    "texto": "No, not yet. I've just eaten it!"
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "Ha ha. Open it! Maybe it's a gift.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  11
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thanks for bringing it!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thanks for brought it!"
+                  },
+                  {
+                    "texto": "Thanks for eating it!"
+                  }
+                ]
+              },
+              {
+                "quien": "sam",
+                "texto": "You're welcome! Have a nice day."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "sala"
+              }
+            ]
+          }
+        },
+        {
+          "id": "linda",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "linda",
+              "texto": "I hope it's something nice!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "linda",
+                "texto": "Did you get a box too? I got one yesterday!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  45
+                ],
+                "opciones": [
+                  {
+                    "texto": "Really? Was it brought by Sam?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Really? Was it bring by Sam?"
+                  },
+                  {
+                    "texto": "Really? Was it eaten by Sam?"
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Yes! It was a gift from my sister."
+              },
+              {
+                "quien": "linda",
+                "texto": "She gave me a lamp. Look!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  25
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Nice! What did you give her?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Nice! What did you gave her?"
+                  },
+                  {
+                    "texto": "Nice! What did you give the dog?"
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Ha ha. Nothing yet!",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "package",
+          "svg": "package",
+          "texto_ref": "package"
+        },
+        {
+          "id": "mailbox",
+          "svg": "mailbox",
+          "texto_ref": "mailbox"
+        },
+        {
+          "id": "doorbell",
+          "svg": "doorbell",
+          "texto_ref": "doorbell"
+        },
+        {
+          "id": "house",
+          "svg": "house",
+          "texto_ref": "house"
+        }
+      ]
+    },
+    {
+      "id": "sala",
+      "titulo": "The living room",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "mom",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "mom",
+                "texto": "What's that box, Bryan?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  45,
+                  11
+                ],
+                "opciones": [
+                  {
+                    "texto": "I don't know. It was brought by Sam.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I don't know. It was bringed by Sam."
+                  },
+                  {
+                    "texto": "I don't know. It was cooked by Sam."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Open it! Is there anything inside?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "There's something soft... and a letter!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "There's anything soft... and a letter!"
+                  },
+                  {
+                    "texto": "There's something soft... and a car!"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "It's from your grandmother! She sent you a blanket!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  45
+                ],
+                "opciones": [
+                  {
+                    "texto": "Wow! Was it made by her?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Wow! Was it make by her?"
+                  },
+                  {
+                    "texto": "Wow! Was it made by a dog?"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Yes, she made it with her hands."
+              },
+              {
+                "quien": "mom",
+                "texto": "Have you taken the blanket out?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  19
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes, I've taken it out. It's soft!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I've took it out. It's soft!"
+                  },
+                  {
+                    "texto": "Yes, I've eaten it. It's soft!"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "It's beautiful!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  11
+                ],
+                "opciones": [
+                  {
+                    "texto": "How nice! I'll bring it to my room.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "How nice! I'll brought it to my room."
+                  },
+                  {
+                    "texto": "How nice! I'll bring it to the beach."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "And she says: next time, bring some photos when you visit!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  31
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK! I don't have any photos, but I'll take some.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK! I don't have no photos, but I'll take some."
+                  },
+                  {
+                    "texto": "OK! I don't have any cats, but I'll take some."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Good boy. Now call her and say thank you!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "package",
+          "svg": "package",
+          "texto_ref": "package"
+        },
+        {
+          "id": "blanket",
+          "svg": "blanket",
+          "texto_ref": "blanket"
+        },
+        {
+          "id": "letter",
+          "svg": "letter",
+          "texto_ref": "letter"
+        },
+        {
+          "id": "sofa",
+          "svg": "sofa",
+          "texto_ref": "sofa"
+        },
+        {
+          "id": "phone",
+          "svg": "phone",
+          "texto_ref": "phone"
+        }
+      ]
+    }
+  ]
+}

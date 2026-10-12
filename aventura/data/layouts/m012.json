@@ -1,0 +1,104 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "bus": {
+  "jugador": {
+   "x": 40,
+   "y": 88
+  },
+  "personajes": {
+   "sam": {
+    "x": 13,
+    "y": 86
+   },
+   "kenji": {
+    "x": 62,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "bag": {
+    "x": 76,
+    "y": 88,
+    "s": 4.5,
+    "capa": "fondo"
+   },
+   "map": {
+    "x": 50,
+    "y": 52,
+    "s": 4,
+    "capa": "pared"
+   }
+  }
+ },
+ "calle": {
+  "jugador": {
+   "x": 12,
+   "y": 88
+  },
+  "sigue": "kenji",
+  "personajes": {
+   "lily": {
+    "x": 52,
+    "y": 86
+   }
+  },
+  "objetos": {
+   "bus_stop": {
+    "x": 48,
+    "y": 81,
+    "s": 17,
+    "capa": "pared"
+   },
+   "sign": {
+    "x": 66,
+    "y": 80,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "trash_can": {
+    "x": 30,
+    "y": 83,
+    "s": 3.5,
+    "capa": "fondo"
+   },
+   "bus": {
+    "x": 84,
+    "y": 96,
+    "s": 22,
+    "capa": "fondo"
+   }
+  }
+ },
+ "escuela": {
+  "jugador": {
+   "x": 30,
+   "y": 88
+  },
+  "personajes": {
+   "kenji": {
+    "x": 48,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "school": {
+    "x": 76,
+    "y": 76,
+    "s": 30,
+    "capa": "pared"
+   },
+   "tree": {
+    "x": 14,
+    "y": 78,
+    "s": 13,
+    "capa": "pared"
+   },
+   "clock": {
+    "x": 76,
+    "y": 40,
+    "s": 4,
+    "capa": "pared"
+   }
+  }
+ }
+}

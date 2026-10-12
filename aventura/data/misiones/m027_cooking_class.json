@@ -1,0 +1,481 @@
+{
+  "id": "m027",
+  "titulo": "The cooking class",
+  "titulo_es": "La clase de cocina",
+  "objetivo": "Cook the meal with no mistakes.",
+  "objetivo_es": "Cocina la comida sin errores.",
+  "nivel": "A2-B1",
+  "resumen": "Clase de cocina con Marco. Cocina la pasta con Kenji y Bella sin errores.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "cocina",
+      "titulo": "The cooking class",
+      "fondo": "cocina_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "marco",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "kenji"
+          },
+          "ocupado": [
+            {
+              "quien": "marco",
+              "texto": "Work with your partners, my friend!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "marco",
+                "texto": "Welcome to my cooking class! Today we're making pasta."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  14
+                ],
+                "opciones": [
+                  {
+                    "texto": "Great! I've never made pasta before.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great! I've never done pasta before."
+                  },
+                  {
+                    "texto": "Great! I've never made a car before."
+                  }
+                ]
+              },
+              {
+                "quien": "marco",
+                "texto": "Take off your jacket, please. It's hot in here."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  50
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. I'll take it off now.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. I'll take off it now."
+                  },
+                  {
+                    "texto": "OK. I'll take it to the beach."
+                  }
+                ]
+              },
+              {
+                "quien": "marco",
+                "texto": "Good. Do you enjoy cooking at home?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, I enjoy cooking for my family.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I enjoy to cook for my family."
+                  },
+                  {
+                    "texto": "Yes, I enjoy swimming with my family."
+                  }
+                ]
+              },
+              {
+                "quien": "marco",
+                "texto": "What did you do before you came here?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  9
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I worked as a waiter for a year.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I worked like a waiter for a year."
+                  },
+                  {
+                    "texto": "I worked as a cat for a year."
+                  }
+                ]
+              },
+              {
+                "quien": "marco",
+                "texto": "Good! Quick question: how long do we cook the pasta?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "For ten minutes, I think.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "During ten minutes, I think."
+                  },
+                  {
+                    "texto": "For ten dogs, I think."
+                  }
+                ]
+              },
+              {
+                "quien": "marco",
+                "texto": "Very good! Now, work with your partners."
+              }
+            ]
+          }
+        },
+        {
+          "id": "kenji",
+          "rol": "target",
+          "antes": {
+            "quien": "kenji",
+            "texto": "One moment, Bryan."
+          },
+          "pista": {
+            "marca": "bella"
+          },
+          "dialogo": {
+            "requiere": "marco_hablado",
+            "pasos": [
+              {
+                "quien": "kenji",
+                "texto": "Bryan, what do we do first?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "opciones": [
+                  {
+                    "texto": "We need to cut the onions before cooking them.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We need to cut the onions before cook them."
+                  },
+                  {
+                    "texto": "We need to cut the plates before eating them."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Oh no! Sorry! I made a mistake. Too much salt!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  14
+                ],
+                "opciones": [
+                  {
+                    "texto": "Don't worry. Everybody makes mistakes.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Don't worry. Everybody does mistakes."
+                  },
+                  {
+                    "texto": "Don't worry. Everybody makes cakes."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "How much pasta do we need?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  47
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Half of the bag, I think.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Half the of bag, I think."
+                  },
+                  {
+                    "texto": "Half of the moon, I think."
+                  }
+                ]
+              },
+              {
+                "quien": "kenji",
+                "texto": "Thank you, Bryan."
+              }
+            ]
+          }
+        },
+        {
+          "id": "bella",
+          "rol": "target",
+          "antes": {
+            "quien": "bella",
+            "texto": "Wait, Bryan! I'm busy!"
+          },
+          "dialogo": {
+            "requiere": "kenji_hablado",
+            "pasos": [
+              {
+                "quien": "bella",
+                "texto": "Bryan, can you help me? This pan is very hot!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  50
+                ],
+                "opciones": [
+                  {
+                    "texto": "Put it down on the table!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Put down it on the table!"
+                  },
+                  {
+                    "texto": "Put it on your head!"
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Thanks! I love learning to cook."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "opciones": [
+                  {
+                    "texto": "Me too. I'm thinking about taking more classes.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Me too. I'm thinking about take more classes."
+                  },
+                  {
+                    "texto": "Me too. I'm thinking about taking a taxi."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "I want to cook every day!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Me too. I want to learn to cook pizza.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Me too. I want learning to cook pizza."
+                  },
+                  {
+                    "texto": "Me too. I want to learn to cook shoes."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Let's ask Marco to look at our pasta!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "stove"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "pot",
+          "svg": "pot",
+          "texto_ref": "pot"
+        },
+        {
+          "id": "pan",
+          "svg": "pan",
+          "texto_ref": "pan"
+        },
+        {
+          "id": "onion",
+          "svg": "onion",
+          "texto_ref": "onion"
+        },
+        {
+          "id": "tomato",
+          "svg": "tomato",
+          "texto_ref": "tomato"
+        },
+        {
+          "id": "pasta",
+          "svg": "pasta",
+          "texto_ref": "pasta"
+        },
+        {
+          "id": "salt",
+          "svg": "salt",
+          "texto_ref": "salt"
+        },
+        {
+          "id": "table",
+          "svg": "table",
+          "texto_ref": "table"
+        },
+        {
+          "id": "stove",
+          "svg": "stove",
+          "texto_ref": "stove",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "stove",
+            "pasos": [
+              {
+                "quien": "marco",
+                "texto": "Time's up! Put your plates on the table."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  50
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. I'll put them down here.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. I'll put down them here."
+                  },
+                  {
+                    "texto": "OK. I'll put them in my bag."
+                  }
+                ]
+              },
+              {
+                "quien": "marco",
+                "texto": "Bryan, your sauce looks bad!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  38
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Oh no! I cooked it badly.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Oh no! I cooked it bad."
+                  },
+                  {
+                    "texto": "Oh no! I sang it badly."
+                  }
+                ]
+              },
+              {
+                "quien": "marco",
+                "texto": "Let me try... Mmm! It looks bad, but it's very good!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  14
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thank you! We did our best.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you! We made our best."
+                  },
+                  {
+                    "texto": "Thank you! We did our homework."
+                  }
+                ]
+              },
+              {
+                "quien": "marco",
+                "texto": "Great job, everybody! See you next week!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

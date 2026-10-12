@@ -1,0 +1,628 @@
+{
+  "id": "m014",
+  "titulo": "Job interview day",
+  "titulo_es": "Día de entrevista de trabajo",
+  "objetivo": "Get to your job interview on time and do it well.",
+  "objetivo_es": "Llega a tiempo a tu entrevista de trabajo y hazla bien.",
+  "nivel": "A2-B1",
+  "resumen": "Hoy es tu entrevista de trabajo. Llega a tiempo, presentate en la recepcion y responde bien las preguntas del jefe.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "calle",
+      "titulo": "Interview day",
+      "fondo": "ciudad_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "building"
+          },
+          "ocupado": [
+            {
+              "quien": "jake",
+              "texto": "Go, Bryan! Don't be late!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "Good luck today, Bryan! Have you prepared for the interview?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  10
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, I have read about the company.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I have readed about the company."
+                  },
+                  {
+                    "texto": "Yes, I have a new bicycle."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Great. How long have you wanted this job?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  34
+                ],
+                "opciones": [
+                  {
+                    "texto": "I've wanted it since March.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I've wanted it for March."
+                  },
+                  {
+                    "texto": "I've wanted it since I was a baby."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Do you have the address?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  3
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. It's next to the bus stop.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. It's next to the stop bus."
+                  },
+                  {
+                    "texto": "Yes. It's next to the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "When will they tell you?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  48
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "They'll call me by Friday.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "They'll call me until Friday."
+                  },
+                  {
+                    "texto": "They'll call me by bicycle."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Go! The building is over there."
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "building"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "traffic_light",
+          "svg": "traffic_light",
+          "texto_ref": "traffic_light"
+        },
+        {
+          "id": "street_lamp",
+          "svg": "street_lamp",
+          "texto_ref": "street_lamp"
+        },
+        {
+          "id": "building",
+          "svg": "building",
+          "texto_ref": "building",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "building",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  34
+                ],
+                "opciones": [
+                  {
+                    "texto": "I've been ready since seven o'clock!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I've been ready for seven o'clock!"
+                  },
+                  {
+                    "texto": "I've been at the beach since Monday."
+                  }
+                ]
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "recepcion"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "recepcion",
+      "titulo": "Reception",
+      "fondo": "oficina",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "grace",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "grace",
+                "texto": "Good morning. Do you have an appointment?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  10
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. I have just arrived for my interview.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I have just arrive for my interview."
+                  },
+                  {
+                    "texto": "Yes. I have just bought a pizza."
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "Please write your name here.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Sure. Can I use your pen?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. Can I use your fork?"
+                  },
+                  {
+                    "texto": "Sure. Can I use your dog?"
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "Of course. Here you are. Please wait here."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thank you. Has Mister Clark arrived yet?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you. Has Mister Clark arrive yet?"
+                  },
+                  {
+                    "texto": "Thank you. Has the cat eaten yet?"
+                  }
+                ]
+              },
+              {
+                "quien": "grace",
+                "texto": "Yes, he has. He is ready for you. Come in, please."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "entrevista"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "desk",
+          "svg": "desk",
+          "texto_ref": "desk"
+        },
+        {
+          "id": "computer",
+          "svg": "computer",
+          "texto_ref": "computer"
+        },
+        {
+          "id": "plant",
+          "svg": "plant",
+          "texto_ref": "plant"
+        },
+        {
+          "id": "coffee",
+          "svg": "coffee",
+          "texto_ref": "coffee"
+        }
+      ]
+    },
+    {
+      "id": "entrevista",
+      "titulo": "The interview",
+      "fondo": "oficina",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "clark",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "clark",
+                "texto": "Hello, Bryan. Please sit down. How long have you studied English?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  34
+                ],
+                "opciones": [
+                  {
+                    "texto": "I've studied English for two years.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I've studied English since two years."
+                  },
+                  {
+                    "texto": "I've studied English in the kitchen."
+                  }
+                ]
+              },
+              {
+                "quien": "clark",
+                "texto": "Good. And where do you work now?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  34
+                ],
+                "opciones": [
+                  {
+                    "texto": "I've worked at a small company since July.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I've worked at a small company for July."
+                  },
+                  {
+                    "texto": "I've worked in a big zoo with lions."
+                  }
+                ]
+              },
+              {
+                "quien": "clark",
+                "texto": "Have you ever worked in a team?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  10
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, I have worked in a team before.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I have work in a team before."
+                  },
+                  {
+                    "texto": "Yes, I have a dog and a cat."
+                  }
+                ]
+              },
+              {
+                "quien": "clark",
+                "texto": "What do you do there?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  9
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I work as an engineer.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I work like an engineer."
+                  },
+                  {
+                    "texto": "I work as a cat."
+                  }
+                ]
+              },
+              {
+                "quien": "clark",
+                "texto": "And what did you do over the last year?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  52
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Over the last year, I learned a lot of English.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Since the last year, I learned a lot of English."
+                  },
+                  {
+                    "texto": "Over the last year, I learned a lot of dogs."
+                  }
+                ]
+              },
+              {
+                "quien": "clark",
+                "texto": "How long will you have been studying by next year?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  44
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "By next year, I'll have been studying for three years.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "By next year, I'll have been study for three years."
+                  },
+                  {
+                    "texto": "By next year, I'll have been sleeping for three years."
+                  }
+                ]
+              },
+              {
+                "quien": "clark",
+                "texto": "Why do you want to work here?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  18
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I'm interested in learning new things.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'm interested in learn new things."
+                  },
+                  {
+                    "texto": "I'm interested in eating new things."
+                  }
+                ]
+              },
+              {
+                "quien": "clark",
+                "texto": "As a manager, I need people who work hard.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  9
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "As a student, I always worked hard.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Like a student, I always worked hard."
+                  },
+                  {
+                    "texto": "As a cat, I always worked hard."
+                  }
+                ]
+              },
+              {
+                "quien": "clark",
+                "texto": "Do you have any questions for me?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. Have you found other people for this job?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. Have you find other people for this job?"
+                  },
+                  {
+                    "texto": "Yes. Have you ever eaten a cake?"
+                  }
+                ]
+              },
+              {
+                "quien": "clark",
+                "texto": "We have talked to five people. Had you heard about our company before?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, I had heard about it from a friend.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I had hear about it from a friend."
+                  },
+                  {
+                    "texto": "Yes, I had a sandwich for lunch."
+                  }
+                ]
+              },
+              {
+                "quien": "clark",
+                "texto": "Very good. We'll call you this week. Thank you for coming."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  34
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thank you! I've waited for this day for a long time.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you! I've waited for this day since a long time."
+                  },
+                  {
+                    "texto": "Thank you! I've waited for the rain for a long time."
+                  }
+                ]
+              },
+              {
+                "quien": "clark",
+                "texto": "Ha ha. Good luck, Bryan!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "laptop",
+          "svg": "laptop",
+          "texto_ref": "laptop"
+        },
+        {
+          "id": "folder",
+          "svg": "folder",
+          "texto_ref": "folder"
+        },
+        {
+          "id": "desk",
+          "svg": "desk",
+          "texto_ref": "desk"
+        },
+        {
+          "id": "whiteboard",
+          "svg": "whiteboard",
+          "texto_ref": "whiteboard"
+        },
+        {
+          "id": "printer",
+          "svg": "printer",
+          "texto_ref": "printer"
+        }
+      ]
+    }
+  ]
+}

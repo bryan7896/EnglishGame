@@ -1,0 +1,97 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "sala_museo": {
+  "jugador": {
+   "x": 10,
+   "y": 88
+  },
+  "personajes": {
+   "hank": {
+    "x": 24,
+    "y": 87
+   },
+   "ruth": {
+    "x": 52,
+    "y": 87
+   },
+   "bella": {
+    "x": 72,
+    "y": 87
+   },
+   "george": {
+    "x": 90,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "statue": {
+    "x": 40,
+    "y": 86,
+    "s": 6,
+    "capa": "fondo"
+   },
+   "display_case": {
+    "x": 62,
+    "y": 86,
+    "s": 7,
+    "capa": "fondo"
+   },
+   "picture": {
+    "x": 80,
+    "y": 30,
+    "s": 10,
+    "capa": "pared"
+   },
+   "security_camera": {
+    "x": 94,
+    "y": 14,
+    "s": 4,
+    "capa": "pared"
+   },
+   "map": {
+    "x": 8,
+    "y": 52,
+    "s": 4,
+    "capa": "pared"
+   }
+  }
+ },
+ "oficina": {
+  "jugador": {
+   "x": 28,
+   "y": 89
+  },
+  "personajes": {
+   "hank": {
+    "x": 58,
+    "y": 82
+   }
+  },
+  "objetos": {
+   "desk": {
+    "x": 58,
+    "y": 88,
+    "s": 16,
+    "capa": "fondo"
+   },
+   "computer": {
+    "x": 64,
+    "y": 75,
+    "s": 6,
+    "capa": "fondo"
+   },
+   "key": {
+    "x": 52,
+    "y": 75.5,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "security_camera": {
+    "x": 86,
+    "y": 20,
+    "s": 4,
+    "capa": "pared"
+   }
+  }
+ }
+}

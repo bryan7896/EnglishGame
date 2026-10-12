@@ -1,0 +1,93 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "parque": {
+  "jugador": {
+   "x": 10,
+   "y": 88
+  },
+  "personajes": {
+   "lily": {
+    "x": 26,
+    "y": 87
+   },
+   "walter": {
+    "x": 64,
+    "y": 86
+   }
+  },
+  "objetos": {
+   "bench": {
+    "x": 64,
+    "y": 84,
+    "s": 11,
+    "capa": "fondo"
+   },
+   "tree": {
+    "x": 86,
+    "y": 80,
+    "s": 15,
+    "capa": "pared"
+   },
+   "bird": {
+    "x": 84,
+    "y": 52,
+    "s": 3,
+    "capa": "pared"
+   },
+   "flowers": {
+    "x": 42,
+    "y": 88,
+    "s": 5,
+    "capa": "fondo"
+   }
+  }
+ },
+ "casa": {
+  "jugador": {
+   "x": 20,
+   "y": 88
+  },
+  "personajes": {
+   "walter": {
+    "x": 46,
+    "y": 87
+   },
+   "lily": {
+    "x": 32,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "photo_album": {
+    "x": 56,
+    "y": 89,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "picture": {
+    "x": 30,
+    "y": 40,
+    "s": 8,
+    "capa": "pared"
+   },
+   "clock": {
+    "x": 56,
+    "y": 30,
+    "s": 5,
+    "capa": "pared"
+   },
+   "tea": {
+    "x": 82,
+    "y": 86,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "sofa": {
+    "x": 74,
+    "y": 84,
+    "s": 16,
+    "capa": "fondo"
+   }
+  }
+ }
+}

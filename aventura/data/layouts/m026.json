@@ -1,0 +1,83 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "carretera": {
+  "jugador": {
+   "x": 14,
+   "y": 88
+  },
+  "personajes": {
+   "jake": {
+    "x": 30,
+    "y": 87
+   },
+   "joe": {
+    "x": 76,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "car": {
+    "x": 52,
+    "y": 94,
+    "s": 18,
+    "capa": "fondo"
+   },
+   "sign": {
+    "x": 88,
+    "y": 80,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "phone": {
+    "x": 36,
+    "y": 89,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "traffic_light": {
+    "x": 8,
+    "y": 81,
+    "s": 4,
+    "capa": "fondo"
+   }
+  }
+ },
+ "taller": {
+  "jugador": {
+   "x": 20,
+   "y": 88
+  },
+  "personajes": {
+   "joe": {
+    "x": 40,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "car": {
+    "x": 66,
+    "y": 92,
+    "s": 22,
+    "capa": "fondo"
+   },
+   "tire": {
+    "x": 86,
+    "y": 89,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "toolbox": {
+    "x": 50,
+    "y": 89,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "wrench": {
+    "x": 56,
+    "y": 89,
+    "s": 3,
+    "capa": "fondo"
+   }
+  }
+ }
+}

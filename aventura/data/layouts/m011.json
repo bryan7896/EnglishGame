@@ -1,0 +1,67 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "super": {
+  "jugador": {
+   "x": 12,
+   "y": 88
+  },
+  "personajes": {
+   "mom": {
+    "x": 26,
+    "y": 87
+   },
+   "rosa": {
+    "x": 50,
+    "y": 86
+   },
+   "tom": {
+    "x": 72,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "shopping_cart": {
+    "x": 18,
+    "y": 89,
+    "s": 8,
+    "capa": "fondo"
+   },
+   "basket": {
+    "x": 36,
+    "y": 88,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "egg": {
+    "x": 44,
+    "y": 36,
+    "s": 3,
+    "capa": "pared"
+   },
+   "bread": {
+    "x": 30,
+    "y": 50,
+    "s": 4,
+    "capa": "pared"
+   },
+   "milk": {
+    "x": 82,
+    "y": 50,
+    "s": 3,
+    "capa": "pared"
+   },
+   "apple": {
+    "x": 60,
+    "y": 36,
+    "s": 3,
+    "capa": "pared"
+   },
+   "cash_register": {
+    "x": 92,
+    "y": 86,
+    "s": 8,
+    "capa": "fondo"
+   }
+  }
+ }
+}

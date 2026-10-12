@@ -1,0 +1,425 @@
+{
+  "id": "m026",
+  "titulo": "The broken car",
+  "titulo_es": "El carro dañado",
+  "objetivo": "Your car broke down. Get it working again with the mechanic.",
+  "objetivo_es": "Tu carro se dañó. Haz que vuelva a funcionar con el mecánico.",
+  "nivel": "A2-B1",
+  "resumen": "El carro de Jake se dano en la calle. Llamen a Joe, el mecanico, y ayudalo a arreglarlo en su taller.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "carretera",
+      "titulo": "On the road",
+      "fondo": "ciudad_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "joe"
+          },
+          "ocupado": [
+            {
+              "quien": "jake",
+              "texto": "Joe is here, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "Oh no, the car stopped! What do we do now?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  50
+                ],
+                "opciones": [
+                  {
+                    "texto": "Don't worry. Put the lights on first.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Don't worry. Put the lights off first."
+                  },
+                  {
+                    "texto": "Don't worry. Put your shoes on first."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "OK. I'll call Joe. He works as a mechanic."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  9
+                ],
+                "opciones": [
+                  {
+                    "texto": "Good. He can help us as fast as possible.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Good. He can help us as fast like possible."
+                  },
+                  {
+                    "texto": "Good. He can help us as a dog."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "He's coming. Let's do something while we wait."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  14
+                ],
+                "opciones": [
+                  {
+                    "texto": "Let's make a list of the problems.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Let's do a list of the problems."
+                  },
+                  {
+                    "texto": "Let's make a cake in the car."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "What were you doing when the car stopped?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  35
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I was looking at my phone when it stopped.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I was looking at my phone while it stopped."
+                  },
+                  {
+                    "texto": "I was swimming when it stopped."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Look, here he is!"
+              }
+            ]
+          }
+        },
+        {
+          "id": "joe",
+          "rol": "target",
+          "antes": {
+            "quien": "joe",
+            "texto": "One moment, guys!"
+          },
+          "dialogo": {
+            "requiere": "jake_hablado",
+            "pasos": [
+              {
+                "quien": "joe",
+                "texto": "Hi, guys! What happened?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  50
+                ],
+                "opciones": [
+                  {
+                    "texto": "The car stopped, so we got out.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "The car stopped, so we got off."
+                  },
+                  {
+                    "texto": "The car stopped, so we got married."
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Let me look... I need to take it to my repair shop."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  9
+                ],
+                "opciones": [
+                  {
+                    "texto": "As you can see, it's a very old car.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Like you can see, it's a very old car."
+                  },
+                  {
+                    "texto": "As you can see, it's a very old dog."
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "This car is older than mine!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  54
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. It's the oldest car on the street!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. It's the most old car on the street!"
+                  },
+                  {
+                    "texto": "Yes. It's the oldest dog on the street!"
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Ha ha, yes! Come with me."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "taller"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "car",
+          "svg": "car",
+          "texto_ref": "car"
+        },
+        {
+          "id": "sign",
+          "svg": "sign",
+          "texto_ref": "sign"
+        },
+        {
+          "id": "phone",
+          "svg": "phone",
+          "texto_ref": "phone"
+        },
+        {
+          "id": "traffic_light",
+          "svg": "traffic_light",
+          "texto_ref": "traffic_light"
+        }
+      ]
+    },
+    {
+      "id": "taller",
+      "titulo": "The repair shop",
+      "fondo": "taller",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "joe",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "joe",
+                "texto": "OK. First, I need to take the tire off."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  50
+                ],
+                "opciones": [
+                  {
+                    "texto": "Can I help you take it off?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Can I help you take off it?"
+                  },
+                  {
+                    "texto": "Can I help you take a photo?"
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Sure. Now, don't do anything. Just watch."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  14
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. I won't make any noise.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. I won't do any noise."
+                  },
+                  {
+                    "texto": "OK. I won't make a cake."
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Done! The car works now."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  14
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thank you! You did a great job.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you! You made a great job."
+                  },
+                  {
+                    "texto": "Thank you! You did a great cake."
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "As always! That's forty dollars."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  9
+                ],
+                "opciones": [
+                  {
+                    "texto": "Here. You work as fast as a train!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Here. You work as fast like a train!"
+                  },
+                  {
+                    "texto": "Here. You work as slow as a train!"
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Who drives this car? Somebody drives it very badly!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  38
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Jake drives badly. Don't tell him!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Jake drives bad. Don't tell him!"
+                  },
+                  {
+                    "texto": "Jake cooks badly. Don't tell him!"
+                  }
+                ]
+              },
+              {
+                "quien": "joe",
+                "texto": "Ha ha! Drive carefully."
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "car",
+          "svg": "car",
+          "texto_ref": "car"
+        },
+        {
+          "id": "tire",
+          "svg": "tire",
+          "texto_ref": "tire"
+        },
+        {
+          "id": "toolbox",
+          "svg": "toolbox",
+          "texto_ref": "toolbox"
+        },
+        {
+          "id": "wrench",
+          "svg": "wrench"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,631 @@
+{
+  "id": "m024",
+  "titulo": "The surprise visit",
+  "titulo_es": "La visita sorpresa",
+  "objetivo": "Your guests came early. Get the house ready.",
+  "objetivo_es": "Tus invitados llegaron temprano. Alista la casa.",
+  "nivel": "A2-B1",
+  "resumen": "Tu tio George y la vecina Linda llegan una hora antes a cenar. Atiendelos mientras tu mama termina.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "puerta",
+      "titulo": "Your house",
+      "fondo": "casa_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "george",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "Hello, Bryan! Surprise! We're early!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "Hi! Mom told me you would come at seven.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Hi! Mom said me you would come at seven."
+                  },
+                  {
+                    "texto": "Hi! Mom told me a story about dogs."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Sorry, Bryan! I wanted to see your garden."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "opciones": [
+                  {
+                    "texto": "No problem. Mom has cooked for three hours!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No problem. Mom has cooked during three hours!"
+                  },
+                  {
+                    "texto": "No problem. Mom has cooked for three dogs!"
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Here, this is for your mom.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  25
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Thank you! I'll give it to her.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you! I'll gave it to her."
+                  },
+                  {
+                    "texto": "Thank you! I'll give it to the dog."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Great! Can we come in?"
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "sala"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "house",
+          "svg": "house",
+          "texto_ref": "house"
+        },
+        {
+          "id": "doorbell",
+          "svg": "doorbell",
+          "texto_ref": "doorbell"
+        },
+        {
+          "id": "flowers",
+          "svg": "flowers",
+          "texto_ref": "flowers"
+        },
+        {
+          "id": "tree",
+          "svg": "tree",
+          "texto_ref": "tree"
+        },
+        {
+          "id": "mailbox",
+          "svg": "mailbox",
+          "texto_ref": "mailbox"
+        }
+      ]
+    },
+    {
+      "id": "sala",
+      "titulo": "The living room",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "mom",
+          "rol": "anfitrion",
+          "auto": true,
+          "pista": {
+            "marca": "george"
+          },
+          "ocupado": [
+            {
+              "quien": "mom",
+              "texto": "I need to get ready, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "mom",
+                "texto": "George! Linda! You're early! Bryan, why didn't you tell me?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "I wanted to tell you, but you were cooking.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I wanted to say you, but you were cooking."
+                  },
+                  {
+                    "texto": "I wanted to tell you, but you were swimming."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Oh dear. The house isn't clean!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  35
+                ],
+                "opciones": [
+                  {
+                    "texto": "Don't worry. I'll clean while you finish dinner.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Don't worry. I'll clean during you finish dinner."
+                  },
+                  {
+                    "texto": "Don't worry. I'll sleep while you finish dinner."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Thank you. Please talk to them while I change."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sure. I'll tell them about my new job.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. I'll say them about my new job."
+                  },
+                  {
+                    "texto": "Sure. I'll tell them to go home."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Can you do something for me?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  14
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Sure. I'll do the dishes later.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. I'll make the dishes later."
+                  },
+                  {
+                    "texto": "Sure. I'll do a dog later."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Good boy."
+              }
+            ]
+          }
+        },
+        {
+          "id": "george",
+          "rol": "target",
+          "antes": {
+            "quien": "george",
+            "texto": "Nice house, Bryan!"
+          },
+          "dialogo": {
+            "requiere": "mom_hablado",
+            "pasos": [
+              {
+                "quien": "george",
+                "texto": "So, Bryan, your mom said you have a new job?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. I've worked there for two months.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I've worked there during two months."
+                  },
+                  {
+                    "texto": "Yes. I've worked there for two cats."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Do you work during the holidays?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "opciones": [
+                  {
+                    "texto": "Only during the summer. Not in December.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Only while the summer. Not in December."
+                  },
+                  {
+                    "texto": "Only during my dreams. Not in December."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "Good for you! When I was young, I worked while I studied."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  35
+                ],
+                "opciones": [
+                  {
+                    "texto": "Wow. I listen to music while I work.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Wow. I listen to music during I work."
+                  },
+                  {
+                    "texto": "Wow. I eat my shoes while I work."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "What had you been doing before we arrived?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I had been cleaning the house all day.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I had been clean the house all day."
+                  },
+                  {
+                    "texto": "I had been swimming in the house all day."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "How long have you known Linda?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  34
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I've known her since she moved here.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I've known her for she moved here."
+                  },
+                  {
+                    "texto": "I've known her since the moon was blue."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "What did you do over the holidays?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  52
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Over the holidays, I visited my friends.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Since the holidays, I visited my friends."
+                  },
+                  {
+                    "texto": "Over the holidays, I visited the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "george",
+                "texto": "This is the lamp that I gave your mom.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  5
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Is it the lamp that was in your house?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Is it the lamp who was in your house?"
+                  },
+                  {
+                    "texto": "Is it the dog that was in your house?"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Dinner is ready! Come to the kitchen!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "cocina"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "sofa",
+          "svg": "sofa",
+          "texto_ref": "sofa"
+        },
+        {
+          "id": "pillow",
+          "svg": "pillow",
+          "texto_ref": "pillow"
+        },
+        {
+          "id": "lamp",
+          "svg": "lamp",
+          "texto_ref": "lamp"
+        },
+        {
+          "id": "window",
+          "svg": "window",
+          "texto_ref": "window"
+        },
+        {
+          "id": "plant",
+          "svg": "plant",
+          "texto_ref": "plant"
+        }
+      ]
+    },
+    {
+      "id": "cocina",
+      "titulo": "Dinner",
+      "fondo": "cocina_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "mom",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "mom",
+                "texto": "Did you tell them to sit down?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. I told them dinner was ready.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I said them dinner was ready."
+                  },
+                  {
+                    "texto": "Yes. I told them a story about a cat."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Good. Let's eat while the soup is hot."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  35
+                ],
+                "opciones": [
+                  {
+                    "texto": "Great! I'll bring the bread while you serve.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great! I'll bring the bread during you serve."
+                  },
+                  {
+                    "texto": "Great! I'll bring the bread while you sleep."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Dinner must be finished before nine.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  48
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Don't worry. We'll finish by nine.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Don't worry. We'll finish until nine."
+                  },
+                  {
+                    "texto": "Don't worry. We'll finish by bicycle."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Can you bring the glasses?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  11
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Sure. I'll bring them now.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. I'll brought them now."
+                  },
+                  {
+                    "texto": "Sure. I'll bring the car now."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Thank you for your help today, Bryan."
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "table",
+          "svg": "table",
+          "texto_ref": "table"
+        },
+        {
+          "id": "soup",
+          "svg": "soup",
+          "texto_ref": "soup"
+        },
+        {
+          "id": "bread",
+          "svg": "bread",
+          "texto_ref": "bread"
+        },
+        {
+          "id": "stove",
+          "svg": "stove",
+          "texto_ref": "stove"
+        },
+        {
+          "id": "tea",
+          "svg": "tea",
+          "texto_ref": "tea"
+        }
+      ]
+    }
+  ]
+}

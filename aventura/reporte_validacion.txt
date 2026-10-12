@@ -1,0 +1,106 @@
+REPORTE DE VALIDACION - AVENTURA
+================================================
+Historias en el plan:      40
+Misiones escritas:         40
+Reglas en el plan:         51  (archivo: ../../z13/data-en/reglas-gramaticales.json)
+Arte pendiente:            0 fondos, 0 objetos, 0 accesorios, 0 caras
+Errores: 0   Avisos: 1
+
+MISIONES ESCRITAS (turnos del jugador / lineas / turnos por regla)
+  m001: 21 turnos, 99 lineas, reglas {10: 2, 2: 5, 27: 2, 33: 2, 17: 4, 54: 1}
+  m002: 20 turnos, 93 lineas, reglas {2: 5, 22: 6, 20: 5, 39: 1, 34: 1, 10: 1, 29: 1}
+  m003: 16 turnos, 75 lineas, reglas {3: 5, 31: 6, 8: 4, 22: 1}
+  m004: 17 turnos, 81 lineas, reglas {6: 4, 37: 5, 22: 4, 20: 1, 47: 1, 14: 1, 11: 1}
+  m005: 16 turnos, 72 lineas, reglas {16: 5, 33: 4, 39: 5, 42: 1, 3: 1}
+  m006: 16 turnos, 68 lineas, reglas {49: 3, 30: 4, 27: 3, 35: 1, 33: 3, 50: 1, 12: 1, 38: 1}
+  m007: 18 turnos, 83 lineas, reglas {36: 5, 48: 1, 53: 1, 12: 4, 17: 5, 11: 1, 25: 1}
+  m008: 15 turnos, 71 lineas, reglas {11: 4, 19: 5, 25: 4, 14: 1, 10: 1}
+  m009: 18 turnos, 77 lineas, reglas {15: 4, 26: 1, 21: 4, 42: 4, 28: 1, 39: 1, 3: 1, 53: 1, 13: 1}
+  m010: 18 turnos, 77 lineas, reglas {30: 5, 37: 3, 47: 4, 49: 1, 14: 1, 20: 1, 8: 1, 25: 1, 42: 1}
+  m011: 15 turnos, 70 lineas, reglas {37: 5, 47: 3, 12: 1, 54: 4, 23: 1, 42: 1, 27: 1}
+  m012: 14 turnos, 65 lineas, reglas {16: 4, 35: 4, 41: 1, 15: 3, 26: 1, 20: 1}
+  m013: 15 turnos, 69 lineas, reglas {32: 4, 10: 4, 28: 3, 40: 1, 49: 1, 11: 1, 5: 1, 19: 1}
+  m014: 19 turnos, 79 lineas, reglas {10: 3, 34: 5, 3: 1, 48: 1, 42: 1, 28: 3, 9: 2, 52: 1, 44: 1, 18: 1}
+  m015: 14 turnos, 63 lineas, reglas {43: 4, 15: 3, 1: 2, 13: 4, 26: 1, 23: 1}
+  m016: 18 turnos, 80 lineas, reglas {32: 3, 43: 4, 1: 1, 15: 1, 38: 4, 49: 1, 46: 1, 26: 1, 27: 1, 40: 1}
+  m017: 12 turnos, 54 lineas, reglas {46: 4, 3: 4, 45: 4}
+  m018: 13 turnos, 62 lineas, reglas {19: 4, 31: 5, 46: 4, 47: 1, 14: 1}
+  m019: 20 turnos, 86 lineas, reglas {41: 5, 28: 1, 5: 1, 29: 4, 49: 3, 39: 1, 42: 1, 54: 1, 38: 1, 27: 1, 50: 1}
+  m020: 16 turnos, 71 lineas, reglas {36: 3, 52: 1, 53: 3, 48: 3, 44: 1, 4: 1, 40: 1, 13: 1, 29: 1, 49: 1}
+  m021: 16 turnos, 70 lineas, reglas {48: 3, 44: 5, 32: 1, 9: 1, 6: 3, 14: 1, 52: 1, 30: 1}
+  m022: 15 turnos, 67 lineas, reglas {23: 4, 18: 5, 6: 3, 34: 1, 28: 1, 5: 1}
+  m023: 15 turnos, 69 lineas, reglas {23: 4, 16: 3, 8: 4, 20: 1, 54: 1, 5: 1, 39: 1}
+  m024: 18 turnos, 78 lineas, reglas {21: 4, 40: 3, 25: 1, 35: 3, 14: 1, 1: 1, 34: 1, 52: 1, 5: 1, 48: 1, 11: 1}
+  m025: 15 turnos, 70 lineas, reglas {40: 3, 52: 3, 27: 3, 54: 1, 29: 1, 36: 1, 53: 1, 47: 1, 4: 1}
+  m026: 12 turnos, 53 lineas, reglas {50: 3, 9: 3, 14: 3, 35: 1, 54: 1, 38: 1}
+  m027: 14 turnos, 63 lineas, reglas {14: 3, 50: 3, 18: 4, 9: 1, 40: 1, 47: 1, 38: 1}
+  m028: 16 turnos, 69 lineas, reglas {4: 3, 54: 3, 39: 3, 49: 1, 53: 1, 17: 3, 28: 1, 23: 1}
+  m029: 14 turnos, 63 lineas, reglas {12: 3, 4: 4, 26: 3, 36: 1, 25: 1, 47: 1, 52: 1}
+  m030: 14 turnos, 62 lineas, reglas {32: 3, 26: 3, 52: 3, 13: 1, 48: 1, 11: 1, 43: 1, 10: 1}
+  m031: 15 turnos, 65 lineas, reglas {34: 3, 28: 1, 1: 4, 44: 4, 13: 1, 40: 1, 52: 1}
+  m032: 13 turnos, 62 lineas, reglas {45: 4, 5: 4, 46: 3, 23: 1, 19: 1}
+  m033: 11 turnos, 49 lineas, reglas {5: 3, 9: 4, 25: 3, 28: 1}
+  m034: 12 turnos, 55 lineas, reglas {29: 4, 21: 4, 20: 3, 41: 1}
+  m035: 15 turnos, 67 lineas, reglas {33: 3, 53: 4, 36: 1, 48: 1, 13: 3, 26: 1, 30: 1, 50: 1}
+  m036: 15 turnos, 67 lineas, reglas {1: 4, 50: 3, 40: 1, 44: 1, 38: 1, 35: 3, 30: 1, 27: 1}
+  m037: 12 turnos, 55 lineas, reglas {31: 3, 45: 4, 32: 1, 11: 3, 25: 1, 19: 1}
+  m038: 13 turnos, 57 lineas, reglas {38: 3, 18: 3, 8: 3, 36: 1, 49: 1, 41: 1, 9: 1}
+  m039: 14 turnos, 64 lineas, reglas {42: 3, 41: 1, 2: 3, 29: 1, 6: 3, 34: 1, 48: 1, 22: 1}
+  m040: 16 turnos, 68 lineas, reglas {43: 3, 12: 3, 4: 3, 26: 1, 41: 3, 15: 1, 53: 1, 13: 1}
+
+COBERTURA POR REGLA (meta al final: 12+ turnos)
+  id  turnos  historias del plan        regla
+   1    12 OK  [31, 36]                 Past Perfect Continuous
+   2    13 OK  [1, 2, 39]               Wh Questions (what/where/why/who/when/how)
+   3    12 OK  [3, 17]                  Orden de sustantivos compuestos (bus stop, phone number)
+   4    12 OK  [28, 29, 40]             Segundo condicional (if + pasado, would + infinitivo)
+   5    12 OK  [32, 33]                 Cláusulas relativas (who/which/that, incluyendo explicativas con comas)
+   6    13 OK  [4, 21, 22, 39]          Need to + infinitivo
+   8    12 OK  [3, 23, 38]              Pronombre objeto tras preposición (him/her/them, no he/she/they)
+   9    12 OK  [26, 33]                 Uso básico de "as" = como
+  10    12 OK  [13, 14]                 Presente perfecto: have/has/had + participio (incluye "just": acaba de/acababa de)
+  11    12 OK  [8, 37]                  Bring / Brought
+  12    12 OK  [7, 29, 40]              Primer condicional (if + presente, will/won't + infinitivo)
+  13    12 OK  [15, 35]                 Past Perfect vs Presente vs Futuro
+  14    12 OK  [26, 27]                 Make vs Do
+  15    12 OK  [9, 12, 15]              Gone vs Left
+  16    12 OK  [5, 12, 23]              Preposiciones de movimiento (to/at/for/of con destinos)
+  17    12 OK  [1, 7, 28]               Modales básicos (can, could, should, must, will, would, used to + verbo)
+  18    13 OK  [22, 27, 38]             Gerundio vs infinitivo (incluye tras preposiciones y before/after + ing)
+  19    12 OK  [8, 18]                  Participios irregulares (incluye take/took/taken, leave/left/left)
+  20    12 OK  [2, 34]                  3ra persona singular (-s)
+  21    12 OK  [9, 24, 34]              Say vs Tell
+  22    12 OK  [2, 4]                   Artículos (a/an/the)
+  23    12 OK  [22, 23]                 Phrasal verbs con "look" (look for / look up / look at / look like)
+  25    12 OK  [8, 33]                  Give / Gave / Given
+  26    12 OK  [29, 30]                 Still + hope
+  27    12 OK  [6, 25]                  Too vs Very
+  28    12 OK  [13, 14]                 Preguntas con presente/pasado perfecto (Have...ever...? / Had...?)
+  29    12 OK  [19, 34]                 Tag Questions
+  30    12 OK  [6, 10]                  Get + adjetivo (cambios de estado: get worried, se puso...)
+  31    14 OK  [3, 18, 37]              Expresiones con "some / any / no" (incluye something/anything/nothing)
+  32    12 OK  [13, 16, 30]             Already / Yet / Just
+  33    12 OK  [5, 6, 35]               Sujeto "it" (clima, tiempo, distancia)
+  34    12 OK  [14, 31]                 Since vs For
+  35    12 OK  [12, 24, 36]             Uso de "when / while"
+  36    12 OK  [7, 20]                  Diferencia entre "will" y "going to"
+  37    13 OK  [4, 10, 11]              Contables vs incontables (few/little, less/fewer, much/many)
+  38    12 OK  [16, 38]                 Bad vs Badly
+  39    12 OK  [5, 28]                  Preposiciones (to/at/in/on/for/during/from/of)
+  40    12 OK  [24, 25]                 For + período / During + evento
+  41    12 OK  [19, 40]                 Orden natural de la oración en inglés
+  42    12 OK  [9, 39]                  Vocabulario específico
+  43    12 OK  [15, 16, 40]             Past Perfect
+  44    12 OK  [21, 31]                 Future Perfect Continuous
+  45    12 OK  [17, 32, 37]             Voz pasiva (presente y con modales)
+  46    12 OK  [17, 18, 32]             Modales de posibilidad/deducción (there might be, must/might/can't + be)
+  47    12 OK  [10, 11]                 Half of
+  48    12 OK  [20, 21]                 Oraciones con "by" para tiempo futuro
+  49    12 OK  [6, 19]                  because of / because
+  50    12 OK  [26, 27, 36]             (put, try, get, trying, take, lie) + (down, off, on)
+  52    12 OK  [25, 30]                 Expresiones de tiempo con over
+  53    12 OK  [20, 35]                 Future Continuous
+  54    12 OK  [11, 28]                 Comparativos y superlativos
+
+AVISOS (1):
+  - [m001] 8 turno(s) del jugador sin reglaIds (no cuentan en el informe)

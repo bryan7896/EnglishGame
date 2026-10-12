@@ -1,0 +1,117 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "calle": {
+  "jugador": {
+   "x": 10,
+   "y": 88
+  },
+  "personajes": {
+   "jake": {
+    "x": 26,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "traffic_light": {
+    "x": 44,
+    "y": 81,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "street_lamp": {
+    "x": 60,
+    "y": 80,
+    "s": 4,
+    "capa": "pared"
+   },
+   "building": {
+    "x": 82,
+    "y": 78,
+    "s": 24,
+    "capa": "pared"
+   }
+  }
+ },
+ "recepcion": {
+  "jugador": {
+   "x": 26,
+   "y": 89
+  },
+  "personajes": {
+   "grace": {
+    "x": 56,
+    "y": 82
+   }
+  },
+  "objetos": {
+   "desk": {
+    "x": 56,
+    "y": 88,
+    "s": 16,
+    "capa": "fondo"
+   },
+   "computer": {
+    "x": 62,
+    "y": 75,
+    "s": 5,
+    "capa": "fondo"
+   },
+   "plant": {
+    "x": 90,
+    "y": 87,
+    "s": 6,
+    "capa": "fondo"
+   },
+   "coffee": {
+    "x": 50,
+    "y": 75.5,
+    "s": 2.5,
+    "capa": "fondo"
+   }
+  }
+ },
+ "entrevista": {
+  "jugador": {
+   "x": 30,
+   "y": 89
+  },
+  "personajes": {
+   "clark": {
+    "x": 62,
+    "y": 82
+   }
+  },
+  "objetos": {
+   "desk": {
+    "x": 60,
+    "y": 88,
+    "s": 16,
+    "capa": "fondo"
+   },
+   "laptop": {
+    "x": 64,
+    "y": 75,
+    "s": 5.5,
+    "capa": "fondo"
+   },
+   "folder": {
+    "x": 54,
+    "y": 75.5,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "whiteboard": {
+    "x": 86,
+    "y": 70,
+    "s": 14,
+    "capa": "pared"
+   },
+   "printer": {
+    "x": 12,
+    "y": 86,
+    "s": 6,
+    "capa": "fondo"
+   }
+  }
+ }
+}

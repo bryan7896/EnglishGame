@@ -1,0 +1,121 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "calle": {
+  "jugador": {
+   "x": 12,
+   "y": 87
+  },
+  "personajes": {
+   "jake": {
+    "x": 30,
+    "y": 86
+   }
+  },
+  "objetos": {
+   "street_lamp": {
+    "x": 90,
+    "y": 80,
+    "s": 4,
+    "capa": "pared"
+   },
+   "water": {
+    "x": 48,
+    "y": 93,
+    "s": 9,
+    "capa": "suelo"
+   },
+   "bus_stop": {
+    "x": 70,
+    "y": 81,
+    "s": 18,
+    "capa": "pared"
+   }
+  }
+ },
+ "parada": {
+  "jugador": {
+   "x": 20,
+   "y": 87
+  },
+  "personajes": {
+   "emma": {
+    "x": 56,
+    "y": 85
+   },
+   "jake": {
+    "x": 31,
+    "y": 86
+   }
+  },
+  "objetos": {
+   "bus_stop": {
+    "x": 52,
+    "y": 81,
+    "s": 19,
+    "capa": "pared"
+   },
+   "umbrella": {
+    "x": 64,
+    "y": 85,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "street_lamp": {
+    "x": 90,
+    "y": 80,
+    "s": 4,
+    "capa": "pared"
+   }
+  }
+ },
+ "casa": {
+  "jugador": {
+   "x": 38,
+   "y": 88
+  },
+  "personajes": {
+   "mom": {
+    "x": 60,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "sofa": {
+    "x": 20,
+    "y": 84,
+    "s": 17,
+    "capa": "fondo"
+   },
+   "table": {
+    "x": 78,
+    "y": 85,
+    "s": 12,
+    "capa": "fondo"
+   },
+   "tea": {
+    "x": 78,
+    "y": 72.5,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "towel": {
+    "x": 46,
+    "y": 86,
+    "s": 4,
+    "capa": "fondo"
+   },
+   "window": {
+    "x": 50,
+    "y": 42,
+    "s": 12,
+    "capa": "pared"
+   },
+   "plant": {
+    "x": 95,
+    "y": 87,
+    "s": 6,
+    "capa": "fondo"
+   }
+  }
+ }
+}

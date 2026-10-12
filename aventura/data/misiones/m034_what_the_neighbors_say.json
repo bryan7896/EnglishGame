@@ -1,0 +1,445 @@
+{
+  "id": "m034",
+  "titulo": "What the neighbors say",
+  "titulo_es": "Lo que dicen los vecinos",
+  "objetivo": "A story about you is going around. Find out the truth.",
+  "objetivo_es": "Hay un chisme sobre ti en el barrio. Descubre la verdad.",
+  "nivel": "B1",
+  "resumen": "En el barrio dicen que te vas a mudar. Pregunta quien lo dijo y descubre de donde salio el chisme.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "calle",
+      "titulo": "Your street",
+      "fondo": "ciudad_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "linda",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "linda",
+                "texto": "Bryan! People are saying you're moving to another city. You aren't, are you?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  29
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, I'm not! You don't believe it, do you?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I'm not! You don't believe it, don't you?"
+                  },
+                  {
+                    "texto": "No, I'm not! You like pizza, do you?"
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "No! But Rosa told me. She works at the shop."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "What exactly did she tell you?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "What exactly did she say you?"
+                  },
+                  {
+                    "texto": "What exactly did she tell the dog?"
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "She said that your mom was selling the house."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "opciones": [
+                  {
+                    "texto": "My mom never sells anything!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "My mom never sell anything!"
+                  },
+                  {
+                    "texto": "My mom never eats a car!"
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Ha ha. Go and ask Rosa at the shop."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "tienda"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tom",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "tom",
+              "texto": "Good! Don't leave, man!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "tom",
+                "texto": "Hey, Bryan, I heard you're leaving! You're not, are you?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  29
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, I'm not. It's a crazy story, isn't it?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I'm not. It's a crazy story, isn't she?"
+                  },
+                  {
+                    "texto": "No, I'm not. It's a big pizza, isn't it?"
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Ha ha! Good. Who told everybody?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "I don't know. I'll tell you later.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I don't know. I'll say you later."
+                  },
+                  {
+                    "texto": "I don't know. I'll tell you a song."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "OK!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "house",
+          "svg": "house",
+          "texto_ref": "house"
+        },
+        {
+          "id": "fence",
+          "svg": "fence",
+          "texto_ref": "fence"
+        },
+        {
+          "id": "mailbox",
+          "svg": "mailbox",
+          "texto_ref": "mailbox"
+        },
+        {
+          "id": "dog",
+          "svg": "dog",
+          "texto_ref": "dog"
+        }
+      ]
+    },
+    {
+      "id": "tienda",
+      "titulo": "The shop",
+      "fondo": "tienda_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "rosa",
+          "rol": "anfitrion",
+          "auto": true,
+          "pista": {
+            "marca": "pedro"
+          },
+          "ocupado": [
+            {
+              "quien": "rosa",
+              "texto": "Ask Pedro, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "rosa",
+                "texto": "Hi, Bryan! Your mom is moving, isn't she?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  29
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, she isn't! Who told you that?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, she doesn't! Who told you that?"
+                  },
+                  {
+                    "texto": "No, she isn't! Who sold you that?"
+                  }
+                ]
+              },
+              {
+                "quien": "rosa",
+                "texto": "Pedro said it. He says your mom wants a bigger house."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "opciones": [
+                  {
+                    "texto": "But she loves our house. She always says that.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "But she love our house. She always say that."
+                  },
+                  {
+                    "texto": "But she loves our dog. She always eats that."
+                  }
+                ]
+              },
+              {
+                "quien": "rosa",
+                "texto": "Hmm. What did your mom say to you?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "She told me nothing about moving.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "She said me nothing about moving."
+                  },
+                  {
+                    "texto": "She told me nothing about pizza."
+                  }
+                ]
+              },
+              {
+                "quien": "rosa",
+                "texto": "Where did your mom go today?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  41
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I don't know where she went.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I don't know where did she go."
+                  },
+                  {
+                    "texto": "I don't know where the moon went."
+                  }
+                ]
+              },
+              {
+                "quien": "rosa",
+                "texto": "Then ask Pedro. He's over there."
+              }
+            ]
+          }
+        },
+        {
+          "id": "pedro",
+          "rol": "target",
+          "antes": {
+            "quien": "pedro",
+            "texto": "One moment, young man!"
+          },
+          "dialogo": {
+            "requiere": "rosa_hablado",
+            "pasos": [
+              {
+                "quien": "pedro",
+                "texto": "Hello, young man! Fresh fruit?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  21
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, thanks. Did you tell Rosa we're moving?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, thanks. Did you say Rosa we're moving?"
+                  },
+                  {
+                    "texto": "No, thanks. Did you tell Rosa a story?"
+                  }
+                ]
+              },
+              {
+                "quien": "pedro",
+                "texto": "Oh! Your mom said she wanted a bigger garden, not a new house!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "opciones": [
+                  {
+                    "texto": "Ha ha! She wants a bigger garden, not a house!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Ha ha! She want a bigger garden, not a house!"
+                  },
+                  {
+                    "texto": "Ha ha! She wants a bigger cat, not a house!"
+                  }
+                ]
+              },
+              {
+                "quien": "pedro",
+                "texto": "Sorry! I didn't hear well. Tell everybody it's not true."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  29
+                ],
+                "opciones": [
+                  {
+                    "texto": "I will. People like stories, don't they?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I will. People like stories, doesn't it?"
+                  },
+                  {
+                    "texto": "I will. People like bananas, don't they?"
+                  }
+                ]
+              },
+              {
+                "quien": "pedro",
+                "texto": "Ha ha, they do!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "cash_register",
+          "svg": "cash_register",
+          "texto_ref": "cash_register"
+        },
+        {
+          "id": "bread",
+          "svg": "bread",
+          "texto_ref": "bread"
+        },
+        {
+          "id": "basket",
+          "svg": "basket",
+          "texto_ref": "basket"
+        },
+        {
+          "id": "fruit",
+          "svg": "fruit",
+          "texto_ref": "fruit"
+        }
+      ]
+    }
+  ]
+}

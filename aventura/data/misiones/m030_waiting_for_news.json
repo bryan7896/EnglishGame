@@ -1,0 +1,500 @@
+{
+  "id": "m030",
+  "titulo": "Waiting for news",
+  "titulo_es": "Esperando noticias",
+  "objetivo": "Wait for important news. Do not worry too much!",
+  "objetivo_es": "Espera una noticia importante. ¡No te preocupes demasiado!",
+  "nivel": "B1",
+  "resumen": "Esperas la carta de la universidad. Espera el correo con Linda, abre la carta y comparte la noticia.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "casa",
+      "titulo": "Your house",
+      "fondo": "casa_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "linda",
+          "rol": "anfitrion",
+          "auto": true,
+          "pista": {
+            "marca": "mailbox"
+          },
+          "ocupado": [
+            {
+              "quien": "linda",
+              "texto": "Good luck, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "linda",
+                "texto": "Good morning, Bryan! Are you waiting for the mail?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  32
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. Has the mail arrived yet?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. Has the mail yet arrived?"
+                  },
+                  {
+                    "texto": "Yes. Has the cat arrived yet?"
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Not yet. Are you waiting for something special?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "opciones": [
+                  {
+                    "texto": "A letter from the university. I still hope it comes today.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "A letter from the university. I hope still it comes today."
+                  },
+                  {
+                    "texto": "A letter from the university. I still hope it rains today."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "How long have you waited?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  52
+                ],
+                "opciones": [
+                  {
+                    "texto": "I've checked the mail every day over the last week.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I've checked the mail every day since the last week."
+                  },
+                  {
+                    "texto": "I've checked the mail every day over the last pizza."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "When did you send your papers?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I sent them in May. Now I'm waiting.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I send them in May. Now I waited."
+                  },
+                  {
+                    "texto": "I sent them in May. Now I'm a fish."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "When will they answer?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  48
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "They'll answer by the end of the month.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "They'll answer until the end of the month."
+                  },
+                  {
+                    "texto": "They'll answer by bicycle."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Look! The mail is here!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "habilita": "mailbox"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "house",
+          "svg": "house",
+          "texto_ref": "house"
+        },
+        {
+          "id": "tree",
+          "svg": "tree",
+          "texto_ref": "tree"
+        },
+        {
+          "id": "flowers",
+          "svg": "flowers",
+          "texto_ref": "flowers"
+        },
+        {
+          "id": "mailbox",
+          "svg": "mailbox",
+          "texto_ref": "mailbox",
+          "inicia_deshabilitado": true,
+          "dialogo": {
+            "requiere": "mailbox",
+            "pasos": [
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  32
+                ],
+                "opciones": [
+                  {
+                    "texto": "Oh! The letter has just arrived!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Oh! The letter has yet arrived!"
+                  },
+                  {
+                    "texto": "Oh! The letter has just eaten!"
+                  }
+                ]
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "sala"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "sala",
+      "titulo": "The letter",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "mom",
+          "rol": "anfitrion",
+          "auto": true,
+          "pista": {
+            "marca": "sara"
+          },
+          "ocupado": [
+            {
+              "quien": "mom",
+              "texto": "Talk to Sara, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "mom",
+                "texto": "Bryan, did you bring the letter inside?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  11
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes, I brought it inside.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I bringed it inside."
+                  },
+                  {
+                    "texto": "Yes, I brought the dog inside."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Is that the letter? Open it!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  52
+                ],
+                "opciones": [
+                  {
+                    "texto": "I've waited for it over the last two months!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I've waited for it since the last two months!"
+                  },
+                  {
+                    "texto": "I've waited for it over the last two pizzas!"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Do you still hope for good news?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. I still hope they say yes.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I hope still they say yes."
+                  },
+                  {
+                    "texto": "Yes. I still hope they eat a cake."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Had you sent any other letters before?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No. I had only sent one letter.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No. I had only send one letter."
+                  },
+                  {
+                    "texto": "No. I had only eaten one letter."
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "So, what does it say?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  32
+                ],
+                "opciones": [
+                  {
+                    "texto": "I haven't opened it yet. Wait!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I haven't opened it already. Wait!"
+                  },
+                  {
+                    "texto": "I haven't eaten it yet. Wait!"
+                  }
+                ]
+              },
+              {
+                "quien": "mom",
+                "texto": "Look, Sara is here!"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sara",
+          "rol": "target",
+          "antes": {
+            "quien": "sara",
+            "texto": "Hi! One moment."
+          },
+          "dialogo": {
+            "requiere": "mom_hablado",
+            "pasos": [
+              {
+                "quien": "sara",
+                "texto": "Bryan! What does the letter say?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "opciones": [
+                  {
+                    "texto": "I don't know yet. I still hope it's a yes!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I don't know yet. I hope still it's a yes!"
+                  },
+                  {
+                    "texto": "I don't know yet. I still hope it's a pizza!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Open it! We can talk about it over coffee."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  52
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK... Yes! I got in! Let's talk over dinner!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK... Yes! I got in! Let's talk on dinner!"
+                  },
+                  {
+                    "texto": "OK... Yes! I got in! Let's talk over my homework!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Wonderful! I knew it!"
+              },
+              {
+                "quien": "sara",
+                "texto": "Have you told your dad yet?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  10
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, I haven't called him yet.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I haven't call him yet."
+                  },
+                  {
+                    "texto": "No, I haven't seen the moon yet."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Call him now! He'll be so happy!",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "letter",
+          "svg": "letter",
+          "texto_ref": "letter"
+        },
+        {
+          "id": "sofa",
+          "svg": "sofa",
+          "texto_ref": "sofa"
+        },
+        {
+          "id": "tea",
+          "svg": "tea",
+          "texto_ref": "tea"
+        },
+        {
+          "id": "phone",
+          "svg": "phone",
+          "texto_ref": "phone"
+        },
+        {
+          "id": "clock",
+          "svg": "clock",
+          "texto_ref": "clock"
+        }
+      ]
+    }
+  ]
+}

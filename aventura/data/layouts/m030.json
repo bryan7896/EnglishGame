@@ -1,0 +1,89 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "casa": {
+  "jugador": {
+   "x": 40,
+   "y": 88
+  },
+  "personajes": {
+   "linda": {
+    "x": 60,
+    "y": 88
+   }
+  },
+  "objetos": {
+   "house": {
+    "x": 18,
+    "y": 77,
+    "s": 26,
+    "capa": "pared"
+   },
+   "tree": {
+    "x": 88,
+    "y": 72,
+    "s": 14,
+    "capa": "pared"
+   },
+   "flowers": {
+    "x": 76,
+    "y": 88,
+    "s": 6,
+    "capa": "fondo"
+   },
+   "mailbox": {
+    "x": 48,
+    "y": 80,
+    "s": 4,
+    "capa": "fondo"
+   }
+  }
+ },
+ "sala": {
+  "jugador": {
+   "x": 20,
+   "y": 88
+  },
+  "personajes": {
+   "mom": {
+    "x": 38,
+    "y": 87
+   },
+   "sara": {
+    "x": 70,
+    "y": 87
+   }
+  },
+  "objetos": {
+   "letter": {
+    "x": 26,
+    "y": 89,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "sofa": {
+    "x": 54,
+    "y": 84,
+    "s": 16,
+    "capa": "fondo"
+   },
+   "tea": {
+    "x": 86,
+    "y": 86,
+    "s": 3,
+    "capa": "fondo"
+   },
+   "phone": {
+    "x": 90,
+    "y": 88,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "clock": {
+    "x": 40,
+    "y": 30,
+    "s": 5,
+    "capa": "pared"
+   }
+  }
+ }
+}

@@ -1,0 +1,607 @@
+{
+  "id": "m010",
+  "titulo": "The sick day",
+  "titulo_es": "El día de enfermo",
+  "objetivo": "Your friend is sick. Get what he needs at the pharmacy.",
+  "objetivo_es": "Tu amigo está enfermo. Consigue lo que necesita en la farmacia.",
+  "nivel": "A2",
+  "resumen": "Jake esta enfermo. Averigua como se siente, ve a la farmacia por su medicina y llevasela.",
+  "musica_inicial": "home_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "cuarto",
+      "titulo": "Jake's room",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "Bryan... I feel terrible. I think I'm getting sick."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  30
+                ],
+                "opciones": [
+                  {
+                    "texto": "Oh no! When did you get sick?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Oh no! When did you got sick?"
+                  },
+                  {
+                    "texto": "Oh no! When did you get a dog?"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Last night. And now I'm getting worse."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  37
+                ],
+                "opciones": [
+                  {
+                    "texto": "Did you eat much today?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Did you eat many today?"
+                  },
+                  {
+                    "texto": "Did you buy many cars today?"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "No, only half of a sandwich. And I have no medicine."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  47
+                ],
+                "opciones": [
+                  {
+                    "texto": "Only half of it? I'll go to the pharmacy now.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Only half it? I'll go to the pharmacy now."
+                  },
+                  {
+                    "texto": "Only half of it? I'll go to the beach now."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "I didn't go to work today.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  49
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Because you're sick? Stay in bed.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Because of you're sick? Stay in bed."
+                  },
+                  {
+                    "texto": "Because you're hungry? Eat a car."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Can you make me some soup later?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  14
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Sure. I'll make you some soup.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sure. I'll do you some soup."
+                  },
+                  {
+                    "texto": "Sure. I'll make you a car."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Thanks, man. You're a good friend."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "farmacia"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "bed",
+          "svg": "bed",
+          "texto_ref": "bed"
+        },
+        {
+          "id": "blanket",
+          "svg": "blanket",
+          "texto_ref": "blanket"
+        },
+        {
+          "id": "thermometer",
+          "svg": "thermometer"
+        },
+        {
+          "id": "water",
+          "svg": "bottle",
+          "texto_ref": "bottle"
+        },
+        {
+          "id": "window",
+          "svg": "window",
+          "texto_ref": "window"
+        }
+      ]
+    },
+    {
+      "id": "farmacia",
+      "titulo": "The pharmacy",
+      "fondo": "farmacia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "lily",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "lily",
+              "texto": "Um... I hope Jake gets better."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "lily",
+                "texto": "Um... Bryan? What are you doing here?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  30
+                ],
+                "opciones": [
+                  {
+                    "texto": "My friend Jake got sick last night.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "My friend Jake get sick last night."
+                  },
+                  {
+                    "texto": "My friend Jake got a new job."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Oh no. Half of my class is sick, too."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  47
+                ],
+                "opciones": [
+                  {
+                    "texto": "Wow, half of them? That's a lot!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Wow, half them? That's a lot!"
+                  },
+                  {
+                    "texto": "Wow, half of the pizza? That's a lot!"
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Does Jake live alone?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  20
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. He lives near the park.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. He live near the park."
+                  },
+                  {
+                    "texto": "Yes. He lives on the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "I see. Tell Jake to get well soon."
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "patel",
+          "rol": "target",
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "patel",
+                "texto": "Good afternoon. What can I do for you?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  30
+                ],
+                "opciones": [
+                  {
+                    "texto": "My friend got sick. He feels very hot.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "My friend getted sick. He feels very hot."
+                  },
+                  {
+                    "texto": "My friend got married. He feels very happy."
+                  }
+                ]
+              },
+              {
+                "quien": "patel",
+                "texto": "I see. Does he have a headache?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  37
+                ],
+                "opciones": [
+                  {
+                    "texto": "A little. And he can't eat much food.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "A little. And he can't eat many food."
+                  },
+                  {
+                    "texto": "A little. And he can drive a bus."
+                  }
+                ]
+              },
+              {
+                "quien": "patel",
+                "texto": "OK. Take this medicine. He needs half of a spoon, two times a day."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  47
+                ],
+                "opciones": [
+                  {
+                    "texto": "Half of a spoon, two times a day. OK.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Half a of spoon, two times a day. OK."
+                  },
+                  {
+                    "texto": "Half of a pizza, two times a day. OK."
+                  }
+                ]
+              },
+              {
+                "quien": "patel",
+                "texto": "And he should drink a lot of water."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  37
+                ],
+                "opciones": [
+                  {
+                    "texto": "How many bottles of water does he need?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "How much bottles of water does he need?"
+                  },
+                  {
+                    "texto": "How many cats does he need?"
+                  }
+                ]
+              },
+              {
+                "quien": "patel",
+                "texto": "A few bottles every day. He will get better soon."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  30
+                ],
+                "opciones": [
+                  {
+                    "texto": "Great. I hope he gets better quickly.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Great. I hope he gets good quickly."
+                  },
+                  {
+                    "texto": "Great. I hope he gets a new car."
+                  }
+                ]
+              },
+              {
+                "quien": "patel",
+                "texto": "So the medicine isn't for you, right?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  8
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No, it's for him. He's at home.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, it's for he. He's at home."
+                  },
+                  {
+                    "texto": "No, it's for the bus. He's at home."
+                  }
+                ]
+              },
+              {
+                "quien": "patel",
+                "texto": "Please give this paper to your friend.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  25
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Thanks. I'll give it to him tonight.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thanks. I'll gave it to him tonight."
+                  },
+                  {
+                    "texto": "Thanks. I'll give it to the cat tonight."
+                  }
+                ]
+              },
+              {
+                "quien": "patel",
+                "texto": "He must take it after he eats. Do you understand?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  42
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. After breakfast, lunch and dinner.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. After breakfast, lunch and bed."
+                  },
+                  {
+                    "texto": "Yes. After the bus, the beach and the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "patel",
+                "texto": "That's eight dollars, please."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "casa"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "medicine",
+          "svg": "medicine",
+          "texto_ref": "medicine"
+        },
+        {
+          "id": "cash_register",
+          "svg": "cash_register",
+          "texto_ref": "cash_register"
+        },
+        {
+          "id": "water",
+          "svg": "bottle",
+          "texto_ref": "bottle"
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "Back with Jake",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "You're back! Did you get the medicine?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  47
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. Take half of this spoon now.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. Take the half this spoon now."
+                  },
+                  {
+                    "texto": "Yes. Take half of my pizza now."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Thanks. I'm getting tired. I want to sleep."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  30
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sleep well. You'll get better tomorrow.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sleep well. You'll getting better tomorrow."
+                  },
+                  {
+                    "texto": "Sleep well. You'll get a new car tomorrow."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "You're a good friend, Bryan."
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "bed",
+          "svg": "bed",
+          "texto_ref": "bed"
+        },
+        {
+          "id": "blanket",
+          "svg": "blanket",
+          "texto_ref": "blanket"
+        },
+        {
+          "id": "medicine",
+          "svg": "medicine",
+          "texto_ref": "medicine"
+        },
+        {
+          "id": "window",
+          "svg": "window",
+          "texto_ref": "window"
+        }
+      ]
+    }
+  ]
+}

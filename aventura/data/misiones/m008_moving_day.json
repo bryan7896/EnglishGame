@@ -1,0 +1,599 @@
+{
+  "id": "m008",
+  "titulo": "Moving day",
+  "titulo_es": "Día de mudanza",
+  "objetivo": "Help your friend move. Put every box in the right place.",
+  "objetivo_es": "Ayuda a tu amigo a mudarse. Pon cada caja en su lugar.",
+  "nivel": "A2",
+  "resumen": "Jake se muda. Ayudalo con Tom a llevar las cajas, encontrar sus cosas y organizar la cocina.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "calle",
+      "titulo": "Moving day",
+      "fondo": "ciudad_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "tom"
+          },
+          "ocupado": [
+            {
+              "quien": "jake",
+              "texto": "Help Tom with the boxes, man!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "Thanks for coming, Bryan! Look at all these boxes."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  11
+                ],
+                "opciones": [
+                  {
+                    "texto": "No problem. I brought some water for us.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No problem. I bringed some water for us."
+                  },
+                  {
+                    "texto": "No problem. I sold my bike yesterday."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Great! Tom is coming, too. Did he call you?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  19
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. He has taken the bus already.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. He has took the bus already."
+                  },
+                  {
+                    "texto": "Yes. He has a big dog."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Cool. Look, he's here!"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tom",
+          "rol": "target",
+          "antes": {
+            "quien": "tom",
+            "texto": "Hey, Bryan! One moment."
+          },
+          "ocupado": [
+            {
+              "quien": "tom",
+              "texto": "Come on, let's go inside!"
+            }
+          ],
+          "dialogo": {
+            "requiere": "jake_hablado",
+            "pasos": [
+              {
+                "quien": "tom",
+                "texto": "Sorry I'm late! What do you need?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  11
+                ],
+                "opciones": [
+                  {
+                    "texto": "Can you bring the lamp to the house?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Can you brought the lamp to the house?"
+                  },
+                  {
+                    "texto": "Can you sing in the house?"
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Sure. Who gave Jake all these plates?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  25
+                ],
+                "opciones": [
+                  {
+                    "texto": "His mother gave them to him.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "His mother given them to him."
+                  },
+                  {
+                    "texto": "His mother is a teacher."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Nice. Let's take them inside."
+              },
+              {
+                "quien": "tom",
+                "texto": "Have you seen the keys? Jake can't find them.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  19
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. I've put them in the car.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. I've putted them in the car."
+                  },
+                  {
+                    "texto": "Yes. I've eaten them in the car."
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "Great. I'll tell him.",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "sala"
+              }
+            ]
+          }
+        },
+        {
+          "id": "linda",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "linda",
+              "texto": "Welcome to the street!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "linda",
+                "texto": "Hi! Is your friend moving to this street?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  19
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. He has left his old apartment.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. He has leaved his old apartment."
+                  },
+                  {
+                    "texto": "Yes. He has a red phone."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Welcome! Tell him I can give him some flowers."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  25
+                ],
+                "opciones": [
+                  {
+                    "texto": "Thank you! Please give them to him later.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Thank you! Please gave them to him later."
+                  },
+                  {
+                    "texto": "Thank you! Please give me a taxi."
+                  }
+                ]
+              },
+              {
+                "quien": "linda",
+                "texto": "Sure!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "moving_truck",
+          "svg": "moving_truck",
+          "texto_ref": "moving_truck"
+        },
+        {
+          "id": "box",
+          "svg": "box",
+          "texto_ref": "box"
+        },
+        {
+          "id": "box2",
+          "svg": "box",
+          "texto_ref": "box"
+        },
+        {
+          "id": "lamp",
+          "svg": "lamp",
+          "texto_ref": "lamp"
+        },
+        {
+          "id": "house",
+          "svg": "house",
+          "texto_ref": "house"
+        }
+      ]
+    },
+    {
+      "id": "sala",
+      "titulo": "Jake's new home",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "Wait, where is the box with my books? Have you seen it?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  19
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, I haven't seen it. Is it in the car?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, I haven't saw it. Is it in the car?"
+                  },
+                  {
+                    "texto": "No, I haven't eaten. Is it lunch time?"
+                  }
+                ]
+              },
+              {
+                "quien": "tom",
+                "texto": "I didn't bring it. I only brought the lamp."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  11
+                ],
+                "opciones": [
+                  {
+                    "texto": "Don't worry. I'll bring it from the car.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Don't worry. I'll brought it from the car."
+                  },
+                  {
+                    "texto": "Don't worry. I'll buy a new car."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "What do we need to do now?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  14
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Let's do the kitchen, then make the bed.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Let's make the kitchen, then do the bed."
+                  },
+                  {
+                    "texto": "Let's do the kitchen, then make a pizza."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Thanks! Now let's go to the kitchen."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "cocina"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "sofa",
+          "svg": "sofa",
+          "texto_ref": "sofa"
+        },
+        {
+          "id": "box",
+          "svg": "box",
+          "texto_ref": "box"
+        },
+        {
+          "id": "bed",
+          "svg": "bed",
+          "texto_ref": "bed"
+        },
+        {
+          "id": "lamp",
+          "svg": "lamp",
+          "texto_ref": "lamp"
+        },
+        {
+          "id": "stairs",
+          "svg": "stairs",
+          "texto_ref": "stairs"
+        }
+      ]
+    },
+    {
+      "id": "cocina",
+      "titulo": "The kitchen",
+      "fondo": "cocina_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "My grandmother gave me these glasses."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  25
+                ],
+                "opciones": [
+                  {
+                    "texto": "They're beautiful. When did she give them to you?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "They're beautiful. When did she gave them to you?"
+                  },
+                  {
+                    "texto": "They're beautiful. When does the store close?"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Last year. Be careful with them!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  19
+                ],
+                "opciones": [
+                  {
+                    "texto": "Oh no! I've broken one glass. I'm sorry!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Oh no! I've broke one glass. I'm sorry!"
+                  },
+                  {
+                    "texto": "Oh no! I've found a cat. I'm sorry!"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Ha ha, don't worry. It's only one."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  25
+                ],
+                "opciones": [
+                  {
+                    "texto": "I'll give you a new one tomorrow.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'll gave you a new one tomorrow."
+                  },
+                  {
+                    "texto": "I'll give you my homework tomorrow."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Deal! Thanks for your help today, Bryan."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  11
+                ],
+                "opciones": [
+                  {
+                    "texto": "Any time! Next time, bring pizza for us!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Any time! Next time, brought pizza for us!"
+                  },
+                  {
+                    "texto": "Any time! Next time, bring your teacher!"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Ha ha! OK, I will."
+              },
+              {
+                "quien": "jake",
+                "texto": "Have you ever moved to a new house?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  10
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes, I've moved two times.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I've move two times."
+                  },
+                  {
+                    "texto": "Yes, I've moved two cats."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Then you know it's a lot of work!",
+                "refuerzo": true
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "glass",
+          "svg": "glass",
+          "texto_ref": "glass"
+        },
+        {
+          "id": "plate",
+          "svg": "plate",
+          "texto_ref": "plate"
+        },
+        {
+          "id": "fridge",
+          "svg": "fridge",
+          "texto_ref": "fridge"
+        },
+        {
+          "id": "stove",
+          "svg": "stove",
+          "texto_ref": "stove"
+        },
+        {
+          "id": "box",
+          "svg": "box",
+          "texto_ref": "box"
+        },
+        {
+          "id": "table",
+          "svg": "table",
+          "texto_ref": "table"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+ "_comentario": "x = % del ancho; y = % del alto (base de los pies u objeto); s = tamano en unidades (1u = 1% del ancho).",
+ "restaurante": {
+  "jugador": {
+   "x": 30,
+   "y": 88
+  },
+  "personajes": {
+   "sara": {
+    "x": 44,
+    "y": 87
+   },
+   "leo": {
+    "x": 66,
+    "y": 87
+   },
+   "marco": {
+    "x": 88,
+    "y": 86
+   }
+  },
+  "objetos": {
+   "table": {
+    "x": 37,
+    "y": 85,
+    "s": 13,
+    "capa": "fondo"
+   },
+   "candle": {
+    "x": 37,
+    "y": 72.5,
+    "s": 1.5,
+    "capa": "fondo"
+   },
+   "menu": {
+    "x": 33,
+    "y": 73,
+    "s": 2.5,
+    "capa": "fondo"
+   },
+   "chair": {
+    "x": 22,
+    "y": 86,
+    "s": 5,
+    "capa": "fondo"
+   }
+  }
+ }
+}

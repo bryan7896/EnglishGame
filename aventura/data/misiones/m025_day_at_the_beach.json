@@ -1,0 +1,507 @@
+{
+  "id": "m025",
+  "titulo": "A day at the beach",
+  "titulo_es": "Un día en la playa",
+  "objetivo": "Plan a perfect day at the beach for everyone.",
+  "objetivo_es": "Planea un día perfecto en la playa para todos.",
+  "nivel": "A2-B1",
+  "resumen": "Un dia de playa con tus amigos. Habla con cada uno y organicen que hacer y por cuanto tiempo.",
+  "musica_inicial": "party_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "playa",
+      "titulo": "The beach",
+      "fondo": "playa_dia",
+      "musica": "party_loop",
+      "personajes": [
+        {
+          "id": "jake",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "bella"
+          },
+          "ocupado": [
+            {
+              "quien": "jake",
+              "texto": "Go and talk to Bella, man!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "jake",
+                "texto": "What a day! How long are we staying at the beach?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "opciones": [
+                  {
+                    "texto": "We're staying for five hours.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We're staying during five hours."
+                  },
+                  {
+                    "texto": "We're staying for five dogs."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Cool. Do you come here a lot?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  52
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, a lot over the last two years.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, a lot since the last two years."
+                  },
+                  {
+                    "texto": "Yes, a lot over the last two pizzas."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Nice. Is the water cold?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  27
+                ],
+                "opciones": [
+                  {
+                    "texto": "It's very cold, but you can swim.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "It's too cold, but you can swim."
+                  },
+                  {
+                    "texto": "It's very blue, but you can fly."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "This beach is better than the one in the city.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  54
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes. It's the best beach I know.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. It's the most good beach I know."
+                  },
+                  {
+                    "texto": "Yes. It's the best pizza I know."
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "The water is great, isn't it?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  29
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes, it is. You like swimming, don't you?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, it is. You like swimming, doesn't you?"
+                  },
+                  {
+                    "texto": "Yes, it is. The dog likes pizza, doesn't he?"
+                  }
+                ]
+              },
+              {
+                "quien": "jake",
+                "texto": "Ha ha. Let's ask Bella what she wants to do."
+              }
+            ]
+          }
+        },
+        {
+          "id": "bella",
+          "rol": "target",
+          "antes": {
+            "quien": "bella",
+            "texto": "One moment, Bryan!"
+          },
+          "pista": {
+            "marca": "max"
+          },
+          "ocupado": [
+            {
+              "quien": "bella",
+              "texto": "Let's swim later!"
+            }
+          ],
+          "dialogo": {
+            "requiere": "jake_hablado",
+            "pasos": [
+              {
+                "quien": "bella",
+                "texto": "Bryan! The sun is very strong today!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  27
+                ],
+                "opciones": [
+                  {
+                    "texto": "I know. It's too hot to lie in the sun.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I know. It's very hot to lie in the sun."
+                  },
+                  {
+                    "texto": "I know. It's too cold to eat ice cream."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Let's play in the water, then!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "opciones": [
+                  {
+                    "texto": "OK. Let's swim for an hour.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "OK. Let's swim during an hour."
+                  },
+                  {
+                    "texto": "OK. Let's swim for a pizza."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "And after that? What are you going to do?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  36
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I'm going to swim with Max.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'm going swim with Max."
+                  },
+                  {
+                    "texto": "I'm going to swim with the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "And at five?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  53
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "At five, I'll be eating ice cream.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "At five, I'll be eat ice cream."
+                  },
+                  {
+                    "texto": "At five, I'll be sleeping at work."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Great! Max is getting ice cream."
+              }
+            ]
+          }
+        },
+        {
+          "id": "max",
+          "rol": "target",
+          "antes": {
+            "quien": "max",
+            "texto": "Hey, Bryan! Wait a second."
+          },
+          "pista": {
+            "marca": "sara"
+          },
+          "ocupado": [
+            {
+              "quien": "max",
+              "texto": "This ice cream is great!"
+            }
+          ],
+          "dialogo": {
+            "requiere": "bella_hablado",
+            "pasos": [
+              {
+                "quien": "max",
+                "texto": "Want some ice cream? We can talk over ice cream!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  52
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes! We can plan the weekend over ice cream.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes! We can plan the weekend on ice cream."
+                  },
+                  {
+                    "texto": "Yes! We can plan the weekend over the moon."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Ha ha. This beach is too full of people today."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  27
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, there are too many people.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, there are too much people."
+                  },
+                  {
+                    "texto": "Yes, there are too many fish in my bag."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "This ice cream is very big!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  47
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Give me half of it, please!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Give me half it, please!"
+                  },
+                  {
+                    "texto": "Give me half of your car, please!"
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Look, Sara wants to tell you something."
+              }
+            ]
+          }
+        },
+        {
+          "id": "sara",
+          "rol": "target",
+          "antes": {
+            "quien": "sara",
+            "texto": "Hi, Bryan! Later, OK?"
+          },
+          "dialogo": {
+            "requiere": "max_hablado",
+            "pasos": [
+              {
+                "quien": "sara",
+                "texto": "Look at the sky! We've been here for six hours!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes, and I slept during the afternoon!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, and I slept while the afternoon!"
+                  },
+                  {
+                    "texto": "Yes, and I slept during the movie!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "Ha ha. Let's come back here over the holidays."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  52
+                ],
+                "opciones": [
+                  {
+                    "texto": "Good idea! Over the holidays, we'll have more time.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Good idea! Over of the holidays, we'll have more time."
+                  },
+                  {
+                    "texto": "Good idea! Over the holidays, we'll be fish."
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "What if we came here every week?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  4
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "If we came every week, I'd love it!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "If we come every week, I'd love it!"
+                  },
+                  {
+                    "texto": "If we came every week, I'd be a fish!"
+                  }
+                ]
+              },
+              {
+                "quien": "sara",
+                "texto": "It's a plan!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "umbrella",
+          "svg": "umbrella",
+          "texto_ref": "umbrella"
+        },
+        {
+          "id": "towel",
+          "svg": "towel",
+          "texto_ref": "towel"
+        },
+        {
+          "id": "surfboard",
+          "svg": "surfboard",
+          "texto_ref": "surfboard"
+        },
+        {
+          "id": "ice_cream",
+          "svg": "ice_cream",
+          "texto_ref": "ice_cream"
+        },
+        {
+          "id": "bag",
+          "svg": "bag",
+          "texto_ref": "bag"
+        }
+      ]
+    }
+  ]
+}

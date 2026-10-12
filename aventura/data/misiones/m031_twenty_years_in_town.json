@@ -1,0 +1,503 @@
+{
+  "id": "m031",
+  "titulo": "A long life in town",
+  "titulo_es": "Una larga vida en el pueblo",
+  "objetivo": "Learn the story of the oldest man in town.",
+  "objetivo_es": "Conoce la historia del hombre más viejo del pueblo.",
+  "nivel": "B1",
+  "resumen": "Lily necesita entrevistar a una persona mayor para la escuela. Conozcan a Walter y la historia de su vida en el pueblo.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "parque",
+      "titulo": "The park",
+      "fondo": "parque_dia",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "lily",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "walter"
+          },
+          "ocupado": [
+            {
+              "quien": "lily",
+              "texto": "Um... let's talk to Walter."
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "lily",
+                "texto": "Um... Bryan, I need to talk to an old person for my school project."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  34
+                ],
+                "opciones": [
+                  {
+                    "texto": "Talk to Walter. He has lived here for seventy years.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Talk to Walter. He has lived here since seventy years."
+                  },
+                  {
+                    "texto": "Talk to Walter. He has lived here for seventy dogs."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Have you ever talked to Walter?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  28
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Yes, I've talked to him many times.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes, I've talk to him many times."
+                  },
+                  {
+                    "texto": "Yes, I've eaten with a cat many times."
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Um... can you come with me?"
+              }
+            ]
+          }
+        },
+        {
+          "id": "walter",
+          "rol": "target",
+          "antes": {
+            "quien": "walter",
+            "texto": "Hmm? One moment, young man."
+          },
+          "dialogo": {
+            "requiere": "lily_hablado",
+            "pasos": [
+              {
+                "quien": "walter",
+                "texto": "Hello, young people. Can I help you?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  34
+                ],
+                "opciones": [
+                  {
+                    "texto": "How long have you lived in this town?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "How long time have you lived in this town?"
+                  },
+                  {
+                    "texto": "How long have you been a cat?"
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "Since nineteen fifty. Before that, I had been living in the mountains."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "opciones": [
+                  {
+                    "texto": "Really? What had you been doing there?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Really? What had you been do there?"
+                  },
+                  {
+                    "texto": "Really? What color is the mountain?"
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "I had been working with my father. Next year, I'll have been living in this town for seventy-five years!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  44
+                ],
+                "opciones": [
+                  {
+                    "texto": "Wow! By then, you'll have been living here a long time.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Wow! By then, you'll have been live here a long time."
+                  },
+                  {
+                    "texto": "Wow! By then, you'll have been swimming here a long time."
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "My house was here in nineteen fifty. And it's still here!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  13
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "It's here now, and it will be here tomorrow!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "It's here now, and it was here tomorrow!"
+                  },
+                  {
+                    "texto": "It's here now, and it will be a cat tomorrow!"
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "Ha ha, yes. Come to my house. I'll show you some photos."
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "casa"
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "bench",
+          "svg": "bench",
+          "texto_ref": "bench"
+        },
+        {
+          "id": "tree",
+          "svg": "tree",
+          "texto_ref": "tree"
+        },
+        {
+          "id": "bird",
+          "svg": "bird",
+          "texto_ref": "bird"
+        },
+        {
+          "id": "flowers",
+          "svg": "flowers",
+          "texto_ref": "flowers"
+        }
+      ]
+    },
+    {
+      "id": "casa",
+      "titulo": "Walter's house",
+      "fondo": "sala_dia",
+      "musica": "home_loop",
+      "personajes": [
+        {
+          "id": "walter",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "walter",
+                "texto": "Come in! What were you doing before you met me?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "We had been walking in the park.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We had been walk in the park."
+                  },
+                  {
+                    "texto": "We had been swimming in the park."
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "Look at this photo album. This is me at twenty."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "opciones": [
+                  {
+                    "texto": "You look tired. Had you been working all day?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "You look tired. Had you working all day?"
+                  },
+                  {
+                    "texto": "You look tired. Had you been sleeping on the moon?"
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "Yes! I had been building houses since six in the morning."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  34
+                ],
+                "opciones": [
+                  {
+                    "texto": "Wow. For twelve hours?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Wow. Since twelve hours?"
+                  },
+                  {
+                    "texto": "Wow. For twelve bananas?"
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "Yes! I worked like that for forty years.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Wow! For forty years!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Wow! During forty years!"
+                  },
+                  {
+                    "texto": "Wow! For forty dogs!"
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "Yes. And next month, my wife and I will be married for fifty years!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  44
+                ],
+                "opciones": [
+                  {
+                    "texto": "Wow! By then, you'll have been living together for fifty years!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Wow! By then, you'll have been live together for fifty years!"
+                  },
+                  {
+                    "texto": "Wow! By then, you'll have been eating cake for fifty years!"
+                  }
+                ]
+              },
+              {
+                "quien": "lily",
+                "texto": "Um... thank you, Walter. This will help my project a lot."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  44
+                ],
+                "opciones": [
+                  {
+                    "texto": "By Monday, I'll have been helping Lily for a week.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "By Monday, I'll have been help Lily for a week."
+                  },
+                  {
+                    "texto": "By Monday, I'll have been flying for a week."
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "Ha ha. What did you learn over the last hour?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  52
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Over the last hour, I learned a lot about you!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Since the last hour, I learned a lot about you!"
+                  },
+                  {
+                    "texto": "Over the last hour, I learned a lot about fish!"
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "And look at this book. By summer, I'll have been reading it for a year!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  44
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "By summer, you'll have been reading it a long time!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "By summer, you'll have been read it a long time!"
+                  },
+                  {
+                    "texto": "By summer, you'll have been swimming a long time!"
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "Ha ha. Come back soon, children."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "opciones": [
+                  {
+                    "texto": "We will. We had been looking for someone like you!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "We will. We had been look for someone like you!"
+                  },
+                  {
+                    "texto": "We will. We had been swimming like you!"
+                  }
+                ]
+              },
+              {
+                "quien": "walter",
+                "texto": "Take care!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "photo_album",
+          "svg": "photo_album",
+          "texto_ref": "photo_album"
+        },
+        {
+          "id": "picture",
+          "svg": "picture",
+          "texto_ref": "picture"
+        },
+        {
+          "id": "clock",
+          "svg": "clock",
+          "texto_ref": "clock"
+        },
+        {
+          "id": "tea",
+          "svg": "tea",
+          "texto_ref": "tea"
+        },
+        {
+          "id": "sofa",
+          "svg": "sofa",
+          "texto_ref": "sofa"
+        }
+      ]
+    }
+  ]
+}

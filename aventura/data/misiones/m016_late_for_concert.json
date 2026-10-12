@@ -1,0 +1,599 @@
+{
+  "id": "m016",
+  "titulo": "Late for the concert",
+  "titulo_es": "Tarde para el concierto",
+  "objetivo": "Get into the concert. It has already started!",
+  "objetivo_es": "Entra al concierto. ¡Ya empezó!",
+  "nivel": "A2-B1",
+  "resumen": "Llegas tarde al concierto de Nina, mojado por la lluvia. Habla con Max, pasa al guardia con tu boleta y entra a conocer a Nina.",
+  "musica_inicial": "street_loop",
+  "reglas_juego": {
+    "modal_reintento": {
+      "color": "naranja",
+      "opciones": 2
+    },
+    "tercer_error": "revelar_correcta_sin_puntos_y_a_repaso",
+    "texto_en_tercera_pulsacion": {
+      "puntos": 0.5
+    },
+    "estrellas": {
+      "3": {
+        "max_errores": 2
+      },
+      "2": {
+        "max_errores": 5
+      },
+      "1": {
+        "max_errores": 99
+      }
+    },
+    "monedas_por_turno_sin_error": 2
+  },
+  "escenas": [
+    {
+      "id": "calle",
+      "titulo": "Outside the concert",
+      "fondo": "calle_noche",
+      "musica": "street_loop",
+      "personajes": [
+        {
+          "id": "max",
+          "rol": "guia_inicial",
+          "auto": true,
+          "pista": {
+            "marca": "hank"
+          },
+          "ocupado": [
+            {
+              "quien": "max",
+              "texto": "Show your ticket to the guard, man!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "max",
+                "texto": "Bryan! Where were you? The concert has already started!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  32
+                ],
+                "opciones": [
+                  {
+                    "texto": "Sorry! Has Nina already started singing?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sorry! Has Nina yet started singing?"
+                  },
+                  {
+                    "texto": "Sorry! Has your dog already had dinner?"
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Yes. When I arrived, the first song had already started."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43
+                ],
+                "opciones": [
+                  {
+                    "texto": "Oh no! I had missed the bus, so I walked.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Oh no! I had miss the bus, so I walked."
+                  },
+                  {
+                    "texto": "Oh no! I had a sandwich, so I sang."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "I had been waiting for you at the door!",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  1
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Sorry! How long had you been waiting?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Sorry! How long had you been wait?"
+                  },
+                  {
+                    "texto": "Sorry! How long had you been swimming?"
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "For an hour!",
+                "refuerzo": true
+              },
+              {
+                "quien": "max",
+                "texto": "Where's your brother? He was coming too.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  15
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "He has gone home. He was tired.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "He has went home. He was tired."
+                  },
+                  {
+                    "texto": "He has gone to the moon. He was tired."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "And why are you so wet?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  38
+                ],
+                "opciones": [
+                  {
+                    "texto": "The weather is really bad tonight.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "The weather is really badly tonight."
+                  },
+                  {
+                    "texto": "The weather is really good tonight."
+                  }
+                ]
+              },
+              {
+                "quien": "max",
+                "texto": "Ha ha. Come on, show your ticket to the guard."
+              }
+            ]
+          }
+        },
+        {
+          "id": "hank",
+          "rol": "target",
+          "antes": {
+            "quien": "hank",
+            "texto": "One moment, please. Wait in line."
+          },
+          "dialogo": {
+            "requiere": "max_hablado",
+            "pasos": [
+              {
+                "quien": "hank",
+                "texto": "Good evening. Ticket, please."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  32
+                ],
+                "opciones": [
+                  {
+                    "texto": "Here it is. I've just found it in my bag.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Here it is. I've yet found it in my bag."
+                  },
+                  {
+                    "texto": "Here it is. I've just bought a cat."
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "Hmm, this ticket is very wet. Are you OK?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  38
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes. But I fell badly in the rain.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes. But I fell bad in the rain."
+                  },
+                  {
+                    "texto": "Yes. But I sang badly in the shower."
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "Oh no. You look tired, too."
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43
+                ],
+                "opciones": [
+                  {
+                    "texto": "I'm OK. I had run all the way here.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I'm OK. I had ran all the way here."
+                  },
+                  {
+                    "texto": "I'm OK. I had a long sleep here."
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "Why are you so late?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  49
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "Because of the rain. The buses were slow.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Because the rain. The buses were slow."
+                  },
+                  {
+                    "texto": "Because of my dog. The buses were slow."
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "Where's your friend Max? Is he inside?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  46
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "He must be inside. He has a ticket.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "He must is inside. He has a ticket."
+                  },
+                  {
+                    "texto": "He must be a bird. He has a ticket."
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "The show is almost over.",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  26
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "I still hope I can see one song!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "I hope still I can see one song!"
+                  },
+                  {
+                    "texto": "I still have one shoe!"
+                  }
+                ]
+              },
+              {
+                "quien": "hank",
+                "texto": "OK, go in. Enjoy the show!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "ir_escena": "concierto"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bella",
+          "rol": "decoy",
+          "ocupado": [
+            {
+              "quien": "bella",
+              "texto": "Let's go in, Bryan!"
+            }
+          ],
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "bella",
+                "texto": "Bryan! I came late too!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43
+                ],
+                "opciones": [
+                  {
+                    "texto": "Really? I thought you had gone in already.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Really? I thought you had went in already."
+                  },
+                  {
+                    "texto": "Really? I thought you had a blue car."
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "No! My taxi driver drove so badly!"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  38
+                ],
+                "opciones": [
+                  {
+                    "texto": "That's bad. Are you OK?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "That's badly. Are you OK?"
+                  },
+                  {
+                    "texto": "That's great. Did you eat?"
+                  }
+                ]
+              },
+              {
+                "quien": "bella",
+                "texto": "Yes, I'm fine. Let's go!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "bloquear": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "poster",
+          "svg": "poster",
+          "texto_ref": "poster"
+        },
+        {
+          "id": "street_lamp",
+          "svg": "street_lamp",
+          "texto_ref": "street_lamp"
+        },
+        {
+          "id": "ticket",
+          "svg": "ticket",
+          "texto_ref": "ticket"
+        },
+        {
+          "id": "door",
+          "svg": "door",
+          "texto_ref": "door"
+        }
+      ],
+      "luz_inicial": 0.6
+    },
+    {
+      "id": "concierto",
+      "titulo": "The concert",
+      "fondo": "concierto_noche",
+      "musica": "party_loop",
+      "personajes": [
+        {
+          "id": "nina",
+          "rol": "anfitrion",
+          "auto": true,
+          "dialogo": {
+            "pasos": [
+              {
+                "quien": "nina",
+                "texto": "Thank you, everybody! Did you like the show?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  38
+                ],
+                "opciones": [
+                  {
+                    "texto": "Yes! You sing really well. I sing badly!",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Yes! You sing really well. I sing bad!"
+                  },
+                  {
+                    "texto": "Yes! You sing really well. I cook in the car!"
+                  }
+                ]
+              },
+              {
+                "quien": "nina",
+                "texto": "Was the music too loud for you?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  27
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "No! It was very loud, but I loved it.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No! It was too loud, but I loved it."
+                  },
+                  {
+                    "texto": "No! It was very quiet, and I hated it."
+                  }
+                ]
+              },
+              {
+                "quien": "nina",
+                "texto": "Ha ha! When did you arrive?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  43
+                ],
+                "opciones": [
+                  {
+                    "texto": "Late. You had already played three songs.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "Late. You had already play three songs."
+                  },
+                  {
+                    "texto": "Late. You had already bought a car."
+                  }
+                ]
+              },
+              {
+                "quien": "nina",
+                "texto": "How long did you wait outside?",
+                "refuerzo": true
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  40
+                ],
+                "refuerzo": true,
+                "opciones": [
+                  {
+                    "texto": "For twenty minutes, during the first song.",
+                    "ok": true
+                  },
+                  {
+                    "texto": "During twenty minutes, for the first song."
+                  },
+                  {
+                    "texto": "For twenty dogs, during the first song."
+                  }
+                ]
+              },
+              {
+                "quien": "nina",
+                "texto": "Oh no! Have you heard my new song yet?"
+              },
+              {
+                "quien": "bryan",
+                "reglaIds": [
+                  32
+                ],
+                "opciones": [
+                  {
+                    "texto": "No, not yet. Can you sing it again?",
+                    "ok": true
+                  },
+                  {
+                    "texto": "No, not already. Can you sing it again?"
+                  },
+                  {
+                    "texto": "No, not yet. Can you cook it again?"
+                  }
+                ]
+              },
+              {
+                "quien": "nina",
+                "texto": "For you, yes! This one is called Night Rain!"
+              }
+            ],
+            "al_terminar": [
+              {
+                "fin_mision": true
+              }
+            ]
+          }
+        }
+      ],
+      "objetos": [
+        {
+          "id": "stage",
+          "svg": "stage",
+          "texto_ref": "stage"
+        },
+        {
+          "id": "microphone",
+          "svg": "microphone"
+        },
+        {
+          "id": "guitar",
+          "svg": "guitar",
+          "texto_ref": "guitar"
+        },
+        {
+          "id": "speaker",
+          "svg": "speaker",
+          "texto_ref": "speaker"
+        },
+        {
+          "id": "speaker2",
+          "svg": "speaker",
+          "texto_ref": "speaker"
+        }
+      ]
+    }
+  ]
+}
