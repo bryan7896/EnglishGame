@@ -1,0 +1,5242 @@
+[
+  {
+    "id": "ecaa00",
+    "item": "b06-t001",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "I'll hit",
+    "voz": "af_alloy",
+    "nameFile": "b06_ill-hit_ecaa00.mp3",
+    "sonido": "/l/",
+    "objetivo": "I'll",
+    "pares": [
+      "I'd hit",
+      "I've hit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t002",
+      "b06-t003"
+    ],
+    "distractores": [
+      "I'd hit",
+      "I've hit"
+    ]
+  },
+  {
+    "id": "9c796c",
+    "item": "b06-t002",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "I'd hit",
+    "voz": "am_onyx",
+    "nameFile": "b06_id-hit_9c796c.mp3",
+    "sonido": "/d/",
+    "objetivo": "I'd",
+    "pares": [
+      "I'll hit",
+      "I've hit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t001",
+      "b06-t003"
+    ],
+    "distractores": [
+      "I'll hit",
+      "I've hit"
+    ]
+  },
+  {
+    "id": "7e89d8",
+    "item": "b06-t003",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "I've hit",
+    "voz": "af_river",
+    "nameFile": "b06_ive-hit_7e89d8.mp3",
+    "sonido": "/v/",
+    "objetivo": "I've",
+    "pares": [
+      "I'll hit",
+      "I'd hit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t001",
+      "b06-t002"
+    ],
+    "distractores": [
+      "I'll hit",
+      "I'd hit"
+    ]
+  },
+  {
+    "id": "4e128c",
+    "item": "b06-t004",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "You'll put",
+    "voz": "am_puck",
+    "nameFile": "b06_youll-put_4e128c.mp3",
+    "sonido": "/l/",
+    "objetivo": "You'll",
+    "pares": [
+      "You'd put",
+      "You've put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t005",
+      "b06-t006"
+    ],
+    "distractores": [
+      "You'd put",
+      "You've put"
+    ]
+  },
+  {
+    "id": "245b03",
+    "item": "b06-t005",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "You'd put",
+    "voz": "af_sky",
+    "nameFile": "b06_youd-put_245b03.mp3",
+    "sonido": "/d/",
+    "objetivo": "You'd",
+    "pares": [
+      "You'll put",
+      "You've put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t004",
+      "b06-t006"
+    ],
+    "distractores": [
+      "You'll put",
+      "You've put"
+    ]
+  },
+  {
+    "id": "9e872b",
+    "item": "b06-t006",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "You've put",
+    "voz": "am_eric",
+    "nameFile": "b06_youve-put_9e872b.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "pares": [
+      "You'll put",
+      "You'd put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t004",
+      "b06-t005"
+    ],
+    "distractores": [
+      "You'll put",
+      "You'd put"
+    ]
+  },
+  {
+    "id": "7c627f",
+    "item": "b06-t007",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "You'll run",
+    "voz": "af_heart",
+    "nameFile": "b06_youll-run_7c627f.mp3",
+    "sonido": "/l/",
+    "objetivo": "You'll",
+    "pares": [
+      "You'd run",
+      "You've run"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t008",
+      "b06-t009"
+    ],
+    "distractores": [
+      "You'd run",
+      "You've run"
+    ]
+  },
+  {
+    "id": "baee8d",
+    "item": "b06-t008",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "You'd run",
+    "voz": "am_adam",
+    "nameFile": "b06_youd-run_baee8d.mp3",
+    "sonido": "/d/",
+    "objetivo": "You'd",
+    "pares": [
+      "You'll run",
+      "You've run"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t007",
+      "b06-t009"
+    ],
+    "distractores": [
+      "You'll run",
+      "You've run"
+    ]
+  },
+  {
+    "id": "37019c",
+    "item": "b06-t009",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "You've run",
+    "voz": "af_aoede",
+    "nameFile": "b06_youve-run_37019c.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "pares": [
+      "You'll run",
+      "You'd run"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t007",
+      "b06-t008"
+    ],
+    "distractores": [
+      "You'll run",
+      "You'd run"
+    ]
+  },
+  {
+    "id": "2b2a17",
+    "item": "b06-t010",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "They'll shut",
+    "voz": "am_liam",
+    "nameFile": "b06_theyll-shut_2b2a17.mp3",
+    "sonido": "/l/",
+    "objetivo": "They'll",
+    "pares": [
+      "They'd shut",
+      "They've shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t011",
+      "b06-t012"
+    ],
+    "distractores": [
+      "They'd shut",
+      "They've shut"
+    ]
+  },
+  {
+    "id": "39ca1b",
+    "item": "b06-t011",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "They'd shut",
+    "voz": "af_jessica",
+    "nameFile": "b06_theyd-shut_39ca1b.mp3",
+    "sonido": "/d/",
+    "objetivo": "They'd",
+    "pares": [
+      "They'll shut",
+      "They've shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t010",
+      "b06-t012"
+    ],
+    "distractores": [
+      "They'll shut",
+      "They've shut"
+    ]
+  },
+  {
+    "id": "7e4906",
+    "item": "b06-t012",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "They've shut",
+    "voz": "am_echo",
+    "nameFile": "b06_theyve-shut_7e4906.mp3",
+    "sonido": "/v/",
+    "objetivo": "They've",
+    "pares": [
+      "They'll shut",
+      "They'd shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t010",
+      "b06-t011"
+    ],
+    "distractores": [
+      "They'll shut",
+      "They'd shut"
+    ]
+  },
+  {
+    "id": "2398fb",
+    "item": "b06-t013",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "They'll bet",
+    "voz": "af_bella",
+    "nameFile": "b06_theyll-bet_2398fb.mp3",
+    "sonido": "/l/",
+    "objetivo": "They'll",
+    "pares": [
+      "They'd bet",
+      "They've bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t014",
+      "b06-t015"
+    ],
+    "distractores": [
+      "They'd bet",
+      "They've bet"
+    ]
+  },
+  {
+    "id": "b5f7f7",
+    "item": "b06-t014",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "They'd bet",
+    "voz": "am_liam",
+    "nameFile": "b06_theyd-bet_b5f7f7.mp3",
+    "sonido": "/d/",
+    "objetivo": "They'd",
+    "pares": [
+      "They'll bet",
+      "They've bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t013",
+      "b06-t015"
+    ],
+    "distractores": [
+      "They'll bet",
+      "They've bet"
+    ]
+  },
+  {
+    "id": "8a0741",
+    "item": "b06-t015",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "They've bet",
+    "voz": "af_nova",
+    "nameFile": "b06_theyve-bet_8a0741.mp3",
+    "sonido": "/v/",
+    "objetivo": "They've",
+    "pares": [
+      "They'll bet",
+      "They'd bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t013",
+      "b06-t014"
+    ],
+    "distractores": [
+      "They'll bet",
+      "They'd bet"
+    ]
+  },
+  {
+    "id": "8dcb83",
+    "item": "b06-t016",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "You'll hit",
+    "voz": "am_echo",
+    "nameFile": "b06_youll-hit_8dcb83.mp3",
+    "sonido": "/l/",
+    "objetivo": "You'll",
+    "pares": [
+      "You'd hit",
+      "You've hit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t017",
+      "b06-t018"
+    ],
+    "distractores": [
+      "You'd hit",
+      "You've hit"
+    ]
+  },
+  {
+    "id": "50281b",
+    "item": "b06-t017",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "You'd hit",
+    "voz": "af_kore",
+    "nameFile": "b06_youd-hit_50281b.mp3",
+    "sonido": "/d/",
+    "objetivo": "You'd",
+    "pares": [
+      "You'll hit",
+      "You've hit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t016",
+      "b06-t018"
+    ],
+    "distractores": [
+      "You'll hit",
+      "You've hit"
+    ]
+  },
+  {
+    "id": "7bd517",
+    "item": "b06-t018",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "You've hit",
+    "voz": "am_onyx",
+    "nameFile": "b06_youve-hit_7bd517.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "pares": [
+      "You'll hit",
+      "You'd hit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t016",
+      "b06-t017"
+    ],
+    "distractores": [
+      "You'll hit",
+      "You'd hit"
+    ]
+  },
+  {
+    "id": "39b4a0",
+    "item": "b06-t019",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "It'll cost",
+    "voz": "af_heart",
+    "nameFile": "b06_itll-cost_39b4a0.mp3",
+    "sonido": "/l/",
+    "objetivo": "It'll",
+    "pares": [
+      "It'd cost",
+      "It's cost"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t020",
+      "b06-t021"
+    ],
+    "distractores": [
+      "It'd cost",
+      "It's cost"
+    ]
+  },
+  {
+    "id": "5cd3dd",
+    "item": "b06-t020",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "It'd cost",
+    "voz": "am_eric",
+    "nameFile": "b06_itd-cost_5cd3dd.mp3",
+    "sonido": "/d/",
+    "objetivo": "It'd",
+    "pares": [
+      "It'll cost",
+      "It's cost"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t019",
+      "b06-t021"
+    ],
+    "distractores": [
+      "It'll cost",
+      "It's cost"
+    ]
+  },
+  {
+    "id": "eaed5d",
+    "item": "b06-t021",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "It's cost",
+    "voz": "af_nova",
+    "nameFile": "b06_its-cost_eaed5d.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "It's",
+    "pares": [
+      "It'll cost",
+      "It'd cost"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t019",
+      "b06-t020"
+    ],
+    "distractores": [
+      "It'll cost",
+      "It'd cost"
+    ]
+  },
+  {
+    "id": "63cf3d",
+    "item": "b06-t022",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "I'll cut",
+    "voz": "am_puck",
+    "nameFile": "b06_ill-cut_63cf3d.mp3",
+    "sonido": "/l/",
+    "objetivo": "I'll",
+    "pares": [
+      "I'd cut",
+      "I've cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t023",
+      "b06-t024"
+    ],
+    "distractores": [
+      "I'd cut",
+      "I've cut"
+    ]
+  },
+  {
+    "id": "3abf6d",
+    "item": "b06-t023",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "I'd cut",
+    "voz": "af_bella",
+    "nameFile": "b06_id-cut_3abf6d.mp3",
+    "sonido": "/d/",
+    "objetivo": "I'd",
+    "pares": [
+      "I'll cut",
+      "I've cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t022",
+      "b06-t024"
+    ],
+    "distractores": [
+      "I'll cut",
+      "I've cut"
+    ]
+  },
+  {
+    "id": "03991b",
+    "item": "b06-t024",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "I've cut",
+    "voz": "am_adam",
+    "nameFile": "b06_ive-cut_03991b.mp3",
+    "sonido": "/v/",
+    "objetivo": "I've",
+    "pares": [
+      "I'll cut",
+      "I'd cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t022",
+      "b06-t023"
+    ],
+    "distractores": [
+      "I'll cut",
+      "I'd cut"
+    ]
+  },
+  {
+    "id": "4ddbd0",
+    "item": "b06-t025",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "She'll become",
+    "voz": "af_kore",
+    "nameFile": "b06_shell-become_4ddbd0.mp3",
+    "sonido": "/l/",
+    "objetivo": "She'll",
+    "pares": [
+      "She'd become",
+      "She's become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t026",
+      "b06-t027"
+    ],
+    "distractores": [
+      "She'd become",
+      "She's become"
+    ]
+  },
+  {
+    "id": "75ce07",
+    "item": "b06-t026",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "She'd become",
+    "voz": "am_onyx",
+    "nameFile": "b06_shed-become_75ce07.mp3",
+    "sonido": "/d/",
+    "objetivo": "She'd",
+    "pares": [
+      "She'll become",
+      "She's become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t025",
+      "b06-t027"
+    ],
+    "distractores": [
+      "She'll become",
+      "She's become"
+    ]
+  },
+  {
+    "id": "82e72d",
+    "item": "b06-t027",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "She's become",
+    "voz": "af_jessica",
+    "nameFile": "b06_shes-become_82e72d.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "She's",
+    "pares": [
+      "She'll become",
+      "She'd become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t025",
+      "b06-t026"
+    ],
+    "distractores": [
+      "She'll become",
+      "She'd become"
+    ]
+  },
+  {
+    "id": "ac8648",
+    "item": "b06-t028",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "You'll come",
+    "voz": "am_eric",
+    "nameFile": "b06_youll-come_ac8648.mp3",
+    "sonido": "/l/",
+    "objetivo": "You'll",
+    "pares": [
+      "You'd come",
+      "You've come"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t029",
+      "b06-t030"
+    ],
+    "distractores": [
+      "You'd come",
+      "You've come"
+    ]
+  },
+  {
+    "id": "9e9185",
+    "item": "b06-t029",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "You'd come",
+    "voz": "af_aoede",
+    "nameFile": "b06_youd-come_9e9185.mp3",
+    "sonido": "/d/",
+    "objetivo": "You'd",
+    "pares": [
+      "You'll come",
+      "You've come"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t028",
+      "b06-t030"
+    ],
+    "distractores": [
+      "You'll come",
+      "You've come"
+    ]
+  },
+  {
+    "id": "00b271",
+    "item": "b06-t030",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "You've come",
+    "voz": "am_echo",
+    "nameFile": "b06_youve-come_00b271.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "pares": [
+      "You'll come",
+      "You'd come"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t028",
+      "b06-t029"
+    ],
+    "distractores": [
+      "You'll come",
+      "You'd come"
+    ]
+  },
+  {
+    "id": "3d50c3",
+    "item": "b06-t031",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "He'll become",
+    "voz": "af_alloy",
+    "nameFile": "b06_hell-become_3d50c3.mp3",
+    "sonido": "/l/",
+    "objetivo": "He'll",
+    "pares": [
+      "He'd become",
+      "He's become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t032",
+      "b06-t033"
+    ],
+    "distractores": [
+      "He'd become",
+      "He's become"
+    ]
+  },
+  {
+    "id": "439a27",
+    "item": "b06-t032",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "He'd become",
+    "voz": "am_adam",
+    "nameFile": "b06_hed-become_439a27.mp3",
+    "sonido": "/d/",
+    "objetivo": "He'd",
+    "pares": [
+      "He'll become",
+      "He's become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t031",
+      "b06-t033"
+    ],
+    "distractores": [
+      "He'll become",
+      "He's become"
+    ]
+  },
+  {
+    "id": "165277",
+    "item": "b06-t033",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "He's become",
+    "voz": "af_river",
+    "nameFile": "b06_hes-become_165277.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "He's",
+    "pares": [
+      "He'll become",
+      "He'd become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t031",
+      "b06-t032"
+    ],
+    "distractores": [
+      "He'll become",
+      "He'd become"
+    ]
+  },
+  {
+    "id": "2be76e",
+    "item": "b06-t034",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "They'll cut",
+    "voz": "am_liam",
+    "nameFile": "b06_theyll-cut_2be76e.mp3",
+    "sonido": "/l/",
+    "objetivo": "They'll",
+    "pares": [
+      "They'd cut",
+      "They've cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t035",
+      "b06-t036"
+    ],
+    "distractores": [
+      "They'd cut",
+      "They've cut"
+    ]
+  },
+  {
+    "id": "300b44",
+    "item": "b06-t035",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "They'd cut",
+    "voz": "af_sky",
+    "nameFile": "b06_theyd-cut_300b44.mp3",
+    "sonido": "/d/",
+    "objetivo": "They'd",
+    "pares": [
+      "They'll cut",
+      "They've cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t034",
+      "b06-t036"
+    ],
+    "distractores": [
+      "They'll cut",
+      "They've cut"
+    ]
+  },
+  {
+    "id": "89419b",
+    "item": "b06-t036",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "They've cut",
+    "voz": "am_puck",
+    "nameFile": "b06_theyve-cut_89419b.mp3",
+    "sonido": "/v/",
+    "objetivo": "They've",
+    "pares": [
+      "They'll cut",
+      "They'd cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t034",
+      "b06-t035"
+    ],
+    "distractores": [
+      "They'll cut",
+      "They'd cut"
+    ]
+  },
+  {
+    "id": "3b0ace",
+    "item": "b06-t037",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "You'll bet",
+    "voz": "af_kore",
+    "nameFile": "b06_youll-bet_3b0ace.mp3",
+    "sonido": "/l/",
+    "objetivo": "You'll",
+    "pares": [
+      "You'd bet",
+      "You've bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t038",
+      "b06-t039"
+    ],
+    "distractores": [
+      "You'd bet",
+      "You've bet"
+    ]
+  },
+  {
+    "id": "c21cdf",
+    "item": "b06-t038",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "You'd bet",
+    "voz": "am_echo",
+    "nameFile": "b06_youd-bet_c21cdf.mp3",
+    "sonido": "/d/",
+    "objetivo": "You'd",
+    "pares": [
+      "You'll bet",
+      "You've bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t037",
+      "b06-t039"
+    ],
+    "distractores": [
+      "You'll bet",
+      "You've bet"
+    ]
+  },
+  {
+    "id": "ab1a72",
+    "item": "b06-t039",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "You've bet",
+    "voz": "af_river",
+    "nameFile": "b06_youve-bet_ab1a72.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "pares": [
+      "You'll bet",
+      "You'd bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t037",
+      "b06-t038"
+    ],
+    "distractores": [
+      "You'll bet",
+      "You'd bet"
+    ]
+  },
+  {
+    "id": "d70fe0",
+    "item": "b06-t040",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "I'll set",
+    "voz": "am_adam",
+    "nameFile": "b06_ill-set_d70fe0.mp3",
+    "sonido": "/l/",
+    "objetivo": "I'll",
+    "pares": [
+      "I'd set",
+      "I've set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t041",
+      "b06-t042"
+    ],
+    "distractores": [
+      "I'd set",
+      "I've set"
+    ]
+  },
+  {
+    "id": "07b0fe",
+    "item": "b06-t041",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "I'd set",
+    "voz": "af_nova",
+    "nameFile": "b06_id-set_07b0fe.mp3",
+    "sonido": "/d/",
+    "objetivo": "I'd",
+    "pares": [
+      "I'll set",
+      "I've set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t040",
+      "b06-t042"
+    ],
+    "distractores": [
+      "I'll set",
+      "I've set"
+    ]
+  },
+  {
+    "id": "3b2426",
+    "item": "b06-t042",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "I've set",
+    "voz": "am_puck",
+    "nameFile": "b06_ive-set_3b2426.mp3",
+    "sonido": "/v/",
+    "objetivo": "I've",
+    "pares": [
+      "I'll set",
+      "I'd set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t040",
+      "b06-t041"
+    ],
+    "distractores": [
+      "I'll set",
+      "I'd set"
+    ]
+  },
+  {
+    "id": "4f28f0",
+    "item": "b06-t043",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "He'll bet",
+    "voz": "af_sky",
+    "nameFile": "b06_hell-bet_4f28f0.mp3",
+    "sonido": "/l/",
+    "objetivo": "He'll",
+    "pares": [
+      "He'd bet",
+      "He's bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t044",
+      "b06-t045"
+    ],
+    "distractores": [
+      "He'd bet",
+      "He's bet"
+    ]
+  },
+  {
+    "id": "a6f36a",
+    "item": "b06-t044",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "He'd bet",
+    "voz": "am_eric",
+    "nameFile": "b06_hed-bet_a6f36a.mp3",
+    "sonido": "/d/",
+    "objetivo": "He'd",
+    "pares": [
+      "He'll bet",
+      "He's bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t043",
+      "b06-t045"
+    ],
+    "distractores": [
+      "He'll bet",
+      "He's bet"
+    ]
+  },
+  {
+    "id": "57e32a",
+    "item": "b06-t045",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "He's bet",
+    "voz": "af_aoede",
+    "nameFile": "b06_hes-bet_57e32a.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "He's",
+    "pares": [
+      "He'll bet",
+      "He'd bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t043",
+      "b06-t044"
+    ],
+    "distractores": [
+      "He'll bet",
+      "He'd bet"
+    ]
+  },
+  {
+    "id": "509b77",
+    "item": "b06-t046",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "We'll come",
+    "voz": "am_liam",
+    "nameFile": "b06_well-come_509b77.mp3",
+    "sonido": "/l/",
+    "objetivo": "We'll",
+    "pares": [
+      "We'd come",
+      "We've come"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t047",
+      "b06-t048"
+    ],
+    "distractores": [
+      "We'd come",
+      "We've come"
+    ]
+  },
+  {
+    "id": "345ec0",
+    "item": "b06-t047",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "We'd come",
+    "voz": "af_bella",
+    "nameFile": "b06_wed-come_345ec0.mp3",
+    "sonido": "/d/",
+    "objetivo": "We'd",
+    "pares": [
+      "We'll come",
+      "We've come"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t046",
+      "b06-t048"
+    ],
+    "distractores": [
+      "We'll come",
+      "We've come"
+    ]
+  },
+  {
+    "id": "65b623",
+    "item": "b06-t048",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "We've come",
+    "voz": "am_onyx",
+    "nameFile": "b06_weve-come_65b623.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "pares": [
+      "We'll come",
+      "We'd come"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t046",
+      "b06-t047"
+    ],
+    "distractores": [
+      "We'll come",
+      "We'd come"
+    ]
+  },
+  {
+    "id": "ecec6a",
+    "item": "b06-t049",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "We'll cut",
+    "voz": "af_alloy",
+    "nameFile": "b06_well-cut_ecec6a.mp3",
+    "sonido": "/l/",
+    "objetivo": "We'll",
+    "pares": [
+      "We'd cut",
+      "We've cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t050",
+      "b06-t051"
+    ],
+    "distractores": [
+      "We'd cut",
+      "We've cut"
+    ]
+  },
+  {
+    "id": "a1dfeb",
+    "item": "b06-t050",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "We'd cut",
+    "voz": "am_eric",
+    "nameFile": "b06_wed-cut_a1dfeb.mp3",
+    "sonido": "/d/",
+    "objetivo": "We'd",
+    "pares": [
+      "We'll cut",
+      "We've cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t049",
+      "b06-t051"
+    ],
+    "distractores": [
+      "We'll cut",
+      "We've cut"
+    ]
+  },
+  {
+    "id": "40a3d5",
+    "item": "b06-t051",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "We've cut",
+    "voz": "af_jessica",
+    "nameFile": "b06_weve-cut_40a3d5.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "pares": [
+      "We'll cut",
+      "We'd cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t049",
+      "b06-t050"
+    ],
+    "distractores": [
+      "We'll cut",
+      "We'd cut"
+    ]
+  },
+  {
+    "id": "9bb8cc",
+    "item": "b06-t052",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "He'll let",
+    "voz": "am_adam",
+    "nameFile": "b06_hell-let_9bb8cc.mp3",
+    "sonido": "/l/",
+    "objetivo": "He'll",
+    "pares": [
+      "He'd let",
+      "He's let"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t053",
+      "b06-t054"
+    ],
+    "distractores": [
+      "He'd let",
+      "He's let"
+    ]
+  },
+  {
+    "id": "29a79b",
+    "item": "b06-t053",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "He'd let",
+    "voz": "af_heart",
+    "nameFile": "b06_hed-let_29a79b.mp3",
+    "sonido": "/d/",
+    "objetivo": "He'd",
+    "pares": [
+      "He'll let",
+      "He's let"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t052",
+      "b06-t054"
+    ],
+    "distractores": [
+      "He'll let",
+      "He's let"
+    ]
+  },
+  {
+    "id": "15b0da",
+    "item": "b06-t054",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "He's let",
+    "voz": "am_liam",
+    "nameFile": "b06_hes-let_15b0da.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "He's",
+    "pares": [
+      "He'll let",
+      "He'd let"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t052",
+      "b06-t053"
+    ],
+    "distractores": [
+      "He'll let",
+      "He'd let"
+    ]
+  },
+  {
+    "id": "200491",
+    "item": "b06-t055",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "You'll cut",
+    "voz": "af_alloy",
+    "nameFile": "b06_youll-cut_200491.mp3",
+    "sonido": "/l/",
+    "objetivo": "You'll",
+    "pares": [
+      "You'd cut",
+      "You've cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t056",
+      "b06-t057"
+    ],
+    "distractores": [
+      "You'd cut",
+      "You've cut"
+    ]
+  },
+  {
+    "id": "af8ef2",
+    "item": "b06-t056",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "You'd cut",
+    "voz": "am_onyx",
+    "nameFile": "b06_youd-cut_af8ef2.mp3",
+    "sonido": "/d/",
+    "objetivo": "You'd",
+    "pares": [
+      "You'll cut",
+      "You've cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t055",
+      "b06-t057"
+    ],
+    "distractores": [
+      "You'll cut",
+      "You've cut"
+    ]
+  },
+  {
+    "id": "48edef",
+    "item": "b06-t057",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "You've cut",
+    "voz": "af_bella",
+    "nameFile": "b06_youve-cut_48edef.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "pares": [
+      "You'll cut",
+      "You'd cut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t055",
+      "b06-t056"
+    ],
+    "distractores": [
+      "You'll cut",
+      "You'd cut"
+    ]
+  },
+  {
+    "id": "2edad0",
+    "item": "b06-t058",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "We'll bet",
+    "voz": "am_puck",
+    "nameFile": "b06_well-bet_2edad0.mp3",
+    "sonido": "/l/",
+    "objetivo": "We'll",
+    "pares": [
+      "We'd bet",
+      "We've bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t059",
+      "b06-t060"
+    ],
+    "distractores": [
+      "We'd bet",
+      "We've bet"
+    ]
+  },
+  {
+    "id": "0132bb",
+    "item": "b06-t059",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "We'd bet",
+    "voz": "af_nova",
+    "nameFile": "b06_wed-bet_0132bb.mp3",
+    "sonido": "/d/",
+    "objetivo": "We'd",
+    "pares": [
+      "We'll bet",
+      "We've bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t058",
+      "b06-t060"
+    ],
+    "distractores": [
+      "We'll bet",
+      "We've bet"
+    ]
+  },
+  {
+    "id": "af7231",
+    "item": "b06-t060",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "We've bet",
+    "voz": "am_echo",
+    "nameFile": "b06_weve-bet_af7231.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "pares": [
+      "We'll bet",
+      "We'd bet"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t058",
+      "b06-t059"
+    ],
+    "distractores": [
+      "We'll bet",
+      "We'd bet"
+    ]
+  },
+  {
+    "id": "fc9153",
+    "item": "b06-t061",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "They'll put",
+    "voz": "af_sky",
+    "nameFile": "b06_theyll-put_fc9153.mp3",
+    "sonido": "/l/",
+    "objetivo": "They'll",
+    "pares": [
+      "They'd put",
+      "They've put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t062",
+      "b06-t063"
+    ],
+    "distractores": [
+      "They'd put",
+      "They've put"
+    ]
+  },
+  {
+    "id": "ad56aa",
+    "item": "b06-t062",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "They'd put",
+    "voz": "am_adam",
+    "nameFile": "b06_theyd-put_ad56aa.mp3",
+    "sonido": "/d/",
+    "objetivo": "They'd",
+    "pares": [
+      "They'll put",
+      "They've put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t061",
+      "b06-t063"
+    ],
+    "distractores": [
+      "They'll put",
+      "They've put"
+    ]
+  },
+  {
+    "id": "6437e6",
+    "item": "b06-t063",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "They've put",
+    "voz": "af_kore",
+    "nameFile": "b06_theyve-put_6437e6.mp3",
+    "sonido": "/v/",
+    "objetivo": "They've",
+    "pares": [
+      "They'll put",
+      "They'd put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t061",
+      "b06-t062"
+    ],
+    "distractores": [
+      "They'll put",
+      "They'd put"
+    ]
+  },
+  {
+    "id": "f6b5f0",
+    "item": "b06-t064",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "We'll become",
+    "voz": "am_echo",
+    "nameFile": "b06_well-become_f6b5f0.mp3",
+    "sonido": "/l/",
+    "objetivo": "We'll",
+    "pares": [
+      "We'd become",
+      "We've become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t065",
+      "b06-t066"
+    ],
+    "distractores": [
+      "We'd become",
+      "We've become"
+    ]
+  },
+  {
+    "id": "73708a",
+    "item": "b06-t065",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "We'd become",
+    "voz": "af_aoede",
+    "nameFile": "b06_wed-become_73708a.mp3",
+    "sonido": "/d/",
+    "objetivo": "We'd",
+    "pares": [
+      "We'll become",
+      "We've become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t064",
+      "b06-t066"
+    ],
+    "distractores": [
+      "We'll become",
+      "We've become"
+    ]
+  },
+  {
+    "id": "943048",
+    "item": "b06-t066",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "We've become",
+    "voz": "am_onyx",
+    "nameFile": "b06_weve-become_943048.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "pares": [
+      "We'll become",
+      "We'd become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t064",
+      "b06-t065"
+    ],
+    "distractores": [
+      "We'll become",
+      "We'd become"
+    ]
+  },
+  {
+    "id": "dfc42b",
+    "item": "b06-t067",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "I'll come",
+    "voz": "af_jessica",
+    "nameFile": "b06_ill-come_dfc42b.mp3",
+    "sonido": "/l/",
+    "objetivo": "I'll",
+    "pares": [
+      "I'd come",
+      "I've come"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t068",
+      "b06-t069"
+    ],
+    "distractores": [
+      "I'd come",
+      "I've come"
+    ]
+  },
+  {
+    "id": "bccbb6",
+    "item": "b06-t068",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "I'd come",
+    "voz": "am_eric",
+    "nameFile": "b06_id-come_bccbb6.mp3",
+    "sonido": "/d/",
+    "objetivo": "I'd",
+    "pares": [
+      "I'll come",
+      "I've come"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t067",
+      "b06-t069"
+    ],
+    "distractores": [
+      "I'll come",
+      "I've come"
+    ]
+  },
+  {
+    "id": "6ba10e",
+    "item": "b06-t069",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "I've come",
+    "voz": "af_river",
+    "nameFile": "b06_ive-come_6ba10e.mp3",
+    "sonido": "/v/",
+    "objetivo": "I've",
+    "pares": [
+      "I'll come",
+      "I'd come"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t067",
+      "b06-t068"
+    ],
+    "distractores": [
+      "I'll come",
+      "I'd come"
+    ]
+  },
+  {
+    "id": "cffcb5",
+    "item": "b06-t070",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "We'll set",
+    "voz": "am_puck",
+    "nameFile": "b06_well-set_cffcb5.mp3",
+    "sonido": "/l/",
+    "objetivo": "We'll",
+    "pares": [
+      "We'd set",
+      "We've set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t071",
+      "b06-t072"
+    ],
+    "distractores": [
+      "We'd set",
+      "We've set"
+    ]
+  },
+  {
+    "id": "5e138c",
+    "item": "b06-t071",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "We'd set",
+    "voz": "af_heart",
+    "nameFile": "b06_wed-set_5e138c.mp3",
+    "sonido": "/d/",
+    "objetivo": "We'd",
+    "pares": [
+      "We'll set",
+      "We've set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t070",
+      "b06-t072"
+    ],
+    "distractores": [
+      "We'll set",
+      "We've set"
+    ]
+  },
+  {
+    "id": "228045",
+    "item": "b06-t072",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "We've set",
+    "voz": "am_liam",
+    "nameFile": "b06_weve-set_228045.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "pares": [
+      "We'll set",
+      "We'd set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t070",
+      "b06-t071"
+    ],
+    "distractores": [
+      "We'll set",
+      "We'd set"
+    ]
+  },
+  {
+    "id": "fa855a",
+    "item": "b06-t073",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "He'll set",
+    "voz": "af_bella",
+    "nameFile": "b06_hell-set_fa855a.mp3",
+    "sonido": "/l/",
+    "objetivo": "He'll",
+    "pares": [
+      "He'd set",
+      "He's set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t074",
+      "b06-t075"
+    ],
+    "distractores": [
+      "He'd set",
+      "He's set"
+    ]
+  },
+  {
+    "id": "795198",
+    "item": "b06-t074",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "He'd set",
+    "voz": "am_echo",
+    "nameFile": "b06_hed-set_795198.mp3",
+    "sonido": "/d/",
+    "objetivo": "He'd",
+    "pares": [
+      "He'll set",
+      "He's set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t073",
+      "b06-t075"
+    ],
+    "distractores": [
+      "He'll set",
+      "He's set"
+    ]
+  },
+  {
+    "id": "6f59e2",
+    "item": "b06-t075",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "He's set",
+    "voz": "af_kore",
+    "nameFile": "b06_hes-set_6f59e2.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "He's",
+    "pares": [
+      "He'll set",
+      "He'd set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t073",
+      "b06-t074"
+    ],
+    "distractores": [
+      "He'll set",
+      "He'd set"
+    ]
+  },
+  {
+    "id": "649183",
+    "item": "b06-t076",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "They'll hit",
+    "voz": "am_puck",
+    "nameFile": "b06_theyll-hit_649183.mp3",
+    "sonido": "/l/",
+    "objetivo": "They'll",
+    "pares": [
+      "They'd hit",
+      "They've hit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t077",
+      "b06-t078"
+    ],
+    "distractores": [
+      "They'd hit",
+      "They've hit"
+    ]
+  },
+  {
+    "id": "1531f5",
+    "item": "b06-t077",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "They'd hit",
+    "voz": "af_nova",
+    "nameFile": "b06_theyd-hit_1531f5.mp3",
+    "sonido": "/d/",
+    "objetivo": "They'd",
+    "pares": [
+      "They'll hit",
+      "They've hit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t076",
+      "b06-t078"
+    ],
+    "distractores": [
+      "They'll hit",
+      "They've hit"
+    ]
+  },
+  {
+    "id": "df95c2",
+    "item": "b06-t078",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "They've hit",
+    "voz": "am_liam",
+    "nameFile": "b06_theyve-hit_df95c2.mp3",
+    "sonido": "/v/",
+    "objetivo": "They've",
+    "pares": [
+      "They'll hit",
+      "They'd hit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t076",
+      "b06-t077"
+    ],
+    "distractores": [
+      "They'll hit",
+      "They'd hit"
+    ]
+  },
+  {
+    "id": "3cea23",
+    "item": "b06-t079",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "I'll quit",
+    "voz": "af_heart",
+    "nameFile": "b06_ill-quit_3cea23.mp3",
+    "sonido": "/l/",
+    "objetivo": "I'll",
+    "pares": [
+      "I'd quit",
+      "I've quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t080",
+      "b06-t081"
+    ],
+    "distractores": [
+      "I'd quit",
+      "I've quit"
+    ]
+  },
+  {
+    "id": "3f27d5",
+    "item": "b06-t080",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "I'd quit",
+    "voz": "am_onyx",
+    "nameFile": "b06_id-quit_3f27d5.mp3",
+    "sonido": "/d/",
+    "objetivo": "I'd",
+    "pares": [
+      "I'll quit",
+      "I've quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t079",
+      "b06-t081"
+    ],
+    "distractores": [
+      "I'll quit",
+      "I've quit"
+    ]
+  },
+  {
+    "id": "3a1749",
+    "item": "b06-t081",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "I've quit",
+    "voz": "af_river",
+    "nameFile": "b06_ive-quit_3a1749.mp3",
+    "sonido": "/v/",
+    "objetivo": "I've",
+    "pares": [
+      "I'll quit",
+      "I'd quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t079",
+      "b06-t080"
+    ],
+    "distractores": [
+      "I'll quit",
+      "I'd quit"
+    ]
+  },
+  {
+    "id": "e79cd0",
+    "item": "b06-t082",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "I'll put",
+    "voz": "am_adam",
+    "nameFile": "b06_ill-put_e79cd0.mp3",
+    "sonido": "/l/",
+    "objetivo": "I'll",
+    "pares": [
+      "I'd put",
+      "I've put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t083",
+      "b06-t084"
+    ],
+    "distractores": [
+      "I'd put",
+      "I've put"
+    ]
+  },
+  {
+    "id": "dbf2a8",
+    "item": "b06-t083",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "I'd put",
+    "voz": "af_alloy",
+    "nameFile": "b06_id-put_dbf2a8.mp3",
+    "sonido": "/d/",
+    "objetivo": "I'd",
+    "pares": [
+      "I'll put",
+      "I've put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t082",
+      "b06-t084"
+    ],
+    "distractores": [
+      "I'll put",
+      "I've put"
+    ]
+  },
+  {
+    "id": "d1cf06",
+    "item": "b06-t084",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "I've put",
+    "voz": "am_eric",
+    "nameFile": "b06_ive-put_d1cf06.mp3",
+    "sonido": "/v/",
+    "objetivo": "I've",
+    "pares": [
+      "I'll put",
+      "I'd put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t082",
+      "b06-t083"
+    ],
+    "distractores": [
+      "I'll put",
+      "I'd put"
+    ]
+  },
+  {
+    "id": "1382f3",
+    "item": "b06-t085",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "We'll run",
+    "voz": "af_sky",
+    "nameFile": "b06_well-run_1382f3.mp3",
+    "sonido": "/l/",
+    "objetivo": "We'll",
+    "pares": [
+      "We'd run",
+      "We've run"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t086",
+      "b06-t087"
+    ],
+    "distractores": [
+      "We'd run",
+      "We've run"
+    ]
+  },
+  {
+    "id": "e21b5f",
+    "item": "b06-t086",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "We'd run",
+    "voz": "am_onyx",
+    "nameFile": "b06_wed-run_e21b5f.mp3",
+    "sonido": "/d/",
+    "objetivo": "We'd",
+    "pares": [
+      "We'll run",
+      "We've run"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t085",
+      "b06-t087"
+    ],
+    "distractores": [
+      "We'll run",
+      "We've run"
+    ]
+  },
+  {
+    "id": "f65ba0",
+    "item": "b06-t087",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "We've run",
+    "voz": "af_jessica",
+    "nameFile": "b06_weve-run_f65ba0.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "pares": [
+      "We'll run",
+      "We'd run"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t085",
+      "b06-t086"
+    ],
+    "distractores": [
+      "We'll run",
+      "We'd run"
+    ]
+  },
+  {
+    "id": "7eef06",
+    "item": "b06-t088",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ll",
+    "audio": "We'll shut",
+    "voz": "am_echo",
+    "nameFile": "b06_well-shut_7eef06.mp3",
+    "sonido": "/l/",
+    "objetivo": "We'll",
+    "pares": [
+      "We'd shut",
+      "We've shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t089",
+      "b06-t090"
+    ],
+    "distractores": [
+      "We'd shut",
+      "We've shut"
+    ]
+  },
+  {
+    "id": "528655",
+    "item": "b06-t089",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_d",
+    "audio": "We'd shut",
+    "voz": "af_aoede",
+    "nameFile": "b06_wed-shut_528655.mp3",
+    "sonido": "/d/",
+    "objetivo": "We'd",
+    "pares": [
+      "We'll shut",
+      "We've shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t088",
+      "b06-t090"
+    ],
+    "distractores": [
+      "We'll shut",
+      "We've shut"
+    ]
+  },
+  {
+    "id": "b7faf0",
+    "item": "b06-t090",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "We've shut",
+    "voz": "am_adam",
+    "nameFile": "b06_weve-shut_b7faf0.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "pares": [
+      "We'll shut",
+      "We'd shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-t088",
+      "b06-t089"
+    ],
+    "distractores": [
+      "We'll shut",
+      "We'd shut"
+    ]
+  },
+  {
+    "id": "6c7278",
+    "item": "b06-t091",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "You've done",
+    "voz": "af_heart",
+    "nameFile": "b06_youve-done_6c7278.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "n_palabras": 2
+  },
+  {
+    "id": "4cab72",
+    "item": "b06-t092",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "You've seen",
+    "voz": "am_eric",
+    "nameFile": "b06_youve-seen_4cab72.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "n_palabras": 2
+  },
+  {
+    "id": "9cb53d",
+    "item": "b06-t093",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "They've left",
+    "voz": "af_jessica",
+    "nameFile": "b06_theyve-left_9cb53d.mp3",
+    "sonido": "/v/",
+    "objetivo": "They've",
+    "n_palabras": 2
+  },
+  {
+    "id": "dcb1d3",
+    "item": "b06-t094",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "They've won",
+    "voz": "am_puck",
+    "nameFile": "b06_theyve-won_dcb1d3.mp3",
+    "sonido": "/v/",
+    "objetivo": "They've",
+    "n_palabras": 2
+  },
+  {
+    "id": "f6d0e2",
+    "item": "b06-t095",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "I've known",
+    "voz": "af_aoede",
+    "nameFile": "b06_ive-known_f6d0e2.mp3",
+    "sonido": "/v/",
+    "objetivo": "I've",
+    "n_palabras": 2
+  },
+  {
+    "id": "0a6b28",
+    "item": "b06-t096",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_ve",
+    "audio": "We've found",
+    "voz": "am_liam",
+    "nameFile": "b06_weve-found_0a6b28.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "n_palabras": 2
+  },
+  {
+    "id": "06fa8d",
+    "item": "b06-t097",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "That's fine",
+    "voz": "af_kore",
+    "nameFile": "b06_thats-fine_06fa8d.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "That's",
+    "n_palabras": 2
+  },
+  {
+    "id": "b98abf",
+    "item": "b06-t098",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "She's here",
+    "voz": "am_liam",
+    "nameFile": "b06_shes-here_b98abf.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "She's",
+    "n_palabras": 2
+  },
+  {
+    "id": "c12871",
+    "item": "b06-t099",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "She's coming",
+    "voz": "af_alloy",
+    "nameFile": "b06_shes-coming_c12871.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "She's",
+    "n_palabras": 2
+  },
+  {
+    "id": "04f45c",
+    "item": "b06-t100",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "What's wrong",
+    "voz": "am_eric",
+    "nameFile": "b06_whats-wrong_04f45c.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "What's",
+    "n_palabras": 2
+  },
+  {
+    "id": "802d05",
+    "item": "b06-t101",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "He's gone",
+    "voz": "af_bella",
+    "nameFile": "b06_hes-gone_802d05.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "He's",
+    "n_palabras": 2
+  },
+  {
+    "id": "0ac3e1",
+    "item": "b06-t102",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_s",
+    "audio": "Who's there",
+    "voz": "am_adam",
+    "nameFile": "b06_whos-there_0ac3e1.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "Who's",
+    "n_palabras": 2
+  },
+  {
+    "id": "0c75ab",
+    "item": "b06-t103",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "They're late",
+    "voz": "af_nova",
+    "nameFile": "b06_theyre-late_0c75ab.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "79850e",
+    "item": "b06-t104",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "We're sure",
+    "voz": "am_onyx",
+    "nameFile": "b06_were-sure_79850e.mp3",
+    "sonido": "/ər/",
+    "objetivo": "We're",
+    "n_palabras": 2
+  },
+  {
+    "id": "459bbc",
+    "item": "b06-t105",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "You're here",
+    "voz": "af_river",
+    "nameFile": "b06_youre-here_459bbc.mp3",
+    "sonido": "/ər/",
+    "objetivo": "You're",
+    "n_palabras": 2
+  },
+  {
+    "id": "0f6f5b",
+    "item": "b06-t106",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "You're going",
+    "voz": "am_echo",
+    "nameFile": "b06_youre-going_0f6f5b.mp3",
+    "sonido": "/ər/",
+    "objetivo": "You're",
+    "n_palabras": 2
+  },
+  {
+    "id": "dbbcf3",
+    "item": "b06-t107",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "You're coming",
+    "voz": "af_sky",
+    "nameFile": "b06_youre-coming_dbbcf3.mp3",
+    "sonido": "/ər/",
+    "objetivo": "You're",
+    "n_palabras": 2
+  },
+  {
+    "id": "f98f82",
+    "item": "b06-t108",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "We're fine",
+    "voz": "am_puck",
+    "nameFile": "b06_were-fine_f98f82.mp3",
+    "sonido": "/ər/",
+    "objetivo": "We're",
+    "n_palabras": 2
+  },
+  {
+    "id": "976192",
+    "item": "b06-t109",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "We're late",
+    "voz": "af_kore",
+    "nameFile": "b06_were-late_976192.mp3",
+    "sonido": "/ər/",
+    "objetivo": "We're",
+    "n_palabras": 2
+  },
+  {
+    "id": "c00a86",
+    "item": "b06-t110",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "They're ready",
+    "voz": "am_liam",
+    "nameFile": "b06_theyre-ready_c00a86.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "7d1533",
+    "item": "b06-t111",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "They're kidding",
+    "voz": "af_nova",
+    "nameFile": "b06_theyre-kidding_7d1533.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "b7fc47",
+    "item": "b06-t112",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "You're wrong",
+    "voz": "am_echo",
+    "nameFile": "b06_youre-wrong_b7fc47.mp3",
+    "sonido": "/ər/",
+    "objetivo": "You're",
+    "n_palabras": 2
+  },
+  {
+    "id": "0e8439",
+    "item": "b06-t113",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "They're going",
+    "voz": "af_river",
+    "nameFile": "b06_theyre-going_0e8439.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "83e753",
+    "item": "b06-t114",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "You're right",
+    "voz": "am_onyx",
+    "nameFile": "b06_youre-right_83e753.mp3",
+    "sonido": "/ər/",
+    "objetivo": "You're",
+    "n_palabras": 2
+  },
+  {
+    "id": "f9ecf5",
+    "item": "b06-t115",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "You're leaving",
+    "voz": "af_alloy",
+    "nameFile": "b06_youre-leaving_f9ecf5.mp3",
+    "sonido": "/ər/",
+    "objetivo": "You're",
+    "n_palabras": 2
+  },
+  {
+    "id": "694825",
+    "item": "b06-t116",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "They're coming",
+    "voz": "am_eric",
+    "nameFile": "b06_theyre-coming_694825.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "5675dd",
+    "item": "b06-t117",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "They're leaving",
+    "voz": "af_heart",
+    "nameFile": "b06_theyre-leaving_5675dd.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "9f40f8",
+    "item": "b06-t118",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "You're waiting",
+    "voz": "am_puck",
+    "nameFile": "b06_youre-waiting_9f40f8.mp3",
+    "sonido": "/ər/",
+    "objetivo": "You're",
+    "n_palabras": 2
+  },
+  {
+    "id": "ceb44d",
+    "item": "b06-t119",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "You're ready",
+    "voz": "af_jessica",
+    "nameFile": "b06_youre-ready_ceb44d.mp3",
+    "sonido": "/ər/",
+    "objetivo": "You're",
+    "n_palabras": 2
+  },
+  {
+    "id": "367dfa",
+    "item": "b06-t120",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "We're back",
+    "voz": "am_adam",
+    "nameFile": "b06_were-back_367dfa.mp3",
+    "sonido": "/ər/",
+    "objetivo": "We're",
+    "n_palabras": 2
+  },
+  {
+    "id": "36b696",
+    "item": "b06-t121",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "They're back",
+    "voz": "af_aoede",
+    "nameFile": "b06_theyre-back_36b696.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "873c87",
+    "item": "b06-t122",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_re",
+    "audio": "You're sure",
+    "voz": "am_liam",
+    "nameFile": "b06_youre-sure_873c87.mp3",
+    "sonido": "/ər/",
+    "objetivo": "You're",
+    "n_palabras": 2
+  },
+  {
+    "id": "c0cd08",
+    "item": "b06-t123",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_m",
+    "audio": "I'm back",
+    "voz": "af_bella",
+    "nameFile": "b06_im-back_c0cd08.mp3",
+    "sonido": "/m/",
+    "objetivo": "I'm",
+    "n_palabras": 2
+  },
+  {
+    "id": "75a382",
+    "item": "b06-t124",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_m",
+    "audio": "I'm coming",
+    "voz": "am_onyx",
+    "nameFile": "b06_im-coming_75a382.mp3",
+    "sonido": "/m/",
+    "objetivo": "I'm",
+    "n_palabras": 2
+  },
+  {
+    "id": "2f261f",
+    "item": "b06-t125",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_m",
+    "audio": "I'm fine",
+    "voz": "af_sky",
+    "nameFile": "b06_im-fine_2f261f.mp3",
+    "sonido": "/m/",
+    "objetivo": "I'm",
+    "n_palabras": 2
+  },
+  {
+    "id": "c3b1d9",
+    "item": "b06-t126",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_m",
+    "audio": "I'm sure",
+    "voz": "am_echo",
+    "nameFile": "b06_im-sure_c3b1d9.mp3",
+    "sonido": "/m/",
+    "objetivo": "I'm",
+    "n_palabras": 2
+  },
+  {
+    "id": "7aa8c0",
+    "item": "b06-t127",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_m",
+    "audio": "I'm sorry",
+    "voz": "af_kore",
+    "nameFile": "b06_im-sorry_7aa8c0.mp3",
+    "sonido": "/m/",
+    "objetivo": "I'm",
+    "n_palabras": 2
+  },
+  {
+    "id": "a6c905",
+    "item": "b06-t128",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_m",
+    "audio": "I'm late",
+    "voz": "am_puck",
+    "nameFile": "b06_im-late_a6c905.mp3",
+    "sonido": "/m/",
+    "objetivo": "I'm",
+    "n_palabras": 2
+  },
+  {
+    "id": "f184bb",
+    "item": "b06-t129",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Doesn't help",
+    "voz": "af_sky",
+    "nameFile": "b06_doesnt-help_f184bb.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Doesn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "cbbfa8",
+    "item": "b06-t130",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Haven't seen",
+    "voz": "am_eric",
+    "nameFile": "b06_havent-seen_cbbfa8.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Haven't",
+    "n_palabras": 2
+  },
+  {
+    "id": "a5990a",
+    "item": "b06-t131",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Haven't eaten",
+    "voz": "af_nova",
+    "nameFile": "b06_havent-eaten_a5990a.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Haven't",
+    "n_palabras": 2
+  },
+  {
+    "id": "21f6a5",
+    "item": "b06-t132",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Won't stop",
+    "voz": "am_adam",
+    "nameFile": "b06_wont-stop_21f6a5.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Won't",
+    "n_palabras": 2
+  },
+  {
+    "id": "03265e",
+    "item": "b06-t133",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Won't go",
+    "voz": "af_jessica",
+    "nameFile": "b06_wont-go_03265e.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Won't",
+    "n_palabras": 2
+  },
+  {
+    "id": "b0b761",
+    "item": "b06-t134",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Wouldn't know",
+    "voz": "am_liam",
+    "nameFile": "b06_wouldnt-know_b0b761.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Wouldn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "66b0e6",
+    "item": "b06-t135",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Don't wait",
+    "voz": "af_river",
+    "nameFile": "b06_dont-wait_66b0e6.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Don't",
+    "n_palabras": 2
+  },
+  {
+    "id": "3b2e57",
+    "item": "b06-t136",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Haven't met",
+    "voz": "am_adam",
+    "nameFile": "b06_havent-met_3b2e57.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Haven't",
+    "n_palabras": 2
+  },
+  {
+    "id": "c2debe",
+    "item": "b06-t137",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Didn't say",
+    "voz": "af_aoede",
+    "nameFile": "b06_didnt-say_c2debe.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Didn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "62a78a",
+    "item": "b06-t138",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Don't touch",
+    "voz": "am_echo",
+    "nameFile": "b06_dont-touch_62a78a.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Don't",
+    "n_palabras": 2
+  },
+  {
+    "id": "7a5df2",
+    "item": "b06-t139",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Don't go",
+    "voz": "af_bella",
+    "nameFile": "b06_dont-go_7a5df2.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Don't",
+    "n_palabras": 2
+  },
+  {
+    "id": "c06d01",
+    "item": "b06-t140",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Hadn't left",
+    "voz": "am_onyx",
+    "nameFile": "b06_hadnt-left_c06d01.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Hadn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "99d76f",
+    "item": "b06-t141",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Doesn't work",
+    "voz": "af_alloy",
+    "nameFile": "b06_doesnt-work_99d76f.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Doesn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "1f5068",
+    "item": "b06-t142",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Doesn't look",
+    "voz": "am_puck",
+    "nameFile": "b06_doesnt-look_1f5068.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Doesn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "0a9dfd",
+    "item": "b06-t143",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Haven't tried",
+    "voz": "af_heart",
+    "nameFile": "b06_havent-tried_0a9dfd.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Haven't",
+    "n_palabras": 2
+  },
+  {
+    "id": "6bd442",
+    "item": "b06-t144",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Isn't fair",
+    "voz": "am_eric",
+    "nameFile": "b06_isnt-fair_6bd442.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Isn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "a0006b",
+    "item": "b06-t145",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Don't stop",
+    "voz": "af_bella",
+    "nameFile": "b06_dont-stop_a0006b.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Don't",
+    "n_palabras": 2
+  },
+  {
+    "id": "ef5bc3",
+    "item": "b06-t146",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Can't see",
+    "voz": "am_liam",
+    "nameFile": "b06_cant-see_ef5bc3.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Can't",
+    "n_palabras": 2
+  },
+  {
+    "id": "056403",
+    "item": "b06-t147",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Wouldn't stop",
+    "voz": "af_jessica",
+    "nameFile": "b06_wouldnt-stop_056403.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Wouldn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "40d7ca",
+    "item": "b06-t148",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Doesn't matter",
+    "voz": "am_eric",
+    "nameFile": "b06_doesnt-matter_40d7ca.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Doesn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "616321",
+    "item": "b06-t149",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Haven't slept",
+    "voz": "af_heart",
+    "nameFile": "b06_havent-slept_616321.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Haven't",
+    "n_palabras": 2
+  },
+  {
+    "id": "5172c8",
+    "item": "b06-t150",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Isn't right",
+    "voz": "am_onyx",
+    "nameFile": "b06_isnt-right_5172c8.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Isn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "b66a93",
+    "item": "b06-t151",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Aren't sure",
+    "voz": "af_aoede",
+    "nameFile": "b06_arent-sure_b66a93.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Aren't",
+    "n_palabras": 2
+  },
+  {
+    "id": "ac3c33",
+    "item": "b06-t152",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Shouldn't go",
+    "voz": "am_echo",
+    "nameFile": "b06_shouldnt-go_ac3c33.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Shouldn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "494547",
+    "item": "b06-t153",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Doesn't fit",
+    "voz": "af_kore",
+    "nameFile": "b06_doesnt-fit_494547.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Doesn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "d82c26",
+    "item": "b06-t154",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Wasn't there",
+    "voz": "am_adam",
+    "nameFile": "b06_wasnt-there_d82c26.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Wasn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "0c0c8c",
+    "item": "b06-t155",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Haven't decided",
+    "voz": "af_nova",
+    "nameFile": "b06_havent-decided_0c0c8c.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Haven't",
+    "n_palabras": 2
+  },
+  {
+    "id": "855ec2",
+    "item": "b06-t156",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Shouldn't worry",
+    "voz": "am_puck",
+    "nameFile": "b06_shouldnt-worry_855ec2.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Shouldn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "ebfedd",
+    "item": "b06-t157",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Don't say",
+    "voz": "af_sky",
+    "nameFile": "b06_dont-say_ebfedd.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Don't",
+    "n_palabras": 2
+  },
+  {
+    "id": "e45c4c",
+    "item": "b06-t158",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Weren't there",
+    "voz": "am_liam",
+    "nameFile": "b06_werent-there_e45c4c.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Weren't",
+    "n_palabras": 2
+  },
+  {
+    "id": "3dfc0b",
+    "item": "b06-t159",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Couldn't sleep",
+    "voz": "af_alloy",
+    "nameFile": "b06_couldnt-sleep_3dfc0b.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Couldn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "6ee552",
+    "item": "b06-t160",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Weren't ready",
+    "voz": "am_echo",
+    "nameFile": "b06_werent-ready_6ee552.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Weren't",
+    "n_palabras": 2
+  },
+  {
+    "id": "d3a7ad",
+    "item": "b06-t161",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Don't ask",
+    "voz": "af_river",
+    "nameFile": "b06_dont-ask_d3a7ad.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Don't",
+    "n_palabras": 2
+  },
+  {
+    "id": "c9bedf",
+    "item": "b06-t162",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Can't help",
+    "voz": "am_onyx",
+    "nameFile": "b06_cant-help_c9bedf.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Can't",
+    "n_palabras": 2
+  },
+  {
+    "id": "26db91",
+    "item": "b06-t163",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "contraccion_negativa",
+    "audio": "Aren't ready",
+    "voz": "af_alloy",
+    "nameFile": "b06_arent-ready_26db91.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Aren't",
+    "n_palabras": 2
+  },
+  {
+    "id": "702a1b",
+    "item": "b06-t164",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "It will",
+    "voz": "am_adam",
+    "nameFile": "b06_it-will_702a1b.mp3",
+    "sonido": "forma completa",
+    "objetivo": "It will",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "104cd7",
+    "item": "b06-t165",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "He has",
+    "voz": "af_kore",
+    "nameFile": "b06_he-has_104cd7.mp3",
+    "sonido": "forma completa",
+    "objetivo": "He has",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "80a441",
+    "item": "b06-t166",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "She will",
+    "voz": "am_puck",
+    "nameFile": "b06_she-will_80a441.mp3",
+    "sonido": "forma completa",
+    "objetivo": "She will",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "6a2459",
+    "item": "b06-t167",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "She has",
+    "voz": "af_river",
+    "nameFile": "b06_she-has_6a2459.mp3",
+    "sonido": "forma completa",
+    "objetivo": "She has",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "70e348",
+    "item": "b06-t168",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "It is",
+    "voz": "am_eric",
+    "nameFile": "b06_it-is_70e348.mp3",
+    "sonido": "forma completa",
+    "objetivo": "It is",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "d2479f",
+    "item": "b06-t169",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "They are",
+    "voz": "af_aoede",
+    "nameFile": "b06_they-are_d2479f.mp3",
+    "sonido": "forma completa",
+    "objetivo": "They are",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "31740b",
+    "item": "b06-t170",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "You would",
+    "voz": "am_echo",
+    "nameFile": "b06_you-would_31740b.mp3",
+    "sonido": "forma completa",
+    "objetivo": "You would",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "21e66a",
+    "item": "b06-t171",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "We are",
+    "voz": "af_jessica",
+    "nameFile": "b06_we-are_21e66a.mp3",
+    "sonido": "forma completa",
+    "objetivo": "We are",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "5f6880",
+    "item": "b06-t172",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "I have",
+    "voz": "am_onyx",
+    "nameFile": "b06_i-have_5f6880.mp3",
+    "sonido": "forma completa",
+    "objetivo": "I have",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "4ba66c",
+    "item": "b06-t173",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "I am",
+    "voz": "af_sky",
+    "nameFile": "b06_i-am_4ba66c.mp3",
+    "sonido": "forma completa",
+    "objetivo": "I am",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "eb273a",
+    "item": "b06-t174",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "They have",
+    "voz": "am_puck",
+    "nameFile": "b06_they-have_eb273a.mp3",
+    "sonido": "forma completa",
+    "objetivo": "They have",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "f431cb",
+    "item": "b06-t175",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "You will",
+    "voz": "af_nova",
+    "nameFile": "b06_you-will_f431cb.mp3",
+    "sonido": "forma completa",
+    "objetivo": "You will",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "67db9f",
+    "item": "b06-t176",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "What is",
+    "voz": "am_adam",
+    "nameFile": "b06_what-is_67db9f.mp3",
+    "sonido": "forma completa",
+    "objetivo": "What is",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "cd7d34",
+    "item": "b06-t177",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "I will",
+    "voz": "af_heart",
+    "nameFile": "b06_i-will_cd7d34.mp3",
+    "sonido": "forma completa",
+    "objetivo": "I will",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "1c7a47",
+    "item": "b06-t178",
+    "bloque": 6,
+    "tipo": "entrenamiento",
+    "categoria": "forma_completa",
+    "audio": "Who is",
+    "voz": "am_eric",
+    "nameFile": "b06_who-is_1c7a47.mp3",
+    "sonido": "forma completa",
+    "objetivo": "Who is",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "dfb2fc",
+    "item": "b06-x001",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_ll",
+    "audio": "They'll become",
+    "voz": "af_sarah",
+    "nameFile": "b06_theyll-become_dfb2fc.mp3",
+    "sonido": "/l/",
+    "objetivo": "They'll",
+    "pares": [
+      "They'd become",
+      "They've become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x002",
+      "b06-x003"
+    ],
+    "distractores": [
+      "They'd become",
+      "They've become"
+    ]
+  },
+  {
+    "id": "631c7f",
+    "item": "b06-x002",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_d",
+    "audio": "They'd become",
+    "voz": "am_fenrir",
+    "nameFile": "b06_theyd-become_631c7f.mp3",
+    "sonido": "/d/",
+    "objetivo": "They'd",
+    "pares": [
+      "They'll become",
+      "They've become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x001",
+      "b06-x003"
+    ],
+    "distractores": [
+      "They'll become",
+      "They've become"
+    ]
+  },
+  {
+    "id": "4b36ca",
+    "item": "b06-x003",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_ve",
+    "audio": "They've become",
+    "voz": "af_nicole",
+    "nameFile": "b06_theyve-become_4b36ca.mp3",
+    "sonido": "/v/",
+    "objetivo": "They've",
+    "pares": [
+      "They'll become",
+      "They'd become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x001",
+      "b06-x002"
+    ],
+    "distractores": [
+      "They'll become",
+      "They'd become"
+    ]
+  },
+  {
+    "id": "da6ab6",
+    "item": "b06-x004",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_ll",
+    "audio": "We'll quit",
+    "voz": "am_michael",
+    "nameFile": "b06_well-quit_da6ab6.mp3",
+    "sonido": "/l/",
+    "objetivo": "We'll",
+    "pares": [
+      "We'd quit",
+      "We've quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x005",
+      "b06-x006"
+    ],
+    "distractores": [
+      "We'd quit",
+      "We've quit"
+    ]
+  },
+  {
+    "id": "d9abac",
+    "item": "b06-x005",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_d",
+    "audio": "We'd quit",
+    "voz": "af_nicole",
+    "nameFile": "b06_wed-quit_d9abac.mp3",
+    "sonido": "/d/",
+    "objetivo": "We'd",
+    "pares": [
+      "We'll quit",
+      "We've quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x004",
+      "b06-x006"
+    ],
+    "distractores": [
+      "We'll quit",
+      "We've quit"
+    ]
+  },
+  {
+    "id": "0e2095",
+    "item": "b06-x006",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_ve",
+    "audio": "We've quit",
+    "voz": "am_michael",
+    "nameFile": "b06_weve-quit_0e2095.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "pares": [
+      "We'll quit",
+      "We'd quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x004",
+      "b06-x005"
+    ],
+    "distractores": [
+      "We'll quit",
+      "We'd quit"
+    ]
+  },
+  {
+    "id": "143ffe",
+    "item": "b06-x007",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_ll",
+    "audio": "I'll shut",
+    "voz": "af_sarah",
+    "nameFile": "b06_ill-shut_143ffe.mp3",
+    "sonido": "/l/",
+    "objetivo": "I'll",
+    "pares": [
+      "I'd shut",
+      "I've shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x008",
+      "b06-x009"
+    ],
+    "distractores": [
+      "I'd shut",
+      "I've shut"
+    ]
+  },
+  {
+    "id": "cb5479",
+    "item": "b06-x008",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_d",
+    "audio": "I'd shut",
+    "voz": "am_fenrir",
+    "nameFile": "b06_id-shut_cb5479.mp3",
+    "sonido": "/d/",
+    "objetivo": "I'd",
+    "pares": [
+      "I'll shut",
+      "I've shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x007",
+      "b06-x009"
+    ],
+    "distractores": [
+      "I'll shut",
+      "I've shut"
+    ]
+  },
+  {
+    "id": "e031f5",
+    "item": "b06-x009",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_ve",
+    "audio": "I've shut",
+    "voz": "af_sarah",
+    "nameFile": "b06_ive-shut_e031f5.mp3",
+    "sonido": "/v/",
+    "objetivo": "I've",
+    "pares": [
+      "I'll shut",
+      "I'd shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x007",
+      "b06-x008"
+    ],
+    "distractores": [
+      "I'll shut",
+      "I'd shut"
+    ]
+  },
+  {
+    "id": "7c870d",
+    "item": "b06-x010",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_ll",
+    "audio": "You'll shut",
+    "voz": "am_fenrir",
+    "nameFile": "b06_youll-shut_7c870d.mp3",
+    "sonido": "/l/",
+    "objetivo": "You'll",
+    "pares": [
+      "You'd shut",
+      "You've shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x011",
+      "b06-x012"
+    ],
+    "distractores": [
+      "You'd shut",
+      "You've shut"
+    ]
+  },
+  {
+    "id": "96d2c4",
+    "item": "b06-x011",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_d",
+    "audio": "You'd shut",
+    "voz": "af_nicole",
+    "nameFile": "b06_youd-shut_96d2c4.mp3",
+    "sonido": "/d/",
+    "objetivo": "You'd",
+    "pares": [
+      "You'll shut",
+      "You've shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x010",
+      "b06-x012"
+    ],
+    "distractores": [
+      "You'll shut",
+      "You've shut"
+    ]
+  },
+  {
+    "id": "a7d5f0",
+    "item": "b06-x012",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_ve",
+    "audio": "You've shut",
+    "voz": "am_michael",
+    "nameFile": "b06_youve-shut_a7d5f0.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "pares": [
+      "You'll shut",
+      "You'd shut"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x010",
+      "b06-x011"
+    ],
+    "distractores": [
+      "You'll shut",
+      "You'd shut"
+    ]
+  },
+  {
+    "id": "05ef3a",
+    "item": "b06-x013",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_ll",
+    "audio": "She'll put",
+    "voz": "af_sarah",
+    "nameFile": "b06_shell-put_05ef3a.mp3",
+    "sonido": "/l/",
+    "objetivo": "She'll",
+    "pares": [
+      "She'd put",
+      "She's put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x014",
+      "b06-x015"
+    ],
+    "distractores": [
+      "She'd put",
+      "She's put"
+    ]
+  },
+  {
+    "id": "3c7a2b",
+    "item": "b06-x014",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_d",
+    "audio": "She'd put",
+    "voz": "am_fenrir",
+    "nameFile": "b06_shed-put_3c7a2b.mp3",
+    "sonido": "/d/",
+    "objetivo": "She'd",
+    "pares": [
+      "She'll put",
+      "She's put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x013",
+      "b06-x015"
+    ],
+    "distractores": [
+      "She'll put",
+      "She's put"
+    ]
+  },
+  {
+    "id": "598d30",
+    "item": "b06-x015",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_s",
+    "audio": "She's put",
+    "voz": "af_nicole",
+    "nameFile": "b06_shes-put_598d30.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "She's",
+    "pares": [
+      "She'll put",
+      "She'd put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x013",
+      "b06-x014"
+    ],
+    "distractores": [
+      "She'll put",
+      "She'd put"
+    ]
+  },
+  {
+    "id": "b8b9b9",
+    "item": "b06-x016",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_ll",
+    "audio": "They'll beat",
+    "voz": "am_michael",
+    "nameFile": "b06_theyll-beat_b8b9b9.mp3",
+    "sonido": "/l/",
+    "objetivo": "They'll",
+    "pares": [
+      "They'd beat",
+      "They've beat"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x017",
+      "b06-x018"
+    ],
+    "distractores": [
+      "They'd beat",
+      "They've beat"
+    ]
+  },
+  {
+    "id": "ea5a18",
+    "item": "b06-x017",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_d",
+    "audio": "They'd beat",
+    "voz": "af_sarah",
+    "nameFile": "b06_theyd-beat_ea5a18.mp3",
+    "sonido": "/d/",
+    "objetivo": "They'd",
+    "pares": [
+      "They'll beat",
+      "They've beat"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x016",
+      "b06-x018"
+    ],
+    "distractores": [
+      "They'll beat",
+      "They've beat"
+    ]
+  },
+  {
+    "id": "f04d12",
+    "item": "b06-x018",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_ve",
+    "audio": "They've beat",
+    "voz": "am_fenrir",
+    "nameFile": "b06_theyve-beat_f04d12.mp3",
+    "sonido": "/v/",
+    "objetivo": "They've",
+    "pares": [
+      "They'll beat",
+      "They'd beat"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x016",
+      "b06-x017"
+    ],
+    "distractores": [
+      "They'll beat",
+      "They'd beat"
+    ]
+  },
+  {
+    "id": "ce54b2",
+    "item": "b06-x019",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_ll",
+    "audio": "You'll quit",
+    "voz": "af_nicole",
+    "nameFile": "b06_youll-quit_ce54b2.mp3",
+    "sonido": "/l/",
+    "objetivo": "You'll",
+    "pares": [
+      "You'd quit",
+      "You've quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x020",
+      "b06-x021"
+    ],
+    "distractores": [
+      "You'd quit",
+      "You've quit"
+    ]
+  },
+  {
+    "id": "f39c30",
+    "item": "b06-x020",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_d",
+    "audio": "You'd quit",
+    "voz": "am_michael",
+    "nameFile": "b06_youd-quit_f39c30.mp3",
+    "sonido": "/d/",
+    "objetivo": "You'd",
+    "pares": [
+      "You'll quit",
+      "You've quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x019",
+      "b06-x021"
+    ],
+    "distractores": [
+      "You'll quit",
+      "You've quit"
+    ]
+  },
+  {
+    "id": "c9662f",
+    "item": "b06-x021",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_ve",
+    "audio": "You've quit",
+    "voz": "af_sarah",
+    "nameFile": "b06_youve-quit_c9662f.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "pares": [
+      "You'll quit",
+      "You'd quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x019",
+      "b06-x020"
+    ],
+    "distractores": [
+      "You'll quit",
+      "You'd quit"
+    ]
+  },
+  {
+    "id": "8461ab",
+    "item": "b06-x022",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_ll",
+    "audio": "We'll put",
+    "voz": "am_fenrir",
+    "nameFile": "b06_well-put_8461ab.mp3",
+    "sonido": "/l/",
+    "objetivo": "We'll",
+    "pares": [
+      "We'd put",
+      "We've put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x023",
+      "b06-x024"
+    ],
+    "distractores": [
+      "We'd put",
+      "We've put"
+    ]
+  },
+  {
+    "id": "60ce15",
+    "item": "b06-x023",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_d",
+    "audio": "We'd put",
+    "voz": "af_nicole",
+    "nameFile": "b06_wed-put_60ce15.mp3",
+    "sonido": "/d/",
+    "objetivo": "We'd",
+    "pares": [
+      "We'll put",
+      "We've put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x022",
+      "b06-x024"
+    ],
+    "distractores": [
+      "We'll put",
+      "We've put"
+    ]
+  },
+  {
+    "id": "4281e3",
+    "item": "b06-x024",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_ve",
+    "audio": "We've put",
+    "voz": "am_michael",
+    "nameFile": "b06_weve-put_4281e3.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "pares": [
+      "We'll put",
+      "We'd put"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x022",
+      "b06-x023"
+    ],
+    "distractores": [
+      "We'll put",
+      "We'd put"
+    ]
+  },
+  {
+    "id": "4573d9",
+    "item": "b06-x025",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_ll",
+    "audio": "You'll let",
+    "voz": "af_nicole",
+    "nameFile": "b06_youll-let_4573d9.mp3",
+    "sonido": "/l/",
+    "objetivo": "You'll",
+    "pares": [
+      "You'd let",
+      "You've let"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x026",
+      "b06-x027"
+    ],
+    "distractores": [
+      "You'd let",
+      "You've let"
+    ]
+  },
+  {
+    "id": "a001e2",
+    "item": "b06-x026",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_d",
+    "audio": "You'd let",
+    "voz": "am_fenrir",
+    "nameFile": "b06_youd-let_a001e2.mp3",
+    "sonido": "/d/",
+    "objetivo": "You'd",
+    "pares": [
+      "You'll let",
+      "You've let"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x025",
+      "b06-x027"
+    ],
+    "distractores": [
+      "You'll let",
+      "You've let"
+    ]
+  },
+  {
+    "id": "c2a11f",
+    "item": "b06-x027",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_ve",
+    "audio": "You've let",
+    "voz": "af_sarah",
+    "nameFile": "b06_youve-let_c2a11f.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "pares": [
+      "You'll let",
+      "You'd let"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x025",
+      "b06-x026"
+    ],
+    "distractores": [
+      "You'll let",
+      "You'd let"
+    ]
+  },
+  {
+    "id": "5f7d1a",
+    "item": "b06-x028",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_ll",
+    "audio": "I'll run",
+    "voz": "am_michael",
+    "nameFile": "b06_ill-run_5f7d1a.mp3",
+    "sonido": "/l/",
+    "objetivo": "I'll",
+    "pares": [
+      "I'd run",
+      "I've run"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x029",
+      "b06-x030"
+    ],
+    "distractores": [
+      "I'd run",
+      "I've run"
+    ]
+  },
+  {
+    "id": "9fd001",
+    "item": "b06-x029",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_d",
+    "audio": "I'd run",
+    "voz": "af_sarah",
+    "nameFile": "b06_id-run_9fd001.mp3",
+    "sonido": "/d/",
+    "objetivo": "I'd",
+    "pares": [
+      "I'll run",
+      "I've run"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x028",
+      "b06-x030"
+    ],
+    "distractores": [
+      "I'll run",
+      "I've run"
+    ]
+  },
+  {
+    "id": "1e427c",
+    "item": "b06-x030",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_ve",
+    "audio": "I've run",
+    "voz": "am_fenrir",
+    "nameFile": "b06_ive-run_1e427c.mp3",
+    "sonido": "/v/",
+    "objetivo": "I've",
+    "pares": [
+      "I'll run",
+      "I'd run"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x028",
+      "b06-x029"
+    ],
+    "distractores": [
+      "I'll run",
+      "I'd run"
+    ]
+  },
+  {
+    "id": "de046b",
+    "item": "b06-x031",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_ll",
+    "audio": "He'll quit",
+    "voz": "af_nicole",
+    "nameFile": "b06_hell-quit_de046b.mp3",
+    "sonido": "/l/",
+    "objetivo": "He'll",
+    "pares": [
+      "He'd quit",
+      "He's quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x032",
+      "b06-x033"
+    ],
+    "distractores": [
+      "He'd quit",
+      "He's quit"
+    ]
+  },
+  {
+    "id": "6cda38",
+    "item": "b06-x032",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_d",
+    "audio": "He'd quit",
+    "voz": "am_michael",
+    "nameFile": "b06_hed-quit_6cda38.mp3",
+    "sonido": "/d/",
+    "objetivo": "He'd",
+    "pares": [
+      "He'll quit",
+      "He's quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x031",
+      "b06-x033"
+    ],
+    "distractores": [
+      "He'll quit",
+      "He's quit"
+    ]
+  },
+  {
+    "id": "1f99ca",
+    "item": "b06-x033",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_s",
+    "audio": "He's quit",
+    "voz": "af_sarah",
+    "nameFile": "b06_hes-quit_1f99ca.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "He's",
+    "pares": [
+      "He'll quit",
+      "He'd quit"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x031",
+      "b06-x032"
+    ],
+    "distractores": [
+      "He'll quit",
+      "He'd quit"
+    ]
+  },
+  {
+    "id": "325c85",
+    "item": "b06-x034",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_ll",
+    "audio": "We'll let",
+    "voz": "am_fenrir",
+    "nameFile": "b06_well-let_325c85.mp3",
+    "sonido": "/l/",
+    "objetivo": "We'll",
+    "pares": [
+      "We'd let",
+      "We've let"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x035",
+      "b06-x036"
+    ],
+    "distractores": [
+      "We'd let",
+      "We've let"
+    ]
+  },
+  {
+    "id": "eaabf6",
+    "item": "b06-x035",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_d",
+    "audio": "We'd let",
+    "voz": "af_nicole",
+    "nameFile": "b06_wed-let_eaabf6.mp3",
+    "sonido": "/d/",
+    "objetivo": "We'd",
+    "pares": [
+      "We'll let",
+      "We've let"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x034",
+      "b06-x036"
+    ],
+    "distractores": [
+      "We'll let",
+      "We've let"
+    ]
+  },
+  {
+    "id": "751b8c",
+    "item": "b06-x036",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_ve",
+    "audio": "We've let",
+    "voz": "am_michael",
+    "nameFile": "b06_weve-let_751b8c.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "pares": [
+      "We'll let",
+      "We'd let"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x034",
+      "b06-x035"
+    ],
+    "distractores": [
+      "We'll let",
+      "We'd let"
+    ]
+  },
+  {
+    "id": "cbea81",
+    "item": "b06-x037",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_ll",
+    "audio": "You'll set",
+    "voz": "af_nicole",
+    "nameFile": "b06_youll-set_cbea81.mp3",
+    "sonido": "/l/",
+    "objetivo": "You'll",
+    "pares": [
+      "You'd set",
+      "You've set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x038",
+      "b06-x039"
+    ],
+    "distractores": [
+      "You'd set",
+      "You've set"
+    ]
+  },
+  {
+    "id": "56052b",
+    "item": "b06-x038",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_d",
+    "audio": "You'd set",
+    "voz": "am_michael",
+    "nameFile": "b06_youd-set_56052b.mp3",
+    "sonido": "/d/",
+    "objetivo": "You'd",
+    "pares": [
+      "You'll set",
+      "You've set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x037",
+      "b06-x039"
+    ],
+    "distractores": [
+      "You'll set",
+      "You've set"
+    ]
+  },
+  {
+    "id": "b860f3",
+    "item": "b06-x039",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_ve",
+    "audio": "You've set",
+    "voz": "af_sarah",
+    "nameFile": "b06_youve-set_b860f3.mp3",
+    "sonido": "/v/",
+    "objetivo": "You've",
+    "pares": [
+      "You'll set",
+      "You'd set"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x037",
+      "b06-x038"
+    ],
+    "distractores": [
+      "You'll set",
+      "You'd set"
+    ]
+  },
+  {
+    "id": "21808e",
+    "item": "b06-x040",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_ll",
+    "audio": "It'll become",
+    "voz": "am_fenrir",
+    "nameFile": "b06_itll-become_21808e.mp3",
+    "sonido": "/l/",
+    "objetivo": "It'll",
+    "pares": [
+      "It'd become",
+      "It's become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x041",
+      "b06-x042"
+    ],
+    "distractores": [
+      "It'd become",
+      "It's become"
+    ]
+  },
+  {
+    "id": "50ec54",
+    "item": "b06-x041",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_d",
+    "audio": "It'd become",
+    "voz": "af_sarah",
+    "nameFile": "b06_itd-become_50ec54.mp3",
+    "sonido": "/d/",
+    "objetivo": "It'd",
+    "pares": [
+      "It'll become",
+      "It's become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x040",
+      "b06-x042"
+    ],
+    "distractores": [
+      "It'll become",
+      "It's become"
+    ]
+  },
+  {
+    "id": "de1f04",
+    "item": "b06-x042",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_s",
+    "audio": "It's become",
+    "voz": "am_fenrir",
+    "nameFile": "b06_its-become_de1f04.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "It's",
+    "pares": [
+      "It'll become",
+      "It'd become"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x040",
+      "b06-x041"
+    ],
+    "distractores": [
+      "It'll become",
+      "It'd become"
+    ]
+  },
+  {
+    "id": "4de6fb",
+    "item": "b06-x043",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_ll",
+    "audio": "We'll beat",
+    "voz": "af_nicole",
+    "nameFile": "b06_well-beat_4de6fb.mp3",
+    "sonido": "/l/",
+    "objetivo": "We'll",
+    "pares": [
+      "We'd beat",
+      "We've beat"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x044",
+      "b06-x045"
+    ],
+    "distractores": [
+      "We'd beat",
+      "We've beat"
+    ]
+  },
+  {
+    "id": "9ce2ff",
+    "item": "b06-x044",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_d",
+    "audio": "We'd beat",
+    "voz": "am_michael",
+    "nameFile": "b06_wed-beat_9ce2ff.mp3",
+    "sonido": "/d/",
+    "objetivo": "We'd",
+    "pares": [
+      "We'll beat",
+      "We've beat"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x043",
+      "b06-x045"
+    ],
+    "distractores": [
+      "We'll beat",
+      "We've beat"
+    ]
+  },
+  {
+    "id": "cdef81",
+    "item": "b06-x045",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_ve",
+    "audio": "We've beat",
+    "voz": "af_sarah",
+    "nameFile": "b06_weve-beat_cdef81.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "pares": [
+      "We'll beat",
+      "We'd beat"
+    ],
+    "n_palabras": 2,
+    "pares_item": [
+      "b06-x043",
+      "b06-x044"
+    ],
+    "distractores": [
+      "We'll beat",
+      "We'd beat"
+    ]
+  },
+  {
+    "id": "af7071",
+    "item": "b06-x046",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_ve",
+    "audio": "I've been",
+    "voz": "am_michael",
+    "nameFile": "b06_ive-been_af7071.mp3",
+    "sonido": "/v/",
+    "objetivo": "I've",
+    "n_palabras": 2
+  },
+  {
+    "id": "136804",
+    "item": "b06-x047",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_ve",
+    "audio": "We've had",
+    "voz": "af_nicole",
+    "nameFile": "b06_weve-had_136804.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "n_palabras": 2
+  },
+  {
+    "id": "c011d8",
+    "item": "b06-x048",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_ve",
+    "audio": "We've gone",
+    "voz": "am_fenrir",
+    "nameFile": "b06_weve-gone_c011d8.mp3",
+    "sonido": "/v/",
+    "objetivo": "We've",
+    "n_palabras": 2
+  },
+  {
+    "id": "a555c0",
+    "item": "b06-x049",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_s",
+    "audio": "It's true",
+    "voz": "af_sarah",
+    "nameFile": "b06_its-true_a555c0.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "It's",
+    "n_palabras": 2
+  },
+  {
+    "id": "9ff826",
+    "item": "b06-x050",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_s",
+    "audio": "That's right",
+    "voz": "am_fenrir",
+    "nameFile": "b06_thats-right_9ff826.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "That's",
+    "n_palabras": 2
+  },
+  {
+    "id": "1d2003",
+    "item": "b06-x051",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_s",
+    "audio": "It's late",
+    "voz": "af_nicole",
+    "nameFile": "b06_its-late_1d2003.mp3",
+    "sonido": "/s/ /z/",
+    "objetivo": "It's",
+    "n_palabras": 2
+  },
+  {
+    "id": "1f2a50",
+    "item": "b06-x052",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_re",
+    "audio": "They're fine",
+    "voz": "am_michael",
+    "nameFile": "b06_theyre-fine_1f2a50.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "bffcda",
+    "item": "b06-x053",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_re",
+    "audio": "We're coming",
+    "voz": "af_nicole",
+    "nameFile": "b06_were-coming_bffcda.mp3",
+    "sonido": "/ər/",
+    "objetivo": "We're",
+    "n_palabras": 2
+  },
+  {
+    "id": "e9323b",
+    "item": "b06-x054",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_re",
+    "audio": "You're late",
+    "voz": "am_michael",
+    "nameFile": "b06_youre-late_e9323b.mp3",
+    "sonido": "/ər/",
+    "objetivo": "You're",
+    "n_palabras": 2
+  },
+  {
+    "id": "03d106",
+    "item": "b06-x055",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_re",
+    "audio": "They're waiting",
+    "voz": "af_sarah",
+    "nameFile": "b06_theyre-waiting_03d106.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "61742d",
+    "item": "b06-x056",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_re",
+    "audio": "They're sure",
+    "voz": "am_fenrir",
+    "nameFile": "b06_theyre-sure_61742d.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "f3299c",
+    "item": "b06-x057",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_re",
+    "audio": "They're wrong",
+    "voz": "af_sarah",
+    "nameFile": "b06_theyre-wrong_f3299c.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "5c491d",
+    "item": "b06-x058",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_re",
+    "audio": "We're wrong",
+    "voz": "am_fenrir",
+    "nameFile": "b06_were-wrong_5c491d.mp3",
+    "sonido": "/ər/",
+    "objetivo": "We're",
+    "n_palabras": 2
+  },
+  {
+    "id": "4047a5",
+    "item": "b06-x059",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_re",
+    "audio": "We're here",
+    "voz": "af_nicole",
+    "nameFile": "b06_were-here_4047a5.mp3",
+    "sonido": "/ər/",
+    "objetivo": "We're",
+    "n_palabras": 2
+  },
+  {
+    "id": "850d93",
+    "item": "b06-x060",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_re",
+    "audio": "We're leaving",
+    "voz": "am_michael",
+    "nameFile": "b06_were-leaving_850d93.mp3",
+    "sonido": "/ər/",
+    "objetivo": "We're",
+    "n_palabras": 2
+  },
+  {
+    "id": "abe5c7",
+    "item": "b06-x061",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_re",
+    "audio": "They're right",
+    "voz": "af_nicole",
+    "nameFile": "b06_theyre-right_abe5c7.mp3",
+    "sonido": "/ər/",
+    "objetivo": "They're",
+    "n_palabras": 2
+  },
+  {
+    "id": "5ea34e",
+    "item": "b06-x062",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_m",
+    "audio": "I'm going",
+    "voz": "am_michael",
+    "nameFile": "b06_im-going_5ea34e.mp3",
+    "sonido": "/m/",
+    "objetivo": "I'm",
+    "n_palabras": 2
+  },
+  {
+    "id": "62c0a3",
+    "item": "b06-x063",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_m",
+    "audio": "I'm here",
+    "voz": "af_sarah",
+    "nameFile": "b06_im-here_62c0a3.mp3",
+    "sonido": "/m/",
+    "objetivo": "I'm",
+    "n_palabras": 2
+  },
+  {
+    "id": "a87c4d",
+    "item": "b06-x064",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_m",
+    "audio": "I'm ready",
+    "voz": "am_fenrir",
+    "nameFile": "b06_im-ready_a87c4d.mp3",
+    "sonido": "/m/",
+    "objetivo": "I'm",
+    "n_palabras": 2
+  },
+  {
+    "id": "e2f554",
+    "item": "b06-x065",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_m",
+    "audio": "I'm tired",
+    "voz": "af_nicole",
+    "nameFile": "b06_im-tired_e2f554.mp3",
+    "sonido": "/m/",
+    "objetivo": "I'm",
+    "n_palabras": 2
+  },
+  {
+    "id": "06cabc",
+    "item": "b06-x066",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_negativa",
+    "audio": "Isn't ready",
+    "voz": "am_michael",
+    "nameFile": "b06_isnt-ready_06cabc.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Isn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "7dbd24",
+    "item": "b06-x067",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_negativa",
+    "audio": "Couldn't wait",
+    "voz": "af_sarah",
+    "nameFile": "b06_couldnt-wait_7dbd24.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Couldn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "39c461",
+    "item": "b06-x068",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_negativa",
+    "audio": "Hadn't started",
+    "voz": "am_fenrir",
+    "nameFile": "b06_hadnt-started_39c461.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Hadn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "f16606",
+    "item": "b06-x069",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_negativa",
+    "audio": "Isn't true",
+    "voz": "af_nicole",
+    "nameFile": "b06_isnt-true_f16606.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Isn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "1ffd9e",
+    "item": "b06-x070",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_negativa",
+    "audio": "Wouldn't work",
+    "voz": "am_michael",
+    "nameFile": "b06_wouldnt-work_1ffd9e.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Wouldn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "fe0671",
+    "item": "b06-x071",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_negativa",
+    "audio": "Weren't sure",
+    "voz": "af_sarah",
+    "nameFile": "b06_werent-sure_fe0671.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Weren't",
+    "n_palabras": 2
+  },
+  {
+    "id": "97b5d6",
+    "item": "b06-x072",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_negativa",
+    "audio": "Won't work",
+    "voz": "am_fenrir",
+    "nameFile": "b06_wont-work_97b5d6.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Won't",
+    "n_palabras": 2
+  },
+  {
+    "id": "6ecbe5",
+    "item": "b06-x073",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_negativa",
+    "audio": "Shouldn't wait",
+    "voz": "af_sarah",
+    "nameFile": "b06_shouldnt-wait_6ecbe5.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Shouldn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "06d9e5",
+    "item": "b06-x074",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_negativa",
+    "audio": "Wasn't ready",
+    "voz": "am_michael",
+    "nameFile": "b06_wasnt-ready_06d9e5.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Wasn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "180d0f",
+    "item": "b06-x075",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_negativa",
+    "audio": "Shouldn't stop",
+    "voz": "af_nicole",
+    "nameFile": "b06_shouldnt-stop_180d0f.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Shouldn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "1e7b61",
+    "item": "b06-x076",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_negativa",
+    "audio": "Shouldn't ask",
+    "voz": "am_fenrir",
+    "nameFile": "b06_shouldnt-ask_1e7b61.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Shouldn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "30cc2d",
+    "item": "b06-x077",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "contraccion_negativa",
+    "audio": "Hasn't changed",
+    "voz": "af_nicole",
+    "nameFile": "b06_hasnt-changed_30cc2d.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Hasn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "f994ad",
+    "item": "b06-x078",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_negativa",
+    "audio": "Isn't there",
+    "voz": "am_michael",
+    "nameFile": "b06_isnt-there_f994ad.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Isn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "ff29ec",
+    "item": "b06-x079",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_negativa",
+    "audio": "Don't worry",
+    "voz": "af_sarah",
+    "nameFile": "b06_dont-worry_ff29ec.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Don't",
+    "n_palabras": 2
+  },
+  {
+    "id": "13322c",
+    "item": "b06-x080",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "contraccion_negativa",
+    "audio": "Won't listen",
+    "voz": "am_fenrir",
+    "nameFile": "b06_wont-listen_13322c.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Won't",
+    "n_palabras": 2
+  },
+  {
+    "id": "a9d518",
+    "item": "b06-x081",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_negativa",
+    "audio": "Won't help",
+    "voz": "af_sarah",
+    "nameFile": "b06_wont-help_a9d518.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Won't",
+    "n_palabras": 2
+  },
+  {
+    "id": "d55a1e",
+    "item": "b06-x082",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "contraccion_negativa",
+    "audio": "Wasn't sure",
+    "voz": "am_fenrir",
+    "nameFile": "b06_wasnt-sure_d55a1e.mp3",
+    "sonido": "/nt/",
+    "objetivo": "Wasn't",
+    "n_palabras": 2
+  },
+  {
+    "id": "d5d714",
+    "item": "b06-x083",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "forma_completa",
+    "audio": "He is",
+    "voz": "af_nicole",
+    "nameFile": "b06_he-is_d5d714.mp3",
+    "sonido": "forma completa",
+    "objetivo": "He is",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "b0129d",
+    "item": "b06-x084",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "forma_completa",
+    "audio": "You have",
+    "voz": "am_michael",
+    "nameFile": "b06_you-have_b0129d.mp3",
+    "sonido": "forma completa",
+    "objetivo": "You have",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "eadc46",
+    "item": "b06-x085",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "forma_completa",
+    "audio": "She is",
+    "voz": "af_sarah",
+    "nameFile": "b06_she-is_eadc46.mp3",
+    "sonido": "forma completa",
+    "objetivo": "She is",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "929950",
+    "item": "b06-x086",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "forma_completa",
+    "audio": "That is",
+    "voz": "am_michael",
+    "nameFile": "b06_that-is_929950.mp3",
+    "sonido": "forma completa",
+    "objetivo": "That is",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "b555ea",
+    "item": "b06-x087",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "forma_completa",
+    "audio": "He will",
+    "voz": "af_nicole",
+    "nameFile": "b06_he-will_b555ea.mp3",
+    "sonido": "forma completa",
+    "objetivo": "He will",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "313783",
+    "item": "b06-x088",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 2,
+    "categoria": "forma_completa",
+    "audio": "They will",
+    "voz": "am_fenrir",
+    "nameFile": "b06_they-will_313783.mp3",
+    "sonido": "forma completa",
+    "objetivo": "They will",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "48532b",
+    "item": "b06-x089",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 1,
+    "categoria": "forma_completa",
+    "audio": "I would",
+    "voz": "af_nicole",
+    "nameFile": "b06_i-would_48532b.mp3",
+    "sonido": "forma completa",
+    "objetivo": "I would",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  },
+  {
+    "id": "9e410a",
+    "item": "b06-x090",
+    "bloque": 6,
+    "tipo": "examen",
+    "version": 3,
+    "categoria": "forma_completa",
+    "audio": "We will",
+    "voz": "am_fenrir",
+    "nameFile": "b06_we-will_9e410a.mp3",
+    "sonido": "forma completa",
+    "objetivo": "We will",
+    "estricto": true,
+    "n_palabras": 2,
+    "nota": "Se dicta la forma completa; escribir la contracción cuenta como error"
+  }
+]

@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "16.0 (11-10-2026)"
+VERSION = "16.1 (12-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -56,11 +56,29 @@ EXERCISE_FILES = {
 # la app que vive detrás de su propio botón en el header.
 LISTENING_EXERCISE_FILES = {
     "listening/exercises/listening-core.js": "__LISTENING_CORE_JS__",
+    "listening/exercises/listening-n1-core.js": "__LISTENING_N1_CORE_JS__",
     "listening/exercises/listening-map.js": "__LISTENING_MAP_JS__",
     "listening/exercises/listening-play.js": "__LISTENING_PLAY_JS__",
+    "listening/exercises/listening-n1-play.js": "__LISTENING_N1_PLAY_JS__",
 }
 
 LISTENING_DATA_FILE = os.path.join("listening", "data", "nivel0.json")
+
+# Nivel 1 de Listening: 12 bloques. Los JSON de cada bloque viven en
+# listening/nivel1/data/bloqueN.json y los audios en listening/nivel1/bloqueN/.
+# El build solo incluye en la app los ejercicios cuyo mp3 existe de verdad (y que
+# no aparecen en un reporte_fallos.json), así que se puede ir generando bloque
+# por bloque: lo que aún no tiene audios queda marcado como "faltan audios".
+NIVEL1_DIR = os.path.join("listening", "nivel1")
+NIVEL1_DATA_DIR = os.path.join(NIVEL1_DIR, "data")
+NIVEL1_TOTAL_BLOQUES = 12
+# True = el service worker precachea todos los audios del Nivel 1 al instalar
+# (offline total, pero la instalación descarga todos los mp3). False = se
+# guardan en caché solo al reproducirse.
+NIVEL1_PRECACHE_AUDIO = False
+NIVEL1_CAMPOS = ["id", "item", "bloque", "tipo", "version", "categoria", "audio", "voz", "nameFile", "sonido",
+                 "objetivo", "par", "par_item", "pares", "pares_item", "estricto", "mascara", "hueco", "acepta",
+                 "n_palabras", "evento", "texto_es"]
 LISTENING_STYLES_FILE = os.path.join("listening", "styles", "listening.css")
 
 
@@ -231,6 +249,79 @@ def load_listening_exercises():
         return json.load(f)
 
 
+def _nivel1_fallos():
+    """nameFile de audios marcados como fallidos por generar.py --verificar
+    (reporte_fallos.json). Se busca en listening/, listening/nivel1/ y en cada
+    carpeta de bloque; si no hay ninguno, no se excluye nada."""
+    rutas = [os.path.join("listening", "reporte_fallos.json"), os.path.join(NIVEL1_DIR, "reporte_fallos.json")]
+    rutas += [os.path.join(NIVEL1_DIR, f"bloque{b}", "reporte_fallos.json") for b in range(1, NIVEL1_TOTAL_BLOQUES + 1)]
+    fallos = set()
+    for ruta in rutas:
+        if not os.path.exists(ruta):
+            continue
+        try:
+            with open(ruta, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            for r in data:
+                if isinstance(r, dict) and r.get("nameFile"):
+                    fallos.add(r["nameFile"])
+        except (OSError, ValueError):
+            print(f"⚠️  No se pudo leer {ruta}")
+    return fallos
+
+
+def load_nivel1_bank():
+    """Arma el banco del Nivel 1 que viaja dentro del index.html: por bloque, solo
+    los ejercicios con audio presente. Devuelve {"bloques": {n: {...}}, "motiv": [...]}."""
+    bank = {"bloques": {}, "motiv": []}
+    fallos = _nivel1_fallos()
+    if fallos:
+        print(f"  ℹ️  [nivel1] {len(fallos)} audio(s) en reporte_fallos.json: no se incluirán")
+    for b in range(1, NIVEL1_TOTAL_BLOQUES + 1):
+        data_file = os.path.join(NIVEL1_DATA_DIR, f"bloque{b}.json")
+        if not os.path.exists(data_file):
+            continue
+        try:
+            with open(data_file, "r", encoding="utf-8") as f:
+                items = json.load(f)
+        except ValueError as e:
+            print(f"❌ {data_file} no es un JSON válido: {e}")
+            sys.exit(1)
+        folder = os.path.join(NIVEL1_DIR, f"bloque{b}")
+        existentes = set(os.listdir(folder)) if os.path.isdir(folder) else set()
+        plan_train = sum(1 for it in items if it.get("tipo") == "entrenamiento")
+        plan_exam = sum(1 for it in items if it.get("tipo") == "examen")
+        listos = []
+        for it in items:
+            nf = it.get("nameFile")
+            if not nf or nf not in existentes or nf in fallos:
+                continue
+            compact = {k: it[k] for k in NIVEL1_CAMPOS if k in it}
+            if it.get("tipo") == "motivacion":
+                bank["motiv"].append(compact)
+            else:
+                listos.append(compact)
+        bank["bloques"][str(b)] = {"items": listos, "plan_train": plan_train, "plan_exam": plan_exam}
+        n_train = sum(1 for it in listos if it["tipo"] == "entrenamiento")
+        n_exam = sum(1 for it in listos if it["tipo"] == "examen")
+        print(f"  ✅ [nivel1] bloque {b}: {n_train}/{plan_train} entrenamiento · {n_exam}/{plan_exam} examen con audio")
+    if bank["motiv"]:
+        print(f"  ✅ [nivel1] {len(bank['motiv'])} audios motivacionales")
+    return bank
+
+
+def nivel1_asset_list(bank=None):
+    """Rutas de audio del Nivel 1 para precachear (solo si NIVEL1_PRECACHE_AUDIO)."""
+    if not NIVEL1_PRECACHE_AUDIO:
+        return []
+    bank = bank or load_nivel1_bank()
+    rutas = []
+    for bl in bank["bloques"].values():
+        rutas += [f"./listening/nivel1/bloque{it['bloque']}/{it['nameFile']}" for it in bl["items"]]
+    rutas += [f"./listening/nivel1/bloque{it['bloque']}/{it['nameFile']}" for it in bank["motiv"]]
+    return rutas
+
+
 def read_file(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -314,6 +405,7 @@ const ASSETS = [
   'https://cdn-icons-png.flaticon.com/512/3898/3898082.png',
 ];
 const AVENTURA_ASSETS = __AVENTURA_ASSETS__;
+const NIVEL1_ASSETS = __NIVEL1_ASSETS__;
 
 self.addEventListener('install', (event) => {
   // Los archivos de la Aventura se precachean uno a uno: si falta alguno (por ejemplo un audio),
@@ -321,6 +413,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then(async (cache) => {
     await cache.addAll(ASSETS);
     await Promise.all(AVENTURA_ASSETS.map((u) => cache.add(u).catch(() => null)));
+    await Promise.all(NIVEL1_ASSETS.map((u) => cache.add(u).catch(() => null)));
   }));
   self.skipWaiting();
 });
@@ -350,6 +443,7 @@ self.addEventListener('fetch', (event) => {
 '''
     sw_code = sw_code.replace('__CACHE_NAME__', cache_name_for_version())
     sw_code = sw_code.replace('__AVENTURA_ASSETS__', json.dumps(aventura_asset_list(), indent=2))
+    sw_code = sw_code.replace('__NIVEL1_ASSETS__', json.dumps(nivel1_asset_list(), indent=2))
     with open('service-worker.js', 'w', encoding='utf-8') as f:
         f.write(sw_code)
     print(f"  ✅ service-worker.js creado (cache: {cache_name_for_version()})")
@@ -484,6 +578,22 @@ def get_html_template():
 
     <div id="listeningHomeScreen" class="screen listening-theme">
       <div class="magic-card">
+        <div class="l0-intro" id="listeningNivel1Toggle" role="button" tabindex="0" aria-expanded="true">
+          <span class="l0-intro-icon">🎯</span>
+          <div class="l0-intro-text">
+            <h2>Nivel 1 — Pulido del oído</h2>
+            <p>12 bloques: Descubre, Distingue, Completa, Escribe y examen. Cada examen se aprueba con 70 o más.</p>
+          </div>
+          <span class="l0-intro-chevron" id="listeningNivel1Chevron">▾</span>
+        </div>
+        <div id="listeningNivel1Body" class="l0-nivel0-body">
+          <div id="listeningN1Summary" class="l0-summary-row"></div>
+          <div id="listeningN1List" class="l0-level-list"></div>
+          <div class="n1-aviso" id="listeningN1Retest" style="display:none;">🏁 Terminaste el Nivel 1. Sigue el re-test del Nivel 0 con palabras nuevas; después se abre el Nivel 2.</div>
+        </div>
+      </div>
+
+      <div class="magic-card">
         <div class="l0-intro" id="listeningNivel0Toggle" role="button" tabindex="0" aria-expanded="false">
           <span class="l0-intro-icon">🎧</span>
           <div class="l0-intro-text">
@@ -499,9 +609,7 @@ def get_html_template():
         <button class="fun-btn full-width" id="listeningReportBtn" style="width:100%;margin-top:12px;">📊 Ver reporte</button>
       </div>
 
-      <div class="magic-card">
-        <div id="listeningFutureLevels" class="l0-future-levels"></div>
-      </div>
+      <div id="listeningFutureLevels" class="l0-future-levels" style="display:none;"></div>
     </div>
 
     <div id="listeningReportScreen" class="screen listening-theme">
@@ -529,6 +637,32 @@ def get_html_template():
         </div>
         <div id="listeningPlayContainer" class="l0-play-container"></div>
         <div id="l0PlayResultLine" class="sub-fun" style="text-align:center;">🎧 Escucha y elige</div>
+      </div>
+    </div>
+
+    <div id="listeningN1HubScreen" class="screen listening-theme">
+      <div class="magic-card">
+        <div id="n1HubContainer"></div>
+      </div>
+    </div>
+
+    <div id="listeningN1PlayScreen" class="screen listening-theme">
+      <div class="exercise-area">
+        <div class="l0-play-topbar">
+          <button class="l0-play-exit-btn" id="n1PlayExitBtn" aria-label="Salir" title="Salir (tu avance se guarda)"><svg viewBox="0 0 24 24"><path d="M15.4 7.4 13.8 6 8 12l5.8 6 1.4-1.4L10.8 12z"/></svg></button>
+          <div class="l0-play-progress-track">
+            <div class="l0-play-progress-fill" id="n1PlayProgressFill" style="width:0%;"></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <span class="pill-status" id="n1PlayBloqueTag">Bloque 1</span>
+          <span class="pill-status" id="n1PlayFaseTag">Escribe</span>
+          <span class="pill-status" id="n1PlayExTag"></span>
+          <span class="pill-status" id="n1PlayCatTag" style="display:none;"></span>
+        </div>
+        <div id="n1MotivBanner"></div>
+        <div id="n1PlayContainer" class="l0-play-container"></div>
+        <div id="n1PlayResultLine" class="sub-fun" style="text-align:center;">🎧 Escucha con atención</div>
       </div>
     </div>
 
@@ -569,9 +703,12 @@ def get_html_template():
   __DICTADO_JS__
   __INFORMACION_JS__
   const NIVEL0_EXERCISES = __NIVEL0_EXERCISES_JSON__;
+  const NIVEL1_BANK = __NIVEL1_BANK_JSON__;
   __LISTENING_CORE_JS__
+  __LISTENING_N1_CORE_JS__
   __LISTENING_MAP_JS__
   __LISTENING_PLAY_JS__
+  __LISTENING_N1_PLAY_JS__
   __MAIN_LOGIC__
 </script>
 </body>
@@ -883,6 +1020,8 @@ def get_main_logic():
     exercise: document.getElementById("exerciseScreen"),
     info: document.getElementById("infoScreen"),
     listeningHome: document.getElementById("listeningHomeScreen"),
+    listeningN1Hub: document.getElementById("listeningN1HubScreen"),
+    listeningN1Play: document.getElementById("listeningN1PlayScreen"),
     listeningPlay: document.getElementById("listeningPlayScreen"),
     listeningResult: document.getElementById("listeningResultScreen"),
     listeningReport: document.getElementById("listeningReportScreen")
@@ -2673,6 +2812,7 @@ def get_main_logic():
       renderListeningHome();
       showMainView("listeningHome");
     });
+    document.getElementById("n1PlayExitBtn")?.addEventListener("click", n1SalirDelJuego);
     document.getElementById("listeningReportBtn")?.addEventListener("click", openListeningReportScreen);
     document.getElementById("listeningReportBackBtn")?.addEventListener("click", () => {
       renderListeningHome();
@@ -2700,6 +2840,8 @@ def build_html():
 
     listening_exercises = load_listening_exercises()
     print(f"  ✅ [listening] {len(listening_exercises)} ejercicios desde {LISTENING_DATA_FILE}")
+
+    nivel1_bank = load_nivel1_bank()
 
     listening_modules = {}
     for filepath, marker in LISTENING_EXERCISE_FILES.items():
@@ -2738,6 +2880,7 @@ def build_html():
         html = html.replace(marker, content)
 
     html = html.replace('__NIVEL0_EXERCISES_JSON__', json.dumps(listening_exercises, ensure_ascii=False))
+    html = html.replace('__NIVEL1_BANK_JSON__', json.dumps(nivel1_bank, ensure_ascii=False, separators=(",", ":")))
 
     main_logic = get_main_logic()
     main_logic = main_logic.replace('__LS_KEY__', LS_KEY)

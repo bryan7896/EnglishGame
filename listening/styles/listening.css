@@ -670,3 +670,95 @@
   65% { transform: translateY(-50%) scale(1); opacity: 1; }
   100% { transform: translateY(-50%) scale(1); opacity: 0; }
 }
+
+
+/* ============================================================
+   Nivel 1 (listening-n1-*.js)
+   ============================================================ */
+.l0-link-btn {
+  background: none; border: none; color: var(--brand-light); font: inherit; font-size: 0.78rem;
+  cursor: pointer; padding: 4px 6px; text-decoration: underline; text-underline-offset: 3px;
+}
+.l0-link-btn:hover { color: var(--ink); }
+
+.n1-hub-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.n1-hub-title { font-family: var(--font-display); font-weight: 800; color: var(--ink); font-size: 1.05rem; }
+.n1-hub-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.n1-pill-ok { color: var(--good); border-color: var(--good); }
+.n1-sub { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.7; margin-bottom: 6px; }
+.n1-weak { margin-bottom: 12px; }
+.n1-chip { display: inline-block; font-size: 0.74rem; padding: 3px 9px; border-radius: 999px; margin: 0 6px 6px 0; border: 1px solid var(--line); }
+.n1-chip-bad { color: var(--bad); background: var(--bad-wash); border-color: transparent; }
+
+.n1-fases { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.n1-fase { display: flex; align-items: center; gap: 10px; background: var(--surface); border: 2px solid var(--line);
+  border-radius: var(--radius-sm); padding: 10px 12px; }
+.n1-fase.is-now { border-color: var(--brand); background: var(--brand-wash); }
+.n1-fase.is-done { opacity: 0.75; border-color: var(--good); }
+.n1-fase.is-skip { opacity: 0.45; }
+.n1-fase-ico { width: 22px; text-align: center; font-weight: 800; color: var(--brand-light); }
+.n1-fase.is-done .n1-fase-ico { color: var(--good); }
+.n1-fase-txt { flex: 1; min-width: 0; }
+.n1-fase-nom { font-weight: 800; font-size: 0.9rem; color: var(--ink); }
+.n1-fase-nom small { font-weight: 500; opacity: 0.7; }
+.n1-fase-desc { font-size: 0.74rem; opacity: 0.75; }
+.n1-aviso { margin: 12px 0; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--brand-wash);
+  border: 1px solid var(--brand); font-size: 0.82rem; color: var(--ink); }
+.n1-hub-tools { margin-top: 6px; text-align: center; }
+.n1-toggle { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.8rem; margin: 12px 0 4px; opacity: 0.85; }
+
+.n1-audio-tools { display: flex; gap: 10px; margin-top: 6px; justify-content: center; }
+.n1-skip { display: block; margin: 10px auto 0; }
+.n1-tag-rep { text-align: center; font-size: 0.74rem; color: var(--brand-light); margin-bottom: 8px; }
+.n1-mask { text-align: center; font-size: 1.6rem; font-weight: 800; letter-spacing: 0.04em; margin: 4px 0 14px; color: var(--ink); }
+.n1-gap { color: var(--brand-light); }
+
+.n1-feed { margin-top: 12px; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--surface); border: 2px solid var(--line); }
+.n1-feed-sub { font-size: 0.72rem; opacity: 0.7; margin-bottom: 6px; }
+.n1-feed-chips { display: flex; flex-wrap: wrap; gap: 6px 4px; align-items: baseline; margin-bottom: 8px; }
+.n1-feed-chips .n1-fix { font-size: 0.78rem; color: var(--good); margin-right: 6px; }
+.n1-feed-chips .n1-fix::before { content: "→ "; opacity: 0.6; }
+.n1-near { border-bottom: 2px dotted var(--good); }
+.n1-extra { text-decoration: line-through; }
+.n1-feed-line { font-size: 0.86rem; }
+.n1-feed-hint { font-size: 0.78rem; opacity: 0.8; margin-top: 6px; }
+
+.n1-motiv { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; margin-bottom: 10px; border-radius: var(--radius-sm);
+  background: var(--brand-wash); border: 1px solid var(--brand); }
+.n1-motiv-en { font-weight: 800; color: var(--ink); font-size: 0.9rem; }
+.n1-motiv-es { font-size: 0.78rem; opacity: 0.8; margin-top: 2px; }
+.n1-interludio { text-align: center; padding: 18px 6px; }
+.n1-inter-ico { font-size: 2.4rem; margin-bottom: 8px; }
+
+.n1-desc { text-align: center; }
+.n1-desc-cat { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--ink); }
+.n1-desc-son { font-size: 1.4rem; font-weight: 800; color: var(--brand-light); margin: 6px 0; }
+.n1-desc-txt { font-size: 0.86rem; opacity: 0.85; margin: 6px 0 12px; }
+.n1-desc-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.n1-desc-row { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; }
+.n1-desc-row span { flex: 1; font-weight: 700; }
+.n1-desc-row small { opacity: 0.65; }
+
+.n1-odd-q { font-size: 0.86rem; text-align: center; margin-bottom: 12px; opacity: 0.9; }
+.n1-odd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.n1-odd-col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.n1-odd-play { width: 58px; height: 58px; }
+.n1-odd-pick.is-ok { border-color: var(--good); background: var(--good-wash); }
+.n1-odd-pick.is-bad { border-color: var(--bad); background: var(--bad-wash); }
+.n1-odd-word { font-size: 0.84rem; font-weight: 700; text-align: center; min-height: 2.2em; }
+.n1-odd-word small { display: block; opacity: 0.6; font-weight: 500; }
+
+.n1-modal-box { max-height: 90vh; overflow-y: auto; text-align: left; }
+.n1-err-row { display: flex; gap: 18px; margin: 10px 0; }
+.n1-err-w { font-size: 1.35rem; font-weight: 800; }
+.n1-err-bad { color: var(--bad); text-decoration: line-through; }
+.n1-err-ok { color: var(--good); }
+.n1-err-play { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.n1-err-par { font-size: 0.86rem; margin: 6px 0; }
+.n1-err-hint { font-size: 0.84rem; opacity: 0.9; margin: 6px 0 12px; }
+#n1ErrSay.is-on { border-color: var(--good); background: var(--good-wash); }
+.n1-vs-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 6px 0 10px; }
+.n1-vs-opt.is-ok { border-color: var(--good); background: var(--good-wash); }
+.n1-vs-opt.is-bad { border-color: var(--bad); background: var(--bad-wash); }
+#n1CheckBtn:disabled { opacity: 0.5; }
+#n1ErrOk:disabled { opacity: 0.5; cursor: not-allowed; }

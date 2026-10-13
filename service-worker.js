@@ -1,5 +1,5 @@
 // service-worker.js
-const CACHE_NAME = 'english-trainer-16-0-11-10-2026';
+const CACHE_NAME = 'english-trainer-16-1-12-10-2026';
 const ASSETS = [
   './',
   './index.html',
@@ -2080,6 +2080,7 @@ const AVENTURA_ASSETS = [
   "./aventura/audio/youre-welcome-go-go__bf_emma__0e918e.mp3",
   "./aventura/audio/youre-welcome-have-a-nice-day__am_eric__2b5a3e.mp3"
 ];
+const NIVEL1_ASSETS = [];
 
 self.addEventListener('install', (event) => {
   // Los archivos de la Aventura se precachean uno a uno: si falta alguno (por ejemplo un audio),
@@ -2087,6 +2088,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then(async (cache) => {
     await cache.addAll(ASSETS);
     await Promise.all(AVENTURA_ASSETS.map((u) => cache.add(u).catch(() => null)));
+    await Promise.all(NIVEL1_ASSETS.map((u) => cache.add(u).catch(() => null)));
   }));
   self.skipWaiting();
 });

@@ -33,6 +33,8 @@ function renderListeningHome() {
     ListeningState.reiniciados = [];
     toast(`♻️ Bloque ${bloques} reiniciado: ahora se califica el objetivo de cada ejercicio`);
   }
+  renderListeningNivel1();
+  wireListeningNivel1Toggle();
   renderListeningNivel0();
   renderListeningFutureLevels();
   wireListeningNivel0Toggle();
@@ -187,6 +189,10 @@ function wireListeningNivel0Toggle() {
 function renderListeningFutureLevels() {
   const el = document.getElementById("listeningFutureLevels");
   if (!el) return;
+  // Niveles 2-4: ocultos hasta que se apruebe el Nivel 1 y se haga el re-test
+  // del Nivel 0 (no se muestra ninguna tarjeta mientras tanto).
+  el.innerHTML = "";
+  if (true) return;
 
   el.innerHTML = LISTENING_NIVELES_FUTUROS.map((n) => `
     <div class="l0-level-card is-locked l0-future-level-card">
@@ -257,7 +263,8 @@ function renderListeningReportScreen(data) {
     const fecha = new Date(row.fecha);
     const valida = !Number.isNaN(fecha.getTime());
     if (valida && (!g.ultimaFecha || fecha > g.ultimaFecha)) g.ultimaFecha = fecha;
-    const categoria = row.categoria || "—";
+    let categoria = row.categoria || "—";
+    if (bloque > 10 && row.familia) categoria = categoria + " · " + row.familia;
     if (!g.categorias[categoria]) g.categorias[categoria] = [];
     g.categorias[categoria].push({ pct, fecha: valida ? fecha : new Date(0) });
   });
@@ -266,7 +273,10 @@ function renderListeningReportScreen(data) {
 
   container.innerHTML = bloques.map((bloque) => {
     const g = porBloque[bloque];
-    const meta = listeningBloqueMeta(bloque);
+    const esN1 = bloque > 10 && bloque <= 10 + N1_BLOQUES_META.length;
+    const meta = esN1
+      ? { icono: n1Meta(bloque - 10).icono, titulo: "Nivel 1 · " + n1Meta(bloque - 10).titulo }
+      : listeningBloqueMeta(bloque);
 
     const catsHtml = Object.keys(g.categorias).sort().map((categoria) => {
       const entries = g.categorias[categoria].sort((a, b) => a.fecha - b.fecha);
@@ -286,7 +296,7 @@ function renderListeningReportScreen(data) {
       <div class="l0-level-card" style="margin-bottom:12px;cursor:default;align-items:flex-start;">
         <div class="l0-level-badge">
           <span class="l0-level-icon">${meta ? meta.icono : "🔊"}</span>
-          <span class="l0-level-num">Bloque ${bloque}</span>
+          <span class="l0-level-num">${esN1 ? "N1 · B" + (bloque - 10) : "Bloque " + bloque}</span>
         </div>
         <div class="l0-level-body" style="padding-bottom:12px;">
           <div class="l0-level-title">${meta ? window._escHTML(meta.titulo) : "Bloque " + bloque}</div>
@@ -313,17 +323,31 @@ function listeningLocalDetailHTML() {
       </button>
     `;
   }).join("");
-  if (!filas) return "";
+  const filasN1 = N1_BLOQUES_META.map((meta) => {
+    const p = N1State.prog.bloques[meta.bloque];
+    const n = p && p.respuestas ? p.respuestas.length : 0;
+    if (!n) return "";
+    return `
+      <button class="fun-btn full-width l0-copy-n1-btn" data-copy-n1="${meta.bloque}" style="width:100%;margin-bottom:8px;">
+        ${ListeningIcons.copy()} Nivel 1 · Bloque ${meta.bloque} — ${window._escHTML(meta.titulo)} (${n} respuestas)
+      </button>
+    `;
+  }).join("");
+  if (!filas && !filasN1) return "";
   return `
     <div style="margin-top:18px;">
       <div class="l0-level-title" style="margin-bottom:4px;">Detalle de respuestas</div>
       <p class="sub-fun" style="margin:0 0 10px;">Copia lo que respondiste en el último intento de cada bloque y pégalo en el chat para analizar tus mayores falencias.</p>
       ${filas}
+      ${filasN1}
     </div>
   `;
 }
 
 function wireListeningLocalDetail(container) {
+  container.querySelectorAll(".l0-copy-n1-btn").forEach((btn) => {
+    btn.addEventListener("click", () => n1CopiarTexto(n1ReporteErrores(Number(btn.dataset.copyN1)), "📋 Informe copiado — pégalo en el chat"));
+  });
   container.querySelectorAll(".l0-copy-btn").forEach((btn) => {
     btn.addEventListener("click", () => copyListeningRespuestas(Number(btn.dataset.copyBloque)));
   });
