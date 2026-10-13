@@ -140,6 +140,10 @@ function n1BlockInfo(b) {
   const jugable = train >= 20 && exam >= 10;
   return { train, exam, planTrain: bl.plan_train || 0, planExam: bl.plan_exam || 0, jugable };
 }
+// Palabras sueltas: se leen con la voz del sistema (no hay mp3).
+function n1UsaTTS(it) {
+  return it.tipo !== "motivacion" && (it.n_palabras || 1) === 1;
+}
 function n1AudioPath(it) {
   return "listening/nivel1/bloque" + it.bloque + "/" + it.nameFile;
 }

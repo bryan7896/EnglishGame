@@ -6363,6 +6363,10 @@ function n1BlockInfo(b) {
   const jugable = train >= 20 && exam >= 10;
   return { train, exam, planTrain: bl.plan_train || 0, planExam: bl.plan_exam || 0, jugable };
 }
+// Palabras sueltas: se leen con la voz del sistema (no hay mp3).
+function n1UsaTTS(it) {
+  return it.tipo !== "motivacion" && (it.n_palabras || 1) === 1;
+}
 function n1AudioPath(it) {
   return "listening/nivel1/bloque" + it.bloque + "/" + it.nameFile;
 }
@@ -7960,15 +7964,46 @@ const N1S = {
 };
 
 // ==================== AUDIO ====================
-const N1Audio = { el: null };
+// Las palabras sueltas (1 palabra) se leen con la voz del sistema (la misma que
+// usa el dictado del English Trainer, respetando la voz elegida en "Elegir voz");
+// las frases de 2+ palabras y los audios motivacionales usan sus mp3.
+const N1Audio = { el: null, tok: 0 };
 function n1Parar() {
+  N1Audio.tok += 1;
   try {
     if (N1Audio.el) { N1Audio.el.pause(); N1Audio.el.onended = null; N1Audio.el = null; }
   } catch (e) { /* noop */ }
+  try { if ("speechSynthesis" in window) window.speechSynthesis.cancel(); } catch (e) { /* noop */ }
 }
+
+async function n1Hablar(texto, lento) {
+  const tok = N1Audio.tok;
+  if (!("speechSynthesis" in window)) { toast("⚠️ Este navegador no tiene voz del sistema"); return false; }
+  let voices = [];
+  try { voices = await waitForVoices(); } catch (e) { voices = window.speechSynthesis.getVoices() || []; }
+  if (tok !== N1Audio.tok) return false;           // otra reproducción o un cancelar se coló
+  return new Promise((resolve) => {
+    try {
+      const u = new SpeechSynthesisUtterance(texto);
+      u.lang = "en-US";
+      u.rate = lento ? 0.55 : (typeof DICTADO_RATE === "number" ? DICTADO_RATE : 0.73);
+      u.pitch = 1; u.volume = 1;
+      const v = pickVoiceForLang(voices, "en");
+      try { if (v) u.voice = v; } catch (e) { /* voz no asignable: se usa la predeterminada */ }
+      let hecho = false;
+      const fin = (ok) => { if (!hecho) { hecho = true; resolve(ok); } };
+      u.onend = () => fin(true);
+      u.onerror = () => fin(false);
+      setTimeout(() => fin(true), 6000);
+      setTimeout(() => { if (tok === N1Audio.tok) window.speechSynthesis.speak(u); else fin(false); }, 100);
+    } catch (e) { console.warn("n1Hablar", e); resolve(false); }
+  });
+}
+
 function n1Reproducir(it, opts) {
   opts = opts || {};
   n1Parar();
+  if (n1UsaTTS(it)) return n1Hablar(it.audio, !!opts.lento);
   return new Promise((resolve) => {
     try {
       const a = new Audio(n1AudioPath(it));
@@ -8363,7 +8398,7 @@ function n1PlayerHTML(it) {
       <span class="l0-play-audio-label" id="n1PlayLabel">Toca para escuchar</span>
       <div class="n1-audio-tools">
         <button class="l0-link-btn" id="n1SlowBtn">🐢 Más lento</button>
-        <button class="l0-link-btn" id="n1BadAudioBtn" aria-label="Descartar audio" title="Descartar este audio">🗑 Audio roto</button>
+        <button class="l0-link-btn" id="n1BadAudioBtn" aria-label="Descartar audio" title="Descartar este audio">🗑 Descartar audio</button>
       </div>
     </div>`;
 }

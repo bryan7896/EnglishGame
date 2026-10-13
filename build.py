@@ -66,9 +66,10 @@ LISTENING_DATA_FILE = os.path.join("listening", "data", "nivel0.json")
 
 # Nivel 1 de Listening: 12 bloques. Los JSON de cada bloque viven en
 # listening/nivel1/data/bloqueN.json y los audios en listening/nivel1/bloqueN/.
-# El build solo incluye en la app los ejercicios cuyo mp3 existe de verdad (y que
-# no aparecen en un reporte_fallos.json), así que se puede ir generando bloque
-# por bloque: lo que aún no tiene audios queda marcado como "faltan audios".
+# Las palabras sueltas (1 palabra) las lee la app con la voz del sistema: no necesitan mp3.
+# Los ejercicios de 2+ palabras solo entran si su mp3 existe de verdad (y no aparecen en
+# un reporte_fallos.json), así que se puede ir generando bloque por bloque: lo que aún no
+# tiene audios queda marcado como "faltan audios".
 NIVEL1_DIR = os.path.join("listening", "nivel1")
 NIVEL1_DATA_DIR = os.path.join(NIVEL1_DIR, "data")
 NIVEL1_TOTAL_BLOQUES = 12
@@ -294,7 +295,9 @@ def load_nivel1_bank():
         listos = []
         for it in items:
             nf = it.get("nameFile")
-            if not nf or nf not in existentes or nf in fallos:
+            # Palabras sueltas (1 palabra): la app las lee con la voz del sistema, sin mp3.
+            suelta = it.get("tipo") != "motivacion" and it.get("n_palabras", 1) == 1
+            if not suelta and (not nf or nf not in existentes or nf in fallos):
                 continue
             compact = {k: it[k] for k in NIVEL1_CAMPOS if k in it}
             if it.get("tipo") == "motivacion":
@@ -304,7 +307,7 @@ def load_nivel1_bank():
         bank["bloques"][str(b)] = {"items": listos, "plan_train": plan_train, "plan_exam": plan_exam}
         n_train = sum(1 for it in listos if it["tipo"] == "entrenamiento")
         n_exam = sum(1 for it in listos if it["tipo"] == "examen")
-        print(f"  ✅ [nivel1] bloque {b}: {n_train}/{plan_train} entrenamiento · {n_exam}/{plan_exam} examen con audio")
+        print(f"  ✅ [nivel1] bloque {b}: {n_train}/{plan_train} entrenamiento · {n_exam}/{plan_exam} examen listos (1 palabra = voz del sistema)")
     if bank["motiv"]:
         print(f"  ✅ [nivel1] {len(bank['motiv'])} audios motivacionales")
     return bank
@@ -317,7 +320,7 @@ def nivel1_asset_list(bank=None):
     bank = bank or load_nivel1_bank()
     rutas = []
     for bl in bank["bloques"].values():
-        rutas += [f"./listening/nivel1/bloque{it['bloque']}/{it['nameFile']}" for it in bl["items"]]
+        rutas += [f"./listening/nivel1/bloque{it['bloque']}/{it['nameFile']}" for it in bl["items"] if it.get("n_palabras", 1) > 1]
     rutas += [f"./listening/nivel1/bloque{it['bloque']}/{it['nameFile']}" for it in bank["motiv"]]
     return rutas
 
