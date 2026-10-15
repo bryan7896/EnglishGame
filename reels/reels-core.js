@@ -6,7 +6,7 @@
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 17.8";
+  const RL_VERSION = "reels 18.0";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -636,7 +636,91 @@
 
   function rlCambioDeIdioma() { RL = null; }
 
+  // ---------- Temporizador (botón ▶ arriba al centro) ----------
+  // Cuenta regresiva de N minutos (N se cambia en el menú). Guarda la hora de
+  // fin en localStorage, así sigue contando aunque la app vaya a segundo plano.
+  // Tocar mientras corre lo pausa; tocar otra vez lo reanuda.
+  const RL_TIMER_KEY = "english_trainer_timer_v1";
+  const RL_TIMER_MIN_KEY = "english_trainer_timer_min";
+  function rlTimerMin() {
+    const n = parseInt(localStorage.getItem(RL_TIMER_MIN_KEY) || "10", 10);
+    return Number.isFinite(n) && n > 0 ? Math.min(180, n) : 10;
+  }
+  function rlTimerSetMin(n) { try { localStorage.setItem(RL_TIMER_MIN_KEY, String(n)); } catch (e) { /* nada */ } }
+  function rlTimerLeer() { try { return JSON.parse(localStorage.getItem(RL_TIMER_KEY) || "null"); } catch (e) { return null; } }
+  function rlTimerGuardar(t) { try { if (t) localStorage.setItem(RL_TIMER_KEY, JSON.stringify(t)); else localStorage.removeItem(RL_TIMER_KEY); } catch (e) { /* nada */ } }
+
+  function rlTimerToque() {
+    const t = rlTimerLeer();
+    if (!t) rlTimerGuardar({ fin: Date.now() + rlTimerMin() * 60000 });
+    else if (t.pausa != null) rlTimerGuardar({ fin: Date.now() + t.pausa });
+    else rlTimerGuardar({ pausa: Math.max(0, t.fin - Date.now()) });
+    rlTimerPintar();
+  }
+
+  function rlTimerFin() {
+    rlTimerGuardar(null);
+    toast("⏰ ¡Se acabó el tiempo!");
+    try { navigator.vibrate?.([300, 150, 300]); } catch (e) { /* nada */ }
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      const ctx = new Ctx();
+      [0, 0.35, 0.7].forEach((t0) => {
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.frequency.value = 880; o.connect(g); g.connect(ctx.destination);
+        g.gain.setValueAtTime(0.25, ctx.currentTime + t0);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t0 + 0.3);
+        o.start(ctx.currentTime + t0); o.stop(ctx.currentTime + t0 + 0.3);
+      });
+    } catch (e) { /* sin sonido */ }
+  }
+
+  function rlTimerPintar() {
+    const btn = document.getElementById("rlTimerBtn");
+    if (!btn) return;
+    const t = rlTimerLeer();
+    if (!t) { btn.className = "rl-timer"; btn.innerHTML = "▶"; btn.title = "Iniciar temporizador de " + rlTimerMin() + " min"; return; }
+    const resta = t.pausa != null ? t.pausa : t.fin - Date.now();
+    if (resta <= 0) { rlTimerFin(); rlTimerPintar(); return; }
+    const min = Math.ceil(resta / 60000);
+    btn.className = "rl-timer rl-timer-on" + (t.pausa != null ? " rl-timer-pausa" : "");
+    btn.innerHTML = `<span class="rl-timer-num">${min}</span><span class="rl-timer-dot"></span>`;
+    btn.title = t.pausa != null ? "En pausa · toca para seguir" : "Toca para pausar";
+  }
+
+  function rlModalTimer() {
+    document.querySelectorAll(".modal-overlay").forEach((m) => m.remove());
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>⏱️ Temporizador</h3>
+          <button class="menu-modal-close" aria-label="Cerrar">✕</button>
+        </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:12px;">Minutos de la cuenta regresiva del botón ▶ de Reels.</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin:8px 0 16px;">
+          <button type="button" class="fun-btn rl-tm-menos" style="width:52px;height:52px;font-size:1.5rem;">−</button>
+          <span class="rl-tm-val" style="font-size:2rem;font-weight:900;min-width:64px;text-align:center;">${rlTimerMin()}</span>
+          <button type="button" class="fun-btn rl-tm-mas" style="width:52px;height:52px;font-size:1.5rem;">+</button>
+        </div>
+        <div class="action-buttons"><button class="fun-btn primary-btn rl-tm-ok">✅ Guardar</button></div>
+      </div>`;
+    document.body.appendChild(modal);
+    let v = rlTimerMin();
+    const val = modal.querySelector(".rl-tm-val");
+    const close = () => modal.remove();
+    modal.querySelector(".menu-modal-close").onclick = close;
+    modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+    modal.querySelector(".rl-tm-menos").onclick = () => { v = Math.max(1, v - (v > 10 ? 5 : 1)); val.textContent = v; };
+    modal.querySelector(".rl-tm-mas").onclick = () => { v = Math.min(180, v + (v >= 10 ? 5 : 1)); val.textContent = v; };
+    modal.querySelector(".rl-tm-ok").onclick = () => { rlTimerSetMin(v); close(); rlTimerPintar(); toast("⏱️ Temporizador: " + v + " min"); };
+  }
+
   function wireReels() {
+    document.getElementById("rlTimerBtn")?.addEventListener("click", rlTimerToque);
+    setInterval(rlTimerPintar, 1000);
+    rlTimerPintar();
     document.getElementById("rlCloseBtn")?.addEventListener("click", () => closeReels());
     document.getElementById("rlHelpBtn")?.addEventListener("click", () => showHelpModal());
     let tBorr = null;

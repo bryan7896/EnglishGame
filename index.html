@@ -2378,6 +2378,17 @@ body.rl-open { overflow: hidden; }
 
 .rl-yt-vel { align-self: flex-end; font-size: .72rem; color: var(--ink-faint); margin-top: -8px; }
 
+/* Temporizador */
+.rl-timer {
+  position: absolute; top: calc(env(safe-area-inset-top, 0px) + 10px); left: 50%; transform: translateX(-50%); z-index: 5;
+  min-width: 42px; height: 42px; padding: 0 12px; border-radius: 999px; display: flex; align-items: center; justify-content: center; gap: 7px;
+  background: rgba(32,47,54,.92); border: 2px solid var(--line); color: var(--ink); font: 800 1rem var(--font); cursor: pointer;
+}
+.rl-timer-num { font-variant-numeric: tabular-nums; }
+.rl-timer-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--info); box-shadow: 0 0 8px var(--info); animation: rlBlink 1s ease-in-out infinite; }
+.rl-timer-pausa .rl-timer-dot { animation: none; opacity: .35; box-shadow: none; }
+@keyframes rlBlink { 0%, 100% { opacity: 1; } 50% { opacity: .15; } }
+
 
 /* ============================================================
    listening.css -- Nivel 0 (Listening Trainer)
@@ -3307,6 +3318,7 @@ body.rl-open { overflow: hidden; }
 <div id="reelsOverlay" class="rl-overlay" hidden>
   <div id="rlStage" class="rl-stage"></div>
   <button class="rl-float rl-close" id="rlCloseBtn" aria-label="Salir de Reels" title="Salir">✕</button>
+  <button class="rl-timer" id="rlTimerBtn" aria-label="Temporizador">▶</button>
   <button class="rl-float rl-help" id="rlHelpBtn" aria-label="Ayuda de gramática" title="Ayuda">❓</button>
 </div>
 
@@ -9286,7 +9298,7 @@ function n1ReelsTerminar() {
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 17.8";
+  const RL_VERSION = "reels 18.0";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -9916,7 +9928,91 @@ function n1ReelsTerminar() {
 
   function rlCambioDeIdioma() { RL = null; }
 
+  // ---------- Temporizador (botón ▶ arriba al centro) ----------
+  // Cuenta regresiva de N minutos (N se cambia en el menú). Guarda la hora de
+  // fin en localStorage, así sigue contando aunque la app vaya a segundo plano.
+  // Tocar mientras corre lo pausa; tocar otra vez lo reanuda.
+  const RL_TIMER_KEY = "english_trainer_timer_v1";
+  const RL_TIMER_MIN_KEY = "english_trainer_timer_min";
+  function rlTimerMin() {
+    const n = parseInt(localStorage.getItem(RL_TIMER_MIN_KEY) || "10", 10);
+    return Number.isFinite(n) && n > 0 ? Math.min(180, n) : 10;
+  }
+  function rlTimerSetMin(n) { try { localStorage.setItem(RL_TIMER_MIN_KEY, String(n)); } catch (e) { /* nada */ } }
+  function rlTimerLeer() { try { return JSON.parse(localStorage.getItem(RL_TIMER_KEY) || "null"); } catch (e) { return null; } }
+  function rlTimerGuardar(t) { try { if (t) localStorage.setItem(RL_TIMER_KEY, JSON.stringify(t)); else localStorage.removeItem(RL_TIMER_KEY); } catch (e) { /* nada */ } }
+
+  function rlTimerToque() {
+    const t = rlTimerLeer();
+    if (!t) rlTimerGuardar({ fin: Date.now() + rlTimerMin() * 60000 });
+    else if (t.pausa != null) rlTimerGuardar({ fin: Date.now() + t.pausa });
+    else rlTimerGuardar({ pausa: Math.max(0, t.fin - Date.now()) });
+    rlTimerPintar();
+  }
+
+  function rlTimerFin() {
+    rlTimerGuardar(null);
+    toast("⏰ ¡Se acabó el tiempo!");
+    try { navigator.vibrate?.([300, 150, 300]); } catch (e) { /* nada */ }
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      const ctx = new Ctx();
+      [0, 0.35, 0.7].forEach((t0) => {
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.frequency.value = 880; o.connect(g); g.connect(ctx.destination);
+        g.gain.setValueAtTime(0.25, ctx.currentTime + t0);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + t0 + 0.3);
+        o.start(ctx.currentTime + t0); o.stop(ctx.currentTime + t0 + 0.3);
+      });
+    } catch (e) { /* sin sonido */ }
+  }
+
+  function rlTimerPintar() {
+    const btn = document.getElementById("rlTimerBtn");
+    if (!btn) return;
+    const t = rlTimerLeer();
+    if (!t) { btn.className = "rl-timer"; btn.innerHTML = "▶"; btn.title = "Iniciar temporizador de " + rlTimerMin() + " min"; return; }
+    const resta = t.pausa != null ? t.pausa : t.fin - Date.now();
+    if (resta <= 0) { rlTimerFin(); rlTimerPintar(); return; }
+    const min = Math.ceil(resta / 60000);
+    btn.className = "rl-timer rl-timer-on" + (t.pausa != null ? " rl-timer-pausa" : "");
+    btn.innerHTML = `<span class="rl-timer-num">${min}</span><span class="rl-timer-dot"></span>`;
+    btn.title = t.pausa != null ? "En pausa · toca para seguir" : "Toca para pausar";
+  }
+
+  function rlModalTimer() {
+    document.querySelectorAll(".modal-overlay").forEach((m) => m.remove());
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>⏱️ Temporizador</h3>
+          <button class="menu-modal-close" aria-label="Cerrar">✕</button>
+        </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:12px;">Minutos de la cuenta regresiva del botón ▶ de Reels.</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin:8px 0 16px;">
+          <button type="button" class="fun-btn rl-tm-menos" style="width:52px;height:52px;font-size:1.5rem;">−</button>
+          <span class="rl-tm-val" style="font-size:2rem;font-weight:900;min-width:64px;text-align:center;">${rlTimerMin()}</span>
+          <button type="button" class="fun-btn rl-tm-mas" style="width:52px;height:52px;font-size:1.5rem;">+</button>
+        </div>
+        <div class="action-buttons"><button class="fun-btn primary-btn rl-tm-ok">✅ Guardar</button></div>
+      </div>`;
+    document.body.appendChild(modal);
+    let v = rlTimerMin();
+    const val = modal.querySelector(".rl-tm-val");
+    const close = () => modal.remove();
+    modal.querySelector(".menu-modal-close").onclick = close;
+    modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+    modal.querySelector(".rl-tm-menos").onclick = () => { v = Math.max(1, v - (v > 10 ? 5 : 1)); val.textContent = v; };
+    modal.querySelector(".rl-tm-mas").onclick = () => { v = Math.min(180, v + (v >= 10 ? 5 : 1)); val.textContent = v; };
+    modal.querySelector(".rl-tm-ok").onclick = () => { rlTimerSetMin(v); close(); rlTimerPintar(); toast("⏱️ Temporizador: " + v + " min"); };
+  }
+
   function wireReels() {
+    document.getElementById("rlTimerBtn")?.addEventListener("click", rlTimerToque);
+    setInterval(rlTimerPintar, 1000);
+    rlTimerPintar();
     document.getElementById("rlCloseBtn")?.addEventListener("click", () => closeReels());
     document.getElementById("rlHelpBtn")?.addEventListener("click", () => showHelpModal());
     let tBorr = null;
@@ -11468,12 +11564,13 @@ function n1ReelsTerminar() {
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.8 (15-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">18.0 (15-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
           <button class="fun-btn" id="menuAddJsonBtn">📥 Agregar ejercicios (JSON)</button>
           <button class="fun-btn" id="menuHistoriaBtn">📜 Copiar historia</button>
+          <button class="fun-btn" id="menuTimerBtn">⏱️ Temporizador: ${rlTimerMin()} min</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
         </div>
       </div>
@@ -11494,6 +11591,7 @@ function n1ReelsTerminar() {
     modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
     modal.querySelector('#menuAddJsonBtn').addEventListener('click', () => { close(); rlModalAgregarJSON(); });
     modal.querySelector('#menuHistoriaBtn').addEventListener('click', () => { close(); rlCopiarHistoria(); });
+    modal.querySelector('#menuTimerBtn').addEventListener('click', () => { close(); rlModalTimer(); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
   }
 

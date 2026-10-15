@@ -107,3 +107,14 @@ body.rl-open { overflow: hidden; }
 .home-tile-azure .home-tile-ico { background: #0b2a44; }
 
 .rl-yt-vel { align-self: flex-end; font-size: .72rem; color: var(--ink-faint); margin-top: -8px; }
+
+/* Temporizador */
+.rl-timer {
+  position: absolute; top: calc(env(safe-area-inset-top, 0px) + 10px); left: 50%; transform: translateX(-50%); z-index: 5;
+  min-width: 42px; height: 42px; padding: 0 12px; border-radius: 999px; display: flex; align-items: center; justify-content: center; gap: 7px;
+  background: rgba(32,47,54,.92); border: 2px solid var(--line); color: var(--ink); font: 800 1rem var(--font); cursor: pointer;
+}
+.rl-timer-num { font-variant-numeric: tabular-nums; }
+.rl-timer-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--info); box-shadow: 0 0 8px var(--info); animation: rlBlink 1s ease-in-out infinite; }
+.rl-timer-pausa .rl-timer-dot { animation: none; opacity: .35; box-shadow: none; }
+@keyframes rlBlink { 0%, 100% { opacity: 1; } 50% { opacity: .15; } }

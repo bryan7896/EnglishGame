@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "17.8 (15-10-2026)"
+VERSION = "18.0 (15-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -675,6 +675,7 @@ def get_html_template():
 <div id="reelsOverlay" class="rl-overlay" hidden>
   <div id="rlStage" class="rl-stage"></div>
   <button class="rl-float rl-close" id="rlCloseBtn" aria-label="Salir de Reels" title="Salir">✕</button>
+  <button class="rl-timer" id="rlTimerBtn" aria-label="Temporizador">▶</button>
   <button class="rl-float rl-help" id="rlHelpBtn" aria-label="Ayuda de gramática" title="Ayuda">❓</button>
 </div>
 
@@ -1543,6 +1544,7 @@ def get_main_logic():
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
           <button class="fun-btn" id="menuAddJsonBtn">📥 Agregar ejercicios (JSON)</button>
           <button class="fun-btn" id="menuHistoriaBtn">📜 Copiar historia</button>
+          <button class="fun-btn" id="menuTimerBtn">⏱️ Temporizador: ${rlTimerMin()} min</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
         </div>
       </div>
@@ -1563,6 +1565,7 @@ def get_main_logic():
     modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
     modal.querySelector('#menuAddJsonBtn').addEventListener('click', () => { close(); rlModalAgregarJSON(); });
     modal.querySelector('#menuHistoriaBtn').addEventListener('click', () => { close(); rlCopiarHistoria(); });
+    modal.querySelector('#menuTimerBtn').addEventListener('click', () => { close(); rlModalTimer(); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
   }
 
