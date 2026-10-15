@@ -6,7 +6,7 @@
   // la frase y se parecen en largo y sonido. Sin subtítulos.
   const RL_YT_REPS = 5;
   const RL_YT_PAUSA = 1000;
-  const RL_YT_VEL = 0.8;
+  const RL_YT_VEL = 0.75;      // velocidad que YouTube sí soporta
   const RL_YT_MARGEN = 300;
   const RL_YT_TOPE_CLIP = 14000;
   const RL_YT_FALLBACK = {
@@ -92,6 +92,7 @@
       <div class="rl-sorpresa rl-yt">
         <h2 class="rl-title">¿Qué palabra escuchas?</h2>
         <p class="rl-sub rl-yt-estado">Buscando un clip real…</p>
+        <span class="rl-yt-vel" title="Velocidad que reporta el reproductor"></span>
         <div class="rl-yt-host"><div id="${hostId}"></div></div>
         <div class="rl-yt-ops"></div>
         <div class="rl-yt-frase" hidden></div>
@@ -144,6 +145,15 @@
       } else {
         estado.textContent = S.respondida ? "" : "Elige la palabra que escuchaste.";
       }
+    };
+
+    // Muestra en pequeño la velocidad REAL que reporta el reproductor.
+    const mostrarVel = (v) => {
+      const el = body.querySelector(".rl-yt-vel");
+      if (!el || !S.widget) return;
+      let vel = v;
+      if (vel == null) { try { vel = S.widget.getSpeed && S.widget.getSpeed(); } catch (e) { vel = null; } }
+      if (vel != null && !Number.isNaN(Number(vel))) el.textContent = "🐢 " + Number(vel) + "×";
     };
 
     const armarTope = () => { clearTimeout(S.maxT); S.maxT = setTimeout(finClip, RL_YT_TOPE_CLIP); };
@@ -217,8 +227,9 @@
             body.querySelector(".rl-yt-frase").hidden = true;
             armarTope();
           },
-          onPlayerReady: () => { try { S.widget.setSpeed(RL_YT_VEL); } catch (e) { /* nada */ } },
-          onPlayerStateChange: (e) => { if (e.state === 1) { try { if (S.widget.getSpeed && S.widget.getSpeed() !== RL_YT_VEL) S.widget.setSpeed(RL_YT_VEL); } catch (er) { /* nada */ } } },
+          onPlayerReady: () => { try { S.widget.setSpeed(RL_YT_VEL); } catch (e) { /* nada */ } mostrarVel(); },
+          onPlayerStateChange: (e) => { if (e.state === 1) { try { if (S.widget.getSpeed && S.widget.getSpeed() !== RL_YT_VEL) S.widget.setSpeed(RL_YT_VEL); } catch (er) { /* nada */ } setTimeout(mostrarVel, 400); } },
+          onSpeedChange: (e) => mostrarVel(e && e.speed),
           onCaptionChange: (e) => {
             if (S.hit || S.terminado) return;
             const txt = rlYtDec(e.caption);

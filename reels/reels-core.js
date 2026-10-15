@@ -6,7 +6,7 @@
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 17.5";
+  const RL_VERSION = "reels 17.6";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -439,6 +439,8 @@
     try { d = JSON.parse(localStorage.getItem(RL_DIA_KEY) || "{}") || {}; } catch (e) { d = {}; }
     const r = Object.assign({ ingles: 0, listening: 0, azure: 0, youglish: 0 }, d[rlHoyStr()] || {});
     const total = r.ingles + r.listening + r.azure + r.youglish;
+    rlEstado();
+    const faltan = Math.max(0, RL.cont.proxReporte - RL.cont.reporte);
     const txt = [
       r.ingles + " de estudio de inglés",
       r.listening + " de listening",
@@ -446,6 +448,9 @@
       r.youglish + " de YouGlish",
       "---",
       "total: " + total,
+      "",
+      "Banco de reels: " + rlContarBanco() + " ejercicios",
+      "Faltan " + faltan + " para el reporte",
     ].join("\n");
     const ok = () => toast("📜 Resumen de hoy copiado (" + total + ")");
     const manual = () => {

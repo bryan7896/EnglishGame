@@ -2376,6 +2376,8 @@ body.rl-open { overflow: hidden; }
 .rl-az-frame { width: 100%; height: calc(100dvh - 150px); min-height: 420px; border: 0; border-radius: 14px; background: #060a13; }
 .home-tile-azure .home-tile-ico { background: #0b2a44; }
 
+.rl-yt-vel { align-self: flex-end; font-size: .72rem; color: var(--ink-faint); margin-top: -8px; }
+
 
 /* ============================================================
    listening.css -- Nivel 0 (Listening Trainer)
@@ -9284,7 +9286,7 @@ function n1ReelsTerminar() {
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 17.5";
+  const RL_VERSION = "reels 17.6";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -9717,6 +9719,8 @@ function n1ReelsTerminar() {
     try { d = JSON.parse(localStorage.getItem(RL_DIA_KEY) || "{}") || {}; } catch (e) { d = {}; }
     const r = Object.assign({ ingles: 0, listening: 0, azure: 0, youglish: 0 }, d[rlHoyStr()] || {});
     const total = r.ingles + r.listening + r.azure + r.youglish;
+    rlEstado();
+    const faltan = Math.max(0, RL.cont.proxReporte - RL.cont.reporte);
     const txt = [
       r.ingles + " de estudio de inglés",
       r.listening + " de listening",
@@ -9724,6 +9728,9 @@ function n1ReelsTerminar() {
       r.youglish + " de YouGlish",
       "---",
       "total: " + total,
+      "",
+      "Banco de reels: " + rlContarBanco() + " ejercicios",
+      "Faltan " + faltan + " para el reporte",
     ].join("\n");
     const ok = () => toast("📜 Resumen de hoy copiado (" + total + ")");
     const manual = () => {
@@ -10359,7 +10366,7 @@ function n1ReelsTerminar() {
   // la frase y se parecen en largo y sonido. Sin subtítulos.
   const RL_YT_REPS = 5;
   const RL_YT_PAUSA = 1000;
-  const RL_YT_VEL = 0.8;
+  const RL_YT_VEL = 0.75;      // velocidad que YouTube sí soporta
   const RL_YT_MARGEN = 300;
   const RL_YT_TOPE_CLIP = 14000;
   const RL_YT_FALLBACK = {
@@ -10445,6 +10452,7 @@ function n1ReelsTerminar() {
       <div class="rl-sorpresa rl-yt">
         <h2 class="rl-title">¿Qué palabra escuchas?</h2>
         <p class="rl-sub rl-yt-estado">Buscando un clip real…</p>
+        <span class="rl-yt-vel" title="Velocidad que reporta el reproductor"></span>
         <div class="rl-yt-host"><div id="${hostId}"></div></div>
         <div class="rl-yt-ops"></div>
         <div class="rl-yt-frase" hidden></div>
@@ -10497,6 +10505,15 @@ function n1ReelsTerminar() {
       } else {
         estado.textContent = S.respondida ? "" : "Elige la palabra que escuchaste.";
       }
+    };
+
+    // Muestra en pequeño la velocidad REAL que reporta el reproductor.
+    const mostrarVel = (v) => {
+      const el = body.querySelector(".rl-yt-vel");
+      if (!el || !S.widget) return;
+      let vel = v;
+      if (vel == null) { try { vel = S.widget.getSpeed && S.widget.getSpeed(); } catch (e) { vel = null; } }
+      if (vel != null && !Number.isNaN(Number(vel))) el.textContent = "🐢 " + Number(vel) + "×";
     };
 
     const armarTope = () => { clearTimeout(S.maxT); S.maxT = setTimeout(finClip, RL_YT_TOPE_CLIP); };
@@ -10570,8 +10587,9 @@ function n1ReelsTerminar() {
             body.querySelector(".rl-yt-frase").hidden = true;
             armarTope();
           },
-          onPlayerReady: () => { try { S.widget.setSpeed(RL_YT_VEL); } catch (e) { /* nada */ } },
-          onPlayerStateChange: (e) => { if (e.state === 1) { try { if (S.widget.getSpeed && S.widget.getSpeed() !== RL_YT_VEL) S.widget.setSpeed(RL_YT_VEL); } catch (er) { /* nada */ } } },
+          onPlayerReady: () => { try { S.widget.setSpeed(RL_YT_VEL); } catch (e) { /* nada */ } mostrarVel(); },
+          onPlayerStateChange: (e) => { if (e.state === 1) { try { if (S.widget.getSpeed && S.widget.getSpeed() !== RL_YT_VEL) S.widget.setSpeed(RL_YT_VEL); } catch (er) { /* nada */ } setTimeout(mostrarVel, 400); } },
+          onSpeedChange: (e) => mostrarVel(e && e.speed),
           onCaptionChange: (e) => {
             if (S.hit || S.terminado) return;
             const txt = rlYtDec(e.caption);
@@ -11421,7 +11439,7 @@ function n1ReelsTerminar() {
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.5 (15-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.6 (15-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
