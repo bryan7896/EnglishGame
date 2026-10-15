@@ -9286,7 +9286,7 @@ function n1ReelsTerminar() {
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 17.7";
+  const RL_VERSION = "reels 17.8";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -9544,8 +9544,7 @@ function n1ReelsTerminar() {
     RLV.abierto = true;
     document.body.classList.add("rl-open");
     document.getElementById("rlHelpBtn").style.display = getTargetLanguage() === "en" ? "flex" : "none";
-    const fs = document.documentElement.requestFullscreen?.bind(document.documentElement);
-    if (fs) fs().then(() => { RLV.enPantallaCompleta = true; }).catch(() => { RLV.enPantallaCompleta = false; });
+    // Sin la API de pantalla completa del navegador: Reels ocupa toda la pantalla de la app.
     try { history.pushState({ reels: true }, ""); } catch (e) { /* nada */ }
     document.getElementById("rlStage").innerHTML = "";
     // Los % vienen de la tabla: se piden al abrir; la sorpresa de reglas los espera (máx. 4 s).
@@ -9568,7 +9567,6 @@ function n1ReelsTerminar() {
     document.body.classList.remove("rl-open");
     const st = document.getElementById("rlStage");
     if (st) st.innerHTML = "";
-    if (desdeEvento !== "fullscreen" && document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) { /* nada */ } }
     RLV.enPantallaCompleta = false;
     if (desdeEvento !== "popstate" && history.state && history.state.reels) { try { history.back(); } catch (e) { /* nada */ } }
     rlGuardar();
@@ -9921,14 +9919,6 @@ function n1ReelsTerminar() {
   function wireReels() {
     document.getElementById("rlCloseBtn")?.addEventListener("click", () => closeReels());
     document.getElementById("rlHelpBtn")?.addEventListener("click", () => showHelpModal());
-    // Al ir a segundo plano Android saca de pantalla completa: Reels sigue abierto
-    // tal cual y la pantalla completa vuelve con el siguiente toque.
-    document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement) RLV.enPantallaCompleta = false; });
-    document.getElementById("reelsOverlay")?.addEventListener("pointerdown", () => {
-      if (RLV.abierto && !document.fullscreenElement && document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen().then(() => { RLV.enPantallaCompleta = true; }).catch(() => {});
-      }
-    }, true);
     let tBorr = null;
     document.getElementById("rlStage")?.addEventListener("input", () => { clearTimeout(tBorr); tBorr = setTimeout(rlGuardarBorrador, 300); });
     document.addEventListener("visibilitychange", () => { if (document.hidden) rlGuardarBorrador(); });
@@ -10048,47 +10038,43 @@ function n1ReelsTerminar() {
   function rlReglasDia() {
     const hoy = new Date().toLocaleDateString("en-CA");
     if (!RL.reglasDia || RL.reglasDia.fecha !== hoy) RL.reglasDia = { fecha: hoy, veces: 0, mostradas: [], elegidas: [] };
+    RL.reglasEstudio = RL.reglasEstudio || {};
+    RL.reglasDia.elegidas.forEach((id) => { if (!RL.reglasEstudio[id]) RL.reglasEstudio[id] = RL.reglasDia.fecha; });
     return RL.reglasDia;
   }
 
-  // Qué reglas ofrecer:
-  //  - 1ª vez del día: rojas y naranjas con %, + 1 regla en 0 % + 2 verdes.
-  //  - Siguientes veces: solo rojas y naranjas con %.
-  //  - Nunca repite en el día una regla que ya se mostró. Si ya no quedan,
-  //    vuelve a ofrecer las que se mostraron pero NO se eligieron, y como
-  //    último recurso las ya elegidas.
+  // Qué reglas ofrecer (todas las que cumplan, ordenadas rojas → naranjas → verdes → 0 %):
+  //  - Solo reglas que NO se estudiaron (eligieron) en los últimos 3 días: hoy,
+  //    ayer y anteayer. Así tampoco se repite lo que ya estudiaste hoy.
+  //  - Las que se mostraron y no elegiste pueden volver a salir más tarde.
+  //  - En el día: máximo 1 regla en 0 % y 2 verdes en total.
+  //  - Si así no alcanza para lo que hay que elegir, se completa con las que
+  //    se estudiaron hace más tiempo.
+  function rlFechaMenosDias(n) { const d = new Date(); d.setDate(d.getDate() - n); return d.toLocaleDateString("en-CA"); }
+  function rlEstudiadaReciente(id) {
+    const f = (RL.reglasEstudio || {})[id];
+    return !!f && f >= rlFechaMenosDias(2);
+  }
   function rlReglasParaElegir(minimo) {
     const dia = rlReglasDia();
-    const primera = dia.veces === 0;
-    const mostradas = new Set(dia.mostradas), elegidas = new Set(dia.elegidas);
     const disp = rlReglasDisponibles();
+    const libre = (r) => !rlEstudiadaReciente(r.id);
     const conPct = disp.filter((r) => r.porcentaje > 0).sort((a, b) => a.porcentaje - b.porcentaje);
-    const rojas = conPct.filter((r) => pctTier(r.porcentaje) === "bad");
-    const naranjas = conPct.filter((r) => pctTier(r.porcentaje) === "warn");
-    const verdes = shuffleArray(conPct.filter((r) => pctTier(r.porcentaje) === "good"));
-    const nuevas = shuffleArray(disp.filter((r) => r.porcentaje <= 0));
-    const nuevasPorTanda = (r) => !mostradas.has(r.id);
-    const lista = [];
-    const meter = (arr, n, filtro) => arr.filter(filtro || nuevasPorTanda).slice(0, n).forEach((r) => { if (!lista.includes(r) && lista.length < 7) lista.push(r); });
-    if (primera) {
-      meter(rojas, 3);
-      meter(naranjas, 1);
-      meter(nuevas, 1);
-      meter(verdes, 2);
-      meter(rojas, 9); meter(naranjas, 9);
-    } else {
-      meter(rojas, 4);
-      meter(naranjas, 3);
-      meter(rojas, 9); meter(naranjas, 9);
+    const rojas = conPct.filter((r) => pctTier(r.porcentaje) === "bad" && libre(r));
+    const naranjas = conPct.filter((r) => pctTier(r.porcentaje) === "warn" && libre(r));
+    const verdes = shuffleArray(conPct.filter((r) => pctTier(r.porcentaje) === "good" && libre(r)));
+    const nuevas = shuffleArray(disp.filter((r) => r.porcentaje <= 0 && libre(r)));
+    const cupoVerdes = Math.max(0, 2 - (dia.verdes || 0));
+    const cupoNuevas = Math.max(0, 1 - (dia.ceros || 0));
+    const lista = [].concat(rojas, naranjas, verdes.slice(0, cupoVerdes), nuevas.slice(0, cupoNuevas));
+    if (lista.length < (minimo || 1)) {
+      // Completa con rojas/naranjas estudiadas hace más tiempo (las más antiguas primero).
+      const f = RL.reglasEstudio || {};
+      const resto = conPct.filter((r) => pctTier(r.porcentaje) !== "good" && !lista.includes(r))
+        .sort((a, b) => String(f[a.id] || "").localeCompare(String(f[b.id] || "")));
+      resto.forEach((r) => { if (lista.length < Math.max(minimo || 1, 5)) lista.push(r); });
     }
-    const objetivo = Math.max(minimo || 1, 5);
-    if (lista.length < objetivo) {
-      const rojoNaranja = rojas.concat(naranjas);
-      meter(rojoNaranja, 9, (r) => !elegidas.has(r.id));   // mostradas pero no elegidas
-      if (lista.length < (minimo || 1)) meter(rojoNaranja, 9, () => true);
-      if (lista.length < (minimo || 1) && !primera) meter(nuevas.concat(verdes), 9, (r) => !mostradas.has(r.id));
-    }
-    return lista.slice(0, 7);
+    return lista;
   }
 
   function rlAporte(r) { return RL_APORTE[r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad"]; }
@@ -10114,7 +10100,13 @@ function n1ReelsTerminar() {
       if (item.reglas.length) {
         const dia = rlReglasDia();
         dia.veces += 1;
-        item.reglas.forEach((id) => { if (!dia.mostradas.includes(id)) dia.mostradas.push(id); });
+        item.reglas.forEach((id) => {
+          if (dia.mostradas.includes(id)) return;
+          dia.mostradas.push(id);
+          const r = findRegla(id);
+          if (r && r.porcentaje <= 0) dia.ceros = (dia.ceros || 0) + 1;
+          else if (r && pctTier(r.porcentaje) === "good") dia.verdes = (dia.verdes || 0) + 1;
+        });
       }
       rlGuardar();
     }
@@ -10167,7 +10159,8 @@ function n1ReelsTerminar() {
     btn.onclick = () => {
       if (item.x && sel.size !== item.x) return;
       const dia = rlReglasDia();
-      sel.forEach((id) => { if (!dia.elegidas.includes(id)) dia.elegidas.push(id); });
+      RL.reglasEstudio = RL.reglasEstudio || {};
+      sel.forEach((id) => { if (!dia.elegidas.includes(id)) dia.elegidas.push(id); RL.reglasEstudio[id] = rlReglasDia().fecha; });
       const n = rlCargarBanco(item, Array.from(sel));
       if (n) { burstConfetti(); toast("➕ " + n + " ejercicios nuevos en tu banco"); }
       rlSorpresaHecha(item);
@@ -10991,7 +10984,6 @@ function n1ReelsTerminar() {
     if (!overlay || !frame) return;
     overlay.hidden = false;
     frame.src = "./azure/index.html?embed=1";
-    try { document.documentElement.requestFullscreen?.().catch(() => {}); } catch (e) { /* nada */ }
   }
 
   function closeAzure() {
@@ -11000,7 +10992,6 @@ function n1ReelsTerminar() {
     if (!overlay || overlay.hidden) return;
     overlay.hidden = true;
     if (frame) frame.src = "about:blank";
-    if (document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) { /* nada */ } }
   }
 
   function onAzureMessage(ev) {
@@ -11416,7 +11407,8 @@ function n1ReelsTerminar() {
     document.getElementById("mainScreen").classList.add("active");
     showMainView("home");
     updateHelpBtnVisibility();
-    toast("✨ Bienvenido " + username + "!");
+    // Al entrar a la app se va directo a Reels, con el ejercicio que toca.
+    setTimeout(() => { if (currentUser && typeof openReels === "function") openReels(); }, 50);
     return true;
   }
 
@@ -11476,7 +11468,7 @@ function n1ReelsTerminar() {
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.7 (15-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.8 (15-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>

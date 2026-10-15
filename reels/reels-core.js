@@ -6,7 +6,7 @@
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 17.7";
+  const RL_VERSION = "reels 17.8";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -264,8 +264,7 @@
     RLV.abierto = true;
     document.body.classList.add("rl-open");
     document.getElementById("rlHelpBtn").style.display = getTargetLanguage() === "en" ? "flex" : "none";
-    const fs = document.documentElement.requestFullscreen?.bind(document.documentElement);
-    if (fs) fs().then(() => { RLV.enPantallaCompleta = true; }).catch(() => { RLV.enPantallaCompleta = false; });
+    // Sin la API de pantalla completa del navegador: Reels ocupa toda la pantalla de la app.
     try { history.pushState({ reels: true }, ""); } catch (e) { /* nada */ }
     document.getElementById("rlStage").innerHTML = "";
     // Los % vienen de la tabla: se piden al abrir; la sorpresa de reglas los espera (máx. 4 s).
@@ -288,7 +287,6 @@
     document.body.classList.remove("rl-open");
     const st = document.getElementById("rlStage");
     if (st) st.innerHTML = "";
-    if (desdeEvento !== "fullscreen" && document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) { /* nada */ } }
     RLV.enPantallaCompleta = false;
     if (desdeEvento !== "popstate" && history.state && history.state.reels) { try { history.back(); } catch (e) { /* nada */ } }
     rlGuardar();
@@ -641,14 +639,6 @@
   function wireReels() {
     document.getElementById("rlCloseBtn")?.addEventListener("click", () => closeReels());
     document.getElementById("rlHelpBtn")?.addEventListener("click", () => showHelpModal());
-    // Al ir a segundo plano Android saca de pantalla completa: Reels sigue abierto
-    // tal cual y la pantalla completa vuelve con el siguiente toque.
-    document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement) RLV.enPantallaCompleta = false; });
-    document.getElementById("reelsOverlay")?.addEventListener("pointerdown", () => {
-      if (RLV.abierto && !document.fullscreenElement && document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen().then(() => { RLV.enPantallaCompleta = true; }).catch(() => {});
-      }
-    }, true);
     let tBorr = null;
     document.getElementById("rlStage")?.addEventListener("input", () => { clearTimeout(tBorr); tBorr = setTimeout(rlGuardarBorrador, 300); });
     document.addEventListener("visibilitychange", () => { if (document.hidden) rlGuardarBorrador(); });

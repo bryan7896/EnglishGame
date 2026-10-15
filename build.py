@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "17.7 (15-10-2026)"
+VERSION = "17.8 (15-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -1053,7 +1053,6 @@ def get_main_logic():
     if (!overlay || !frame) return;
     overlay.hidden = false;
     frame.src = "./azure/index.html?embed=1";
-    try { document.documentElement.requestFullscreen?.().catch(() => {}); } catch (e) { /* nada */ }
   }
 
   function closeAzure() {
@@ -1062,7 +1061,6 @@ def get_main_logic():
     if (!overlay || overlay.hidden) return;
     overlay.hidden = true;
     if (frame) frame.src = "about:blank";
-    if (document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) { /* nada */ } }
   }
 
   function onAzureMessage(ev) {
@@ -1478,7 +1476,8 @@ def get_main_logic():
     document.getElementById("mainScreen").classList.add("active");
     showMainView("home");
     updateHelpBtnVisibility();
-    toast("✨ Bienvenido " + username + "!");
+    // Al entrar a la app se va directo a Reels, con el ejercicio que toca.
+    setTimeout(() => { if (currentUser && typeof openReels === "function") openReels(); }, 50);
     return true;
   }
 

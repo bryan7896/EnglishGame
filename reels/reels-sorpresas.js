@@ -104,47 +104,43 @@
   function rlReglasDia() {
     const hoy = new Date().toLocaleDateString("en-CA");
     if (!RL.reglasDia || RL.reglasDia.fecha !== hoy) RL.reglasDia = { fecha: hoy, veces: 0, mostradas: [], elegidas: [] };
+    RL.reglasEstudio = RL.reglasEstudio || {};
+    RL.reglasDia.elegidas.forEach((id) => { if (!RL.reglasEstudio[id]) RL.reglasEstudio[id] = RL.reglasDia.fecha; });
     return RL.reglasDia;
   }
 
-  // Qué reglas ofrecer:
-  //  - 1ª vez del día: rojas y naranjas con %, + 1 regla en 0 % + 2 verdes.
-  //  - Siguientes veces: solo rojas y naranjas con %.
-  //  - Nunca repite en el día una regla que ya se mostró. Si ya no quedan,
-  //    vuelve a ofrecer las que se mostraron pero NO se eligieron, y como
-  //    último recurso las ya elegidas.
+  // Qué reglas ofrecer (todas las que cumplan, ordenadas rojas → naranjas → verdes → 0 %):
+  //  - Solo reglas que NO se estudiaron (eligieron) en los últimos 3 días: hoy,
+  //    ayer y anteayer. Así tampoco se repite lo que ya estudiaste hoy.
+  //  - Las que se mostraron y no elegiste pueden volver a salir más tarde.
+  //  - En el día: máximo 1 regla en 0 % y 2 verdes en total.
+  //  - Si así no alcanza para lo que hay que elegir, se completa con las que
+  //    se estudiaron hace más tiempo.
+  function rlFechaMenosDias(n) { const d = new Date(); d.setDate(d.getDate() - n); return d.toLocaleDateString("en-CA"); }
+  function rlEstudiadaReciente(id) {
+    const f = (RL.reglasEstudio || {})[id];
+    return !!f && f >= rlFechaMenosDias(2);
+  }
   function rlReglasParaElegir(minimo) {
     const dia = rlReglasDia();
-    const primera = dia.veces === 0;
-    const mostradas = new Set(dia.mostradas), elegidas = new Set(dia.elegidas);
     const disp = rlReglasDisponibles();
+    const libre = (r) => !rlEstudiadaReciente(r.id);
     const conPct = disp.filter((r) => r.porcentaje > 0).sort((a, b) => a.porcentaje - b.porcentaje);
-    const rojas = conPct.filter((r) => pctTier(r.porcentaje) === "bad");
-    const naranjas = conPct.filter((r) => pctTier(r.porcentaje) === "warn");
-    const verdes = shuffleArray(conPct.filter((r) => pctTier(r.porcentaje) === "good"));
-    const nuevas = shuffleArray(disp.filter((r) => r.porcentaje <= 0));
-    const nuevasPorTanda = (r) => !mostradas.has(r.id);
-    const lista = [];
-    const meter = (arr, n, filtro) => arr.filter(filtro || nuevasPorTanda).slice(0, n).forEach((r) => { if (!lista.includes(r) && lista.length < 7) lista.push(r); });
-    if (primera) {
-      meter(rojas, 3);
-      meter(naranjas, 1);
-      meter(nuevas, 1);
-      meter(verdes, 2);
-      meter(rojas, 9); meter(naranjas, 9);
-    } else {
-      meter(rojas, 4);
-      meter(naranjas, 3);
-      meter(rojas, 9); meter(naranjas, 9);
+    const rojas = conPct.filter((r) => pctTier(r.porcentaje) === "bad" && libre(r));
+    const naranjas = conPct.filter((r) => pctTier(r.porcentaje) === "warn" && libre(r));
+    const verdes = shuffleArray(conPct.filter((r) => pctTier(r.porcentaje) === "good" && libre(r)));
+    const nuevas = shuffleArray(disp.filter((r) => r.porcentaje <= 0 && libre(r)));
+    const cupoVerdes = Math.max(0, 2 - (dia.verdes || 0));
+    const cupoNuevas = Math.max(0, 1 - (dia.ceros || 0));
+    const lista = [].concat(rojas, naranjas, verdes.slice(0, cupoVerdes), nuevas.slice(0, cupoNuevas));
+    if (lista.length < (minimo || 1)) {
+      // Completa con rojas/naranjas estudiadas hace más tiempo (las más antiguas primero).
+      const f = RL.reglasEstudio || {};
+      const resto = conPct.filter((r) => pctTier(r.porcentaje) !== "good" && !lista.includes(r))
+        .sort((a, b) => String(f[a.id] || "").localeCompare(String(f[b.id] || "")));
+      resto.forEach((r) => { if (lista.length < Math.max(minimo || 1, 5)) lista.push(r); });
     }
-    const objetivo = Math.max(minimo || 1, 5);
-    if (lista.length < objetivo) {
-      const rojoNaranja = rojas.concat(naranjas);
-      meter(rojoNaranja, 9, (r) => !elegidas.has(r.id));   // mostradas pero no elegidas
-      if (lista.length < (minimo || 1)) meter(rojoNaranja, 9, () => true);
-      if (lista.length < (minimo || 1) && !primera) meter(nuevas.concat(verdes), 9, (r) => !mostradas.has(r.id));
-    }
-    return lista.slice(0, 7);
+    return lista;
   }
 
   function rlAporte(r) { return RL_APORTE[r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad"]; }
@@ -170,7 +166,13 @@
       if (item.reglas.length) {
         const dia = rlReglasDia();
         dia.veces += 1;
-        item.reglas.forEach((id) => { if (!dia.mostradas.includes(id)) dia.mostradas.push(id); });
+        item.reglas.forEach((id) => {
+          if (dia.mostradas.includes(id)) return;
+          dia.mostradas.push(id);
+          const r = findRegla(id);
+          if (r && r.porcentaje <= 0) dia.ceros = (dia.ceros || 0) + 1;
+          else if (r && pctTier(r.porcentaje) === "good") dia.verdes = (dia.verdes || 0) + 1;
+        });
       }
       rlGuardar();
     }
@@ -223,7 +225,8 @@
     btn.onclick = () => {
       if (item.x && sel.size !== item.x) return;
       const dia = rlReglasDia();
-      sel.forEach((id) => { if (!dia.elegidas.includes(id)) dia.elegidas.push(id); });
+      RL.reglasEstudio = RL.reglasEstudio || {};
+      sel.forEach((id) => { if (!dia.elegidas.includes(id)) dia.elegidas.push(id); RL.reglasEstudio[id] = rlReglasDia().fecha; });
       const n = rlCargarBanco(item, Array.from(sel));
       if (n) { burstConfetti(); toast("➕ " + n + " ejercicios nuevos en tu banco"); }
       rlSorpresaHecha(item);
