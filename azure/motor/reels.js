@@ -152,8 +152,8 @@ function reelsMostrarItemConcepto() {
       esReflexion: pendiente.esReflexion,
       autoevaluado: pendiente.autoevaluado,
       respuestaUsuario: respuesta,
-      onContinuar: () => reelsAvanceConcepto(confirmarContinuarConcepto(id, pendiente)),
-      onRepasar: () => reelsAvanceConcepto(confirmarRepasarConcepto(id, pendiente)),
+      onContinuar: () => { reelsAvisar("ejercicio"); reelsAvanceConcepto(confirmarContinuarConcepto(id, pendiente)); },
+      onRepasar: () => { reelsAvisar("ejercicio"); reelsAvanceConcepto(confirmarRepasarConcepto(id, pendiente)); },
     });
   });
   window.scrollTo(0, 0);
@@ -200,8 +200,8 @@ function reelsSiguienteEjercicioSeccion() {
       exercise: pendiente.exercise,
       correcto: pendiente.correcto,
       respuestaUsuario: pendiente.respuestaUsuario,
-      onContinuar: () => reelsAvanceSeccion(confirmarContinuar(id, leccionIndex, pendiente)),
-      onRepasar: () => reelsAvanceSeccion(confirmarRepasar(id, leccionIndex, pendiente)),
+      onContinuar: () => { reelsAvisar("ejercicio"); reelsAvanceSeccion(confirmarContinuar(id, leccionIndex, pendiente)); },
+      onRepasar: () => { reelsAvisar("ejercicio"); reelsAvanceSeccion(confirmarRepasar(id, leccionIndex, pendiente)); },
     });
   });
   window.scrollTo(0, 0);

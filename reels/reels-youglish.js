@@ -169,6 +169,7 @@
           fr.hidden = false;
           estado.textContent = ok ? "🎉 ¡Bien! La oíste." : "👀 Era «" + S.reto.objetivo + "».";
           if (ok) burstConfetti();
+          rlSumarDia("youglish");
           RL.reporte.mundo.push({ palabra: S.palabra, frase: S.reto.frase, objetivo: S.reto.objetivo, elegida, ok });
           rlGuardar();
           body.querySelector(".rl-omitir").hidden = true;

@@ -351,7 +351,7 @@
     setTimeout(() => {
     if (!body.isConnected || RL.cur !== item) return;
     const ok = n1ReelsIniciar(body.querySelector(".rl-listen-host"), item.restantes, {
-      cuenta: (n) => { item.restantes = Math.max(0, n); rlGuardar(); },
+      cuenta: (n) => { item.restantes = Math.max(0, n); rlSumarDia("listening"); rlGuardar(); },
       bloque: (b, fase) => { if (chip) chip.textContent = "Bloque " + b + " · " + (N1_FASE_LABEL[fase] || fase); },
       fin: () => { RLV.limpiar = null; rlSorpresaHecha(item); },
     });

@@ -9284,7 +9284,7 @@ function n1ReelsTerminar() {
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 17.4";
+  const RL_VERSION = "reels 17.5";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -9622,6 +9622,7 @@ function n1ReelsTerminar() {
   // reintentos también cuentan, si no el informe se retrasaría).
   function rlEjercicioTerminado(item, passed, decision, entrada, respuesta) {
     rlRegistrar(item, entrada, passed);
+    if (getTargetLanguage() === "en") rlSumarDia("ingles");
     RL.cont.sorpresa++;
     RL.cont.reporte++;
     RL.cont.yt++;
@@ -9695,23 +9696,36 @@ function n1ReelsTerminar() {
     if (RL.historial.length > RL_MAX_HISTORIAL) RL.historial = RL.historial.slice(-RL_MAX_HISTORIAL);
   }
 
+  // ---------- Resumen del día (botón "Copiar historia" del menú) ----------
+  // Cuántos ejercicios se hicieron HOY dentro de Reels, por tipo. Es global
+  // (no por idioma) y guarda solo los últimos días.
+  const RL_DIA_KEY = "english_trainer_reels_dia_v1";
+  function rlHoyStr() { return new Date().toLocaleDateString("en-CA"); }
+  function rlSumarDia(campo, n) {
+    let d = {};
+    try { d = JSON.parse(localStorage.getItem(RL_DIA_KEY) || "{}") || {}; } catch (e) { d = {}; }
+    const hoy = rlHoyStr();
+    const reg = d[hoy] || { ingles: 0, listening: 0, azure: 0, youglish: 0 };
+    reg[campo] = (reg[campo] || 0) + (n || 1);
+    d[hoy] = reg;
+    Object.keys(d).sort().slice(0, -30).forEach((k) => delete d[k]);
+    try { localStorage.setItem(RL_DIA_KEY, JSON.stringify(d)); } catch (e) { /* nada */ }
+  }
+
   function rlCopiarHistoria() {
-    rlEstado();
-    const h = RL.historial || [];
-    const lineas = ["📜 HISTORIA DE ESTUDIO (" + getTargetLangMeta().label + ") · " + RL_VERSION,
-      "Banco: " + rlContarBanco() + " · reserva: " + RL.reserva.length +
-      " · sorpresa en " + Math.max(0, RL.cont.proxSorpresa - RL.cont.sorpresa) + " · youglish en " + Math.max(0, RL.cont.proxYt - RL.cont.yt) +
-      " · reporte en " + Math.max(0, RL.cont.proxReporte - RL.cont.reporte), ""];
-    let dia = "";
-    h.forEach((e) => {
-      const d = new Date(e.f);
-      const fd = d.toLocaleDateString("es-CO", { day: "2-digit", month: "2-digit" });
-      if (fd !== dia) { dia = fd; lineas.push("— " + fd + " —"); }
-      lineas.push(d.toLocaleTimeString("es-CO", { hour: "2-digit", minute: "2-digit", hour12: false }) + "  " + e.t);
-    });
-    if (!h.length) lineas.push("(todavía no hay nada registrado)");
-    const txt = lineas.join("\n");
-    const ok = () => toast("📜 Historia copiada (" + h.length + ")");
+    let d = {};
+    try { d = JSON.parse(localStorage.getItem(RL_DIA_KEY) || "{}") || {}; } catch (e) { d = {}; }
+    const r = Object.assign({ ingles: 0, listening: 0, azure: 0, youglish: 0 }, d[rlHoyStr()] || {});
+    const total = r.ingles + r.listening + r.azure + r.youglish;
+    const txt = [
+      r.ingles + " de estudio de inglés",
+      r.listening + " de listening",
+      r.azure + " de azure",
+      r.youglish + " de YouGlish",
+      "---",
+      "total: " + total,
+    ].join("\n");
+    const ok = () => toast("📜 Resumen de hoy copiado (" + total + ")");
     const manual = () => {
       const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select();
       try { document.execCommand("copy"); ok(); } catch (e) { toast("No se pudo copiar"); }
@@ -9915,6 +9929,7 @@ function n1ReelsTerminar() {
     window.addEventListener("message", (ev) => {
       const d = ev.data;
       if (!d || d.azureReels !== true || ev.origin !== window.location.origin) return;
+      if (d.tipo === "ejercicio") rlSumarDia("azure");
       if (typeof RLV.azHandler === "function") RLV.azHandler(d);
     });
     window.addEventListener("popstate", () => { if (RLV.abierto) closeReels("popstate"); });
@@ -10273,7 +10288,7 @@ function n1ReelsTerminar() {
     setTimeout(() => {
     if (!body.isConnected || RL.cur !== item) return;
     const ok = n1ReelsIniciar(body.querySelector(".rl-listen-host"), item.restantes, {
-      cuenta: (n) => { item.restantes = Math.max(0, n); rlGuardar(); },
+      cuenta: (n) => { item.restantes = Math.max(0, n); rlSumarDia("listening"); rlGuardar(); },
       bloque: (b, fase) => { if (chip) chip.textContent = "Bloque " + b + " · " + (N1_FASE_LABEL[fase] || fase); },
       fin: () => { RLV.limpiar = null; rlSorpresaHecha(item); },
     });
@@ -10507,6 +10522,7 @@ function n1ReelsTerminar() {
           fr.hidden = false;
           estado.textContent = ok ? "🎉 ¡Bien! La oíste." : "👀 Era «" + S.reto.objetivo + "».";
           if (ok) burstConfetti();
+          rlSumarDia("youglish");
           RL.reporte.mundo.push({ palabra: S.palabra, frase: S.reto.frase, objetivo: S.reto.objetivo, elegida, ok });
           rlGuardar();
           body.querySelector(".rl-omitir").hidden = true;
@@ -11405,7 +11421,7 @@ function n1ReelsTerminar() {
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.4 (15-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.5 (15-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
