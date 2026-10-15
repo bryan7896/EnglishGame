@@ -6,7 +6,7 @@
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 17.2";
+  const RL_VERSION = "reels 17.3";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -49,7 +49,11 @@
     const base = rlNuevo();
     if (!d || d.v !== 1) { RL = base; return; }
     RL = Object.assign(base, d);
-    RL.cont = Object.assign(base.cont, d.cont || {});
+    // Ojo: tras Object.assign(base, d), base.cont ya ES d.cont; los valores por
+    // defecto salen de un estado nuevo (así una partida vieja recibe yt/proxYt).
+    const def = rlNuevo().cont;
+    RL.cont = Object.assign({}, def, d.cont || {});
+    Object.keys(def).forEach((k) => { if (!Number.isFinite(RL.cont[k])) RL.cont[k] = def[k]; });
     RL.reporte = Object.assign(rlNuevo().reporte, d.reporte || {});
     RL.historias = Object.assign(rlNuevo().historias, d.historias || {});
     RL.yt = Object.assign(rlNuevo().yt, d.yt || {});

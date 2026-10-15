@@ -47,6 +47,48 @@ export function alignWords(correct, user) {
   return { alignedCorrect, alignedUser };
 }
 
+// Igual que alignWords, pero una contracción equivale a sus dos palabras
+// ("She's" = "She has", "don't" = "do not"), en cualquiera de los dos lados.
+// Así el resaltado no pinta de rojo una contracción que sí se acepta.
+function _caStrip(w) { return normalizeQuotes(String(w || "")).replace(/[.,!?;:"()¿¡]/g, ""); }
+function _caEq(corto, w1, w2, ctx) {
+  if (!/'/.test(normalizeQuotes(corto))) return false;
+  const c = ctx ? " " + _caStrip(ctx) : "";
+  return contractionAwareEquals(_caStrip(corto) + c, _caStrip(w1) + " " + _caStrip(w2) + c);
+}
+export function alignWordsContracciones(correct, user) {
+  const C = String(correct || "").trim().split(/\s+/).filter(Boolean);
+  const U = String(user || "").trim().split(/\s+/).filter(Boolean);
+  const n = C.length, m = U.length;
+  const eq = (i, j) => normalizeWord(C[i]) === normalizeWord(U[j]);
+  const dp = Array.from({ length: n + 1 }, () => Array(m + 1).fill(0));
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= m; j++) {
+      let v = Math.max(dp[i - 1][j], dp[i][j - 1]);
+      if (eq(i - 1, j - 1)) v = Math.max(v, dp[i - 1][j - 1] + 1);
+      if (i >= 2 && _caEq(U[j - 1], C[i - 2], C[i - 1], C[i])) v = Math.max(v, dp[i - 2][j - 1] + 2);
+      if (j >= 2 && _caEq(C[i - 1], U[j - 2], U[j - 1], U[j])) v = Math.max(v, dp[i - 1][j - 2] + 2);
+      dp[i][j] = v;
+    }
+  }
+  const ac = [], au = [];
+  let i = n, j = m;
+  while (i > 0 || j > 0) {
+    if (i > 0 && j > 0 && eq(i - 1, j - 1) && dp[i][j] === dp[i - 1][j - 1] + 1) {
+      ac.unshift({ word: C[i - 1], match: true }); au.unshift({ word: U[j - 1], match: true }); i--; j--;
+    } else if (i >= 2 && j > 0 && _caEq(U[j - 1], C[i - 2], C[i - 1], C[i]) && dp[i][j] === dp[i - 2][j - 1] + 2) {
+      ac.unshift({ word: C[i - 2], match: true }, { word: C[i - 1], match: true }); au.unshift({ word: U[j - 1], match: true }); i -= 2; j--;
+    } else if (j >= 2 && i > 0 && _caEq(C[i - 1], U[j - 2], U[j - 1], U[j]) && dp[i][j] === dp[i - 1][j - 2] + 2) {
+      ac.unshift({ word: C[i - 1], match: true }); au.unshift({ word: U[j - 2], match: true }, { word: U[j - 1], match: true }); i--; j -= 2;
+    } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+      ac.unshift({ word: "", placeholder: true }); au.unshift({ word: U[j - 1], match: false }); j--;
+    } else {
+      ac.unshift({ word: C[i - 1], match: false }); au.unshift({ word: "", placeholder: true }); i--;
+    }
+  }
+  return { alignedCorrect: ac, alignedUser: au };
+}
+
 export function renderTraduccionExercise(exercise, container) {
   container.innerHTML = `
     <div class="question-bubble">${exercise.spanishWord || exercise.spanishWords}</div>
@@ -128,12 +170,12 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   // usuario escribió). Para CALCULAR la precisión se usa una versión con
   // las contracciones normalizadas, así "i have" vs "i've" no penaliza el
   // puntaje aunque en el diff visual se vean como palabras distintas.
-  const { alignedCorrect, alignedUser } = alignWords(correctText, userAnswer);
+  const { alignedCorrect, alignedUser } = alignWordsContracciones(correctText, userAnswer);
   const { alignedCorrect: matchAlignedCorrect } = alignWords(
     normalizeContractions(correctText),
     normalizeContractions(userAnswer)
   );
-  const accuracy = Math.max(computeAccuracy(alignedCorrect), computeAccuracy(matchAlignedCorrect));
+  const accuracy = Math.min(1, Math.max(computeAccuracy(alignedCorrect), computeAccuracy(matchAlignedCorrect)));
   const accuracyPct = Math.round(accuracy * 100);
   const passed = isCorrect || accuracy >= 0.8;
   
