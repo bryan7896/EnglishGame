@@ -6,7 +6,7 @@
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 17.6";
+  const RL_VERSION = "reels 17.7";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;

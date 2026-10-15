@@ -100,21 +100,50 @@
   }
 
   // ---------- 3. Elegir reglas (rellena el banco) ----------
-  function rlReglasParaElegir() {
+  // Reglas del día: qué se mostró y qué se eligió hoy (se reinicia a medianoche).
+  function rlReglasDia() {
+    const hoy = new Date().toLocaleDateString("en-CA");
+    if (!RL.reglasDia || RL.reglasDia.fecha !== hoy) RL.reglasDia = { fecha: hoy, veces: 0, mostradas: [], elegidas: [] };
+    return RL.reglasDia;
+  }
+
+  // Qué reglas ofrecer:
+  //  - 1ª vez del día: rojas y naranjas con %, + 1 regla en 0 % + 2 verdes.
+  //  - Siguientes veces: solo rojas y naranjas con %.
+  //  - Nunca repite en el día una regla que ya se mostró. Si ya no quedan,
+  //    vuelve a ofrecer las que se mostraron pero NO se eligieron, y como
+  //    último recurso las ya elegidas.
+  function rlReglasParaElegir(minimo) {
+    const dia = rlReglasDia();
+    const primera = dia.veces === 0;
+    const mostradas = new Set(dia.mostradas), elegidas = new Set(dia.elegidas);
     const disp = rlReglasDisponibles();
     const conPct = disp.filter((r) => r.porcentaje > 0).sort((a, b) => a.porcentaje - b.porcentaje);
     const rojas = conPct.filter((r) => pctTier(r.porcentaje) === "bad");
     const naranjas = conPct.filter((r) => pctTier(r.porcentaje) === "warn");
     const verdes = shuffleArray(conPct.filter((r) => pctTier(r.porcentaje) === "good"));
     const nuevas = shuffleArray(disp.filter((r) => r.porcentaje <= 0));
+    const nuevasPorTanda = (r) => !mostradas.has(r.id);
     const lista = [];
-    const meter = (arr, n) => arr.slice(0, n).forEach((r) => { if (!lista.includes(r) && lista.length < 7) lista.push(r); });
-    meter(rojas, 4);
-    meter(nuevas, 1);
-    meter(naranjas, 2);
-    meter(verdes, 1);
-    // Completa hasta 5-7 con lo que haya (rojas, naranjas, verdes; las de 0 % al final).
-    [rojas, naranjas, verdes, nuevas].forEach((arr) => { if (lista.length < 6) meter(arr, arr.length); });
+    const meter = (arr, n, filtro) => arr.filter(filtro || nuevasPorTanda).slice(0, n).forEach((r) => { if (!lista.includes(r) && lista.length < 7) lista.push(r); });
+    if (primera) {
+      meter(rojas, 3);
+      meter(naranjas, 1);
+      meter(nuevas, 1);
+      meter(verdes, 2);
+      meter(rojas, 9); meter(naranjas, 9);
+    } else {
+      meter(rojas, 4);
+      meter(naranjas, 3);
+      meter(rojas, 9); meter(naranjas, 9);
+    }
+    const objetivo = Math.max(minimo || 1, 5);
+    if (lista.length < objetivo) {
+      const rojoNaranja = rojas.concat(naranjas);
+      meter(rojoNaranja, 9, (r) => !elegidas.has(r.id));   // mostradas pero no elegidas
+      if (lista.length < (minimo || 1)) meter(rojoNaranja, 9, () => true);
+      if (lista.length < (minimo || 1) && !primera) meter(nuevas.concat(verdes), 9, (r) => !mostradas.has(r.id));
+    }
     return lista.slice(0, 7);
   }
 
@@ -135,8 +164,14 @@
       }
       item.manual = m;
       item.sistema = reglas.length ? Math.max(0, deficit - m) : 0;
-      item.reglas = rlReglasParaElegir().map((r) => r.id);
-      item.x = item.sistema > 0 ? Math.max(1, Math.min(item.reglas.length, Math.round(item.sistema / 8))) : 0;
+      const xDeseado = item.sistema > 0 ? Math.max(1, Math.round(item.sistema / 8)) : 0;
+      item.reglas = rlReglasParaElegir(xDeseado).map((r) => r.id);
+      item.x = xDeseado ? Math.min(item.reglas.length, xDeseado) : 0;
+      if (item.reglas.length) {
+        const dia = rlReglasDia();
+        dia.veces += 1;
+        item.reglas.forEach((id) => { if (!dia.mostradas.includes(id)) dia.mostradas.push(id); });
+      }
       rlGuardar();
     }
     const sel = new Set();
@@ -187,6 +222,8 @@
     });
     btn.onclick = () => {
       if (item.x && sel.size !== item.x) return;
+      const dia = rlReglasDia();
+      sel.forEach((id) => { if (!dia.elegidas.includes(id)) dia.elegidas.push(id); });
       const n = rlCargarBanco(item, Array.from(sel));
       if (n) { burstConfetti(); toast("➕ " + n + " ejercicios nuevos en tu banco"); }
       rlSorpresaHecha(item);
