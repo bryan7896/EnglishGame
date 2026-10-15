@@ -6,7 +6,7 @@
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 18.0";
+  const RL_VERSION = "reels 18.1";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -639,7 +639,6 @@
   // ---------- Temporizador (botón ▶ arriba al centro) ----------
   // Cuenta regresiva de N minutos (N se cambia en el menú). Guarda la hora de
   // fin en localStorage, así sigue contando aunque la app vaya a segundo plano.
-  // Tocar mientras corre lo pausa; tocar otra vez lo reanuda.
   const RL_TIMER_KEY = "english_trainer_timer_v1";
   const RL_TIMER_MIN_KEY = "english_trainer_timer_min";
   function rlTimerMin() {
@@ -650,12 +649,28 @@
   function rlTimerLeer() { try { return JSON.parse(localStorage.getItem(RL_TIMER_KEY) || "null"); } catch (e) { return null; } }
   function rlTimerGuardar(t) { try { if (t) localStorage.setItem(RL_TIMER_KEY, JSON.stringify(t)); else localStorage.removeItem(RL_TIMER_KEY); } catch (e) { /* nada */ } }
 
+  // Apagado: ▶ lo enciende. Encendido: tocarlo abre un modal para desactivarlo.
   function rlTimerToque() {
     const t = rlTimerLeer();
-    if (!t) rlTimerGuardar({ fin: Date.now() + rlTimerMin() * 60000 });
-    else if (t.pausa != null) rlTimerGuardar({ fin: Date.now() + t.pausa });
-    else rlTimerGuardar({ pausa: Math.max(0, t.fin - Date.now()) });
-    rlTimerPintar();
+    if (!t) { rlTimerGuardar({ fin: Date.now() + rlTimerMin() * 60000 }); rlTimerPintar(); return; }
+    document.querySelectorAll(".modal-overlay").forEach((m) => m.remove());
+    const resta = Math.max(0, (t.pausa != null ? t.pausa : t.fin - Date.now()));
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <h3>⏱️ Temporizador</h3>
+        <p class="sub-fun" style="margin:8px 0 16px;text-transform:none;font-size:.95rem;">Quedan ${Math.ceil(resta / 60000)} min. ¿Lo desactivas?</p>
+        <div class="action-buttons" style="display:flex;gap:10px;">
+          <button class="fun-btn rl-tm-no" style="flex:1;">Seguir</button>
+          <button class="fun-btn danger-btn rl-tm-off" style="flex:1;">⏹ Desactivar</button>
+        </div>
+      </div>`;
+    document.body.appendChild(modal);
+    const close = () => modal.remove();
+    modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+    modal.querySelector(".rl-tm-no").onclick = close;
+    modal.querySelector(".rl-tm-off").onclick = () => { rlTimerGuardar(null); close(); rlTimerPintar(); toast("⏹ Temporizador desactivado"); };
   }
 
   function rlTimerFin() {
@@ -685,7 +700,7 @@
     const min = Math.ceil(resta / 60000);
     btn.className = "rl-timer rl-timer-on" + (t.pausa != null ? " rl-timer-pausa" : "");
     btn.innerHTML = `<span class="rl-timer-num">${min}</span><span class="rl-timer-dot"></span>`;
-    btn.title = t.pausa != null ? "En pausa · toca para seguir" : "Toca para pausar";
+    btn.title = "Toca para desactivar";
   }
 
   function rlModalTimer() {
