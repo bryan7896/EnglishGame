@@ -6,8 +6,10 @@
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_MIN_OBLIGATORIO = 35;
-  const RL_SORPRESA_MIN = 5, RL_SORPRESA_MAX = 15;
+  const RL_VERSION = "reels 17.2";
+  const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
+  const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
+  const RL_MAX_HISTORIAL = 600;
   const RL_REPORTE_MIN = 60, RL_REPORTE_MAX = 70;
   const RL_MIN_POR_REGLA = 5;
   const RL_PARTE_MANUAL = 0.6;               // 30 de cada 50
@@ -35,7 +37,8 @@
       historias: { usadas: [], activa: null },
       yt: { usadas: [] },
       recientes: [],      // textos en el idioma objetivo de lo último que se hizo (para YouGlish)
-      borrador: null,     // lo escrito en la tarjeta actual (por si el sistema cierra la app)
+      borrador: null,
+      historial: [],      // qué tarjeta salió y cuándo (botón "Copiar historia" del menú)     // lo escrito en la tarjeta actual (por si el sistema cierra la app)
       seq: 0,
     };
   }
@@ -313,7 +316,7 @@
   }
 
   function rlMostrarActual(animar) {
-    if (!RL.cur) { RL.cur = rlDecidirSiguiente(); rlGuardar(); }
+    if (!RL.cur) { RL.cur = rlDecidirSiguiente(); rlAnotar(RL.cur); rlGuardar(); }
     rlRenderTarjeta(RL.cur, animar);
   }
 
@@ -386,6 +389,44 @@
     }
     card.scrollTop = 0;
     rlRestaurarBorrador(card, item);
+  }
+
+  // ---------- Historia de estudio ----------
+  const RL_NOMBRE_SORPRESA = { yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening" };
+  function rlAnotar(item, nota) {
+    if (!RL) return;
+    let tipo = "—";
+    if (item && item.k === "ex") tipo = (item.ex.type === "traduccion" ? "traduccion" : item.ex.type === "seleccionar" ? "emparejar" : item.ex.type) + (item.retry ? " (repaso)" : "") + (item.src === "man" ? " (tuyo)" : "");
+    else if (item && item.k === "info") tipo = "lección de información";
+    else if (item && item.k === "sorpresa") tipo = RL_NOMBRE_SORPRESA[item.tipo] || item.tipo;
+    RL.historial = RL.historial || [];
+    RL.historial.push({ f: new Date().toISOString(), t: tipo + (nota ? " · " + nota : "") });
+    if (RL.historial.length > RL_MAX_HISTORIAL) RL.historial = RL.historial.slice(-RL_MAX_HISTORIAL);
+  }
+
+  function rlCopiarHistoria() {
+    rlEstado();
+    const h = RL.historial || [];
+    const lineas = ["📜 HISTORIA DE ESTUDIO (" + getTargetLangMeta().label + ") · " + RL_VERSION,
+      "Banco: " + rlContarBanco() + " · reserva: " + RL.reserva.length +
+      " · sorpresa en " + Math.max(0, RL.cont.proxSorpresa - RL.cont.sorpresa) + " · youglish en " + Math.max(0, RL.cont.proxYt - RL.cont.yt) +
+      " · reporte en " + Math.max(0, RL.cont.proxReporte - RL.cont.reporte), ""];
+    let dia = "";
+    h.forEach((e) => {
+      const d = new Date(e.f);
+      const fd = d.toLocaleDateString("es-CO", { day: "2-digit", month: "2-digit" });
+      if (fd !== dia) { dia = fd; lineas.push("— " + fd + " —"); }
+      lineas.push(d.toLocaleTimeString("es-CO", { hour: "2-digit", minute: "2-digit", hour12: false }) + "  " + e.t);
+    });
+    if (!h.length) lineas.push("(todavía no hay nada registrado)");
+    const txt = lineas.join("\n");
+    const ok = () => toast("📜 Historia copiada (" + h.length + ")");
+    const manual = () => {
+      const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); ok(); } catch (e) { toast("No se pudo copiar"); }
+      ta.remove();
+    };
+    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(txt).then(ok).catch(manual); else manual();
   }
 
   // ---------- Borradores: lo escrito sobrevive a segundo plano / cierre ----------

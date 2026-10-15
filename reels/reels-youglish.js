@@ -120,6 +120,8 @@
 
     const sinClip = (msg) => {
       if (!S.vivo) return;
+      rlAnotar(item, "sin clip: " + (msg || "no se encontró"));
+      rlGuardar();
       estado.textContent = msg || "No se encontró un clip. Sigamos.";
       body.querySelector(".rl-omitir").hidden = true;
       body.querySelector(".rl-continuar").hidden = false;

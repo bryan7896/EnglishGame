@@ -9230,8 +9230,10 @@ function n1ReelsTerminar() {
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_MIN_OBLIGATORIO = 35;
-  const RL_SORPRESA_MIN = 5, RL_SORPRESA_MAX = 15;
+  const RL_VERSION = "reels 17.2";
+  const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
+  const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
+  const RL_MAX_HISTORIAL = 600;
   const RL_REPORTE_MIN = 60, RL_REPORTE_MAX = 70;
   const RL_MIN_POR_REGLA = 5;
   const RL_PARTE_MANUAL = 0.6;               // 30 de cada 50
@@ -9259,7 +9261,8 @@ function n1ReelsTerminar() {
       historias: { usadas: [], activa: null },
       yt: { usadas: [] },
       recientes: [],      // textos en el idioma objetivo de lo último que se hizo (para YouGlish)
-      borrador: null,     // lo escrito en la tarjeta actual (por si el sistema cierra la app)
+      borrador: null,
+      historial: [],      // qué tarjeta salió y cuándo (botón "Copiar historia" del menú)     // lo escrito en la tarjeta actual (por si el sistema cierra la app)
       seq: 0,
     };
   }
@@ -9537,7 +9540,7 @@ function n1ReelsTerminar() {
   }
 
   function rlMostrarActual(animar) {
-    if (!RL.cur) { RL.cur = rlDecidirSiguiente(); rlGuardar(); }
+    if (!RL.cur) { RL.cur = rlDecidirSiguiente(); rlAnotar(RL.cur); rlGuardar(); }
     rlRenderTarjeta(RL.cur, animar);
   }
 
@@ -9610,6 +9613,44 @@ function n1ReelsTerminar() {
     }
     card.scrollTop = 0;
     rlRestaurarBorrador(card, item);
+  }
+
+  // ---------- Historia de estudio ----------
+  const RL_NOMBRE_SORPRESA = { yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening" };
+  function rlAnotar(item, nota) {
+    if (!RL) return;
+    let tipo = "—";
+    if (item && item.k === "ex") tipo = (item.ex.type === "traduccion" ? "traduccion" : item.ex.type === "seleccionar" ? "emparejar" : item.ex.type) + (item.retry ? " (repaso)" : "") + (item.src === "man" ? " (tuyo)" : "");
+    else if (item && item.k === "info") tipo = "lección de información";
+    else if (item && item.k === "sorpresa") tipo = RL_NOMBRE_SORPRESA[item.tipo] || item.tipo;
+    RL.historial = RL.historial || [];
+    RL.historial.push({ f: new Date().toISOString(), t: tipo + (nota ? " · " + nota : "") });
+    if (RL.historial.length > RL_MAX_HISTORIAL) RL.historial = RL.historial.slice(-RL_MAX_HISTORIAL);
+  }
+
+  function rlCopiarHistoria() {
+    rlEstado();
+    const h = RL.historial || [];
+    const lineas = ["📜 HISTORIA DE ESTUDIO (" + getTargetLangMeta().label + ") · " + RL_VERSION,
+      "Banco: " + rlContarBanco() + " · reserva: " + RL.reserva.length +
+      " · sorpresa en " + Math.max(0, RL.cont.proxSorpresa - RL.cont.sorpresa) + " · youglish en " + Math.max(0, RL.cont.proxYt - RL.cont.yt) +
+      " · reporte en " + Math.max(0, RL.cont.proxReporte - RL.cont.reporte), ""];
+    let dia = "";
+    h.forEach((e) => {
+      const d = new Date(e.f);
+      const fd = d.toLocaleDateString("es-CO", { day: "2-digit", month: "2-digit" });
+      if (fd !== dia) { dia = fd; lineas.push("— " + fd + " —"); }
+      lineas.push(d.toLocaleTimeString("es-CO", { hour: "2-digit", minute: "2-digit", hour12: false }) + "  " + e.t);
+    });
+    if (!h.length) lineas.push("(todavía no hay nada registrado)");
+    const txt = lineas.join("\n");
+    const ok = () => toast("📜 Historia copiada (" + h.length + ")");
+    const manual = () => {
+      const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); ok(); } catch (e) { toast("No se pudo copiar"); }
+      ta.remove();
+    };
+    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(txt).then(ok).catch(manual); else manual();
   }
 
   // ---------- Borradores: lo escrito sobrevive a segundo plano / cierre ----------
@@ -9809,12 +9850,14 @@ function n1ReelsTerminar() {
 
     // ==================== REELS (sorpresas) ====================
   // 1 yt       → clip real de YouGlish (va aparte: cada 3-6 ejercicios, ver rlDecidirSiguiente)
+  // Las demás salen cada 2-15 tarjetas. "Elige reglas" es obligatoria solo con
+  // el banco por debajo de RL_MIN_OBLIGATORIO; si no, compite con peso bajo.
   // 2 pct      → 5 porcentajes (1 verde, 2 naranja, 2 rojo), solo para ver
   // 3 reglas   → elige X reglas: rellena el banco hasta RL_BANCO
   // 4 reporte  → copiar informe (cada 60-70 ejercicios) + agregar JSON
   // 5 historia → misma historia 4 veces (3 leyendo, la 4ª solo audio)
   // 6 listening → 3 ejercicios seguidos del Nivel 1 de Listening (mismo avance que el módulo)
-  const RL_PESOS = { listening: 35, historia: 30, pct: 20, reglas: 25 };
+  const RL_PESOS = { listening: 35, historia: 30, pct: 20, reglas: 10 };
   const RL_LISTENING_N = 3;
   const RL_APORTE = { bad: 10, warn: 7, good: 5 };
 
@@ -10288,6 +10331,8 @@ function n1ReelsTerminar() {
 
     const sinClip = (msg) => {
       if (!S.vivo) return;
+      rlAnotar(item, "sin clip: " + (msg || "no se encontró"));
+      rlGuardar();
       estado.textContent = msg || "No se encontró un clip. Sigamos.";
       body.querySelector(".rl-omitir").hidden = true;
       body.querySelector(".rl-continuar").hidden = false;
@@ -11206,11 +11251,12 @@ function n1ReelsTerminar() {
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.1 (14-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.2 (15-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
           <button class="fun-btn" id="menuAddJsonBtn">📥 Agregar ejercicios (JSON)</button>
+          <button class="fun-btn" id="menuHistoriaBtn">📜 Copiar historia</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
         </div>
       </div>
@@ -11230,6 +11276,7 @@ function n1ReelsTerminar() {
     });
     modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
     modal.querySelector('#menuAddJsonBtn').addEventListener('click', () => { close(); rlModalAgregarJSON(); });
+    modal.querySelector('#menuHistoriaBtn').addEventListener('click', () => { close(); rlCopiarHistoria(); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
   }
 

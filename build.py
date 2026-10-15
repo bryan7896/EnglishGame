@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "17.1 (14-10-2026)"
+VERSION = "17.2 (15-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -1508,6 +1508,7 @@ def get_main_logic():
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
           <button class="fun-btn" id="menuAddJsonBtn">📥 Agregar ejercicios (JSON)</button>
+          <button class="fun-btn" id="menuHistoriaBtn">📜 Copiar historia</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
         </div>
       </div>
@@ -1527,6 +1528,7 @@ def get_main_logic():
     });
     modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
     modal.querySelector('#menuAddJsonBtn').addEventListener('click', () => { close(); rlModalAgregarJSON(); });
+    modal.querySelector('#menuHistoriaBtn').addEventListener('click', () => { close(); rlCopiarHistoria(); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
   }
 

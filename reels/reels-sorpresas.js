@@ -1,11 +1,13 @@
   // ==================== REELS (sorpresas) ====================
   // 1 yt       → clip real de YouGlish (va aparte: cada 3-6 ejercicios, ver rlDecidirSiguiente)
+  // Las demás salen cada 2-15 tarjetas. "Elige reglas" es obligatoria solo con
+  // el banco por debajo de RL_MIN_OBLIGATORIO; si no, compite con peso bajo.
   // 2 pct      → 5 porcentajes (1 verde, 2 naranja, 2 rojo), solo para ver
   // 3 reglas   → elige X reglas: rellena el banco hasta RL_BANCO
   // 4 reporte  → copiar informe (cada 60-70 ejercicios) + agregar JSON
   // 5 historia → misma historia 4 veces (3 leyendo, la 4ª solo audio)
   // 6 listening → 3 ejercicios seguidos del Nivel 1 de Listening (mismo avance que el módulo)
-  const RL_PESOS = { listening: 35, historia: 30, pct: 20, reglas: 25 };
+  const RL_PESOS = { listening: 35, historia: 30, pct: 20, reglas: 10 };
   const RL_LISTENING_N = 3;
   const RL_APORTE = { bad: 10, warn: 7, good: 5 };
 
