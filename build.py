@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "17.3 (15-10-2026)"
+VERSION = "17.4 (15-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -555,6 +555,10 @@ def get_html_template():
           <span class="home-tile-ico">🎧</span>
           <span><b>Listening</b><small>Entrena el oído por niveles</small></span>
         </button>
+        <button class="home-tile home-tile-azure" id="homeAzureBtn">
+          <span class="home-tile-ico">☁️</span>
+          <span><b>Azure</b><small>Curso AI-901 (Azure AI Fundamentals)</small></span>
+        </button>
       </div>
     </div>
 
@@ -662,6 +666,10 @@ def get_html_template():
 
 <div id="aventuraOverlay" class="aventura-overlay" hidden>
   <iframe id="aventuraFrame" title="Aventura" allow="autoplay; fullscreen" referrerpolicy="same-origin"></iframe>
+</div>
+
+<div id="azureOverlay" class="aventura-overlay" hidden>
+  <iframe id="azureFrame" title="Curso Azure AI-901"></iframe>
 </div>
 
 <div id="reelsOverlay" class="rl-overlay" hidden>
@@ -1031,9 +1039,36 @@ def get_main_logic():
   // dentro de Reels (botón flotante, solo inglés).
   function updateHelpBtnVisibility() {
     const isEnglish = getTargetLanguage() === "en";
-    ["homeJuegoBtn", "homeListeningBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
+    ["homeJuegoBtn", "homeListeningBtn", "homeAzureBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
     const tag = document.getElementById("homeLangTag");
     if (tag) tag.textContent = getTargetLangMeta().flag + " Practicando " + getTargetLangMeta().labelLower;
+  }
+
+  // ==================== AZURE (curso AI-901 en azure/) ====================
+  // Es su propia app (con su build.py, su guardado y su service worker) y se abre
+  // tal cual en un iframe a pantalla completa. Su botón ✕ avisa con postMessage.
+  function openAzure() {
+    const overlay = document.getElementById("azureOverlay");
+    const frame = document.getElementById("azureFrame");
+    if (!overlay || !frame) return;
+    overlay.hidden = false;
+    frame.src = "./azure/index.html?embed=1";
+    try { document.documentElement.requestFullscreen?.().catch(() => {}); } catch (e) { /* nada */ }
+  }
+
+  function closeAzure() {
+    const overlay = document.getElementById("azureOverlay");
+    const frame = document.getElementById("azureFrame");
+    if (!overlay || overlay.hidden) return;
+    overlay.hidden = true;
+    if (frame) frame.src = "about:blank";
+    if (document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) { /* nada */ } }
+  }
+
+  function onAzureMessage(ev) {
+    const d = ev.data;
+    if (!d || d.azure !== true || ev.origin !== window.location.origin) return;
+    if (d.tipo === "salir") closeAzure();
   }
 
   // ==================== AVENTURA (juego de conversaciones por audio) ====================
@@ -1625,6 +1660,8 @@ def get_main_logic():
     document.getElementById("toggleHomeBtn")?.addEventListener("click", () => showMainView("home"));
     document.getElementById("homeReelsBtn")?.addEventListener("click", openReels);
     document.getElementById("homeJuegoBtn")?.addEventListener("click", openAventura);
+    document.getElementById("homeAzureBtn")?.addEventListener("click", openAzure);
+    window.addEventListener("message", onAzureMessage);
     wireReels();
     window.addEventListener("message", onAventuraMessage);
     document.addEventListener("fullscreenchange", () => {
@@ -1661,6 +1698,25 @@ def get_main_logic():
   
   init();
 '''
+
+
+AZURE_DIR = "azure"
+
+
+def build_azure():
+    """El curso de Azure es su propia app: se construye con SU build.py dentro de azure/."""
+    if not os.path.exists(os.path.join(AZURE_DIR, "build.py")):
+        print(f"⚠️  No encontrado: {AZURE_DIR}/build.py (el botón Azure no tendrá contenido)")
+        return
+    import subprocess
+    print(f"☁️  Construyendo {AZURE_DIR}/ con su propio build.py...")
+    env = dict(os.environ, PYTHONIOENCODING="utf-8")
+    r = subprocess.run([sys.executable, "build.py"], cwd=AZURE_DIR, env=env, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    if r.returncode == 0:
+        print(f"  ✅ {AZURE_DIR}/index.html generado")
+    else:
+        print(f"  ❌ El build de {AZURE_DIR}/ falló (se deja el index.html anterior):")
+        print("     " + "\n     ".join((r.stdout + r.stderr).strip().splitlines()[-15:]))
 
 
 def build_html():
@@ -1761,6 +1817,9 @@ def main():
     create_service_worker()
     print()
     
+    build_azure()
+    print()
+
     html = build_html()
     output_path = 'index.html'
     with open(output_path, 'w', encoding='utf-8') as f:

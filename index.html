@@ -2372,6 +2372,10 @@ body.rl-open { overflow: hidden; }
 .rl-listening .exercise-area { gap: 12px; }
 .rl-listening .n1-reels-resumen { padding: 6px 0; }
 
+/* Azure dentro de Reels */
+.rl-az-frame { width: 100%; height: calc(100dvh - 150px); min-height: 420px; border: 0; border-radius: 14px; background: #060a13; }
+.home-tile-azure .home-tile-ico { background: #0b2a44; }
+
 
 /* ============================================================
    listening.css -- Nivel 0 (Listening Trainer)
@@ -3181,6 +3185,10 @@ body.rl-open { overflow: hidden; }
           <span class="home-tile-ico">🎧</span>
           <span><b>Listening</b><small>Entrena el oído por niveles</small></span>
         </button>
+        <button class="home-tile home-tile-azure" id="homeAzureBtn">
+          <span class="home-tile-ico">☁️</span>
+          <span><b>Azure</b><small>Curso AI-901 (Azure AI Fundamentals)</small></span>
+        </button>
       </div>
     </div>
 
@@ -3288,6 +3296,10 @@ body.rl-open { overflow: hidden; }
 
 <div id="aventuraOverlay" class="aventura-overlay" hidden>
   <iframe id="aventuraFrame" title="Aventura" allow="autoplay; fullscreen" referrerpolicy="same-origin"></iframe>
+</div>
+
+<div id="azureOverlay" class="aventura-overlay" hidden>
+  <iframe id="azureFrame" title="Curso Azure AI-901"></iframe>
 </div>
 
 <div id="reelsOverlay" class="rl-overlay" hidden>
@@ -9272,7 +9284,7 @@ function n1ReelsTerminar() {
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 17.3";
+  const RL_VERSION = "reels 17.4";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -9297,7 +9309,7 @@ function n1ReelsTerminar() {
       cur: null,          // tarjeta en pantalla (para retomar)
       reserva: [],        // ejercicios manuales en espera
       usados: [],         // ids del banco del sistema ya usados (no repetir)
-      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX) },
+      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0 },
       ultSorpresa: null,
       reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
       historias: { usadas: [], activa: null },
@@ -9576,6 +9588,14 @@ function n1ReelsTerminar() {
       RL.cont.proxYt = rlRand(RL_YT_MIN, RL_YT_MAX);
       if (rlPalabraParaYT()) return { k: "sorpresa", tipo: "yt", uid: rlUid() };
     }
+    // Azure (curso AI-901): cada N ejercicios, máximo M tandas por día (se configura en el curso).
+    if (getTargetLanguage() === "en") {
+      const az = rlAzureCfg();
+      if ((az.conceptos || az.secciones) && RL.cont.az >= az.cada && rlAzureDia().n < az.maxDia && !((RL.azVacioHasta || 0) > Date.now())) {
+        RL.cont.az = 0;
+        return { k: "sorpresa", tipo: "azure", uid: rlUid(), restantes: az.porTanda };
+      }
+    }
     if (RL.cont.sorpresa >= RL.cont.proxSorpresa) {
       RL.cont.sorpresa = 0;
       RL.cont.proxSorpresa = rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX);
@@ -9605,6 +9625,7 @@ function n1ReelsTerminar() {
     RL.cont.sorpresa++;
     RL.cont.reporte++;
     RL.cont.yt++;
+    RL.cont.az = (RL.cont.az || 0) + 1;
     const txt = rlTextoObjetivo(item.ex);
     if (txt) { RL.recientes.push(txt); if (RL.recientes.length > 40) RL.recientes = RL.recientes.slice(-40); }
     if (decision === "luego") rlReencolar(item, respuesta);
@@ -9662,7 +9683,7 @@ function n1ReelsTerminar() {
   }
 
   // ---------- Historia de estudio ----------
-  const RL_NOMBRE_SORPRESA = { yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening" };
+  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening" };
   function rlAnotar(item, nota) {
     if (!RL) return;
     let tipo = "—";
@@ -9891,6 +9912,11 @@ function n1ReelsTerminar() {
     document.getElementById("rlStage")?.addEventListener("input", () => { clearTimeout(tBorr); tBorr = setTimeout(rlGuardarBorrador, 300); });
     document.addEventListener("visibilitychange", () => { if (document.hidden) rlGuardarBorrador(); });
     window.addEventListener("pagehide", rlGuardarBorrador);
+    window.addEventListener("message", (ev) => {
+      const d = ev.data;
+      if (!d || d.azureReels !== true || ev.origin !== window.location.origin) return;
+      if (typeof RLV.azHandler === "function") RLV.azHandler(d);
+    });
     window.addEventListener("popstate", () => { if (RLV.abierto) closeReels("popstate"); });
   }
 
@@ -9943,6 +9969,7 @@ function n1ReelsTerminar() {
       case "historia": return rlRenderHistoria(item, body);
       case "yt": return rlRenderYT(item, body);
       case "listening": return rlRenderListening(item, body);
+      case "azure": return rlRenderAzure(item, body);
       default: setTimeout(rlSiguiente, 0);
     }
   }
@@ -10253,6 +10280,60 @@ function n1ReelsTerminar() {
     if (!ok) { rlSorpresaHecha(item); return; }
     RLV.limpiar = () => n1ReelsSoltar();
     }, 0);
+  }
+
+  // ---------- 7. Azure (curso AI-901 en azure/) ----------
+  // Los ajustes y el contador del día los comparte con el curso (mismo origen):
+  // ai901_reels_cfg (se edita en ⚙️ Ajustes del curso) y ai901_reels_dia.
+  const RL_AZ_DEF = { conceptos: true, secciones: false, seccionId: "1.1", porTanda: 3, maxDia: 8, cada: 8 };
+  function rlAzureCfg() {
+    let c = {};
+    try { c = JSON.parse(localStorage.getItem("ai901_reels_cfg") || "{}") || {}; } catch (e) { c = {}; }
+    const cfg = Object.assign({}, RL_AZ_DEF, c);
+    const ent = (v, d, min, max) => { const n = parseInt(v, 10); return Number.isFinite(n) ? Math.max(min, Math.min(max, n)) : d; };
+    cfg.porTanda = ent(cfg.porTanda, 3, 1, 20);
+    cfg.maxDia = ent(cfg.maxDia, 8, 1, 50);
+    cfg.cada = ent(cfg.cada, 8, 2, 50);
+    cfg.conceptos = !!cfg.conceptos;
+    cfg.secciones = !cfg.conceptos && !!cfg.secciones;
+    return cfg;
+  }
+  function rlAzureDia() {
+    const hoy = new Date().toLocaleDateString("en-CA");
+    let d = null;
+    try { d = JSON.parse(localStorage.getItem("ai901_reels_dia") || "null"); } catch (e) { d = null; }
+    return d && d.fecha === hoy ? d : { fecha: hoy, n: 0 };
+  }
+  function rlAzureSumarDia() {
+    const d = rlAzureDia();
+    d.n += 1;
+    try { localStorage.setItem("ai901_reels_dia", JSON.stringify(d)); } catch (e) { /* nada */ }
+    return d;
+  }
+
+  function rlRenderAzure(item, body) {
+    if (!item.restantes || item.restantes < 1) item.restantes = rlAzureCfg().porTanda;
+    const cfg = rlAzureCfg();
+    const inicio = item.restantes;
+    body.innerHTML = rlCabecera(["☁️ Azure", (cfg.conceptos ? "Conceptos" : "Sección " + cfg.seccionId) + " · tanda " + Math.min(cfg.maxDia, rlAzureDia().n + 1) + "/" + cfg.maxDia]) +
+      `<iframe class="rl-az-frame" title="Azure" src="./azure/index.html?reels=1&n=${inicio}"></iframe>`;
+    RLV.azHandler = (d) => {
+      if (RL.cur !== item) return;
+      if (d.tipo === "progreso") {
+        item.restantes = Math.max(0, inicio - (d.hechos || 0));
+        rlGuardar();
+      } else if (d.tipo === "fin") {
+        if (!item.contado) { item.contado = true; rlAzureSumarDia(); }
+        RLV.azHandler = null;
+        setTimeout(() => rlSorpresaHecha(item), 900);
+      } else if (d.tipo === "vacio") {
+        RL.azVacioHasta = Date.now() + 20 * 60 * 1000;   // nada pendiente: no se vuelve a intentar en 20 min
+        RLV.azHandler = null;
+        rlAnotar(item, "nada pendiente");
+        setTimeout(() => rlSorpresaHecha(item), 900);
+      }
+    };
+    RLV.limpiar = () => { RLV.azHandler = null; };
   }
 
     // ==================== REELS (sorpresa 1: Mundo real con YouGlish) ====================
@@ -10825,9 +10906,36 @@ function n1ReelsTerminar() {
   // dentro de Reels (botón flotante, solo inglés).
   function updateHelpBtnVisibility() {
     const isEnglish = getTargetLanguage() === "en";
-    ["homeJuegoBtn", "homeListeningBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
+    ["homeJuegoBtn", "homeListeningBtn", "homeAzureBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
     const tag = document.getElementById("homeLangTag");
     if (tag) tag.textContent = getTargetLangMeta().flag + " Practicando " + getTargetLangMeta().labelLower;
+  }
+
+  // ==================== AZURE (curso AI-901 en azure/) ====================
+  // Es su propia app (con su build.py, su guardado y su service worker) y se abre
+  // tal cual en un iframe a pantalla completa. Su botón ✕ avisa con postMessage.
+  function openAzure() {
+    const overlay = document.getElementById("azureOverlay");
+    const frame = document.getElementById("azureFrame");
+    if (!overlay || !frame) return;
+    overlay.hidden = false;
+    frame.src = "./azure/index.html?embed=1";
+    try { document.documentElement.requestFullscreen?.().catch(() => {}); } catch (e) { /* nada */ }
+  }
+
+  function closeAzure() {
+    const overlay = document.getElementById("azureOverlay");
+    const frame = document.getElementById("azureFrame");
+    if (!overlay || overlay.hidden) return;
+    overlay.hidden = true;
+    if (frame) frame.src = "about:blank";
+    if (document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) { /* nada */ } }
+  }
+
+  function onAzureMessage(ev) {
+    const d = ev.data;
+    if (!d || d.azure !== true || ev.origin !== window.location.origin) return;
+    if (d.tipo === "salir") closeAzure();
   }
 
   // ==================== AVENTURA (juego de conversaciones por audio) ====================
@@ -11297,7 +11405,7 @@ function n1ReelsTerminar() {
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.3 (15-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.4 (15-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
@@ -11419,6 +11527,8 @@ function n1ReelsTerminar() {
     document.getElementById("toggleHomeBtn")?.addEventListener("click", () => showMainView("home"));
     document.getElementById("homeReelsBtn")?.addEventListener("click", openReels);
     document.getElementById("homeJuegoBtn")?.addEventListener("click", openAventura);
+    document.getElementById("homeAzureBtn")?.addEventListener("click", openAzure);
+    window.addEventListener("message", onAzureMessage);
     wireReels();
     window.addEventListener("message", onAventuraMessage);
     document.addEventListener("fullscreenchange", () => {

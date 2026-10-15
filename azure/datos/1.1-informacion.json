@@ -1,0 +1,68 @@
+{
+  "levelId": "1.1",
+  "learningContent": {
+    "title": "IA responsable (Responsible AI)",
+    "estimatedMinutes": 20,
+    "sections": [
+      {
+        "heading": "¿Qué es la IA responsable?",
+        "body": "Microsoft organiza su enfoque de IA responsable en **seis principios**: equidad, confiabilidad y seguridad, privacidad y seguridad, inclusión, transparencia y responsabilidad. Estos principios no son solo una declaración de intenciones: están integrados en un marco interno llamado el Responsible AI Standard, que guía cómo se diseñan, prueban y despliegan los servicios de IA de Azure. En el examen, la mayoría de las preguntas de esta sección piden reconocer QUÉ principio aplica a un escenario dado, así que vale la pena tener clara la diferencia entre cada uno."
+      },
+      {
+        "heading": "Equidad (Fairness)",
+        "body": "Busca que un sistema de IA trate a todos los grupos de personas de forma justa, sin producir resultados sistemáticamente peores para un grupo (por ejemplo, por género, edad o etnia) frente a otro con el mismo perfil. El sesgo casi nunca es intencional: suele venir de los datos de entrenamiento (datos históricos que reflejan desigualdades pasadas, o una muestra que no representa bien a toda la población). En Azure Machine Learning, el componente Fairness del panel de IA responsable permite comparar el desempeño de un modelo entre distintos subgrupos para detectar estas diferencias."
+      },
+      {
+        "heading": "Confiabilidad y seguridad (Reliability and safety)",
+        "body": "Un sistema confiable se comporta de forma consistente y predecible, incluso ante condiciones que no se anticiparon durante el diseño, y resiste intentos de manipulación (ataques adversarios). Esto se logra con pruebas exhaustivas antes del lanzamiento y con monitoreo continuo una vez en producción. El componente Error analysis del panel de IA responsable de Azure Machine Learning ayuda a identificar en qué subconjuntos de datos falla más un modelo, para poder corregirlo antes de que cause daño."
+      },
+      {
+        "heading": "Privacidad y seguridad (Privacy and security)",
+        "body": "Los sistemas de IA suelen depender de grandes volúmenes de datos, muchos de ellos personales, así que deben protegerlos y cumplir con las leyes de privacidad aplicables. Buenas prácticas típicas incluyen minimizar los datos que se recolectan y cifrarlos tanto en reposo como en tránsito. Microsoft desarrolló el paquete de código abierto SmartNoise SDK, que implementa privacidad diferencial: una técnica que añade ruido estadístico controlado a los resultados para proteger a cada persona sin perder la utilidad del análisis agregado."
+      },
+      {
+        "heading": "Inclusión (Inclusiveness)",
+        "body": "Pide diseñar pensando en el espectro completo de personas que van a usar el sistema: distintos idiomas, edades, capacidades (incluida la discapacidad) y contextos culturales, no solo en un \"usuario promedio\". En la práctica esto significa probar con usuarios diversos y agregar soporte como subtítulos, texto alternativo o control por voz cuando aplique."
+      },
+      {
+        "heading": "Transparencia (Transparency)",
+        "body": "Las personas deben poder entender cómo y por qué un sistema de IA llegó a una decisión, especialmente cuando esa decisión tiene consecuencias importantes. Una parte clave de la transparencia es la interpretabilidad: dar explicaciones útiles del comportamiento de un modelo, para poder identificar a tiempo problemas de desempeño, sesgo o exclusión. Microsoft publica Transparency Notes para muchos servicios de Azure AI, documentando sus usos previstos, límites conocidos y recomendaciones."
+      },
+      {
+        "heading": "Responsabilidad (Accountability)",
+        "body": "Las personas y organizaciones que diseñan y operan un sistema de IA —no el sistema en sí— son responsables de sus resultados. Esto implica definir roles claros, mantener supervisión humana, y auditar las decisiones del sistema con regularidad. El Responsible AI scorecard de Azure Machine Learning apoya este principio: resume en un solo documento los resultados de equidad, desempeño y explicabilidad de un modelo, para que distintos interesados (técnicos y no técnicos) puedan revisarlo y firmar su aprobación con conocimiento de causa."
+      },
+      {
+        "heading": "Herramientas de Microsoft Foundry para una IA responsable",
+        "body": "Microsoft organiza su enfoque en tres pasos, **Discover, Protect y Govern**, basados en el Responsible AI Standard:\n\n• **Discover** → descubrir riesgos de calidad, seguridad y protección antes y después del despliegue (evaluaciones, pruebas adversarias, *red teaming*).\n• **Protect** → proteger tanto la salida del modelo como la ejecución del agente.\n• **Govern** → gobernar con trazabilidad, monitoreo continuo y cumplimiento.\n\n**Content Safety y Guardrails (antes llamados filtros de contenido):**\n• **Categorías de daño** (violencia, odio, contenido sexual y autolesión) con **umbrales de severidad** configurables, aplicadas a prompts y a respuestas.\n• **Prompt Shields** → detecta ataques de inyección de prompt y jailbreaks, directos e indirectos.\n• **Groundedness detection** → detecta respuestas sin sustento en las fuentes (alucinaciones), útil en RAG.\n• **Protected material detection** → detecta texto o código protegido por derechos (letras, artículos, código conocido).\n• **Detección de PII** y **listas de bloqueo** (blocklists).\n\nQué principio ayuda cada cosa: *guardrails, Prompt Shields y evaluaciones* → confiabilidad y seguridad; *PII, cifrado y RBAC* → privacidad y seguridad; *model cards y Transparency Notes* → transparencia; *supervisión humana y trazabilidad* → responsabilidad."
+      }
+    ]
+  },
+  "practiceExercises": [],
+  "achievements": [
+    {
+      "id": "lab-1.1-01",
+      "texto": "En el portal de Microsoft Foundry abre un proyecto y busca la sección de Guardrails (antes filtros de contenido) para ver las categorías de daño y sus umbrales de severidad."
+    },
+    {
+      "id": "lab-1.1-02",
+      "texto": "Prueba en el apartado de Content Safety: modera un texto, ejecuta Prompt Shields con un intento de jailbreak y prueba la detección de material protegido."
+    },
+    {
+      "id": "lab-1.1-03",
+      "texto": "En Azure Machine Learning studio abre un modelo y localiza el Responsible AI dashboard y sus componentes (equidad, análisis de errores, interpretabilidad)."
+    },
+    {
+      "id": "lab-1.1-04",
+      "texto": "Busca en Microsoft Learn una Transparency Note de un servicio de IA (por ejemplo Vision o Language) y lee cuáles son sus usos previstos y limitaciones."
+    },
+    {
+      "id": "lab-1.1-05",
+      "texto": "Abre la model card de un modelo del catálogo de Foundry y anota qué dice sobre capacidades, limitaciones y tipos de deployment."
+    },
+    {
+      "id": "lab-1.1-06",
+      "texto": "Toma una app de IA que uses y revisa los seis principios: ¿qué escenario concreto comprometería a cada uno?"
+    }
+  ]
+}

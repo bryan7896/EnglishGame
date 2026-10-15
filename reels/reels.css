@@ -101,3 +101,7 @@ body.rl-open { overflow: hidden; }
 /* Listening dentro de Reels */
 .rl-listening .exercise-area { gap: 12px; }
 .rl-listening .n1-reels-resumen { padding: 6px 0; }
+
+/* Azure dentro de Reels */
+.rl-az-frame { width: 100%; height: calc(100dvh - 150px); min-height: 420px; border: 0; border-radius: 14px; background: #060a13; }
+.home-tile-azure .home-tile-ico { background: #0b2a44; }

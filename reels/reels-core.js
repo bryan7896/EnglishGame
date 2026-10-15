@@ -6,7 +6,7 @@
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 17.3";
+  const RL_VERSION = "reels 17.4";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -31,7 +31,7 @@
       cur: null,          // tarjeta en pantalla (para retomar)
       reserva: [],        // ejercicios manuales en espera
       usados: [],         // ids del banco del sistema ya usados (no repetir)
-      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX) },
+      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0 },
       ultSorpresa: null,
       reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
       historias: { usadas: [], activa: null },
@@ -310,6 +310,14 @@
       RL.cont.proxYt = rlRand(RL_YT_MIN, RL_YT_MAX);
       if (rlPalabraParaYT()) return { k: "sorpresa", tipo: "yt", uid: rlUid() };
     }
+    // Azure (curso AI-901): cada N ejercicios, máximo M tandas por día (se configura en el curso).
+    if (getTargetLanguage() === "en") {
+      const az = rlAzureCfg();
+      if ((az.conceptos || az.secciones) && RL.cont.az >= az.cada && rlAzureDia().n < az.maxDia && !((RL.azVacioHasta || 0) > Date.now())) {
+        RL.cont.az = 0;
+        return { k: "sorpresa", tipo: "azure", uid: rlUid(), restantes: az.porTanda };
+      }
+    }
     if (RL.cont.sorpresa >= RL.cont.proxSorpresa) {
       RL.cont.sorpresa = 0;
       RL.cont.proxSorpresa = rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX);
@@ -339,6 +347,7 @@
     RL.cont.sorpresa++;
     RL.cont.reporte++;
     RL.cont.yt++;
+    RL.cont.az = (RL.cont.az || 0) + 1;
     const txt = rlTextoObjetivo(item.ex);
     if (txt) { RL.recientes.push(txt); if (RL.recientes.length > 40) RL.recientes = RL.recientes.slice(-40); }
     if (decision === "luego") rlReencolar(item, respuesta);
@@ -396,7 +405,7 @@
   }
 
   // ---------- Historia de estudio ----------
-  const RL_NOMBRE_SORPRESA = { yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening" };
+  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening" };
   function rlAnotar(item, nota) {
     if (!RL) return;
     let tipo = "—";
@@ -625,5 +634,10 @@
     document.getElementById("rlStage")?.addEventListener("input", () => { clearTimeout(tBorr); tBorr = setTimeout(rlGuardarBorrador, 300); });
     document.addEventListener("visibilitychange", () => { if (document.hidden) rlGuardarBorrador(); });
     window.addEventListener("pagehide", rlGuardarBorrador);
+    window.addEventListener("message", (ev) => {
+      const d = ev.data;
+      if (!d || d.azureReels !== true || ev.origin !== window.location.origin) return;
+      if (typeof RLV.azHandler === "function") RLV.azHandler(d);
+    });
     window.addEventListener("popstate", () => { if (RLV.abierto) closeReels("popstate"); });
   }

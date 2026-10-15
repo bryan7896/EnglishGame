@@ -47,6 +47,7 @@
       case "historia": return rlRenderHistoria(item, body);
       case "yt": return rlRenderYT(item, body);
       case "listening": return rlRenderListening(item, body);
+      case "azure": return rlRenderAzure(item, body);
       default: setTimeout(rlSiguiente, 0);
     }
   }
@@ -357,4 +358,58 @@
     if (!ok) { rlSorpresaHecha(item); return; }
     RLV.limpiar = () => n1ReelsSoltar();
     }, 0);
+  }
+
+  // ---------- 7. Azure (curso AI-901 en azure/) ----------
+  // Los ajustes y el contador del día los comparte con el curso (mismo origen):
+  // ai901_reels_cfg (se edita en ⚙️ Ajustes del curso) y ai901_reels_dia.
+  const RL_AZ_DEF = { conceptos: true, secciones: false, seccionId: "1.1", porTanda: 3, maxDia: 8, cada: 8 };
+  function rlAzureCfg() {
+    let c = {};
+    try { c = JSON.parse(localStorage.getItem("ai901_reels_cfg") || "{}") || {}; } catch (e) { c = {}; }
+    const cfg = Object.assign({}, RL_AZ_DEF, c);
+    const ent = (v, d, min, max) => { const n = parseInt(v, 10); return Number.isFinite(n) ? Math.max(min, Math.min(max, n)) : d; };
+    cfg.porTanda = ent(cfg.porTanda, 3, 1, 20);
+    cfg.maxDia = ent(cfg.maxDia, 8, 1, 50);
+    cfg.cada = ent(cfg.cada, 8, 2, 50);
+    cfg.conceptos = !!cfg.conceptos;
+    cfg.secciones = !cfg.conceptos && !!cfg.secciones;
+    return cfg;
+  }
+  function rlAzureDia() {
+    const hoy = new Date().toLocaleDateString("en-CA");
+    let d = null;
+    try { d = JSON.parse(localStorage.getItem("ai901_reels_dia") || "null"); } catch (e) { d = null; }
+    return d && d.fecha === hoy ? d : { fecha: hoy, n: 0 };
+  }
+  function rlAzureSumarDia() {
+    const d = rlAzureDia();
+    d.n += 1;
+    try { localStorage.setItem("ai901_reels_dia", JSON.stringify(d)); } catch (e) { /* nada */ }
+    return d;
+  }
+
+  function rlRenderAzure(item, body) {
+    if (!item.restantes || item.restantes < 1) item.restantes = rlAzureCfg().porTanda;
+    const cfg = rlAzureCfg();
+    const inicio = item.restantes;
+    body.innerHTML = rlCabecera(["☁️ Azure", (cfg.conceptos ? "Conceptos" : "Sección " + cfg.seccionId) + " · tanda " + Math.min(cfg.maxDia, rlAzureDia().n + 1) + "/" + cfg.maxDia]) +
+      `<iframe class="rl-az-frame" title="Azure" src="./azure/index.html?reels=1&n=${inicio}"></iframe>`;
+    RLV.azHandler = (d) => {
+      if (RL.cur !== item) return;
+      if (d.tipo === "progreso") {
+        item.restantes = Math.max(0, inicio - (d.hechos || 0));
+        rlGuardar();
+      } else if (d.tipo === "fin") {
+        if (!item.contado) { item.contado = true; rlAzureSumarDia(); }
+        RLV.azHandler = null;
+        setTimeout(() => rlSorpresaHecha(item), 900);
+      } else if (d.tipo === "vacio") {
+        RL.azVacioHasta = Date.now() + 20 * 60 * 1000;   // nada pendiente: no se vuelve a intentar en 20 min
+        RLV.azHandler = null;
+        rlAnotar(item, "nada pendiente");
+        setTimeout(() => rlSorpresaHecha(item), 900);
+      }
+    };
+    RLV.limpiar = () => { RLV.azHandler = null; };
   }
