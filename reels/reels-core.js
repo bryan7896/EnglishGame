@@ -13,6 +13,7 @@
   const RL_PARTE_MANUAL = 0.6;               // 30 de cada 50
   const RL_REPASO_MIN = 3, RL_REPASO_MAX = 8; // "Repasar luego": vuelve N tarjetas después
   const RL_MAX_USADOS = 6000;
+  const RL_YT_MIN = 3, RL_YT_MAX = 6;          // YouGlish va aparte: cada 3-6 ejercicios
 
   let RL = null;           // estado persistido
   let RLV = { abierto: false, enPantallaCompleta: false, limpiar: null, sync: null, syncListo: false };
@@ -28,13 +29,13 @@
       cur: null,          // tarjeta en pantalla (para retomar)
       reserva: [],        // ejercicios manuales en espera
       usados: [],         // ids del banco del sistema ya usados (no repetir)
-      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX) },
+      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX) },
       ultSorpresa: null,
       reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
       historias: { usadas: [], activa: null },
       yt: { usadas: [] },
       recientes: [],      // textos en el idioma objetivo de lo último que se hizo (para YouGlish)
-      racha: 0,
+      borrador: null,     // lo escrito en la tarjeta actual (por si el sistema cierra la app)
       seq: 0,
     };
   }
@@ -270,6 +271,7 @@
 
   function closeReels(desdeEvento) {
     if (!RLV.abierto) return;
+    rlGuardarBorrador();
     RLV.abierto = false;
     rlLimpiarTarjeta();
     try { window.speechSynthesis?.cancel(); } catch (e) { /* nada */ }
@@ -296,6 +298,11 @@
     if (!rlContarBanco() && !RL.banco.length) {
       return { k: "sorpresa", tipo: "reglas", uid: rlUid(), forzada: true };
     }
+    if (RL.cont.yt >= RL.cont.proxYt) {
+      RL.cont.yt = 0;
+      RL.cont.proxYt = rlRand(RL_YT_MIN, RL_YT_MAX);
+      if (rlPalabraParaYT()) return { k: "sorpresa", tipo: "yt", uid: rlUid() };
+    }
     if (RL.cont.sorpresa >= RL.cont.proxSorpresa) {
       RL.cont.sorpresa = 0;
       RL.cont.proxSorpresa = rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX);
@@ -314,6 +321,7 @@
     rlLimpiarTarjeta();
     try { window.speechSynthesis?.cancel(); } catch (e) { /* nada */ }
     RL.cur = null;
+    RL.borrador = null;
     rlMostrarActual(true);
   }
 
@@ -323,12 +331,11 @@
     rlRegistrar(item, entrada, passed);
     RL.cont.sorpresa++;
     RL.cont.reporte++;
-    RL.racha = passed ? (RL.racha || 0) + 1 : 0;
+    RL.cont.yt++;
     const txt = rlTextoObjetivo(item.ex);
     if (txt) { RL.recientes.push(txt); if (RL.recientes.length > 40) RL.recientes = RL.recientes.slice(-40); }
     if (decision === "luego") rlReencolar(item, respuesta);
     rlGuardar();
-    if (passed) rlRachaFx();
     rlSiguiente();
   }
 
@@ -344,13 +351,6 @@
     toast("🧠 Volverá en unos ejercicios");
   }
 
-  function rlRachaFx() {
-    const el = document.getElementById("rlRacha");
-    if (!el) return;
-    el.textContent = "🔥 " + RL.racha;
-    el.classList.remove("rl-pop"); void el.offsetWidth; el.classList.add("rl-pop");
-  }
-
   // ---------- Render de tarjetas ----------
   function rlRenderTarjeta(item, animar) {
     const stage = document.getElementById("rlStage");
@@ -361,8 +361,6 @@
     body.className = "rl-card-body";
     card.appendChild(body);
 
-    const racha = document.getElementById("rlRacha");
-    if (racha) racha.textContent = RL.racha ? "🔥 " + RL.racha : "";
 
     if (!item) {
       body.innerHTML = `<div class="rl-empty">📭 No hay nada por ahora.</div>`;
@@ -387,6 +385,27 @@
       stage.appendChild(card);
     }
     card.scrollTop = 0;
+    rlRestaurarBorrador(card, item);
+  }
+
+  // ---------- Borradores: lo escrito sobrevive a segundo plano / cierre ----------
+  const RL_CAMPOS = "textarea, input[type=text], input:not([type])";
+  function rlRestaurarBorrador(card, item) {
+    const b = RL.borrador;
+    if (!b || !item || b.uid !== item.uid) return;
+    setTimeout(() => {
+      const campos = Array.from(card.querySelectorAll(RL_CAMPOS)).filter((c) => !c.closest(".rl-json-wrap"));
+      (b.valores || []).forEach((v, i) => { if (campos[i] && v && !campos[i].value && !campos[i].disabled) campos[i].value = v; });
+    }, 60);
+  }
+  function rlGuardarBorrador() {
+    if (!RL || !RL.cur || !RLV.abierto) return;
+    const card = document.querySelector("#rlStage .rl-card:last-child");
+    if (!card) return;
+    const campos = Array.from(card.querySelectorAll(RL_CAMPOS)).filter((c) => !c.closest(".rl-json-wrap"));
+    const valores = campos.map((c) => c.value || "");
+    RL.borrador = valores.some(Boolean) ? { uid: RL.cur.uid, valores } : null;
+    rlGuardar();
   }
 
   function rlCabecera(chips) {
@@ -549,8 +568,17 @@
   function wireReels() {
     document.getElementById("rlCloseBtn")?.addEventListener("click", () => closeReels());
     document.getElementById("rlHelpBtn")?.addEventListener("click", () => showHelpModal());
-    document.addEventListener("fullscreenchange", () => {
-      if (!document.fullscreenElement && RLV.abierto && RLV.enPantallaCompleta) closeReels("fullscreen");
-    });
+    // Al ir a segundo plano Android saca de pantalla completa: Reels sigue abierto
+    // tal cual y la pantalla completa vuelve con el siguiente toque.
+    document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement) RLV.enPantallaCompleta = false; });
+    document.getElementById("reelsOverlay")?.addEventListener("pointerdown", () => {
+      if (RLV.abierto && !document.fullscreenElement && document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().then(() => { RLV.enPantallaCompleta = true; }).catch(() => {});
+      }
+    }, true);
+    let tBorr = null;
+    document.getElementById("rlStage")?.addEventListener("input", () => { clearTimeout(tBorr); tBorr = setTimeout(rlGuardarBorrador, 300); });
+    document.addEventListener("visibilitychange", () => { if (document.hidden) rlGuardarBorrador(); });
+    window.addEventListener("pagehide", rlGuardarBorrador);
     window.addEventListener("popstate", () => { if (RLV.abierto) closeReels("popstate"); });
   }

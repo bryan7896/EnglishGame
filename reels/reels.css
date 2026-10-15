@@ -44,9 +44,6 @@ body.rl-open { overflow: hidden; }
 }
 .rl-close { left: 12px; }
 .rl-help { right: 12px; }
-.rl-racha { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 18px); left: 50%; transform: translateX(-50%); z-index: 5; color: var(--gold); font-weight: 900; font-size: 1rem; pointer-events: none; }
-.rl-racha.rl-pop { animation: rlPop .5s ease; }
-@keyframes rlPop { 0% { transform: translateX(-50%) scale(1); } 40% { transform: translateX(-50%) scale(1.45); } 100% { transform: translateX(-50%) scale(1); } }
 
 .rl-chips { display: flex; gap: 8px; flex-wrap: wrap; }
 .rl-chip { font-size: .78rem; font-weight: 800; padding: 5px 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink-dim); }
@@ -100,3 +97,7 @@ body.rl-open { overflow: hidden; }
 /* Información */
 .rl-info { display: flex; flex-direction: column; gap: 12px; }
 .rl-skip-info { align-self: center; }
+
+/* Listening dentro de Reels */
+.rl-listening .exercise-area { gap: 12px; }
+.rl-listening .n1-reels-resumen { padding: 6px 0; }

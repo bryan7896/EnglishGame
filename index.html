@@ -2314,9 +2314,6 @@ body.rl-open { overflow: hidden; }
 }
 .rl-close { left: 12px; }
 .rl-help { right: 12px; }
-.rl-racha { position: absolute; top: calc(env(safe-area-inset-top, 0px) + 18px); left: 50%; transform: translateX(-50%); z-index: 5; color: var(--gold); font-weight: 900; font-size: 1rem; pointer-events: none; }
-.rl-racha.rl-pop { animation: rlPop .5s ease; }
-@keyframes rlPop { 0% { transform: translateX(-50%) scale(1); } 40% { transform: translateX(-50%) scale(1.45); } 100% { transform: translateX(-50%) scale(1); } }
 
 .rl-chips { display: flex; gap: 8px; flex-wrap: wrap; }
 .rl-chip { font-size: .78rem; font-weight: 800; padding: 5px 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink-dim); }
@@ -2370,6 +2367,10 @@ body.rl-open { overflow: hidden; }
 /* Información */
 .rl-info { display: flex; flex-direction: column; gap: 12px; }
 .rl-skip-info { align-self: center; }
+
+/* Listening dentro de Reels */
+.rl-listening .exercise-area { gap: 12px; }
+.rl-listening .n1-reels-resumen { padding: 6px 0; }
 
 
 /* ============================================================
@@ -3292,7 +3293,6 @@ body.rl-open { overflow: hidden; }
 <div id="reelsOverlay" class="rl-overlay" hidden>
   <div id="rlStage" class="rl-stage"></div>
   <button class="rl-float rl-close" id="rlCloseBtn" aria-label="Salir de Reels" title="Salir">✕</button>
-  <span class="rl-racha" id="rlRacha"></span>
   <button class="rl-float rl-help" id="rlHelpBtn" aria-label="Ayuda de gramática" title="Ayuda">❓</button>
 </div>
 
@@ -8155,6 +8155,7 @@ function n1OpenBlock(b) {
 }
 
 function n1RenderHub(b) {
+  if (N1R.activo) { n1ReelsContinuar(); return; }
   const cont = document.getElementById("n1HubContainer");
   if (!cont) return;
   const prog = n1Prog(b);
@@ -8301,7 +8302,13 @@ function n1StartFase(b, fase, opts) {
 
   if (fase === "descubre") { n1RenderDescubre(b); return; }
   if (fase === "distingue") {
-    N1S.cola = n1ConstruirOddities(b, prog, opts.mini ? 6 : (prog.ronda === 1 ? 18 : 8));
+    const sv = !opts.mini && prog.sesion && prog.sesion.fase === "distingue" ? prog.sesion : null;
+    if (sv && sv.i < sv.cola.length) {
+      N1S.cola = sv.cola; N1S.i = sv.i; N1S.sesionOk = sv.ok || 0; N1S.sesionTot = sv.tot || 0;
+    } else {
+      N1S.cola = n1ConstruirOddities(b, prog, opts.mini ? 6 : (prog.ronda === 1 ? 18 : 8));
+      if (!opts.mini) n1GuardarSesion(0);
+    }
     if (!N1S.cola.length) { toast("No hay material para Distingue"); n1TerminarFase(b, fase); return; }
     n1RenderTrial();
     return;
@@ -8328,7 +8335,7 @@ function n1StartFase(b, fase, opts) {
   prog.sesion = { fase, cola: N1S.cola, i: 0, porCat: {}, ort: N1S.ort, ok: 0, tot: 0 };
   n1Save();
   // Interludio motivacional al arrancar la tanda.
-  const m = fase === "escribe" || fase === "entrada" ? n1ElegirMotivacion("inicio_tanda") : null;
+  const m = !N1R.activo && (fase === "escribe" || fase === "entrada") ? n1ElegirMotivacion("inicio_tanda") : null;
   if (m) n1RenderInterludio(m, () => n1RenderTrial());
   else n1RenderTrial();
 }
@@ -8464,7 +8471,9 @@ function n1WirePlayer(it, autoplay) {
 
 function n1GuardarSesion(idx) {
   const prog = n1Prog(N1S.b);
-  if (!["entrada", "completa", "escribe", "examen"].includes(N1S.fase)) return;
+  if (N1S.fase === "descubre") { prog.sesion = { fase: "descubre", cola: [], i: (idx == null ? N1S.i : idx) }; n1Save(); return; }
+  if (N1S.fase === "distingue" && N1S.mini) return;
+  if (!["entrada", "completa", "escribe", "examen", "distingue"].includes(N1S.fase)) return;
   prog.sesion = { fase: N1S.fase, cola: N1S.cola, i: (idx == null ? N1S.i : idx), porCat: N1S.porCat, ort: N1S.ort, ok: N1S.sesionOk, tot: N1S.sesionTot };
   n1Save();
 }
@@ -8709,7 +8718,9 @@ function n1Siguiente() {
   n1Parar();
   N1S.i += 1;
   n1GuardarSesion();
+  const corta = n1ReelsContar();
   if (N1S.i >= N1S.cola.length) n1FinSesion();
+  else if (corta) n1ReelsTerminar();
   else n1RenderTrial();
 }
 
@@ -8816,7 +8827,8 @@ function n1RenderDescubre(b) {
   const cats = n1DescubreCategorias(b, prog);
   N1S.cola = cats.map((c) => ({ cat: c.categoria }));
   N1S.descubre = cats;
-  N1S.i = 0;
+  const sv = prog.sesion && prog.sesion.fase === "descubre" ? prog.sesion : null;
+  N1S.i = sv && sv.i < cats.length ? sv.i : 0;
   if (!cats.length) { n1TerminarFase(b, "descubre"); return; }
   n1MostrarDescubre();
 }
@@ -8847,8 +8859,13 @@ function n1MostrarDescubre() {
   });
   document.getElementById("n1DescNext").addEventListener("click", () => {
     n1Parar();
+    const corta = n1ReelsContar();
     if (ult) n1TerminarFase(N1S.b, "descubre");
-    else { N1S.i += 1; n1MostrarDescubre(); }
+    else {
+      N1S.i += 1;
+      n1GuardarSesion();
+      if (corta) n1ReelsTerminar(); else n1MostrarDescubre();
+    }
   });
 }
 
@@ -8913,7 +8930,15 @@ function n1RenderOddity(t) {
       prev.className = "fun-btn primary-btn full-width";
       prev.style.cssText = "width:100%;margin-top:14px;";
       prev.innerHTML = N1S.i + 1 >= N1S.cola.length ? `${ListeningIcons.finish()} Terminar` : `${ListeningIcons.next()} Siguiente`;
-      prev.addEventListener("click", () => { n1Parar(); N1S.i += 1; if (N1S.i >= N1S.cola.length) n1FinSesion(); else n1RenderTrial(); });
+      prev.addEventListener("click", () => {
+        n1Parar();
+        N1S.i += 1;
+        n1GuardarSesion();
+        const corta = n1ReelsContar();
+        if (N1S.i >= N1S.cola.length) n1FinSesion();
+        else if (corta) n1ReelsTerminar();
+        else n1RenderTrial();
+      });
       cont.appendChild(prev);
     });
   });
@@ -8934,6 +8959,7 @@ function n1TerminarFase(b, fase) {
   prog.faseEstado[fase] = "hecha";
   prog.sesion = null;
   n1Save();
+  if (N1R.activo) { n1ReelsContinuar(); return; }
   n1RenderHub(b);
   showMainView("listeningN1Hub");
 }
@@ -8970,6 +8996,14 @@ function n1AnimarAnillo(pct) {
 }
 
 function n1MostrarEnHub(html, wire) {
+  if (N1R.activo) {
+    const pc = document.getElementById("n1PlayContainer");
+    pc.innerHTML = `<div class="n1-reels-resumen">${html}</div>`;
+    const res = document.getElementById("n1PlayResultLine");
+    if (res) res.textContent = "";
+    if (wire) wire(pc);
+    return;
+  }
   const cont = document.getElementById("n1HubContainer");
   cont.innerHTML = html;
   showMainView("listeningN1Hub");
@@ -9077,10 +9111,13 @@ function n1FinExamen(b, prog, pct) {
     const todo = n1TodoAprobado();
     n1MostrarEnHub(resumen + `
       ${todo ? '<div class="n1-aviso">🏁 ¡Terminaste los 12 bloques del Nivel 1! El siguiente paso es el re-test del Nivel 0 (con palabras nuevas) antes de abrir el Nivel 2.</div>' : ""}
-      <button class="fun-btn primary-btn full-width" id="n1ResBack" style="width:100%;margin-top:14px;">Volver a Listening</button>
+      <button class="fun-btn primary-btn full-width" id="n1ResBack" style="width:100%;margin-top:14px;">${N1R.activo ? "Continuar" : "Volver a Listening"}</button>
       <button class="fun-btn full-width" id="n1ResCopy" style="width:100%;margin-top:8px;">${ListeningIcons.copy()} Copiar informe</button>`,
       (c) => {
-        c.querySelector("#n1ResBack").addEventListener("click", () => { renderListeningHome(); showMainView("listeningHome"); });
+        c.querySelector("#n1ResBack").addEventListener("click", () => {
+          if (N1R.activo) { n1ReelsContinuar(); return; }
+          renderListeningHome(); showMainView("listeningHome");
+        });
         c.querySelector("#n1ResCopy").addEventListener("click", () => n1CopiarTexto(n1ReporteErrores(b), "📋 Informe copiado"));
       });
     n1AnimarAnillo(pct);
@@ -9111,8 +9148,78 @@ function n1FinExamen(b, prog, pct) {
 // Salir a mitad de camino: el avance ya está guardado en cada respuesta.
 function n1SalirDelJuego() {
   n1Parar();
+  if (N1R.activo) { n1ReelsTerminar(); return; }
   if (N1S.b) { n1RenderHub(N1S.b); showMainView("listeningN1Hub"); }
   else { renderListeningHome(); showMainView("listeningHome"); }
+}
+
+// ==================== MODO REELS ====================
+// Reels toma prestada la pantalla de juego del Nivel 1 (la mueve dentro de su
+// tarjeta) para hacer N ejercicios seguidos del bloque y la fase en curso. El
+// avance es el mismo del módulo de Listening (se guarda en cada respuesta), así
+// que se puede seguir en cualquiera de los dos lados. Si en Reels se termina una
+// fase, se muestra su resumen y se sigue con la siguiente; si se termina el
+// bloque (examen), se envía al Sheet como siempre y se sigue con el siguiente
+// bloque o con la nueva ronda, según el resultado.
+const N1R = { activo: false, restantes: 0, area: null, casa: null, cb: null };
+
+function n1ReelsBloque() {
+  n1Load();
+  if (n1TodoAprobado()) return null;
+  const b = n1ActualBloque();
+  return n1BlockInfo(b).jugable ? b : null;
+}
+
+function n1ReelsDisponible() { return !!n1ReelsBloque(); }
+
+function n1ReelsIniciar(host, n, cb) {
+  n1Load();
+  const area = document.querySelector("#listeningN1PlayScreen .exercise-area");
+  if (!area || !host) return false;
+  N1R.activo = true;
+  N1R.restantes = Math.max(1, n || 3);
+  N1R.cb = cb || {};
+  N1R.area = area;
+  N1R.casa = area.parentNode;
+  host.appendChild(area);
+  n1ReelsContinuar();
+  return true;
+}
+
+// true si ya se hicieron los ejercicios que tocaban en esta pasada.
+function n1ReelsContar() {
+  if (!N1R.activo) return false;
+  N1R.restantes -= 1;
+  if (N1R.cb && N1R.cb.cuenta) { try { N1R.cb.cuenta(N1R.restantes); } catch (e) { /* nada */ } }
+  return N1R.restantes <= 0;
+}
+
+function n1ReelsContinuar() {
+  if (!N1R.activo) return;
+  if (N1R.restantes <= 0) { n1ReelsTerminar(); return; }
+  const b = n1ReelsBloque();
+  if (!b) { n1ReelsTerminar(); return; }
+  const prog = n1Prog(b);
+  if (!prog.plan) { n1MakePlan(b, prog); prog.estado = "curso"; n1Save(); }
+  const fase = n1FaseActual(prog);
+  if (!fase) { n1ReelsTerminar(); return; }
+  if (N1R.cb && N1R.cb.bloque) { try { N1R.cb.bloque(b, fase); } catch (e) { /* nada */ } }
+  n1StartFase(b, fase);
+}
+
+// Devuelve la pantalla de juego a su lugar sin cerrar nada (al salir de Reels).
+function n1ReelsSoltar() {
+  n1Parar();
+  document.querySelectorAll(".n1-modal").forEach((m) => m.remove());
+  if (N1R.area && N1R.casa) N1R.casa.appendChild(N1R.area);
+  N1R.activo = false;
+}
+
+function n1ReelsTerminar() {
+  const cb = N1R.cb;
+  n1ReelsSoltar();
+  N1R.cb = null;
+  if (cb && cb.fin) cb.fin();
 }
 
     // ==================== REELS (núcleo) ====================
@@ -9130,6 +9237,7 @@ function n1SalirDelJuego() {
   const RL_PARTE_MANUAL = 0.6;               // 30 de cada 50
   const RL_REPASO_MIN = 3, RL_REPASO_MAX = 8; // "Repasar luego": vuelve N tarjetas después
   const RL_MAX_USADOS = 6000;
+  const RL_YT_MIN = 3, RL_YT_MAX = 6;          // YouGlish va aparte: cada 3-6 ejercicios
 
   let RL = null;           // estado persistido
   let RLV = { abierto: false, enPantallaCompleta: false, limpiar: null, sync: null, syncListo: false };
@@ -9145,13 +9253,13 @@ function n1SalirDelJuego() {
       cur: null,          // tarjeta en pantalla (para retomar)
       reserva: [],        // ejercicios manuales en espera
       usados: [],         // ids del banco del sistema ya usados (no repetir)
-      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX) },
+      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX) },
       ultSorpresa: null,
       reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
       historias: { usadas: [], activa: null },
       yt: { usadas: [] },
       recientes: [],      // textos en el idioma objetivo de lo último que se hizo (para YouGlish)
-      racha: 0,
+      borrador: null,     // lo escrito en la tarjeta actual (por si el sistema cierra la app)
       seq: 0,
     };
   }
@@ -9387,6 +9495,7 @@ function n1SalirDelJuego() {
 
   function closeReels(desdeEvento) {
     if (!RLV.abierto) return;
+    rlGuardarBorrador();
     RLV.abierto = false;
     rlLimpiarTarjeta();
     try { window.speechSynthesis?.cancel(); } catch (e) { /* nada */ }
@@ -9413,6 +9522,11 @@ function n1SalirDelJuego() {
     if (!rlContarBanco() && !RL.banco.length) {
       return { k: "sorpresa", tipo: "reglas", uid: rlUid(), forzada: true };
     }
+    if (RL.cont.yt >= RL.cont.proxYt) {
+      RL.cont.yt = 0;
+      RL.cont.proxYt = rlRand(RL_YT_MIN, RL_YT_MAX);
+      if (rlPalabraParaYT()) return { k: "sorpresa", tipo: "yt", uid: rlUid() };
+    }
     if (RL.cont.sorpresa >= RL.cont.proxSorpresa) {
       RL.cont.sorpresa = 0;
       RL.cont.proxSorpresa = rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX);
@@ -9431,6 +9545,7 @@ function n1SalirDelJuego() {
     rlLimpiarTarjeta();
     try { window.speechSynthesis?.cancel(); } catch (e) { /* nada */ }
     RL.cur = null;
+    RL.borrador = null;
     rlMostrarActual(true);
   }
 
@@ -9440,12 +9555,11 @@ function n1SalirDelJuego() {
     rlRegistrar(item, entrada, passed);
     RL.cont.sorpresa++;
     RL.cont.reporte++;
-    RL.racha = passed ? (RL.racha || 0) + 1 : 0;
+    RL.cont.yt++;
     const txt = rlTextoObjetivo(item.ex);
     if (txt) { RL.recientes.push(txt); if (RL.recientes.length > 40) RL.recientes = RL.recientes.slice(-40); }
     if (decision === "luego") rlReencolar(item, respuesta);
     rlGuardar();
-    if (passed) rlRachaFx();
     rlSiguiente();
   }
 
@@ -9461,13 +9575,6 @@ function n1SalirDelJuego() {
     toast("🧠 Volverá en unos ejercicios");
   }
 
-  function rlRachaFx() {
-    const el = document.getElementById("rlRacha");
-    if (!el) return;
-    el.textContent = "🔥 " + RL.racha;
-    el.classList.remove("rl-pop"); void el.offsetWidth; el.classList.add("rl-pop");
-  }
-
   // ---------- Render de tarjetas ----------
   function rlRenderTarjeta(item, animar) {
     const stage = document.getElementById("rlStage");
@@ -9478,8 +9585,6 @@ function n1SalirDelJuego() {
     body.className = "rl-card-body";
     card.appendChild(body);
 
-    const racha = document.getElementById("rlRacha");
-    if (racha) racha.textContent = RL.racha ? "🔥 " + RL.racha : "";
 
     if (!item) {
       body.innerHTML = `<div class="rl-empty">📭 No hay nada por ahora.</div>`;
@@ -9504,6 +9609,27 @@ function n1SalirDelJuego() {
       stage.appendChild(card);
     }
     card.scrollTop = 0;
+    rlRestaurarBorrador(card, item);
+  }
+
+  // ---------- Borradores: lo escrito sobrevive a segundo plano / cierre ----------
+  const RL_CAMPOS = "textarea, input[type=text], input:not([type])";
+  function rlRestaurarBorrador(card, item) {
+    const b = RL.borrador;
+    if (!b || !item || b.uid !== item.uid) return;
+    setTimeout(() => {
+      const campos = Array.from(card.querySelectorAll(RL_CAMPOS)).filter((c) => !c.closest(".rl-json-wrap"));
+      (b.valores || []).forEach((v, i) => { if (campos[i] && v && !campos[i].value && !campos[i].disabled) campos[i].value = v; });
+    }, 60);
+  }
+  function rlGuardarBorrador() {
+    if (!RL || !RL.cur || !RLV.abierto) return;
+    const card = document.querySelector("#rlStage .rl-card:last-child");
+    if (!card) return;
+    const campos = Array.from(card.querySelectorAll(RL_CAMPOS)).filter((c) => !c.closest(".rl-json-wrap"));
+    const valores = campos.map((c) => c.value || "");
+    RL.borrador = valores.some(Boolean) ? { uid: RL.cur.uid, valores } : null;
+    rlGuardar();
   }
 
   function rlCabecera(chips) {
@@ -9666,19 +9792,30 @@ function n1SalirDelJuego() {
   function wireReels() {
     document.getElementById("rlCloseBtn")?.addEventListener("click", () => closeReels());
     document.getElementById("rlHelpBtn")?.addEventListener("click", () => showHelpModal());
-    document.addEventListener("fullscreenchange", () => {
-      if (!document.fullscreenElement && RLV.abierto && RLV.enPantallaCompleta) closeReels("fullscreen");
-    });
+    // Al ir a segundo plano Android saca de pantalla completa: Reels sigue abierto
+    // tal cual y la pantalla completa vuelve con el siguiente toque.
+    document.addEventListener("fullscreenchange", () => { if (!document.fullscreenElement) RLV.enPantallaCompleta = false; });
+    document.getElementById("reelsOverlay")?.addEventListener("pointerdown", () => {
+      if (RLV.abierto && !document.fullscreenElement && document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().then(() => { RLV.enPantallaCompleta = true; }).catch(() => {});
+      }
+    }, true);
+    let tBorr = null;
+    document.getElementById("rlStage")?.addEventListener("input", () => { clearTimeout(tBorr); tBorr = setTimeout(rlGuardarBorrador, 300); });
+    document.addEventListener("visibilitychange", () => { if (document.hidden) rlGuardarBorrador(); });
+    window.addEventListener("pagehide", rlGuardarBorrador);
     window.addEventListener("popstate", () => { if (RLV.abierto) closeReels("popstate"); });
   }
 
     // ==================== REELS (sorpresas) ====================
-  // 1 yt       → clip real de YouGlish: ¿qué palabra escuchas?
+  // 1 yt       → clip real de YouGlish (va aparte: cada 3-6 ejercicios, ver rlDecidirSiguiente)
   // 2 pct      → 5 porcentajes (1 verde, 2 naranja, 2 rojo), solo para ver
   // 3 reglas   → elige X reglas: rellena el banco hasta RL_BANCO
   // 4 reporte  → copiar informe (cada 60-70 ejercicios) + agregar JSON
   // 5 historia → misma historia 4 veces (3 leyendo, la 4ª solo audio)
-  const RL_PESOS = { yt: 50, historia: 30, pct: 20, reglas: 25 };
+  // 6 listening → 3 ejercicios seguidos del Nivel 1 de Listening (mismo avance que el módulo)
+  const RL_PESOS = { listening: 35, historia: 30, pct: 20, reglas: 25 };
+  const RL_LISTENING_N = 3;
   const RL_APORTE = { bad: 10, warn: 7, good: 5 };
 
   function rlElegirSorpresa() {
@@ -9690,7 +9827,7 @@ function n1SalirDelJuego() {
     if (rlContarBanco() < RL_MIN_OBLIGATORIO && (rlReglasDisponibles().length || RL.reserva.length)) return "reglas";
 
     const cands = [];
-    if (rlPalabraParaYT()) cands.push("yt");
+    if (getTargetLanguage() === "en" && typeof n1ReelsDisponible === "function" && n1ReelsDisponible()) cands.push("listening");
     if (rlHistoriaSiguiente()) cands.push("historia");
     if (rlReglasConPct().length) cands.push("pct");
     if (rlContarBanco() < RL_BANCO && (rlReglasDisponibles().length || RL.reserva.length)) cands.push("reglas");
@@ -9716,6 +9853,7 @@ function n1SalirDelJuego() {
       case "reporte": return rlRenderReporte(item, body);
       case "historia": return rlRenderHistoria(item, body);
       case "yt": return rlRenderYT(item, body);
+      case "listening": return rlRenderListening(item, body);
       default: setTimeout(rlSiguiente, 0);
     }
   }
@@ -10009,6 +10147,25 @@ function n1SalirDelJuego() {
     body.querySelector(".rl-continuar").onclick = () => rlSorpresaHecha(item);
   }
 
+  // ---------- 6. Listening (Nivel 1) ----------
+  function rlRenderListening(item, body) {
+    if (item.restantes == null) { item.restantes = RL_LISTENING_N; rlGuardar(); }
+    body.innerHTML = rlCabecera(["🎧 Listening", `<span class="rl-l-bloque"></span>`]) +
+      `<div class="rl-listening"><div class="rl-listen-host"></div></div>`;
+    const chip = body.querySelector(".rl-l-bloque");
+    // El motor de Listening usa ids del documento: se arranca cuando la tarjeta ya está en pantalla.
+    setTimeout(() => {
+    if (!body.isConnected || RL.cur !== item) return;
+    const ok = n1ReelsIniciar(body.querySelector(".rl-listen-host"), item.restantes, {
+      cuenta: (n) => { item.restantes = Math.max(0, n); rlGuardar(); },
+      bloque: (b, fase) => { if (chip) chip.textContent = "Bloque " + b + " · " + (N1_FASE_LABEL[fase] || fase); },
+      fin: () => { RLV.limpiar = null; rlSorpresaHecha(item); },
+    });
+    if (!ok) { rlSorpresaHecha(item); return; }
+    RLV.limpiar = () => n1ReelsSoltar();
+    }, 0);
+  }
+
     // ==================== REELS (sorpresa 1: Mundo real con YouGlish) ====================
   // Busca una palabra (>3 letras) de lo último que estudiaste, reproduce SOLO
   // la frase donde aparece (se corta al terminar), la repite hasta 5 veces a
@@ -10177,7 +10334,7 @@ function n1SalirDelJuego() {
           fr.innerHTML = "“" + rlEsc(S.reto.frase).replace(re, "<mark>$1</mark>") + "”";
           fr.hidden = false;
           estado.textContent = ok ? "🎉 ¡Bien! La oíste." : "👀 Era «" + S.reto.objetivo + "».";
-          if (ok) { burstConfetti(); RL.racha = (RL.racha || 0) + 1; rlRachaFx(); }
+          if (ok) burstConfetti();
           RL.reporte.mundo.push({ palabra: S.palabra, frase: S.reto.frase, objetivo: S.reto.objetivo, elegida, ok });
           rlGuardar();
           body.querySelector(".rl-omitir").hidden = true;
@@ -11049,7 +11206,7 @@ function n1SalirDelJuego() {
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.0 (14-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">17.1 (14-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>

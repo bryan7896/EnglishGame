@@ -166,7 +166,7 @@
           fr.innerHTML = "“" + rlEsc(S.reto.frase).replace(re, "<mark>$1</mark>") + "”";
           fr.hidden = false;
           estado.textContent = ok ? "🎉 ¡Bien! La oíste." : "👀 Era «" + S.reto.objetivo + "».";
-          if (ok) { burstConfetti(); RL.racha = (RL.racha || 0) + 1; rlRachaFx(); }
+          if (ok) burstConfetti();
           RL.reporte.mundo.push({ palabra: S.palabra, frase: S.reto.frase, objetivo: S.reto.objetivo, elegida, ok });
           rlGuardar();
           body.querySelector(".rl-omitir").hidden = true;

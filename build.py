@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "17.0 (14-10-2026)"
+VERSION = "17.1 (14-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -667,7 +667,6 @@ def get_html_template():
 <div id="reelsOverlay" class="rl-overlay" hidden>
   <div id="rlStage" class="rl-stage"></div>
   <button class="rl-float rl-close" id="rlCloseBtn" aria-label="Salir de Reels" title="Salir">✕</button>
-  <span class="rl-racha" id="rlRacha"></span>
   <button class="rl-float rl-help" id="rlHelpBtn" aria-label="Ayuda de gramática" title="Ayuda">❓</button>
 </div>
 

@@ -180,6 +180,7 @@ function n1OpenBlock(b) {
 }
 
 function n1RenderHub(b) {
+  if (N1R.activo) { n1ReelsContinuar(); return; }
   const cont = document.getElementById("n1HubContainer");
   if (!cont) return;
   const prog = n1Prog(b);
@@ -326,7 +327,13 @@ function n1StartFase(b, fase, opts) {
 
   if (fase === "descubre") { n1RenderDescubre(b); return; }
   if (fase === "distingue") {
-    N1S.cola = n1ConstruirOddities(b, prog, opts.mini ? 6 : (prog.ronda === 1 ? 18 : 8));
+    const sv = !opts.mini && prog.sesion && prog.sesion.fase === "distingue" ? prog.sesion : null;
+    if (sv && sv.i < sv.cola.length) {
+      N1S.cola = sv.cola; N1S.i = sv.i; N1S.sesionOk = sv.ok || 0; N1S.sesionTot = sv.tot || 0;
+    } else {
+      N1S.cola = n1ConstruirOddities(b, prog, opts.mini ? 6 : (prog.ronda === 1 ? 18 : 8));
+      if (!opts.mini) n1GuardarSesion(0);
+    }
     if (!N1S.cola.length) { toast("No hay material para Distingue"); n1TerminarFase(b, fase); return; }
     n1RenderTrial();
     return;
@@ -353,7 +360,7 @@ function n1StartFase(b, fase, opts) {
   prog.sesion = { fase, cola: N1S.cola, i: 0, porCat: {}, ort: N1S.ort, ok: 0, tot: 0 };
   n1Save();
   // Interludio motivacional al arrancar la tanda.
-  const m = fase === "escribe" || fase === "entrada" ? n1ElegirMotivacion("inicio_tanda") : null;
+  const m = !N1R.activo && (fase === "escribe" || fase === "entrada") ? n1ElegirMotivacion("inicio_tanda") : null;
   if (m) n1RenderInterludio(m, () => n1RenderTrial());
   else n1RenderTrial();
 }
@@ -489,7 +496,9 @@ function n1WirePlayer(it, autoplay) {
 
 function n1GuardarSesion(idx) {
   const prog = n1Prog(N1S.b);
-  if (!["entrada", "completa", "escribe", "examen"].includes(N1S.fase)) return;
+  if (N1S.fase === "descubre") { prog.sesion = { fase: "descubre", cola: [], i: (idx == null ? N1S.i : idx) }; n1Save(); return; }
+  if (N1S.fase === "distingue" && N1S.mini) return;
+  if (!["entrada", "completa", "escribe", "examen", "distingue"].includes(N1S.fase)) return;
   prog.sesion = { fase: N1S.fase, cola: N1S.cola, i: (idx == null ? N1S.i : idx), porCat: N1S.porCat, ort: N1S.ort, ok: N1S.sesionOk, tot: N1S.sesionTot };
   n1Save();
 }
@@ -734,7 +743,9 @@ function n1Siguiente() {
   n1Parar();
   N1S.i += 1;
   n1GuardarSesion();
+  const corta = n1ReelsContar();
   if (N1S.i >= N1S.cola.length) n1FinSesion();
+  else if (corta) n1ReelsTerminar();
   else n1RenderTrial();
 }
 
@@ -841,7 +852,8 @@ function n1RenderDescubre(b) {
   const cats = n1DescubreCategorias(b, prog);
   N1S.cola = cats.map((c) => ({ cat: c.categoria }));
   N1S.descubre = cats;
-  N1S.i = 0;
+  const sv = prog.sesion && prog.sesion.fase === "descubre" ? prog.sesion : null;
+  N1S.i = sv && sv.i < cats.length ? sv.i : 0;
   if (!cats.length) { n1TerminarFase(b, "descubre"); return; }
   n1MostrarDescubre();
 }
@@ -872,8 +884,13 @@ function n1MostrarDescubre() {
   });
   document.getElementById("n1DescNext").addEventListener("click", () => {
     n1Parar();
+    const corta = n1ReelsContar();
     if (ult) n1TerminarFase(N1S.b, "descubre");
-    else { N1S.i += 1; n1MostrarDescubre(); }
+    else {
+      N1S.i += 1;
+      n1GuardarSesion();
+      if (corta) n1ReelsTerminar(); else n1MostrarDescubre();
+    }
   });
 }
 
@@ -938,7 +955,15 @@ function n1RenderOddity(t) {
       prev.className = "fun-btn primary-btn full-width";
       prev.style.cssText = "width:100%;margin-top:14px;";
       prev.innerHTML = N1S.i + 1 >= N1S.cola.length ? `${ListeningIcons.finish()} Terminar` : `${ListeningIcons.next()} Siguiente`;
-      prev.addEventListener("click", () => { n1Parar(); N1S.i += 1; if (N1S.i >= N1S.cola.length) n1FinSesion(); else n1RenderTrial(); });
+      prev.addEventListener("click", () => {
+        n1Parar();
+        N1S.i += 1;
+        n1GuardarSesion();
+        const corta = n1ReelsContar();
+        if (N1S.i >= N1S.cola.length) n1FinSesion();
+        else if (corta) n1ReelsTerminar();
+        else n1RenderTrial();
+      });
       cont.appendChild(prev);
     });
   });
@@ -959,6 +984,7 @@ function n1TerminarFase(b, fase) {
   prog.faseEstado[fase] = "hecha";
   prog.sesion = null;
   n1Save();
+  if (N1R.activo) { n1ReelsContinuar(); return; }
   n1RenderHub(b);
   showMainView("listeningN1Hub");
 }
@@ -995,6 +1021,14 @@ function n1AnimarAnillo(pct) {
 }
 
 function n1MostrarEnHub(html, wire) {
+  if (N1R.activo) {
+    const pc = document.getElementById("n1PlayContainer");
+    pc.innerHTML = `<div class="n1-reels-resumen">${html}</div>`;
+    const res = document.getElementById("n1PlayResultLine");
+    if (res) res.textContent = "";
+    if (wire) wire(pc);
+    return;
+  }
   const cont = document.getElementById("n1HubContainer");
   cont.innerHTML = html;
   showMainView("listeningN1Hub");
@@ -1102,10 +1136,13 @@ function n1FinExamen(b, prog, pct) {
     const todo = n1TodoAprobado();
     n1MostrarEnHub(resumen + `
       ${todo ? '<div class="n1-aviso">🏁 ¡Terminaste los 12 bloques del Nivel 1! El siguiente paso es el re-test del Nivel 0 (con palabras nuevas) antes de abrir el Nivel 2.</div>' : ""}
-      <button class="fun-btn primary-btn full-width" id="n1ResBack" style="width:100%;margin-top:14px;">Volver a Listening</button>
+      <button class="fun-btn primary-btn full-width" id="n1ResBack" style="width:100%;margin-top:14px;">${N1R.activo ? "Continuar" : "Volver a Listening"}</button>
       <button class="fun-btn full-width" id="n1ResCopy" style="width:100%;margin-top:8px;">${ListeningIcons.copy()} Copiar informe</button>`,
       (c) => {
-        c.querySelector("#n1ResBack").addEventListener("click", () => { renderListeningHome(); showMainView("listeningHome"); });
+        c.querySelector("#n1ResBack").addEventListener("click", () => {
+          if (N1R.activo) { n1ReelsContinuar(); return; }
+          renderListeningHome(); showMainView("listeningHome");
+        });
         c.querySelector("#n1ResCopy").addEventListener("click", () => n1CopiarTexto(n1ReporteErrores(b), "📋 Informe copiado"));
       });
     n1AnimarAnillo(pct);
@@ -1136,6 +1173,76 @@ function n1FinExamen(b, prog, pct) {
 // Salir a mitad de camino: el avance ya está guardado en cada respuesta.
 function n1SalirDelJuego() {
   n1Parar();
+  if (N1R.activo) { n1ReelsTerminar(); return; }
   if (N1S.b) { n1RenderHub(N1S.b); showMainView("listeningN1Hub"); }
   else { renderListeningHome(); showMainView("listeningHome"); }
+}
+
+// ==================== MODO REELS ====================
+// Reels toma prestada la pantalla de juego del Nivel 1 (la mueve dentro de su
+// tarjeta) para hacer N ejercicios seguidos del bloque y la fase en curso. El
+// avance es el mismo del módulo de Listening (se guarda en cada respuesta), así
+// que se puede seguir en cualquiera de los dos lados. Si en Reels se termina una
+// fase, se muestra su resumen y se sigue con la siguiente; si se termina el
+// bloque (examen), se envía al Sheet como siempre y se sigue con el siguiente
+// bloque o con la nueva ronda, según el resultado.
+const N1R = { activo: false, restantes: 0, area: null, casa: null, cb: null };
+
+function n1ReelsBloque() {
+  n1Load();
+  if (n1TodoAprobado()) return null;
+  const b = n1ActualBloque();
+  return n1BlockInfo(b).jugable ? b : null;
+}
+
+function n1ReelsDisponible() { return !!n1ReelsBloque(); }
+
+function n1ReelsIniciar(host, n, cb) {
+  n1Load();
+  const area = document.querySelector("#listeningN1PlayScreen .exercise-area");
+  if (!area || !host) return false;
+  N1R.activo = true;
+  N1R.restantes = Math.max(1, n || 3);
+  N1R.cb = cb || {};
+  N1R.area = area;
+  N1R.casa = area.parentNode;
+  host.appendChild(area);
+  n1ReelsContinuar();
+  return true;
+}
+
+// true si ya se hicieron los ejercicios que tocaban en esta pasada.
+function n1ReelsContar() {
+  if (!N1R.activo) return false;
+  N1R.restantes -= 1;
+  if (N1R.cb && N1R.cb.cuenta) { try { N1R.cb.cuenta(N1R.restantes); } catch (e) { /* nada */ } }
+  return N1R.restantes <= 0;
+}
+
+function n1ReelsContinuar() {
+  if (!N1R.activo) return;
+  if (N1R.restantes <= 0) { n1ReelsTerminar(); return; }
+  const b = n1ReelsBloque();
+  if (!b) { n1ReelsTerminar(); return; }
+  const prog = n1Prog(b);
+  if (!prog.plan) { n1MakePlan(b, prog); prog.estado = "curso"; n1Save(); }
+  const fase = n1FaseActual(prog);
+  if (!fase) { n1ReelsTerminar(); return; }
+  if (N1R.cb && N1R.cb.bloque) { try { N1R.cb.bloque(b, fase); } catch (e) { /* nada */ } }
+  n1StartFase(b, fase);
+}
+
+// Devuelve la pantalla de juego a su lugar sin cerrar nada (al salir de Reels).
+function n1ReelsSoltar() {
+  n1Parar();
+  document.querySelectorAll(".n1-modal").forEach((m) => m.remove());
+  if (N1R.area && N1R.casa) N1R.casa.appendChild(N1R.area);
+  N1R.activo = false;
+}
+
+function n1ReelsTerminar() {
+  const cb = N1R.cb;
+  n1ReelsSoltar();
+  N1R.cb = null;
+  if (cb && cb.fin) cb.fin();
 }

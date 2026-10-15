@@ -1,10 +1,12 @@
   // ==================== REELS (sorpresas) ====================
-  // 1 yt       → clip real de YouGlish: ¿qué palabra escuchas?
+  // 1 yt       → clip real de YouGlish (va aparte: cada 3-6 ejercicios, ver rlDecidirSiguiente)
   // 2 pct      → 5 porcentajes (1 verde, 2 naranja, 2 rojo), solo para ver
   // 3 reglas   → elige X reglas: rellena el banco hasta RL_BANCO
   // 4 reporte  → copiar informe (cada 60-70 ejercicios) + agregar JSON
   // 5 historia → misma historia 4 veces (3 leyendo, la 4ª solo audio)
-  const RL_PESOS = { yt: 50, historia: 30, pct: 20, reglas: 25 };
+  // 6 listening → 3 ejercicios seguidos del Nivel 1 de Listening (mismo avance que el módulo)
+  const RL_PESOS = { listening: 35, historia: 30, pct: 20, reglas: 25 };
+  const RL_LISTENING_N = 3;
   const RL_APORTE = { bad: 10, warn: 7, good: 5 };
 
   function rlElegirSorpresa() {
@@ -16,7 +18,7 @@
     if (rlContarBanco() < RL_MIN_OBLIGATORIO && (rlReglasDisponibles().length || RL.reserva.length)) return "reglas";
 
     const cands = [];
-    if (rlPalabraParaYT()) cands.push("yt");
+    if (getTargetLanguage() === "en" && typeof n1ReelsDisponible === "function" && n1ReelsDisponible()) cands.push("listening");
     if (rlHistoriaSiguiente()) cands.push("historia");
     if (rlReglasConPct().length) cands.push("pct");
     if (rlContarBanco() < RL_BANCO && (rlReglasDisponibles().length || RL.reserva.length)) cands.push("reglas");
@@ -42,6 +44,7 @@
       case "reporte": return rlRenderReporte(item, body);
       case "historia": return rlRenderHistoria(item, body);
       case "yt": return rlRenderYT(item, body);
+      case "listening": return rlRenderListening(item, body);
       default: setTimeout(rlSiguiente, 0);
     }
   }
@@ -333,4 +336,23 @@
     });
     body.querySelector(".rl-omitir").onclick = () => rlSorpresaHecha(item);
     body.querySelector(".rl-continuar").onclick = () => rlSorpresaHecha(item);
+  }
+
+  // ---------- 6. Listening (Nivel 1) ----------
+  function rlRenderListening(item, body) {
+    if (item.restantes == null) { item.restantes = RL_LISTENING_N; rlGuardar(); }
+    body.innerHTML = rlCabecera(["🎧 Listening", `<span class="rl-l-bloque"></span>`]) +
+      `<div class="rl-listening"><div class="rl-listen-host"></div></div>`;
+    const chip = body.querySelector(".rl-l-bloque");
+    // El motor de Listening usa ids del documento: se arranca cuando la tarjeta ya está en pantalla.
+    setTimeout(() => {
+    if (!body.isConnected || RL.cur !== item) return;
+    const ok = n1ReelsIniciar(body.querySelector(".rl-listen-host"), item.restantes, {
+      cuenta: (n) => { item.restantes = Math.max(0, n); rlGuardar(); },
+      bloque: (b, fase) => { if (chip) chip.textContent = "Bloque " + b + " · " + (N1_FASE_LABEL[fase] || fase); },
+      fin: () => { RLV.limpiar = null; rlSorpresaHecha(item); },
+    });
+    if (!ok) { rlSorpresaHecha(item); return; }
+    RLV.limpiar = () => n1ReelsSoltar();
+    }, 0);
   }

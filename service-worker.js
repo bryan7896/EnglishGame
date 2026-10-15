@@ -1,5 +1,5 @@
 // service-worker.js
-const CACHE_NAME = 'english-trainer-17-0-14-10-2026';
+const CACHE_NAME = 'english-trainer-17-1-14-10-2026';
 const ASSETS = [
   './',
   './index.html',
