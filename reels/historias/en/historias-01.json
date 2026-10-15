@@ -1,0 +1,112 @@
+[
+  {
+    "id": "en-h001",
+    "titulo": "The lost passport",
+    "story": "Maria arrived at the airport at six in the morning. She had a big bag, a small backpack and a ticket to Peru. At the check-in desk, the woman asked for her passport. Maria looked in her bag, then in her backpack, then in her jacket. Nothing.\nShe called her brother. \"Did I leave my passport at home?\" she asked. He went to her apartment and looked on the table, in the kitchen and under the bed. Finally, he found it in the washing machine, inside her blue pants. It was dry, but a little wet in the corner.\nHe took a taxi to the airport and gave it to her forty minutes before the flight. Maria laughed, thanked him and promised to buy him a nice gift in Peru.",
+    "preguntas": [
+      { "q": "Where was Maria at six in the morning?", "opciones": ["At the train station", "At the airport", "At her brother's house", "At the hotel"], "correcta": 1 },
+      { "q": "Who looked for the passport in the apartment?", "opciones": ["Her mother", "A taxi driver", "Her brother", "The woman at the desk"], "correcta": 2 },
+      { "q": "Where was the passport?", "opciones": ["Under the bed", "On the kitchen table", "In her jacket", "In the washing machine"], "correcta": 3 },
+      { "q": "What did Maria promise her brother?", "opciones": ["A nice gift from Peru", "To call him every day", "To pay for the taxi", "To clean his apartment"], "correcta": 0 }
+    ]
+  },
+  {
+    "id": "en-h002",
+    "titulo": "Dinner for six",
+    "story": "Tom wanted to cook dinner for his parents and his grandparents. It was his first time. He went to the supermarket and bought fish, tomatoes, rice and a cake for dessert. He forgot the sugar, so he had to go back.\nAt home, he put the fish in the oven and started the salad. Then his phone rang. It was his friend Carlos. They talked about the football match for twenty minutes. When Tom went back to the kitchen, there was smoke everywhere. The fish was black.\nHis grandmother arrived first. She looked at the kitchen and smiled. \"Don't worry,\" she said. \"Let's order pizza.\" In the end, everyone ate pizza, salad and cake, and his grandfather said it was the best dinner of the year.",
+    "preguntas": [
+      { "q": "Who was Tom cooking for?", "opciones": ["His friends from school", "His parents and grandparents", "His wife and children", "His boss"], "correcta": 1 },
+      { "q": "Why did Tom go back to the supermarket?", "opciones": ["He forgot the sugar", "He forgot his phone", "He wanted more fish", "The cake was bad"], "correcta": 0 },
+      { "q": "What happened while Tom was talking on the phone?", "opciones": ["The guests arrived", "The cake fell", "The fish burned", "The oven stopped working"], "correcta": 2 },
+      { "q": "What did the family eat for dinner?", "opciones": ["Fish and rice", "Burgers and fries", "Chicken and salad", "Pizza, salad and cake"], "correcta": 3 }
+    ]
+  },
+  {
+    "id": "en-h003",
+    "titulo": "The new job",
+    "story": "Laura started a new job at a bank last Monday. She was nervous, so she woke up very early and took the bus at seven. The bus was full and she had to stand for forty minutes.\nHer boss, Mr. Brown, was tall and serious. He showed her the office, her desk and her new computer. \"You need to learn this program this week,\" he said. Laura worked hard all day. At lunchtime, a woman named Sofia invited her to eat together. Sofia was funny and very friendly, and she explained a lot of things about the bank.\nOn Friday, Mr. Brown called Laura to his office. She thought it was a problem. But he smiled and said, \"You did a great job this week.\" Laura took a taxi home to celebrate.",
+    "preguntas": [
+      { "q": "Where does Laura work now?", "opciones": ["At a hospital", "At a school", "At a bank", "At a hotel"], "correcta": 2 },
+      { "q": "How did Laura travel on her first day?", "opciones": ["By bus", "By taxi", "By car", "On foot"], "correcta": 0 },
+      { "q": "What was Sofia like?", "opciones": ["Tall and serious", "Funny and friendly", "Quiet and shy", "Busy and angry"], "correcta": 1 },
+      { "q": "Why did Mr. Brown call Laura on Friday?", "opciones": ["To give her a new desk", "To explain a problem", "To change her schedule", "To say she did a great job"], "correcta": 3 }
+    ]
+  },
+  {
+    "id": "en-h004",
+    "titulo": "Shopping for the wedding",
+    "story": "Ana's cousin was getting married on Saturday, and Ana didn't have anything to wear. On Thursday after work, she went to a clothes store downtown. She tried on a red dress, but it was too small. Then she tried a green one, but it was very expensive.\nThe salesperson was a young man with glasses. \"What about this blue dress?\" he asked. It was perfect and it was half-price. Ana also needed shoes. She found some black shoes, but they were not comfortable, so she bought brown ones.\nWhen she got home, she showed everything to her husband. He looked at her and said, \"It's beautiful, but our wedding invitation says the party is on the beach.\" Ana laughed. She had to go back to the store for sandals.",
+    "preguntas": [
+      { "q": "Why did Ana go shopping?", "opciones": ["For her own wedding", "For her cousin's wedding", "For a job interview", "For a birthday party"], "correcta": 1 },
+      { "q": "What was the problem with the green dress?", "opciones": ["It was too small", "It was too long", "It was very expensive", "It was dirty"], "correcta": 2 },
+      { "q": "What color were the shoes she bought?", "opciones": ["Brown", "Black", "White", "Blue"], "correcta": 0 },
+      { "q": "Why did Ana need to go back to the store?", "opciones": ["The dress was broken", "She forgot her bag", "Her husband wanted a shirt", "She needed sandals for the beach"], "correcta": 3 }
+    ]
+  },
+  {
+    "id": "en-h005",
+    "titulo": "A rainy weekend",
+    "story": "Peter and his kids planned a camping trip for the weekend. They packed a tent, sleeping bags, sandwiches and a lot of water. But on Saturday morning, it was raining hard and the radio said the rain would continue until Sunday night.\nThe kids were sad. \"Can we go next weekend?\" asked his daughter, Emma. Peter had an idea. He put the tent in the middle of the living room. They turned off the lights, used flashlights and told scary stories. His son, Leo, made a fire with red and yellow paper.\nAt night, they ate sandwiches inside the tent and watched a movie on the tablet. On Sunday, Emma said, \"This was the best camping trip ever, and we didn't get wet!\"",
+    "preguntas": [
+      { "q": "What did Peter and his kids plan to do?", "opciones": ["Go to the beach", "Go camping", "Visit their grandparents", "Watch a football match"], "correcta": 1 },
+      { "q": "Why couldn't they go?", "opciones": ["The car was broken", "Emma was sick", "It was raining", "Peter had to work"], "correcta": 2 },
+      { "q": "Where did they put the tent?", "opciones": ["In the living room", "In the garden", "In the garage", "On the balcony"], "correcta": 0 },
+      { "q": "What did Leo make the fire with?", "opciones": ["Wood from the park", "Candles", "Old books", "Red and yellow paper"], "correcta": 3 }
+    ]
+  },
+  {
+    "id": "en-h006",
+    "titulo": "The wrong train",
+    "story": "Daniel had an important meeting in another city at ten o'clock. He arrived at the train station early, bought a coffee and got on the train on platform four. He sat by the window and started reading his notes.\nAfter thirty minutes, a passenger next to him asked, \"Are you going to the beach too?\" Daniel looked out the window. He saw the sea. He was on the wrong train! He got off at the next station and called his boss. \"I'm very sorry, I'm going to be late,\" he said.\nHis boss was not angry. \"No problem,\" she said. \"The meeting is online now. Do you have your laptop?\" Daniel had it in his bag. He found a quiet café near the station and joined the meeting with a view of the sea.",
+    "preguntas": [
+      { "q": "What time was Daniel's meeting?", "opciones": ["At eight o'clock", "At nine o'clock", "At ten o'clock", "At noon"], "correcta": 2 },
+      { "q": "What was Daniel doing on the train?", "opciones": ["Reading his notes", "Sleeping", "Eating breakfast", "Talking on the phone"], "correcta": 0 },
+      { "q": "How did Daniel know he was on the wrong train?", "opciones": ["The ticket was different", "He saw the sea", "The train stopped", "His boss called him"], "correcta": 1 },
+      { "q": "Where did Daniel join the meeting from?", "opciones": ["From the train", "From his office", "From his house", "From a café near the station"], "correcta": 3 }
+    ]
+  },
+  {
+    "id": "en-h007",
+    "titulo": "Grandma's birthday",
+    "story": "Sofia's grandmother was turning eighty on Sunday. The whole family wanted to surprise her. Sofia's mother made a chocolate cake, her uncle brought music, and the kids drew pictures for her.\nThe plan was simple: Sofia had to take her grandmother for a walk in the park while the others prepared the house. They walked slowly, talked about the old days and ate ice cream. Her grandmother said, \"When I was young, I lived on this street and I rode my bicycle every day.\"\nAt five o'clock, they went back home. When they opened the door, everyone shouted \"Surprise!\" Her grandmother covered her face with her hands. Then she smiled and said, \"I knew it. Your uncle can't keep a secret.\" Everyone laughed and they danced until late.",
+    "preguntas": [
+      { "q": "How old was the grandmother turning?", "opciones": ["Sixty", "Seventy", "Seventy-five", "Eighty"], "correcta": 3 },
+      { "q": "What was Sofia's job in the plan?", "opciones": ["To make the cake", "To take her grandmother for a walk", "To bring the music", "To clean the house"], "correcta": 1 },
+      { "q": "What did the grandmother do every day when she was young?", "opciones": ["She rode her bicycle", "She cooked for the family", "She worked at a store", "She danced at parties"], "correcta": 0 },
+      { "q": "Why did the grandmother know about the party?", "opciones": ["She saw the cake", "Sofia told her", "Her uncle can't keep a secret", "She heard the music"], "correcta": 2 }
+    ]
+  },
+  {
+    "id": "en-h008",
+    "titulo": "The quiet neighbor",
+    "story": "When Lucas moved to his new apartment, he didn't know anyone. The building was old and quiet. His neighbor across the hall was an older man who never said much. Every morning, he only said \"Good morning\" and walked away.\nOne night, there was no electricity in the whole building. Lucas didn't have candles or a flashlight. Then someone knocked on his door. It was his neighbor, with two candles and a hot cup of tea. \"I thought you might need these,\" he said. His name was Mr. Wilson, and he was a retired music teacher.\nThey talked for hours in the dark. Mr. Wilson played the violin for him. Since then, every Friday, Lucas brings dinner and Mr. Wilson brings the music.",
+    "preguntas": [
+      { "q": "How was the building where Lucas moved?", "opciones": ["New and noisy", "Old and quiet", "Big and modern", "Small and dirty"], "correcta": 1 },
+      { "q": "What happened one night?", "opciones": ["There was a fire", "Someone stole his bike", "There was no electricity", "The water was cold"], "correcta": 2 },
+      { "q": "What was Mr. Wilson's job before he retired?", "opciones": ["Music teacher", "Doctor", "Bus driver", "Police officer"], "correcta": 0 },
+      { "q": "What do they do every Friday now?", "opciones": ["They go to the park", "They watch football", "They clean the building", "They have dinner and music"], "correcta": 3 }
+    ]
+  },
+  {
+    "id": "en-h009",
+    "titulo": "Learning to drive",
+    "story": "Camila was thirty years old and she couldn't drive. Her friends always gave her rides, but she wanted to be independent. So she paid for ten driving lessons with an instructor named Joe.\nThe first lesson was terrible. She forgot to use the turn signal, she drove too slowly on the highway and she almost hit a trash can in the parking lot. Joe stayed calm. \"Everyone makes mistakes at the beginning,\" he said.\nCamila practiced every Saturday with her father in an empty parking lot. Little by little, she improved. Two months later, she took the driving test. She was nervous, but she did everything right. When the examiner said, \"You passed,\" Camila called all her friends. \"Now I can give you a ride!\" she said.",
+    "preguntas": [
+      { "q": "Why did Camila want to learn to drive?", "opciones": ["She bought a new car", "She wanted to be independent", "She needed it for work", "Her father asked her"], "correcta": 1 },
+      { "q": "What did Camila almost hit in the first lesson?", "opciones": ["Another car", "A person", "A tree", "A trash can"], "correcta": 3 },
+      { "q": "Who did she practice with on Saturdays?", "opciones": ["Her father", "Her friends", "Joe", "Her brother"], "correcta": 0 },
+      { "q": "What did Camila say to her friends at the end?", "opciones": ["She wanted a party", "She needed more lessons", "Now she could give them a ride", "She was too nervous"], "correcta": 2 }
+    ]
+  },
+  {
+    "id": "en-h010",
+    "titulo": "The broken phone",
+    "story": "On Monday morning, Javier dropped his phone in the street and the screen broke. He couldn't read his messages or call anyone. He was worried because he was waiting for an important email from a company.\nAt lunchtime, he went to a repair shop. The man said, \"I can fix it, but it will take two days.\" Javier had to live without his phone. At first, it was difficult. He didn't know the time and he got lost on the way to the post office.\nBut then something changed. On the bus, he looked out the window instead of his screen. He read a book in the park and talked to an old friend he met by chance. On Wednesday, he got his phone back. The email was there: he got the job.",
+    "preguntas": [
+      { "q": "What happened to Javier's phone?", "opciones": ["Someone stole it", "It fell in the water", "The screen broke", "The battery died"], "correcta": 2 },
+      { "q": "How long did the repair take?", "opciones": ["Two days", "One hour", "One week", "Two weeks"], "correcta": 0 },
+      { "q": "What did Javier do in the park?", "opciones": ["He played football", "He slept", "He ate lunch with his boss", "He read a book"], "correcta": 3 },
+      { "q": "What was in the email?", "opciones": ["A bill to pay", "Good news: he got the job", "A message from his friend", "An invitation to a party"], "correcta": 1 }
+    ]
+  }
+]

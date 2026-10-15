@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "16.1 (12-10-2026)"
+VERSION = "17.0 (14-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -63,6 +63,20 @@ LISTENING_EXERCISE_FILES = {
 }
 
 LISTENING_DATA_FILE = os.path.join("listening", "data", "nivel0.json")
+
+# Reels: la sección principal (reemplaza al mapa). Secuencia infinita de
+# ejercicios a pantalla completa con sorpresas cada 5-15 tarjetas. Todo vive
+# en reels/ (JS, CSS e historias); usa el mismo banco de data-{lang}/ejercicios.
+REELS_FILES = {
+    "reels/reels-core.js": "__REELS_CORE_JS__",
+    "reels/reels-sorpresas.js": "__REELS_SORPRESAS_JS__",
+    "reels/reels-youglish.js": "__REELS_YOUGLISH_JS__",
+}
+REELS_STYLES_FILE = os.path.join("reels", "reels.css")
+# Historias de la sorpresa 5: reels/historias/<idioma>/*.json. Cada archivo es
+# un array de historias {id, titulo, story, preguntas: [{q, opciones[4], correcta}] x4}.
+# Una historia ya terminada (4 lecturas) no se vuelve a usar; se pueden borrar del repo.
+HISTORIAS_DIR = os.path.join("reels", "historias")
 
 # Nivel 1 de Listening: 12 bloques. Los JSON de cada bloque viven en
 # listening/nivel1/data/bloqueN.json y los audios en listening/nivel1/bloqueN/.
@@ -325,6 +339,37 @@ def nivel1_asset_list(bank=None):
     return rutas
 
 
+def load_historias(lang):
+    """Combina reels/historias/<lang>/*.json (arrays de historias) y valida cada una."""
+    carpeta = os.path.join(HISTORIAS_DIR, lang)
+    if not os.path.isdir(carpeta):
+        return []
+    historias, ids = [], set()
+    for fname in sorted(f for f in os.listdir(carpeta) if f.endswith('.json')):
+        ruta = os.path.join(carpeta, fname)
+        try:
+            with open(ruta, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+        except ValueError as e:
+            print(f"❌ {ruta} no es un JSON válido: {e}")
+            sys.exit(1)
+        lista = data.get('historias', []) if isinstance(data, dict) else data
+        for h in lista:
+            pregs = h.get('preguntas') or []
+            ok = (h.get('id') and h.get('story') and len(pregs) >= 4 and
+                  all(isinstance(p.get('opciones'), list) and len(p['opciones']) == 4 and
+                      isinstance(p.get('correcta'), int) and 0 <= p['correcta'] < 4 for p in pregs[:4]))
+            if not ok:
+                print(f"  ⚠️  [{lang}] historia inválida en {fname}: {h.get('id', '(sin id)')} — se omite")
+                continue
+            if h['id'] in ids:
+                print(f"  ⚠️  [{lang}] id de historia duplicado '{h['id']}' en {fname} — se omite")
+                continue
+            ids.add(h['id'])
+            historias.append({"id": h['id'], "titulo": h.get('titulo', ''), "story": h['story'], "preguntas": pregs[:4]})
+    return historias
+
+
 def read_file(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -403,7 +448,6 @@ const ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './prompt.txt',
   'https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Baloo+2:wght@500;600;700;800&display=swap',
   'https://cdn-icons-png.flaticon.com/512/3898/3898082.png',
 ];
@@ -488,94 +532,29 @@ def get_html_template():
         <div class="title-fun">English Trainer</div>
       </div>
       <div class="topbar-actions">
-        <button class="menu-btn help-btn" id="toggleHelpBtn" title="Ayuda de gramática" style="display:none;">❓</button>
-        <button class="menu-btn listening-btn" id="toggleListeningBtn" title="Listening (Nivel 0)" style="display:none;">🎧</button>
-        <button class="menu-btn aventura-btn" id="toggleAventuraBtn" title="Aventura (juego de conversaciones)" style="display:none;">🎮</button>
+        <button class="menu-btn" id="toggleHomeBtn" title="Inicio" style="display:none;">🏠</button>
         <button class="menu-btn" id="toggleMenuBtn">☰</button>
       </div>
     </div>
 
-    <div id="importScreen" class="screen active">
-      <div class="magic-card">
-        <h2>📚 ¡Hola <span id="welcomeUsername"></span>!</h2>
-        <div class="button-group">
-          <button class="fun-btn primary-btn full-width" id="goToRulesSelectBtn" style="width:100%;">🎯 Seleccionar reglas a estudiar</button>
-        </div>
-        <details class="advanced-import-details">
-          <summary>⚙️ Avanzado: pegar JSON manual</summary>
-          <p>Pega aquí el JSON completo con tu tanda de ejercicios (usa el botón para copiar el prompt y pedírselo a la IA):</p>
-          __IMPORT_FIELDS__
-          <div class="button-group">
-            <button class="btn-action btn-check" id="loadBtn">✨ Construir mapa</button>
-          </div>
-        </details>
+    <div id="homeScreen" class="screen active">
+      <div class="home-hero">
+        <h2>¡Hola <span id="welcomeUsername"></span>!</h2>
+        <p id="homeLangTag"></p>
       </div>
-    </div>
-
-    <div id="rulesSelectScreen" class="screen">
-      <div class="magic-card rules-card">
-        <h2>🎯 Selecciona las reglas a estudiar</h2>
-        <p>Marca las reglas que quieres practicar en esta tanda. La barra muestra tu dominio actual de cada una.</p>
-        <div id="rulesSelectList" class="rules-select-list"></div>
-        <div id="rulesSelectSummary" class="rules-selection-summary"></div>
-        <div class="button-group">
-          <button class="btn-action btn-check" id="rulesSelectFinishBtn">✅ Finalizar selección</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="rulesConfigScreen" class="screen">
-      <div class="magic-card rules-card">
-        <h2>📋 Reglas seleccionadas</h2>
-        <p>Indica cuántos ejercicios quieres de cada regla y, si tiene varios tipos, cuántos de cada uno.</p>
-        <div id="rulesConfigList" class="rules-config-list"></div>
-        <div id="rulesConfigSummary" class="rules-selection-summary"></div>
-        <div class="button-group">
-          <button class="fun-btn" id="rulesConfigBackBtn">← Editar selección</button>
-          <button class="btn-action btn-check" id="rulesConfigStartBtn">🚀 Empezar a estudiar</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="percentagesScreen" class="screen">
-      <div class="magic-card rules-card">
-        <h2>📊 Porcentajes por regla</h2>
-        <p>Así vas en cada regla gramatical. Toca el ícono de barras para ver cómo ha cambiado en el tiempo.</p>
-        <div id="percentagesList" class="rules-select-list" style="margin-top:14px;"></div>
-        <div class="button-group">
-          <button class="fun-btn full-width" id="percentagesBackBtn" style="width:100%;">← Volver al mapa</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="mapScreen" class="screen">
-      <div class="magic-card">
-        <div id="mapList" class="adventure-map"></div>
-      </div>
-      <div class="magic-card" style="padding:14px 18px;">
-        <textarea id="reportArea" class="report" rows="4" readonly style="display:none;"></textarea>
-        <button class="copy-report-btn" id="copyFinalReportBtn">📋 Copiar reporte</button>
-      </div>
-    </div>
-
-    <div id="exerciseScreen" class="screen">
-      <div class="exercise-area">
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <span class="pill-status" id="nodeTag">Nodo 1</span>
-          <span class="pill-status" id="exTag">Ejercicio 1/1</span>
-          <span class="pill-status" id="exTypeTag">📝</span>
-        </div>
-        <div id="exerciseContainer"></div>
-        <div id="resultLine" class="sub-fun" style="text-align:center;">✏️ Tu turno</div>
-      </div>
-    </div>
-
-    <div id="infoScreen" class="screen">
-      <div class="exercise-area info-scroll">
-        <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
-          <span class="pill-status info-pill" id="infoTag">💡 Lección 1/1</span>
-        </div>
-        <div id="infoContainer"></div>
+      <div class="home-grid">
+        <button class="home-tile home-tile-reels" id="homeReelsBtn">
+          <span class="home-tile-ico">▶</span>
+          <span><b>Reels</b><small>Sigue donde quedaste. Nunca sabes qué viene.</small></span>
+        </button>
+        <button class="home-tile" id="homeJuegoBtn">
+          <span class="home-tile-ico">🎮</span>
+          <span><b>Juego</b><small>Aventura de conversaciones por audio</small></span>
+        </button>
+        <button class="home-tile" id="homeListeningBtn">
+          <span class="home-tile-ico">🎧</span>
+          <span><b>Listening</b><small>Entrena el oído por niveles</small></span>
+        </button>
       </div>
     </div>
 
@@ -685,6 +664,13 @@ def get_html_template():
   <iframe id="aventuraFrame" title="Aventura" allow="autoplay; fullscreen" referrerpolicy="same-origin"></iframe>
 </div>
 
+<div id="reelsOverlay" class="rl-overlay" hidden>
+  <div id="rlStage" class="rl-stage"></div>
+  <button class="rl-float rl-close" id="rlCloseBtn" aria-label="Salir de Reels" title="Salir">✕</button>
+  <span class="rl-racha" id="rlRacha"></span>
+  <button class="rl-float rl-help" id="rlHelpBtn" aria-label="Ayuda de gramática" title="Ayuda">❓</button>
+</div>
+
 <div id="toastFun" class="toast-fun"></div>
 
 <script type="module">
@@ -707,11 +693,15 @@ def get_html_template():
   __INFORMACION_JS__
   const NIVEL0_EXERCISES = __NIVEL0_EXERCISES_JSON__;
   const NIVEL1_BANK = __NIVEL1_BANK_JSON__;
+  const HISTORIAS_BY_LANG = __HISTORIAS_JSON__;
   __LISTENING_CORE_JS__
   __LISTENING_N1_CORE_JS__
   __LISTENING_MAP_JS__
   __LISTENING_PLAY_JS__
   __LISTENING_N1_PLAY_JS__
+  __REELS_CORE_JS__
+  __REELS_SORPRESAS_JS__
+  __REELS_YOUGLISH_JS__
   __MAIN_LOGIC__
 </script>
 </body>
@@ -919,54 +909,6 @@ def get_main_logic():
     }
   }
 
-  function saveToStorage() {
-    const data = {
-      username: currentUser,
-      nodes: AppState.nodes,
-      progress: AppState.progress,
-      activeNodeIndex: AppState.activeNodeIndex,
-      activeExerciseIndex: AppState.activeExerciseIndex,
-      reportEntries: AppState.reportEntries,
-      reviewPool: AppState.reviewPool,
-      // "Práctica inicial" vive fuera del array de nodos (ver map.js /
-      // createPracticaInicial). Se persiste completa (incluye las
-      // lecciones) para que un reload no la pierda; solo el progreso
-      // DENTRO de la lección activa se reinicia si hay un reload (es
-      // intencional, ver informacion.js).
-      practicaInicial: AppState.practicaInicial || null,
-      // Se persisten también las respuestas/resultados "de sesión". Antes
-      // vivían solo en memoria: si la página se recargaba a mitad de un
-      // nodo (muy común en PWA/móvil), se perdían, y al cerrar el nodo los
-      // ejercicios fallados ANTES del reload quedaban sin userAnswer
-      // registrada — eso hacía que el error mandado al nodo de repaso cayera en un
-      // fallback incorrecto (mostraba el texto en español en vez del error
-      // real del usuario). Persistir esto soluciona ese bug de raíz.
-      sessionCorrectness: AppState.sessionCorrectness,
-      sessionAnswers: AppState.sessionAnswers,
-      lastUpdated: new Date().toISOString()
-    };
-    try { localStorage.setItem(currentStorageKey(), JSON.stringify(data)); } catch(e) {}
-  }
-  
-  function loadFromStorage(username) {
-    try {
-      const raw = localStorage.getItem(currentStorageKey());
-      if (!raw) return false;
-      const data = JSON.parse(raw);
-      if (data.username !== username) return false;
-      AppState.nodes = data.nodes || [];
-      AppState.progress = data.progress || {};
-      AppState.activeNodeIndex = data.activeNodeIndex || 0;
-      AppState.activeExerciseIndex = data.activeExerciseIndex || 0;
-      AppState.reportEntries = data.reportEntries || [];
-      AppState.reviewPool = data.reviewPool || [];
-      AppState.sessionCorrectness = data.sessionCorrectness || {};
-      AppState.sessionAnswers = data.sessionAnswers || {};
-      AppState.practicaInicial = data.practicaInicial || null;
-      return AppState.nodes.length > 0;
-    } catch(e) { return false; }
-  }
-
   let currentUser = null;
   
   const AppState = {
@@ -1009,19 +951,8 @@ def get_main_logic():
     }
   }
   
-  function debounceSave() {
-    clearTimeout(window._saveTimeout);
-    window._saveTimeout = setTimeout(() => saveToStorage(), 500);
-  }
-
   const mainScreens = {
-    import: document.getElementById("importScreen"),
-    rulesSelect: document.getElementById("rulesSelectScreen"),
-    rulesConfig: document.getElementById("rulesConfigScreen"),
-    percentages: document.getElementById("percentagesScreen"),
-    map: document.getElementById("mapScreen"),
-    exercise: document.getElementById("exerciseScreen"),
-    info: document.getElementById("infoScreen"),
+    home: document.getElementById("homeScreen"),
     listeningHome: document.getElementById("listeningHomeScreen"),
     listeningN1Hub: document.getElementById("listeningN1HubScreen"),
     listeningN1Play: document.getElementById("listeningN1PlayScreen"),
@@ -1029,419 +960,20 @@ def get_main_logic():
     listeningResult: document.getElementById("listeningResultScreen"),
     listeningReport: document.getElementById("listeningReportScreen")
   };
-  
+
   function showMainView(name) {
     Object.keys(mainScreens).forEach(k => {
       if(mainScreens[k]) mainScreens[k].classList.toggle("active", k === name);
     });
+    const homeBtn = document.getElementById("toggleHomeBtn");
+    if (homeBtn) homeBtn.style.display = name === "home" ? "none" : "flex";
   }
 
-  function loadAllData() {
-    try {
-      __LOAD_DATA_FIELDS__
-      
-      // Sin validación - todo es opcional
-      AppState.nodes = createNodeStructure(__CREATE_NODE_ARGS__);
-      AppState.practicaInicial = createPracticaInicial(informacion);
-      AppState.progress = {};
-      AppState.activeNodeIndex = 0;
-      AppState.activeExerciseIndex = 0;
-      AppState.failedExercises = [];
-      AppState.reportEntries = [];
-      AppState.reviewPool = [];
-      AppState.sessionCorrectness = {};
-      AppState.sessionAnswers = {};
-      
-      AppState.nodes.forEach((node, idx) => {
-        AppState.progress[idx] = {
-          completed: false,
-          exercisesDone: 0,
-          exerciseResults: Array(node.exercises.length).fill(false)
-        };
-      });
-      
-      saveToStorage();
-      renderMapView();
-      showMainView("map");
-      const totalEj = AppState.nodes.reduce((sum, n) => sum + n.exercises.length, 0);
-      const leccionesCount = AppState.practicaInicial?.lecciones?.length || 0;
-      if (totalEj > 0 || leccionesCount > 0) {
-        const leccionesMsg = leccionesCount > 0 ? (" + " + leccionesCount + " lección(es) de práctica inicial") : "";
-        toast("🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos" + leccionesMsg);
-      } else {
-        toast("⚠️ No se encontraron ejercicios. Agrega al menos uno.");
-      }
-    } catch(e) {
-      toast("❌ JSON invalido: " + e.message);
-      console.error(e);
-    }
-  }
-
-  // ==================== SELECCIONAR REGLAS A ESTUDIAR ====================
-  // Flujo: [Seleccionar reglas a estudiar] -> checkboxes con % -> [Finalizar
-  // selección] -> tabla con cantidad (1-50) + info opcional por regla ->
-  // [Empezar a estudiar]. Los ejercicios se toman de ALL_STUDY_EXERCISES
-  // (embebido por build.py) filtrando por reglaIds, sin repetir el mismo id
-  // de ejercicio entre dos reglas distintas de la misma tanda.
-  let pendingRuleIds = [];
-
-  function openRulesSelect() {
-    pendingRuleIds = [];
-    renderRulesSelectScreen();
-    showMainView("rulesSelect");
-    // Consulta el último registro guardado en el backend (idioma activo)
-    // y, si hay algo más nuevo, repinta con los % actualizados — sin
-    // bloquear la pantalla mientras tanto.
-    syncLatestPercentagesFromBackend().then((changed) => { if (changed) renderRulesSelectScreen(); });
-  }
-
-  function countAvailable(ruleId) {
-    return currentStudyExercises().reduce((n, e) => n + ((e.reglaIds || []).includes(ruleId) ? 1 : 0), 0);
-  }
-
-  // Cuántos ejercicios hay disponibles por regla, desglosado por tipo
-  // (traduccion/completar/seleccionar/corregir/dictado). Solo se listan los
-  // tipos con al menos 1 ejercicio.
-  function computeTypeCounts(ruleId) {
-    const counts = {};
-    currentStudyExercises().forEach((e) => {
-      if ((e.reglaIds || []).includes(ruleId)) counts[e.type] = (counts[e.type] || 0) + 1;
-    });
-    return counts;
-  }
-
-  const TYPE_LABELS_UI = { traduccion: "📝 Traducción", completar: "✏️ Completar", seleccionar: "🎯 Emparejar", corregir: "🔍 Corregir", dictado: "🎧 Dictado" };
-
-  // Clasifica un % de dominio en la misma escala good/warn/bad que ya usa
-  // el resto de la app (corrección de ejercicios, progreso de nodos...).
+  // Clasifica un % de dominio en la escala good/warn/bad (verde/naranja/rojo).
   function pctTier(pct) {
     if (pct >= 80) return "good";
     if (pct >= 60) return "warn";
     return "bad";
-  }
-
-  // Orden para las listas de reglas (Seleccionar / Ver porcentajes): de
-  // menor a mayor % de dominio, PERO las de 0% siempre al final (0% suele
-  // ser "todavía no tiene ejercicios/no se ha estudiado", no
-  // necesariamente "lo peor dominado" — no tiene sentido mezclarlas con
-  // las que sí tienen algo de progreso real). Dentro de cada grupo
-  // (0% / resto) se conserva el orden original (sort es estable), así que
-  // no se reordena nada "porque sí" entre reglas con el mismo %.
-  function sortRulesByPercentage(rules) {
-    return [...rules].sort((a, b) => {
-      const aZero = a.porcentaje === 0;
-      const bZero = b.porcentaje === 0;
-      if (aZero !== bZero) return aZero ? 1 : -1;
-      if (aZero && bZero) return 0;
-      return a.porcentaje - b.porcentaje;
-    });
-  }
-
-  function renderRulesSelectScreen() {
-    const list = document.getElementById("rulesSelectList");
-    if (!list) return;
-    list.innerHTML = sortRulesByPercentage(AppRules).map((r) => {
-      const disponibles = countAvailable(r.id);
-      const checked = pendingRuleIds.includes(r.id);
-      const tier = pctTier(r.porcentaje);
-      const empty = disponibles === 0;
-      return `
-        <label class="rule-card rule-select-row tier-${tier} ${empty ? 'rule-row-empty' : ''} ${checked ? 'rule-row-checked' : ''}">
-          <input type="checkbox" class="rule-select-checkbox" data-id="${r.id}" ${checked ? 'checked' : ''} ${empty ? 'disabled' : ''}>
-          <span class="rule-check" aria-hidden="true"></span>
-          <span class="rule-card-body">
-            <span class="rule-card-top">
-              <span class="rule-select-text">${window._escHTML(r.regla)}</span>
-              <span class="rule-pct-badge tier-${tier}">${r.porcentaje}%</span>
-            </span>
-            <span class="rule-pct-bar" role="presentation">
-              <span class="rule-pct-bar-fill tier-${tier}" style="width:${r.porcentaje}%"></span>
-            </span>
-            <span class="rule-card-bottom">
-              <span class="rule-select-count">${empty ? 'Sin ejercicios todavía' : disponibles + ' ejercicio' + (disponibles === 1 ? '' : 's') + ' disponible' + (disponibles === 1 ? '' : 's')}</span>
-            </span>
-          </span>
-        </label>
-      `;
-    }).join('');
-
-    list.querySelectorAll('.rule-select-checkbox').forEach((cb) => {
-      cb.addEventListener('change', () => {
-        const id = parseInt(cb.dataset.id, 10);
-        if (cb.checked) { if (!pendingRuleIds.includes(id)) pendingRuleIds.push(id); }
-        else pendingRuleIds = pendingRuleIds.filter((x) => x !== id);
-        cb.closest('.rule-select-row')?.classList.toggle('rule-row-checked', cb.checked);
-        updateRulesSelectSummary();
-      });
-    });
-
-    updateRulesSelectSummary();
-  }
-
-  function updateRulesSelectSummary() {
-    const el = document.getElementById("rulesSelectSummary");
-    if (!el) return;
-    if (!pendingRuleIds.length) { el.innerHTML = ''; return; }
-    const totalDisponibles = pendingRuleIds.reduce((n, id) => n + countAvailable(id), 0);
-    el.innerHTML = `<strong>${pendingRuleIds.length}</strong> regla${pendingRuleIds.length === 1 ? '' : 's'} seleccionada${pendingRuleIds.length === 1 ? '' : 's'} · <strong>${totalDisponibles}</strong> ejercicio${totalDisponibles === 1 ? '' : 's'} disponibles en total`;
-  }
-
-  function finishRulesSelect() {
-    if (!pendingRuleIds.length) { toast("⚠️ Selecciona al menos una regla"); return; }
-    renderRulesConfigScreen();
-    showMainView("rulesConfig");
-  }
-
-  function renderRulesConfigScreen() {
-    const list = document.getElementById("rulesConfigList");
-    if (!list) return;
-    list.innerHTML = pendingRuleIds.map((id) => {
-      const r = findRegla(id);
-      if (!r) return '';
-      const disponibles = countAvailable(id);
-      const maxTotal = Math.max(1, Math.min(50, disponibles));
-      const lecciones = (currentInformacionPorRegla()[id] || currentInformacionPorRegla()[String(id)] || []);
-      const tier = pctTier(r.porcentaje);
-      return `
-        <div class="rule-card rule-config-row tier-${tier}" data-rule-id="${id}" data-max-total="${maxTotal}">
-          <div class="rule-card-top">
-            <span class="rule-select-text">${window._escHTML(r.regla)}</span>
-            <span class="rule-pct-badge tier-${tier}">${r.porcentaje}%</span>
-          </div>
-          <span class="rule-pct-bar" role="presentation">
-            <span class="rule-pct-bar-fill tier-${tier}" style="width:${r.porcentaje}%"></span>
-          </span>
-          <div class="rule-config-meta">${disponibles} ejercicio${disponibles === 1 ? '' : 's'} disponible${disponibles === 1 ? '' : 's'}</div>
-          <div class="rule-config-controls">
-            <label class="rule-config-qty-field">
-              <span class="rule-config-qty-label">Cantidad a estudiar</span>
-              <span class="rule-config-qty-inputwrap">
-                <input type="number" class="rule-config-qty" data-id="${id}" min="1" max="${maxTotal}" placeholder="—" required>
-                <span class="rule-config-qty-max">/ ${maxTotal} máx.</span>
-              </span>
-            </label>
-            ${lecciones.length ? `
-              <label class="rule-config-info-toggle">
-                <input type="checkbox" class="rule-config-info" data-id="${id}">
-                <span class="rule-config-switch" aria-hidden="true"></span>
-                <span>💡 Incluir lección de información</span>
-              </label>
-            ` : ''}
-          </div>
-          <div class="rule-config-type-breakdown" data-id="${id}"></div>
-        </div>
-      `;
-    }).join('');
-
-    list.querySelectorAll('.rule-config-qty').forEach((inp) => {
-      inp.addEventListener('input', () => { renderTypeBreakdown(inp); updateRulesConfigSummary(); });
-    });
-
-    updateRulesConfigSummary();
-  }
-
-  // Al escribir la cantidad total de una regla, si hay más de un tipo de
-  // ejercicio disponible para ella, se despliega un desglose "¿cuántos de
-  // cada tipo?" que debe sumar exactamente el total. Con un solo tipo
-  // disponible no hace falta desglosar: todo va a ese tipo.
-  function renderTypeBreakdown(qtyInput) {
-    const id = parseInt(qtyInput.dataset.id, 10);
-    const row = qtyInput.closest('.rule-config-row');
-    const breakdownEl = row.querySelector('.rule-config-type-breakdown');
-    const maxTotal = parseInt(row.dataset.maxTotal, 10) || 0;
-    const total = parseInt(qtyInput.value, 10);
-
-    if (!Number.isInteger(total) || total < 1 || total > maxTotal) {
-      breakdownEl.innerHTML = '';
-      return;
-    }
-
-    const counts = computeTypeCounts(id);
-    const types = Object.keys(TYPE_LABELS_UI).filter((t) => counts[t] > 0);
-
-    if (types.length <= 1) {
-      breakdownEl.innerHTML = '';
-      return;
-    }
-
-    breakdownEl.innerHTML = `
-      <div class="rule-type-breakdown-label">¿Cuántos de cada tipo? <span class="rule-type-breakdown-sum" data-id="${id}"></span></div>
-      <div class="rule-type-breakdown-inputs">
-        ${types.map((t) => `
-          <label class="rule-type-chip">
-            <span class="rule-type-chip-label">${TYPE_LABELS_UI[t]}</span>
-            <input type="number" class="rule-config-type-qty" data-id="${id}" data-type="${t}" min="0" max="${Math.min(counts[t], total)}" placeholder="—">
-            <span class="rule-type-chip-max">máx. ${Math.min(counts[t], total)}</span>
-          </label>
-        `).join('')}
-      </div>
-    `;
-
-    breakdownEl.querySelectorAll('.rule-config-type-qty').forEach((typeInp) => {
-      typeInp.addEventListener('input', () => { updateBreakdownSum(id, total); updateRulesConfigSummary(); });
-    });
-    updateBreakdownSum(id, total);
-  }
-
-  function updateBreakdownSum(id, total) {
-    const breakdownEl = document.querySelector('.rule-config-type-breakdown[data-id="' + id + '"]');
-    if (!breakdownEl) return;
-    const inputs = breakdownEl.querySelectorAll('.rule-config-type-qty');
-    let sum = 0;
-    inputs.forEach((i) => { sum += parseInt(i.value, 10) || 0; });
-    const sumEl = breakdownEl.querySelector('.rule-type-breakdown-sum');
-    if (!sumEl) return;
-    const ok = sum === total;
-    sumEl.textContent = (ok ? "✅ " : "") + sum + "/" + total;
-    sumEl.className = "rule-type-breakdown-sum" + (ok ? " sum-ok" : " sum-bad");
-  }
-
-  function updateRulesConfigSummary() {
-    const el = document.getElementById("rulesConfigSummary");
-    if (!el) return;
-    const qtyInputs = document.querySelectorAll('.rule-config-qty');
-    let total = 0;
-    let filled = 0;
-    qtyInputs.forEach((inp) => {
-      const v = parseInt(inp.value, 10);
-      if (Number.isInteger(v) && v > 0) { total += v; filled++; }
-    });
-    if (!total) { el.innerHTML = ''; return; }
-    el.innerHTML = `Vas a estudiar <strong>${total}</strong> ejercicio${total === 1 ? '' : 's'} en total (${filled}/${qtyInputs.length} regla${qtyInputs.length === 1 ? '' : 's'} con cantidad definida)`;
-  }
-
-  function handleStartStudyFromRules() {
-    const list = document.getElementById("rulesConfigList");
-    if (!list) return;
-    const rows = Array.from(list.querySelectorAll('.rule-config-row'));
-    if (!rows.length) return;
-
-    const config = [];
-    let allValid = true;
-
-    rows.forEach((row) => {
-      const id = parseInt(row.dataset.ruleId, 10);
-      const maxTotal = parseInt(row.dataset.maxTotal, 10) || 0;
-      const qtyInput = row.querySelector('.rule-config-qty');
-      const total = parseInt(qtyInput.value, 10);
-
-      if (!Number.isInteger(total) || total < 1 || total > maxTotal) { allValid = false; return; }
-
-      const typeInputs = Array.from(row.querySelectorAll('.rule-config-type-qty'));
-      let byType;
-      if (typeInputs.length) {
-        byType = {};
-        let sum = 0;
-        typeInputs.forEach((inp) => {
-          const v = parseInt(inp.value, 10) || 0;
-          if (v > 0) byType[inp.dataset.type] = v;
-          sum += v;
-        });
-        if (sum !== total) allValid = false;
-      } else {
-        const counts = computeTypeCounts(id);
-        const onlyType = Object.keys(counts).find((t) => counts[t] > 0);
-        byType = onlyType ? { [onlyType]: total } : {};
-      }
-
-      config.push({ id, byType });
-    });
-
-    if (!allValid) { toast("⚠️ Revisa las cantidades: cada regla necesita un total válido dentro de su máximo, y si hay desglose por tipo debe sumar exactamente ese total"); return; }
-
-    const infoRuleIds = new Set(
-      Array.from(list.querySelectorAll('.rule-config-info:checked')).map((cb) => parseInt(cb.dataset.id, 10))
-    );
-
-    startStudyFromRules(config, infoRuleIds);
-  }
-
-  function startStudyFromRules(config, infoRuleIds) {
-    const usedIds = new Set();
-    const chosen = [];
-    let anyShort = false;
-
-    config.forEach(({ id, byType }) => {
-      Object.keys(byType).forEach((type) => {
-        const qty = byType[type];
-        if (!qty) return;
-        const pool = shuffleArray(currentStudyExercises().filter((e) => e.type === type && (e.reglaIds || []).includes(id) && !usedIds.has(e.id)));
-        const take = pool.slice(0, qty);
-        if (take.length < qty) anyShort = true;
-        take.forEach((e) => { usedIds.add(e.id); chosen.push(e); });
-      });
-    });
-
-    const informacionLecciones = [];
-    infoRuleIds.forEach((id) => {
-      (currentInformacionPorRegla()[id] || currentInformacionPorRegla()[String(id)] || []).forEach((leccion) => informacionLecciones.push(leccion));
-    });
-
-    AppState.nodes = buildNodesFromExerciseList(chosen);
-    AppState.practicaInicial = createPracticaInicial(informacionLecciones);
-    AppState.progress = {};
-    AppState.activeNodeIndex = 0;
-    AppState.activeExerciseIndex = 0;
-    AppState.failedExercises = [];
-    AppState.reportEntries = [];
-    AppState.reviewPool = [];
-    AppState.sessionCorrectness = {};
-    AppState.sessionAnswers = {};
-
-    AppState.nodes.forEach((node, idx) => {
-      AppState.progress[idx] = {
-        completed: false,
-        exercisesDone: 0,
-        exerciseResults: Array(node.exercises.length).fill(false)
-      };
-    });
-
-    saveToStorage();
-    renderMapView();
-    showMainView("map");
-    pendingRuleIds = [];
-
-    const totalEj = chosen.length;
-    const leccionesMsg = informacionLecciones.length > 0 ? (" + " + informacionLecciones.length + " lección(es) de información") : "";
-    const shortMsg = anyShort ? "⚠️ Algunas reglas no tenían suficientes ejercicios disponibles. " : "";
-    if (totalEj > 0 || informacionLecciones.length > 0) {
-      toast(shortMsg + "🎒 " + totalEj + " ejercicios en " + AppState.nodes.length + " nodos" + leccionesMsg);
-    } else {
-      toast("⚠️ No hay ejercicios disponibles para esas reglas todavía");
-    }
-  }
-
-  // ==================== PANTALLA "VER PORCENTAJES" ====================
-  function openPercentagesScreen() {
-    renderPercentagesScreen();
-    showMainView("percentages");
-    syncLatestPercentagesFromBackend().then((changed) => { if (changed) renderPercentagesScreen(); });
-  }
-
-  function renderPercentagesScreen() {
-    const list = document.getElementById("percentagesList");
-    if (!list) return;
-    list.innerHTML = sortRulesByPercentage(AppRules).map((r) => {
-      const tier = pctTier(r.porcentaje);
-      return `
-        <div class="rule-card tier-${tier} percentages-row">
-          <span class="rule-card-body">
-            <span class="rule-card-top">
-              <span class="rule-select-text">${window._escHTML(r.regla)}</span>
-              <span class="rule-pct-badge tier-${tier}">${r.porcentaje}%</span>
-            </span>
-            <span class="rule-pct-bar" role="presentation">
-              <span class="rule-pct-bar-fill tier-${tier}" style="width:${r.porcentaje}%"></span>
-            </span>
-          </span>
-          <button type="button" class="rule-stats-btn" data-id="${r.id}" title="Ver estadísticas" aria-label="Ver estadísticas de ${window._escHTML(r.regla)}">📊</button>
-        </div>
-      `;
-    }).join('');
-
-    list.querySelectorAll('.rule-stats-btn').forEach((btn) => {
-      btn.addEventListener('click', () => showRuleStatsModal(parseInt(btn.dataset.id, 10)));
-    });
   }
 
   // Modal con una gráfica de barras (CSS puro, sin librerías) del
@@ -1496,28 +1028,13 @@ def get_main_logic():
     }
   }
 
-  // "🔀 Mezclar JSON manual": el mismo formato de siempre (traducciones/
-  // completar/seleccionar/corregir/dictado/informacion, las 6 opcionales),
-  // pero en vez de REEMPLAZAR lo que ya está cargado (como hace "Nueva
-  // tanda" / loadAllData), se AGREGA a lo que ya seleccionaste desde la
-  // base de datos por reglas. Útil, por ejemplo, para sumar una tanda con
-  // audios reales que no vive en data/ejercicios/. Como todo el conjunto
-  // (lo viejo + lo nuevo) se reparte de nuevo entre los nodos, el progreso
-  // y la cola de repaso se reinician — igual que al cargar cualquier tanda
-  // nueva o iniciar el estudio por reglas.
-  // Botón de ayuda (❓) y botón de Listening (🎧), junto al de menú: ambos
-  // solo tienen sentido estudiando inglés (la chuleta de gramática y el
-  // banco de audio del Nivel 0 son solo de inglés), así que se ocultan
-  // por completo cuando el idioma objetivo es italiano. Se actualiza al
-  // boot y cada vez que se cambia de idioma.
+  // Inicio: Juego (🎮) y Listening (🎧) solo existen en inglés. El ❓ vive
+  // dentro de Reels (botón flotante, solo inglés).
   function updateHelpBtnVisibility() {
     const isEnglish = getTargetLanguage() === "en";
-    const helpBtn = document.getElementById("toggleHelpBtn");
-    if (helpBtn) helpBtn.style.display = isEnglish ? "flex" : "none";
-    const listeningBtn = document.getElementById("toggleListeningBtn");
-    if (listeningBtn) listeningBtn.style.display = isEnglish ? "flex" : "none";
-    const aventuraBtn = document.getElementById("toggleAventuraBtn");
-    if (aventuraBtn) aventuraBtn.style.display = isEnglish ? "flex" : "none";
+    ["homeJuegoBtn", "homeListeningBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
+    const tag = document.getElementById("homeLangTag");
+    if (tag) tag.textContent = getTargetLangMeta().flag + " Practicando " + getTargetLangMeta().labelLower;
   }
 
   // ==================== AVENTURA (juego de conversaciones por audio) ====================
@@ -1662,145 +1179,6 @@ def get_main_logic():
     const close = () => modal.remove();
     modal.querySelector('#helpModalClose').addEventListener('click', close);
     modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
-  }
-
-  function showMergeDataModal() {
-    const existing = document.querySelector('.modal-overlay');
-    if (existing) existing.remove();
-
-    const modal = document.createElement("div");
-    modal.className = "modal-overlay modal-active";
-    modal.innerHTML = `
-      <div class="modal-friend menu-modal">
-        <div class="menu-modal-header">
-          <h3>🔀 Mezclar JSON manual</h3>
-          <button class="menu-modal-close" id="mergeDataClose" aria-label="Cerrar">✕</button>
-        </div>
-        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">
-          Pega aquí un JSON con el mismo formato de siempre (traducciones,
-          completar, seleccionar, corregir, dictado e información — todas
-          opcionales). Estos ejercicios se <strong>agregan</strong> a los
-          que ya tienes cargados (no los reemplazan). Como todo se reparte
-          de nuevo entre los nodos, el progreso y el repaso se reinician.
-        </p>
-        <div class="import-fields-header">
-          <button type="button" class="fun-btn" id="mergeCopyPromptBtn">📋 Copiar prompt para la IA</button>
-        </div>
-        <textarea id="mergeDataInput" class="answer-input" rows="10" placeholder='${window._escHTML(IMPORT_EXAMPLE_JSON)}'></textarea>
-        <div class="action-buttons">
-          <button class="fun-btn primary-btn" id="mergeDataApply">🔀 Mezclar con lo cargado</button>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-
-    const close = () => modal.remove();
-    modal.querySelector('#mergeDataClose').addEventListener('click', close);
-    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
-    modal.querySelector('#mergeCopyPromptBtn').addEventListener('click', copyPromptFromFile);
-
-    modal.querySelector('#mergeDataApply').addEventListener('click', () => {
-      const raw = document.getElementById("mergeDataInput").value.trim();
-      if (!raw) { toast("📝 Pega el JSON primero"); return; }
-      let parsed;
-      try { parsed = JSON.parse(raw); } catch (e) { toast("❌ JSON inválido: " + e.message); return; }
-      close();
-      mergeManualData(parsed);
-    });
-  }
-
-  function mergeManualData(parsedData) {
-    try {
-      const newExercises = rawDataToExerciseList(parsedData);
-      const existingExercises = (AppState.nodes || [])
-        .filter((n) => n.type === "main")
-        .flatMap((n) => n.exercises);
-      const merged = existingExercises.concat(newExercises);
-
-      AppState.nodes = buildNodesFromExerciseList(merged);
-      AppState.progress = {};
-      AppState.activeNodeIndex = 0;
-      AppState.activeExerciseIndex = 0;
-      AppState.failedExercises = [];
-      AppState.reportEntries = [];
-      AppState.reviewPool = [];
-      AppState.sessionCorrectness = {};
-      AppState.sessionAnswers = {};
-
-      const newLecciones = parsedData?.informacion || [];
-      if (newLecciones.length) {
-        if (!AppState.practicaInicial) {
-          AppState.practicaInicial = createPracticaInicial(newLecciones);
-        } else {
-          AppState.practicaInicial.lecciones = AppState.practicaInicial.lecciones.concat(newLecciones);
-          AppState.practicaInicial.completed = false;
-        }
-      }
-
-      AppState.nodes.forEach((node, idx) => {
-        AppState.progress[idx] = {
-          completed: false,
-          exercisesDone: 0,
-          exerciseResults: Array(node.exercises.length).fill(false)
-        };
-      });
-
-      saveToStorage();
-      renderMapView();
-      showMainView("map");
-
-      const totalEj = AppState.nodes.reduce((sum, n) => sum + n.exercises.length, 0);
-      toast("🔀 Mezclados: " + newExercises.length + " ejercicio(s) nuevo(s) + " + existingExercises.length + " que ya tenías = " + totalEj + " en total");
-    } catch (e) {
-      toast("❌ Error al mezclar: " + e.message);
-      console.error(e);
-    }
-  }
-
-
-  function renderMapView() {
-    cleanupAudio();
-    renderMap(AppState.nodes, AppState.progress, { openNode, openPracticaInicial, showToast: toast }, AppState.practicaInicial);
-  }
-
-  const PASS_THRESHOLD = 0.8;
-
-  // El repaso ya no es siempre un único nodo al final del array: si la pool
-  // crece, se reparte en varios nodos de repaso (ver buildRepasoNodes() en
-  // map.js), igual que los principales se reparten con computeNodeSizes().
-  // Estos helpers ubican dónde EMPIEZAN los nodos de repaso dentro del
-  // array, sin asumir que hay exactamente uno.
-  function getFirstRepasoNodeIndex() {
-    const idx = AppState.nodes.findIndex(n => n.type === 'repaso');
-    return idx === -1 ? AppState.nodes.length : idx;
-  }
-
-  function isRepasoNodeIndex(idx) {
-    return AppState.nodes[idx]?.type === 'repaso';
-  }
-
-  function refreshRepasoNode() {
-    const firstRepasoIdx = getFirstRepasoNodeIndex();
-    if (firstRepasoIdx >= AppState.nodes.length) return;
-
-    const mainNodes = AppState.nodes.slice(0, firstRepasoIdx);
-    const oldRepasoCount = AppState.nodes.length - firstRepasoIdx;
-    const chunkSize = computeRepasoChunkSize(mainNodes);
-    const newRepasoNodes = buildRepasoNodes(AppState.reviewPool, chunkSize, firstRepasoIdx + 1);
-
-    // El progreso de los nodos de repaso viejos se descarta (igual que
-    // antes: cada refresh arranca el repaso "de cero") y se arma de nuevo
-    // para los nodos recién construidos.
-    for (let i = 0; i < oldRepasoCount; i++) delete AppState.progress[firstRepasoIdx + i];
-
-    AppState.nodes = [...mainNodes, ...newRepasoNodes];
-    newRepasoNodes.forEach((node, i) => {
-      AppState.progress[firstRepasoIdx + i] = {
-        completed: node.exercises.length === 0,
-        exercisesDone: 0,
-        exerciseResults: Array(node.exercises.length).fill(false)
-      };
-    });
   }
 
   // ---- Análisis de diferencia palabra a palabra ----
@@ -1969,339 +1347,6 @@ def get_main_logic():
     };
   }
 
-  // Tipos cuyo modal de resultado muestra [Repasar] / [Repasar luego]. Para
-  // estos ya NO hay envío automático al repaso: lo decide el usuario. El
-  // único tipo que conserva la regla anterior al cerrar el nodo (< 80% →
-  // repaso automático) es emparejar (ver renderExercise).
-  const MANUAL_REVIEW_TYPES = ["traduccion", "completar", "corregir", "dictado"];
-
-  // [Repasar]: una copia del ejercicio se agrega al FINAL del nodo actual.
-  // La copia se marca con __requeue para que, si luego se cambia la cantidad
-  // de nodos (redistributeMainNodes en map.js), siga en ESTE nodo en vez de
-  // moverse con el reparto automático.
-  function requeueAtEndOfMainNode(node, ex) {
-    const nodeIdx = AppState.activeNodeIndex;
-    const clone = { ...ex, __requeue: true };
-    node.exercises.push(clone);
-    node.totalExercises = node.exercises.length;
-
-    const prog = AppState.progress[nodeIdx];
-    if (prog) {
-      prog.exerciseResults = prog.exerciseResults || [];
-      while (prog.exerciseResults.length < node.exercises.length) prog.exerciseResults.push(false);
-      prog.completed = false;
-    }
-    toast("🔁 Irá al final de este nodo");
-  }
-
-  // [Repasar luego]: el ejercicio va a la pool de la sección de repaso final.
-  function sendToReviewPool(ex, userAnswer) {
-    const alreadyQueued = ex.__repasoId && AppState.reviewPool.some(p => p.__repasoId === ex.__repasoId);
-    if (!alreadyQueued) AppState.reviewPool.push(buildRepasoExercise(ex, userAnswer));
-    // Se refleja de una vez en el mapa (los nodos de repaso van después de
-    // los principales, así que no mueve el nodo que se está jugando).
-    refreshRepasoNode();
-    toast("🧠 Enviado a la sección de repaso");
-  }
-
-  // decision (opcional): "repasar" | "luego" | null/undefined (solo continuar).
-  function recordExerciseResult(isCorrect, decision) {
-    const node = AppState.nodes[AppState.activeNodeIndex];
-    const exIndex = AppState.activeExerciseIndex;
-    AppState.sessionCorrectness[exIndex] = !!isCorrect;
-    if (!node) return;
-
-    const current = node.exercises[exIndex];
-    if (!current) return;
-    const userAnswer = AppState.sessionAnswers[exIndex];
-
-    if (node.type === "repaso") {
-      // Reencola el ejercicio al FINAL del nodo de repaso, refrescando el
-      // error con la última respuesta del usuario.
-      const requeueInRepaso = () => {
-        const clone = { ...current };
-        if (clone.type === "corregir" && userAnswer && userAnswer.trim()) {
-          const attempt = userAnswer.trim();
-          clone.fraseConError = attempt;
-          // Acumula el historial de intentos fallidos (máx. 3, el más
-          // reciente al final) para la tarjeta rotativa de errores.
-          const history = Array.isArray(current.wrongAttempts) ? current.wrongAttempts.slice() : (current.fraseConError ? [current.fraseConError] : []);
-          if (history[history.length - 1] !== attempt) history.push(attempt);
-          clone.wrongAttempts = history.slice(-3);
-        }
-        node.exercises.push(clone);
-      };
-
-      if (decision === "repasar") {
-        // Pidió repasarlo otra vez: se queda en la pool y vuelve al final de este nodo.
-        requeueInRepaso();
-      } else if (decision === "luego") {
-        // Se queda en la pool para una próxima ronda de repaso (no se reencola aquí).
-      } else if (isCorrect) {
-        // Aprobado de verdad: sale definitivamente de la pool de repaso
-        if (current.__repasoId) {
-          AppState.reviewPool = AppState.reviewPool.filter(p => p.__repasoId !== current.__repasoId);
-        }
-      } else {
-        // Sigue sin superar el 80%: se reencola al FINAL del nodo de repaso
-        // hasta que realmente lo apruebe.
-        requeueInRepaso();
-      }
-      return;
-    }
-
-    // Nodo principal
-    if (decision === "repasar") requeueAtEndOfMainNode(node, current);
-    else if (decision === "luego") sendToReviewPool(current, userAnswer);
-  }
-
-  // ==================== PRÁCTICA INICIAL ====================
-  // Nodo especial, obligatorio, previo al Nodo 1. Vive fuera del array de
-  // nodos (principales + repaso, ahora este último puede ser más de uno) y
-  // NO alimenta el informe de errores
-  // (ver informacion.js).
-  let practicaLeccionState = null;
-
-  function openPracticaInicial() {
-    cleanupAudio();
-    const p = AppState.practicaInicial;
-    if (!p || p.completed || !p.lecciones?.length) { renderMapView(); showMainView("map"); return; }
-    if (p.leccionIndex >= p.lecciones.length) {
-      p.completed = true;
-      saveToStorage();
-      renderMapView();
-      showMainView("map");
-      return;
-    }
-    practicaLeccionState = freshLeccionState(p.lecciones[p.leccionIndex]);
-    renderPracticaInicialScreen();
-    showMainView("info");
-  }
-
-  function renderPracticaInicialScreen() {
-    const p = AppState.practicaInicial;
-    const leccion = p.lecciones[p.leccionIndex];
-    const container = document.getElementById("infoContainer");
-    // Cada interacción vuelve a renderizar todo el scroll (más simple y
-    // robusto que parchear el DOM a mano). Sin esto, cada tap reseteaba el
-    // scroll al tope de la lección — muy molesto en ejercicio 2, donde el
-    // usuario ya bajó varias líneas.
-    const preservedScroll = window.scrollY;
-    document.getElementById("infoTag").innerHTML = "💡 Lección " + (p.leccionIndex + 1) + "/" + p.lecciones.length;
-    container.innerHTML = renderLeccion(leccion, practicaLeccionState);
-    wireLeccion(leccion, container, practicaLeccionState, renderPracticaInicialScreen, () => {
-      p.leccionIndex++;
-      saveToStorage();
-      if (p.leccionIndex >= p.lecciones.length) {
-        p.completed = true;
-        saveToStorage();
-        renderMapView();
-        showMainView("map");
-        burstConfetti();
-        toast("🎉 ¡Práctica inicial completada!");
-      } else {
-        practicaLeccionState = freshLeccionState(p.lecciones[p.leccionIndex]);
-        renderPracticaInicialScreen();
-      }
-    });
-    window.scrollTo(0, preservedScroll);
-  }
-
-  function openNode(nodeIndex) {
-    cleanupAudio();
-    if (!AppState.nodes[nodeIndex]?.exercises?.length) {
-      toast(isRepasoNodeIndex(nodeIndex) ? "🎉 No tienes ejercicios pendientes de repaso" : "📭 Este nodo está vacío");
-      return;
-    }
-    AppState.activeNodeIndex = nodeIndex;
-    AppState.activeExerciseIndex = 0;
-    AppState.failedExercises = [];
-    AppState.sessionCorrectness = {};
-    AppState.sessionAnswers = {};
-    
-    const prog = AppState.progress[nodeIndex] || { exerciseResults: [] };
-    const results = prog.exerciseResults || [];
-    for (let i = 0; i < AppState.nodes[nodeIndex].exercises.length; i++) {
-      if (!results[i]) { AppState.activeExerciseIndex = i; break; }
-    }
-    
-    saveToStorage();
-    renderExercise();
-    showMainView("exercise");
-  }
-
-  function renderExercise() {
-    cleanupAudio();
-    
-    const node = AppState.nodes[AppState.activeNodeIndex];
-    if (!node?.exercises?.length) { showMainView("map"); return; }
-    
-    const exIndex = AppState.activeExerciseIndex;
-    if (exIndex >= node.exercises.length) {
-      AppState.progress[AppState.activeNodeIndex].completed = true;
-
-      if (node.type !== 'repaso') {
-        // El nodo de repaso resuelve su propia pool ejercicio a ejercicio (ver
-        // recordExerciseResult), así que aquí solo evaluamos nodos principales.
-        // Traducción/corrección/dictado ya NO se envían solos al repaso: el
-        // usuario decide con [Repasar] / [Repasar luego] en el modal. Esta
-        // regla (nodo < 80%) solo sigue aplicando a los demás tipos.
-        const total = node.exercises.length;
-        let correctCount = 0;
-        node.exercises.forEach((ex, i) => { if (AppState.sessionCorrectness[i]) correctCount++; });
-        const score = total ? correctCount / total : 1;
-        if (score < PASS_THRESHOLD) {
-          node.exercises.forEach((ex, i) => {
-            if (!AppState.sessionCorrectness[i] && !MANUAL_REVIEW_TYPES.includes(ex.type)) {
-              const alreadyQueued = ex.__repasoId && AppState.reviewPool.some(p => p.__repasoId === ex.__repasoId);
-              if (!alreadyQueued) {
-                AppState.reviewPool.push(buildRepasoExercise(ex, AppState.sessionAnswers[i]));
-              }
-            }
-          });
-        }
-      }
-      refreshRepasoNode();
-      AppState.sessionCorrectness = {};
-      AppState.sessionAnswers = {};
-
-      saveToStorage();
-      renderMapView();
-      showMainView("map");
-      burstConfetti();
-      toast("🎉 Nodo " + (AppState.activeNodeIndex + 1) + " completado!");
-      return;
-    }
-    
-    const exercise = node.exercises[exIndex];
-    const container = document.getElementById("exerciseContainer");
-    
-    document.getElementById("nodeTag").innerHTML = "📌 Nodo " + (AppState.activeNodeIndex + 1);
-    document.getElementById("exTag").innerHTML = "📝 " + (exIndex + 1) + "/" + node.exercises.length;
-    document.getElementById("exTypeTag").innerHTML = getExerciseTypeIcon(exercise.type) + " " + getExerciseTypeName(exercise.type);
-    
-    const isRetry = AppState.failedExercises.includes(exIndex);
-    
-    switch(exercise.type) {
-      case "traduccion": renderTraduccionExercise(exercise, container); setupTraduccionListeners(exercise, container); break;
-      case "completar": renderCompletarExercise(exercise, container, isRetry); setupCompletarListeners(exercise, container); break;
-      case "seleccionar": renderSeleccionarExercise(exercise, container); setupSeleccionarListeners(exercise); break;
-      case "corregir": renderCorregirExercise(exercise, container, isRetry); setupCorregirListeners(exercise, container); break;
-      case "dictado": renderDictadoExercise(exercise, container); setupDictadoListeners(exercise, container); break;
-    }
-    
-    document.getElementById("resultLine").innerHTML = isRetry ? "⚠️ Correccion de error" : "✏️ Tu turno";
-  }
-
-  function setupTraduccionListeners(exercise, container) {
-    const checkBtn = container.querySelector('.traduccion-check');
-    const answerInput = container.querySelector('.traduccion-answer');
-    if (checkBtn && answerInput) {
-      checkBtn.onclick = () => {
-        const userAnswer = answerInput.value.trim();
-        if (!userAnswer) { toast("📝 Escribe algo"); return; }
-        showComparativeModal(exercise, userAnswer, (duda, passed, decision) => {
-          AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
-          recordExerciseResult(passed, decision);
-          const entry = decision === "repasar"
-            ? buildManualCorreccionEntry(exercise, userAnswer, duda)
-            : getTraduccionReportEntry(exercise, userAnswer, duda);
-          AppState.reportEntries.push(tagEntryMeta(entry, exercise));
-          advanceExercise();
-        });
-      };
-    }
-  }
-
-  function setupCompletarListeners(exercise, container) {
-    const checkBtn = container.querySelector('.completar-check');
-    if (checkBtn) {
-      checkBtn.onclick = () => {
-        const { userAnswers, results } = checkCompletarAnswers(exercise, container);
-        // Frase completa con lo que escribió el usuario (para el informe y
-        // para la pool de repaso).
-        const filledAnswer = fillCompletarBlanks(exercise.englishSentence, userAnswers);
-        showCompletarModal(exercise, results, (duda, passed, decision) => {
-          AppState.sessionAnswers[AppState.activeExerciseIndex] = filledAnswer;
-          recordExerciseResult(passed, decision);
-          const entry = decision === "repasar"
-            ? buildManualCorreccionEntry(exercise, filledAnswer, duda)
-            : getCompletarReportEntry(exercise, userAnswers, duda);
-          AppState.reportEntries.push(tagEntryMeta(entry, exercise));
-          advanceExercise();
-        });
-      };
-    }
-  }
-
-  function setupCorregirListeners(exercise, container) {
-    const checkBtn = container.querySelector('.corregir-check');
-    const answerInput = container.querySelector('.corregir-answer');
-    if (checkBtn && answerInput) {
-      checkBtn.onclick = () => {
-        const userAnswer = answerInput.value.trim();
-        if (!userAnswer) { toast("📝 Escribe algo"); return; }
-        AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
-        const result = checkCorregirAnswer(exercise, userAnswer);
-        showCorregirModal(exercise, result, userAnswer, 
-          (duda, decision) => {
-            recordExerciseResult(result.passed, decision);
-            const entry = decision === "repasar"
-              ? buildManualCorreccionEntry(exercise, userAnswer, duda)
-              : getCorregirReportEntry(exercise, userAnswer, duda);
-            AppState.reportEntries.push(tagEntryMeta(entry, exercise));
-            advanceExercise();
-          },
-          (duda) => { AppState.reportEntries.push(tagEntryMeta(getCorregirReportEntry(exercise, userAnswer, duda), exercise)); if (!AppState.failedExercises.includes(AppState.activeExerciseIndex)) AppState.failedExercises.push(AppState.activeExerciseIndex); renderExercise(); }
-        );
-      };
-    }
-  }
-
-  function setupSeleccionarListeners(exercise) {
-    const container = document.getElementById("exerciseContainer");
-    if (container) container.addEventListener("all-matched", () => { showSeleccionarCompleteModal(exercise.pairs, () => { recordExerciseResult(true); advanceExercise(); }); });
-  }
-
-  function setupDictadoListeners(exercise, container) {
-    // Guardar referencia en el container para poder removerla después
-    if (container._dictadoHandler) {
-      container.removeEventListener("dictado-done", container._dictadoHandler);
-    }
-    
-    const handler = function(e) {
-      cleanupAudio();
-      const { originalText, userAnswer, result, duda, decision } = e.detail;
-      AppState.sessionAnswers[AppState.activeExerciseIndex] = userAnswer;
-      recordExerciseResult(!!result?.passed, decision);
-      const entry = decision === "repasar"
-        ? buildManualCorreccionEntry(exercise, userAnswer, duda)
-        : getDictadoReportEntry(originalText, userAnswer, duda);
-      AppState.reportEntries.push(tagEntryMeta(entry, exercise));
-      advanceExercise();
-    };
-    
-    container._dictadoHandler = handler;
-    container.addEventListener("dictado-done", handler);
-  }
-
-  function advanceExercise() {
-    cleanupAudio();
-    const node = AppState.nodes[AppState.activeNodeIndex];
-    const exIndex = AppState.activeExerciseIndex;
-    if (!AppState.progress[AppState.activeNodeIndex]) {
-      AppState.progress[AppState.activeNodeIndex] = { completed: false, exercisesDone: 0, exerciseResults: Array(node.exercises.length).fill(false) };
-    }
-    if (!AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex]) {
-      AppState.progress[AppState.activeNodeIndex].exerciseResults[exIndex] = true;
-      AppState.progress[AppState.activeNodeIndex].exercisesDone = (AppState.progress[AppState.activeNodeIndex].exercisesDone || 0) + 1;
-    }
-    AppState.failedExercises = AppState.failedExercises.filter(i => i !== exIndex);
-    AppState.activeExerciseIndex = AppState.failedExercises.length > 0 ? AppState.failedExercises[0] : AppState.activeExerciseIndex + 1;
-    saveToStorage();
-    renderExercise();
-  }
-
   // Formatea una sola entrada del informe (usado tanto en las secciones
   // por tipo como en la sección de repaso).
   function formatReportEntryLines(counter, entry) {
@@ -2378,93 +1423,6 @@ def get_main_logic():
     });
   }
 
-  function buildReport() {
-    let lines = [];
-    lines.push("📘 INFORME DE APRENDIZAJE");
-    lines.push("=".repeat(40));
-    lines.push("");
-    
-    const aventuraLines = buildAventuraReportLines();
-    if (AppState.reportEntries.length === 0) { 
-      if (aventuraLines.length) {
-        lines.push("🎮 AVENTURA (juego de conversaciones por audio)");
-        lines.push("=".repeat(40));
-        lines.push(...aventuraLines);
-        return lines.join("\n");
-      }
-      lines.push("🌟 Intenta algunos ejercicios para ver tu informe"); 
-      return lines.join("\n");
-    }
-
-    // Dictado siempre queda en un único grupo aparte (normal + repaso
-    // mezclados) sin importar la regla gramatical. El resto se agrupa por
-    // regla gramatical, y dentro de eso se separa lo hecho en nodos
-    // principales de lo hecho en la sección de repaso.
-    const dictadoEntries = AppState.reportEntries.filter((e) => e.type === "dictado");
-    const nonDictado = AppState.reportEntries.filter((e) => e.type !== "dictado");
-    const mainEntries = nonDictado.filter((e) => e.origin !== "repaso");
-    const repasoEntries = nonDictado.filter((e) => e.origin === "repaso");
-
-    const counterRef = { n: 0 };
-
-    if (mainEntries.length > 0) {
-      lines.push("📚 EJERCICIOS POR REGLA GRAMATICAL");
-      lines.push("=".repeat(40));
-      renderEntriesByRegla(mainEntries, lines, counterRef);
-    }
-
-    if (dictadoEntries.length > 0) {
-      lines.push("🎧 DICTADO (" + dictadoEntries.length + " ejercicios)");
-      lines.push("=".repeat(40));
-      lines.push("-".repeat(30));
-      dictadoEntries.forEach((entry) => {
-        counterRef.n++;
-        lines.push(...formatReportEntryLines(counterRef.n, entry));
-      });
-      lines.push("");
-    }
-
-    if (repasoEntries.length > 0) {
-      lines.push("🔁 SECCIÓN DE REPASO — Practicando hasta superar tus errores");
-      lines.push("=".repeat(40));
-      lines.push("Aquí queda registrado todo lo ocurrido en tus nodos de repaso,");
-      lines.push("donde cada ejercicio fallado se repite hasta que se aprueba de verdad.");
-      lines.push("");
-      renderEntriesByRegla(repasoEntries, lines, counterRef);
-    }
-
-    if (aventuraLines.length) {
-      lines.push("🎮 AVENTURA (juego de conversaciones por audio)");
-      lines.push("=".repeat(40));
-      lines.push(...aventuraLines);
-    }
-    
-    return lines.join("\n");
-  }
-
-  function copyReport() {
-    const report = buildReport();
-    const reportArea = document.getElementById("reportArea");
-    if (reportArea) { reportArea.style.display = "block"; reportArea.value = report; }
-    navigator.clipboard?.writeText(report).then(() => toast("📋 Informe copiado")).catch(() => toast("📋 Copia manualmente"));
-  }
-
-  // prompt.txt vive como archivo aparte (no se genera desde build.py) para
-  // que se pueda editar en cualquier momento sin tener que reconstruir el
-  // proyecto. Este botón simplemente lo lee y lo copia al portapapeles.
-  async function copyPromptFromFile() {
-    try {
-      const res = await fetch('./prompt.txt', { cache: "no-store" });
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      const text = await res.text();
-      await navigator.clipboard.writeText(text);
-      toast("📋 Prompt copiado");
-    } catch (e) {
-      console.error(e);
-      toast("❌ No se pudo leer prompt.txt");
-    }
-  }
-
   function burstConfetti() {
     const colors = ["#58cc02", "#1cb0f6", "#ffc800", "#ce82ff", "#ff86d0"];
     for(let i = 0; i < 40; i++) {
@@ -2482,12 +1440,9 @@ def get_main_logic():
     currentUser = username;
     localStorage.setItem("__LS_KEY___user", username);
     document.getElementById("welcomeUsername").innerText = username;
-    const hasData = loadFromStorage(username);
-    if (!hasData) { AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.reportEntries = []; AppState.practicaInicial = null; }
-    renderMapView();
     document.getElementById("loginScreen").classList.remove("active");
     document.getElementById("mainScreen").classList.add("active");
-    showMainView(AppState.nodes.length ? "map" : "import");
+    showMainView("home");
     updateHelpBtnVisibility();
     toast("✨ Bienvenido " + username + "!");
     return true;
@@ -2501,10 +1456,13 @@ def get_main_logic():
     toast("👋 Sesion cerrada");
   }
 
-  async function resetAll() {
-    if(confirm("¿Borrar todo el progreso?")) {
-      AppState.nodes = []; AppState.progress = {}; AppState.activeNodeIndex = 0; AppState.activeExerciseIndex = 0; AppState.failedExercises = []; AppState.reportEntries = []; AppState.reviewPool = []; AppState.sessionCorrectness = {}; AppState.sessionAnswers = {}; AppState.practicaInicial = null;
-      saveToStorage(); renderMapView(); showMainView("import"); toast("🗑️ Todo borrado");
+  // Borra el banco, la reserva, el informe y el avance de historias del idioma
+  // activo. Los porcentajes (vienen de la tabla) no se tocan.
+  function resetAll() {
+    if (confirm("¿Borrar todo el progreso de " + getTargetLangMeta().labelLower + "? (banco, reserva, informe e historias; los porcentajes se conservan)")) {
+      rlBorrarTodo();
+      showMainView("home");
+      toast("🗑️ Todo borrado");
     }
   }
 
@@ -2525,31 +1483,9 @@ def get_main_logic():
   // estudiado ese idioma todavía) y mandarlo a la pantalla correcta.
   function switchStudyDataToCurrentLanguage() {
     AppRules = loadGrammarRules();
-    const loaded = loadFromStorage(currentUser);
-    if (!loaded) {
-      AppState.nodes = [];
-      AppState.progress = {};
-      AppState.activeNodeIndex = 0;
-      AppState.activeExerciseIndex = 0;
-      AppState.failedExercises = [];
-      AppState.reportEntries = [];
-      AppState.reviewPool = [];
-      AppState.sessionCorrectness = {};
-      AppState.sessionAnswers = {};
-      AppState.practicaInicial = null;
-    }
-    showMainView(loaded ? "map" : "import");
+    rlCambioDeIdioma();
+    showMainView("home");
     updateHelpBtnVisibility();
-  }
-
-  function refreshCurrentScreenForLanguage() {
-    if (document.getElementById("exerciseScreen")?.classList.contains("active")) {
-      renderExercise();
-    } else if (document.getElementById("infoScreen")?.classList.contains("active")) {
-      renderPracticaInicialScreen();
-    } else {
-      renderMapView();
-    }
   }
 
   function showMenuModal() {
@@ -2570,15 +1506,9 @@ def get_main_logic():
         </div>
         <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">__VERSION__</div>
         <div class="sidebar-menu-list">
-          <button class="fun-btn" id="menuBackToMapBtn">🗺️ Mapa</button>
-          <button class="fun-btn" id="menuPercentagesBtn">📊 Ver porcentajes</button>
-          <button class="fun-btn" id="menuRulesSelectBtn">🎯 Estudiar por reglas</button>
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
-          <button class="fun-btn" id="menuNodeCountBtn">🔢 Nodos: ${getTotalMainNodes()}</button>
-          <button class="fun-btn" id="menuCopyReportBtn">📋 Copiar informe</button>
-          <button class="fun-btn" id="menuMergeDataBtn">🔀 Mezclar JSON manual</button>
-          <button class="fun-btn" id="menuReplaceListBtn">📥 Nueva tanda</button>
+          <button class="fun-btn" id="menuAddJsonBtn">📥 Agregar ejercicios (JSON)</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
         </div>
       </div>
@@ -2590,109 +1520,15 @@ def get_main_logic():
     modal.querySelector('#menuModalClose').addEventListener('click', close);
     modal.addEventListener('click', (e) => { if (e.target === overlay) close(); });
     modal.querySelector('#menuLogoutBtn').addEventListener('click', () => { close(); logout(); });
-    modal.querySelector('#menuBackToMapBtn').addEventListener('click', () => { close(); renderMapView(); showMainView("map"); });
-    modal.querySelector('#menuPercentagesBtn').addEventListener('click', () => { close(); openPercentagesScreen(); });
     modal.querySelector('#menuToggleLangBtn').addEventListener('click', () => {
       toggleTargetLanguage();
       switchStudyDataToCurrentLanguage();
       close();
-      refreshCurrentScreenForLanguage();
       toast(getTargetLangMeta().flag + " Ahora practicando " + getTargetLangMeta().labelLower);
     });
     modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
-    modal.querySelector('#menuNodeCountBtn').addEventListener('click', () => { close(); showNodeCountModal(); });
-    modal.querySelector('#menuCopyReportBtn').addEventListener('click', () => { close(); copyReport(); });
-    modal.querySelector('#menuRulesSelectBtn').addEventListener('click', () => { close(); openRulesSelect(); });
-    modal.querySelector('#menuMergeDataBtn').addEventListener('click', () => { close(); showMergeDataModal(); });
-    modal.querySelector('#menuReplaceListBtn').addEventListener('click', () => { close(); showMainView("import"); toast("📥 Ingresa nuevos datos"); });
+    modal.querySelector('#menuAddJsonBtn').addEventListener('click', () => { close(); rlModalAgregarJSON(); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
-  }
-
-  // Deja al usuario definir libremente en cuántos nodos se reparten sus
-  // ejercicios, con botones +/-. Al aplicar, se usa redistributeMainNodes()
-  // (map.js) para reacomodar los ejercicios existentes en la nueva
-  // cantidad de nodos SIN perder el progreso ya hecho (cada ejercicio
-  // conserva si ya estaba resuelto, caiga en el nodo que caiga).
-  function showNodeCountModal() {
-    const existing = document.querySelector('.modal-overlay');
-    if (existing) existing.remove();
-
-    let pending = getTotalMainNodes();
-
-    const modal = document.createElement("div");
-    modal.className = "modal-overlay modal-active";
-    modal.innerHTML = `
-      <div class="modal-friend menu-modal">
-        <div class="menu-modal-header">
-          <h3>🔢 Cantidad de nodos</h3>
-          <button class="menu-modal-close" id="nodeCountClose" aria-label="Cerrar">✕</button>
-        </div>
-        <p class="sub-fun" style="text-align:left;margin-bottom:14px;">
-          Define en cuántos nodos se reparten tus ejercicios (mínimo ${MIN_MAIN_NODES}, máximo ${MAX_MAIN_NODES}).
-          Puedes cambiarlo cuando quieras: tu progreso se conserva.
-        </p>
-        <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin:10px 0 18px;">
-          <button type="button" class="fun-btn" id="nodeCountMinus" style="width:52px;height:52px;font-size:1.5rem;">−</button>
-          <span id="nodeCountValue" style="font-size:2rem;font-weight:900;min-width:56px;text-align:center;">${pending}</span>
-          <button type="button" class="fun-btn" id="nodeCountPlus" style="width:52px;height:52px;font-size:1.5rem;">+</button>
-        </div>
-        <div class="action-buttons">
-          <button class="fun-btn primary-btn" id="nodeCountApply">✅ Aplicar</button>
-        </div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-
-    const valueEl = modal.querySelector('#nodeCountValue');
-    const minusBtn = modal.querySelector('#nodeCountMinus');
-    const plusBtn = modal.querySelector('#nodeCountPlus');
-
-    const refreshStepper = () => {
-      minusBtn.disabled = pending <= MIN_MAIN_NODES;
-      plusBtn.disabled = pending >= MAX_MAIN_NODES;
-      minusBtn.style.opacity = minusBtn.disabled ? "0.4" : "1";
-      plusBtn.style.opacity = plusBtn.disabled ? "0.4" : "1";
-    };
-    refreshStepper();
-
-    minusBtn.addEventListener('click', () => {
-      if (pending > MIN_MAIN_NODES) { pending--; valueEl.textContent = pending; refreshStepper(); }
-    });
-    plusBtn.addEventListener('click', () => {
-      if (pending < MAX_MAIN_NODES) { pending++; valueEl.textContent = pending; refreshStepper(); }
-    });
-
-    const close = () => modal.remove();
-    modal.querySelector('#nodeCountClose').addEventListener('click', close);
-    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
-
-    modal.querySelector('#nodeCountApply').addEventListener('click', () => {
-      close();
-      applyNodeCount(pending);
-    });
-  }
-
-  function applyNodeCount(newCount) {
-    const current = getTotalMainNodes();
-
-    // Sin ejercicios cargados todavía: solo guardamos la preferencia, se
-    // usará quando se construya el mapa por primera vez.
-    if (!AppState.nodes.length) {
-      setTotalMainNodes(newCount);
-      toast("🔢 Se usarán " + getTotalMainNodes() + " nodos cuando cargues tus ejercicios");
-      return;
-    }
-
-    if (newCount === current) { toast("🔢 Ya tienes " + current + " nodos"); return; }
-
-    const { nodes, progress } = redistributeMainNodes(AppState.nodes, AppState.progress, newCount);
-    AppState.nodes = nodes;
-    AppState.progress = progress;
-
-    saveToStorage();
-    renderMapView();
-    showMainView("map");
-    toast("🔢 Ahora tienes " + getTotalMainNodes() + " nodos — tu progreso se mantuvo");
   }
 
   // Deja al usuario escuchar ("▶️ Probar") y elegir a mano UNA voz fija
@@ -2784,18 +1620,17 @@ def get_main_logic():
     if(savedUser) login(savedUser);
     document.getElementById("loginBtn")?.addEventListener("click", () => login(document.getElementById("usernameInput").value));
     document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { if(e.key === "Enter") login(document.getElementById("usernameInput").value); });
-    document.getElementById("loadBtn")?.addEventListener("click", loadAllData);
-    document.getElementById("copyPromptBtn")?.addEventListener("click", copyPromptFromFile);
-    document.getElementById("copyFinalReportBtn")?.addEventListener("click", copyReport);
     document.getElementById("toggleMenuBtn")?.addEventListener("click", showMenuModal);
-    document.getElementById("toggleHelpBtn")?.addEventListener("click", showHelpModal);
-    document.getElementById("toggleAventuraBtn")?.addEventListener("click", openAventura);
+    document.getElementById("toggleHomeBtn")?.addEventListener("click", () => showMainView("home"));
+    document.getElementById("homeReelsBtn")?.addEventListener("click", openReels);
+    document.getElementById("homeJuegoBtn")?.addEventListener("click", openAventura);
+    wireReels();
     window.addEventListener("message", onAventuraMessage);
     document.addEventListener("fullscreenchange", () => {
       // si el usuario sale de pantalla completa con el gesto del sistema, se cierra el juego
       if (!document.fullscreenElement && !document.getElementById("aventuraOverlay")?.hidden) closeAventura(true);
     });
-    document.getElementById("toggleListeningBtn")?.addEventListener("click", () => {
+    document.getElementById("homeListeningBtn")?.addEventListener("click", () => {
       renderListeningHome();
       showMainView("listeningHome");
     });
@@ -2821,11 +1656,6 @@ def get_main_logic():
       renderListeningHome();
       showMainView("listeningHome");
     });
-    document.getElementById("goToRulesSelectBtn")?.addEventListener("click", openRulesSelect);
-    document.getElementById("rulesSelectFinishBtn")?.addEventListener("click", finishRulesSelect);
-    document.getElementById("rulesConfigBackBtn")?.addEventListener("click", () => { renderRulesSelectScreen(); showMainView("rulesSelect"); });
-    document.getElementById("rulesConfigStartBtn")?.addEventListener("click", handleStartStudyFromRules);
-    document.getElementById("percentagesBackBtn")?.addEventListener("click", () => { renderMapView(); showMainView("map"); });
   }
   
   init();
@@ -2835,6 +1665,7 @@ def get_main_logic():
 def build_html():
     print("📂 Leyendo archivos...")
     styles = read_file('styles/main.css')
+    styles += "\n\n" + read_file(REELS_STYLES_FILE)
     if os.path.exists(LISTENING_STYLES_FILE):
         styles += "\n\n" + read_file(LISTENING_STYLES_FILE)
     else:
@@ -2882,6 +1713,16 @@ def build_html():
     for marker, content in listening_modules.items():
         html = html.replace(marker, content)
 
+    for filepath, marker in REELS_FILES.items():
+        content = read_file(filepath)
+        html = html.replace(marker, content)
+        print(f"  ✅ {filepath} -> {marker} ({len(content):,} bytes)")
+
+    historias_by_lang = {lang: load_historias(lang) for lang in DATA_LANGUAGES}
+    for lang, hs in historias_by_lang.items():
+        print(f"  ✅ [{lang}] {len(hs)} historia(s) en {os.path.join(HISTORIAS_DIR, lang)}/")
+    html = html.replace('__HISTORIAS_JSON__', json.dumps(historias_by_lang, ensure_ascii=False, separators=(",", ":")))
+
     html = html.replace('__NIVEL0_EXERCISES_JSON__', json.dumps(listening_exercises, ensure_ascii=False))
     html = html.replace('__NIVEL1_BANK_JSON__', json.dumps(nivel1_bank, ensure_ascii=False, separators=(",", ":")))
 
@@ -2906,7 +1747,7 @@ def main():
     print(f"📦 Version: {VERSION}")
     print("=" * 60)
     
-    required_files = ['styles/main.css', 'mapa/map.js'] + list(EXERCISE_FILES.keys())
+    required_files = ['styles/main.css', 'mapa/map.js', REELS_STYLES_FILE] + list(EXERCISE_FILES.keys()) + list(REELS_FILES.keys())
     missing = [f for f in required_files if not os.path.exists(f)]
     if missing:
         print("❌ Faltan archivos:")

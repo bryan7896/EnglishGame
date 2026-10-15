@@ -92,21 +92,17 @@ function speakTraduccionText(text) {
 }
 
 // ---------------------------------------------------------------------
-// Botones "Repasar" / "Repasar luego" (compartidos por los modales de
-// resultado de traducción, corrección y dictado). Siempre visibles, sin
-// importar el puntaje (0% a 100%).
-//   - "repasar": el ejercicio se manda al FINAL del nodo actual.
-//   - "luego":   el ejercicio se manda a la sección de repaso final.
+// Botón "Repasar luego" (compartido por los modales de resultado de
+// traducción, completar, corrección y dictado). Siempre visible, sin
+// importar el puntaje (0% a 100%): es el usuario quien decide.
+//   - "luego": en Reels, el ejercicio vuelve a salir 3-8 tarjetas después.
 // La decisión llega al motor principal como último argumento de onContinue.
 // ---------------------------------------------------------------------
 export function reviewButtonsHTML() {
   return `
     <div class="modal-review-buttons">
-      <button type="button" class="fun-btn review-btn review-btn-now" data-review="repasar">
-        <span>🔁 Repasar</span><span class="review-btn-sub">al final de este nodo</span>
-      </button>
       <button type="button" class="fun-btn review-btn review-btn-later" data-review="luego">
-        <span>🧠 Repasar luego</span><span class="review-btn-sub">a la sección de repaso</span>
+        <span>🧠 Repasar luego</span><span class="review-btn-sub">vuelve en unos ejercicios</span>
       </button>
     </div>
   `;

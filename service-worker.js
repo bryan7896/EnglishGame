@@ -1,10 +1,9 @@
 // service-worker.js
-const CACHE_NAME = 'english-trainer-16-1-12-10-2026';
+const CACHE_NAME = 'english-trainer-17-0-14-10-2026';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './prompt.txt',
   'https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Baloo+2:wght@500;600;700;800&display=swap',
   'https://cdn-icons-png.flaticon.com/512/3898/3898082.png',
 ];

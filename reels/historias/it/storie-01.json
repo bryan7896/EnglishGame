@@ -1,0 +1,35 @@
+[
+  {
+    "id": "it-h001",
+    "titulo": "Il treno sbagliato",
+    "story": "Giulia aveva un appuntamento a Milano alle dieci. È arrivata alla stazione presto, ha comprato un caffè ed è salita sul treno. Dopo mezz'ora ha guardato fuori dal finestrino e ha visto il mare. Era sul treno sbagliato!\nÈ scesa alla stazione successiva e ha chiamato la sua amica Marta. \"Scusa, arrivo tardi\", ha detto. Marta ha riso: \"Non importa, ti aspetto al bar vicino alla stazione.\"\nGiulia è arrivata a mezzogiorno. Hanno mangiato una pizza insieme e alla fine hanno deciso di andare al mare la domenica dopo.",
+    "preguntas": [
+      { "q": "A che ora era l'appuntamento di Giulia?", "opciones": ["Alle otto", "Alle dieci", "A mezzogiorno", "Alle due"], "correcta": 1 },
+      { "q": "Che cosa ha visto Giulia dal finestrino?", "opciones": ["Le montagne", "Una città", "Il mare", "Un lago"], "correcta": 2 },
+      { "q": "Dove l'ha aspettata Marta?", "opciones": ["Al bar vicino alla stazione", "A casa sua", "In ufficio", "Al ristorante"], "correcta": 0 },
+      { "q": "Che cosa hanno deciso di fare alla fine?", "opciones": ["Prendere un altro treno", "Studiare insieme", "Comprare un regalo", "Andare al mare la domenica dopo"], "correcta": 3 }
+    ]
+  },
+  {
+    "id": "it-h002",
+    "titulo": "La torta della nonna",
+    "story": "Domenica era il compleanno della nonna di Luca. Luca voleva preparare una torta al cioccolato, ma non sapeva cucinare. Ha chiamato sua madre e lei gli ha spiegato la ricetta al telefono.\nLuca ha comprato uova, farina, zucchero e cioccolato. Ha messo la torta nel forno, ma poi si è addormentato sul divano. Quando si è svegliato, la cucina era piena di fumo.\nLa nonna è arrivata, ha visto la torta nera e ha sorriso. \"Non fa niente\", ha detto. \"Andiamo in pasticceria.\" Hanno mangiato un gelato enorme e la nonna ha detto che era il compleanno più divertente di tutti.",
+    "preguntas": [
+      { "q": "Che torta voleva preparare Luca?", "opciones": ["Di frutta", "Al limone", "Al cioccolato", "Alla crema"], "correcta": 2 },
+      { "q": "Chi gli ha spiegato la ricetta?", "opciones": ["Sua madre", "La nonna", "Un amico", "Il pasticciere"], "correcta": 0 },
+      { "q": "Perché la torta è bruciata?", "opciones": ["Il forno era rotto", "Luca si è addormentato", "Luca è uscito di casa", "Mancava lo zucchero"], "correcta": 1 },
+      { "q": "Che cosa hanno mangiato alla fine?", "opciones": ["Una pizza", "La torta nera", "Un panino", "Un gelato enorme"], "correcta": 3 }
+    ]
+  },
+  {
+    "id": "it-h003",
+    "titulo": "Il nuovo vicino",
+    "story": "Quando Paolo si è trasferito nel suo nuovo appartamento, non conosceva nessuno. Il suo vicino era un signore anziano che diceva solo \"Buongiorno\".\nUna sera è andata via la luce in tutto il palazzo. Paolo non aveva candele. Poi qualcuno ha bussato alla porta: era il vicino, con due candele e una tazza di tè caldo. Si chiamava signor Rossi ed era un ex professore di musica.\nHanno parlato per ore al buio e il signor Rossi ha suonato il violino. Da quella sera, ogni venerdì Paolo porta la cena e il signor Rossi porta la musica.",
+    "preguntas": [
+      { "q": "Come salutava il vicino all'inizio?", "opciones": ["Non salutava mai", "Diceva solo \"Buongiorno\"", "Parlava molto", "Salutava con la mano"], "correcta": 1 },
+      { "q": "Che cosa è successo una sera?", "opciones": ["È andata via la luce", "C'è stato un incendio", "È arrivata la polizia", "Si è rotto l'ascensore"], "correcta": 0 },
+      { "q": "Che lavoro faceva il signor Rossi?", "opciones": ["Medico", "Cuoco", "Autista", "Professore di musica"], "correcta": 3 },
+      { "q": "Che cosa fanno ogni venerdì?", "opciones": ["Vanno al cinema", "Puliscono il palazzo", "Cenano e ascoltano musica", "Giocano a carte"], "correcta": 2 }
+    ]
+  }
+]
