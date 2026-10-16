@@ -442,3 +442,105 @@
 28|t|¿Alguna vez se te ha rasgado un pantalón en público? A mí sí, y me encerré en el baño.|Have you ever [torn] your pants in public? I did, and I [shut] myself in the bathroom.
 28|c|¿Alguna vez has tocado una campana? Yo la toqué en la iglesia y el sonido se esparció.|Have you ever [rung] a bell? I rang one at church, and the sound [spread].
 28|t|¿Ya colocaste la alfombra? ¿La esparciste bien?|Have you [laid] the rug yet? Did you [spread] it out well?
+
+# --- Regla 29 · Tag Questions ---
+29|t|El perro te mordió, ¿verdad? Te rasgó el pantalón.|The dog [bit] you, didn't it? It [tore] your pants.
+29|c|Cavaste el hoyo, ¿no? Colocaste el árbol.|You [dug] the hole, didn't you? You [laid] the tree in it.
+29|t|No cerraste la puerta, ¿o sí? El viento la sopló.|You didn't [shut] the door, did you? The wind [blew] it open.
+29|c|Ya sonó el timbre, ¿no? Esparciste la noticia.|The bell has already [rung], hasn't it? You [spread] the news.
+29|t|Un rayo golpeó la casa, ¿cierto? Dobló la antena.|Lightning [struck] the house, didn't it? It [bent] the antenna.
+29|c|No rasgaste la carta, ¿o sí? La colocaste en el cajón.|You didn't [tear] up the letter, did you? You [laid] it in the drawer.
+29|t|Soplaste las velas, ¿verdad? Cerraste los ojos.|You [blew] out the candles, didn't you? You [shut] your eyes.
+29|c|Ya han cavado el pozo, ¿no? Golpearon agua a diez metros.|They have already [dug] the well, haven't they? They [struck] water at ten meters.
+29|t|Esparciste el rumor, ¿cierto? Sonó mi teléfono toda la noche.|You [spread] the rumor, didn't you? My phone [rang] all night.
+29|c|No te mordió el gato, ¿o sí? Te rasgó la mano.|The cat didn't [bite] you, did it? It [tore] your hand.
+29|t|Colocaste la alfombra, ¿verdad? La esparciste bien.|You [laid] the rug, didn't you? You [spread] it out well.
+29|c|Ya cerraron la tienda, ¿no? La noticia golpeó al barrio.|They have already [shut] the store, haven't they? The news [struck] the neighborhood.
+29|t|Doblaste la llave, ¿cierto? No cerraste la puerta.|You [bent] the key, didn't you? You didn't [shut] the door.
+29|c|No sonó el despertador, ¿o sí? El viento sopló toda la noche.|The alarm didn't [ring], did it? The wind [blew] all night.
+29|t|Rasgaste el papel, ¿verdad? Lo colocaste en la basura.|You [tore] the paper, didn't you? You [laid] it in the trash.
+
+# --- Regla 30 · Get + adjetivo ---
+30|t|Me asusté cuando el perro me mordió; cerré la puerta.|I got scared when the dog [bit] me; I [shut] the door.
+30|c|Se enojó cuando rasgué su carta; la colocó en el fuego.|She got angry when I [tore] her letter; she [laid] it on the fire.
+30|t|Me puse nervioso cuando sonó el teléfono; doblé el papel sin pensar.|I got nervous when the phone [rang]; I [bent] the paper without thinking.
+30|c|Se cansó de cavar y colocó la pala en el piso.|He got tired of digging and [laid] the shovel on the ground; he had [dug] for hours.
+30|t|Nos mojamos cuando el viento sopló la lluvia; cerramos las ventanas.|We got wet when the wind [blew] the rain in; we [shut] the windows.
+30|c|Se puso triste cuando la noticia se esparció; un rumor la golpeó.|She got sad when the news [spread]; the rumor [struck] her hard.
+30|t|Me emocioné cuando soplé las velas; rasgué el papel de los regalos.|I got excited when I [blew] out the candles; I [tore] the paper off the gifts.
+30|c|Se puso pálido cuando el rayo golpeó el árbol; cerró los ojos.|He got pale when lightning [struck] the tree; he [shut] his eyes.
+30|t|Me enojé cuando el perro cavó en el jardín; mordió mis flores.|I got angry when the dog [dug] in the garden; it [bit] my flowers.
+30|c|Se preocupó cuando la barra se dobló; la golpeó con cuidado.|She got worried when the bar [bent]; she [struck] it carefully.
+30|t|Me aburrí y doblé un avión de papel; lo soplé por la ventana.|I got bored and [bent] a paper plane; I [blew] it out the window.
+30|c|Se puso rojo cuando sonó su teléfono en clase; lo cerró enseguida.|He got red when his phone [rang] in class; he [shut] it off right away.
+30|t|Me asusté cuando la tormenta golpeó; esparcí velas por la casa.|I got scared when the storm [struck]; I [spread] candles around the house.
+30|c|Se cansó de esperar y colocó el teléfono en la mesa; nadie lo llamó.|She got tired of waiting and [laid] her phone on the table; it never [rang].
+30|t|Nos pusimos felices cuando la gallina puso huevos; los encerramos en una canasta para protegerlos.|We got happy when the hen [laid] eggs; we [shut] them in a basket to keep them safe.
+
+# --- Regla 31 · some / any / no ---
+31|t|No cavé nada; alguien colocó las plantas antes que yo.|I didn't [dig] anything; somebody [laid] the plants before me.
+31|c|¿El perro mordió a alguien? No mordió a nadie, pero rasgó algunas cosas.|Did the dog [bite] anyone? It didn't, but it [tore] some things.
+31|t|Nadie cerró la puerta; alguien sonó el timbre y entró.|Nobody [shut] the door; somebody [rang] the bell and walked in.
+31|c|Esparcí algunas semillas; no cavé ningún hoyo.|I [spread] some seeds; I didn't [dig] any holes.
+31|t|Alguien rasgó mi libro; nadie lo colocó en su lugar.|Somebody [tore] my book; nobody [laid] it back in its place.
+31|c|No sopló nada de viento; algo golpeó la ventana igual.|No wind [blew] at all; something [struck] the window anyway.
+31|t|¿Alguien colocó los platos? Nadie sonó el timbre todavía.|Did anyone [lay] the plates out? Nobody has [rung] the bell yet.
+31|c|Algunos árboles se doblaron; ninguno se rasgó.|Some trees [bent]; none of them [tore].
+31|t|No esparcimos ningún rumor; alguien nos echó la culpa.|We didn't [spread] any rumors; somebody [laid] the blame on us.
+31|c|Nadie golpeó la puerta; algo la cerró de golpe.|Nobody [struck] the door; something [shut] it suddenly.
+31|t|¿Alguien sopló las velas? Nadie cerró la ventana y el viento las apagó.|Did anyone [blow] out the candles? Nobody [shut] the window, so the wind did it.
+31|c|Algunos perros mordieron; otros cavaron en el jardín.|Some dogs [bit]; others [dug] in the garden.
+31|t|No rasgué ningún papel; alguien los dobló todos.|I didn't [tear] any papers; somebody [bent] all of them.
+31|c|Algo sonó en la cocina; nadie colocó nada allí.|Something [rang] in the kitchen; nobody had [laid] anything there.
+31|t|Nadie cavó en la playa; algunos niños esparcieron arena por todas partes.|Nobody [dug] on the beach; some kids [spread] sand everywhere.
+
+# --- Regla 32 · Already / Yet / Just ---
+32|t|Ya cavé el hoyo, pero todavía no he colocado el árbol.|I have already [dug] the hole, but I haven't [laid] the tree in it yet.
+32|c|El perro acaba de morder al cartero; ya cerré la reja.|The dog has just [bitten] the mailman; I have already [shut] the gate.
+32|t|¿Ya soplaste las velas? Todavía no; acabo de rasgar el papel del regalo.|Have you [blown] out the candles yet? Not yet; I have just [torn] the wrapping paper.
+32|c|Acaba de sonar el timbre; ya colocamos los platos.|The doorbell has just [rung]; we have already [laid] the plates out.
+32|t|La noticia ya se esparció; acaba de golpear a toda la familia.|The news has already [spread]; it has just [struck] the whole family.
+32|c|Todavía no han cerrado la tienda; acaban de doblar las reglas de precios.|They haven't [shut] the store yet; they have just [bent] the rules on prices.
+32|t|Ya rasgué la carta; acabo de esparcir los pedazos en la basura.|I have already [torn] up the letter; I have just [spread] the pieces in the trash.
+32|c|¿Ya cavaron el pozo? Acaban de golpear agua.|Have they [dug] the well yet? They have just [struck] water.
+32|t|Acabo de doblar la llave; todavía no he cerrado la puerta.|I have just [bent] the key; I haven't [shut] the door yet.
+32|c|Ya sopló el viento toda la mañana; acaba de rasgar la carpa.|The wind has already [blown] all morning; it has just [torn] the tent.
+32|t|La gallina acaba de poner un huevo; el perro ya lo mordió.|The hen has just [laid] an egg; the dog has already [bitten] it.
+32|c|Todavía no ha sonado el despertador; ya cerré las cortinas.|The alarm hasn't [rung] yet; I have already [shut] the curtains.
+32|t|Ya esparcimos la sal; acabamos de cavar la nieve de la entrada.|We have already [spread] the salt; we have just [dug] the snow out of the driveway.
+32|c|El rayo acaba de golpear el árbol; ya sonó la alarma.|Lightning has just [struck] the tree; the alarm has already [rung].
+32|t|¿Ya colocaste la alfombra? Acabo de esparcirla en la sala.|Have you [laid] the rug yet? I have just [spread] it out in the living room.
+
+# --- Regla 33 · Sujeto "it" ---
+33|t|Era tarde cuando sonó el teléfono; ya había cerrado la oficina.|It was late when the phone [rang]; I had already [shut] the office.
+33|c|Es difícil cavar en esta tierra; ayer cavé una hora y la pala se dobló.|It's hard to dig in this soil; yesterday I [dug] for an hour and the shovel [bent].
+33|t|Fue un error soplar tan fuerte; rasgué el globo.|It was a mistake to [blow] so hard; I [tore] the balloon.
+33|c|Llovió tanto que el viento sopló el techo y esparció las tejas.|It rained so much that the wind [blew] the roof off and [spread] the tiles around.
+33|t|Es peligroso tocar a ese perro; ayer mordió a un niño y le rasgó la chaqueta.|It's dangerous to touch that dog; yesterday it [bit] a child and [tore] his jacket.
+33|c|Fue increíble ver cómo el rayo golpeó la torre; la campana sonó sola.|It was amazing to see how lightning [struck] the tower; the bell [rang] by itself.
+33|t|Es fácil colocar ladrillos; ayer coloqué cien y cavé la zanja.|It's easy to lay bricks; yesterday I [laid] a hundred and [dug] the trench.
+33|c|Hace frío; cerré las ventanas y esparcí mantas en las camas.|It's cold; I [shut] the windows and [spread] blankets on the beds.
+33|t|Fue triste ver cómo rasgaron el mural; habían colocado los azulejos hace años.|It was sad to see how they [tore] down the mural; they had [laid] the tiles years ago.
+33|c|Es importante doblar las rodillas; ayer me golpeé la espalda.|It's important to [bend] your knees; yesterday I [struck] my back on the shelf.
+33|t|Fue un placer soplar las velas contigo; colocaste el pastel perfecto.|It was a pleasure to [blow] out the candles with you; you [laid] out the perfect cake.
+33|c|Queda a diez minutos; ayer el timbre sonó y cerré la puerta para ir.|It's ten minutes away; yesterday the bell [rang], and I [shut] the door to go.
+33|t|Es mejor cerrar la reja; ayer el perro cavó debajo de la cerca.|It's better to [shut] the gate; yesterday the dog [dug] under the fence.
+33|c|Fue raro: la noticia se esparció antes de que sonara el teléfono.|It was strange: the news [spread] before the phone [rang].
+33|t|Es un honor colocar la primera piedra; cavamos los cimientos ayer.|It's an honor to [lay] the first stone; we [dug] the foundation yesterday.
+
+# --- Regla 34 · Since vs For ---
+34|t|He cavado en este jardín desde niño; he colocado cien árboles.|I have [dug] in this garden since I was a kid; I have [laid] a hundred trees in it.
+34|c|No me ha mordido un perro desde 2010; siempre cierro la reja.|A dog hasn't [bitten] me since 2010; I have always [shut] the gate.
+34|t|El viento ha soplado durante tres días; ha rasgado todas las banderas.|The wind has [blown] for three days; it has [torn] all the flags.
+34|c|La tienda ha cerrado desde el lunes; la noticia se ha esparcido por el barrio.|The store has [shut] since Monday; the news has [spread] around the neighborhood.
+34|t|El teléfono ha sonado durante una hora; he cerrado la puerta para no oírlo.|The phone has [rung] for an hour; I have [shut] the door so I can't hear it.
+34|c|Ha colocado ladrillos durante treinta años; ha cavado mil cimientos.|He has [laid] bricks for thirty years; he has [dug] a thousand foundations.
+34|t|No he soplado velas desde mi cumpleaños número diez; ese año rasgué todos los regalos.|I haven't [blown] out candles since my tenth birthday; that year I [tore] open all the gifts.
+34|c|La enfermedad se ha esparcido durante semanas; ha golpeado a muchos pueblos.|The disease has [spread] for weeks; it has [struck] many towns.
+34|t|Esta barra ha estado doblada desde el choque; la hemos golpeado para enderezarla.|This bar has been [bent] since the crash; we have [struck] it to straighten it.
+34|c|El perro ha cavado en el jardín desde la mañana; ha mordido dos zapatos.|The dog has [dug] in the garden since the morning; it has [bitten] two shoes.
+34|t|No he rasgado un papel desde que colocamos la trituradora.|I haven't [torn] a sheet of paper since we [laid] the shredder by the desk.
+34|c|La campana ha sonado cada hora desde 1900; un rayo la golpeó una vez.|The bell has [rung] every hour since 1900; lightning [struck] it once.
+34|t|Hemos esparcido semillas durante años; hemos cavado cada hoyo a mano.|We have [spread] seeds for years; we have [dug] every hole by hand.
+34|c|La gallina ha puesto huevos desde marzo; el perro ha mordido algunos.|The hen has [laid] eggs since March; the dog has [bitten] some of them.
+34|t|La puerta ha estado cerrada durante horas; nadie ha tocado el timbre.|The door has been [shut] for hours; nobody has [rung] the bell.
