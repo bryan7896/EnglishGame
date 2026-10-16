@@ -1,0 +1,65 @@
+# Paquete 1 · be, have, do, say, go, get, make, know, think, take
+# S = seleccionar (español con **verbo** en negrita) · C = completar
+# verbo.forma: b = base · p = pasado · pp = participio
+
+S|be.b|Quiero **ser** médico algún día.|I want to [be] a doctor someday.|was,been
+S|be.p|Ayer **estuve** muy cansado.|I [was] very tired yesterday.|be,been
+S|be.pp|Nunca **he estado** en Japón.|I have never [been] to Japan.|be,was
+S|have.b|Vas a **tener** tiempo mañana.|You will [have] time tomorrow.|had,haved
+S|have.p|**Tuvimos** una reunión larga.|We [had] a long meeting.|have,haved
+S|have.pp|Él ha **tenido** el mismo carro por años.|He has [had] the same car for years.|have,haved
+S|do.b|¿Puedes **hacer** esto por mí?|Can you [do] this for me?|did,done
+S|do.p|Ella **hizo** la tarea anoche.|She [did] her homework last night.|done,do
+S|do.pp|Ya he **hecho** todo lo que pude.|I have already [done] everything I could.|did,do
+S|say.b|No sé qué **decir**.|I don't know what to [say].|said,sayed
+S|say.p|Él **dijo** que vendría.|He [said] he would come.|say,sayed
+S|say.pp|Ella no ha **dicho** nada todavía.|She hasn't [said] anything yet.|say,sayed
+S|go.b|Quiero **ir** a la playa.|I want to [go] to the beach.|went,gone
+S|go.p|**Fuimos** al cine el sábado.|We [went] to the movies on Saturday.|gone,goed
+S|go.pp|Se ha **ido** a casa.|He has [gone] home.|went,go
+S|get.b|Necesito **conseguir** un trabajo nuevo.|I need to [get] a new job.|got,gotten
+S|get.p|**Consiguió** boletos para el concierto.|She [got] tickets for the concert.|gotten,get
+S|get.pp|Han **conseguido** mucho dinero este año.|They have [gotten] a lot of money this year.|got,get
+S|make.b|Vamos a **preparar** la cena juntos.|Let's [make] dinner together.|made,maked
+S|make.p|Mi mamá **hizo** un pastel delicioso.|My mom [made] a delicious cake.|make,maked
+S|make.pp|He **cometido** muchos errores.|I have [made] a lot of mistakes.|make,maked
+S|know.b|Quiero **saber** la verdad.|I want to [know] the truth.|knew,known
+S|know.p|Ella **sabía** tu nombre.|She [knew] your name.|known,knowed
+S|know.pp|Lo **conozco** desde que era niño.|I have [known] him since I was a kid.|knew,know
+S|think.b|Necesito **pensar** antes de decidir.|I need to [think] before I decide.|thought,thinked
+S|think.p|**Pensé** que estabas en casa.|I [thought] you were at home.|think,thinked
+S|think.pp|¿Has **pensado** en mudarte?|Have you [thought] about moving?|think,thinked
+S|take.b|Voy a **tomar** el bus.|I'm going to [take] the bus.|took,taken
+S|take.p|Ella **tomó** muchas fotos en el viaje.|She [took] a lot of photos on the trip.|taken,take
+S|take.pp|¿Ya te has **tomado** la medicina?|Have you [taken] your medicine yet?|took,take
+
+C|be.b|Trata de ser puntual mañana.|Try to [be] on time tomorrow.
+C|be.p|Ellos estaban en la oficina a las ocho.|They [were] at the office at eight.
+C|be.pp|Ella ha estado enferma toda la semana.|She has [been] sick all week.
+C|have.b|Puedes tener mi asiento.|You can [have] my seat.
+C|have.p|Tuve un sueño extraño anoche.|I [had] a strange dream last night.
+C|have.pp|Hemos tenido mucha suerte.|We have [had] a lot of luck.
+C|do.b|¿Qué vas a hacer este fin de semana?|What are you going to [do] this weekend?
+C|do.p|¿Qué hiciste ayer?|What [did] you do yesterday?
+C|do.pp|Ella ha hecho un gran trabajo.|She has [done] a great job.
+C|say.b|¿Puedes decirlo otra vez?|Can you [say] it again?
+C|say.p|El profesor dijo que el examen era fácil.|The teacher [said] the test was easy.
+C|say.pp|¿Qué ha dicho el médico?|What has the doctor [said]?
+C|go.b|Tengo que ir al banco.|I have to [go] to the bank.
+C|go.p|Ella fue a Bogotá la semana pasada.|She [went] to Bogotá last week.
+C|go.pp|Todos se han ido.|Everyone has [gone].
+C|get.b|¿Dónde puedo conseguir un taxi?|Where can I [get] a taxi?
+C|get.p|Recibí tu mensaje esta mañana.|I [got] your message this morning.
+C|get.pp|Nuestro equipo ha conseguido mejores resultados.|Our team has [gotten] better results.
+C|make.b|No hagas ruido, por favor.|Please don't [make] noise.
+C|make.p|Ellos tomaron una buena decisión.|They [made] a good decision.
+C|make.pp|¿Has hecho la cama?|Have you [made] the bed?
+C|know.b|¿Conoces a mi hermano?|Do you [know] my brother?
+C|know.p|Yo sabía que ibas a ganar.|I [knew] you were going to win.
+C|know.pp|Se conocen desde hace diez años.|They have [known] each other for ten years.
+C|think.b|¿Qué piensas de esta idea?|What do you [think] about this idea?
+C|think.p|Creímos que el tren llegaría tarde.|We [thought] the train would be late.
+C|think.pp|Nunca había pensado en eso.|I had never [thought] about that.
+C|take.b|¿Cuánto tiempo va a tomar?|How long is it going to [take]?
+C|take.p|Él tomó el último tren a casa.|He [took] the last train home.
+C|take.pp|Alguien se ha llevado mi paraguas.|Someone has [taken] my umbrella.

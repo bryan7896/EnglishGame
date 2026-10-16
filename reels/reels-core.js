@@ -6,7 +6,7 @@
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 18.1";
+  const RL_VERSION = "reels 19.0";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -303,6 +303,12 @@
     if (!rlContarBanco() && !RL.banco.length) {
       return { k: "sorpresa", tipo: "reglas", uid: rlUid(), forzada: true };
     }
+    // Irregulares (solo inglés): reconocimiento, seleccionar y completar del paquete del día,
+    // por contadores de ejercicios. Mientras no se termine esa parte no se sigue con Reels.
+    if (typeof irrDecidirSorpresa === "function") {
+      const irr = irrDecidirSorpresa();
+      if (irr) return irr;
+    }
     if (RL.cont.yt >= RL.cont.proxYt) {
       RL.cont.yt = 0;
       RL.cont.proxYt = rlRand(RL_YT_MIN, RL_YT_MAX);
@@ -343,6 +349,7 @@
   function rlEjercicioTerminado(item, passed, decision, entrada, respuesta) {
     rlRegistrar(item, entrada, passed);
     if (getTargetLanguage() === "en") rlSumarDia("ingles");
+    if (typeof irrContarEjercicio === "function") irrContarEjercicio(item);
     RL.cont.sorpresa++;
     RL.cont.reporte++;
     RL.cont.yt++;
@@ -404,13 +411,13 @@
   }
 
   // ---------- Historia de estudio ----------
-  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening" };
+  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening", irr: "irregulares" };
   function rlAnotar(item, nota) {
     if (!RL) return;
     let tipo = "—";
-    if (item && item.k === "ex") tipo = (item.ex.type === "traduccion" ? "traduccion" : item.ex.type === "seleccionar" ? "emparejar" : item.ex.type) + (item.retry ? " (repaso)" : "") + (item.src === "man" ? " (tuyo)" : "");
+    if (item && item.k === "ex") tipo = (item.ex.type === "traduccion" ? "traduccion" : item.ex.type === "seleccionar" ? "emparejar" : item.ex.type) + (item.retry ? " (repaso)" : "") + (item.src === "man" ? " (tuyo)" : "") + (item.ex.irr ? " (irregulares)" : "");
     else if (item && item.k === "info") tipo = "lección de información";
-    else if (item && item.k === "sorpresa") tipo = RL_NOMBRE_SORPRESA[item.tipo] || item.tipo;
+    else if (item && item.k === "sorpresa") tipo = (RL_NOMBRE_SORPRESA[item.tipo] || item.tipo) + (item.tipo === "irr" ? " (" + item.fase + ")" : "");
     RL.historial = RL.historial || [];
     RL.historial.push({ f: new Date().toISOString(), t: tipo + (nota ? " · " + nota : "") });
     if (RL.historial.length > RL_MAX_HISTORIAL) RL.historial = RL.historial.slice(-RL_MAX_HISTORIAL);
@@ -489,6 +496,7 @@
       getExerciseTypeIcon(ex.type) + " " + getExerciseTypeName(ex.type),
       item.retry ? "🧠 Repaso" : "",
       item.src === "man" ? "📥 Tuyo" : "",
+      ex.irr ? "🔁 Irregulares · paquete " + (ex.irr.p || "") : "",
     ]) + `<div class="rl-ex exercise-area"><div class="rl-ex-container"></div></div>`;
     const c = body.querySelector(".rl-ex-container");
 
