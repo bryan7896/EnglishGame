@@ -630,3 +630,343 @@
 39|t|Se acostó en el sofá después del almuerzo y leyó el periódico.|He [lay] on the sofa after lunch and [read] the newspaper.
 39|c|Dirigió la orquesta durante veinte años; creció en una familia de músicos.|She [led] the orchestra for twenty years; she [grew] up in a family of musicians.
 39|t|Corrimos de la casa a la playa y nos acostamos en la arena.|We [ran] from the house to the beach and [lay] on the sand.
+
+# --- Regla 40 · For + período / During + evento ---
+40|t|Corrí durante una hora y me caí durante la carrera.|I [ran] for an hour, and I [fell] during the race.
+40|c|Hablamos durante tres horas; nadie perdió la paciencia durante la reunión.|We [spoke] for three hours; nobody [lost] patience during the meeting.
+40|t|Durante la película me quedé sentado sin moverme; perdí el celular en la oscuridad.|During the movie I [sat] without moving; I [lost] my phone in the dark.
+40|c|Leí durante toda la tarde y me acosté durante la tormenta.|I [read] for the whole afternoon, and I [lay] down during the storm.
+40|t|Dirigió la empresa durante veinte años y nunca perdió dinero durante una crisis.|She [led] the company for twenty years and never [lost] money during a crisis.
+40|c|Durante el viaje pagamos todo en efectivo; estuvimos sentados en el tren por doce horas.|During the trip we [paid] for everything in cash; we [sat] on the train for twelve hours.
+40|t|Durante la tormenta se cayó un árbol; llovió por dos días y el río creció.|During the storm a tree [fell]; it rained for two days, and the river [grew].
+40|c|Durante la entrevista habló muy poco; se quedó sentado por diez minutos sin decir nada.|During the interview he [spoke] very little; he [sat] for ten minutes without saying anything.
+40|t|Crecí en Medellín durante los noventa y corría por las calles durante las vacaciones.|I [grew] up in Medellín during the nineties and [ran] through the streets during vacations.
+40|c|Estuvo en cama durante una semana; perdió tres kilos durante la enfermedad.|He [lay] in bed for a week; he [lost] three kilos during the illness.
+40|t|Durante la clase leí dos capítulos; la profesora habló por una hora.|During class I [read] two chapters; the teacher [spoke] for an hour.
+40|c|Durante el partido perdimos a dos jugadores; el capitán dirigió al equipo por noventa minutos.|During the game we [lost] two players; the captain [led] the team for ninety minutes.
+40|t|Pagamos el arriendo durante diez años; durante ese tiempo los niños crecieron.|We [paid] the rent for ten years; during that time the kids [grew] up.
+40|c|Durante el concierto me senté en el piso; corrí al baño por cinco minutos.|During the concert I [sat] on the floor; I [ran] to the bathroom for five minutes.
+40|t|Nevó durante horas en la noche; el niño se quedó acostado en la nieve durante el juego y perdió un guante.|It snowed for hours during the night; the boy [lay] in the snow during the game and [lost] a glove.
+
+# --- Regla 41 · Orden natural de la oración ---
+41|t|Ayer corrí cinco kilómetros en el parque y después me senté en una banca.|I [ran] five kilometers in the park yesterday and [sat] on a bench after.
+41|c|Mi hermana habló con el gerente esta mañana y pagó la cuenta.|My sister [spoke] with the manager this morning and [paid] the bill.
+41|t|Anoche leí un libro muy bueno antes de acostarme.|I [read] a very good book last night before I [lay] down.
+41|c|El equipo perdió el partido el sábado y el entrenador habló con la prensa.|The team [lost] the game on Saturday, and the coach [spoke] to the press.
+41|t|Nuestro guía nos llevó a un restaurante pequeño donde pagamos muy poco.|Our guide [led] us to a small restaurant where we [paid] very little.
+41|c|Mi abuelo creció en una finca grande y corría descalzo todos los días.|My grandfather [grew] up on a big farm and [ran] barefoot every day.
+41|t|El niño se cayó de la bicicleta en la calle y se quedó tirado un momento.|The boy [fell] off his bike in the street and [lay] there for a moment.
+41|c|Siempre me siento en la misma silla y leo el periódico por la mañana.|I always [sit] in the same chair and [read] the newspaper in the morning.
+41|t|Ella habló inglés muy bien en la entrevista porque creció en Canadá.|She [spoke] English very well in the interview because she [grew] up in Canada.
+41|c|Perdí mis llaves en algún lugar del centro comercial el martes; corrí por todas partes buscándolas.|I [lost] my keys somewhere in the mall on Tuesday; I [ran] everywhere looking for them.
+41|t|La semana pasada pagamos la última cuota del carro y leímos el contrato otra vez.|We [paid] the last car payment last week and [read] the contract again.
+41|c|Los precios de las casas bajaron mucho el año pasado; la ciudad creció más despacio.|House prices [fell] a lot last year; the city [grew] more slowly.
+41|t|Mi jefe dirigió la reunión con mucha calma y habló claramente.|My boss [led] the meeting very calmly and [spoke] clearly.
+41|c|Los estudiantes se sentaron en silencio y leyeron las instrucciones con cuidado.|The students [sat] in silence and [read] the instructions carefully.
+41|t|Después del almuerzo me acosté en el sofá y me quedé dormido enseguida.|I [lay] on the sofa after lunch and [fell] asleep right away.
+
+# --- Regla 42 · Vocabulario específico ---
+42|t|El corredor perdió la carrera por un segundo; se cayó en la meta.|The runner [lost] the race by one second; he [fell] at the finish line.
+42|c|El inquilino pagó el depósito y leyó el contrato de arrendamiento.|The tenant [paid] the deposit and [read] the lease.
+42|t|El conferencista habló sobre economía y dirigió una sesión de preguntas.|The speaker [spoke] about economics and [led] a Q&A session.
+42|c|El paciente se acostó en la camilla y la enfermera le habló con calma.|The patient [lay] on the stretcher, and the nurse [spoke] to him calmly.
+42|t|El cultivo creció muy bien este año; el agricultor pagó sus deudas.|The crop [grew] very well this year; the farmer [paid] his debts.
+42|c|El jurado se sentó en silencio mientras el juez leía el veredicto.|The jury [sat] in silence while the judge [read] the verdict.
+42|t|Las acciones bajaron un diez por ciento; los inversionistas perdieron millones.|The stocks [fell] ten percent; the investors [lost] millions.
+42|c|El director de orquesta dirigió la sinfonía y el público se quedó sentado en silencio.|The conductor [led] the symphony, and the audience [sat] in silence.
+42|t|El candidato perdió las elecciones; habló ante sus seguidores esa noche.|The candidate [lost] the election; he [spoke] to his supporters that night.
+42|c|El arquero corrió hacia el balón y se cayó en el área.|The goalkeeper [ran] toward the ball and [fell] in the box.
+42|t|La empresa emergente creció rápido; los fundadores dirigieron cada decisión.|The startup [grew] fast; the founders [led] every decision.
+42|c|El cliente pagó la factura y leyó el estado de cuenta.|The customer [paid] the invoice and [read] the account statement.
+42|t|El alcalde dirigió el desfile y habló en la plaza principal.|The mayor [led] the parade and [spoke] in the main square.
+42|c|La economía creció un tres por ciento, pero el desempleo no bajó.|The economy [grew] three percent, but unemployment didn't [fall].
+42|t|El abogado leyó el testamento y la familia se quedó sentada en silencio.|The lawyer [read] the will, and the family [sat] in silence.
+
+# --- Regla 43 · Past Perfect ---
+43|t|Cuando llegué, ya habían pagado la cuenta y se habían sentado afuera.|When I arrived, they had already [paid] the bill and had [sat] outside.
+43|c|Me di cuenta de que había perdido la billetera después de que había corrido al bus.|I realized I had [lost] my wallet after I had [run] to the bus.
+43|t|Nunca había hablado en público antes de esa conferencia; había leído mi discurso cien veces.|I had never [spoken] in public before that conference; I had [read] my speech a hundred times.
+43|c|Cuando volvimos, el árbol se había caído y las flores habían crecido.|When we came back, the tree had [fallen], and the flowers had [grown].
+43|t|Ella ya había dirigido dos empresas cuando la conocí; nunca había perdido un cliente.|She had already [led] two companies when I met her; she had never [lost] a client.
+43|c|El perro se había echado en mi cama porque había corrido todo el día.|The dog had [lain] on my bed because it had [run] all day.
+43|t|Ya había leído el libro, así que sabía que el héroe había perdido todo.|I had already [read] the book, so I knew the hero had [lost] everything.
+43|c|Cuando llegó la policía, el ladrón ya había huido y había perdido el bolso.|When the police arrived, the thief had already [run] away and had [lost] the bag.
+43|t|No había crecido mucho desde la última vez; seguía hablando igual.|He hadn't [grown] much since the last time; he still [spoke] the same way.
+43|c|Nos dijo que había pagado demasiado y que había perdido su dinero.|He told us he had [paid] too much and had [lost] his money.
+43|t|Antes de la cirugía, se había acostado temprano y no había hablado con nadie.|Before the surgery, she had [lain] down early and hadn't [spoken] to anyone.
+43|c|Los precios ya habían bajado cuando por fin pagamos.|Prices had already [fallen] when we finally [paid].
+43|t|Ya me había sentado cuando me di cuenta de que había perdido mi tiquete.|I had already [sat] down when I realized I had [lost] my ticket.
+43|c|Habíamos hablado tanto que perdimos el último tren.|We had [spoken] so much that we [lost] the last train.
+43|t|Cuando la vi, ya había crecido y había corrido su primera maratón.|When I saw her, she had already [grown] up and had [run] her first marathon.
+
+# --- Regla 44 · Future Perfect Continuous ---
+44|t|Para junio habré estado corriendo un año entero; ya he perdido diez kilos y nunca me he caído.|By June I will have been running for a whole year; I have already [lost] ten kilos and have never [fallen].
+44|c|Para las ocho habremos estado sentados aquí tres horas; ya leímos todo el menú y pagamos dos rondas.|By eight we will have been sitting here for three hours; we have already [read] the whole menu and [paid] for two rounds.
+44|t|Para diciembre habrá estado dirigiendo la empresa diez años; nunca ha perdido un año y siempre ha hablado claro.|By December she will have been leading the company for ten years; she has never [lost] a year and has always [spoken] clearly.
+44|c|En mayo habré estado pagando esta casa veinte años; mis hijos crecieron aquí y corrieron por este jardín.|In May I will have been paying for this house for twenty years; my kids [grew] up here and [ran] around this garden.
+44|t|Para el viernes habremos estado hablando de esto un mes; ya leímos todos los informes y perdimos mucho tiempo.|By Friday we will have been talking about this for a month; we have [read] all the reports and [lost] a lot of time.
+44|c|Para las cinco habrá estado leyendo seis horas; seguramente perdió la noción del tiempo y no se ha acostado.|By five he will have been reading for six hours; he has probably [lost] track of time and hasn't [lain] down.
+44|t|Para fin de año los precios habrán estado bajando seis meses; pagaremos menos y hablaremos de ahorrar.|By the end of the year prices will have been falling for six months; we will [pay] less and [speak] about saving.
+44|c|Cuando llegues, habré estado acostado una hora; corrí demasiado hoy y me caí dos veces.|When you arrive, I will have been lying down for an hour; I [ran] too much today and [fell] twice.
+44|t|Para marzo el negocio habrá estado creciendo dos años seguidos; no hemos perdido ni un cliente y pagamos todas las deudas.|By March the business will have been growing for two years in a row; we haven't [lost] a single client, and we [paid] all our debts.
+44|c|Para la medianoche habremos estado corriendo diez horas; dos compañeros ya se cayeron y se acostaron en la carpa.|By midnight we will have been running for ten hours; two teammates have already [fallen] and [lain] down in the tent.
+44|t|En agosto habré estado hablando inglés cinco años; leí mi primer libro en inglés hace poco y crecí mucho.|In August I will have been speaking English for five years; I [read] my first book in English recently, and I [grew] a lot.
+44|c|Para el lunes habrá estado lloviendo una semana; el río ya creció mucho y se cayó un puente.|By Monday it will have been raining for a week; the river has already [grown] a lot, and a bridge [fell].
+44|t|Para las diez habrán estado sentados en el avión doce horas; perdieron la conexión y pagaron un hotel.|By ten they will have been sitting on the plane for twelve hours; they [lost] their connection and [paid] for a hotel.
+44|c|Para el próximo año habré estado dirigiendo este grupo tres años; hablé con todos ayer y leí sus propuestas.|By next year I will have been leading this group for three years; I [spoke] with everyone yesterday and [read] their proposals.
+44|t|Para enero habrá estado bajando de peso seis meses; corrió todos los días y nunca se sentó a descansar.|By January he will have been losing weight for six months; he [ran] every day and never [sat] down to rest.
+
+# --- Regla 45 · Voz pasiva ---
+45|t|El libro fue leído por millones de personas; su autor creció en la pobreza.|The book was [read] by millions of people; its author [grew] up in poverty.
+45|c|La cuenta fue pagada por la empresa; nos sentamos a celebrar.|The bill was [paid] by the company; we [sat] down to celebrate.
+45|t|El partido se perdió en el último minuto; los hinchas se quedaron sentados en silencio.|The game was [lost] in the last minute; the fans [sat] in silence.
+45|c|El equipo fue dirigido por una exjugadora; habló con cada jugador.|The team was [led] by a former player; she [spoke] with every player.
+45|t|En Brasil se habla portugués; crecí escuchándolo.|Portuguese is [spoken] in Brazil; I [grew] up listening to it.
+45|c|Estos tomates fueron cultivados sin químicos; los pagamos un poco más caros.|These tomatoes were [grown] without chemicals; we [paid] a little more for them.
+45|t|La carta fue leída en voz alta; todos se quedaron callados.|The letter was [read] out loud; everyone [fell] silent.
+45|c|Los trabajadores fueron pagados tarde; muchos perdieron la paciencia.|The workers were [paid] late; many [lost] their patience.
+45|t|Miles de empleos se perdieron en la crisis; los precios bajaron.|Thousands of jobs were [lost] in the crisis; prices [fell].
+45|c|Los turistas fueron guiados al museo; se sentaron en el jardín después.|The tourists were [led] to the museum; they [sat] in the garden after.
+45|t|El discurso fue leído por el vicepresidente; el presidente no habló.|The speech was [read] by the vice president; the president didn't [speak].
+45|c|La maratón fue corrida bajo la lluvia; muchos corredores se cayeron.|The marathon was [run] in the rain; many runners [fell].
+45|t|Ese idioma ya no se habla; se perdió hace siglos.|That language isn't [spoken] anymore; it was [lost] centuries ago.
+45|c|El arriendo es pagado por mis padres; yo leo los recibos cada mes.|The rent is [paid] by my parents; I [read] the receipts every month.
+45|t|La empresa es dirigida por dos hermanas que crecieron en el negocio.|The company is [run] by two sisters who [grew] up in the business.
+
+# --- Regla 46 · Modales de posibilidad / deducción ---
+46|t|Debe de haber perdido el bus; corrió, pero no llegó.|He must have [lost] the bus; he [ran], but he didn't make it.
+46|c|Ella pudo haber leído el mensaje; habló de eso en la reunión.|She might have [read] the message; she [spoke] about it in the meeting.
+46|t|No puede haber pagado tanto; leí el precio y era mucho menos.|He can't have [paid] that much; I [read] the price, and it was much less.
+46|c|Debe de haberse caído; está acostado en el piso.|He must have [fallen]; he [lay] on the floor when I found him.
+46|t|Podrían haber hablado con el jefe; él dirigió la reunión.|They could have [spoken] with the boss; he [led] the meeting.
+46|c|Debe de haber crecido mucho; la última vez se sentó en mis piernas.|She must have [grown] a lot; last time she [sat] on my lap.
+46|t|Puede que haya perdido las llaves en el parque; corrió allí esta mañana.|He may have [lost] his keys in the park; he [ran] there this morning.
+46|c|No pueden haber leído todo el informe; lo pagaron ayer.|They can't have [read] the whole report; they [paid] for it yesterday.
+46|t|Debe de haber corrido mucho; se acostó apenas llegó.|She must have [run] a lot; she [lay] down as soon as she arrived.
+46|c|Podría haber dirigido mejor el equipo; perdieron cinco partidos.|He could have [led] the team better; they [lost] five games.
+46|t|Debió de haberse sentado en algo mojado; perdió la paciencia todo el día.|He must have [sat] on something wet; he [lost] his patience all day.
+46|c|Puede que los precios hayan bajado; leí algo en las noticias.|Prices may have [fallen]; I [read] something in the news.
+46|t|No puede haber hablado inglés de niña; creció en un pueblo pequeño.|She can't have [spoken] English as a child; she [grew] up in a small village.
+46|c|Debe de haber pagado con tarjeta; perdió todo el efectivo.|He must have [paid] by card; he [lost] all his cash.
+46|t|Pudo haberse caído por la escalera; estuvo acostada toda la tarde.|She might have [fallen] down the stairs; she [lay] in bed all afternoon.
+
+# --- Regla 47 · Half of ---
+47|t|Leí la mitad del libro y perdí el resto.|I [read] half of the book and [lost] the rest.
+47|c|Pagamos la mitad del viaje; mi jefe habló con la agencia sobre el resto.|We [paid] for half of the trip; my boss [spoke] with the agency about the rest.
+47|t|La mitad de los corredores se cayeron; el resto corrió hasta el final.|Half of the runners [fell]; the rest [ran] to the end.
+47|c|La mitad del público se quedó sentado; el resto corrió a la salida.|Half of the audience [sat] still; the rest [ran] to the exit.
+47|t|Perdimos la mitad de los partidos; el capitán habló con el equipo.|We [lost] half of the games; the captain [spoke] with the team.
+47|c|La mitad de las semillas crecieron; la otra mitad se cayó de la maceta.|Half of the seeds [grew]; the other half [fell] out of the pot.
+47|t|Habló la mitad del tiempo; yo me quedé sentado la otra mitad.|He [spoke] half of the time; I [sat] there for the other half.
+47|c|La mitad de los estudiantes leyó el libro; la mitad perdió el examen.|Half of the students [read] the book; half [lost] the exam.
+47|t|El valor de la casa bajó a la mitad; pagamos el doble de lo que vale.|The house's value [fell] by half; we [paid] double what it's worth.
+47|c|Dirigió la mitad del proyecto; luego se acostó enfermo.|She [led] half of the project; then she [lay] sick in bed.
+47|t|La mitad de los invitados hablaban inglés; la otra mitad perdió el hilo.|Half of the guests [spoke] English; the other half [lost] the thread.
+47|c|Corrí la mitad de la maratón y me senté a descansar.|I [ran] half of the marathon and [sat] down to rest.
+47|t|La mitad del pueblo creció con él; todos leyeron su libro.|Half of the town [grew] up with him; everyone [read] his book.
+47|c|Perdí la mitad de mis fotos cuando se cayó el teléfono.|I [lost] half of my photos when the phone [fell].
+47|t|La mitad del día me acosté; la otra mitad leí.|I [lay] down for half of the day; I [read] for the other half.
+
+# --- Regla 48 · "By" para tiempo futuro ---
+48|t|Para el viernes ya habré pagado todo y habré leído el contrato.|By Friday I will have [paid] everything and [read] the contract.
+48|c|Para las diez ya habrán hablado con el director y habrán dirigido la reunión.|By ten they will have [spoken] with the director and [led] the meeting.
+48|t|Para diciembre habré perdido diez kilos; habré corrido cada día.|By December I will have [lost] ten kilos; I will have [run] every day.
+48|c|Para cuando llegues, los niños ya se habrán acostado y habrán leído un cuento.|By the time you arrive, the kids will have [lain] down and [read] a story.
+48|t|Para el año 2030 la ciudad habrá crecido el doble; los precios no habrán bajado.|By 2030 the city will have [grown] twice as big; prices won't have [fallen].
+48|c|Para el lunes habré leído el libro y habré hablado con la autora.|By Monday I will have [read] the book and [spoken] with the author.
+48|t|Para mañana ya habrán pagado; el gerente habló con ellos hoy.|By tomorrow they will have [paid]; the manager [spoke] with them today.
+48|c|Para el mediodía ya habremos corrido veinte kilómetros y no nos habremos caído.|By noon we will have [run] twenty kilometers and won't have [fallen].
+48|t|Para el final del curso habrás hablado inglés todos los días; leíste mucho este mes.|By the end of the course you will have [spoken] English every day; you [read] a lot this month.
+48|c|Para las seis habrá dirigido tres reuniones; no se habrá sentado ni un minuto.|By six she will have [led] three meetings; she won't have [sat] for a minute.
+48|t|Para el próximo verano las plantas habrán crecido; perdimos las del año pasado.|By next summer the plants will have [grown]; we [lost] last year's.
+48|c|Para el final de la temporada habremos perdido solo dos partidos; corrimos más que nadie.|By the end of the season we will have [lost] only two games; we [ran] more than anyone.
+48|t|Para las once ya me habré acostado; hoy leí demasiado.|By eleven I will have [lain] down; I [read] too much today.
+48|c|Para el viernes habrá pagado la multa; perdió el caso.|By Friday he will have [paid] the fine; he [lost] the case.
+48|t|Para cuando termine la película, ya se habrá quedado dormido; se sentó muy cómodo.|By the time the movie ends, he will have [fallen] asleep; he [sat] very comfortably.
+
+# --- Regla 49 · because of / because ---
+49|t|Perdimos el partido por la lluvia; el balón se caía de las manos.|We [lost] the game because of the rain; the ball [fell] out of our hands.
+49|c|Me acosté temprano porque corrí diez kilómetros.|I [lay] down early because I [ran] ten kilometers.
+49|t|Pagamos más por la inflación; los salarios no crecieron.|We [paid] more because of inflation; wages didn't [grow].
+49|c|No habló en la reunión porque había perdido la voz.|He didn't [speak] at the meeting because he had [lost] his voice.
+49|t|Se cayó por el hielo y se quedó tirado en la calle.|He [fell] because of the ice and [lay] in the street.
+49|c|Leí el libro porque mi profesora habló muy bien de él.|I [read] the book because my teacher [spoke] very well of it.
+49|t|Perdió el trabajo por su actitud; habló mal del jefe.|He [lost] his job because of his attitude; he [spoke] badly about the boss.
+49|c|Nos sentamos adentro por el frío; leímos junto a la chimenea.|We [sat] inside because of the cold; we [read] by the fireplace.
+49|t|La empresa creció porque ella la dirigió muy bien.|The company [grew] because she [led] it very well.
+49|c|Los precios bajaron por la crisis; mucha gente perdió su empleo.|Prices [fell] because of the crisis; many people [lost] their jobs.
+49|t|Corrí porque había perdido el bus.|I [ran] because I had [lost] the bus.
+49|c|Se quedó sentado por el dolor de espalda; se cayó el lunes.|He [sat] still because of his back pain; he [fell] on Monday.
+49|t|Pagué tarde por un error del banco; leí el correo demasiado tarde.|I [paid] late because of a bank error; I [read] the email too late.
+49|c|Crecí rápido porque perdí a mi papá muy joven.|I [grew] up fast because I [lost] my dad very young.
+49|t|Por la tormenta, nos acostamos temprano y leímos con velas.|Because of the storm, we [lay] down early and [read] by candlelight.
+
+# --- Regla 50 · (put, try, get, take, lie) + (down, off, on) ---
+50|t|Corrí tanto que me acosté en el pasto apenas llegué.|I [ran] so much that I [lay] down on the grass as soon as I arrived.
+50|c|Me quité los zapatos, me senté y leí un rato.|I took off my shoes, [sat] down, and [read] for a while.
+50|t|Se puso la chaqueta y salió corriendo; había perdido el bus.|He put on his jacket and [ran] out; he had [lost] the bus.
+50|c|Me bajé del bus, corrí a la oficina y me caí en la entrada.|I got off the bus, [ran] to the office, and [fell] at the entrance.
+50|t|Se acostó después de almuerzo; había leído toda la mañana.|She [lay] down after lunch; she had [read] all morning.
+50|t|El avión despegó tarde y perdimos la conexión; pagamos un hotel.|The plane took off late, and we [lost] our connection; we [paid] for a hotel.
+50|c|Me probé la camisa, la pagué y la perdí ese mismo día.|I tried on the shirt, [paid] for it, and [lost] it that same day.
+50|t|Bajó el teléfono y habló conmigo; se sentó a mi lado.|He put down his phone and [spoke] with me; he [sat] next to me.
+50|c|Ya me he acostado tres veces hoy; corrí una media maratón esta mañana.|I have [lain] down three times today; I [ran] a half marathon this morning.
+50|t|Nos subimos al tren, nos sentamos y leímos el periódico.|We got on the train, [sat] down, and [read] the newspaper.
+50|c|Se quitó el abrigo, se sentó y habló de su viaje.|She took off her coat, [sat] down, and [spoke] about her trip.
+50|t|Bajé el libro que había leído y me quedé dormido.|I put down the book I had [read] and [fell] asleep.
+50|c|El perro se echó en la alfombra; había corrido todo el día.|The dog [lay] down on the rug; it had [run] all day.
+50|t|Me bajé del caballo, me caí y me quedé tirado en el piso.|I got off the horse, [fell], and [lay] on the ground.
+50|c|Se puso los lentes, leyó la carta y habló en voz baja.|She put on her glasses, [read] the letter, and [spoke] quietly.
+
+# --- Regla 51 · Sustantivos compuestos ---
+51|t|Perdí mi tarjeta de crédito y pagué el taxi en efectivo.|I [lost] my credit card and [paid] for the taxi in cash.
+51|c|Me senté en la sala de espera y leí una revista.|I [sat] in the waiting room and [read] a magazine.
+51|t|El entrenador de fútbol habló con los jugadores y dirigió el calentamiento.|The soccer coach [spoke] with the players and [led] the warm-up.
+51|c|Me caí en la pista de atletismo y me quedé tirado unos segundos.|I [fell] on the running track and [lay] there for a few seconds.
+51|t|Pagué la cuenta del teléfono y leí el estado de cuenta.|I [paid] the phone bill and [read] the account statement.
+51|c|Leí el periódico de la mañana sentado en la parada del bus.|I [read] the morning newspaper while I [sat] at the bus stop.
+51|t|La tienda de ropa creció mucho; los dueños pagaron todas sus deudas.|The clothing store [grew] a lot; the owners [paid] all their debts.
+51|c|Perdimos el tiquete de avión y corrimos a la oficina de la aerolínea.|We [lost] the plane ticket and [ran] to the airline office.
+51|t|Me acosté en la silla de playa y leí mi libro de vacaciones.|I [lay] on the beach chair and [read] my vacation book.
+51|c|El líder del equipo habló en la reunión de la mañana y dirigió la sesión de ideas.|The team leader [spoke] at the morning meeting and [led] the brainstorming session.
+51|t|Se cayó la lámpara de mesa y perdí la bombilla.|The table lamp [fell], and I [lost] the light bulb.
+51|c|Crecí en una casa de campo y corría por el huerto de manzanas.|I [grew] up in a country house and [ran] through the apple orchard.
+51|t|El precio de la gasolina bajó y pagamos menos en la estación de servicio.|The gas price [fell], and we [paid] less at the gas station.
+51|c|Me senté en la mesa de la cocina y hablé con mi compañero de cuarto.|I [sat] at the kitchen table and [spoke] with my roommate.
+51|t|Perdí la contraseña del correo y leí las instrucciones de recuperación.|I [lost] my email password and [read] the recovery instructions.
+
+# --- Regla 52 · Expresiones de tiempo con "over" ---
+52|t|Durante los últimos años la ciudad creció mucho y los precios bajaron.|Over the last few years the city has [grown] a lot, and prices have [fallen].
+52|c|A lo largo del fin de semana leí dos libros y me acosté temprano.|Over the weekend I [read] two books and [lay] down early.
+52|t|Durante el verano corrí todos los días y perdí cinco kilos.|Over the summer I [ran] every day and [lost] five kilos.
+52|c|En los últimos meses hemos hablado mucho; ella ha dirigido el proyecto.|Over the past few months we have [spoken] a lot; she has [led] the project.
+52|t|A lo largo de los años pagué mucho por ese carro; perdí la cuenta.|Over the years I [paid] a lot for that car; I [lost] count.
+52|c|Durante las vacaciones me senté en la playa y leí todas las tardes.|Over the holidays I [sat] on the beach and [read] every afternoon.
+52|t|En la última década la empresa ha crecido y nunca ha perdido dinero.|Over the last decade the company has [grown] and has never [lost] money.
+52|c|Durante el almuerzo hablamos del viaje y pagamos a medias.|Over lunch we [spoke] about the trip and [paid] half each.
+52|t|En las últimas semanas me he caído dos veces; me acosté todo el domingo.|Over the last few weeks I have [fallen] twice; I [lay] down all Sunday.
+52|c|A lo largo de su carrera dirigió tres equipos y corrió diez maratones.|Over her career she [led] three teams and [ran] ten marathons.
+52|t|Durante el café me contó que había perdido el trabajo; hablamos una hora.|Over coffee he told me he had [lost] his job; we [spoke] for an hour.
+52|c|En los últimos días los niños crecieron muy rápido; se sentaron solos en la mesa.|Over the last few days the kids [grew] so fast; they [sat] at the table alone.
+52|t|A lo largo del año leí veinte libros y hablé con tres autores.|Over the year I [read] twenty books and [spoke] with three authors.
+52|c|Durante la noche la temperatura bajó y los niños se acostaron temprano.|Over the night the temperature [fell], and the kids [lay] down early.
+52|t|En los últimos años hemos pagado más impuestos y hemos perdido clientes.|Over the past few years we have [paid] more taxes and have [lost] clients.
+
+# --- Regla 53 · Future Continuous ---
+53|t|Mañana a esta hora estaré corriendo la maratón; ya pagué la inscripción y leí el recorrido.|This time tomorrow I'll be running the marathon; I have already [paid] the registration and [read] the route.
+53|c|Esta noche estaré leyendo el libro que perdí y encontré ayer; ya leí la primera página.|Tonight I'll be reading the book that I [lost] and found yesterday; I [read] the first page already.
+53|t|A las ocho estaremos sentados en el avión; perdimos el vuelo de ayer y pagamos una multa.|At eight we'll be sitting on the plane; we [lost] yesterday's flight, and we [paid] a fee.
+53|c|El lunes estará dirigiendo la reunión; hoy habló con el jefe y leyó la agenda.|On Monday she'll be leading the meeting; she [spoke] with the boss today and [read] the agenda.
+53|t|A las diez estaré acostado; hoy corrí demasiado y me caí dos veces.|At ten I'll be lying down; I [ran] too much today and [fell] twice.
+53|c|La próxima semana estaremos pagando menos; los precios bajaron y hablamos con el banco.|Next week we'll be paying less; prices [fell], and we [spoke] with the bank.
+53|t|Mañana estaré hablando con el director; ya leí su informe y perdí el sueño por eso.|Tomorrow I'll be speaking with the director; I have [read] his report and [lost] sleep over it.
+53|c|En diez años estarás dirigiendo tu propia empresa; creciste con ese sueño y dirigiste cada proyecto del colegio.|In ten years you'll be running your own company; you [grew] up with that dream and [led] every school project.
+53|t|El sábado estaremos sentados en la playa; corrimos toda la semana y nos acostamos tarde.|On Saturday we'll be sitting on the beach; we [ran] around all week and [lay] down late.
+53|c|Esta tarde estaré leyendo en el jardín; ayer me senté allí tres horas y perdí la noción del tiempo.|This afternoon I'll be reading in the garden; yesterday I [sat] there for three hours and [lost] track of time.
+53|t|En junio estaré corriendo por la playa; este año crecí como corredor y perdí peso.|In June I'll be running on the beach; this year I [grew] as a runner and [lost] weight.
+53|c|A medianoche estaremos hablando todavía; la última vez hablamos hasta las tres y nos caímos de sueño.|At midnight we'll still be talking; last time we [spoke] until three and [fell] asleep.
+53|t|Mañana estará pagando la multa; perdió el caso esta mañana y se quedó sentado en silencio.|Tomorrow he'll be paying the fine; he [lost] the case this morning and [sat] in silence.
+53|c|El viernes estaré guiando a los turistas; la semana pasada los llevé al volcán y hablé en inglés.|On Friday I'll be guiding the tourists; last week I [led] them to the volcano and [spoke] in English.
+53|t|Esta noche estarán acostados temprano; los niños corrieron todo el día y leyeron un cuento.|Tonight they'll be in bed early; the kids [ran] all day and [read] a story.
+
+# --- Regla 54 · Comparativos y superlativos ---
+54|t|Corrí más rápido que tú y no me caí.|I [ran] faster than you, and I didn't [fall].
+54|c|Pagamos más que el año pasado; los precios crecieron mucho.|We [paid] more than last year; prices [grew] a lot.
+54|t|Es el mejor libro que he leído; perdí la noción del tiempo con él.|It's the best book I have ever [read]; I [lost] track of time with it.
+54|c|Habló más claro que nadie y dirigió el debate mejor que el moderador.|She [spoke] more clearly than anyone and [led] the debate better than the moderator.
+54|t|Fue la peor caída de mi vida; me quedé acostado una semana.|It was the worst time I ever [fell]; I [lay] in bed for a week.
+54|c|Perdimos el partido más importante del año; el entrenador habló con nosotros.|We [lost] the most important game of the year; the coach [spoke] with us.
+54|t|Mi hijo ha crecido más que yo; el fin de semana pasado también corrió más rápido que yo.|My son has [grown] taller than me; he [ran] faster than me last weekend too.
+54|c|Fue la silla más cómoda en la que me he sentado; leí allí por horas.|It was the most comfortable chair I have ever [sat] in; I [read] there for hours.
+54|t|Este año los precios bajaron más que nunca; pagamos menos por todo.|This year prices [fell] more than ever; we [paid] less for everything.
+54|c|Es el líder más paciente que he tenido; nos guio mejor que nadie y nunca perdió la calma.|He's the most patient leader I've had; he [led] us better than anyone and never [lost] his cool.
+54|t|Es la peor cuenta que he pagado; leí cada línea dos veces.|It's the worst bill I have ever [paid]; I [read] every line twice.
+54|c|De niña, mi hermana hablaba más idiomas que yo; creció en tres países.|My sister [spoke] more languages than me as a kid; she [grew] up in three countries.
+54|t|Fue la carrera más larga que he corrido; me caí dos veces.|It was the longest race I have ever [run]; I [fell] twice.
+54|c|Perdí más dinero que mi amigo; él pagó menos por las acciones.|I [lost] more money than my friend; he [paid] less for the stocks.
+54|t|Es el discurso más corto que ha dado; habló dos minutos y se sentó.|It's the shortest speech he has ever given; he [spoke] for two minutes and [sat] down.
+
+# --- Regla 55 · make/let/help + objeto + infinitivo ---
+55|t|El médico me hizo acostarme y me habló con calma.|The doctor made me [lie] down and [spoke] to me calmly.
+55|c|Mis papás me dejaron leer lo que quisiera; crecí entre libros.|My parents let me [read] whatever I wanted; I [grew] up surrounded by books.
+55|t|La profesora nos hizo sentarnos en silencio; habló de las reglas.|The teacher made us [sit] in silence; she [spoke] about the rules.
+55|c|Mi amigo me ayudó a pagar la deuda; perdí el trabajo en marzo.|My friend helped me [pay] the debt; I [lost] my job in March.
+55|t|El entrenador nos hizo correr diez vueltas; dos jugadores se cayeron.|The coach made us [run] ten laps; two players [fell].
+55|c|Mi jefe me dejó dirigir el proyecto; hablé con todo el equipo.|My boss let me [lead] the project; I [spoke] with the whole team.
+55|t|Mis abuelos me ayudaron a crecer feliz; me leyeron un cuento cada noche.|My grandparents helped me [grow] up happy; they [read] me a story every night.
+55|c|El policía nos hizo hablar uno por uno; nos sentamos en la oficina.|The police officer made us [speak] one by one; we [sat] in the office.
+55|t|No me dejes perder el bus; corrí ayer y no llegué.|Don't let me [lose] the bus; I [ran] yesterday and didn't make it.
+55|c|Ella me ayudó a leer el contrato; pagué el depósito después.|She helped me [read] the contract; I [paid] the deposit after.
+55|t|La enfermera lo hizo sentarse; se había caído en el pasillo.|The nurse made him [sit] down; he had [fallen] in the hallway.
+55|c|Déjalo acostarse un rato; corrió toda la mañana.|Let him [lie] down for a while; he [ran] all morning.
+55|t|El guía nos ayudó a correr hasta el refugio; perdimos el camino.|The guide helped us [run] to the shelter; we had [lost] the trail.
+55|c|Mi mamá me hizo pagar el vidrio que rompí; leí el recibo con tristeza.|My mom made me [pay] for the window I broke; I [read] the receipt sadly.
+55|t|Nos dejaron hablar al final; la reunión la dirigió el director.|They let us [speak] at the end; the director [led] the meeting.
+
+# --- Regla 56 · Estilo indirecto ---
+56|t|Dijo que había corrido diez kilómetros y que se había caído al final.|He said he had [run] ten kilometers and had [fallen] at the end.
+56|c|Me dijo que ya había pagado y que había leído el contrato.|She told me she had already [paid] and had [read] the contract.
+56|t|Dijeron que habían perdido el partido porque el árbitro habló demasiado.|They said they had [lost] the game because the referee [spoke] too much.
+56|c|Me contó que había crecido en un pueblo y que había corrido descalzo de niño.|He told me he had [grown] up in a village and had [run] barefoot as a child.
+56|t|Dijo que se había acostado temprano porque había perdido el apetito.|She said she had [lain] down early because she had [lost] her appetite.
+56|c|El jefe dijo que ella había dirigido el proyecto y que nunca había perdido la calma.|The boss said she had [led] the project and had never [lost] her cool.
+56|t|Me preguntó si había leído su mensaje y si había hablado con su hermano.|He asked me if I had [read] his message and if I had [spoken] with his brother.
+56|c|Dijeron que los precios habían bajado y que habían pagado menos.|They said prices had [fallen] and that they had [paid] less.
+56|t|Me dijo que se había sentado en la última fila y que había leído durante la película.|She told me she had [sat] in the last row and had [read] during the movie.
+56|c|Le pregunté dónde había perdido las llaves; dijo que se le habían caído en el bus.|I asked him where he had [lost] his keys; he said they had [fallen] on the bus.
+56|t|Dijo que había hablado con el médico y que se había acostado todo el día.|He said he had [spoken] with the doctor and had [lain] down all day.
+56|c|Nos contó que la empresa había crecido y que había pagado todas sus deudas.|She told us the company had [grown] and had [paid] all its debts.
+56|t|Me preguntó por qué había corrido tan rápido y por qué me había sentado lejos.|He asked me why I had [run] so fast and why I had [sat] so far away.
+56|c|Dijo que nos guiaría al hotel y que hablaría con el recepcionista.|He said he would [lead] us to the hotel and would [speak] with the receptionist.
+56|t|Me contó que había perdido el vuelo y que había pagado un hotel caro.|She told me she had [lost] her flight and had [paid] for an expensive hotel.
+
+# --- Regla 57 · Wish + pasado simple ---
+57|t|Ojalá hablara inglés mejor; perdí una oportunidad de trabajo.|I wish I [spoke] English better; I [lost] a job opportunity.
+57|c|Ojalá tuviera tiempo para leer; ayer me senté en la oficina doce horas.|I wish I had time to [read]; yesterday I [sat] at the office for twelve hours.
+57|t|Ojalá no hubiera perdido las llaves; corrí por toda la casa.|I wish I hadn't [lost] my keys; I [ran] all over the house.
+57|c|Ojalá pagaran mejor en mi trabajo; el año pasado mis gastos crecieron mucho.|I wish they [paid] better at my job; last year my expenses [grew] a lot.
+57|t|Ojalá corriera tan rápido como tú; ayer me caí en la carrera.|I wish I [ran] as fast as you; I [fell] in the race yesterday.
+57|c|Ojalá me hubiera acostado temprano; leí hasta las tres.|I wish I had [lain] down early; I [read] until three.
+57|t|Ojalá hubieras crecido conmigo; habríamos corrido por el mismo parque.|I wish you had [grown] up with me; we would have [run] in the same park.
+57|c|Ojalá no hubiera hablado tanto; perdí la amistad de mi compañero.|I wish I hadn't [spoken] so much; I [lost] my coworker's friendship.
+57|t|Ojalá los precios bajaran; este mes pagué el doble por la luz.|I wish prices would [fall]; this month I [paid] double for electricity.
+57|c|Ojalá ella dirigiera el equipo; habló mejor que nadie en la reunión.|I wish she [led] the team; she [spoke] better than anyone at the meeting.
+57|t|Ojalá hubiera leído el contrato; pagué una multa enorme.|I wish I had [read] the contract; I [paid] a huge fine.
+57|c|Ojalá me sentara más derecho; ayer me caí de la silla.|I wish I [sat] up straighter; I [fell] off my chair yesterday.
+57|t|Ojalá no hubiéramos perdido el partido; dirigimos el marcador hasta el final.|I wish we hadn't [lost] the game; we [led] the score until the end.
+57|c|Ojalá mis hijos leyeran más; yo crecí entre libros.|I wish my kids [read] more; I [grew] up surrounded by books.
+57|t|Ojalá no me hubiera caído; me quedé acostado toda la semana.|I wish I hadn't [fallen]; I [lay] in bed all week.
+
+# --- Regla 58 · Conectores formales ---
+58|t|La empresa perdió clientes; sin embargo, sus ventas crecieron.|The company [lost] clients; however, its sales [grew].
+58|c|Corrió durante horas; por lo tanto, se acostó apenas llegó a casa.|He [ran] for hours; therefore, he [lay] down as soon as he got home.
+58|t|Además de haber pagado la cuenta, habló con el gerente sobre el servicio.|In addition to having [paid] the bill, she [spoke] with the manager about the service.
+58|c|Leí el informe completo; no obstante, perdí algunos detalles.|I [read] the full report; nevertheless, I [lost] some details.
+58|t|Los precios bajaron; en consecuencia, pagamos menos impuestos.|Prices [fell]; consequently, we [paid] less tax.
+58|c|Dirigió el proyecto con éxito; asimismo, habló en la conferencia anual.|She [led] the project successfully; likewise, she [spoke] at the annual conference.
+58|t|Aunque perdimos la final, crecimos mucho como equipo.|Although we [lost] the final, we [grew] a lot as a team.
+58|c|Se cayó en la carrera; sin embargo, corrió hasta la meta.|She [fell] in the race; however, she [ran] to the finish line.
+58|t|A pesar de haber leído el manual, perdió los datos.|Despite having [read] the manual, he [lost] the data.
+58|c|Pagamos la multa; además, el abogado habló con el juez.|We [paid] the fine; furthermore, the lawyer [spoke] with the judge.
+58|t|El paciente se acostó temprano; por consiguiente, no se cayó durante la noche.|The patient [lay] down early; as a result, he didn't [fall] during the night.
+58|c|El pueblo creció rápidamente; no obstante, perdió parte de su historia.|The town [grew] rapidly; nevertheless, it [lost] part of its history.
+58|t|Se sentó en primera fila; por lo tanto, leyó cada diapositiva.|He [sat] in the front row; therefore, he [read] every slide.
+58|c|Habló con claridad; por consiguiente, dirigió la discusión sin problemas.|She [spoke] clearly; consequently, she [led] the discussion without problems.
+58|t|Aunque pagó el curso completo, perdió la mitad de las clases.|Although he [paid] for the full course, he [lost] half the classes.
+
+# --- Regla 59 · Phrasal verbs B2 ---
+59|t|Se me acabó la gasolina, así que corrí a la estación y pagué con lo último que tenía.|I ran out of gas, so I [ran] to the gas station and [paid] with the last money I had.
+59|c|Al final pagué la deuda; perdí el carro en el proceso y me senté a llorar.|I finally paid off the debt; I [lost] my car in the process, and I [sat] down to cry.
+59|t|El plan se vino abajo y perdimos el contrato.|The plan [fell] through, and we [lost] the contract.
+59|c|Me encontré con un viejo amigo y hablamos una hora.|I [ran] into an old friend, and we [spoke] for an hour.
+59|t|El edificio se cayó a pedazos; nadie pagó por arreglarlo.|The building [fell] apart; nobody [paid] to fix it.
+59|c|Peleamos y nos reconciliamos; nos sentamos a hablar.|We [fell] out and made up; we [sat] down to talk.
+59|t|Repasé las notas y leí el informe otra vez; me quedé sentado allí hasta la medianoche.|I went over my notes and [read] the report again; I [sat] there until midnight.
+59|c|El niño superó su miedo; creció mucho este año y habló frente a la clase.|The boy got over his fear; he [grew] a lot this year and [spoke] in front of the class.
+59|t|Me encontré con mi exjefe en el aeropuerto; habló de su nueva empresa.|I [ran] into my old boss at the airport; he [spoke] about his new company.
+59|c|Ese hábito lo dejó al crecer; ya no se sentaba frente al televisor cada noche.|He [grew] out of that habit; he no longer [sat] in front of the TV every night.
+59|t|Las negociaciones se cayeron; perdimos meses de trabajo.|The negotiations [fell] through; we [lost] months of work.
+59|c|Pagué a mi amigo lo que le debía; leí su mensaje de agradecimiento.|I [paid] my friend back; I [read] his thank-you message.
+59|t|Se nos acabó el tiempo; el moderador habló demasiado.|We [ran] out of time; the moderator [spoke] too much.
+59|c|Me dejé llevar por la emoción y pagué demasiado; perdí la cabeza.|I got carried away and [paid] too much; I [lost] my head.
+59|t|Se acostó para descansar y se quedó dormido enseguida.|She [lay] down to rest and [fell] asleep right away.
