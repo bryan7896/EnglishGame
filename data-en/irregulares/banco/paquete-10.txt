@@ -238,3 +238,88 @@
 15|t|Se fueron a barrer la iglesia; el sábado barrieron todo y el piso brilló.|They have gone to clean the church; on Saturday they [swept] everything, and the floor [shone].
 15|c|Salió del trabajo cuando la empresa se hundió; renunció antes del cierre.|He left work when the company [sank]; he [quit] before it closed.
 15|t|Se fue a la final; apostamos a que gana y le costará muy poco.|He has gone to the final; we [bet] he will win, and it will [cost] him very little effort.
+
+# --- Regla 16 · Preposiciones de movimiento ---
+16|t|El carro se deslizó por la colina y se hundió en el lago.|The car [slid] down the hill and [sank] into the lake.
+16|c|El viento barrió las hojas a través del patio; se quedaron pegadas en la reja.|The wind [swept] the leaves across the yard; they [stuck] to the fence.
+16|t|El mono se balanceó de rama en rama y se deslizó por el tronco.|The monkey [swung] from branch to branch and [slid] down the trunk.
+16|c|La luz brilló a través de la ventana y se deslizó por el piso.|The light [shone] through the window and [slid] across the floor.
+16|t|El barco se hundió bajo las olas; el sol brillaba sobre el mar.|The ship [sank] beneath the waves; the sun [shone] over the sea.
+16|c|Barrí el polvo hacia la puerta y lo pegué con cinta en una bolsa.|I [swept] the dust toward the door and [stuck] the bag shut with tape.
+16|t|La carta se deslizó debajo de la puerta; le costó llegar hasta aquí.|The letter [slid] under the door; it had [cost] a lot to send it here.
+16|c|El grupo se dividió alrededor de la fogata; apostamos quién contaba la mejor historia.|The group [split] up around the campfire; we [bet] on who told the best story.
+16|t|La puerta se balanceó hacia afuera y la luz del pasillo brilló en el cuarto.|The door [swung] outward, and the hallway light [shone] into the room.
+16|c|Se deslizó por el tobogán hacia la piscina y se hundió hasta el fondo.|He [slid] down the slide into the pool and [sank] to the bottom.
+16|t|La ola barrió la arena hacia el mar; las conchas se quedaron pegadas a las rocas.|The wave [swept] the sand toward the sea; the shells [stuck] to the rocks.
+16|c|Renunció y se fue a través del parque; le costó no mirar atrás.|She [quit] and walked off through the park; it [cost] her not to look back.
+16|t|El columpio se balanceó por encima de la cerca y la pelota se deslizó por el pasto.|The swing [swung] over the fence, and the ball [slid] across the grass.
+16|c|La luna brilló sobre el lago mientras el bote se deslizaba hacia la orilla.|The moon [shone] over the lake as the boat [slid] toward the shore.
+16|t|El río dividió el valle en dos; el puente se hundió en el centro.|The river [split] the valley in two; the bridge [sank] in the middle.
+
+# --- Regla 17 · Modales básicos ---
+17|t|Puedes apostar si quieres; ayer aposté y me costó caro.|You can [bet] if you want; yesterday it [cost] me dearly.
+17|c|Deberías renunciar; ese trabajo te costó la salud.|You should [quit]; that job [cost] you your health.
+17|t|No debes deslizarte por la baranda; ayer un niño se hundió en la piscina al caer.|You must not [slide] down the railing; yesterday a boy [sank] into the pool when he fell.
+17|c|¿Puedes barrer la cocina? Ayer se pegó miel en el piso.|Can you [sweep] the kitchen? Yesterday honey [stuck] to the floor.
+17|t|Podríamos dividir la cuenta; la cena costó mucho.|We could [split] the bill; dinner [cost] a lot.
+17|c|Ella sabe brillar en el escenario; ayer clavó el aterrizaje a la perfección.|She can really [shine] on stage; yesterday she [stuck] the landing perfectly.
+17|t|Debes quedarte con el plan; ayer te deslizaste hacia tus viejos hábitos.|You must [stick] to the plan; yesterday you [slid] back into old habits.
+17|c|¿Podrías balancear el bate más rápido? Ayer la pelota se hundió en el lago.|Could you [swing] the bat faster? Yesterday the ball [sank] in the lake.
+17|t|No deberías apostar tu sueldo; el mes pasado te hundiste en deudas.|You shouldn't [bet] your salary; last month you [sank] into debt.
+17|c|Puedes dejar de preocuparte; ya barrimos todo.|You can [quit] worrying; we have already [swept] everything.
+17|t|Deberías pegar la foto aquí; ayer el sol brilló justo en esta pared.|You should [stick] the photo here; yesterday the sun [shone] right on this wall.
+17|c|¿Puedo dividir el pastel? Ayer tú lo barriste todo del plato.|May I [split] the cake? Yesterday you [swept] it all off the plate.
+17|t|Tienes que barrer antes de que llegue la visita; ayer alguien se deslizó en el polvo.|You have to [sweep] before the guests arrive; yesterday someone [slid] on the dust.
+17|c|Podrías renunciar al azúcar; el año pasado te costó poco dejar la sal.|You could [quit] sugar; last year it [cost] you little to give up salt.
+17|t|No puedes balancearte tan alto; ayer te quedaste pegado arriba.|You can't [swing] so high; yesterday you got [stuck] at the top.
+
+# --- Regla 18 · Gerundio vs infinitivo ---
+18|t|Decidí renunciar; me costó un año tomar la decisión.|I decided to [quit]; it [cost] me a year to make the decision.
+18|c|Dejó de apostar y se quedó con su familia; dejó el casino para siempre.|He stopped betting and [stuck] with his family; he [quit] the casino for good.
+18|t|Quiere dividir la herencia; la casa costó una fortuna.|She wants to [split] the inheritance; the house [cost] a fortune.
+18|c|Evita deslizarse en el hielo; la última vez se hundió en la nieve y se quedó atascado.|He avoids sliding on the ice; last time he [sank] into the snow and [stuck] there.
+18|t|Espero brillar en la competencia; ayer barrí con todos en la práctica.|I hope to [shine] in the competition; yesterday I [swept] everyone in practice.
+18|c|Me encanta balancearme en el columpio; ayer me balanceé por una hora y el sol brilló todo el tiempo.|I love swinging; yesterday I [swung] for an hour, and the sun [shone] the whole time.
+18|t|Olvidó pegar la estampilla; la carta se deslizó de vuelta a su buzón.|He forgot to [stick] the stamp on; the letter [slid] back into his mailbox.
+18|c|Prometió no apostar, pero apostó otra vez y le costó caro.|He promised not to bet, but he [bet] again, and it [cost] him dearly.
+18|t|Terminé de barrer y el piso brilló; barrí incluso debajo de la cama.|I finished sweeping, and the floor [shone]; I [swept] even under the bed.
+18|c|Intentó quedarse con el plan, pero se deslizó al final.|She tried to [stick] to the plan, but she [slid] at the end.
+18|t|Sugirió dividir el trabajo; nos costó la mitad del tiempo y también dividimos la recompensa.|She suggested splitting the work; it [cost] us half the time, and we [split] the reward too.
+18|c|Planeamos renunciar juntos; ya apostamos por un negocio propio.|We plan to [quit] together; we have already [bet] on our own business.
+18|t|No me importa barrer; ayer barrí toda la casa y nadie se deslizó.|I don't mind sweeping; yesterday I [swept] the whole house, and nobody [slid].
+18|c|Dejó de balancearse y se hundió en el sofá; se había balanceado por horas.|He stopped swinging and [sank] into the sofa; he had [swung] for hours.
+18|t|Recuerdo haber apostado en esa carrera; me costó todo mi dinero y después dejé las apuestas.|I remember betting on that race; it [cost] me all my money, and I [quit] gambling after that.
+
+# --- Regla 19 · Participios irregulares ---
+19|t|He dejado el cigarrillo; me ha costado un año.|I have [quit] smoking; it has [cost] me a year.
+19|c|El barco ha sido hundido por la tormenta; la costa ha sido barrida por las olas.|The ship has been [sunk] by the storm; the coast has been [swept] by the waves.
+19|t|Hemos dividido la cuenta; hemos apostado la propina.|We have [split] the bill; we have [bet] the tip.
+19|c|El sol ha brillado toda la semana; el piso ha sido barrido.|The sun has [shone] all week; the floor has been [swept].
+19|t|La carta se ha deslizado debajo de la puerta; la estampilla ha sido pegada al revés.|The letter has [slid] under the door; the stamp has been [stuck] on upside down.
+19|c|La reja se ha balanceado toda la tarde; las hojas han sido barridas hacia la calle.|The gate has [swung] all afternoon; the leaves have been [swept] into the street.
+19|t|Mucho dinero ha sido apostado; mucho se ha perdido y ha costado lágrimas.|A lot of money has been [bet]; much has been lost, and it has [cost] tears.
+19|c|Nunca he renunciado a nada; siempre me he quedado hasta el final.|I have never [quit] anything; I have always [stuck] it out until the end.
+19|t|La madera ha sido partida y la casa ha sido barrida.|The wood has been [split], and the house has been [swept].
+19|c|El precio ha bajado; la empresa se ha hundido.|The price has [slid]; the company has [sunk].
+19|t|Ha bateado cien veces; ha brillado en cada partido.|He has [swung] a hundred times; he has [shone] in every game.
+19|c|Las fotos han sido pegadas; el álbum ha costado una fortuna.|The photos have been [stuck] in; the album has [cost] a fortune.
+19|t|Hemos barrido la playa; el sol se ha hundido en el horizonte.|We have [swept] the beach; the sun has [sunk] below the horizon.
+19|c|El grupo se ha dividido; dos miembros han renunciado.|The group has [split]; two members have [quit].
+19|t|La luna ha brillado sobre el mar; el bote se ha deslizado hacia la orilla.|The moon has [shone] over the sea; the boat has [slid] toward the shore.
+
+# --- Regla 20 · 3ra persona singular (-s) ---
+20|t|Mi tío apuesta en los caballos; ayer apostó cien dólares y le costó caro.|My uncle bets on horses; yesterday he [bet] a hundred dollars, and it [cost] him dearly.
+20|c|Mi mamá barre la cocina cada noche; anoche barrió y el piso brilló.|My mom sweeps the kitchen every night; last night she [swept], and the floor [shone].
+20|t|El sol brilla todos los días aquí; ayer brilló tanto que nos deslizamos al lago a refrescarnos.|The sun shines every day here; yesterday it [shone] so much that we [slid] into the lake to cool off.
+20|c|Mi hermano se queda con sus planes; el año pasado se quedó con su dieta y dejó el azúcar.|My brother sticks to his plans; last year he [stuck] to his diet and [quit] sugar.
+20|t|El mono se balancea en los árboles; ayer se balanceó y se deslizó por una liana.|The monkey swings in the trees; yesterday it [swung] and [slid] down a vine.
+20|c|Mi papá divide la leña cada invierno; el año pasado la dividió en una tarde y le costó poco.|My dad splits wood every winter; last year he [split] it in one afternoon, and it [cost] him little effort.
+20|t|La empresa cuesta mucho de mantener; el año pasado se hundió en deudas y les costó millones a sus dueños.|The company costs a lot to run; last year it [sank] into debt and [cost] its owners millions.
+20|c|Ella deja todo a medias; ayer dejó la clase de yoga y se hundió en el sofá.|She quits everything halfway; yesterday she [quit] yoga class and [sank] into the sofa.
+20|t|El niño se desliza por el tobogán; ayer se deslizó y se quedó pegado al fondo.|The boy slides down the slide; yesterday he [slid] and got [stuck] at the bottom.
+20|c|Mi vecino barre la calle; ayer barrió las hojas y las pegó en una bolsa.|My neighbor sweeps the street; yesterday he [swept] the leaves and [stuck] them in a bag.
+20|t|El bateador balancea el bate muy rápido; ayer bateó y la pelota se hundió en el río.|The batter swings very fast; yesterday he [swung], and the ball [sank] in the river.
+20|c|Ella apuesta por sus amigos; ayer apostó por mí y dividió el premio conmigo.|She bets on her friends; yesterday she [bet] on me and [split] the prize with me.
+20|t|La luna brilla sobre el lago; anoche brilló y el bote se deslizó en silencio.|The moon shines over the lake; last night it [shone], and the boat [slid] by in silence.
+20|c|El barco se hunde un poco con cada ola; anoche se hundió más y renunciamos a navegar.|The boat sinks a little with every wave; last night it [sank] more, and we [quit] sailing.
+20|t|El columpio se balancea solo; anoche se balanceó y barrió las hojas del suelo.|The swing moves by itself; last night it [swung] and [swept] the leaves off the ground.
