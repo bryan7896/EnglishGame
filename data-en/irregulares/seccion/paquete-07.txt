@@ -1,0 +1,63 @@
+# Paquete 7 · sleep, drink, sing, swim, fly, ride, hide, shake, hit, hurt
+
+S|sleep.b|Necesito **dormir** ocho horas.|I need to [sleep] eight hours.|slept,sleeped
+S|sleep.p|Anoche **dormí** muy mal.|I [slept] very badly last night.|sleep,sleeped
+S|sleep.pp|No he **dormido** nada.|I haven't [slept] at all.|sleep,sleeped
+S|drink.b|Deberías **beber** más agua.|You should [drink] more water.|drank,drunk
+S|drink.p|**Bebimos** café en la terraza.|We [drank] coffee on the terrace.|drunk,drinked
+S|drink.pp|¿Has **bebido** suficiente agua hoy?|Have you [drunk] enough water today?|drank,drinked
+S|sing.b|Me encanta **cantar** en la ducha.|I love to [sing] in the shower.|sang,sung
+S|sing.p|**Cantó** una canción en la boda.|She [sang] a song at the wedding.|sung,singed
+S|sing.pp|Nunca había **cantado** en público.|I had never [sung] in public.|sang,singed
+S|swim.b|¿Sabes **nadar**?|Can you [swim]?|swam,swum
+S|swim.p|**Nadamos** en el lago.|We [swam] in the lake.|swum,swimmed
+S|swim.pp|Ha **nadado** un kilómetro hoy.|He has [swum] a kilometer today.|swam,swimmed
+S|fly.b|Quiero **volar** a Japón.|I want to [fly] to Japan.|flew,flown
+S|fly.p|El pájaro **voló** por la ventana.|The bird [flew] out the window.|flown,flied
+S|fly.pp|Nunca he **volado** en primera clase.|I have never [flown] first class.|flew,flied
+S|ride.b|Me gusta **montar** en bicicleta.|I like to [ride] my bike.|rode,ridden
+S|ride.p|**Monté** a caballo en la finca.|I [rode] a horse at the farm.|ridden,rided
+S|ride.pp|¿Alguna vez has **montado** en moto?|Have you ever [ridden] a motorcycle?|rode,rided
+S|hide.b|El niño quiere **esconder** el regalo.|The boy wants to [hide] the gift.|hid,hidden
+S|hide.p|**Escondí** las llaves debajo de la alfombra.|I [hid] the keys under the rug.|hidden,hided
+S|hide.pp|¿Dónde has **escondido** el chocolate?|Where have you [hidden] the chocolate?|hid,hided
+S|shake.b|Hay que **sacudir** la botella antes de usarla.|You have to [shake] the bottle before using it.|shook,shaken
+S|shake.p|Me **sacudió** la mano con fuerza.|He [shook] my hand firmly.|shaken,shaked
+S|shake.pp|La casa fue **sacudida** por el terremoto.|The house was [shaken] by the earthquake.|shook,shaked
+S|hit.b|No le vayas a **golpear** la cabeza.|Don't [hit] your head.|hits,hitted
+S|hit.p|El carro **golpeó** el poste.|The car [hit] the pole.|hitted,hits
+S|hit.pp|Lo ha **golpeado** una pelota.|A ball has [hit] him.|hitted,hits
+S|hurt.b|Cuidado, te puedes **lastimar**.|Careful, you could [hurt] yourself.|hurts,hurted
+S|hurt.p|Me **lastimé** la rodilla jugando.|I [hurt] my knee playing.|hurted,hurts
+S|hurt.pp|¿Te has **lastimado**?|Have you [hurt] yourself?|hurted,hurts
+
+C|sleep.b|Los bebés duermen mucho.|Babies [sleep] a lot.
+C|sleep.p|Dormimos en una carpa.|We [slept] in a tent.
+C|sleep.pp|Ha dormido toda la tarde.|She has [slept] all afternoon.
+C|drink.b|¿Qué quieres tomar?|What do you want to [drink]?
+C|drink.p|Se tomó todo el jugo.|He [drank] all the juice.
+C|drink.pp|Nunca he tomado tequila.|I have never [drunk] tequila.
+C|sing.b|Los pájaros cantan en la mañana.|Birds [sing] in the morning.
+C|sing.p|Cantamos el himno nacional.|We [sang] the national anthem.
+C|sing.pp|Esa canción ha sido cantada por muchos artistas.|That song has been [sung] by many artists.
+C|swim.b|Vamos a nadar después del almuerzo.|Let's [swim] after lunch.
+C|swim.p|Nadó hasta la otra orilla.|She [swam] to the other shore.
+C|swim.pp|Nunca había nadado en el mar.|I had never [swum] in the sea.
+C|fly.b|Me da miedo volar en avión.|I am afraid to [fly] on planes.
+C|fly.p|Volamos de Bogotá a Lima.|We [flew] from Bogotá to Lima.
+C|fly.pp|Ha volado por todo el mundo.|He has [flown] all over the world.
+C|ride.b|Los niños montan bicicleta en el parque.|The kids [ride] bikes in the park.
+C|ride.p|Montamos en la montaña rusa dos veces.|We [rode] the roller coaster twice.
+C|ride.pp|Nunca había montado en camello.|I had never [ridden] a camel.
+C|hide.b|¿Dónde escondes tus ahorros?|Where do you [hide] your savings?
+C|hide.p|El gato se escondió debajo de la cama.|The cat [hid] under the bed.
+C|hide.pp|El tesoro estaba escondido en una cueva.|The treasure was [hidden] in a cave.
+C|shake.b|Agita bien antes de servir.|[Shake] well before serving.
+C|shake.p|El perro se sacudió el agua.|The dog [shook] off the water.
+C|shake.pp|Quedé muy afectado por la noticia.|I was very [shaken] by the news.
+C|hit.b|No le pegues a tu hermano.|Don't [hit] your brother.
+C|hit.p|Bateó la pelota fuera del estadio.|He [hit] the ball out of the stadium.
+C|hit.pp|La ciudad fue golpeada por la tormenta.|The city was [hit] by the storm.
+C|hurt.b|Me duelen los pies.|My feet [hurt].
+C|hurt.p|Sus palabras me dolieron.|His words [hurt] me.
+C|hurt.pp|Nadie resultó herido en el accidente.|Nobody was [hurt] in the accident.
