@@ -289,3 +289,207 @@
 18|t|No me importa nadar en agua fría; ayer nadé y no me lastimé.|I don't mind swimming in cold water; yesterday I [swam] and didn't get [hurt].
 18|c|Dejó de esconderse y cantó frente a todos; nadie escondió sus lágrimas.|She stopped hiding and [sang] in front of everyone; nobody [hid] their tears.
 18|t|Recuerdo haber volado sobre el Amazonas; dormí con la ventana abierta y el avión se sacudió mucho.|I remember flying over the Amazon; I [slept] with the window shade up, and the plane [shook] a lot.
+
+# --- Regla 19 · Participios irregulares ---
+19|t|He nadado en ese lago y he dormido en su orilla.|I have [swum] in that lake and have [slept] on its shore.
+19|c|El regalo ha sido escondido y la botella ha sido sacudida.|The gift has been [hidden], and the bottle has been [shaken].
+19|t|Nunca he volado en helicóptero; nunca he montado en globo.|I have never [flown] in a helicopter; I have never [ridden] in a balloon.
+19|c|Esa canción ha sido cantada mil veces; el vino ya ha sido bebido.|That song has been [sung] a thousand times; the wine has already been [drunk].
+19|t|La ciudad ha sido golpeada por la tormenta; mucha gente ha sido lastimada.|The city has been [hit] by the storm; many people have been [hurt].
+19|c|He bebido demasiado café; no he dormido nada.|I have [drunk] too much coffee; I haven't [slept] at all.
+19|t|Ha cantado en la ópera y ha volado a cien ciudades.|She has [sung] at the opera and has [flown] to a hundred cities.
+19|c|Nunca he montado a caballo; nunca me he lastimado en un deporte.|I have never [ridden] a horse; I have never been [hurt] playing a sport.
+19|t|El tesoro ha sido escondido y el mapa ha sido sacudido por el viento.|The treasure has been [hidden], and the map has been [shaken] by the wind.
+19|c|Hemos nadado diez kilómetros; hemos bebido litros de agua.|We have [swum] ten kilometers; we have [drunk] liters of water.
+19|t|El edificio ha sido sacudido por el terremoto; nadie ha sido lastimado.|The building has been [shaken] by the earthquake; nobody has been [hurt].
+19|c|Ha dormido toda la tarde porque ha volado toda la noche.|He has [slept] all afternoon because he has [flown] all night.
+19|t|La pelota ha sido golpeada y ha volado sobre la cerca.|The ball has been [hit] and has [flown] over the fence.
+19|c|He escondido las galletas; nadie se ha tomado la leche tampoco.|I have [hidden] the cookies; nobody has [drunk] the milk either.
+19|t|Hemos montado en todas las atracciones y hemos cantado en el karaoke.|We have [ridden] every ride and have [sung] at karaoke.
+
+# --- Regla 20 · 3ra persona singular (-s) ---
+20|t|Mi hermana nada todos los días; ayer nadó dos kilómetros y bebió un batido.|My sister swims every day; yesterday she [swam] two kilometers and [drank] a smoothie.
+20|c|Mi papá duerme poco; anoche durmió cuatro horas y cantó en la ducha.|My dad sleeps little; last night he [slept] four hours and [sang] in the shower.
+20|t|Ella vuela cada semana; el lunes voló a Lima y durmió en el avión.|She flies every week; on Monday she [flew] to Lima and [slept] on the plane.
+20|c|Mi hijo monta bicicleta al colegio; ayer montó bajo la lluvia y se lastimó.|My son rides his bike to school; yesterday he [rode] in the rain and [hurt] himself.
+20|t|El gato se esconde cuando llueve; anoche se escondió en el armario y durmió allí.|The cat hides when it rains; last night it [hid] in the closet and [slept] there.
+20|c|Mi abuela canta en el coro; el domingo cantó sola y bebió té después.|My grandmother sings in the choir; on Sunday she [sang] alone and [drank] tea afterward.
+20|t|Él bebe mucha agua; ayer bebió tres litros y nadó en el mar.|He drinks a lot of water; yesterday he [drank] three liters and [swam] in the sea.
+20|c|Mi perro sacude la cola cuando llego; ayer la sacudió y golpeó un vaso.|My dog shakes its tail when I arrive; yesterday it [shook] its tail and [hit] a glass.
+20|t|El bateador golpea muy fuerte; ayer golpeó la pelota y voló fuera del estadio.|The batter hits very hard; yesterday he [hit] the ball, and it [flew] out of the stadium.
+20|c|A mi mamá le duele la espalda; ayer se lastimó cargando cajas y durmió en el sofá.|My mom's back hurts; yesterday she [hurt] it carrying boxes and [slept] on the sofa.
+20|t|Ella monta a caballo; el sábado montó tres horas y cantó en el camino.|She rides horses; on Saturday she [rode] for three hours and [sang] along the way.
+20|c|Mi hermano esconde sus dulces; ayer los escondió en una media y de noche bebió leche con ellos.|My brother hides his candy; yesterday he [hid] it in a sock and [drank] milk with it at night.
+20|t|El piloto vuela de noche; anoche voló sobre la tormenta y la tormenta sacudió el avión.|The pilot flies at night; last night he [flew] over the storm, and it [shook] the plane.
+20|c|Ella duerme con música; anoche durmió con jazz y cantó en sueños.|She sleeps with music; last night she [slept] with jazz on and [sang] in her sleep.
+20|t|Mi tío nada en el río; ayer nadó contra la corriente y se golpeó con una roca.|My uncle swims in the river; yesterday he [swam] against the current and [hit] a rock.
+
+# --- Regla 21 · Say vs Tell ---
+21|t|Me dijo que había dormido mal; me contó que bebió café a medianoche.|He told me he had [slept] badly; he said he [drank] coffee at midnight.
+21|c|Dijo que había nadado en el mar; me contó que se lastimó con un coral.|She said she had [swum] in the sea; she told me she [hurt] herself on some coral.
+21|t|Dijeron que habían volado en globo; nos contaron que el viento lo sacudió.|They said they had [flown] in a balloon; they told us the wind [shook] it.
+21|c|Le dije que no se escondiera, pero dijo que ya había cantado demasiado.|I told him not to [hide], but he said he had already [sung] too much.
+21|t|Me contó que había montado a caballo; dijo que el caballo lo golpeó.|She told me she had [ridden] a horse; she said the horse [hit] her.
+21|c|Dijo que nadie se había lastimado; me contó que todos durmieron en el refugio.|He said nobody had been [hurt]; he told me everyone [slept] at the shelter.
+21|t|Dime qué bebiste; dijeron que cantaste toda la noche.|Tell me what you [drank]; they said you [sang] all night.
+21|c|Dijeron que el terremoto sacudió la ciudad; nos contaron que durmieron en la calle.|They said the earthquake [shook] the city; they told us they [slept] in the street.
+21|t|Me dijo que escondió el regalo; dijo que voló a comprarlo.|He told me he [hid] the gift; he said he [flew] to buy it.
+21|c|Dijo "auch" y me contó que se había golpeado la cabeza; se lastimó el ojo.|He said "ouch" and told me he had [hit] his head; he [hurt] his eye.
+21|t|Le conté que había nadado una hora; dijo que bebió agua salada.|I told her I had [swum] for an hour; she said she [drank] salt water.
+21|c|Dijeron que montaron en la montaña rusa; nos contaron que escondieron la cara de miedo.|They said they [rode] the roller coaster; they told us they [hid] their faces in fear.
+21|t|Me dijo que nunca había volado; dijo que durmió con miedo.|She told me she had never [flown]; she said she [slept] with fear.
+21|c|Dijo que el carro golpeó un árbol; me contó que nadie se lastimó.|He said the car [hit] a tree; he told me nobody was [hurt].
+21|t|Cuéntame qué cantaron; dijeron que bebieron chocolate después.|Tell me what you [sang]; they said you [drank] hot chocolate afterward.
+
+# --- Regla 22 · Artículos ---
+22|t|Nadé en el mar y bebí una limonada en la playa.|I [swam] in the sea and [drank] a lemonade on the beach.
+22|c|Un pájaro voló por la ventana y golpeó el espejo.|A bird [flew] through the window and [hit] the mirror.
+22|t|Monté en un caballo blanco y me lastimé la pierna.|I [rode] a white horse and [hurt] my leg.
+22|c|El niño se escondió en un armario y durmió una hora.|The boy [hid] in a closet and [slept] for an hour.
+22|t|La cantante cantó una canción y bebió un vaso de agua.|The singer [sang] a song and [drank] a glass of water.
+22|c|Un terremoto sacudió la ciudad y golpeó un puente.|An earthquake [shook] the city and [hit] a bridge.
+22|t|Dormí en una hamaca y nadé en un río.|I [slept] in a hammock and [swam] in a river.
+22|c|El avión voló sobre un volcán y la turbulencia sacudió las alas.|The plane [flew] over a volcano, and the turbulence [shook] the wings.
+22|t|Una pelota golpeó a un niño; nadie se lastimó.|A ball [hit] a boy; nobody was [hurt].
+22|c|Bebimos un café y montamos en el tranvía.|We [drank] a coffee and [rode] the streetcar.
+22|t|El perro escondió un hueso y durmió encima de él.|The dog [hid] a bone and [slept] on top of it.
+22|c|Cantamos el himno en una ceremonia; un niño se escondió detrás de su mamá.|We [sang] the anthem at a ceremony; a boy [hid] behind his mom.
+22|t|Me lastimé en un accidente; dormí en el hospital una noche.|I got [hurt] in an accident; I [slept] in the hospital for one night.
+22|c|El niño montó en una bicicleta nueva y voló colina abajo.|The boy [rode] a new bike and [flew] down the hill.
+22|t|Sacudí una toalla y nadé otra vez en la piscina.|I [shook] a towel and [swam] in the pool again.
+
+# --- Regla 23 · Phrasal verbs con "look" ---
+23|t|Busqué las llaves que escondí; dormí sin encontrarlas.|I looked for the keys I [hid]; I [slept] without finding them.
+23|c|Se parece a su abuelo: cantaba igual y bebía el mismo café.|He looks like his grandfather: he [sang] the same way and [drank] the same coffee.
+23|t|Busca la palabra; ayer la cantamos y me escondí de vergüenza.|Look up the word; we [sang] it yesterday, and I [hid] from embarrassment.
+23|c|Me miró y sacudió la cabeza; se había lastimado la mano.|She looked at me and [shook] her head; she had [hurt] her hand.
+23|t|Estoy buscando el lugar donde nadamos de niños; montábamos bicicleta hasta allí.|I'm looking for the place where we [swam] as kids; we [rode] our bikes there.
+23|c|Cuida al perro; ayer se escondió y durmió en el jardín del vecino.|Look after the dog; yesterday it [hid] and [slept] in the neighbor's yard.
+23|t|Mira cómo vuela el pájaro; ayer voló contra el vidrio y golpeó la ventana.|Look how the bird flies; yesterday it [flew] into the glass and [hit] the window.
+23|c|Espero con ansias el viaje; el año pasado volamos a Cuba y nadamos con delfines.|I'm looking forward to the trip; last year we [flew] to Cuba and [swam] with dolphins.
+23|t|Buscaron al niño que se escondió; durmió en el carro.|They looked for the boy who [hid]; he [slept] in the car.
+23|c|Revisa la botella; la sacudí y el gato se tomó lo que se derramó.|Look at the bottle; I [shook] it, and the cat [drank] what spilled.
+23|t|Se veía cansado porque durmió mal; bebió cuatro cafés.|He looked tired because he [slept] badly; he [drank] four coffees.
+23|c|Busqué en internet quién cantó esa canción; una niña de diez años saltó a la fama con ella.|I looked up who [sang] that song; a ten-year-old girl [flew] to fame with it.
+23|t|Mira lo que golpeó el carro; un pájaro voló contra el vidrio.|Look at what [hit] the car; a bird [flew] into the glass.
+23|c|Me miró como si la hubiera lastimado; se escondió en su cuarto.|She looked at me as if I had [hurt] her; she [hid] in her room.
+23|t|Busqué un lugar para dormir y monté en el último bus.|I looked for a place to [sleep] and [rode] the last bus.
+
+# --- Regla 25 · Give / Gave / Given ---
+25|t|Me dio una almohada; dormí toda la noche y no me lastimé la espalda.|She gave me a pillow; I [slept] all night and didn't [hurt] my back.
+25|c|Le di agua, la bebió de un trago y nadó otra vez.|I gave him water; he [drank] it in one gulp and [swam] again.
+25|t|Nos dieron un micrófono, cantamos tres canciones y bebimos agua.|They gave us a microphone; we [sang] three songs and [drank] water.
+25|c|Le dieron una medalla porque nadó más rápido que todos; voló a casa feliz.|They gave her a medal because she [swam] faster than everyone; she [flew] home happy.
+25|t|Mi papá me dio su bicicleta; la monté hasta el lago y me golpeé con una piedra.|My dad gave me his bike; I [rode] it to the lake and [hit] a rock.
+25|c|Le di un abrazo, me sacudió la mano y se escondió detrás de su mamá.|I gave him a hug; he [shook] my hand and [hid] behind his mom.
+25|t|Me dieron un boleto; volé a Cartagena y dormí en la playa.|They gave me a ticket; I [flew] to Cartagena and [slept] on the beach.
+25|c|Le di el regalo; lo escondió en su cuarto y lo sacudió de noche.|I gave her the gift; she [hid] it in her room and [shook] it at night.
+25|t|El médico me dio una pastilla porque me lastimé la espalda; dormí doce horas.|The doctor gave me a pill because I [hurt] my back; I [slept] for twelve hours.
+25|c|Le dieron una oportunidad; golpeó la pelota y voló fuera del estadio.|They gave him a chance; he [hit] the ball, and it [flew] out of the stadium.
+25|t|Me han dado tanto café que no he dormido; he bebido seis tazas.|They have given me so much coffee that I haven't [slept]; I have [drunk] six cups.
+25|c|Les dimos toallas; nadaron hasta el atardecer y cantaron junto al fuego.|We gave them towels; they [swam] until sunset and [sang] by the fire.
+25|t|Me dio su chaqueta; la llevé mientras montábamos en moto y el viento nos sacudió.|He gave me his jacket; I wore it while we [rode] the motorcycle, and the wind [shook] us.
+25|c|Le dieron un susto; se escondió detrás del sofá y se golpeó la cabeza.|They gave him a scare; he [hid] behind the sofa and [hit] his head.
+25|t|Mi abuela me dio un té y lo bebí antes de dormir.|My grandmother gave me tea, and I [drank] it before I [slept].
+
+# --- Regla 26 · Still + hope ---
+26|t|Todavía espero nadar en el Caribe; el año pasado volé a Cuba, pero no nadé.|I still hope to [swim] in the Caribbean; last year I [flew] to Cuba, but I didn't swim.
+26|c|Aún espera cantar en el teatro; ya voló a Nueva York para una audición.|She still hopes to [sing] at the theater; she has already [flown] to New York for an audition.
+26|t|Todavía espero dormir ocho horas; anoche bebí demasiado café.|I still hope to [sleep] eight hours; last night I [drank] too much coffee.
+26|c|Aún esperamos que nadie se haya lastimado; el terremoto sacudió todo el pueblo.|We still hope nobody was [hurt]; the earthquake [shook] the whole town.
+26|t|Todavía espera montar a caballo; el año pasado se golpeó al caerse.|He still hopes to [ride] a horse; last year he [hit] the ground when he fell.
+26|c|Aún espero que el perro no se haya escondido otra vez; ayer durmió en el jardín.|I still hope the dog hasn't [hidden] again; yesterday it [slept] in the garden.
+26|t|Todavía esperamos volar mañana; anoche la tormenta golpeó el aeropuerto.|We still hope to [fly] tomorrow; last night the storm [hit] the airport.
+26|c|Aún espera nadar en la final; se lastimó el hombro la semana pasada.|She still hopes to [swim] in the final; she [hurt] her shoulder last week.
+26|t|Todavía espero que no hayas bebido la leche; la escondí para el desayuno.|I still hope you haven't [drunk] the milk; I [hid] it for breakfast.
+26|c|Aún esperan cantar juntos; la última vez bebieron demasiado y pelearon.|They still hope to [sing] together; the last time they [drank] too much and fought.
+26|t|Todavía espero montar en globo; ya volé en parapente.|I still hope to [ride] in a balloon; I have already [flown] a paraglider.
+26|c|Aún espera dormir en su cama; se lastimó la espalda en el hospital.|He still hopes to [sleep] in his own bed; he [hurt] his back in the hospital.
+26|t|Todavía espero que no te hayas lastimado; la pelota te golpeó fuerte.|I still hope you weren't [hurt]; the ball [hit] you hard.
+26|c|Aún esperamos que el niño no se esconda; ayer durmió dos horas en el armario.|We still hope the boy won't [hide]; yesterday he [slept] for two hours in the closet.
+26|t|Todavía espera nadar con tiburones; ya montó en un delfín.|She still hopes to [swim] with sharks; she has already [ridden] a dolphin.
+
+# --- Regla 27 · Too vs Very ---
+27|t|Bebí demasiado café y no dormí.|I [drank] too much coffee and didn't [sleep].
+27|c|Nadó muy rápido y ganó; no se lastimó.|She [swam] very fast and won; she didn't get [hurt].
+27|t|Cantó demasiado alto y el vidrio se sacudió.|He [sang] too loudly, and the glass [shook].
+27|c|Montamos muy lejos y dormimos en el camino.|We [rode] very far and [slept] on the way.
+27|t|El avión voló demasiado bajo y sacudió las casas.|The plane [flew] too low and [shook] the houses.
+27|c|Se escondió muy bien; dormimos sin encontrarlo.|He [hid] very well; we [slept] without finding him.
+27|t|Golpeó la pelota demasiado fuerte y lastimó al portero.|He [hit] the ball too hard and [hurt] the goalkeeper.
+27|c|Dormí muy poco y bebí cinco cafés.|I [slept] very little and [drank] five coffees.
+27|t|El agua estaba demasiado fría; nadé cinco minutos y me escondí en la toalla.|The water was too cold; I [swam] for five minutes and [hid] in my towel.
+27|c|Cantamos muy bien y bebimos champaña para celebrar.|We [sang] very well and [drank] champagne to celebrate.
+27|t|Montó demasiado rápido y se golpeó con un árbol.|He [rode] too fast and [hit] a tree.
+27|c|La tormenta fue muy fuerte; sacudió el avión mientras volábamos.|The storm was very strong; it [shook] the plane while we [flew].
+27|t|Estaba demasiado lastimada para nadar el domingo; durmió todo el día.|She was too [hurt] to swim on Sunday; she [slept] all day.
+27|c|Escondí el regalo muy alto; nadie lo sacudió.|I [hid] the gift very high; nobody [shook] it.
+27|t|Volamos demasiadas horas; dormí en el piso del aeropuerto.|We [flew] too many hours; I [slept] on the airport floor.
+
+# --- Regla 28 · Preguntas con presente/pasado perfecto ---
+28|t|¿Alguna vez has nadado en el océano? Yo me lastimé con una medusa.|Have you ever [swum] in the ocean? I got [hurt] by a jellyfish.
+28|c|¿Ya bebiste el jugo? ¿Dormiste bien?|Have you [drunk] the juice? Did you [sleep] well?
+28|t|¿Habías volado antes? Te escondiste debajo de la manta.|Had you [flown] before? You [hid] under the blanket.
+28|c|¿Alguna vez has montado en camello? A mí me sacudió mucho.|Have you ever [ridden] a camel? It [shook] me a lot.
+28|t|¿Ya cantaste en el karaoke? Bebí un trago antes de cantar.|Have you [sung] at karaoke? I [drank] a shot before singing.
+28|c|¿Alguna vez te ha golpeado una pelota? A mí me lastimó la nariz.|Has a ball ever [hit] you? It [hurt] my nose.
+28|t|¿Habían dormido cuando llegaste? Yo nadé en la piscina sola.|Had they [slept] when you arrived? I [swam] in the pool alone.
+28|c|¿Has escondido los dulces? El niño los encontró y bebió la leche.|Have you [hidden] the candy? The kid found it and [drank] the milk.
+28|t|¿Alguna vez has volado en helicóptero? A mí me sacudió el viento.|Have you ever [flown] in a helicopter? The wind [shook] me.
+28|c|¿Alguna vez te has lastimado montando bicicleta? Yo me golpeé la cabeza.|Have you ever [hurt] yourself riding a bike? I [hit] my head.
+28|t|¿Ya habías nadado en un río? Yo dormí en la orilla.|Had you [swum] in a river before? I [slept] on the bank.
+28|c|¿Has cantado alguna vez en un coro? Yo me escondí en la última fila.|Have you ever [sung] in a choir? I [hid] in the last row.
+28|t|¿Alguna vez has bebido agua de coco? La bebí cuando volé a Brasil.|Have you ever [drunk] coconut water? I had some when I [flew] to Brazil.
+28|c|¿Alguna vez has dormido en una carpa? Yo me escondí en una durante una tormenta.|Have you ever [slept] in a tent? I [hid] in one during a storm.
+28|t|¿Habías montado a caballo antes? Te sacudió como a un muñeco.|Had you [ridden] a horse before? It [shook] you like a doll.
+
+# --- Regla 29 · Tag Questions ---
+29|t|Dormiste en el sofá, ¿verdad? Bebiste demasiado.|You [slept] on the sofa, didn't you? You [drank] too much.
+29|c|Nadaron en el lago, ¿no? Se lastimaron con las rocas.|You [swam] in the lake, didn't you? You [hurt] yourselves on the rocks.
+29|t|Cantaste en la boda, ¿cierto? Bebiste agua antes.|You [sang] at the wedding, didn't you? You [drank] water first.
+29|c|No escondiste las llaves, ¿o sí? El perro durmió encima de ellas.|You didn't [hide] the keys, did you? The dog [slept] on top of them.
+29|t|Volaste a Lima, ¿verdad? El avión se sacudió mucho.|You [flew] to Lima, didn't you? The plane [shook] a lot.
+29|c|Ya has montado en esa moto, ¿no? Te golpeaste la rodilla.|You have already [ridden] that motorcycle, haven't you? You [hit] your knee.
+29|t|La pelota te golpeó, ¿cierto? Te lastimaste el brazo.|The ball [hit] you, didn't it? You [hurt] your arm.
+29|c|No has dormido, ¿o sí? Bebiste café toda la noche.|You haven't [slept], have you? You [drank] coffee all night.
+29|t|Se escondió en el armario, ¿verdad? Durmió allí.|He [hid] in the closet, didn't he? He [slept] there.
+29|c|Han nadado mucho, ¿no? Bebieron toda el agua.|They have [swum] a lot, haven't they? They [drank] all the water.
+29|t|Sacudiste la botella, ¿cierto? La bebiste con espuma.|You [shook] the bottle, didn't you? You [drank] it with foam.
+29|c|No te lastimaste, ¿o sí? Montaste muy rápido.|You didn't [hurt] yourself, did you? You [rode] very fast.
+29|t|Ella cantó toda la noche, ¿verdad? Voló a casa al día siguiente.|She [sang] all night, didn't she? She [flew] home the next day.
+29|c|Has volado mucho este año, ¿no? Dormiste en muchos hoteles.|You have [flown] a lot this year, haven't you? You [slept] in many hotels.
+29|t|Montaron a caballo, ¿cierto? El caballo los sacudió.|You [rode] horses, didn't you? The horse [shook] you.
+
+# --- Regla 30 · Get + adjetivo ---
+30|t|Me puse nervioso cuando el avión se sacudió; no dormí.|I got nervous when the plane [shook]; I didn't [sleep].
+30|c|Se cansó de nadar, bebió un jugo y durmió en la arena.|She got tired of swimming; she [drank] a juice and [slept] on the sand.
+30|t|Me emocioné cuando cantó mi canción favorita; bebí a su salud.|I got excited when she [sang] my favorite song; I [drank] to her health.
+30|c|Se puso triste cuando se lastimó; se escondió en su cuarto.|He got sad when he got [hurt]; he [hid] in his room.
+30|t|Nos mojamos porque nadamos con ropa; dormimos con frío.|We got wet because we [swam] in our clothes; we [slept] cold.
+30|c|Se enojó cuando la pelota golpeó su carro; sacudió el puño.|He got angry when the ball [hit] his car; he [shook] his fist.
+30|t|Me mareé cuando montamos en la montaña rusa; me escondí en el baño.|I got dizzy when we [rode] the roller coaster; I [hid] in the bathroom.
+30|c|Se asustó cuando el terremoto sacudió la casa; se escondió debajo de la mesa.|She got scared when the earthquake [shook] the house; she [hid] under the table.
+30|t|Me cansé después de volar doce horas; dormí todo el día.|I got tired after I [flew] for twelve hours; I [slept] all day.
+30|c|Se enfermó porque bebió agua del río; durmió dos días.|He got sick because he [drank] river water; he [slept] for two days.
+30|t|Nos aburrimos y cantamos en el carro; montamos tres horas.|We got bored and [sang] in the car; we [rode] for three hours.
+30|c|Se puso pálido cuando se golpeó la cabeza; se lastimó de verdad.|He got pale when he [hit] his head; he was really [hurt].
+30|t|Me puse feliz cuando nadé mi primer kilómetro; bebí un batido para celebrar.|I got happy when I [swam] my first kilometer; I [drank] a smoothie to celebrate.
+30|c|Se puso celoso cuando ella montó con otro; se escondió en la fiesta.|He got jealous when she [rode] with someone else; he [hid] at the party.
+30|t|Me preocupé cuando no durmió; bebió café a medianoche.|I got worried when he didn't [sleep]; he [drank] coffee at midnight.
+
+# --- Regla 31 · some / any / no ---
+31|t|No dormí nada; bebí demasiado café.|I didn't [sleep] at all; I [drank] too much coffee.
+31|c|¿Nadaste algo hoy? Yo no nadé nada, pero monté bicicleta.|Did you [swim] at all today? I didn't, but I [rode] my bike.
+31|t|Nadie se lastimó; alguien golpeó el carro y se fue.|Nobody got [hurt]; somebody [hit] the car and left.
+31|c|Alguien escondió mis llaves; nadie durmió buscándolas.|Somebody [hid] my keys; nobody [slept] while we looked for them.
+31|t|No bebimos nada en el vuelo; volamos sin comida.|We didn't [drink] anything on the flight; we [flew] without food.
+31|c|Algunos niños cantaron; otros se escondieron.|Some kids [sang]; others [hid].
+31|t|¿Alguien montó mi bicicleta? Alguien la golpeó contra la pared.|Did anyone [ride] my bike? Somebody [hit] it against the wall.
+31|c|Algo sacudió la casa anoche; nadie durmió.|Something [shook] the house last night; nobody [slept].
+31|t|No nadé en ningún lado; me lastimé el pie.|I didn't [swim] anywhere; I [hurt] my foot.
+31|c|¿Has bebido algo? Yo no he dormido nada.|Have you [drunk] anything? I haven't [slept] at all.
+31|t|Algunos pájaros volaron al sur; otros se escondieron en el bosque.|Some birds [flew] south; others [hid] in the forest.
+31|c|Nadie golpeó la puerta; algo sacudió la ventana.|Nobody [hit] the door; something [shook] the window.
+31|t|Alguien cantó en la ducha; nadie durmió después.|Somebody [sang] in the shower; nobody [slept] after that.
+31|c|No monté en ningún caballo; me lastimé la espalda antes.|I didn't [ride] any horses; I had [hurt] my back before.
+31|t|Algunos bebieron vino; nadie nadó después de cenar.|Some people [drank] wine; nobody [swam] after dinner.
