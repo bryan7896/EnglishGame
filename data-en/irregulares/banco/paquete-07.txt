@@ -493,3 +493,479 @@
 31|t|Alguien cantó en la ducha; nadie durmió después.|Somebody [sang] in the shower; nobody [slept] after that.
 31|c|No monté en ningún caballo; me lastimé la espalda antes.|I didn't [ride] any horses; I had [hurt] my back before.
 31|t|Algunos bebieron vino; nadie nadó después de cenar.|Some people [drank] wine; nobody [swam] after dinner.
+
+# --- Regla 32 · Already / Yet / Just ---
+32|t|Ya dormí, pero todavía no he bebido café.|I have already [slept], but I haven't [drunk] coffee yet.
+32|c|Acaba de nadar; ya se tomó dos botellas de agua.|She has just [swum]; she has already [drunk] two bottles of water.
+32|t|¿Ya volaste en globo? Todavía no; acabo de montar en parapente.|Have you [flown] in a balloon yet? Not yet; I have just [ridden] in a paraglider.
+32|c|Ya escondí el regalo; acabo de sacudir la caja para despistar.|I have already [hidden] the gift; I have just [shaken] the box to trick her.
+32|t|Acaba de golpearse la cabeza; todavía no ha dormido.|He has just [hit] his head; he hasn't [slept] yet.
+32|c|Todavía no ha cantado; acaba de beber un té con miel.|She hasn't [sung] yet; she has just [drunk] tea with honey.
+32|t|Ya nadamos en el río; acabamos de montar a caballo.|We have already [swum] in the river; we have just [ridden] horses.
+32|c|¿Ya te lastimaste? Acabas de golpear la mesa con la rodilla.|Have you [hurt] yourself? You have just [hit] the table with your knee.
+32|t|El avión acaba de volar sobre la casa; ya sacudió las ventanas.|The plane has just [flown] over the house; it has already [shaken] the windows.
+32|c|Todavía no he dormido; acabo de volar desde Tokio.|I haven't [slept] yet; I have just [flown] in from Tokyo.
+32|t|Ya cantamos el himno; acabamos de esconder los regalos.|We have already [sung] the anthem; we have just [hidden] the gifts.
+32|c|El gato acaba de esconderse; ya se tomó la leche.|The cat has just [hidden]; it has already [drunk] the milk.
+32|t|¿Ya montaste la bicicleta nueva? Acabo de lastimarme con ella.|Have you [ridden] the new bike yet? I have just [hurt] myself on it.
+32|c|Ya bebí demasiado; acabo de cantar tres canciones.|I have already [drunk] too much; I have just [sung] three songs.
+32|t|Todavía no ha nadado; acaba de dormir una siesta.|He hasn't [swum] yet; he has just [slept] for an hour.
+
+# --- Regla 33 · Sujeto "it" ---
+33|t|Era tarde cuando dormimos; ya habíamos bebido demasiado.|It was late when we [slept]; we had already [drunk] too much.
+33|c|Es difícil nadar contra la corriente; ayer nadé una hora y me golpeé con una roca.|It's hard to swim against the current; yesterday I [swam] for an hour and [hit] a rock.
+33|t|Fue increíble volar sobre las montañas; el avión apenas se sacudió.|It was amazing to [fly] over the mountains; the plane barely [shook].
+33|c|Es fácil esconderse aquí; ayer el perro se escondió y durmió tranquilo.|It's easy to hide here; yesterday the dog [hid] and [slept] peacefully.
+33|t|Fue un error montar sin casco; me golpeé la cabeza.|It was a mistake to [ride] without a helmet; I [hit] my head.
+33|c|Llovió tanto que el viento sacudió la carpa; nadie durmió.|It rained so much that the wind [shook] the tent; nobody [slept].
+33|t|Es importante beber agua; ayer nadé dos horas sin beber.|It's important to [drink] water; yesterday I [swam] for two hours without drinking.
+33|c|Fue un placer cantar contigo; bebimos y reímos toda la noche.|It was a pleasure to [sing] with you; we [drank] and laughed all night.
+33|t|Hace calor; ayer nadamos y dormimos a la sombra.|It's hot; yesterday we [swam] and [slept] in the shade.
+33|c|Fue terrible ver cómo se lastimó; se golpeó contra el poste.|It was terrible to see how he got [hurt]; he [hit] the pole.
+33|t|Es difícil dormir en un avión; anoche volé diez horas.|It's hard to [sleep] on a plane; last night I [flew] for ten hours.
+33|c|Fue divertido montar en la montaña rusa; me sacudió de pies a cabeza.|It was fun to [ride] the roller coaster; it [shook] me from head to toe.
+33|t|Queda a una hora en bicicleta; ayer monté hasta allá y nadé en el lago.|It's an hour by bike; yesterday I [rode] there and [swam] in the lake.
+33|c|Fue un honor cantar en esa iglesia; me escondí los nervios.|It was an honor to [sing] in that church; I [hid] my nerves.
+33|t|Es peligroso esconderse en el agua; un niño se lastimó el año pasado.|It's dangerous to [hide] in the water; a boy got [hurt] last year.
+
+# --- Regla 34 · Since vs For ---
+34|t|He nadado aquí desde niño y nunca me he lastimado.|I have [swum] here since I was a kid and have never been [hurt].
+34|c|No he dormido bien desde el lunes; he bebido demasiado café.|I haven't [slept] well since Monday; I have [drunk] too much coffee.
+34|t|Ha cantado en el coro durante veinte años; voló desde Lima para cantar en mi boda.|She has [sung] in the choir for twenty years; she [flew] in from Lima to sing at my wedding.
+34|c|Ha volado para esa aerolínea durante diez años; durmió en cien ciudades.|He has [flown] for that airline for ten years; he [slept] in a hundred cities.
+34|t|No he montado bicicleta desde el accidente; me golpeé muy fuerte.|I haven't [ridden] a bike since the accident; I [hit] the ground very hard.
+34|c|El perro ha estado escondido durante horas; el trueno sacudió la casa.|The dog has been [hidden] for hours; the thunder [shook] the house.
+34|t|Me duele la espalda desde que me caí; no he nadado desde entonces.|My back has [hurt] since I fell; I haven't [swum] since then.
+34|c|No hemos bebido nada desde la mañana; volamos seis horas.|We haven't [drunk] anything since the morning; we [flew] for six hours.
+34|t|Ha nadado en el mar desde los cinco años; nunca se ha lastimado.|She has [swum] in the sea since she was five; she has never been [hurt].
+34|c|No ha cantado desde que se lastimó la garganta.|She hasn't [sung] since she [hurt] her throat.
+34|t|He dormido en el sofá durante una semana; me escondí del ruido del cuarto.|I have [slept] on the sofa for a week; I [hid] from the noise in the bedroom.
+34|c|Ha montado a caballo desde niña; solo se ha caído al suelo dos veces.|She has [ridden] horses since she was a girl; she [hit] the ground only twice.
+34|t|No he volado desde la pandemia; dormí mal la última vez.|I haven't [flown] since the pandemic; I [slept] badly the last time.
+34|c|La ciudad ha sido golpeada por tormentas durante semanas; nadie ha dormido bien.|The city has been [hit] by storms for weeks; nobody has [slept] well.
+34|t|He bebido té verde desde enero; dormí mejor desde la primera semana.|I have [drunk] green tea since January; I [slept] better from the first week.
+
+# --- Regla 35 · When / While ---
+35|t|Mientras nadaba, me golpeé con una roca y me lastimé el pie.|While I was swimming, I [hit] a rock and [hurt] my foot.
+35|c|Cuando el terremoto sacudió la casa, nos escondimos debajo de la mesa.|When the earthquake [shook] the house, we [hid] under the table.
+35|t|Mientras dormía, el gato se tomó mi leche; dormí sin enterarme de nada.|While I was sleeping, the cat [drank] my milk; I [slept] through everything.
+35|c|Cuando volamos sobre el mar, el avión se sacudió.|When we [flew] over the sea, the plane [shook].
+35|t|Mientras cantaba, se escondió detrás del micrófono; cantó muy bajito.|While she was singing, she [hid] behind the microphone; she [sang] very softly.
+35|c|Cuando monté a caballo, me lastimé la espalda.|When I [rode] a horse, I [hurt] my back.
+35|t|Mientras montábamos bicicleta, un perro golpeó mi rueda; me lastimé el brazo.|While we were riding bikes, a dog [hit] my wheel; I [hurt] my arm.
+35|c|Cuando era niño, nadaba en el río y dormía en la hamaca.|When I was a kid, I [swam] in the river and [slept] in the hammock.
+35|t|Mientras tomábamos café, la tormenta golpeó la ciudad; nos escondimos adentro.|While we were having coffee, the storm [hit] the city; we [hid] inside.
+35|c|Cuando se lastimó, durmió en el sofá.|When he got [hurt], he [slept] on the sofa.
+35|t|Mientras volábamos, el niño se escondió debajo de la manta; durmió todo el camino.|While we were flying, the boy [hid] under the blanket; he [slept] the whole way.
+35|c|Cuando cantaste, todos bebieron a tu salud.|When you [sang], everyone [drank] to your health.
+35|t|Mientras se escondía, se golpeó la cabeza con la puerta; después de eso se escondió una hora.|While he was hiding, he [hit] his head on the door; he [hid] for an hour after that.
+35|c|Cuando nadamos en el mar, bebimos agua salada.|When we [swam] in the sea, we [drank] salt water.
+35|t|Cuando el avión se sacudió, volamos más bajo.|When the plane [shook], we [flew] lower.
+
+# --- Regla 36 · Will vs Going to ---
+36|t|Voy a nadar en el mar; ya volé a la costa.|I'm going to [swim] in the sea; I have already [flown] to the coast.
+36|c|Tranquilo, yo canto; ayer bebí té con miel.|Don't worry, I'll [sing]; yesterday I [drank] tea with honey.
+36|t|Va a montar a caballo; ya se lastimó una vez.|She's going to [ride] a horse; she has already [hurt] herself once.
+36|c|Creo que dormiré temprano; volé toda la noche.|I think I'll [sleep] early; I [flew] all night.
+36|t|Mira esas nubes: la tormenta va a golpear la costa; nos escondimos ayer también.|Look at those clouds: the storm is going to [hit] the coast; we [hid] yesterday too.
+36|c|Te prometo que no beberé; anoche dormí en el piso.|I promise I won't [drink]; last night I [slept] on the floor.
+36|t|Vamos a volar a Cancún; ya escondimos los pasaportes en un lugar seguro.|We're going to [fly] to Cancún; we have already [hidden] our passports in a safe place.
+36|c|Creo que me esconderé; la última vez cantaste muy alto.|I think I'll [hide]; last time you [sang] too loudly.
+36|t|Va a dormir en el carro; ya montó diez horas.|He's going to [sleep] in the car; he has already [ridden] for ten hours.
+36|c|Creo que nadaré; ayer me lastimé corriendo.|I think I'll [swim]; yesterday I [hurt] myself running.
+36|t|Vamos a cantar en la boda; ya bebimos un poco para darnos valor.|We're going to [sing] at the wedding; we have already [drunk] a little for courage.
+36|c|Creo que montaré bicicleta; ayer el bus golpeó mi carro.|I think I'll [ride] my bike; yesterday the bus [hit] my car.
+36|t|Van a esconder los huevos de Pascua; ya los sacudieron para ver si estaban vacíos.|They're going to [hide] the Easter eggs; they have already [shaken] them to check if they were empty.
+36|c|Te lo prometo: no te lastimaré; ayer golpeé la pelota muy despacio.|I promise I won't [hurt] you; yesterday I [hit] the ball very softly.
+36|t|Voy a beber agua; nadé una hora.|I'm going to [drink] water; I [swam] for an hour.
+
+# --- Regla 37 · Contables vs incontables ---
+37|t|Bebí muy poca agua; dormí pocas horas.|I [drank] very little water; I [slept] few hours.
+37|c|¿Cuántos kilómetros nadaste? ¿Cuánta agua bebiste?|How many kilometers did you [swim]? How much water did you [drink]?
+37|t|Cantamos muchas canciones; bebimos mucho café.|We [sang] many songs; we [drank] a lot of coffee.
+37|c|Volamos pocas horas; dormimos muy poco.|We [flew] few hours; we [slept] very little.
+37|t|Montó muchos caballos; se lastimó pocas veces.|She [rode] many horses; she [hurt] herself few times.
+37|c|Escondí muchos huevos; los niños sacudieron pocos.|I [hid] many eggs; the kids [shook] few of them.
+37|t|¿Cuántas veces te golpeaste? ¿Cuánto te lastimaste?|How many times did you [hit] your head? How badly did you [hurt] yourself?
+37|c|Nadamos muchas vueltas; bebimos poca agua.|We [swam] many laps; we [drank] little water.
+37|t|Dormí muchas horas; canté poca música en la ducha.|I [slept] many hours; I [sang] little in the shower.
+37|c|Volaron muchos pájaros; pocos se escondieron.|Many birds [flew]; few [hid].
+37|t|Bebimos mucha leche; montamos muchas horas.|We [drank] a lot of milk; we [rode] for many hours.
+37|c|La tormenta golpeó muchas casas; sacudió poca tierra.|The storm [hit] many houses; it [shook] little land.
+37|t|Me lastimé pocas veces; nadé mucho este año.|I [hurt] myself few times; I [swam] a lot this year.
+37|c|¿Cuántas canciones cantaste? ¿Cuánto vino bebiste?|How many songs did you [sing]? How much wine did you [drink]?
+37|t|Escondimos poca comida; dormimos con hambre.|We [hid] little food; we [slept] hungry.
+
+# --- Regla 38 · Bad vs Badly ---
+38|t|Dormí muy mal porque bebí café tarde.|I [slept] badly because I [drank] coffee late.
+38|c|Cantó mal y se escondió detrás del escenario.|He [sang] badly and [hid] behind the stage.
+38|t|Me sentí mal porque te lastimé; golpeé tu brazo sin querer.|I felt bad because I [hurt] you; I [hit] your arm by accident.
+38|c|Nadó mal en la final y se lastimó el hombro.|She [swam] badly in the final and [hurt] her shoulder.
+38|t|Montó muy mal y se golpeó con la cerca.|He [rode] badly and [hit] the fence.
+38|c|Fue un mal vuelo: el avión se sacudió y nadie durmió.|It was a bad flight: the plane [shook], and nobody [slept].
+38|t|Escondió mal el regalo; su hijo lo sacudió enseguida.|She [hid] the gift badly; her son [shook] it right away.
+38|c|Me sentí mal después de beber esa leche; dormí todo el día.|I felt bad after I [drank] that milk; I [slept] all day.
+38|t|El huracán golpeó muy mal la isla; muchos se lastimaron.|The hurricane [hit] the island badly; many people were [hurt].
+38|c|Dormí mal porque el viento sacudió las ventanas.|I [slept] badly because the wind [shook] the windows.
+38|t|Volamos mal; la tormenta golpeó el avión.|We [flew] badly; the storm [hit] the plane.
+38|c|Fue una mala idea nadar de noche; me golpeé con el muelle.|It was a bad idea to [swim] at night; I [hit] the dock.
+38|t|Se lastimó mal el tobillo y no montó en una semana.|She [hurt] her ankle badly and didn't [ride] for a week.
+38|c|Cantamos mal pero bebimos bien.|We [sang] badly, but we [drank] well.
+38|t|No es mala idea esconder las llaves; ayer el niño montó el carro de juguete en la calle.|It's not a bad idea to [hide] the keys; yesterday the boy [rode] his toy car in the street.
+
+# --- Regla 39 · Preposiciones ---
+39|t|Nadé en el lago a las seis y dormí en la cabaña.|I [swam] in the lake at six and [slept] in the cabin.
+39|c|Volamos de Bogotá a Cartagena el viernes; bebimos jugo en el avión.|We [flew] from Bogotá to Cartagena on Friday; we [drank] juice on the plane.
+39|t|Cantó en la iglesia el domingo y se escondió en la sacristía.|She [sang] at the church on Sunday and [hid] in the sacristy.
+39|c|Monté en el bus a las siete y me golpeé la cabeza con la ventana.|I [rode] on the bus at seven and [hit] my head on the window.
+39|t|El gato se escondió debajo de la cama durante la tormenta; durmió allí.|The cat [hid] under the bed during the storm; it [slept] there.
+39|c|Me lastimé en el gimnasio el martes; nadé en la piscina el jueves.|I [hurt] myself at the gym on Tuesday; I [swam] in the pool on Thursday.
+39|t|Bebimos café en la terraza por la mañana y cantamos en la noche.|We [drank] coffee on the terrace in the morning and [sang] at night.
+39|c|El terremoto sacudió la ciudad a medianoche; dormimos en el parque.|The earthquake [shook] the city at midnight; we [slept] in the park.
+39|t|Montamos a caballo por la playa en el verano; nadamos en el mar al atardecer.|We [rode] horses on the beach in the summer; we [swam] in the sea at sunset.
+39|c|La pelota golpeó la ventana a las tres; nos escondimos en el garaje.|The ball [hit] the window at three; we [hid] in the garage.
+39|t|Dormí en el avión de Lima a Madrid; volé en clase económica.|I [slept] on the plane from Lima to Madrid; I [flew] in economy class.
+39|c|Cantamos en el carro durante el viaje; bebimos agua en cada parada.|We [sang] in the car during the trip; we [drank] water at every stop.
+39|t|Nadó en el río en enero y se lastimó con una piedra.|He [swam] in the river in January and [hurt] himself on a stone.
+39|c|Escondí el dinero en el libro el lunes; lo sacudí el martes y se cayó.|I [hid] the money in a book on Monday; I [shook] it on Tuesday, and it fell out.
+39|t|Me golpeé contra la puerta a las dos de la mañana; dormí en el sofá.|I [hit] the door at two in the morning; I [slept] on the sofa.
+
+# --- Regla 40 · For + período / During + evento ---
+40|t|Dormí durante diez horas, y la tormenta sacudió la casa durante la noche.|I [slept] for ten hours, and the storm [shook] the house during the night.
+40|c|Durante el concierto cantamos por dos horas; bebimos agua durante el descanso.|During the concert we [sang] for two hours; we [drank] water during the break.
+40|t|Nadé durante una hora; me lastimé durante la última vuelta.|I [swam] for an hour; I [hurt] myself during the last lap.
+40|c|Durante el vuelo dormí por seis horas; volamos sobre el océano.|During the flight I [slept] for six hours; we [flew] over the ocean.
+40|t|Durante la fiesta el niño se escondió por media hora; nadie cantó el cumpleaños hasta que volvió.|During the party the boy [hid] for half an hour; nobody [sang] the birthday song until he came back.
+40|c|Montamos durante tres horas; nadie se lastimó durante el paseo.|We [rode] for three hours; nobody got [hurt] during the ride.
+40|t|Durante el terremoto la casa se sacudió por un minuto; nos escondimos debajo de la mesa.|During the earthquake the house [shook] for a minute; we [hid] under the table.
+40|c|Bebí café durante toda la mañana; no dormí durante la siesta.|I [drank] coffee for the whole morning; I didn't [sleep] during nap time.
+40|t|Durante el partido golpeó la pelota diez veces; se lastimó durante el segundo tiempo.|During the game he [hit] the ball ten times; he [hurt] himself during the second half.
+40|c|Volamos durante doce horas; durante el vuelo el avión se sacudió dos veces.|We [flew] for twelve hours; during the flight the plane [shook] twice.
+40|t|Durante las vacaciones nadamos por horas cada día y dormimos la siesta.|During the vacation we [swam] for hours every day and [slept] in the afternoon.
+40|c|Cantó durante la ceremonia; bebió champaña durante la cena.|She [sang] during the ceremony; she [drank] champagne during dinner.
+40|t|Durante la tormenta los pájaros se escondieron por horas; ninguno voló.|During the storm the birds [hid] for hours; none of them [flew].
+40|c|Monté bicicleta durante el verano; me golpeé con un árbol durante una carrera.|I [rode] my bike during the summer; I [hit] a tree during a race.
+40|t|Durante la noche el niño durmió por diez horas; bebió leche antes.|During the night the boy [slept] for ten hours; he [drank] milk before.
+
+# --- Regla 41 · Orden natural de la oración ---
+41|t|Ayer nadé dos kilómetros en la piscina del club y bebí un jugo.|I [swam] two kilometers in the club pool yesterday and [drank] a juice.
+41|c|Mi hermana cantó una canción muy bonita en la boda y todos bebimos a su salud.|My sister [sang] a very beautiful song at the wedding, and we all [drank] to her health.
+41|t|Anoche dormí muy bien después de montar bicicleta.|I [slept] very well last night after I [rode] my bike.
+41|c|El niño escondió el control remoto debajo del sofá esta mañana; lo sacudí del cojín.|The boy [hid] the remote control under the sofa this morning; I [shook] it out of the cushion.
+41|t|Volamos a Cartagena el viernes pasado y nadamos en el mar el sábado.|We [flew] to Cartagena last Friday and [swam] in the sea on Saturday.
+41|c|Mi papá se lastimó la espalda en el jardín ayer; durmió en el sofá.|My dad [hurt] his back in the garden yesterday; he [slept] on the sofa.
+41|t|La tormenta golpeó la costa con mucha fuerza anoche y sacudió las casas.|The storm [hit] the coast very hard last night and [shook] the houses.
+41|c|Siempre bebo un café antes de montar en el bus.|I always [drink] a coffee before I [ride] the bus.
+41|t|El perro se escondió debajo de la mesa durante la tormenta y durmió allí toda la noche.|The dog [hid] under the table during the storm and [slept] there all night.
+41|c|Los estudiantes cantaron el himno en el patio esta mañana y nadie se escondió.|The students [sang] the anthem in the yard this morning, and nobody [hid].
+41|t|Mi hijo montó en su bicicleta nueva por el parque ayer y se golpeó la rodilla.|My son [rode] his new bike in the park yesterday and [hit] his knee.
+41|c|Nadamos en el río muy temprano y bebimos chocolate caliente después.|We [swam] in the river very early and [drank] hot chocolate afterward.
+41|t|El avión voló sobre la ciudad muy bajo y sacudió las ventanas.|The plane [flew] very low over the city and [shook] the windows.
+41|c|Mi abuela durmió en la habitación de huéspedes el fin de semana; cantó en el desayuno.|My grandmother [slept] in the guest room on the weekend; she [sang] at breakfast.
+41|t|Me lastimé el pie en la playa ayer; nadé con cuidado hoy.|I [hurt] my foot on the beach yesterday; I [swam] carefully today.
+
+# --- Regla 42 · Vocabulario específico ---
+42|t|El nadador nadó los cien metros y bebió una bebida isotónica.|The swimmer [swam] the hundred meters and [drank] a sports drink.
+42|c|El piloto voló en medio de la turbulencia; el avión se sacudió fuerte.|The pilot [flew] through the turbulence; the plane [shook] hard.
+42|t|El jinete montó al caballo de carreras y se lastimó en la caída.|The jockey [rode] the racehorse and [hurt] himself in the fall.
+42|c|El soprano cantó el aria y el público bebió champaña en el intermedio.|The soprano [sang] the aria, and the audience [drank] champagne at intermission.
+42|t|El bateador golpeó un jonrón y la pelota voló fuera del estadio.|The batter [hit] a home run, and the ball [flew] out of the stadium.
+42|c|El paciente durmió después de la cirugía; se había lastimado la rodilla.|The patient [slept] after the surgery; he had [hurt] his knee.
+42|t|El fugitivo se escondió en el bosque y durmió en una cueva.|The fugitive [hid] in the forest and [slept] in a cave.
+42|c|El sismo sacudió la región; el epicentro golpeó un pueblo pequeño.|The quake [shook] the region; the epicenter [hit] a small town.
+42|t|El salvavidas nadó hasta el niño y lo sacudió para despertarlo.|The lifeguard [swam] to the boy and [shook] him to wake him up.
+42|c|El ciclista montó cien kilómetros y bebió cinco litros de agua.|The cyclist [rode] a hundred kilometers and [drank] five liters of water.
+42|t|El coro cantó el villancico y los niños se escondieron detrás del árbol.|The choir [sang] the carol, and the kids [hid] behind the tree.
+42|c|El boxeador golpeó a su rival y lo lastimó en el ojo.|The boxer [hit] his opponent and [hurt] him in the eye.
+42|t|El pasajero voló en primera clase y durmió en una cama.|The passenger [flew] first class and [slept] in a bed.
+42|c|El buzo nadó entre los corales y se escondió de un tiburón.|The diver [swam] among the coral and [hid] from a shark.
+42|t|El barman sacudió el cóctel y el cliente lo bebió de un trago.|The bartender [shook] the cocktail, and the customer [drank] it in one gulp.
+
+# --- Regla 43 · Past Perfect ---
+43|t|Cuando llegué, ya habían cantado el himno y habían bebido el brindis.|When I arrived, they had already [sung] the anthem and had [drunk] the toast.
+43|c|Me di cuenta de que me había lastimado después de que había nadado una hora.|I realized I had [hurt] myself after I had [swum] for an hour.
+43|t|Nunca había volado antes de ese viaje; había dormido mal la noche anterior.|I had never [flown] before that trip; I had [slept] badly the night before.
+43|c|Cuando volvimos, el perro había escondido el hueso y había dormido en mi cama.|When we came back, the dog had [hidden] the bone and had [slept] on my bed.
+43|t|El terremoto ya había sacudido la ciudad cuando la tormenta la golpeó.|The earthquake had already [shaken] the city when the storm [hit] it.
+43|c|Ya había montado a caballo antes; nunca me había lastimado.|I had [ridden] a horse before; I had never been [hurt].
+43|t|Cuando la encontramos, se había escondido en el ático y había dormido allí.|When we found her, she had [hidden] in the attic and had [slept] there.
+43|c|Ya habían bebido todo el café cuando llegué; nadie había dormido.|They had already [drunk] all the coffee when I arrived; nobody had [slept].
+43|t|Nunca había nadado en el mar hasta que volé a Cartagena.|I had never [swum] in the sea until I [flew] to Cartagena.
+43|c|Se había golpeado la cabeza; por eso durmió todo el día.|He had [hit] his head; that's why he [slept] all day.
+43|t|Me dijo que había cantado en la radio y que había volado a Miami.|She told me she had [sung] on the radio and had [flown] to Miami.
+43|c|Cuando llegó la ambulancia, ya habían sacudido al hombre para despertarlo; no se había lastimado.|When the ambulance arrived, they had already [shaken] the man to wake him; he hadn't been [hurt].
+43|t|Había montado en bicicleta todo el día; había bebido muy poca agua.|He had [ridden] his bike all day; he had [drunk] very little water.
+43|c|Cuando entré, el gato ya se había escondido; había golpeado un vaso.|When I came in, the cat had already [hidden]; it had [hit] a glass.
+43|t|Nunca había dormido tanto; había nadado diez kilómetros el día anterior.|I had never [slept] so much; I had [swum] ten kilometers the day before.
+
+# --- Regla 44 · Future Perfect Continuous ---
+44|t|Para junio habré estado nadando un año; ya nadé más de cien kilómetros y me lastimé el hombro una vez.|By June I will have been swimming for a year; I have already [swum] more than a hundred kilometers and [hurt] my shoulder once.
+44|c|Para las ocho habremos estado volando doce horas; ya dormimos dos veces y bebimos cinco cafés.|By eight we will have been flying for twelve hours; we have already [slept] twice and [drunk] five coffees.
+44|t|Para diciembre habrá estado cantando en el coro diez años; cantó en cien bodas y nunca se escondió del público.|By December she will have been singing in the choir for ten years; she has [sung] at a hundred weddings and has never [hidden] from the audience.
+44|c|Para el viernes habré estado montando bicicleta al trabajo un mes; ya golpeé dos huecos y bebí litros de agua.|By Friday I will have been riding my bike to work for a month; I have already [hit] two potholes and [drunk] liters of water.
+44|t|Para el lunes el perro habrá estado escondido tres días; durmió debajo del puente y bebió del río.|By Monday the dog will have been hiding for three days; it [slept] under the bridge and [drank] from the river.
+44|c|Para las cinco habrá estado durmiendo doce horas; anoche bebió demasiado y se golpeó la cabeza.|By five he will have been sleeping for twelve hours; last night he [drank] too much and [hit] his head.
+44|t|Para marzo habré estado volando para esta aerolínea cinco años; dormí en hoteles de todo el mundo y nunca me lastimé.|By March I will have been flying for this airline for five years; I have [slept] in hotels all over the world and have never been [hurt].
+44|c|Para el verano habrán estado entrenando para la carrera un año; ya nadaron el lago dos veces y montaron cien kilómetros.|By summer they will have been training for the race for a year; they have already [swum] the lake twice and [ridden] a hundred kilometers.
+44|t|En agosto habré estado cantando en este bar dos años; bebí gratis cada noche y nadie me sacudió de la tarima.|In August I will have been singing in this bar for two years; I have [drunk] for free every night, and nobody has [shaken] me off the stage.
+44|c|Para la medianoche habremos estado manejando diez horas; el viento sacudió el carro y dormimos en una gasolinera.|By midnight we will have been driving for ten hours; the wind [shook] the car, and we [slept] at a gas station.
+44|t|Para enero habrá estado montando a caballo seis meses; se cayó al suelo una vez y se lastimó la muñeca.|By January she will have been riding horses for six months; she [hit] the ground once and [hurt] her wrist.
+44|c|Para las diez habrán estado escondiendo huevos toda la mañana; los niños ya cantaron y bebieron chocolate.|By ten they will have been hiding eggs all morning; the kids have already [sung] and [drunk] hot chocolate.
+44|t|Para el próximo mes habré estado durmiendo mejor un año; dejé el café, nadé cada mañana y bebí más agua.|By next month I will have been sleeping better for a year; I quit coffee and [swam] every morning, and I [drank] more water.
+44|c|Para el final de la gira habrá estado volando sin parar tres meses; cantó en veinte países y durmió en cada avión.|By the end of the tour she will have been flying nonstop for three months; she has [sung] in twenty countries and [slept] on every plane.
+44|t|Para el viernes habremos estado buscando al gato una semana; se escondió en el sótano y bebió agua de las tuberías.|By Friday we will have been looking for the cat for a week; it [hid] in the basement and [drank] water from the pipes.
+
+# --- Regla 45 · Voz pasiva ---
+45|t|La canción fue cantada por un coro de niños y fue escondida en un disco viejo.|The song was [sung] by a children's choir and was [hidden] on an old record.
+45|c|La ciudad fue sacudida por un terremoto y fue golpeada por una tormenta.|The city was [shaken] by an earthquake and [hit] by a storm.
+45|t|Nadie fue lastimado; todos durmieron en el refugio.|Nobody was [hurt]; everyone [slept] at the shelter.
+45|c|El vino fue bebido en la boda; la botella fue escondida por el novio.|The wine was [drunk] at the wedding; the bottle was [hidden] by the groom.
+45|t|El avión fue volado por una piloto de veinte años; los pasajeros durmieron tranquilos.|The plane was [flown] by a twenty-year-old pilot; the passengers [slept] peacefully.
+45|c|El caballo fue montado por un campeón; el jinete fue lastimado en la caída.|The horse was [ridden] by a champion; the jockey was [hurt] in the fall.
+45|t|El tesoro fue escondido en una cueva; fue sacudido por el mar durante siglos.|The treasure was [hidden] in a cave; it was [shaken] by the sea for centuries.
+45|c|La pelota fue golpeada con fuerza y voló fuera del estadio.|The ball was [hit] hard and [flew] out of the stadium.
+45|t|El himno fue cantado por todos; el café fue bebido después.|The anthem was [sung] by everyone; the coffee was [drunk] afterward.
+45|c|La carrera fue nadada en el mar; dos nadadores fueron lastimados por medusas.|The race was [swum] in the sea; two swimmers were [hurt] by jellyfish.
+45|t|El edificio fue golpeado por un rayo; nadie fue lastimado.|The building was [hit] by lightning; nobody was [hurt].
+45|c|El regalo fue escondido en el armario y fue sacudido por la niña.|The gift was [hidden] in the closet and was [shaken] by the girl.
+45|t|Las motos fueron montadas por la ciudad; un peatón fue golpeado.|The motorcycles were [ridden] through the city; a pedestrian was [hit].
+45|c|La leche fue bebida por el gato; el niño durmió sin enterarse.|The milk was [drunk] by the cat; the boy [slept] without noticing.
+45|t|Esa canción ha sido cantada en todo el mundo; ha volado de radio en radio.|That song has been [sung] all over the world; it has [flown] from radio to radio.
+
+# --- Regla 46 · Modales de posibilidad / deducción ---
+46|t|Debe de haber dormido mal; bebió café a medianoche.|He must have [slept] badly; he [drank] coffee at midnight.
+46|c|Ella pudo haberse lastimado; montó muy rápido.|She might have [hurt] herself; she [rode] very fast.
+46|t|No pueden haber nadado tan lejos; el agua estaba demasiado fría y se escondieron en la carpa.|They can't have [swum] that far; they [hid] in the tent because the water was too cold.
+46|c|Debe de haber volado de noche; durmió todo el día.|He must have [flown] at night; he [slept] all day.
+46|t|Pudo haber escondido las llaves; ayer las sacudió delante de mí.|She could have [hidden] the keys; yesterday she [shook] them in front of me.
+46|c|El terremoto debe de haber sacudido la casa; nadie durmió.|The earthquake must have [shaken] the house; nobody [slept].
+46|t|Puede que haya cantado en la boda; bebió mucho champaña.|He may have [sung] at the wedding; he [drank] a lot of champagne.
+46|c|No puede haberse golpeado tan fuerte; no se lastimó.|He can't have [hit] his head that hard; he wasn't [hurt].
+46|t|Debe de haber bebido algo malo; durmió dos días.|She must have [drunk] something bad; she [slept] for two days.
+46|c|Pudieron haber montado en el último bus; volaron a casa al día siguiente.|They might have [ridden] the last bus; they [flew] home the next day.
+46|t|Debe de haberse escondido en el garaje; la pelota golpeó la ventana.|He must have [hidden] in the garage; the ball [hit] the window.
+46|c|No puede haber nadado diez kilómetros; se lastimó la semana pasada.|She can't have [swum] ten kilometers; she [hurt] herself last week.
+46|t|Puede que el pájaro haya volado lejos; se escondió de la tormenta.|The bird may have [flown] far away; it [hid] from the storm.
+46|c|Debe de haber dormido en el avión; voló doce horas.|She must have [slept] on the plane; she [flew] for twelve hours.
+46|t|Pudo haber golpeado el carro; montó sin luces.|He could have [hit] the car; he [rode] without lights.
+
+# --- Regla 47 · Half of ---
+47|t|Dormí la mitad del vuelo; bebí agua la otra mitad.|I [slept] half of the flight; I [drank] water the other half.
+47|c|La mitad de los niños cantó; la otra mitad se escondió.|Half of the kids [sang]; the other half [hid].
+47|t|Nadé la mitad de la distancia y me lastimé el hombro.|I [swam] half of the distance and [hurt] my shoulder.
+47|c|La mitad de las casas fueron golpeadas por la tormenta; la otra mitad solo se sacudió.|Half of the houses were [hit] by the storm; the other half only [shook].
+47|t|Bebí la mitad de la botella y escondí el resto.|I [drank] half of the bottle and [hid] the rest.
+47|c|Volamos la mitad del camino; montamos en bus el resto.|We [flew] half of the way; we [rode] the bus the rest.
+47|t|La mitad de los pasajeros durmió; la otra mitad cantó.|Half of the passengers [slept]; the other half [sang].
+47|c|La mitad de los jugadores se lastimaron; la otra mitad nadó para recuperarse.|Half of the players were [hurt]; the other half [swam] to recover.
+47|t|Escondí la mitad de los dulces; el niño sacudió la caja y encontró el resto.|I [hid] half of the candy; the boy [shook] the box and found the rest.
+47|c|La mitad de los caballos fueron montados; la otra mitad durmió en el establo.|Half of the horses were [ridden]; the other half [slept] in the stable.
+47|t|Cantamos la mitad de la canción y bebimos agua.|We [sang] half of the song and [drank] water.
+47|c|La mitad de los pájaros voló al sur; la otra mitad se escondió en el bosque.|Half of the birds [flew] south; the other half [hid] in the forest.
+47|t|Golpeé la mitad de las pelotas; me lastimé la muñeca.|I [hit] half of the balls; I [hurt] my wrist.
+47|c|La mitad del grupo nadó; la otra mitad durmió en la arena.|Half of the group [swam]; the other half [slept] on the sand.
+47|t|Monté la mitad del recorrido; volé de vuelta en avioneta.|I [rode] half of the route; I [flew] back in a small plane.
+
+# --- Regla 48 · "By" para tiempo futuro ---
+48|t|Para el viernes ya habré nadado cincuenta kilómetros y habré dormido poco.|By Friday I will have [swum] fifty kilometers and [slept] little.
+48|c|Para las diez ya habrán cantado el himno y habrán bebido el brindis.|By ten they will have [sung] the anthem and [drunk] the toast.
+48|t|Para cuando llegues, ya habremos volado sobre los Andes y habremos dormido un poco.|By the time you arrive, we will have [flown] over the Andes and [slept] a little.
+48|c|Para el lunes habré montado cien kilómetros; habré golpeado un hueco al menos una vez.|By Monday I will have [ridden] a hundred kilometers; I will have [hit] a pothole at least once.
+48|t|Para las cinco el perro ya habrá escondido el hueso y habrá dormido una siesta.|By five the dog will have [hidden] its bone and [slept] for an hour.
+48|c|Para diciembre habré bebido menos café y habré dormido más.|By December I will have [drunk] less coffee and [slept] more.
+48|t|Para el final de la gira habrá cantado en veinte ciudades y habrá volado cincuenta veces.|By the end of the tour she will have [sung] in twenty cities and [flown] fifty times.
+48|c|Para mañana la tormenta ya habrá golpeado la costa; ya escondimos las sillas.|By tomorrow the storm will have [hit] the coast; we have already [hidden] the chairs.
+48|t|Para el verano habré nadado en tres océanos; ya monté en un barco por el Pacífico.|By summer I will have [swum] in three oceans; I have already [ridden] a boat across the Pacific.
+48|c|Para el mediodía los niños ya habrán bebido la leche y habrán cantado en clase.|By noon the kids will have [drunk] their milk and [sung] in class.
+48|t|Para el final del partido se habrá lastimado alguien; ya golpearon a dos jugadores.|By the end of the game someone will have been [hurt]; they have already [hit] two players.
+48|c|Para las once ya habré dormido; hoy nadé demasiado.|By eleven I will have [slept]; today I [swam] too much.
+48|t|Para el próximo año habré volado a Japón; ya escondí el dinero para el viaje.|By next year I will have [flown] to Japan; I have already [hidden] the money for the trip.
+48|c|Para el sábado ya habrán montado todos los caballos; uno ya los sacudió a todos.|By Saturday they will have [ridden] all the horses; one has already [shaken] everyone off.
+48|t|Para la medianoche habremos cantado veinte canciones y habremos bebido demasiado.|By midnight we will have [sung] twenty songs and [drunk] too much.
+
+# --- Regla 49 · because of / because ---
+49|t|No dormí por el ruido; el viento sacudió las ventanas.|I didn't [sleep] because of the noise; the wind [shook] the windows.
+49|c|Me lastimé porque monté sin casco.|I got [hurt] because I [rode] without a helmet.
+49|t|Nadamos en la piscina por la lluvia; el mar golpeaba fuerte la orilla.|We [swam] in the pool because of the rain; the sea [hit] the shore hard.
+49|c|Bebí mucha agua porque nadé dos horas.|I [drank] a lot of water because I [swam] for two hours.
+49|t|Por la tormenta, el avión se sacudió y no volamos más alto.|Because of the storm, the plane [shook], and we didn't [fly] any higher.
+49|c|Se escondió porque cantó mal en el concierto.|He [hid] because he [sang] badly at the concert.
+49|t|Por el café, no dormí; bebí tres tazas.|Because of the coffee, I didn't [sleep]; I [drank] three cups.
+49|c|Se golpeó la cabeza porque se escondió debajo de la mesa.|He [hit] his head because he [hid] under the table.
+49|t|Volamos de noche por el precio; dormimos en el aeropuerto.|We [flew] at night because of the price; we [slept] at the airport.
+49|c|Cantó en voz baja porque se lastimó la garganta.|She [sang] softly because she had [hurt] her throat.
+49|t|Por la lesión, no montó en un mes; nadó para recuperarse.|Because of the injury, he didn't [ride] for a month; he [swam] to recover.
+49|c|Sacudí la alfombra porque el perro durmió en ella.|I [shook] the rug because the dog [slept] on it.
+49|t|Por el calor, bebimos mucha agua y nadamos en el río.|Because of the heat, we [drank] a lot of water and [swam] in the river.
+49|c|El carro golpeó un poste porque el conductor había dormido mal y cabeceó.|The car [hit] a pole because the driver had [slept] badly and nodded off.
+49|t|Por el miedo, el gato se escondió y no bebió nada en todo el día.|Because of its fear, the cat [hid] and didn't [drink] anything all day.
+
+# --- Regla 50 · (put, try, get, take, lie) + (down, off, on) ---
+50|t|Me acosté y dormí diez horas; bebí agua cuando me desperté.|I lay down and [slept] for ten hours; I [drank] water when I woke up.
+50|c|Me quité los zapatos y nadé en el lago; me lastimé el pie con una roca.|I took off my shoes and [swam] in the lake; I [hurt] my foot on a rock.
+50|t|Me subí al avión y dormí todo el vuelo; volamos once horas.|I got on the plane and [slept] the whole flight; we [flew] for eleven hours.
+50|c|Se puso el casco y montó en la moto; nunca golpeó nada.|He put on his helmet and [rode] the motorcycle; he never [hit] anything.
+50|t|El avión despegó y se sacudió por la turbulencia; nadie durmió.|The plane took off and [shook] in the turbulence; nobody [slept].
+50|c|Me bajé del caballo y me lastimé el tobillo; les escondí el dolor a mis amigos.|I got off the horse and [hurt] my ankle; I [hid] the pain from my friends.
+50|t|Se quitó la chaqueta y cantó la última canción; todos brindaron por ella.|She took off her jacket and [sang] the last song; everyone [drank] to her.
+50|c|Puse el vaso en la mesa y bebí despacio; canté con la radio.|I put down the glass on the table and [drank] slowly; I [sang] along to the radio.
+50|t|Me probé el traje de baño y nadé en la piscina del hotel; después dormí junto a la piscina.|I tried on the swimsuit and [swam] in the hotel pool; I [slept] by the pool after.
+50|c|Se acostó en el sofá y escondió la cara en el cojín; durmió allí toda la noche.|He lay down on the sofa and [hid] his face in the cushion; he [slept] there all night.
+50|t|Se subió a la bicicleta y montó hasta el pueblo; golpeó un hueco en el camino.|She got on her bike and [rode] to the village; she [hit] a pothole on the way.
+50|c|El niño se quitó la camiseta y nadó en el río; después se tomó una gaseosa.|The boy took off his shirt and [swam] in the river; he [drank] a soda afterward.
+50|t|Me acosté temprano porque me golpeé la cabeza; dormí con hielo encima.|I lay down early because I [hit] my head; I [slept] with ice on it.
+50|c|Se puso los audífonos y cantó en el bus; fue en él hasta el centro.|He put on his headphones and [sang] on the bus; he [rode] all the way downtown.
+50|t|Se bajó del avión y bebió un café en el aeropuerto; había volado toda la noche.|She got off the plane and [drank] a coffee at the airport; she had [flown] all night.
+
+# --- Regla 51 · Sustantivos compuestos ---
+51|t|Dormí en un saco de dormir y bebí agua de la cantimplora.|I [slept] in a sleeping bag and [drank] water from the canteen.
+51|c|Nadamos en la piscina olímpica; me lastimé en el bloque de salida.|We [swam] in the Olympic pool; I [hurt] myself on the starting block.
+51|t|Volamos en un avión de pasajeros; dormí en el asiento de la ventana.|We [flew] on a passenger plane; I [slept] in the window seat.
+51|c|Monté en la bicicleta de carreras y golpeé el poste de luz.|I [rode] the racing bike and [hit] the lamppost.
+51|t|Cantó en el concurso de canto y bebió un vaso de agua.|She [sang] in the singing contest and [drank] a glass of water.
+51|c|El niño se escondió en la casa del árbol; durmió en el piso de madera.|The boy [hid] in the tree house; he [slept] on the wooden floor.
+51|t|El terremoto sacudió la estación de bomberos; nadie se lastimó.|The earthquake [shook] the fire station; nobody was [hurt].
+51|c|La pelota de fútbol golpeó la ventana del carro; nos escondimos detrás del muro.|The soccer ball [hit] the car window; we [hid] behind the wall.
+51|t|Bebimos jugo de naranja en la mesa de la cocina y cantamos la canción de cumpleaños.|We [drank] orange juice at the kitchen table and [sang] the birthday song.
+51|c|Nadé en el traje de baño nuevo; me lastimé con la cremallera.|I [swam] in my new swimsuit; I [hurt] myself on the zipper.
+51|t|Montamos en la montaña rusa del parque de diversiones y bebimos limonada.|We [rode] the amusement park roller coaster and [drank] lemonade.
+51|c|Volé en la clase ejecutiva y dormí en la cama del avión.|I [flew] business class and [slept] in the airplane bed.
+51|t|Escondí la tarjeta de crédito en la caja de zapatos; mi hermano la sacudió y la encontró.|I [hid] my credit card in the shoe box; my brother [shook] it and found it.
+51|c|Me golpeé con la puerta del garaje y me lastimé el brazo.|I [hit] the garage door and [hurt] my arm.
+51|t|Dormimos en la estación de tren; bebimos café de la máquina.|We [slept] at the train station; we [drank] coffee from the vending machine.
+
+# --- Regla 52 · Expresiones de tiempo con "over" ---
+52|t|Durante los últimos años he volado mucho y he dormido poco.|Over the last few years I have [flown] a lot and have [slept] little.
+52|c|A lo largo del fin de semana nadamos y montamos bicicleta.|Over the weekend we [swam] and [rode] our bikes.
+52|t|Durante el verano bebimos limonada y cantamos en la playa.|Over the summer we [drank] lemonade and [sang] on the beach.
+52|c|En los últimos meses me he lastimado dos veces; me golpeé la rodilla.|Over the past few months I have [hurt] myself twice; I [hit] my knee.
+52|t|A lo largo de los años escondió cartas en ese libro; nunca lo sacudió nadie.|Over the years she [hid] letters in that book; nobody ever [shook] it.
+52|c|Durante el almuerzo cantó para nosotros y bebimos vino.|Over lunch she [sang] for us, and we [drank] wine.
+52|t|En la última década los terremotos han sacudido la región y han golpeado muchas ciudades.|Over the last decade earthquakes have [shaken] the region and have [hit] many cities.
+52|c|Durante la cena bebimos agua y nadie durmió en la mesa.|Over dinner we [drank] water, and nobody [slept] at the table.
+52|t|En las últimas semanas he nadado mucho y he dormido mejor.|Over the last few weeks I have [swum] a lot and have [slept] better.
+52|c|A lo largo de su carrera montó cien caballos y se lastimó muchas veces.|Over her career she [rode] a hundred horses and [hurt] herself many times.
+52|t|Durante la noche el viento sacudió la carpa y no dormimos.|Over the night the wind [shook] the tent, and we didn't [sleep].
+52|c|En los últimos días el gato se ha escondido y no ha bebido agua.|Over the last few days the cat has [hidden] and hasn't [drunk] any water.
+52|t|A lo largo del año volé a diez países y nadé en cinco mares.|Over the year I [flew] to ten countries and [swam] in five seas.
+52|c|Durante las vacaciones montamos a caballo y cantamos junto al fuego.|Over the holidays we [rode] horses and [sang] by the fire.
+52|t|En los últimos años la ciudad ha sido golpeada por tormentas; muchos se han lastimado.|Over the past few years the city has been [hit] by storms; many people have been [hurt].
+
+# --- Regla 53 · Future Continuous ---
+53|t|Mañana a esta hora estaré volando a Madrid; anoche casi no dormí y bebí demasiado café.|This time tomorrow I'll be flying to Madrid; last night I barely [slept] and [drank] too much coffee.
+53|c|Esta noche estaremos cantando en el bar; ya bebimos té con miel y cantamos en el carro.|Tonight we'll be singing at the bar; we have already [drunk] tea with honey and [sung] in the car.
+53|t|A las ocho estaré nadando en el lago; ayer nadé una hora y me lastimé el pie.|At eight I'll be swimming in the lake; yesterday I [swam] for an hour and [hurt] my foot.
+53|c|El sábado estaremos montando a caballo; la última vez el caballo me tumbó y me golpeé contra el suelo.|On Saturday we'll be riding horses; last time the horse [shook] me off and I [hit] the ground.
+53|t|A las diez estaré durmiendo; hoy volé desde Tokio y nadé en la piscina del hotel.|At ten I'll be sleeping; today I [flew] in from Tokyo and [swam] in the hotel pool.
+53|c|La próxima semana estaremos escondiendo los huevos de Pascua; el año pasado los niños los encontraron y los sacudieron, y uno golpeó el piso.|Next week we'll be hiding Easter eggs; last year the kids found them and [shook] them, and one [hit] the floor.
+53|t|Mañana estará cantando en la boda; anoche bebió demasiado y durmió poco.|Tomorrow she'll be singing at the wedding; last night she [drank] too much and [slept] little.
+53|c|En diez años estarás volando aviones; ya volaste un simulador y no te escondiste del miedo.|In ten years you'll be flying planes; you have already [flown] a simulator and haven't [hidden] from your fear.
+53|t|El domingo estaremos nadando en el mar; la última vez nos golpeó una ola y bebimos agua salada.|On Sunday we'll be swimming in the sea; last time a wave [hit] us and we [drank] salt water.
+53|c|Esta tarde estaré montando bicicleta; ayer me golpeé con un poste y me lastimé el codo.|This afternoon I'll be riding my bike; yesterday I [hit] a pole and [hurt] my elbow.
+53|t|En junio estaré durmiendo en una carpa; el año pasado el viento la sacudió toda la noche y no dormí.|In June I'll be sleeping in a tent; last year the wind [shook] it all night, and I didn't [sleep].
+53|c|A medianoche estaremos cantando todavía; ya cantamos veinte canciones y bebimos todo el vino.|At midnight we'll still be singing; we have already [sung] twenty songs and [drunk] all the wine.
+53|t|Mañana estará volando sobre el Atlántico; ayer escondió su miedo y bebió una manzanilla.|Tomorrow she'll be flying over the Atlantic; yesterday she [hid] her fear and [drank] chamomile tea.
+53|c|El viernes estaré nadando en la competencia; ya nadé las pruebas y no me lastimé.|On Friday I'll be swimming in the competition; I have already [swum] the trials and haven't been [hurt].
+53|t|Esta noche estarán durmiendo en el tren; ayer montaron en él diez horas y se golpearon en cada curva.|Tonight they'll be sleeping on the train; yesterday they [rode] it for ten hours and [hit] their heads on every curve.
+
+# --- Regla 54 · Comparativos y superlativos ---
+54|t|Nadó más rápido que yo y no se lastimó.|She [swam] faster than me and didn't get [hurt].
+54|c|Dormí más que nunca; bebí menos café que el mes pasado.|I [slept] more than ever; I [drank] less coffee than last month.
+54|t|Es la canción más bonita que han cantado; la escondieron en el último disco.|It's the most beautiful song they have ever [sung]; they [hid] it on their last album.
+54|c|Fue el vuelo más largo que he volado; dormí más que en casa.|It was the longest flight I have ever [flown]; I [slept] more than at home.
+54|t|Montó el caballo más salvaje de la finca; lo sacudió más que a nadie.|He [rode] the wildest horse on the farm; it [shook] him more than anyone.
+54|c|Fue el golpe más fuerte que me he dado; me lastimé más que nunca.|It was the hardest I have ever [hit] my head; I was [hurt] more than ever.
+54|t|Es el mejor escondite que he encontrado; me escondí allí más tiempo que todos y dormí un poco.|It's the best hiding place I have found; I [hid] there longer than everyone and [slept] a little.
+54|c|Bebió más agua que todos porque nadó más lejos.|She [drank] more water than everyone because she [swam] farther.
+54|t|Fue el terremoto más fuerte que ha sacudido la ciudad; nadie durmió esa noche.|It was the strongest earthquake that has ever [shaken] the city; nobody [slept] that night.
+54|c|Cantó peor que yo, pero bebió más.|He [sang] worse than me, but he [drank] more.
+54|t|Es el lago más frío en el que he nadado; me escondí en la toalla una hora.|It's the coldest lake I have ever [swum] in; I [hid] in my towel for an hour.
+54|c|El avión voló más bajo que nunca y sacudió las casas.|The plane [flew] lower than ever and [shook] the houses.
+54|t|Es la peor lesión que he tenido; me golpeé contra el suelo más fuerte que nunca y me lastimé la espalda.|It's the worst injury I have had; I [hit] the ground harder than ever and [hurt] my back.
+54|c|Montamos más lejos que el año pasado; bebimos el doble de agua.|We [rode] farther than last year; we [drank] twice as much water.
+54|t|Dormí mejor en la playa que en el hotel; nadé más que nunca.|I [slept] better on the beach than in the hotel; I [swam] more than ever.
+
+# --- Regla 55 · make/let/help + objeto + infinitivo ---
+55|t|Mi mamá me hizo dormir temprano; bebí leche caliente.|My mom made me [sleep] early; I [drank] warm milk.
+55|c|El entrenador nos hizo nadar diez vueltas; nadie se lastimó.|The coach made us [swim] ten laps; nobody got [hurt].
+55|t|Mis papás me dejaron montar la moto; no me golpeé.|My parents let me [ride] the motorcycle; I didn't [hit] anything.
+55|c|La profesora nos hizo cantar el himno; me escondí atrás.|The teacher made us [sing] the anthem; I [hid] in the back.
+55|t|Mi abuelo me ayudó a esconder el regalo; mi hermana lo sacudió igual.|My grandfather helped me [hide] the gift; my sister [shook] it anyway.
+55|c|Déjame dormir; volé toda la noche.|Let me [sleep]; I [flew] all night.
+55|t|El médico me hizo beber mucha agua; me había lastimado la garganta.|The doctor made me [drink] a lot of water; I had [hurt] my throat.
+55|c|Mi papá me ayudó a nadar hasta la orilla; un bote me había golpeado.|My dad helped me [swim] to the shore; a boat had [hit] me.
+55|t|No me dejes beber más; ya canté tres canciones.|Don't let me [drink] any more; I have already [sung] three songs.
+55|c|El instructor me hizo volar el avión solo; dormí mal la noche anterior.|The instructor made me [fly] the plane alone; I [slept] badly the night before.
+55|t|Déjala esconderse; la última vez durmió escondida en el armario.|Let her [hide]; last time she [slept] hidden in the closet.
+55|c|El viento hizo sacudir la casa; nadie durmió.|The wind made the house [shake]; nobody [slept].
+55|t|Mi amigo me ayudó a montar la bicicleta; me lastimé al principio.|My friend helped me [ride] the bike; I [hurt] myself at first.
+55|c|La música me hizo cantar; bebí un poco de vino.|The music made me [sing]; I [drank] a little wine.
+55|t|El ruido no me dejó dormir; el trueno sacudió las ventanas.|The noise didn't let me [sleep]; the thunder [shook] the windows.
+
+# --- Regla 56 · Estilo indirecto ---
+56|t|Dijo que había dormido mal y que había bebido demasiado café.|He said he had [slept] badly and had [drunk] too much coffee.
+56|c|Me dijo que había nadado en el mar y que se había lastimado con un coral.|She told me she had [swum] in the sea and had [hurt] herself on some coral.
+56|t|Dijeron que habían volado en globo y que el viento los había sacudido.|They said they had [flown] in a balloon and that the wind had [shaken] them.
+56|c|Me preguntó si había cantado en la boda y si había bebido champaña.|She asked me if I had [sung] at the wedding and if I had [drunk] champagne.
+56|t|Dijo que había montado a caballo y que se había golpeado al caer.|He said he had [ridden] a horse and had [hit] the ground when he fell.
+56|c|Me contó que el perro se había escondido y que había dormido en el garaje.|She told me the dog had [hidden] and had [slept] in the garage.
+56|t|Dijeron que el terremoto había sacudido la ciudad y que nadie se había lastimado.|They said the earthquake had [shaken] the city and that nobody had been [hurt].
+56|c|Le pregunté si había dormido en el avión; dijo que había volado despierto.|I asked him if he had [slept] on the plane; he said he had [flown] wide awake.
+56|t|Me dijo que nadaría en la carrera y que cantaría en la fiesta.|She told me she would [swim] in the race and would [sing] at the party.
+56|c|Dijo que escondería el regalo y que nadie lo sacudiría.|He said he would [hide] the gift and that nobody would [shake] it.
+56|t|Me preguntó por qué había bebido tanto y por qué había cantado tan alto.|He asked me why I had [drunk] so much and why I had [sung] so loudly.
+56|c|Dijeron que la pelota había golpeado la ventana y que nadie se había lastimado.|They said the ball had [hit] the window and that nobody had been [hurt].
+56|t|Me contó que había volado sobre el volcán y que había dormido en una cabaña.|She told me she had [flown] over the volcano and had [slept] in a cabin.
+56|c|Dijo que montaría en bicicleta y que nadaría en el lago.|He said he would [ride] his bike and would [swim] in the lake.
+56|t|Me dijo que se había escondido de la tormenta y que había bebido chocolate caliente.|She told me she had [hidden] from the storm and had [drunk] hot chocolate.
+
+# --- Regla 57 · Wish + pasado simple ---
+57|t|Ojalá durmiera más; anoche bebí demasiado café.|I wish I [slept] more; last night I [drank] too much coffee.
+57|c|Ojalá nadara mejor; ayer me lastimé en la piscina.|I wish I [swam] better; yesterday I [hurt] myself in the pool.
+57|t|Ojalá no hubiera bebido tanto; canté terrible en la fiesta.|I wish I hadn't [drunk] so much; I [sang] terribly at the party.
+57|c|Ojalá hubiera volado de día; dormí muy mal en el avión.|I wish I had [flown] during the day; I [slept] very badly on the plane.
+57|t|Ojalá no me hubiera escondido; ella cantó para mí.|I wish I hadn't [hidden]; she [sang] for me.
+57|c|Ojalá no hubiera montado tan rápido; me golpeé con un árbol.|I wish I hadn't [ridden] so fast; I [hit] a tree.
+57|t|Ojalá cantara como tú; ayer me escondí en el karaoke.|I wish I [sang] like you; yesterday I [hid] at karaoke.
+57|c|Ojalá el terremoto no hubiera sacudido la casa; nadie durmió.|I wish the earthquake hadn't [shaken] the house; nobody [slept].
+57|t|Ojalá no me hubiera golpeado la cabeza; me lastimé de verdad.|I wish I hadn't [hit] my head; I really [hurt] myself.
+57|c|Ojalá no hubieras escondido mis llaves; dormí en el carro.|I wish you hadn't [hidden] my keys; I [slept] in the car.
+57|t|Ojalá montara a caballo; el año pasado volé a una finca y solo miré.|I wish I [rode] horses; last year I [flew] to a farm and only watched.
+57|c|Ojalá hubiera nadado en el mar; bebí mojitos en la piscina todo el día.|I wish I had [swum] in the sea; I [drank] mojitos by the pool all day.
+57|t|Ojalá durmiera en una cama mejor; me lastimé la espalda.|I wish I [slept] in a better bed; I [hurt] my back.
+57|c|Ojalá no me hubieran lastimado sus palabras; me escondí en mi cuarto.|I wish his words hadn't [hurt] me; I [hid] in my room.
+57|t|Ojalá volara más seguido; la última vez nadé en tres playas en una semana.|I wish I [flew] more often; last time I [swam] at three beaches in one week.
+
+# --- Regla 58 · Conectores formales ---
+58|t|Durmió diez horas; sin embargo, bebió café al despertar.|He [slept] for ten hours; however, he [drank] coffee when he woke up.
+58|c|Nadó sin descanso; por lo tanto, se lastimó el hombro.|She [swam] without rest; therefore, she [hurt] her shoulder.
+58|t|Además de haber cantado en cada concierto, voló por todo el país en su gira.|In addition to having [sung] at every show, she [flew] across the country on her tour.
+58|c|El terremoto sacudió la ciudad; no obstante, nadie se lastimó.|The earthquake [shook] the city; nevertheless, nobody was [hurt].
+58|t|La tormenta golpeó la costa; en consecuencia, nadie nadó.|The storm [hit] the coast; consequently, nobody [swam].
+58|c|Escondieron el dinero; asimismo, sacudieron todos los libros para despistar.|They [hid] the money; likewise, they [shook] all the books to confuse people.
+58|t|Aunque montó con casco, se lastimó la rodilla.|Although he [rode] with a helmet, he [hurt] his knee.
+58|c|Bebió poco; sin embargo, durmió muy mal.|She [drank] little; however, she [slept] very badly.
+58|t|A pesar de haber volado toda la noche, cantó en el concierto.|Despite having [flown] all night, she [sang] at the concert.
+58|c|Nadamos en el río; además, montamos a caballo por la orilla.|We [swam] in the river; furthermore, we [rode] horses along the bank.
+58|t|El pájaro golpeó la ventana; por consiguiente, se escondió en el árbol.|The bird [hit] the window; as a result, it [hid] in the tree.
+58|c|Durmió poco; por lo tanto, bebió tres cafés.|He [slept] little; therefore, he [drank] three coffees.
+58|t|Se escondió durante horas; no obstante, lo encontraron después de que había dormido un rato.|He [hid] for hours; nevertheless, they found him after he had [slept] for a while.
+58|c|Cantaron con pasión; por consiguiente, el público sacudió el estadio.|They [sang] with passion; consequently, the crowd [shook] the stadium.
+58|t|Aunque voló en primera clase, no durmió.|Although she [flew] first class, she didn't [sleep].
+
+# --- Regla 59 · Phrasal verbs B2 ---
+59|t|Dormí hasta tarde en el sofá; bebí demasiado vino.|I [slept] in late on the sofa; I [drank] too much wine.
+59|c|Se acabó el café, así que bebimos té y dormimos mal.|We ran out of coffee, so we [drank] tea and [slept] badly.
+59|t|Se sacudió el polvo y montó en la bicicleta otra vez.|He [shook] off the dust and [rode] his bike again.
+59|c|Se le pasó el susto y cantó en el escenario.|She [shook] off her nerves and [sang] on stage.
+59|t|Me encontré con un viejo amigo; bebimos café y cantamos canciones viejas.|I bumped into an old friend; we [drank] coffee and [sang] old songs.
+59|c|El gato se escondió; durmió en el ático por horas.|The cat [hid] away; it [slept] in the attic for hours.
+59|t|Golpeé la puerta y me lastimé la mano.|I [hit] the door and [hurt] my hand.
+59|c|Pasó volando el tiempo; nadamos toda la tarde.|Time [flew] by; we [swam] all afternoon.
+59|t|Se le ocurrió una idea mientras nadaba; la cantó en la ducha.|He [hit] on an idea while he swam; he [sang] it in the shower.
+59|c|Montamos por la ciudad toda la noche y dormimos al amanecer.|We [rode] around the city all night and [slept] at dawn.
+59|t|Se recuperó de la lesión que la había lastimado y nadó otra vez.|She got over the injury that had [hurt] her and [swam] again.
+59|c|Se escondió de los periodistas y voló a Europa.|He [hid] from the reporters and [flew] off to Europe.
+59|t|Dormimos la borrachera; bebimos demasiado en la boda.|We [slept] it off; we [drank] too much at the wedding.
+59|c|El avión despegó y voló sobre la ciudad; el niño cantó de emoción.|The plane took off and [flew] over the city; the boy [sang] with excitement.
+59|t|Le dolió el rechazo, pero se lo sacudió de encima.|The rejection [hurt] him, but he [shook] it off.
