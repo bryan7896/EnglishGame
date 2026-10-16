@@ -1,0 +1,104 @@
+# Paquete 10 · bet, cost, quit, shine, slide, stick, sink, split, sweep, swing
+# regla|t (traducción) o c (completar)|español|inglés con las 2 formas entre [corchetes]
+
+# --- Regla 1 · Past Perfect Continuous ---
+1|t|Llevaba años fumando cuando por fin lo dejó; le costó mucho.|He had been smoking for years when he finally [quit]; it [cost] him a lot.
+1|c|Habíamos estado navegando por horas cuando el barco se hundió; el sol brillaba fuerte.|We had been sailing for hours when the boat [sank]; the sun [shone] brightly.
+1|t|Llevaba toda la mañana barriendo cuando el niño se deslizó en el piso mojado; había barrido toda la casa.|She had been sweeping all morning when the boy [slid] on the wet floor; she had [swept] the whole house.
+1|c|Habían estado discutiendo por meses cuando por fin se separaron; la decisión les costó lágrimas.|They had been arguing for months when they finally [split] up; the decision [cost] them tears.
+1|t|Llevaba horas jugando en el parque cuando se balanceó demasiado alto; las manos se le pegaron a las cadenas.|He had been playing in the park for hours when he [swung] too high; his hands [stuck] to the chains.
+1|c|Había estado lloviendo toda la semana cuando por fin el sol brilló; barrimos el patio.|It had been raining all week when the sun finally [shone]; we [swept] the yard.
+1|t|Llevaba meses apostando cuando perdió la casa; le costó todo y lo dejó para siempre.|He had been betting for months when he lost the house; it [cost] him everything, and he [quit] for good.
+1|c|Habíamos estado caminando por la nieve cuando nos deslizamos por la colina; nos quedamos pegados a un árbol.|We had been walking through the snow when we [slid] down the hill; we got [stuck] against a tree.
+1|t|Llevaba años trabajando allí cuando renunció; la empresa se hundió poco después.|She had been working there for years when she [quit]; the company [sank] soon after.
+1|c|Habían estado ahorrando por meses cuando el viaje costó el doble; dividieron los gastos.|They had been saving for months when the trip [cost] double; they [split] the expenses.
+1|t|Llevaba horas pegando fotos en el álbum; pegué la última justo cuando la luz del sol brilló sobre la mesa.|I had been putting photos in the album for hours; I [stuck] the last one just as the sunlight [shone] on the table.
+1|c|Había estado nevando toda la noche cuando la tormenta barrió el pueblo; el carro se deslizó en la calle.|It had been snowing all night when the storm [swept] through the town; the car [slid] in the street.
+1|t|Llevábamos una hora esperando cuando la puerta se balanceó y se abrió; apostamos a que era el viento.|We had been waiting for an hour when the door [swung] open; we [bet] it was the wind.
+1|c|Llevaba semanas entrenando cuando bateó la pelota y se hundió en el lago.|He had been training for weeks when he [swung] at the ball, and it [sank] in the lake.
+1|t|Había estado limpiando el barco cuando se hundió; le había costado años construirlo.|He had been cleaning the boat when it [sank]; it had [cost] him years to build it.
+
+# --- Regla 2 · Wh Questions ---
+2|t|¿Cuánto costó el carro? ¿Cuánto apostaste?|How much did the car [cost]? How much did you [bet]?
+2|c|¿Por qué renunciaste? ¿Quién se quedó con tu puesto?|Why did you [quit]? Who [stuck] around in your place?
+2|t|¿Cuándo se hundió el barco? ¿Brillaba el sol?|When did the ship [sink]? Did the sun [shine]?
+2|c|¿Quién barrió la cocina? ¿Quién se deslizó en el piso?|Who [swept] the kitchen? Who [slid] on the floor?
+2|t|¿Cómo dividieron la cuenta? ¿Cuánto costó la cena?|How did you [split] the bill? How much did dinner [cost]?
+2|c|¿Dónde pegaste la nota? ¿Quién la tumbó de la nevera al barrer?|Where did you [stick] the note? Who [swept] it off the fridge?
+2|t|¿Por qué se balanceó la lámpara? ¿Quién la golpeó al barrer?|Why did the lamp [swing]? Who hit it when they [swept]?
+2|c|¿Cuántas veces has apostado? ¿Cuánto te ha costado?|How many times have you [bet]? How much has it [cost] you?
+2|t|¿Quién dejó el trabajo? ¿Por qué se dividió el equipo?|Who [quit] the job? Why did the team [split]?
+2|c|¿Qué se hundió en el lago? ¿Quién lo vio deslizarse?|What [sank] in the lake? Who saw it [slide] in?
+2|t|¿Cuándo brilló la luna así? ¿Quién barrió la terraza?|When has the moon [shone] like this? Who [swept] the terrace?
+2|c|¿Por qué te quedaste atascado? ¿Te deslizaste en el lodo?|Why did you get [stuck]? Did you [slide] in the mud?
+2|t|¿Cuánto apostaron? ¿Quién dividió el premio?|How much did they [bet]? Who [split] the prize?
+2|c|¿Quién se balanceó en el columpio? ¿Se le hundió el corazón?|Who [swung] on the swing? Did his heart [sink]?
+2|t|¿Cuánto te costó dejar el café? ¿Por qué lo dejaste?|How much did it [cost] you to give up coffee? Why did you [quit]?
+
+# --- Regla 3 · Orden de sustantivos compuestos ---
+3|t|Apostó en la carrera de caballos; le costó todo el salario del mes.|He [bet] on the horse race; it [cost] him his whole monthly salary.
+3|c|Renunció a la empresa de seguros y se quedó en la tienda de su papá.|She [quit] the insurance company and [stuck] with her dad's store.
+3|t|El barco de pesca se hundió en la tormenta de invierno; el sol no brilló en días.|The fishing boat [sank] in the winter storm; the sun didn't [shine] for days.
+3|c|Barrí el piso de la cocina y me deslicé en el agua del lavaplatos.|I [swept] the kitchen floor and [slid] on the dishwasher water.
+3|t|Dividimos la cuenta del restaurante; la cena costó poco.|We [split] the restaurant bill; dinner [cost] little.
+3|c|Pegué la etiqueta del precio en la caja de zapatos; brillaba con la luz de la vitrina.|I [stuck] the price tag on the shoe box; it [shone] in the shop window light.
+3|t|El niño se balanceó en el columpio del parque y se deslizó por el tobogán de agua.|The boy [swung] on the park swing and [slid] down the water slide.
+3|c|La tarjeta de crédito se quedó pegada en el cajero automático; me costó una hora sacarla.|My credit card got [stuck] in the ATM; it [cost] me an hour to get it out.
+3|t|La tormenta de arena barrió el campo de fútbol; el equipo se dividió en dos grupos.|The sandstorm [swept] the soccer field; the team [split] into two groups.
+3|c|Apostamos en el partido de fútbol y dejamos la apuesta de baloncesto.|We [bet] on the soccer game and [quit] the basketball pool.
+3|t|La luz de la luna brilló sobre el agua del lago; la piedra se hundió despacio.|The moonlight [shone] on the lake water; the stone [sank] slowly.
+3|c|El pedido de comida costó el doble; lo dividimos entre cuatro compañeros de cuarto.|The food order [cost] double; we [split] it among four roommates.
+3|t|Se deslizó en la pista de hielo y se pegó a la baranda de seguridad.|He [slid] on the ice rink and [stuck] to the safety rail.
+3|c|Barrimos la entrada del garaje; el portón del garaje se balanceó con el viento.|We [swept] the garage driveway; the garage door [swung] in the wind.
+3|t|Renunció al club de lectura; le había costado tiempo de trabajo.|She [quit] the book club; it had [cost] her work time.
+
+# --- Regla 4 · Segundo condicional ---
+4|t|Si apostara, perdería; el último viaje me costó demasiado.|If I [bet], I would lose; the last trip [cost] me too much.
+4|c|Si renunciaras, te quedarías sin seguro; dividiríamos los gastos.|If you [quit], you would lose your insurance; we would [split] the expenses.
+4|t|Si el sol brillara, barreríamos el patio.|If the sun [shone], we would [sweep] the yard.
+4|c|Si el barco se hundiera, nos deslizaríamos al bote salvavidas.|If the ship [sank], we would [slide] into the lifeboat.
+4|t|Si pegaras la foto aquí, brillaría con la luz.|If you [stuck] the photo here, it would [shine] in the light.
+4|c|Si dividiéramos la pizza, costaría menos por persona.|If we [split] the pizza, it would [cost] less per person.
+4|t|Si barrieras el piso, nadie se deslizaría.|If you [swept] the floor, nobody would [slide].
+4|c|Si bateara más fuerte, la pelota se hundiría en el lago.|If he [swung] harder, the ball would [sink] in the lake.
+4|t|Si dejara el azúcar, me costaría una semana acostumbrarme.|If I [quit] sugar, it would [cost] me a week to get used to it.
+4|c|Si te quedaras con el plan, apostaría por ti.|If you [stuck] to the plan, I would [bet] on you.
+4|t|Si la puerta se balanceara con el viento, la pegaríamos con cinta.|If the door [swung] in the wind, we would [stick] it shut with tape.
+4|c|Si el carro se deslizara en el hielo, se hundiría en la nieve.|If the car [slid] on the ice, it would [sink] into the snow.
+4|t|Si las estrellas brillaran más, dividiríamos la noche mirándolas.|If the stars [shone] brighter, we would [split] the night watching them.
+4|c|Si barriéramos ahora, no nos costaría tanto después.|If we [swept] now, it wouldn't [cost] us so much effort later.
+4|t|Si apostaras menos, no te hundirías en deudas.|If you [bet] less, you wouldn't [sink] into debt.
+
+# --- Regla 5 · Cláusulas relativas ---
+5|t|El hombre que apostó todo renunció a su trabajo.|The man who [bet] everything [quit] his job.
+5|c|El barco que se hundió costó millones.|The ship that [sank] [cost] millions.
+5|t|La niña que se deslizó por el tobogán se quedó pegada en el agua.|The girl who [slid] down the slide got [stuck] in the water.
+5|c|El piso que barrí brilló como nuevo.|The floor that I [swept] [shone] like new.
+5|t|La cuenta que dividimos costó menos de lo esperado.|The bill that we [split] [cost] less than expected.
+5|c|El columpio en el que se balanceó se hundió en el lodo.|The swing that he [swung] on [sank] into the mud.
+5|t|La nota que pegué en la nevera brillaba con el sol.|The note that I [stuck] on the fridge [shone] in the sun.
+5|c|El jugador que renunció apostó contra su equipo.|The player who [quit] had [bet] against his team.
+5|t|La ola que barrió la playa hundió dos botes.|The wave that [swept] the beach [sank] two boats.
+5|c|El niño que bateó la pelota se deslizó en la tercera base.|The boy who [swung] the bat [slid] into third base.
+5|t|El viaje que nos costó tanto lo dividimos entre todos.|We [split] the trip that [cost] us so much among everyone.
+5|c|La estrella que brilló anoche se hundió en el horizonte.|The star that [shone] last night [sank] below the horizon.
+5|t|La señora cuyo carro se deslizó en el hielo renunció a manejar.|The woman whose car [slid] on the ice [quit] driving.
+5|c|El amigo con el que aposté se quedó con mi dinero.|The friend I [bet] with [stuck] around with my money.
+5|t|El conserje que barrió el pasillo pegó un aviso en la puerta.|The janitor who [swept] the hallway [stuck] a notice on the door.
+
+# --- Regla 6 · Need to + infinitivo ---
+6|t|Necesito dejar de fumar; el año pasado me costó una fortuna y apuesto a que puedo lograrlo.|I need to quit smoking; last year it [cost] me a fortune, and I [bet] I can do it.
+6|c|Necesitas barrer la cocina; ayer alguien se deslizó en el aceite.|You need to [sweep] the kitchen; yesterday someone [slid] on the oil.
+6|t|Necesitamos dividir la cuenta; la cena costó demasiado.|We need to [split] the bill; dinner [cost] too much.
+6|c|Necesito pegar esta nota; ayer renuncié a recordar todo de memoria.|I need to [stick] this note up; yesterday I [quit] trying to remember everything.
+6|t|Necesitas brillar en la entrevista; el otro candidato apostó por la experiencia.|You need to [shine] in the interview; the other candidate [bet] on experience.
+6|c|Necesitamos sacar el barco; ya se hundió un poco y las olas pasaron por encima.|We need to get the boat out; it has already [sunk] a little, and the waves [swept] over it.
+6|t|No necesitas apostar; ya te costó mucho la última vez.|You don't need to [bet]; it already [cost] you a lot last time.
+6|c|Necesito balancear mejor el bate; ayer bateé y la pelota se hundió en la piscina.|I need to [swing] the bat better; yesterday the ball [sank] in the pool.
+6|t|Necesitas quedarte con el plan; ayer te deslizaste de tu objetivo.|You need to [stick] to the plan; yesterday you [slid] away from your goal.
+6|c|Necesitamos limpiar el patio; el viento barrió las hojas hacia la puerta y se pegaron a ella.|We need to clean the yard; the wind [swept] the leaves to the door, and they [stuck] to it.
+6|t|Necesito renunciar; la empresa se hundió este año.|I need to [quit]; the company [sank] this year.
+6|c|Necesitas dividir el trabajo; el proyecto nos costó semanas.|You need to [split] the work; the project [cost] us weeks.
+6|t|Necesitamos que el sol brille; ayer la lluvia barrió el campo.|We need the sun to [shine]; yesterday the rain [swept] across the field.
+6|c|Necesito deslizar la carta debajo de la puerta; ya pegué la estampilla.|I need to [slide] the letter under the door; I have already [stuck] the stamp on.
+6|t|No necesitas balancearte tan alto; ayer te costó bajar.|You don't need to [swing] so high; yesterday it [cost] you a scare to get down.
