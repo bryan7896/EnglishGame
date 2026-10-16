@@ -819,7 +819,7 @@
 
 # --- Regla 51 · Sustantivos compuestos ---
 51|t|El perro guardián mordió al ladrón en la puerta del garaje; cerramos el portón de hierro.|The guard dog [bit] the thief at the garage door; we [shut] the iron gate.
-51|c|Cavamos un hoyo en el patio trasero y colocamos la cápsula del tiempo.|We [dug] a hole in the backyard and [laid] the time capsule in it.
+51|c|Cavamos un hoyo en el jardín de la abuela y colocamos la caja de recuerdos.|We [dug] a hole in Grandma's garden and [laid] the memory box in it.
 51|t|El viento de la tormenta sopló las sillas del jardín y rasgó la sombrilla de playa.|The storm wind [blew] the garden chairs over and [tore] the beach umbrella.
 51|c|Sonó la alarma de incendios en el edificio de oficinas; cerramos la puerta de emergencia.|The fire alarm [rang] in the office building; we [shut] the emergency door.
 51|t|Un rayo golpeó la torre de control; la noticia se esparció por la sala de prensa.|Lightning [struck] the control tower; the news [spread] through the press room.
