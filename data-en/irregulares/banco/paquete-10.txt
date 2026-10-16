@@ -323,3 +323,54 @@
 20|t|La luna brilla sobre el lago; anoche brilló y el bote se deslizó en silencio.|The moon shines over the lake; last night it [shone], and the boat [slid] by in silence.
 20|c|El barco se hunde un poco con cada ola; anoche se hundió más y renunciamos a navegar.|The boat sinks a little with every wave; last night it [sank] more, and we [quit] sailing.
 20|t|El columpio se balancea solo; anoche se balanceó y barrió las hojas del suelo.|The swing moves by itself; last night it [swung] and [swept] the leaves off the ground.
+
+# --- Regla 21 · Say vs Tell ---
+21|t|Me dijo que había renunciado; me contó que le costó mucho.|He told me he had [quit]; he said it [cost] him a lot.
+21|c|Dijo que había apostado en la carrera; me contó que dividió el premio con su hermano.|She said she had [bet] on the race; she told me she [split] the prize with her brother.
+21|t|Dijeron que el barco se había hundido; nos contaron que el sol brillaba ese día.|They said the ship had [sunk]; they told us the sun [shone] that day.
+21|c|Le dije que barriera la cocina, pero dijo que ya la había barrido y había pegado una nota en la nevera.|I told him to sweep the kitchen, but he said he had already [swept] it and [stuck] a note on the fridge.
+21|t|Me contó que se deslizó en el hielo; dijo que se quedó pegado a la baranda.|She told me she [slid] on the ice; she said she [stuck] to the railing.
+21|c|Dijo que el columpio se balanceó solo; me contó que barrió las hojas al moverse.|He said the swing [swung] by itself; he told me it [swept] the leaves as it moved.
+21|t|Dime cuánto costó; dijeron que lo dividiste con tu socio.|Tell me how much it [cost]; they said you [split] it with your partner.
+21|c|Dijeron que la empresa se hundió; nos contaron que todos renunciaron.|They said the company [sank]; they told us everyone [quit].
+21|t|Me dijo que pegó las fotos en el álbum; dijo que le costó toda la tarde.|She told me she [stuck] the photos in the album; she said it [cost] her the whole afternoon.
+21|c|Dijo "te lo apuesto" y me contó que la luna brilló toda la noche.|He said "I [bet] you" and told me the moon [shone] all night.
+21|t|Le conté que había barrido el patio; dijo que las hojas se habían pegado otra vez al piso mojado.|I told her I had [swept] the yard; she said the leaves had [stuck] to the wet ground again.
+21|c|Dijeron que bateó muy fuerte; nos contaron que la pelota se hundió en el río.|They said he [swung] very hard; they told us the ball [sank] in the river.
+21|t|Me dijo que se había quedado con el plan; dijo que no renunció nunca.|He told me he had [stuck] to the plan; he said he never [quit].
+21|c|Dijo que el grupo se dividió; me contó que costó mucho volverlo a unir.|She said the group [split]; she told me it [cost] a lot to bring it back together.
+21|t|Cuéntame cómo te deslizaste; dijeron que te hundiste en la nieve.|Tell me how you [slid]; they said you [sank] into the snow.
+
+# --- Regla 22 · Artículos ---
+22|t|Aposté un dólar y el juego me costó una hora.|I [bet] a dollar, and the game [cost] me an hour.
+22|c|El barco se hundió en una tormenta; el sol brilló al día siguiente.|The ship [sank] in a storm; the sun [shone] the next day.
+22|t|Barrí la cocina y me deslicé en una cáscara de banano.|I [swept] the kitchen and [slid] on a banana peel.
+22|c|Dividimos una pizza y el pedido costó poco.|We [split] a pizza, and the order [cost] little.
+22|t|Una niña se balanceó en el columpio; se le pegó la manga a una cadena.|A girl [swung] on the swing; her sleeve [stuck] to a chain.
+22|c|El jefe renunció en una reunión; la empresa se hundió en un mes.|The boss [quit] in a meeting; the company [sank] within a month.
+22|t|Pegué una nota en la puerta; el sol brilló sobre ella toda la tarde.|I [stuck] a note on the door; the sun [shone] on it all afternoon.
+22|c|Una ola barrió la playa y un bote se hundió.|A wave [swept] the beach, and a boat [sank].
+22|t|Un hombre apostó todo en una carrera; le costó la casa.|A man [bet] everything on a race; it [cost] him his house.
+22|c|El carro se deslizó en una curva y se quedó atascado en el barro.|The car [slid] on a curve and got [stuck] in the mud.
+22|t|Un jugador bateó una pelota que brilló bajo las luces.|A player [swung] at a ball that [shone] under the lights.
+22|c|La banda se dividió en un año; el cantante renunció primero.|The band [split] up within a year; the singer [quit] first.
+22|t|Barrimos una terraza enorme; nos costó toda la mañana.|We [swept] a huge terrace; it [cost] us the whole morning.
+22|c|Una moneda se deslizó por el piso y se hundió en una grieta.|A coin [slid] across the floor and [sank] into a crack.
+22|t|Una amiga apostó por mí; dividimos el premio.|A friend [bet] on me; we [split] the prize.
+
+# --- Regla 23 · Phrasal verbs con "look" ---
+23|t|Busqué el barco que se hundió; le costó a mi abuelo toda su fortuna.|I looked for the ship that [sank]; it had [cost] my grandfather his whole fortune.
+23|c|Se parece a su papá: apostaba igual y nunca renunciaba.|He looks like his dad: he [bet] the same way and never [quit].
+23|t|Busca la palabra; ayer la pegué en mi cuaderno y me costó un rato encontrarla.|Look up the word; I [stuck] it in my notebook yesterday, and it [cost] me a while to find it.
+23|c|Me miró y se balanceó en la silla; casi se desliza al piso.|She looked at me and [swung] back on her chair; she almost [slid] to the floor.
+23|t|Estoy buscando la escoba con la que barrí; la luz del sol brillaba en el rincón.|I'm looking for the broom I [swept] with; the sunlight [shone] in that corner.
+23|c|Cuida al niño; ayer se deslizó por la baranda y se quedó pegado.|Look after the boy; yesterday he [slid] down the railing and got [stuck].
+23|t|Mira cómo brilla el lago; ayer el sol se hundió detrás de él y brilló anaranjado.|Look how the lake shines; yesterday the sun [sank] behind it and [shone] orange.
+23|c|Espero con ansias el partido; el año pasado apostamos y dividimos las ganancias.|I'm looking forward to the game; last year we [bet] and [split] the winnings.
+23|t|Revisa la cuenta; la cena costó más de lo que dividimos.|Look over the bill; dinner [cost] more than we [split].
+23|c|Busqué en internet por qué la empresa se hundió; el gerente renunció.|I looked up why the company [sank]; the manager had [quit].
+23|t|Se veía feliz porque renunció; se quedó en casa toda la semana.|She looked happy because she [quit]; she [stuck] around the house all week.
+23|c|Mira lo que barrió el viento; las hojas se pegaron a la ventana.|Look at what the wind [swept] in; the leaves [stuck] to the window.
+23|t|Me miró como si hubiera apostado su dinero; le costó mucho perdonarme.|He looked at me as if I had [bet] his money; it [cost] him a lot to forgive me.
+23|c|Busqué un lugar para balancear la hamaca; el sol brillaba entre los árboles.|I looked for a place to [swing] the hammock; the sun [shone] through the trees.
+23|t|Buscamos el anillo que se deslizó por el desagüe; se hundió para siempre.|We looked for the ring that [slid] down the drain; it [sank] forever.
