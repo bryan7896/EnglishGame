@@ -204,3 +204,139 @@
 13|t|Ya había alimentado a los caballos; mañana colgaremos las monturas.|I had already [fed] the horses; tomorrow we will [hang] the saddles.
 13|c|Nunca había tratado con un cliente así; mañana lo despertaré con una llamada temprano.|I had never [dealt] with a client like that; tomorrow I will [wake] him with an early call.
 13|t|Habíamos colgado las luces; esta noche despertaremos a los niños para verlas.|We had [hung] the lights; tonight we will [wake] the kids to see them.
+
+# --- Regla 14 · Make vs Do ---
+14|t|Hice la cena y les di de comer a los niños; luego colgué la ropa.|I made dinner and [fed] the kids; then I [hung] up the laundry.
+14|c|Cometí un error y me robaron la billetera; mi amigo me prestó dinero.|I made a mistake, and someone [stole] my wallet; my friend [lent] me money.
+14|t|Hicimos un trato y juramos guardar el secreto; él me perdonó la deuda.|We made a deal and [swore] to keep the secret; he [forgave] my debt.
+14|c|Hizo la tarea y luego buscó un trabajo de medio tiempo; trató con muchos clientes.|She did her homework and then [sought] a part-time job; she [dealt] with many customers.
+14|t|Hice ruido y desperté al bebé; le di de comer otra vez.|I made noise and [woke] the baby; I [fed] him again.
+14|c|Hicieron un gran trabajo: grabaron el video y lo colgaron en internet.|They did a great job: they [shot] the video and [hung] it online.
+14|t|Hizo una promesa y la juró ante todos; nadie lo perdonó cuando la rompió.|He made a promise and [swore] it before everyone; nobody [forgave] him when he broke it.
+14|c|Hice las compras y le presté el carro a mi hermano; alguien lo robó en el parqueadero.|I did the shopping and [lent] the car to my brother; someone [stole] it in the parking lot.
+14|t|Hicimos un esfuerzo y tratamos con el problema; buscamos una solución juntos.|We made an effort and [dealt] with the problem; we [sought] a solution together.
+14|c|Hizo una llamada y colgó enojado; luego me despertó para contarme.|He made a call and [hung] up angry; then he [woke] me to tell me about it.
+14|t|Hice la cama y desperté a los niños; les di de comer en la cocina.|I made the bed and [woke] the kids; I [fed] them in the kitchen.
+14|c|Hicieron una película sobre un ladrón que robó un museo; la grabaron en París.|They made a movie about a thief who [stole] from a museum; they [shot] it in Paris.
+14|t|Hice lo mejor que pude y me perdonó; juró que no estaba enojada.|I did my best, and she [forgave] me; she [swore] she wasn't angry.
+14|c|Hizo una lista de lo que robaron y buscó ayuda en la policía.|She made a list of what they [stole] and [sought] help from the police.
+14|t|Hicimos los platos y colgamos los trapos; alimentamos al perro con las sobras.|We did the dishes and [hung] the towels; we [fed] the dog the leftovers.
+
+# --- Regla 15 · Gone vs Left ---
+15|t|Se fue a buscar trabajo; ayer buscó en tres empresas y le prestaron un traje.|He has gone to look for work; yesterday he [sought] jobs at three companies, and they [lent] him a suit.
+15|c|Salió de la casa sin despertarme; ya le había dado de comer al perro y había colgado la ropa.|She left the house without waking me; she had already [fed] the dog and [hung] the laundry.
+15|t|Se fue a la policía porque le robaron el carro; juró encontrar al ladrón.|He has gone to the police because someone [stole] his car; he [swore] to find the thief.
+15|c|Dejó el trabajo después de pelear con su jefe; nunca lo perdonó y juró no volver.|He left his job after a fight with his boss; he never [forgave] him, and he [swore] never to go back.
+15|t|Se fue a grabar un documental; el año pasado grabó en Brasil y colgó el video en internet.|She has gone to shoot a documentary; last year she [shot] in Brazil and [hung] the video online.
+15|c|Salió de la reunión después de tratar el tema; buscó a su jefe para hablar.|She left the meeting after she had [dealt] with the issue; she [sought] her boss to talk.
+15|t|Se fueron de vacaciones; me prestaron su casa y alimenté a sus gatos.|They have gone on vacation; they [lent] me their house, and I [fed] their cats.
+15|c|Dejé el abrigo colgado en la puerta y alguien lo robó.|I left my coat [hung] on the door, and someone [stole] it.
+15|t|Se fue a dormir; el bebé lo despertó cinco veces anoche y le dio de comer cada vez.|He has gone to sleep; the baby [woke] him five times last night, and he [fed] her every time.
+15|c|Salió del tribunal después de jurar; el juez lo perdonó.|He left the court after he had [sworn] an oath; the judge [forgave] him.
+15|t|Se fue a buscar al perro; robó un pollo y huyó, y ella lo ha buscado por horas.|She has gone to look for the dog; it [stole] a chicken and ran away, and she has [sought] it for hours.
+15|c|Dejó a los niños con la abuela; ella les dio de comer y los despertó temprano.|She left the kids with their grandmother; she [fed] them and [woke] them early.
+15|t|Se fue al banco; le prestaron dinero para la casa y trató con un asesor muy amable.|He has gone to the bank; they [lent] him money for the house, and he [dealt] with a very kind advisor.
+15|c|Salió de la fiesta temprano; colgó el teléfono cuando su novio llamó y no lo perdonó.|She left the party early; she [hung] up when her boyfriend called and didn't [forgive] him.
+15|t|Se fue al estadio; el sábado disparó el penal decisivo y robó el corazón de la afición.|He has gone to the stadium; on Saturday he [shot] the deciding penalty and [stole] the fans' hearts.
+
+# --- Regla 16 · Preposiciones de movimiento ---
+16|t|Colgó la bandera sobre la puerta y disparó una foto desde la calle.|He [hung] the flag over the door and [shot] a photo from the street.
+16|c|El ladrón robó el bolso y corrió hacia el parque; la policía lo buscó entre los árboles.|The thief [stole] the bag and ran toward the park; the police [sought] him among the trees.
+16|t|Disparó el balón por encima del portero y robó la victoria.|He [shot] the ball over the goalkeeper and [stole] the victory.
+16|c|Le prestamos el carro y manejó hasta la costa; nos despertó al llegar.|We [lent] him the car, and he drove to the coast; he [woke] us when he arrived.
+16|t|Colgamos las luces alrededor de la ventana; despertamos a los niños para verlas.|We [hung] the lights around the window; we [woke] the kids to see them.
+16|c|Le dimos de comer a los patos junto al lago; buscamos pan por toda la casa.|We [fed] the ducks by the lake; we [sought] bread all over the house.
+16|t|El gato robó el pescado y salió por la ventana; lo perdoné al día siguiente.|The cat [stole] the fish and went out through the window; I [forgave] it the next day.
+16|c|Colgó el cuadro entre las dos ventanas; lo grabó en video para su mamá.|She [hung] the picture between the two windows; she [shot] a video of it for her mom.
+16|t|Buscamos refugio debajo del puente; un señor nos prestó una manta.|We [sought] shelter under the bridge; a man [lent] us a blanket.
+16|c|Disparó la flecha a través del campo; juró que daría en el blanco.|He [shot] the arrow across the field; he [swore] it would hit the target.
+16|t|Repartió volantes por toda la ciudad; buscó a su perro durante días.|She [dealt] out flyers all over the city; she [sought] her dog for days.
+16|c|Colgamos la hamaca entre dos árboles y alimentamos a los pájaros desde ella.|We [hung] the hammock between two trees and [fed] the birds from it.
+16|t|El niño robó una galleta de la cocina y corrió hacia su cuarto; su mamá lo perdonó.|The boy [stole] a cookie from the kitchen and ran to his room; his mom [forgave] him.
+16|c|Le prestaron un bote para cruzar el río; despertó a todos al otro lado.|They [lent] him a boat to cross the river; he [woke] everyone on the other side.
+16|t|La foto que disparó desde el avión la colgó en la pared.|He [hung] the photo he [shot] from the plane on the wall.
+
+# --- Regla 17 · Modales básicos ---
+17|t|Puedo prestarte mi carro; ayer lo tuvo mi hermano y nadie lo robó.|I can [lend] you my car; yesterday nobody [stole] it when my brother had it.
+17|c|Deberías perdonarlo; ya juró que cambiará.|You should [forgive] him; he has already [sworn] he will change.
+17|t|No debes robar; ayer atraparon a un niño en la tienda y juró que tenía hambre.|You must not [steal]; yesterday they caught a boy in the store, and he [swore] he was hungry.
+17|c|¿Puedes despertarme a las seis? Ayer falló la alarma y le di de comer tarde al perro.|Can you [wake] me at six? Yesterday the alarm failed, and I [fed] the dog late.
+17|t|Podríamos colgar el cuadro aquí; ayer buscamos el mejor lugar.|We could [hang] the picture here; yesterday we [sought] the best spot.
+17|c|Ella puede tratar con cualquier cliente; ayer perdonó a uno muy grosero.|She can [deal] with any customer; yesterday she [forgave] a very rude one.
+17|t|Debes alimentar al perro; ayer robó comida porque nadie le dio de comer.|You must [feed] the dog; yesterday it [stole] food because nobody fed it.
+17|c|¿Podrías prestarme tu cámara? Ayer disparé cien fotos con la mía y se dañó.|Could you [lend] me your camera? Yesterday I [shot] a hundred photos with mine, and it broke.
+17|t|No deberías jurar en vano; ayer te perdoné, pero no lo haré otra vez.|You shouldn't [swear] in vain; yesterday I [forgave] you, but I won't do it again.
+17|c|Puedes buscar ayuda aquí; ayer alimentamos a cincuenta personas.|You can [seek] help here; yesterday we [fed] fifty people.
+17|t|Deberías colgar la ropa; ayer alguien te la robó del tendedero.|You should [hang] the laundry; yesterday someone [stole] it from the line.
+17|c|¿Puedo disparar una foto? Ayer colgué las fotos de la boda en internet.|May I [shoot] a photo? Yesterday I [hung] the wedding photos online.
+17|t|Tienes que despertar a tu hermano; ayer le prestó tu carro a un amigo.|You have to [wake] your brother; yesterday he [lent] your car to a friend.
+17|c|Podrías perdonarme; ayer juré que no lo haría otra vez.|You could [forgive] me; yesterday I [swore] I wouldn't do it again.
+17|t|No puedes robar ideas; ayer el profesor trató el tema en clase.|You can't [steal] ideas; yesterday the teacher [dealt] with the topic in class.
+
+# --- Regla 18 · Gerundio vs infinitivo ---
+18|t|Decidí prestarle el dinero; ya me había perdonado.|I decided to [lend] him the money; he had already [forgiven] me.
+18|c|Dejó de robar y juró trabajar honestamente; buscó un trabajo de verdad.|He stopped stealing and [swore] to work honestly; he [sought] a real job.
+18|t|Quiere buscar un trabajo nuevo; ayer trató con un jefe horrible.|She wants to [seek] a new job; yesterday she [dealt] with a horrible boss.
+18|c|Evita despertar al bebé; anoche le di de comer tres veces y se despertó llorando.|Avoid waking the baby; last night I [fed] him three times, and he [woke] up crying.
+18|t|Espero perdonarlo algún día; juró que fue un accidente.|I hope to [forgive] him someday; he [swore] it was an accident.
+18|c|Me encanta tomar fotos; ayer disparé cien en el parque y colgué diez en internet.|I love taking photos; yesterday I [shot] a hundred in the park and [hung] ten online.
+18|t|Olvidó alimentar al gato; el gato robó la cena.|He forgot to [feed] the cat; the cat [stole] dinner.
+18|c|Prometió prestarme su carro, pero lo robaron.|He promised to [lend] me his car, but someone [stole] it.
+18|t|Terminé de colgar los cuadros y desperté a los niños para mostrárselos; juraron que era la mejor pared de la casa.|I finished hanging the pictures and [woke] the kids to show them; they [swore] it was the best wall in the house.
+18|c|Intentó buscar al ladrón, pero había robado todo y desaparecido.|He tried to [seek] the thief, but he had [stolen] everything and disappeared.
+18|t|Sugirió perdonar la deuda; le prestamos el dinero hace años y nunca buscó la manera de pagar.|She suggested forgiving the debt; we [lent] him the money years ago, and he never [sought] a way to pay.
+18|c|Planeamos grabar el video mañana; ya colgamos el fondo.|We plan to [shoot] the video tomorrow; we have already [hung] the backdrop.
+18|t|No me importa alimentar a tus perros; ayer les di de comer dos veces y me despertaron al amanecer.|I don't mind feeding your dogs; yesterday I [fed] them twice, and they [woke] me at dawn.
+18|c|Dejó de jurar delante de los niños; su mamá la perdonó y le dio de comer su plato favorito.|She stopped swearing in front of the kids; her mom [forgave] her and [fed] her favorite dish.
+18|t|Recuerdo haber prestado ese libro; se lo presté a alguien que luego lo robó de la biblioteca.|I remember lending that book; I [lent] it to someone who later [stole] it from the library.
+
+# --- Regla 19 · Participios irregulares ---
+19|t|He prestado mi carro y me han robado la bicicleta.|I have [lent] my car, and someone has [stolen] my bike.
+19|c|El ladrón ha sido buscado durante meses; ha jurado que es inocente.|The thief has been [sought] for months; he has [sworn] he is innocent.
+19|t|Me han despertado tres veces; nadie ha alimentado al perro.|They have [woken] me three times; nobody has [fed] the dog.
+19|c|El cuadro ha sido colgado; la foto ha sido disparada por un profesional.|The picture has been [hung]; the photo has been [shot] by a professional.
+19|t|He sido perdonado; el problema ha sido tratado.|I have been [forgiven]; the problem has been [dealt] with.
+19|c|Hemos alimentado a los niños y hemos colgado la ropa.|We have [fed] the kids and have [hung] the laundry.
+19|t|Nunca he robado nada; nunca he jurado en falso.|I have never [stolen] anything; I have never [sworn] falsely.
+19|c|La película ha sido grabada y el dinero ha sido prestado por un banco.|The movie has been [shot], and the money has been [lent] by a bank.
+19|t|Ha buscado trabajo y ha tratado con veinte empresas.|He has [sought] work and has [dealt] with twenty companies.
+19|c|El bebé ha sido alimentado y ha sido despertado para su baño.|The baby has been [fed] and has been [woken] for his bath.
+19|t|Mi bicicleta ha sido robada; la policía ha jurado encontrarla.|My bike has been [stolen]; the police have [sworn] to find it.
+19|c|Has sido perdonado; ya has sido despertado de ese error.|You have been [forgiven]; you have [woken] up from that mistake.
+19|t|Los cuadros han sido colgados; los clientes han sido tratados con respeto.|The pictures have been [hung]; the customers have been [dealt] with respectfully.
+19|c|Le hemos prestado la casa; nos ha perdonado la renta.|We have [lent] him the house; he has [forgiven] our rent.
+19|t|La escena ha sido grabada; el actor ha jurado no repetirla.|The scene has been [shot]; the actor has [sworn] not to repeat it.
+
+# --- Regla 20 · 3ra persona singular (-s) ---
+20|t|Mi hermano presta dinero a todos; ayer le prestó a un amigo y nunca lo perdonó por no pagar.|My brother lends money to everyone; yesterday he [lent] some to a friend, and he never [forgave] him for not paying.
+20|c|Ella busca trabajo; la semana pasada buscó en diez empresas y trató con muchos jefes.|She seeks work; last week she [sought] jobs at ten companies and [dealt] with many bosses.
+20|t|El fotógrafo dispara fotos en bodas; el sábado disparó mil y colgó las mejores.|The photographer shoots weddings; on Saturday he [shot] a thousand photos and [hung] the best ones.
+20|c|Mi gato roba comida; ayer robó un pescado y me despertó a medianoche.|My cat steals food; yesterday it [stole] a fish and [woke] me at midnight.
+20|t|Mi abuelo jura que vio un fantasma; anoche lo juró otra vez y nadie le perdonó que asustara a los niños.|My grandfather swears he saw a ghost; last night he [swore] it again, and nobody [forgave] him for scaring the kids.
+20|c|Mi mamá despierta a todos a las seis; hoy nos despertó a las cinco y nos dio de comer.|My mom wakes everyone at six; today she [woke] us at five and [fed] us.
+20|t|Él cuelga cuadros por todas partes; ayer colgó uno en el baño y lo grabó para su blog.|He hangs pictures everywhere; yesterday he [hung] one in the bathroom and [shot] a video for his blog.
+20|c|Mi jefa trata bien a todos; ayer trató con un cliente furioso y lo perdonó.|My boss treats everyone well; yesterday she [dealt] with a furious client and [forgave] him.
+20|t|Mi vecina alimenta a los gatos de la calle; ayer les dio de comer y buscó al más pequeño.|My neighbor feeds the street cats; yesterday she [fed] them and [sought] the smallest one.
+20|c|Ella perdona fácilmente; ayer perdonó a su hermano que le robó la ropa.|She forgives easily; yesterday she [forgave] her brother, who [stole] her clothes.
+20|t|El banco presta dinero; el mes pasado nos prestó para la casa y juró que el interés no subiría.|The bank lends money; last month it [lent] us money for the house and [swore] the interest wouldn't go up.
+20|c|Mi perro despierta a los vecinos; anoche los despertó y uno juró llamar a la policía.|My dog wakes the neighbors; last night it [woke] them, and one [swore] he would call the police.
+20|t|El crupier reparte las cartas; anoche repartió mil manos y nadie le robó.|The dealer deals the cards; last night he [dealt] a thousand hands, and nobody [stole] from him.
+20|c|Mi hermana busca a su gato; ayer lo buscó por todo el barrio y le dio de comer cuando lo encontró.|My sister seeks her cat; yesterday she [sought] it all over the neighborhood and [fed] it when she found it.
+20|t|Él jura mucho; ayer juró en la reunión y su jefe no lo perdonó.|He swears a lot; yesterday he [swore] in the meeting, and his boss didn't [forgive] him.
+
+# --- Regla 21 · Say vs Tell ---
+21|t|Me dijo que le había prestado dinero a su hermano; me contó que se lo robaron.|He told me he had [lent] money to his brother; he said someone [stole] it.
+21|c|Dijo que me había perdonado; me contó que juró no guardar rencor.|She said she had [forgiven] me; she told me she [swore] not to hold a grudge.
+21|t|Dijeron que habían buscado al perro; nos contaron que lo alimentaron en un refugio.|They said they had [sought] the dog; they told us they [fed] it at a shelter.
+21|c|Le dije que no colgara el teléfono, pero dijo que ya había tratado con suficiente.|I told her not to [hang] up, but she said she had already [dealt] with enough.
+21|t|Me contó que el ruido lo despertó; dijo que alguien robó la radio del carro.|He told me the noise [woke] him; he said someone [stole] the car radio.
+21|c|Dijo que había grabado el video; me contó que lo colgó en internet.|She said she had [shot] the video; she told me she [hung] it online.
+21|t|Dime qué te robaron; dijeron que juraste encontrar al ladrón.|Tell me what they [stole]; they said you [swore] to find the thief.
+21|c|Dijeron que el banco les prestó el dinero; nos contaron que trataron con un asesor.|They said the bank [lent] them the money; they told us they [dealt] with an advisor.
+21|t|Me dijo que se despertó a las cinco; dijo que alimentó a los caballos.|He told me he [woke] up at five; he said he [fed] the horses.
+21|c|Dijo "lo juro" y me contó que no había robado nada.|He said "I [swear]" and told me he hadn't [stolen] anything.
+21|t|Le conté que había colgado los cuadros; dijo que los grabaría para su blog.|I told her I had [hung] the pictures; she said she would [shoot] a video for her blog.
+21|c|Dijeron que buscaron ayuda; nos contaron que nadie les prestó atención.|They said they [sought] help; they told us nobody [lent] them an ear.
+21|t|Me dijo que lo había perdonado; dijo que juró empezar de nuevo.|She told me she had [forgiven] him; she said he [swore] to start over.
+21|c|Dijo que trató el problema; me contó que lo despertaron a medianoche.|He said he [dealt] with the problem; he told me they [woke] him at midnight.
+21|t|Cuéntame qué le diste de comer; dijeron que robó comida del plato.|Tell me what you [fed] it; they said it [stole] food from the plate.
