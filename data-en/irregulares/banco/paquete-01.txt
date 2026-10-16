@@ -323,3 +323,649 @@
 20|t|Siempre llega temprano; la semana pasada recibió un premio porque el jefe dijo que era el más puntual.|He always arrives early; last week he [got] a prize because the boss [said] he was the most punctual.
 20|c|Mi mamá trabaja desde casa y se ha tomado un descanso; estuvo en llamadas toda la mañana.|My mom works from home and has [taken] a break; she [was] on calls all morning.
 20|t|Ella cree que lo conoce desde el colegio, pero estaba equivocada.|She believes she has [known] him since school, but she [was] wrong.
+
+# --- Regla 21 · Say vs Tell ---
+21|t|Dijo que estaba cansada y me contó por qué.|She [said] she [was] tired and told me why.
+21|c|¿Qué dijo el médico? ¿Te dijo que tomaras la medicina?|What did the doctor [say]? Did he tell you to [take] the medicine?
+21|t|Me dijo la verdad, pero no dijo nada a los demás; sabía que se enojarían.|He told me the truth, but he didn't [say] anything to the others; he [knew] they would be angry.
+21|c|Nunca he dicho eso; siempre te dije que tenía dudas.|I have never [said] that; I always told you I [had] doubts.
+21|t|¿Puedes decirme cómo llegar? Dijiste que lo sabías.|Can you tell me how to [get] there? You [said] you knew.
+21|c|Le dije que se fuera, pero dijo que no.|I told him to [go], but he [said] no.
+21|t|Mi mamá siempre dice que pensemos antes de hablar; nos lo decía cuando éramos niños.|My mom always says we should [think] before we speak; she told us that when we [were] kids.
+21|c|¿Quién te contó que me había ido? Yo no dije nada.|Who told you I had [gone]? I didn't [say] anything.
+21|t|Dijo "gracias" y se llevó el regalo.|She [said] "thank you" and [took] the gift.
+21|c|Les conté un chiste y todos se rieron; hasta hice reír al jefe, algo que pensé que era imposible.|I told them a joke, and everyone laughed; I even [made] the boss laugh, which I [thought] was impossible.
+21|t|No me has contado qué hiciste el fin de semana; dijiste que saliste.|You haven't told me what you [did] on the weekend; you [said] you went out.
+21|c|Le conté a Ana que había conseguido el trabajo y se puso muy feliz.|I told Ana I had [gotten] the job, and she [was] so happy.
+21|t|¿Qué dijiste? No te entendí.|What did you [say]? I didn't [get] that.
+21|c|Me contó que había tenido un accidente, pero no dijo mucho más.|He told me he had [had] an accident, but he didn't [say] much more.
+21|t|Dile a tu hermano que haga la tarea; lo he dicho tres veces.|Tell your brother to [do] his homework; I have [said] it three times.
+
+# --- Regla 22 · Artículos ---
+22|t|Tuve una idea y se la dije al profesor.|I [had] an idea, and I [said] it to the teacher.
+22|c|Ella hizo un pastel para la fiesta; fue el mejor pastel de todos.|She [made] a cake for the party; it [was] the best cake ever.
+22|t|Fui a la universidad en una bicicleta vieja y llegué tarde.|I [went] to the university on an old bike and [got] there late.
+22|c|Tomé el tren de las ocho y llegué en una hora.|I [took] the eight o'clock train and [was] there in an hour.
+22|t|Nunca he tenido un perro, pero siempre he pensado en tener uno.|I have never [had] a dog, but I have always [thought] about getting one.
+22|c|El chico que conociste en la universidad ahora es ingeniero; le fue muy bien.|The guy you [knew] in college is an engineer now; he [did] very well.
+22|t|Hicimos una reserva en el restaurante del hotel; nos tomó cinco minutos.|We [made] a reservation at the hotel restaurant; it [took] five minutes.
+22|c|Ha conseguido un trabajo en una empresa grande; es una oportunidad increíble, como dijo.|She has [gotten] a job at a big company; it is an amazing opportunity, as she [said].
+22|t|El sol estaba muy fuerte, así que fuimos a la playa temprano.|The sun [was] very strong, so we [went] to the beach early.
+22|c|¿Alguna vez has estado en el Amazonas? Dicen que es un lugar increíble.|Have you ever [been] to the Amazon? People [say] it's an amazing place.
+22|t|Mi papá es médico; ha cuidado de personas toda su vida y ha marcado la diferencia.|My dad is a doctor; he has [taken] care of people all his life and has [made] a difference.
+22|c|Hice una pregunta en la clase, pero nadie sabía la respuesta; era una difícil.|I asked a question in the class, but nobody [knew] the answer; it [was] a hard one.
+22|t|Es la primera vez que hago un viaje sola; creo que será una aventura.|This is the first time I have [gone] on a trip alone; I [think] it will be an adventure.
+22|c|Tomamos un taxi y el conductor dijo que conocía un atajo.|We [took] a taxi, and the driver [said] he knew a shortcut.
+22|t|Ha hecho un buen trabajo como líder del equipo; todos lo dijeron.|She has [done] a good job as the leader of the team; everyone [said] so.
+
+# --- Regla 23 · Phrasal verbs con "look" ---
+23|t|Busqué mi teléfono por una hora; pensé que alguien se lo había llevado.|I looked for my phone for an hour; I [thought] someone had [taken] it.
+23|c|Se parece a su mamá; todos lo han dicho desde que era pequeña.|She looks like her mom; everyone has [said] it since she [was] little.
+23|t|Busqué la palabra en el diccionario porque no sabía qué significaba, e hice una nota.|I looked up the word in the dictionary because I didn't [know] what it meant, and I [made] a note.
+23|c|Miró la foto y dijo que era su abuelo.|He looked at the photo and [said] it [was] his grandfather.
+23|t|¿Qué estás buscando? Pensé que ya te habías ido.|What are you looking for? I [thought] you had [gone].
+23|c|Fui a buscar a mi hermano al colegio, pero ya lo habían llevado.|I [went] to look for my brother at school, but he had [gotten] a ride.
+23|t|Parece que va a llover; llevemos un paraguas, como dijo mamá.|It looks like it's going to rain; let's [take] an umbrella, as Mom [said].
+23|c|Mira esto: hice un dibujo de ti cuando estaba aburrido.|Look at this: I [made] a drawing of you when I [was] bored.
+23|t|He buscado trabajo por meses y por fin conseguí uno; casi me había rendido.|I have looked for a job for months, and I finally [got] one; I [had] almost given up.
+23|c|Buscó la dirección en el mapa y llegó sin problema; le tomó diez minutos.|She looked up the address on the map and [got] there without a problem; it [took] ten minutes.
+23|t|Se veía como si no hubiera dormido, así que no dije nada y le hice un café.|He looked like he hadn't slept, so I didn't [say] anything and [made] him a coffee.
+23|c|Busco a alguien que sepa hacer pan y que ya lo haya hecho antes.|I'm looking for someone who can [make] bread and has [done] it before.
+23|t|Mira la hora: ¿ya almorzaste? Tenemos que irnos.|Look at the time: have you [had] lunch? We need to [go].
+23|c|La miré a los ojos y supe que estaba diciendo la verdad.|I looked into her eyes and [knew] she [was] telling the truth.
+23|t|¿A quién te pareces, a tu papá o a tu mamá? Siempre me han dicho que a mi papá, y creo que tienen razón.|Who do you look like, your dad or your mom? People have always [said] I look like my dad, and I [think] they're right.
+
+# --- Regla 25 · Give / Gave / Given ---
+25|t|Me dio un regalo que había hecho ella misma; me puse muy feliz.|She gave me a gift that she had [made] herself; I [was] so happy.
+25|c|Le he dado mi número, pero no ha dicho nada; creo que es tímido.|I have given him my number, but he hasn't [said] anything; I [think] he's shy.
+25|t|¿Qué le diste a tu mamá? Le di flores que conseguí en el mercado y tuvo un gran día.|What did you give your mom? I gave her flowers that I [got] at the market, and she [had] a great day.
+25|c|El profesor nos dio tarea y la hicimos juntos; nos tomó dos horas.|The teacher gave us homework, and we [did] it together; it [took] two hours.
+25|t|Me has dado tanto; nunca supe cuánto habías hecho por mí.|You have given me so much; I never [knew] how much you had [done] for me.
+25|c|Dale el libro; dijo que lo necesitaba para hacer su proyecto.|Give him the book; he [said] he needed it to [do] his project.
+25|t|Nos dieron una habitación con vista al mar y tomamos muchas fotos; fue perfecto.|They gave us a room with an ocean view, and we [took] lots of pictures; it [was] perfect.
+25|c|Me han dado una segunda oportunidad y la voy a aprovechar; antes he tenido mala suerte.|They have given me a second chance, and I'm going to [make] the most of it; I have [had] bad luck before.
+25|t|Le di mi asiento a una señora que estaba cansada y me dijo gracias.|I gave my seat to a lady who [was] tired, and she [said] thank you.
+25|c|¿Quién te dio esa idea? Pensé que era tuya.|Who gave you that idea? I [thought] it [was] yours.
+25|t|Mi abuelo me dio este reloj antes de irse; lo he tenido por diez años.|My grandfather gave me this watch before he [went] away; I have [had] it for ten years.
+25|c|Les dimos comida porque no habían comido en todo el día; tenían tanta hambre que repitieron.|We gave them food because they hadn't eaten all day; they [were] so hungry that they [took] seconds.
+25|t|Me dio un consejo que nunca he olvidado: "Piensa antes de gastar". Lo he convertido en mi regla.|She gave me some advice I have never forgotten: "[Think] before you spend." I have [made] it my rule.
+25|c|Ella ha dado todo por su familia y nunca ha dicho una palabra; lo ha hecho con amor.|She has given everything for her family, and she has never [said] a word; she has [done] it with love.
+25|t|Le di las llaves a mi vecino porque me iba de viaje; él sabía qué hacer.|I gave my keys to my neighbor because I [was] going on a trip; he [knew] what to do.
+
+# --- Regla 26 · Still + hope ---
+26|t|Todavía espero que ella diga que sí; estaba tan feliz cuando le pregunté.|I still hope she will [say] yes; she [was] so happy when I asked.
+26|c|Aún tengo la esperanza de conseguir el trabajo; la entrevista salió bien.|I still hope to [get] the job; the interview [went] well.
+26|t|Todavía esperamos que haya tomado el tren correcto; no conocía la ciudad.|We still hope he [took] the right train; he didn't [know] the city.
+26|c|Ella todavía espera que su hermano vuelva; se fue hace un año y nadie ha dicho por qué.|She still hopes her brother will come back; he [went] away a year ago, and nobody has [said] why.
+26|t|Todavía espero que hayas hecho la tarea; tuviste todo el fin de semana.|I still hope you have [done] your homework; you [had] all weekend.
+26|c|Aún esperan que el clima sea bueno para el viaje; ya hicieron todos los planes.|They still hope the weather will [be] good for the trip; they have [made] all the plans.
+26|t|Todavía espero que sepas cuánto te quiero; pensé en ti todos los días.|I still hope you [know] how much I love you; I [thought] about you every day.
+26|c|Todavía tenía la esperanza de que hubiera llegado bien a casa; estaba sola.|I still hoped she had [gotten] home safely; she [was] alone.
+26|t|Aún espero tener tiempo para terminar mi libro; lo he pensado por años.|I still hope to [have] time to finish my book; I have [thought] about it for years.
+26|c|Todavía esperamos que digan qué pasó; se han tardado demasiado.|We still hope they will [say] what happened; it has [taken] them too long.
+26|t|Todavía espero que tomes una buena decisión; lo has sabido por meses.|I still hope you [make] a good decision; you have [known] about this for months.
+26|c|Todavía espera que su equipo haya hecho lo suficiente; tuvieron una temporada difícil.|He still hopes his team has [done] enough to win; they [had] a hard season.
+26|t|Todavía tengo la esperanza de ir a Japón algún día; he tenido ese sueño desde niño.|I still hope to [go] to Japan someday; I have [had] that dream since I was a kid.
+26|c|Todavía esperamos que hayan tomado el último vuelo; dijeron que lo intentarían.|We still hope they have [taken] the last flight; they [said] they would try.
+26|t|Aún espero que esto sea solo un mal día; me levanté con el pie izquierdo.|I still hope this will [be] just a bad day; I [got] up on the wrong foot.
+
+# --- Regla 27 · Too vs Very ---
+27|t|Estaba demasiado cansado para ir a la fiesta.|I [was] too tired to [go] to the party.
+27|c|La sopa estaba muy caliente, así que esperé un poco antes de tomarla.|The soup [was] very hot, so I waited a bit before I [had] it.
+27|t|Es demasiado tarde para decir que lo sientes; sabías lo que hacías.|It's too late to [say] you're sorry; you [knew] what you were doing.
+27|c|El examen fue muy difícil, pero hice lo que pude.|The test [was] very hard, but I [did] what I could.
+27|t|Tomó demasiado tiempo llegar; el tráfico estaba muy pesado.|It [took] too long to [get] there; the traffic was very heavy.
+27|c|Pensó que el vestido era demasiado caro.|She [thought] the dress [was] too expensive.
+27|t|Hiciste un trabajo muy bueno; siempre he sabido que podías hacerlo.|You [did] a very good job; I have always [known] you could do it.
+27|c|Hay demasiada gente aquí; vámonos a otro sitio. Cometí un error al escoger este lugar.|There are too many people here; let's [go] somewhere else. I [made] a mistake choosing this place.
+27|t|Es demasiado joven para tener carro; sus papás dijeron que no.|He is too young to [have] a car; his parents [said] no.
+27|c|Me levanté muy temprano y me tomé un café muy fuerte.|I [got] up very early and [had] a very strong coffee.
+27|t|Era demasiado tarde: ella ya se había ido.|It [was] too late: she had already [gone].
+27|c|Es muy difícil saber qué dijo; habla demasiado rápido.|It's very hard to [know] what he [said]; he speaks too fast.
+27|t|Hacía demasiado frío para tomar fotos afuera, así que hicimos chocolate caliente.|It was too cold to [take] pictures outside, so we [made] hot chocolate.
+27|c|Ha estado muy ocupada esta semana; tuvo demasiadas reuniones.|She has [been] very busy this week; she [had] too many meetings.
+27|t|Pensamos que el hotel era muy bonito, pero demasiado ruidoso; dormimos poco.|We [thought] the hotel was very nice but too noisy; we [got] little sleep.
+
+# --- Regla 28 · Preguntas con presente/pasado perfecto ---
+28|t|¿Alguna vez has estado en Brasil? Yo fui el año pasado.|Have you ever [been] to Brazil? I [went] last year.
+28|c|¿Has hecho la tarea? Dijiste que la harías.|Have you [done] your homework? You [said] you would.
+28|t|¿Ya había llegado ella cuando empezó la reunión? No lo sabía.|Had she [gotten] there when the meeting started? I didn't [know].
+28|c|¿Alguna vez has tomado una clase de baile? Yo tuve una el año pasado.|Have you ever [taken] a dance class? I [had] one last year.
+28|t|¿Has pensado en lo que te dije?|Have you [thought] about what I [said]?
+28|c|¿Habían hecho la reserva antes de llegar?|Had they [made] the reservation before they [got] there?
+28|t|¿Alguna vez has tenido un perro? Yo les tenía miedo de niño.|Have you ever [had] a dog? I [was] afraid of dogs as a child.
+28|c|¿Alguna vez has conocido a alguien famoso? Mi tío dijo que una vez conoció a un cantante.|Have you ever [known] anyone famous? My uncle [said] he met a singer once.
+28|t|¿Ya se habían ido cuando llegaste?|Had they [gone] when you [got] there?
+28|c|¿Alguna vez has hecho pan en casa? Yo tomé una clase una vez.|Have you ever [made] bread at home? I [took] a class once.
+28|t|¿Alguna vez has dicho algo de lo que te arrepientas? Yo sí, una vez.|Have you ever [said] something you regret? I [did] once.
+28|c|¿Había estado aquí antes? Conocía el camino.|Had he [been] here before? He [knew] the way.
+28|t|¿Alguna vez has pensado en vivir en otro país? Yo me iría a Canadá.|Have you ever [thought] about living in another country? I would [go] to Canada.
+28|c|¿Ya habías tomado una decisión cuando te llamé? Tenías una voz extraña.|Had you [made] a decision when I called you? You [had] a strange voice.
+28|t|¿Has conseguido boletos para el concierto? Dijeron que se agotaron.|Have you [gotten] tickets for the concert? They [said] it's sold out.
+
+# --- Regla 29 · Tag Questions ---
+29|t|Fuiste a la fiesta, ¿verdad? Estuvo divertida, ¿no?|You [went] to the party, didn't you? It [was] fun, wasn't it?
+29|c|Has hecho la tarea, ¿no? Dijiste que la harías.|You have [done] your homework, haven't you? You [said] you would.
+29|t|Ella sabía la respuesta, ¿no? Presentó el examen temprano.|She [knew] the answer, didn't she? She [took] the test early.
+29|c|No dijiste nada, ¿verdad? Pensé que era un secreto.|You didn't [say] anything, did you? I [thought] it was a secret.
+29|t|Tuvieron un buen viaje, ¿no? Tomaron muchas fotos.|They [had] a good trip, didn't they? They [took] lots of photos.
+29|c|Todavía no te has ido, ¿cierto? Tenemos que hacer la cena.|You haven't [gone] yet, have you? We need to [make] dinner.
+29|t|Consiguió el trabajo, ¿verdad? Estaba tan nervioso.|He [got] the job, didn't he? He [was] so nervous.
+29|c|Hiciste el pastel tú mismo, ¿no? Estaba delicioso.|You [made] the cake yourself, didn't you? It [was] delicious.
+29|t|Vas a estar en casa mañana, ¿no? Necesito tu firma.|You will [be] home tomorrow, won't you? I need to [get] your signature.
+29|c|Ya lo sabías, ¿verdad? Alguien había dicho algo.|You already [knew], didn't you? Someone had [said] something.
+29|t|Has estado en Cartagena, ¿no? La pasaste genial allá.|You have [been] to Cartagena, haven't you? You [had] a great time there.
+29|c|No se llevó el dinero, ¿o sí? Creo que es honesto.|He didn't [take] the money, did he? I [think] he's honest.
+29|t|Pensaste en ir mañana, ¿verdad? Deberías hacerlo.|You [thought] about going tomorrow, didn't you? You should [do] it.
+29|c|No has tenido tiempo, ¿verdad? Has hecho demasiado esta semana.|You haven't [had] time, have you? You have [done] too much this week.
+29|t|Hizo lo correcto, ¿no? Nadie sabía qué más hacer.|She [did] the right thing, didn't she? Nobody [knew] what else to do.
+
+# --- Regla 30 · Get + adjetivo ---
+30|t|Me puse nervioso cuando dijo mi nombre.|I [got] nervous when she [said] my name.
+30|c|Se enojó porque no hice la tarea.|She [got] angry because I didn't [do] my homework.
+30|t|Nos estamos poniendo viejos; hace diez años íbamos a bailar cada fin de semana y ahora tomamos siestas.|We are getting old; ten years ago we [went] dancing every weekend, and now we [take] naps.
+30|c|Se ha puesto muy delgado desde que se fue.|He has [gotten] very thin since he [went] away.
+30|t|Me cansé de esperar, así que me fui a casa.|I [got] tired of waiting, so I [went] home.
+30|c|Se preocupó cuando el médico dijo que era grave.|She [got] worried when the doctor [said] it was serious.
+30|t|Se está haciendo tarde; deberíamos tomar un taxi. Fue un día largo.|It's getting late; we should [take] a taxi. It [was] a long day.
+30|c|Se puso rojo cuando lo miré; creo que le dio vergüenza.|He [got] red when I looked at him; I [think] he was embarrassed.
+30|t|Me mojé porque no tenía paraguas.|I [got] wet because I didn't [have] an umbrella.
+30|c|Hace frío; ponte una chaqueta antes de que te enfermes, como ha dicho mamá.|It's cold; put on a jacket before you [get] sick, as Mom has [said].
+30|t|Nos perdimos porque pensamos que conocíamos el camino.|We [got] lost because we [thought] we knew the way.
+30|c|Se ha vuelto muy famosa desde que hizo esa película.|She has [gotten] very famous since she [made] that movie.
+30|t|Me aburrí en la clase y no supe qué hacer.|I [got] bored in class and didn't [know] what to do.
+30|c|Mi papá se enfermó y tuvo que ir al hospital.|My dad [got] sick and [had] to go to the hospital.
+30|t|Se emocionó mucho cuando le dijeron que había ganado; ¡lo había logrado!|She [got] very excited when they told her she had won; she had [done] it!
+
+# --- Regla 31 · some / any / no ---
+31|t|No dije nada porque no sabía qué decir.|I [said] nothing because I didn't [know] what to say.
+31|c|¿Hiciste algo divertido el fin de semana? Nosotros fuimos a la playa.|Did you [do] anything fun on the weekend? We [went] to the beach.
+31|t|Tengo algo para ti; lo hice yo mismo.|I [have] something for you; I [made] it myself.
+31|c|No saqué nada de tu bolso, te lo prometo; estaba en la cocina.|I didn't [take] anything from your bag, I promise; I [was] in the kitchen.
+31|t|¿Alguien ha dicho algo sobre la reunión? Pensé que era hoy.|Has anyone [said] anything about the meeting? I [thought] it was today.
+31|c|No había nadie en casa cuando llegué.|There [was] nobody at home when I [got] there.
+31|t|Fui a la tienda, pero no tenían leche.|I [went] to the store, but they didn't [have] any milk.
+31|c|Necesito algo de tomar; he estado al sol todo el día.|I need to [get] something to drink; I have [been] in the sun all day.
+31|t|No ha hecho nada en todo el día; dijo que estaba cansado.|He hasn't [done] anything all day; he [said] he was tired.
+31|c|¿Sabes algo de Ana? No he tenido noticias de ella.|Do you [know] anything about Ana? I haven't [had] any news from her.
+31|t|Alguien se llevó mi almuerzo de la nevera; pensé que ahí estaba seguro.|Somebody [took] my lunch from the fridge; I [thought] it was safe there.
+31|c|No conseguí ningún boleto; no quedaba ninguno.|I didn't [get] any tickets; there [were] none left.
+31|t|Hay algunas cosas que nunca he dicho; hice una promesa.|There are some things I have never [said]; I [made] a promise.
+31|c|No fui a ninguna parte en vacaciones; no tenía dinero.|I didn't [go] anywhere on vacation; I [had] no money.
+31|t|¿Has pensado en algo para su cumpleaños? Quiero hacer un pastel.|Have you [thought] of something for her birthday? I want to [make] a cake.
+
+# --- Regla 32 · Already / Yet / Just ---
+32|t|Ya hice la tarea, pero todavía no he hecho la cena.|I have already [done] my homework, but I haven't [made] dinner yet.
+32|c|Acaba de irse; se despidió de todos.|He has just [gone]; he [said] goodbye to everyone.
+32|t|¿Ya tomaste tu medicina? El médico dijo que es importante.|Have you [taken] your medicine yet? The doctor [said] it's important.
+32|c|Todavía no sé qué hacer; lo pensé toda la noche.|I don't [know] what to do yet; I [thought] about it all night.
+32|t|Acaba de sacar su licencia de conducir; estaba muy feliz.|She has just [gotten] her driver's license; she [was] so happy.
+32|c|Ya he estado en ese museo dos veces; vamos a un lugar nuevo.|I have already [been] to that museum twice; let's [go] somewhere new.
+32|t|Acabo de tener una idea genial; creo que te va a encantar.|I have just [had] a great idea; I [think] you'll love it.
+32|c|¿Ya lo dijiste? Todavía no lo sabían.|Have you [said] it yet? They didn't [know] yet.
+32|t|Ya hicimos la reserva; solo tenemos que tomar el vuelo.|We have already [made] the reservation; we just have to [take] the flight.
+32|c|Acaba de decir que no puede venir; tuvo un problema en el trabajo.|She has just [said] she can't come; she [had] a problem at work.
+32|t|¿Todavía no has hecho la maleta? Nos vamos en una hora; ¡tuviste todo el día!|Haven't you packed yet? We will [go] in an hour; you [had] all day!
+32|c|Ya habíamos comido cuando llegaron, así que solo tomamos café.|We had already eaten when they [got] there, so we just [had] coffee.
+32|t|Acabo de recibir la noticia de que te casas; ¡lo sabía!|I have just [gotten] the news that you're getting married; I [knew] it!
+32|c|¿Ya conseguiste trabajo? Todavía no, pero ya hice tres entrevistas.|Have you [gotten] a job yet? Not yet, but I have [done] three interviews.
+32|t|Ya tomó una decisión y fue muy clara al respecto.|She has already [made] a decision, and she [was] very clear about it.
+
+# --- Regla 33 · Sujeto "it" ---
+33|t|Era muy tarde cuando llegamos a casa.|It [was] very late when we [got] home.
+33|c|Llovió todo el día, así que hicimos noche de películas en casa; fue muy acogedor.|It rained all day, so we [had] a movie night at home; it [was] cozy.
+33|t|Nos tomó dos horas llegar al aeropuerto.|It [took] us two hours to [get] to the airport.
+33|c|Hace mucho calor; vamos a la piscina. Hice limonada.|It's very hot; let's [go] to the pool. I [made] lemonade.
+33|t|Queda a diez minutos caminando; puedes ir a pie, como dije.|It's a ten-minute walk; you can [go] on foot, as I [said].
+33|c|Era domingo y no había nada que hacer.|It [was] Sunday, and there was nothing to [do].
+33|t|Hizo tanto frío anoche que me puse dos cobijas.|It [was] so cold last night that I [had] two blankets.
+33|c|Es difícil saber qué va a pasar; nadie pensó que esto fuera posible.|It's hard to [know] what will happen; nobody [thought] this was possible.
+33|t|Son las ocho; ya deberías haberte ido. ¿Llevaste tus llaves?|It's eight o'clock; you should have [gone] already. Did you [take] your keys?
+33|c|Va a tomar mucho tiempo arreglar esto; dijeron que dos semanas.|It's going to [take] a long time to fix this; they [said] two weeks.
+33|t|Estuvo nublado toda la mañana, pero luego salió el sol.|It [was] cloudy all morning, but then it [got] sunny.
+33|c|Es importante tener paciencia; lo he sabido por años.|It's important to [have] patience; I have [known] that for years.
+33|t|Fue un placer conocerte; ojalá podamos hacer esto otra vez.|It [was] a pleasure to meet you; I hope we can [do] this again.
+33|c|Han pasado dos años desde que fui a la playa.|It has [been] two years since I [went] to the beach.
+33|t|Queda muy lejos; es mejor tomar un taxi. Cometimos ese error la última vez.|It's very far; it's better to [take] a taxi. We [made] that mistake last time.
+
+# --- Regla 34 · Since vs For ---
+34|t|Lo conozco desde 2010; fuimos juntos al colegio.|I have [known] him since 2010; we [went] to school together.
+34|c|Ha estado enferma durante una semana; tuvo fiebre.|She has [been] sick for a week; she [had] a fever.
+34|t|No he tomado café desde el lunes; hice una promesa.|I haven't [had] coffee since Monday; I [made] a promise.
+34|c|Hemos hecho este trabajo durante diez años; lo conocemos bien.|We have [done] this job for ten years; we [know] it well.
+34|t|Se fue desde las ocho de la mañana; dijo que tenía una reunión.|He has [been] gone since eight a.m.; he [said] he had a meeting.
+34|c|No ha dicho nada desde que llegó.|He hasn't [said] anything since he [got] here.
+34|t|Ha tenido ese carro durante quince años; lo cuidó muy bien.|She has [had] that car for fifteen years; she [took] good care of it.
+34|c|He pensado en esto durante meses; es hora de tomar una decisión.|I have [thought] about this for months; it's time to [make] a decision.
+34|t|No sé nada de él desde la fiesta; ¿se fue?|I haven't [known] anything about him since the party; did he [go] away?
+34|c|Hemos conseguido buenos resultados desde que cambiamos de método; fue una decisión inteligente.|We have [gotten] good results since we changed methods; it [was] a smart move.
+34|t|Llevan veinte años casados y han formado una familia hermosa.|They have [been] married for twenty years and have [made] a beautiful family.
+34|c|No he ido al cine desde enero; no tenía tiempo.|I haven't [gone] to the movies since January; I [had] no time.
+34|t|Ha tomado clases de inglés durante dos años y le fue genial en su último examen.|She has [taken] English classes for two years, and she [did] great on her last test.
+34|c|Desde que tuve el accidente, manejo con más cuidado; tuve mucha suerte.|Since I [had] the accident, I drive more carefully; I [was] very lucky.
+34|t|Ha hecho ejercicio todos los días desde que empezó el año; dijo que se siente genial.|He has [done] exercise every day since the year started; he [said] he feels great.
+
+# --- Regla 35 · When / While ---
+35|t|Cuando llegué a casa, todos estaban cenando.|When I [got] home, everyone [was] having dinner.
+35|c|Mientras ella cocinaba la cena, yo hice la tarea y preparé un té.|While she was cooking dinner, I [did] my homework and [made] some tea.
+35|t|Cuando era niño, tenía un perro.|When I [was] a child, I [had] a dog.
+35|c|Mientras esperaba el bus, pensé en lo que me dijiste.|While I was waiting for the bus, I [thought] about what you [said].
+35|t|Se cayó mientras tomaba una foto, así que la llevamos al hospital, y estaba bien.|She fell while she was taking a picture, so we [took] her to the hospital, and she [was] fine.
+35|c|Cuando recibí la noticia, llamé a mi mamá; ella ya lo sabía.|When I [got] the news, I called my mom; she [knew] already.
+35|t|Mientras estuvimos en Bogotá, fuimos a muchos museos.|While we [were] in Bogotá, we [went] to many museums.
+35|c|¿Qué hacías cuando se fue la luz? Estaba cocinando.|What were you doing when the power [went] out? I [was] cooking.
+35|t|Cuando tenga tiempo, haré el curso.|When I [have] time, I will [do] the course.
+35|c|Mientras dormía, alguien se llevó mi bicicleta; pensé que estaba asegurada.|While I was sleeping, someone [took] my bike; I [thought] it was locked.
+35|t|Cuando lo conocí, supe que sería mi amigo.|When I met him, I [knew] he would [be] my friend.
+35|c|Dijo que había estado leyendo mientras llovía.|He [said] he had [been] reading while it was raining.
+35|t|Cuando llegues, escríbeme y salgo.|When you [get] here, text me and I'll [go] out.
+35|c|Mientras trabajaba en el proyecto, cometió varios errores, pero tuvo tiempo de corregirlos.|While he was working on the project, he [made] several mistakes, but he [had] time to fix them.
+35|t|Cuando era estudiante, tomaba el bus todos los días.|When I [was] a student, I [took] the bus every day.
+
+# --- Regla 36 · Will vs Going to ---
+36|t|Voy a ir al gimnasio esta tarde; tomé la decisión esta mañana.|I'm going to [go] to the gym this afternoon; I [made] the decision this morning.
+36|c|Está bien, yo lo hago; no te preocupes. Tuviste un día largo.|OK, I'll [do] it; don't worry. You [had] a long day.
+36|t|Mira esas nubes: va a llover; llevemos el paraguas, como dijo papá.|Look at those clouds: it's going to rain; let's [take] the umbrella, as Dad [said].
+36|c|Creo que ella será una gran doctora.|I [think] she will [be] a great doctor.
+36|t|Vamos a hacer una fiesta el sábado; hicimos los planes la semana pasada.|We're going to [have] a party on Saturday; we [made] the plans last week.
+36|c|Te prometo que haré lo mejor posible; sabía que confiabas en mí.|I promise I will [do] my best; I [knew] you trusted me.
+36|t|Va a tomar un curso de inglés en enero; lo dijo anoche.|She is going to [take] an English course in January; she [said] it last night.
+36|c|¡Tu teléfono está sonando! —Yo contesto. Pensé que era el mío.|Your phone is ringing! —I'll [get] it. I [thought] it was mine.
+36|t|No creo que él sepa la respuesta.|I don't [think] he will [know] the answer.
+36|c|Vamos a ir a la playa porque ya conseguimos los boletos.|We're going to [go] to the beach because we have already [gotten] the tickets.
+36|t|Tengo frío; voy a hacer un café. Hacía mucho frío afuera.|I'm cold; I'll [make] some coffee. It [was] freezing outside.
+36|c|Va a estar aquí a las cinco; así lo dijo.|He's going to [be] here at five; he [said] so.
+36|t|Ya decidí: voy a presentar el examen en junio; lo he pensado mucho.|I have decided: I'm going to [take] the exam in June; I have [thought] about it a lot.
+36|c|Creo que tendremos tiempo de sobra.|I [think] we will [have] plenty of time.
+36|t|Vamos a tener un bebé; recibimos la noticia ayer.|We're going to [have] a baby; we [got] the news yesterday.
+
+# --- Regla 37 · Contables vs incontables ---
+37|t|Tuve muy poco tiempo, así que hice solo unos pocos ejercicios.|I [had] very little time, so I [did] only a few exercises.
+37|c|¿Cuánto dinero sacaste del cajero? Pensé que tenías suficiente.|How much money did you [take] out of the ATM? I [thought] you had enough.
+37|t|Había muchas personas en la fiesta, pero poca comida, así que después salimos por pizza.|There [were] many people at the party but little food, so we [went] out for pizza later.
+37|c|Cometí menos errores que la última vez; conocía mejor el material.|I [made] fewer mistakes than last time; I [knew] the material better.
+37|t|¿Cuántas veces has estado en Medellín? Yo he ido tres veces.|How many times have you [been] to Medellín? I have [gone] three times.
+37|c|Nos queda poca leche; voy a comprar más.|We [have] little milk left; I'll [go] buy more.
+37|t|Dijo muy pocas palabras en la reunión; estaba nervioso.|He [said] very few words in the meeting; he [was] nervous.
+37|c|Consiguió mucha información para su proyecto e hizo una gran presentación.|She [got] a lot of information for her project and [did] a great presentation.
+37|t|Tomó menos tiempo del que pensábamos.|It [took] less time than we [thought].
+37|c|No hay mucho que hacer en este pueblo; nos fuimos a casa temprano.|There isn't much to [do] in this town; we [went] home early.
+37|t|Ha tenido muchos problemas este año, pero ha sacado lo mejor de ellos.|He has [had] many problems this year, but he has [made] the best of it.
+37|c|Pocas personas sabían la respuesta; el examen era difícil.|Few people [knew] the answer; the test [was] hard.
+37|t|Hice demasiado café; ¿quieres un poco? Pensé que te gustaba.|I [made] too much coffee; do you want some? I [thought] you liked it.
+37|c|¿Cuánta gente fue al concierto? Dijeron que miles.|How many people [went] to the concert? They [said] thousands.
+37|t|Gasté menos dinero porque tomé el bus; fue una buena idea.|I spent less money because I [took] the bus; it [was] a good idea.
+
+# --- Regla 38 · Bad vs Badly ---
+38|t|Me fue muy mal en el examen porque no estudié; fue un mal día.|I [did] badly on the test because I didn't study; it [was] a bad day.
+38|c|Cantó mal, pero tuvo una buena actitud, y todos lo dijeron.|She sang badly, but she [had] a good attitude, and everyone [said] so.
+38|t|Me sentí mal por lo que dije; sabía que estaba mal.|I felt bad about what I [said]; I [knew] it was wrong.
+38|c|El equipo jugó mal y perdió; fue un mal partido y los hinchas se fueron tristes.|The team played badly and lost; it [was] a bad game, and the fans [went] home sad.
+38|t|Tomé una mala decisión y ahora tengo que arreglarla.|I [made] a bad decision, and now I [have] to fix it.
+38|c|Durmió mal porque tenía mucho en qué pensar.|He slept badly because he [had] a lot to [think] about.
+38|t|La entrevista salió muy mal; se puso nervioso.|The interview [went] very badly; he [got] nervous.
+38|c|Es un mal momento; estaba a punto de salir.|It's a bad time; I [was] about to [go] out.
+38|t|Se portó mal, así que sus papás le quitaron el teléfono por dos semanas, dijeron.|He behaved badly, so his parents [took] his phone; they [said] two weeks.
+38|c|Cocina tan mal que hizo arroz quemado y nadie cenó.|He cooks so badly that he [made] burnt rice, and nobody [had] dinner.
+38|t|Ha manejado mal todo este asunto; no ha hecho nada bien y solo ha pensado en sí misma.|She has handled this badly; she hasn't [done] anything right and has only [thought] of herself.
+38|c|No está mal; hiciste un buen intento y estuviste cerca.|It's not bad; you [made] a good attempt, and you [got] close.
+38|t|Nos trataron muy mal en ese restaurante; estuvimos dos horas y nunca nos llegó la comida.|They treated us very badly at that restaurant; we [were] there for two hours and never [got] our food.
+38|c|Tuve un mal día en el trabajo; las cosas salieron mal.|I [had] a bad day at work; things [went] badly.
+38|t|Sabía que había hecho el trabajo mal.|I [knew] I had [done] the job badly.
+
+# --- Regla 39 · Preposiciones ---
+39|t|Fui a Cali en junio y estuve allí por dos semanas.|I [went] to Cali in June and [was] there for two weeks.
+39|c|Llegué al trabajo a las ocho en punto; tomé el bus.|I [got] to work at eight o'clock sharp; I [took] the bus.
+39|t|Ha estado en el hospital desde el lunes; el médico dijo que está mejor.|She has [been] in the hospital since Monday; the doctor [said] she's better.
+39|c|Tomamos un café en la cafetería de la esquina e hicimos planes.|We [had] coffee at the café on the corner and [made] plans.
+39|t|Durante la reunión, nadie dijo nada; estaban demasiado cansados.|During the meeting, nobody [said] anything; they [were] too tired.
+39|c|Mi abuela era de Boyacá y sabía hacer arepas.|My grandmother [was] from Boyacá and [knew] how to make arepas.
+39|t|Conseguí el libro en una tienda del centro; me tomó una hora encontrarlo.|I [got] the book at a store downtown; it [took] me an hour to find it.
+39|c|Pensé en ti durante todo el viaje; la pasé genial.|I [thought] of you during the whole trip; I [had] a great time.
+39|t|Fuimos a la playa el sábado por la mañana e hicimos surf.|We [went] to the beach on Saturday morning and [did] some surfing.
+39|c|He tenido este reloj por veinte años; era de mi papá.|I have [had] this watch for twenty years; it [was] my dad's.
+39|t|Se fue de la casa a los dieciocho e hizo su vida en la ciudad.|She [went] away from home at eighteen and [made] a life in the city.
+39|c|Dijeron que la fiesta es en la casa de Juan; ¿sabes dónde queda?|They [said] the party is at Juan's house; do you [know] where it is?
+39|t|Estaba en el carro cuando me llamaste; no pude contestar.|I [was] in the car when you called; I couldn't [take] the call.
+39|c|Hice la tarea en la biblioteca durante dos horas; avancé mucho.|I [did] my homework at the library for two hours; I [got] a lot done.
+39|t|El regalo es de parte de todos; lo hicimos a mano y nos tomó una semana.|The gift is from all of us; we [made] it by hand, and it [took] a week.
+
+# --- Regla 40 · For + período / During + evento ---
+40|t|Estuve en Bogotá tres días durante el festival y la pasé genial.|I [was] in Bogotá for three days during the festival, and I [had] a great time.
+40|c|Durante la clase, tomó muchas notas; no hizo nada más durante dos horas.|During the class, she [took] a lot of notes; she [did] nothing else for two hours.
+40|t|Pensé en eso durante la película y por días después; me puso triste.|I [thought] about it during the movie and for days after; it [made] me sad.
+40|c|Fuimos a la playa por una semana durante las vacaciones y nos bronceamos.|We [went] to the beach for a week during the holidays and [got] a tan.
+40|t|Durante la tormenta, se fue la luz por dos horas; daba miedo.|During the storm, the power [went] out for two hours; it [was] scary.
+40|c|No dijo nada durante la cena; tuvo un mal día.|He didn't [say] anything during dinner; he [had] a bad day.
+40|t|He tenido este trabajo por cinco años; lo conseguí después de la universidad.|I have [had] this job for five years; I [got] it after college.
+40|c|Durante el viaje, hicimos muchos amigos; estuvimos allí un mes.|During the trip, we [made] many friends; we [were] there for a month.
+40|t|Recibí la noticia durante el almuerzo y estuve en shock por horas.|I [got] the news during lunch, and I [was] in shock for hours.
+40|c|Estudió por tres horas y luego tomó un descanso; pensó que se lo merecía.|She studied for three hours and then [took] a break; she [thought] she deserved it.
+40|t|Durante la reunión, el jefe tomó una decisión importante; lo habíamos sabido por días.|During the meeting, the boss [made] an important decision; we had [known] about it for days.
+40|c|Me quedé dormido durante el discurso; era largo y yo había hecho mucho ese día.|I fell asleep during the speech; it [was] long, and I had [done] a lot that day.
+40|t|Ha estado en el gimnasio por dos horas; dijo que sería rápido.|He has [been] at the gym for two hours; he [said] he'd be quick.
+40|c|Durante la guerra, mi abuelo se fue a otro país por diez años; fue una época difícil.|During the war, my grandfather [went] to another country for ten years; it [was] a hard time.
+40|t|Hice ejercicio por una hora durante mi descanso y tuve energía toda la tarde.|I [did] exercise for an hour during my break, and I [had] energy all afternoon.
+
+# --- Regla 41 · Orden natural de la oración ---
+41|t|Ayer temprano fui al mercado con mi mamá y compré fruta fresca.|I [went] to the market with my mom early yesterday and [got] fresh fruit.
+41|c|Siempre tiendo la cama antes de desayunar; mi mamá dijo que es un buen hábito.|I always [make] my bed before breakfast; my mom [said] it's a good habit.
+41|t|Nunca he estado tan cansado en mi vida; hoy hice tres trabajos.|I have never [been] so tired in my life; I [did] three jobs today.
+41|c|Ella casi nunca decía lo que pensaba.|She rarely [said] what she [thought].
+41|t|Tomamos un café rápido antes de la reunión y luego tomamos notas.|We [had] a quick coffee before the meeting and then [took] notes.
+41|c|¿Dónde conseguiste esa chaqueta tan bonita? Pensé que era nueva.|Where did you [get] that nice jacket? I [thought] it was new.
+41|t|Mi hermano mayor ha sabido inglés muy bien desde que fue al colegio en Miami.|My older brother has [known] English very well since he [went] to school in Miami.
+41|c|Hice todo lo posible para llegar a tiempo.|I [did] everything possible to [get] there on time.
+41|t|Pensé que era una muy buena idea.|I [thought] it [was] a very good idea.
+41|c|Ya se tomó su medicina hoy; se la tomó con el desayuno.|He has already [taken] his medicine today; he [had] it with breakfast.
+41|t|El año pasado hicimos un viaje increíble a Perú; fue inolvidable.|Last year we [took] an amazing trip to Peru; it [was] unforgettable.
+41|c|Me dijo en voz baja que se iba.|She [said] quietly that she [was] leaving.
+41|t|Tuvimos una reunión muy larga esta mañana y nadie sabía por qué.|We [had] a very long meeting this morning, and nobody [knew] why.
+41|c|De repente se fue sin decir nada; hicimos llamadas toda la noche.|He suddenly [went] away without a word; we [made] calls all night.
+41|t|Esta mañana hice el desayuno para toda la familia; todos dijeron que estaba delicioso.|This morning I [made] breakfast for the whole family; everyone [said] it was delicious.
+
+# --- Regla 42 · Vocabulario específico ---
+42|t|Hice el mercado y me llevé el recibo.|I [did] the grocery shopping and [took] the receipt.
+42|c|Mi trayecto al trabajo tomó una hora por el tráfico; fue terrible.|My commute [took] an hour because of the traffic; it [was] terrible.
+42|t|Tuve una cita con el dentista y me dijo que todo estaba bien.|I [had] a dentist appointment, and he [said] everything was fine.
+42|c|Me hicieron un reembolso porque el producto venía dañado.|I [got] a refund because the product [was] damaged.
+42|t|Tuvimos una lluvia de ideas e hicimos una lista para el proyecto.|We [had] a brainstorming session and [made] a list for the project.
+42|c|Perdí el vuelo de conexión y tuve que esperar; la aerolínea pidió disculpas.|I missed my connecting flight, so I [had] to wait; the airline [said] sorry.
+42|t|Saqué un préstamo para comprar mi primer apartamento; lo pensé durante un año.|I [took] out a loan to buy my first apartment; I [thought] about it for a year.
+42|c|El plomero vino e hizo la reparación en una hora; conocía bien su trabajo.|The plumber came and [did] the repair in an hour; he [knew] his job.
+42|t|Fui a la ferretería por unos tornillos y también compré un martillo.|I [went] to the hardware store for some screws and [got] a hammer too.
+42|c|He estado haciendo voluntariado en un refugio de animales; me ha hecho más feliz.|I have [been] volunteering at an animal shelter; it has [made] me happier.
+42|t|Hizo una transferencia bancaria para pagar el arriendo; le tomó un minuto.|She [made] a bank transfer to pay the rent; it [took] one minute.
+42|c|Le dieron incapacidad porque tenía fiebre alta; el médico dijo tres días.|They gave him sick leave because he [had] a high fever; the doctor [said] three days.
+42|t|Sabía que la factura había llegado con recargo porque me había pasado de la fecha límite.|I [knew] the bill came with a late fee because I had [gone] past the due date.
+42|c|Llegamos al hotel a las tres e hicimos el registro.|We [got] to the hotel at three and [did] the check-in.
+42|t|Tomó un turno extra para ganar más dinero; tenía cuentas por pagar.|She [took] an extra shift to earn more money; she [had] bills to pay.
+
+# --- Regla 43 · Past Perfect ---
+43|t|Cuando llegué, la película había empezado y mis amigos se habían ido.|When I [got] there, the movie had started, and my friends had [gone].
+43|c|Nunca había estado en un lugar tan bonito; tomé cientos de fotos.|I had never [been] to such a beautiful place; I [took] hundreds of photos.
+43|t|Ya había hecho la cena cuando llegamos.|She had already [made] dinner when we [got] home.
+43|c|No sabía que habías tenido un accidente.|I didn't [know] you had [had] an accident.
+43|t|Dijo que ya había hecho la tarea.|He [said] he had already [done] his homework.
+43|c|Habíamos pensado ir a la playa, pero llovió, así que fuimos al centro comercial.|We had [thought] about going to the beach, but it rained, so we [went] to the mall.
+43|t|Se dio cuenta de que había tomado el bus equivocado y se bajó.|She realized she had [taken] the wrong bus and [got] off.
+43|c|Había conseguido el trabajo antes de graduarse; tuvo mucha suerte.|He had [gotten] the job before he graduated; he [was] very lucky.
+43|t|Lo había dicho mil veces, pero nadie escuchó; pensaban que estaba bromeando.|I had [said] it a thousand times, but nobody listened; they [thought] I was joking.
+43|c|Cuando lo conocí, tenía muchas historias y sabía cinco idiomas.|When I met him, he [had] many stories, and he [knew] five languages.
+43|t|Antes de ese día, nunca había tomado una decisión tan difícil; estaba asustado.|Before that day, I had never [made] such a hard decision; I [was] scared.
+43|c|Sabía que se había ido porque su carro no estaba.|I [knew] he had [gone] because his car wasn't there.
+43|t|Habían estado juntos diez años antes de casarse.|They had [been] together for ten years before they [got] married.
+43|c|Ya habíamos hecho todo cuando llegó el jefe.|We had already [done] everything when the boss [got] there.
+43|t|Me dijo que nunca había conocido a alguien como yo.|He [said] he had never [known] anyone like me.
+
+# --- Regla 44 · Future Perfect Continuous ---
+44|t|Para diciembre llevaré cinco años trabajando aquí; conseguí este trabajo en 2021 y he hecho grandes amigos.|By December, I will have been working here for five years; I [got] this job in 2021, and I have [made] great friends.
+44|c|Cuando llegues, llevaré dos horas esperando; dijiste que serías puntual.|When you [get] here, I will have been waiting for two hours; you [said] you'd be on time.
+44|t|En junio, ella llevará tres años estudiando inglés; tomó su primera clase en 2023 y le ha ido genial.|In June, she will have been studying English for three years; she [took] her first class in 2023 and has [done] great.
+44|c|Para cuando lleguemos, llevaremos diez horas manejando; sabía que sería largo.|By the time we [get] there, we will have been driving for ten hours; I [knew] it would be long.
+44|t|El próximo mes llevaré un año viviendo aquí; he pasado por mucho y he pensado en irme.|Next month, I will have been living here for a year; I have [gone] through a lot and have [thought] about leaving.
+44|c|A las cinco llevarán todo el día reunidos; nadie ha almorzado y no han tomado una decisión.|At five, they will have been meeting all day; nobody has [had] lunch, and they haven't [made] a decision.
+44|t|Para entonces, llevaré meses pensando en esto; necesito tomar una decisión y actuar.|By then, I will have been thinking about this for months; I need to [make] a choice and [take] action.
+44|c|Cuando se jubile, llevará treinta años enseñando; ha conocido a miles de estudiantes y todos la han querido.|When she retires, she will have been teaching for thirty years; she has [known] thousands of students and has [been] loved by all.
+44|t|Mañana a esta hora llevaré seis horas volando; voy a estar muy cansado y espero dormir algo.|At this time tomorrow, I will have been flying for six hours; I'll [be] so tired, and I hope I [get] some sleep.
+44|c|En agosto llevaremos un año ahorrando para el viaje; hicimos un plan y tuvimos que cumplirlo.|In August, we will have been saving for the trip for a year; we [made] a plan, and we [had] to stick to it.
+44|t|Para las diez llevará dos horas corriendo; dijo que quería hacer una media maratón.|By ten, he will have been running for two hours; he [said] he wanted to [do] a half marathon.
+44|c|Cuando lleguen, llevaremos todo el día cocinando; hemos hecho tres platos y nos ha tomado una eternidad.|When they arrive, we will have been cooking all day; we have [made] three dishes, and it has [taken] forever.
+44|t|Para fin de año llevará seis meses entrenando; sabía que sería difícil, pero se lanzó.|By the end of the year, she will have been training for six months; she [knew] it would be hard, but she [went] for it.
+44|c|En mayo llevaré dos años trabajando en este libro; he tomado muchas notas y he recibido mucha ayuda.|In May, I will have been working on this book for two years; I have [taken] a lot of notes and have [gotten] a lot of help.
+44|t|Para cuando llegues, llevaré toda la mañana limpiando, así que tú tienes que lavar los platos.|By the time you arrive, I will have been cleaning all morning, so you [have] to [do] the dishes.
+
+# --- Regla 45 · Voz pasiva ---
+45|t|Este pan se hace todos los días y se puede comprar en la mañana.|This bread is [made] every day and can [be] bought in the morning.
+45|c|La tarea debe hacerse antes del viernes.|The homework must [be] [done] before Friday.
+45|t|Se dice que este lugar es mágico; mucha gente ha ido allá.|It is [said] that this place is magic; many people have [gone] there.
+45|c|La decisión ya está tomada; no se puede cambiar.|The decision is already [made]; it can't [be] changed.
+45|t|Estas fotos fueron tomadas por mi abuelo; tenía muy buen ojo.|These photos were [taken] by my grandfather; he [had] a great eye.
+45|c|Es conocido por su paciencia; todos lo dijeron en la fiesta.|He is [known] for his patience; everyone [said] so at the party.
+45|t|El trabajo se puede hacer desde casa; conseguimos permiso.|The work can [be] done from home; we [got] permission.
+45|c|Los boletos se reciben en la puerta; tienes que mostrar tu identificación.|Tickets are [taken] at the door; you [have] to show your ID.
+45|t|Este café se hace con granos colombianos; sabía que te gustaría.|This coffee is [made] with Colombian beans; I [knew] you'd like it.
+45|c|Las reglas deben ser respetadas por todos; el director lo dijo claramente.|The rules must [be] respected by everyone; the director [said] it clearly.
+45|t|Se cree que el ladrón se llevó todo.|It is [thought] that the thief [took] everything.
+45|c|La decisión se tomará mañana; el jefe no tuvo tiempo hoy.|The decision will [be] made tomorrow; the boss [had] no time today.
+45|t|El español se habla en muchos países, como sabes; se dice que es fácil.|Spanish is spoken in many countries, as you [know]; it is [said] to be easy.
+45|c|Las camas se tienden todos los días en el hotel; el servicio fue excelente.|The beds are [made] every day at the hotel; the service [was] excellent.
+45|t|Esto se puede arreglar en cinco minutos; ya lo he hecho antes y me tomó menos.|This can be fixed in five minutes; I have [done] it before, and it [took] me less.
+
+# --- Regla 46 · Modales de posibilidad / deducción ---
+46|t|Debe estar en casa; su carro está afuera y dijo que estaba cansada.|She must [be] at home; her car is outside, and she [said] she was tired.
+46|c|No puede ser el ladrón; lo conozco desde hace años.|He can't [be] the thief; I have [known] him for years.
+46|t|Puede que haya algo en la nevera; mi mamá hizo las compras.|There might [be] something in the fridge; my mom [did] the shopping.
+46|c|Debe de estar cansado; tuvo un turno de doce horas.|He must [be] tired; he [had] a twelve-hour shift.
+46|t|No puede ser verdad; yo lo sabría.|That can't [be] true; I would [know].
+46|c|Podría haber tráfico; tomemos otra ruta.|There might [be] traffic; let's [take] another route.
+46|t|Debe estar en la oficina; dijo que tenía una reunión.|He must [be] at the office; he [said] he had a meeting.
+46|c|Puede que estén ocupados; no han dicho nada.|They might [be] busy; they haven't [said] anything.
+46|t|Ella debe saber dónde está; pensó en todo.|She must [know] where it is; she [thought] of everything.
+46|c|Puede que haya un problema con el carro; hizo un ruido raro.|There might [be] a problem with the car; it [made] a strange noise.
+46|t|No puede estar enfermo; fue al gimnasio esta mañana.|He can't [be] sick; he [went] to the gym this morning.
+46|c|Debe haber una explicación; ella nunca ha llegado tarde.|There must [be] an explanation; she has never [gotten] here late.
+46|t|Puede que tengas razón; no lo había pensado.|You might [be] right; I hadn't [thought] of that.
+46|c|Debe ser difícil hacer eso solo.|It must [be] hard to [do] that alone.
+46|t|No puede ser tan caro; mi hermano lo consiguió barato.|It can't [be] that expensive; my brother [got] it cheap.
+
+# --- Regla 47 · Half of ---
+47|t|La mitad de los estudiantes fue al paseo y el resto estaba enfermo.|Half of the students [went] on the trip, and the rest [were] sick.
+47|c|Hice la mitad del trabajo y él se encargó del resto.|I [did] half of the work, and he [took] care of the rest.
+47|t|Me comí la mitad de la pizza que hiciste.|I [had] half of the pizza you [made].
+47|c|La mitad de la gente no sabía la respuesta; la pregunta era difícil.|Half of the people didn't [know] the answer; the question [was] hard.
+47|t|Dijo que la mitad del dinero era para su mamá.|He [said] half of the money [was] for his mom.
+47|c|Ya me tomé la mitad de las pastillas; el médico dijo que las terminara.|I have already [taken] half of the pills; the doctor [said] to finish them.
+47|t|Pasé la mitad del día pensando en lo que dijiste; no tenía idea.|I spent half of the day thinking about what you [said]; I [had] no idea.
+47|c|La mitad del equipo se fue temprano; la reunión tomó demasiado tiempo.|Half of the team [went] home early; the meeting [took] too long.
+47|t|Conseguimos la mitad de lo que necesitábamos; fue un comienzo.|We [got] half of what we needed; it [was] a start.
+47|c|He hecho la mitad de la tarea; creo que terminaré pronto.|I have [done] half of my homework; I [think] I'll finish soon.
+47|t|La mitad de mis amigos ha estado en Europa; yo solo he ido a Panamá.|Half of my friends have [been] to Europe; I have only [gone] to Panama.
+47|c|Le tomó la mitad del tiempo que pensaba.|It [took] him half of the time he [thought].
+47|t|La mitad de la clase sabía que el examen era hoy; la otra mitad se llevó una sorpresa.|Half of the class [knew] the test was today; the other half [got] a surprise.
+47|c|Tuve que cancelar la mitad de mis planes porque estaba enfermo.|I [had] to cancel half of my plans because I [was] sick.
+47|t|La mitad del pastel que hizo mi mamá ya se acabó.|Half of the cake my mom [made] is already [gone].
+
+# --- Regla 48 · "By" para tiempo futuro ---
+48|t|Para el viernes habré hecho todo el trabajo, como dije.|By Friday, I will have [done] all the work, as I [said].
+48|c|Para las ocho, todos se habrán ido a casa; deberíamos ser rápidos.|By eight, everyone will have [gone] home; we should [be] quick.
+48|t|Para diciembre habremos conseguido suficiente dinero para el viaje; hicimos un presupuesto.|By December, we will have [gotten] enough money for the trip; we [made] a budget.
+48|c|Para mañana habré tomado una decisión; tuve una larga charla con mi esposa.|By tomorrow, I will have [made] a decision; I [had] a long talk with my wife.
+48|t|Para el próximo año, ella habrá estado en veinte países; hizo su primer viaje a los dieciocho.|By next year, she will have [been] to twenty countries; she [took] her first trip at eighteen.
+48|c|Para cuando llegues a casa, habré hecho la cena.|By the time you [get] home, I will have [made] dinner.
+48|t|Para junio habrá terminado la carrera y conseguido trabajo; sabía lo que quería.|By June, he will have finished college and [gotten] a job; he [knew] what he wanted.
+48|c|Para el lunes ya lo habrán dicho en las noticias; todos lo sabrán.|By Monday, they will have [said] it on the news; everyone will [know].
+48|t|Para las cinco habremos tenido tres reuniones; pensé que tendríamos una.|By five, we will have [had] three meetings; I [thought] we'd have one.
+48|c|Para el fin de semana habré pensado en una solución; lo hice la última vez.|By the weekend, I will have [thought] of a solution; I [did] it last time.
+48|t|Para cuando lleguen, ya habremos tomado los mejores puestos; fuimos temprano.|By the time they arrive, we will have [taken] the best seats; we [went] early.
+48|c|Para 2030 habré aprendido tres idiomas; tomé mi primera clase a los veinte y lo he hecho cada año.|By 2030, I will have learned three languages; I [took] my first class at twenty and have [done] it every year.
+48|t|Para el mediodía habrá llegado a Medellín; se fue en bus.|By noon, she will have [gotten] to Medellín; she [went] by bus.
+48|c|Para la próxima semana habrán tomado una decisión sobre el proyecto; tuvieron tiempo suficiente.|By next week, they will have [made] a decision about the project; they [had] enough time.
+48|t|Para cuando te gradúes, sabrás mucho más; habrás pasado por mucho.|By the time you graduate, you will [know] much more; you will have [been] through a lot.
+
+# --- Regla 49 · because of / because ---
+49|t|No fuimos a la playa por la lluvia; estuvo terrible.|We didn't [go] to the beach because of the rain; it [was] terrible.
+49|c|Llegué tarde porque tomé el bus equivocado.|I [got] there late because I [took] the wrong bus.
+49|t|El vuelo se canceló por el mal tiempo, así que tuvimos que esperar; nadie sabía por cuánto tiempo.|The flight was canceled because of bad weather, so we [had] to wait; nobody [knew] for how long.
+49|c|Lo hice porque pensé que era lo correcto.|I [did] it because I [thought] it was the right thing.
+49|t|Gracias a tu ayuda conseguí el trabajo; no sé cómo agradecerte.|Because of your help, I [got] the job; I can't [say] thank you enough.
+49|c|Estaba triste porque su perro se había ido.|She [was] sad because her dog had [gone].
+49|t|No dijo nada por miedo; no tuvo el valor.|He didn't [say] anything because of fear; he [had] no courage.
+49|c|Hicimos la fiesta en casa por el precio del salón; tenía sentido.|We [had] the party at home because of the price of the hall; it [made] sense.
+49|t|Sabía la respuesta porque había estudiado mucho.|She [knew] the answer because she had [done] a lot of studying.
+49|c|Por el tráfico, nos tomó tres horas llegar.|Because of the traffic, it [took] us three hours to [get] there.
+49|t|No pude dormir porque tenía mucho en qué pensar.|I couldn't sleep because I [had] a lot to [think] about.
+49|c|Me fui a casa temprano por un dolor de cabeza; me dolía mucho.|I [went] home early because of a headache; I [was] in pain.
+49|t|La gente lo conoce por su música; ha hecho cinco álbumes.|People [know] him because of his music; he has [made] five albums.
+49|c|Llevé el paraguas porque dijeron que llovería.|I [took] my umbrella because they [said] it would rain.
+49|t|Por su esfuerzo, ha sido el mejor de su clase; hizo todo bien.|Because of his effort, he has [been] the best in his class; he [did] everything right.
+
+# --- Regla 50 · (put, try, get, take, lie) + (down, off, on) ---
+50|t|Me quité la chaqueta porque hacía calor.|I [took] off my jacket because it [was] hot.
+50|c|Nos subimos al bus y nos llevó al centro.|We [got] on the bus, and it [took] us downtown.
+50|t|El avión despegó a tiempo; dijeron que llegaríamos temprano.|The plane [took] off on time; they [said] we would arrive early.
+50|c|Bájate del bus en la próxima parada; yo lo hice ayer.|[Get] off the bus at the next stop; I [did] it yesterday.
+50|t|Se quitó los zapatos y se acostó en el sofá porque estaba cansada.|She [took] off her shoes and lay down on the sofa because she [was] tired.
+50|c|¿Te subiste al tren correcto? Pensé que te habías perdido.|Did you [get] on the right train? I [thought] you were lost.
+50|t|Quítate la gorra en clase, como dijo el profesor.|[Take] off your cap in class, as the teacher [said].
+50|c|El vuelo ya despegó; llegamos demasiado tarde.|The flight has already [taken] off; we [were] too late.
+50|t|Nos bajamos del bus y nos fuimos caminando.|We [got] off the bus and [went] on foot.
+50|c|Mi carrera despegó cuando conseguí ese cliente.|My career [took] off when I [got] that client.
+50|t|Se subió a la moto sin casco; sabía que era peligroso.|He [got] on the motorcycle without a helmet; he [knew] it was dangerous.
+50|c|Me quité los audífonos para oír lo que decía.|I [took] off my headphones to hear what she [said].
+50|t|¿A qué hora sales del trabajo? Podríamos cenar.|What time do you [get] off work? We could [have] dinner.
+50|c|Se ha quitado el anillo; algo debe de estar mal.|He has [taken] off his ring; something must [be] wrong.
+50|t|Se bajó del avión y se fue directo al hotel.|She [got] off the plane and [went] straight to the hotel.
+
+# --- Regla 51 · Sustantivos compuestos ---
+51|t|Hice una lista de compras para el supermercado y me la llevé.|I [made] a shopping list for the supermarket and [took] it with me.
+51|c|Fue a la peluquería y se cortó el pelo.|She [went] to the hair salon and [got] a haircut.
+51|t|Mi compañero de cuarto dijo que perdió las llaves del carro; estaba molesto.|My roommate [said] he lost his car keys; he [was] upset.
+51|c|Tuve dolor de cabeza todo el día; me tomé un analgésico.|I [had] a headache all day; I [took] a painkiller.
+51|t|¿Has estado en la nueva estación de bomberos? Yo fui ayer.|Have you [been] to the new fire station? I [went] there yesterday.
+51|c|Hice la tarea en mi portátil nuevo; mi papá me lo consiguió.|I [did] my homework on my new laptop; my dad [got] it for me.
+51|t|Me enteré de la noticia por el periódico; pensé que era un chiste.|I [got] the news from the newspaper; I [thought] it was a joke.
+51|c|El conductor del bus no dijo nada; estaba de mal humor.|The bus driver didn't [say] anything; he [was] in a bad mood.
+51|t|Hicimos un muñeco de nieve en las vacaciones de invierno; nos tomó una hora.|We [made] a snowman during the winter vacation; it [took] us an hour.
+51|c|Ha tomado un curso de primeros auxilios; sabía qué hacer.|She has [taken] a first-aid course; she [knew] what to do.
+51|t|Tuve que ir a la sala de urgencias por un dolor de muela; fue horrible.|I [had] to go to the emergency room for a toothache; it [was] awful.
+51|c|Conseguí boletos para el partido de fútbol; pensé que querrías venir.|I [got] tickets for the soccer game; I [thought] you'd want to come.
+51|t|Mi cumpleaños fue genial; me hicieron una fiesta sorpresa.|My birthday [was] great; they [made] me a surprise party.
+51|c|¿Ya pediste la cita con el médico de familia? Dijiste que lo harías.|Have you [made] the appointment with the family doctor? You [said] you would.
+51|t|Se fue en el tren nocturno y llegó de madrugada.|He [went] on the night train and [got] there at dawn.
+
+# --- Regla 52 · Expresiones de tiempo con "over" ---
+52|t|Durante el fin de semana hicimos muchas cosas y fuimos de caminata.|Over the weekend, we [did] a lot of things and [went] hiking.
+52|c|En los últimos años ha tenido mucho éxito y ha hecho muchos amigos.|Over the past few years, she has [had] a lot of success and has [made] many friends.
+52|t|Durante las vacaciones tomé muchas fotos; fue divertido.|Over the holidays, I [took] lots of pictures; it [was] fun.
+52|c|En los últimos meses he pensado mucho en mi futuro; sé lo que quiero.|Over the last few months, I have [thought] a lot about my future; I [know] what I want.
+52|t|Durante la cena dijo algo interesante; tuvimos una larga charla.|Over dinner, she [said] something interesting; we [had] a long talk.
+52|c|En el último año he estado en cinco ciudades y he hecho amigos en todas.|Over the last year, I have [been] to five cities and have [made] friends in all of them.
+52|t|Hablamos de eso tomando un café; ella sabía qué hacer.|We talked about it over coffee; she [knew] what to [do].
+52|c|Con los años he aprendido a tener paciencia; lo hice por las malas.|Over the years, I have learned to [have] patience; I [did] it the hard way.
+52|t|Durante el verano fuimos a la playa varias veces y nos bronceamos mucho.|Over the summer, we [went] to the beach several times and [got] very tan.
+52|c|En las últimas semanas ha hecho mucho frío; me enfermé.|Over the past few weeks, it has [been] very cold; I [got] sick.
+52|t|A lo largo de su carrera ha tomado decisiones difíciles y ha corrido grandes riesgos.|Over his career, he has [made] hard decisions and has [taken] big risks.
+52|c|Durante la noche alguien se llevó mi bicicleta; pensé que estaba segura.|Overnight, someone [took] my bike; I [thought] it was safe.
+52|t|En la última década la ciudad ha cambiado mucho; la gente dice que está mejor y yo también lo creo.|Over the last decade, the city has changed a lot; people [say] it's better, and I [think] so too.
+52|c|Durante el almuerzo me dijo que se iba.|Over lunch, she [said] she [was] leaving.
+52|t|Con el tiempo hemos llegado a conocer a nuestros vecinos.|Over time, we have [gotten] to [know] our neighbors.
+
+# --- Regla 53 · Future Continuous ---
+53|t|Mañana a esta hora estaré acostado en la playa; conseguí los boletos ayer.|This time tomorrow, I will [be] lying on the beach; I [got] the tickets yesterday.
+53|c|No me llames a las ocho; estaré haciendo ejercicio. Lo dije ayer.|Don't call me at eight; I will [be] working out. I [said] it yesterday.
+53|t|El próximo lunes estaremos viajando a Cartagena; hicimos los planes en mayo.|Next Monday, we will [be] traveling to Cartagena; we [made] the plans in May.
+53|c|A las diez estará dando su presentación; ha hecho un gran trabajo preparándola.|At ten, she will [be] giving her presentation; she has [done] a great job preparing.
+53|t|¿Vas a estar usando el carro esta noche? Necesito ir a la tienda.|Will you [be] using the car tonight? I need to [go] to the store.
+53|c|Mañana estaré pensando en ti durante el examen; sabes que puedes hacerlo.|Tomorrow I will [be] thinking of you during the exam; you [know] you can do it.
+53|t|Esta noche estaremos cenando con mis papás; mi mamá hizo su famosa sopa.|Tonight we will [be] having dinner with my parents; my mom [made] her famous soup.
+53|c|Mañana a esta hora estaré volando a Miami; tuve que comprar maletas nuevas.|At this time tomorrow, I will [be] flying to Miami; I [had] to buy new luggage.
+53|t|Estarán esperando en la entrada; dijeron que llegarían temprano.|They will [be] waiting at the entrance; they [said] they'd come early.
+53|c|El próximo año estaré trabajando en otra empresa; recibí una oferta.|Next year, I will [be] working at another company; I [got] an offer.
+53|t|No podemos ir a las tres; estaremos presentando un examen. Lo supimos la semana pasada.|We can't go at three; we will [be] taking a test. We [knew] it last week.
+53|c|Estaré esperándote cuando llegues.|I will [be] waiting for you when you [get] here.
+53|t|A medianoche todos estarán durmiendo, así que no hagas ruido.|At midnight, everyone will [be] sleeping, so don't [make] noise.
+53|c|Mañana estará trabajando desde casa porque tuvo una cirugía.|Tomorrow he will [be] working from home because he [had] surgery.
+53|t|En diciembre estaremos celebrando; hemos pensado en este día por años.|In December, we will [be] celebrating; we have [thought] about this day for years.
+
+# --- Regla 54 · Comparativos y superlativos ---
+54|t|Este fue el mejor viaje que he hecho.|This [was] the best trip I have ever [taken].
+54|c|Ella era más alta que yo de niños, pero ahora yo he crecido más.|She [was] taller than me as a kid, but now I have [gotten] taller.
+54|t|Es la peor decisión que he tomado; sabía que era un error.|It's the worst decision I have ever [made]; I [knew] it was a mistake.
+54|c|Este examen fue más fácil de lo que pensé.|This test [was] easier than I [thought].
+54|t|Es la persona más amable que he conocido; hizo mucho por mí.|She is the kindest person I have ever [known]; she [did] so much for me.
+54|c|Llegué más temprano que tú; tomé un taxi.|I [got] here earlier than you; I [took] a taxi.
+54|t|Fue el día más largo de mi vida; tuve tres exámenes.|It [was] the longest day of my life; I [had] three exams.
+54|c|Hice el trabajo más rápido que la última vez; me tomó dos horas.|I [did] the work faster than last time; it [took] two hours.
+54|t|Dijo que era el restaurante más caro de la ciudad; fuimos de todos modos.|He [said] it was the most expensive restaurant in the city; we [went] anyway.
+54|c|Esta es la mejor pizza que he probado; ¿quién la hizo?|This is the best pizza I have ever [had]; who [made] it?
+54|t|Ahora sé más que antes; he estado estudiando mucho.|Now I [know] more than before; I have [been] studying hard.
+54|c|Ha sido el año más difícil para nuestra familia; tuvimos muchos problemas.|It has [been] the hardest year for our family; we [had] many problems.
+54|t|Mi hermano es mayor, pero yo fui el primero en irse de casa.|My brother is older, but I [was] the first to [go] away from home.
+54|c|Es la idea más interesante que alguien ha dicho en esta reunión; creo que deberíamos probarla.|It's the most interesting idea anyone has [said] in this meeting; I [think] we should try it.
+54|t|Este es el camino más corto; lo he tomado muchas veces y siempre me llevó rápido.|This is the shortest way; I have [taken] it many times, and it always [got] me there fast.
+
+# --- Regla 55 · make/let/help + objeto + infinitivo ---
+55|t|Mi mamá me hizo hacer la tarea antes de salir.|My mom [made] me [do] my homework before going out.
+55|c|Déjame decir algo, por favor; tuve una idea.|Let me [say] something, please; I [had] an idea.
+55|t|Me ayudó a tomar la decisión correcta; estaba confundido.|She helped me [make] the right decision; I [was] confused.
+55|c|El profesor nos hizo pensar en el problema.|The teacher [made] us [think] about the problem.
+55|t|Sus papás no la dejan ir a fiestas; pensaban que era muy joven.|Her parents don't let her [go] to parties; they [thought] she was too young.
+55|c|Me ayudaste a ser una mejor persona; lo supe desde el principio.|You helped me [be] a better person; I [knew] it from the start.
+55|t|Déjame tomarles una foto; estuvieron increíbles esta noche.|Let me [take] a picture of you guys; you [were] amazing tonight.
+55|c|Su jefe lo hizo ir a la reunión.|His boss [made] him [go] to the meeting.
+55|t|¿Me ayudas a conseguir un taxi? Tuve un día largo.|Can you help me [get] a taxi? I [had] a long day.
+55|c|Avísame cuando llegues a casa.|Let me [know] when you [get] home.
+55|t|Mi papá me dejó llevar su carro; dijo que tuviera cuidado.|My dad let me [take] his car; he [said] to be careful.
+55|c|Ella me ayudó a hacer la cena; nos divertimos.|She helped me [make] dinner; we [had] fun.
+55|t|No me hagas decirlo otra vez.|Don't [make] me [say] it again.
+55|c|Nos dejaron estar en la sala de profesores; hicimos la tarea allí.|They let us [be] in the teachers' room; we [did] our homework there.
+55|t|Me ayudó a saber qué quería estudiar; tenía mucha experiencia.|He helped me [know] what I wanted to study; he [had] a lot of experience.
+
+# --- Regla 56 · Estilo indirecto ---
+56|t|Dijo que había ido al médico.|She [said] she had [gone] to the doctor.
+56|c|Me dijo que no sabía nada; estaba nervioso.|He told me he didn't [know] anything; he [was] nervous.
+56|t|Dijeron que habían hecho todo lo posible.|They [said] they had [done] everything possible.
+56|c|Me contó que había conseguido un nuevo trabajo; estaba muy feliz.|She told me she had [gotten] a new job; she [was] very happy.
+56|t|Dijo que estaba cansado y que se iba a dormir.|He [said] he [was] tired and was going to bed.
+56|c|Me preguntó si me había tomado la medicina; le dije que sí.|She asked me if I had [taken] the medicine; I [said] yes.
+56|t|Dijo que había pensado en nosotros todo el viaje.|He [said] he had [thought] about us the whole trip.
+56|c|Me dijeron que habían tenido un problema con el vuelo; llegaron a casa a medianoche.|They told me they had [had] a problem with the flight; they [got] home at midnight.
+56|t|El profesor dijo que el examen sería fácil.|The teacher [said] the test would [be] easy.
+56|c|Me preguntó qué había hecho el fin de semana y le dije que había ido a la playa.|She asked me what I had [done] on the weekend, and I told her I had [gone] to the beach.
+56|t|Dijo que conocía a mi hermano desde niño.|He [said] he had [known] my brother since childhood.
+56|c|Me contó que había hecho la cena para todos; pensé que era un lindo detalle.|She told me she had [made] dinner for everyone; I [thought] it was nice.
+56|t|Dijeron que iban a tomar el último tren.|They [said] they were going to [take] the last train.
+56|c|Mi mamá dijo que debía tener cuidado.|My mom [said] I should [be] careful.
+56|t|Me dijo que nunca había estado tan feliz; tenía lágrimas en los ojos.|She told me she had never [been] so happy; she [had] tears in her eyes.
+
+# --- Regla 57 · Wish + pasado simple ---
+57|t|Ojalá tuviera más tiempo para ir al gimnasio.|I wish I [had] more time to [go] to the gym.
+57|c|Ojalá supiera hablar francés; tomé una clase una vez.|I wish I [knew] how to speak French; I [took] a class once.
+57|t|Ojalá estuvieras aquí conmigo; hice tu plato favorito.|I wish you [were] here with me; I [made] your favorite dish.
+57|c|Desearía tener un carro; lo dijo ayer.|She wishes she [had] a car; she [said] it yesterday.
+57|t|Ojalá no tuviera que trabajar mañana; hice demasiado esta semana.|I wish I didn't [have] to work tomorrow; I [did] too much this week.
+57|c|Ojalá supiéramos qué pasó; nadie ha dicho nada.|I wish we [knew] what happened; nobody has [said] anything.
+57|t|Ojalá fuera más paciente con mis hijos; hoy me enojé.|I wish I [were] more patient with my kids; I [got] angry today.
+57|c|Ojalá tuviéramos una casa más grande; pensamos en mudarnos.|I wish we [had] a bigger house; we [thought] about moving.
+57|t|Ojalá él pensara antes de hablar; hizo llorar a mi mamá.|I wish he [thought] before speaking; he [made] my mom cry.
+57|c|Ojalá fuera viernes; he tenido una semana larga.|I wish it [were] Friday; I have [had] a long week.
+57|t|Ojalá supiera cocinar como mi abuela; ella hacía la mejor sopa.|I wish I [knew] how to cook like my grandma; she [made] the best soup.
+57|c|Ojalá tuvieras más confianza en ti misma; lo hiciste genial.|I wish you [had] more confidence in yourself; you [did] great.
+57|t|Ojalá no estuviera tan lejos de mi familia; me fui hace cinco años.|I wish I [were] not so far from my family; I [went] away five years ago.
+57|c|Ojalá tuviera tu número; pensé que lo había guardado.|I wish I [had] your number; I [thought] I saved it.
+57|t|Ojalá supiera qué decir en estos casos.|I wish I [knew] what to [say] in these cases.
+
+# --- Regla 58 · Conectores formales ---
+58|t|Aunque estaba cansado, fui a la reunión.|Although I [was] tired, I [went] to the meeting.
+58|c|A pesar de la lluvia, hicimos el picnic; además, fue divertido.|Despite the rain, we [had] the picnic; moreover, it [was] fun.
+58|t|Estudié mucho; sin embargo, no me fue bien en el examen, y pensé que me iría bien.|I studied hard; however, I didn't [do] well on the test, and I [thought] I would.
+58|c|Aunque sabía la verdad, no dijo nada.|Although she [knew] the truth, she [said] nothing.
+58|t|A pesar de sus problemas, le ha ido bien; además, ha hecho muchos amigos.|Despite his problems, he has [done] well; moreover, he has [made] a lot of friends.
+58|c|El hotel era caro; además, tomaba una hora llegar al centro.|The hotel [was] expensive; moreover, it [took] an hour to get downtown.
+58|t|Aunque tomó un bus temprano, llegó tarde.|Although she [took] an early bus, she [got] there late.
+58|c|A pesar de tener poco tiempo, hicimos un buen trabajo; sin embargo, cometimos algunos errores.|Despite having little time, we [did] a good job; however, we [made] a few mistakes.
+58|t|Fue un buen año; sin embargo, tuvimos algunas pérdidas.|It [was] a good year; however, we [had] some losses.
+58|c|Aunque había estado allí antes, se perdió.|Although he had [been] there before, he [got] lost.
+58|t|Además de ser inteligente, ha sabido ser humilde.|Besides being smart, she has [known] how to [be] humble.
+58|c|A pesar de lo que dijeron, fuimos al concierto.|Despite what they [said], we [went] to the concert.
+58|t|Pensé que sería fácil; sin embargo, tomó semanas.|I [thought] it would be easy; however, it [took] weeks.
+58|c|Aunque hizo frío, la pasamos genial.|Although it [was] cold, we [had] a great time.
+58|t|El plan tenía fallas; además, nadie sabía cómo hacerlo.|The plan [had] flaws; moreover, nobody [knew] how to do it.
+
+# --- Regla 59 · Phrasal verbs B2 ---
+59|t|Me encontré con mi profesor en el centro comercial y dijo que me recordaba; fue una linda sorpresa.|I ran into my teacher at the mall, and he [said] he remembered me; it [was] a nice surprise.
+59|c|Nos llevamos muy bien desde el primer día; teníamos el mismo humor.|We have [gotten] along well since the first day; we [had] the same sense of humor.
+59|t|Nunca te rindas; sé que puedes hacerlo.|Never give up; I [know] you can [do] it.
+59|c|Espero con ansias ir a Japón el próximo año; lo he pensado por meses e hice un plan.|I'm looking forward to going to Japan next year; I have [thought] about it for months, and I [made] a plan.
+59|t|Dejó de fumar después de que el médico le dijo que tenía problemas.|He gave up smoking after the doctor [said] he [had] problems.
+59|c|Me encontré con Ana en el bus; habían pasado años y me reconoció enseguida.|I ran into Ana on the bus; it had [been] years, and she [knew] me right away.
+59|t|¿Te llevas bien con tus compañeros de trabajo? Yo tuve problemas con los míos.|Do you [get] along with your coworkers? I [had] problems with mine.
+59|c|Casi me rindo, pero seguí y conseguí el trabajo; me tomó un año.|I almost gave up, but I kept going and [got] the job; it [took] a year.
+59|t|Esperamos con ansias conocerte; mi mamá hizo un pastel y nosotros hicimos la decoración.|We're looking forward to meeting you; my mom [made] a cake, and we [did] the decorations.
+59|c|No se llevaban bien, así que él se fue.|They didn't [get] along, so he [went] away.
+59|t|Me encontré con un viejo amigo y nos tomamos un café; dijo que se va a casar.|I ran into an old friend, and we [had] a coffee; he [said] he's getting married.
+59|c|Se rindió porque pensó que no tenía oportunidad.|She gave up because she [thought] she [had] no chance.
+59|t|Siempre me he llevado bien con mi suegra; fue como una mamá para mí.|I have always [gotten] along with my mother-in-law; she [was] like a mom to me.
+59|c|Esperaba con ansias el fin de semana, pero tuve que trabajar; mi jefe dijo que era urgente.|I was looking forward to the weekend, but I [had] to work; my boss [said] it was urgent.
+59|t|¿Por qué te rendiste? Sabías que podías hacerlo.|Why did you give up? You [knew] you could [do] it.
