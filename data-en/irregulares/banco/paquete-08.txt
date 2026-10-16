@@ -17,3 +17,190 @@
 1|t|Llevaba horas tomando fotos cuando por fin salió el sol; despertó a todos para verlo. Había disparado trescientas fotos.|He had been taking photos for hours when the sun finally rose; he [woke] everyone to see it. He had [shot] three hundred photos.
 1|c|Habían estado buscando al ladrón por semanas cuando confesó que robó las joyas; juró que estaba arrepentido.|They had been looking for the thief for weeks when he confessed that he [stole] the jewels; he [swore] he was sorry.
 1|t|Llevábamos años sin hablarnos cuando por fin me perdonó; me prestó su casa para la boda.|We hadn't been talking for years when she finally [forgave] me; she [lent] me her house for the wedding.
+
+# --- Regla 2 · Wh Questions ---
+2|t|¿Quién te prestó el carro? ¿Quién lo robó?|Who [lent] you the car? Who [stole] it?
+2|c|¿A qué hora te despertaste? ¿Le diste de comer al perro?|What time did you [wake] up? Did you [feed] the dog?
+2|t|¿Por qué juraste eso? ¿Ya te perdonó?|Why did you [swear] that? Has she [forgiven] you yet?
+2|c|¿Dónde colgaste mi chaqueta? ¿Quién la robó?|Where did you [hang] my jacket? Who [stole] it?
+2|t|¿Cómo manejaste el problema? ¿Buscaste ayuda?|How did you [deal] with the problem? Did you [seek] help?
+2|c|¿Quién disparó la foto? ¿Quién colgó el cuadro?|Who [shot] the photo? Who [hung] the picture?
+2|t|¿Cuánto dinero le has prestado? ¿Te ha jurado que te pagará?|How much money have you [lent] him? Has he [sworn] to pay you back?
+2|c|¿Quién repartió las cartas? ¿Por qué juró tanto?|Who [dealt] the cards? Why did he [swear] so much?
+2|t|¿Qué le diste de comer al bebé? ¿Lo despertaste?|What did you [feed] the baby? Did you [wake] him up?
+2|c|¿Cuándo te robaron la bicicleta? ¿Buscaste en el barrio?|When did they [steal] your bike? Did you [seek] it in the neighborhood?
+2|t|¿Por qué lo perdonaste? ¿Juró que no lo haría otra vez?|Why did you [forgive] him? Did he [swear] he wouldn't do it again?
+2|c|¿Dónde grabaron la película? ¿Quién les prestó el equipo?|Where did they [shoot] the movie? Who [lent] them the equipment?
+2|t|¿Quién te despertó? ¿Quién colgó el teléfono tan fuerte?|Who [woke] you up? Who [hung] up the phone so loudly?
+2|c|¿Cómo has manejado el estrés? ¿Has buscado un terapeuta?|How have you [dealt] with stress? Have you [sought] a therapist?
+2|t|¿Quién alimentó a los peces? ¿Quién se robó la comida del gato?|Who [fed] the fish? Who [stole] the cat's food?
+
+# --- Regla 3 · Orden de sustantivos compuestos ---
+3|t|Me prestó su cámara de video y disparé fotos en la fiesta de cumpleaños.|She [lent] me her video camera, and I [shot] photos at the birthday party.
+3|c|Me robaron la tarjeta de crédito en la estación de tren; busqué ayuda en la oficina de policía.|Someone [stole] my credit card at the train station; I [sought] help at the police station.
+3|t|El despertador me despertó a las seis; le di de comer al perro guardián.|The alarm clock [woke] me at six; I [fed] the guard dog.
+3|c|Colgué el abrigo de invierno en el perchero del pasillo; perdoné al gato por romperlo.|I [hung] the winter coat on the hallway coat rack; I [forgave] the cat for tearing it.
+3|t|El jugador de fútbol disparó al arco; el portero lo perdonó con una sonrisa.|The soccer player [shot] at the goal; the goalkeeper [forgave] him with a smile.
+3|c|Manejé la queja del cliente y le presté mi número de teléfono.|I [dealt] with the customer complaint and [lent] him my phone number.
+3|t|Juró en la sala del tribunal que no robó la bicicleta de montaña.|He [swore] in the courtroom that he didn't [steal] the mountain bike.
+3|c|Le di de comer a los peces del acuario y colgué la red de pesca.|I [fed] the aquarium fish and [hung] up the fishing net.
+3|t|Buscó trabajo en la feria de empleo y le prestaron un traje de entrevista.|He [sought] work at the job fair, and they [lent] him an interview suit.
+3|c|El ladrón de bancos robó la caja fuerte; la policía disparó al aire.|The bank robber [stole] the safe; the police [shot] into the air.
+3|t|Me despertó el camión de basura; colgué las cortinas nuevas.|The garbage truck [woke] me; I [hung] the new curtains.
+3|c|Repartió las cartas en la mesa de juego y juró que no hizo trampa.|He [dealt] the cards at the game table and [swore] he didn't cheat.
+3|t|Le presté mi cargador de teléfono; me lo robó.|I [lent] him my phone charger; he [stole] it.
+3|c|Perdonó la deuda de la tarjeta de crédito y alimentó a la familia con el dinero.|She [forgave] the credit card debt and [fed] the family with the money.
+3|t|Disparamos fotos de boda en el jardín botánico; colgamos las mejores en la sala.|We [shot] wedding photos at the botanical garden; we [hung] the best ones in the living room.
+
+# --- Regla 4 · Segundo condicional ---
+4|t|Si me prestaras tu carro, te perdonaría todo.|If you [lent] me your car, I would [forgive] you for everything.
+4|c|Si alguien robara mi bicicleta, buscaría ayuda en la policía.|If someone [stole] my bike, I would [seek] help from the police.
+4|t|Si te despertaras más temprano, le darías de comer al perro.|If you [woke] up earlier, you would [feed] the dog.
+4|c|Si juraras decir la verdad, te perdonaría.|If you [swore] to tell the truth, I would [forgive] you.
+4|t|Si manejaras mejor el estrés, no colgarías el teléfono tan fuerte.|If you [dealt] with stress better, you wouldn't [hang] up the phone so hard.
+4|c|Si colgaras el cuadro aquí, yo grabaría un video para mostrarlo.|If you [hung] the picture here, I would [shoot] a video to show it.
+4|t|Si buscara trabajo, alguien me prestaría un traje.|If I [sought] work, someone would [lend] me a suit.
+4|c|Si alimentaras a los pájaros, te despertarían cantando.|If you [fed] the birds, they would [wake] you up singing.
+4|t|Si disparara mejor, nadie me robaría el puesto.|If I [shot] better, nobody would [steal] my spot.
+4|c|Si me perdonaras, juraría no hacerlo otra vez.|If you [forgave] me, I would [swear] never to do it again.
+4|t|Si robaran el carro, lo buscaríamos toda la noche.|If they [stole] the car, we would [seek] it all night.
+4|c|Si me prestaras dinero, te daría parte de las ganancias.|If you [lent] me money, I would [deal] you in on the profits.
+4|t|Si me despertaras a las cinco, colgaría las luces antes de la fiesta.|If you [woke] me at five, I would [hang] the lights before the party.
+4|c|Si dijeras menos groserías, la gente te perdonaría más rápido.|If you [swore] less, people would [forgive] you faster.
+4|t|Si alimentáramos mejor al perro, no robaría comida.|If we [fed] the dog better, it wouldn't [steal] food.
+
+# --- Regla 5 · Cláusulas relativas ---
+5|t|El hombre que me prestó el dinero me perdonó la deuda.|The man who [lent] me the money [forgave] my debt.
+5|c|La bicicleta que robaron la encontró un vecino que buscaba a su perro.|A neighbor who [sought] his dog found the bike that they [stole].
+5|t|El ruido que me despertó vino del perro que alimenté anoche.|The noise that [woke] me came from the dog that I [fed] last night.
+5|c|El cuadro que colgué en la sala lo pintó la mujer que juró no vender nunca su arte.|The woman who painted the picture I [hung] in the living room [swore] never to sell her art.
+5|t|El fotógrafo que disparó estas fotos robó la atención de todos.|The photographer who [shot] these photos [stole] everyone's attention.
+5|c|El cliente con el que traté ayer me perdonó el error.|The customer I [dealt] with yesterday [forgave] my mistake.
+5|t|El testigo que juró decir la verdad buscó protección.|The witness who [swore] to tell the truth [sought] protection.
+5|c|El niño que alimentó a los patos colgó una foto en internet.|The boy who [fed] the ducks [hung] a photo online.
+5|t|La señora a quien le robaron el bolso perdonó al ladrón.|The woman whose bag was [stolen] [forgave] the thief.
+5|c|El amigo que me prestó su carro me despertó a las cinco.|The friend who [lent] me his car [woke] me at five.
+5|t|La película que grabaron aquí trata de un hombre que robó un banco.|The movie they [shot] here is about a man who [stole] from a bank.
+5|c|El jefe que trató el problema buscó una solución rápida.|The boss who [dealt] with the problem [sought] a quick solution.
+5|t|La vecina cuyo gato alimenté me prestó su escalera.|The neighbor whose cat I [fed] [lent] me her ladder.
+5|c|El hombre que juró venganza nunca perdonó a su hermano.|The man who [swore] revenge never [forgave] his brother.
+5|t|El abrigo que colgué en la puerta fue robado.|The coat that I [hung] on the door was [stolen].
+
+# --- Regla 6 · Need to + infinitivo ---
+6|t|Necesito despertar a los niños; anoche les di de comer muy tarde.|I need to [wake] the kids; last night I [fed] them very late.
+6|c|Necesitas perdonarlo; ya juró que no lo hará otra vez.|You need to [forgive] him; he has already [sworn] he won't do it again.
+6|t|Necesitamos colgar los cuadros; ya buscamos el lugar perfecto.|We need to [hang] the pictures; we have already [sought] the perfect place.
+6|c|Necesito prestarle dinero; le robaron la billetera ayer.|I need to [lend] him money; someone [stole] his wallet yesterday.
+6|t|Necesita buscar ayuda; ha tratado con demasiado estrés.|She needs to [seek] help; she has [dealt] with too much stress.
+6|c|Necesitas alimentar al gato; nadie le dio de comer esta mañana y me despertó llorando.|You need to feed the cat; nobody [fed] it this morning, and it [woke] me crying.
+6|t|No necesitas jurar; te perdoné ayer.|You don't need to [swear]; I [forgave] you yesterday.
+6|c|Necesitamos grabar la escena otra vez; alguien robó la cámara.|We need to [shoot] the scene again; someone [stole] the camera.
+6|t|Necesito tratar este asunto hoy; ya colgué el teléfono dos veces.|I need to [deal] with this issue today; I have already [hung] up the phone twice.
+6|c|Necesitas despertarte temprano; ayer te despertaste a las diez y le diste de comer tarde al perro.|You need to wake up early; yesterday you [woke] up at ten and [fed] the dog late.
+6|t|Necesito pedirte prestado dinero; me robaron en el bus.|I need you to [lend] me money; they [stole] from me on the bus.
+6|c|Necesitamos buscar al perro; robó la carne y huyó.|We need to [seek] the dog; it [stole] the meat and ran away.
+6|t|Necesita perdonarse a sí mismo; juró que nunca cometería ese error.|He needs to [forgive] himself; he [swore] he would never make that mistake.
+6|c|Necesito colgar la ropa; ya alimenté a las gallinas.|I need to [hang] the laundry; I have already [fed] the chickens.
+6|t|Necesitas tratar con calma a los clientes; ayer uno juró que no volvería.|You need to [deal] calmly with customers; yesterday one [swore] he would never come back.
+
+# --- Regla 8 · Pronombre objeto tras preposición ---
+8|t|Le presté mi carro a ella y lo robaron frente a su casa.|I [lent] my car to her, and someone [stole] it in front of her house.
+8|c|Busqué consejo en él y me perdonó por llegar tarde.|I [sought] advice from him, and he [forgave] me for being late.
+8|t|Disparó una foto de nosotros y la colgó en la pared.|He [shot] a photo of us and [hung] it on the wall.
+8|c|Juró delante de ellos que no robó nada.|He [swore] in front of them that he didn't [steal] anything.
+8|t|El perro me despertó a mí primero; luego le di de comer.|The dog [woke] me first; then I [fed] it.
+8|c|Trató con nosotros directamente y nos prestó su oficina.|She [dealt] with us directly and [lent] us her office.
+8|t|Colgó el teléfono sin despedirse de mí; nunca lo perdoné.|He [hung] up on me without saying goodbye; I never [forgave] him.
+8|c|Alimentamos a los niños antes que a ellos; luego buscamos postre.|We [fed] the kids before them; then we [sought] dessert.
+8|t|Robaron algo de mí, pero perdoné a quien lo hizo.|They [stole] something from me, but I [forgave] whoever did it.
+8|c|Me prestó sus apuntes a mí y no a él; él juró vengarse.|She [lent] her notes to me and not to him; he [swore] revenge.
+8|t|Despertamos a nuestros hijos y les dimos de comer.|We [woke] our kids and [fed] them.
+8|c|Apuntó la cámara hacia ellos y grabó todo; nadie se la robó.|He pointed the camera at them and [shot] everything; nobody [stole] it from him.
+8|t|Buscaron ayuda en nosotros; les prestamos dinero.|They [sought] help from us; we [lent] them money.
+8|c|Repartió las cartas entre nosotros y juró que no miró.|He [dealt] the cards among us and [swore] he didn't look.
+8|t|Colgó un cuadro de él en la sala; lo perdonó al final.|She [hung] a picture of him in the living room; she [forgave] him in the end.
+
+# --- Regla 9 · "as" = como ---
+9|t|Trabajó como fotógrafo y disparó fotos en cien bodas; colgó las mejores en su estudio.|He worked as a photographer and [shot] photos at a hundred weddings; he [hung] the best ones in his studio.
+9|c|Como no me despertaste, no le di de comer al perro.|As you didn't [wake] me, I didn't [feed] the dog.
+9|t|Como amigo, le presté dinero sin pedir nada; juró pagarme.|As a friend, I [lent] him money without asking for anything; he [swore] to pay me back.
+9|c|Usó la puerta como mesa y colgó un mantel encima; alimentamos a veinte invitados.|He used the door as a table and [hung] a tablecloth over it; we [fed] twenty guests.
+9|t|Como siempre, el gato robó comida y me despertó a medianoche.|As always, the cat [stole] food and [woke] me at midnight.
+9|c|Como abogada, trató casos difíciles y buscó justicia.|As a lawyer, she [dealt] with difficult cases and [sought] justice.
+9|t|Como te dije, me robaron el teléfono; busqué ayuda en la policía.|As I told you, someone [stole] my phone; I [sought] help from the police.
+9|c|Como juró decir la verdad, el juez lo perdonó.|As he had [sworn] to tell the truth, the judge [forgave] him.
+9|t|Como regalo, colgó luces en mi ventana y me despertó con música.|As a gift, he [hung] lights in my window and [woke] me with music.
+9|c|Como capitán, disparó el último penal y repartió las medallas.|As captain, he [shot] the last penalty and [dealt] out the medals.
+9|t|Como madre, alimentó a cinco hijos y perdonó todos sus errores.|As a mother, she [fed] five children and [forgave] all their mistakes.
+9|c|Usó el dinero prestado como fondo de emergencia; nadie lo robó.|He used the [lent] money as an emergency fund; nobody [stole] it.
+9|t|Como esperábamos, juró inocencia y buscó un abogado.|As we expected, he [swore] he was innocent and [sought] a lawyer.
+9|c|Como no había trabajo, buscó en otra ciudad y su tío le prestó un cuarto.|As there was no work, he [sought] a job in another city, and his uncle [lent] him a room.
+9|t|Como siempre, me despertó el gallo; alimenté a los animales.|As always, the rooster [woke] me; I [fed] the animals.
+
+# --- Regla 10 · Presente perfecto ---
+10|t|Le he prestado dinero tres veces y nunca me ha perdonado que se lo pida de vuelta.|I have [lent] him money three times, and he has never [forgiven] me for asking for it back.
+10|c|Han robado dos carros en la calle; la policía ha buscado a los ladrones toda la semana.|They have [stolen] two cars on the street; the police have [sought] the thieves all week.
+10|t|¿Ya le has dado de comer al perro? Me ha despertado tres veces.|Have you [fed] the dog yet? It has [woken] me three times.
+10|c|He colgado todas las fotos que hemos disparado este año.|I have [hung] all the photos we have [shot] this year.
+10|t|Ha jurado que no lo hizo; ya lo he perdonado.|He has [sworn] he didn't do it; I have already [forgiven] him.
+10|c|Hemos tratado con muchos clientes difíciles; nunca hemos robado a nadie.|We have [dealt] with many difficult customers; we have never [stolen] from anyone.
+10|t|Han buscado una solución por años; nadie les ha prestado atención.|They have [sought] a solution for years; nobody has [lent] them an ear.
+10|c|He despertado a todos; ya les he dado de comer a los niños.|I have [woken] everyone; I have already [fed] the kids.
+10|t|Ha disparado mil fotos y las ha colgado en internet.|She has [shot] a thousand photos and has [hung] them online.
+10|c|Nunca he robado nada; siempre he jurado decir la verdad.|I have never [stolen] anything; I have always [sworn] to tell the truth.
+10|t|Me ha perdonado; me ha prestado su carro otra vez.|She has [forgiven] me; she has [lent] me her car again.
+10|c|Hemos alimentado a los gatos de la calle y hemos buscado hogares para ellos.|We have [fed] the street cats and have [sought] homes for them.
+10|t|Ha colgado el teléfono; ha tratado muy mal a su jefe.|He has [hung] up the phone; he has [dealt] very badly with his boss.
+10|c|¿Has jurado alguna vez en un tribunal? Yo he despertado al juez con mi tos.|Have you ever [sworn] in a court? I have [woken] the judge with my cough.
+10|t|Le han robado la bicicleta dos veces; ha buscado en todo el barrio.|Someone has [stolen] his bike twice; he has [sought] it all over the neighborhood.
+
+# --- Regla 11 · Bring / Brought ---
+11|t|Trajo la cámara que le presté y disparó fotos toda la tarde.|He brought the camera I [lent] him and [shot] photos all afternoon.
+11|c|Trae la comida del perro; nadie lo ha alimentado y me despertó dos veces.|Bring the dog food; nobody has [fed] it, and it [woke] me twice.
+11|t|Trajo flores porque le perdoné; juró que no volvería a mentir.|He brought flowers because I [forgave] him; he [swore] he would never lie again.
+11|c|Trajeron el cuadro que robaron y lo colgaron en la pared.|They brought the painting they [stole] and [hung] it on the wall.
+11|t|Me trajo el libro que le presté hace un año; lo había buscado por todas partes.|She brought me the book I [lent] her a year ago; I had [sought] it everywhere.
+11|c|Traje las cartas y repartí la primera mano; nadie juró.|I brought the cards and [dealt] the first hand; nobody [swore].
+11|t|Trae el abrigo que colgaste en la puerta; lo van a robar.|Bring the coat you [hung] on the door; someone will [steal] it.
+11|c|Trajo a su hijo, que lo despertó a las cinco; le dio de comer en el carro.|He brought his son, who [woke] him at five; he [fed] him in the car.
+11|t|¿Trajiste el dinero que te presté? Juraste que lo traerías hoy.|Did you bring the money I [lent] you? You [swore] you would bring it today.
+11|c|Trajeron comida para los perros que alimentaron en el refugio; buscaron dueños para ellos.|They brought food for the dogs they [fed] at the shelter; they [sought] owners for them.
+11|t|Me trajo las fotos que disparó en la boda; las colgué en la sala.|He brought me the photos he [shot] at the wedding; I [hung] them in the living room.
+11|c|Traje un pastel para que me perdonaras; robé tu última galleta.|I brought a cake so you would [forgive] me; I [stole] your last cookie.
+11|t|Trae tus preguntas; trataremos cada una y buscaremos respuestas.|Bring your questions; we will [deal] with each one and [seek] answers.
+11|c|Me trajo un despertador porque nunca me despierto a tiempo; le presté mi cafetera.|She brought me an alarm clock because I never [wake] up on time; I [lent] her my coffee maker.
+11|t|Trajo a la policía porque alguien le robó el carro; juró encontrar al ladrón.|She brought the police because someone [stole] her car; she [swore] to find the thief.
+
+# --- Regla 12 · Primer condicional ---
+12|t|Si me prestas el carro, te perdonaré.|If you [lend] me the car, I'll [forgive] you.
+12|c|Si roban algo, buscaremos ayuda.|If they [steal] anything, we'll [seek] help.
+12|t|Si te despiertas temprano, alimenta a las gallinas.|If you [wake] up early, [feed] the chickens.
+12|c|Si juras decir la verdad, te perdonaré.|If you [swear] to tell the truth, I'll [forgive] you.
+12|t|Si cuelgas el cuadro, lo grabaré en video.|If you [hang] the picture, I'll [shoot] a video of it.
+12|c|Si tratas bien a los clientes, te prestarán atención.|If you [deal] well with customers, they'll [lend] you their attention.
+12|t|Si buscas trabajo, te prestaré mi traje.|If you [seek] work, I'll [lend] you my suit.
+12|c|Si alimentas al gato, no te despertará.|If you [feed] the cat, it won't [wake] you.
+12|t|Si disparas bien, nadie te robará el puesto.|If you [shoot] well, nobody will [steal] your spot.
+12|c|Si me perdonas, juro que no lo haré otra vez.|If you [forgive] me, I [swear] I won't do it again.
+12|t|Si robas, te buscarán.|If you [steal], they'll [seek] you out.
+12|c|Si repartes las cartas, juraré que no miro.|If you [deal] the cards, I'll [swear] I'm not looking.
+12|t|Si me despiertas, colgaré las luces contigo.|If you [wake] me, I'll [hang] the lights with you.
+12|c|Si cuelgas el teléfono, no te perdonaré.|If you [hang] up the phone, I won't [forgive] you.
+12|t|Si alimentas bien al perro, no robará comida.|If you [feed] the dog well, it won't [steal] food.
+
+# --- Regla 13 · Past Perfect vs Presente vs Futuro ---
+13|t|Ya le había prestado dinero; mañana le perdonaré la deuda.|I had already [lent] him money; tomorrow I will [forgive] the debt.
+13|c|Nunca había robado nada; mañana jurará ante el juez que no lo volverá a hacer.|He had never [stolen] anything; tomorrow he will [swear] before the judge never to do it again.
+13|t|Cuando llegué, ya habían alimentado al perro; mañana lo despertaré yo.|When I arrived, they had already [fed] the dog; tomorrow I will [wake] it up.
+13|c|Ya había colgado los cuadros; mañana grabaremos el video.|I had already [hung] the pictures; tomorrow we will [shoot] the video.
+13|t|Nunca la había perdonado; mañana buscaré la manera de hacerlo.|I had never [forgiven] her; tomorrow I will [seek] a way to do it.
+13|c|Ya habían tratado el tema; la próxima semana juramentarán al nuevo funcionario.|They had already [dealt] with the issue; next week they will [swear] in the new officer.
+13|t|Me habían despertado tres veces; esta noche alimentaré al bebé yo.|They had [woken] me three times; tonight I will [feed] the baby.
+13|c|Había buscado trabajo por meses; mañana colgaré mi currículum en internet.|I had [sought] work for months; tomorrow I will [hang] my résumé on a job board.
+13|t|Ya habían disparado la escena; mañana robaremos un poco de tiempo para editar.|They had already [shot] the scene; tomorrow we will [steal] some time to edit.
+13|c|Nunca había jurado en un tribunal; el lunes me prestarán un abogado.|I had never [sworn] in a court; on Monday they will [lend] me a lawyer.
+13|t|Le habían robado el carro; mañana le prestaré el mío.|Someone had [stolen] his car; tomorrow I will [lend] him mine.
+13|c|Ya había perdonado a su hermano; ahora buscará reconciliarse.|She had already [forgiven] her brother; now she will [seek] to make peace.
+13|t|Ya había alimentado a los caballos; mañana colgaremos las monturas.|I had already [fed] the horses; tomorrow we will [hang] the saddles.
+13|c|Nunca había tratado con un cliente así; mañana lo despertaré con una llamada temprano.|I had never [dealt] with a client like that; tomorrow I will [wake] him with an early call.
+13|t|Habíamos colgado las luces; esta noche despertaremos a los niños para verlas.|We had [hung] the lights; tonight we will [wake] the kids to see them.
