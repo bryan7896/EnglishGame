@@ -374,3 +374,105 @@
 23|t|Me miró como si hubiera apostado su dinero; le costó mucho perdonarme.|He looked at me as if I had [bet] his money; it [cost] him a lot to forgive me.
 23|c|Busqué un lugar para balancear la hamaca; el sol brillaba entre los árboles.|I looked for a place to [swing] the hammock; the sun [shone] through the trees.
 23|t|Buscamos el anillo que se deslizó por el desagüe; se hundió para siempre.|We looked for the ring that [slid] down the drain; it [sank] forever.
+
+# --- Regla 25 · Give / Gave / Given ---
+25|t|Me dio una escoba y barrí toda la casa; el piso brilló.|She gave me a broom, and I [swept] the whole house; the floor [shone].
+25|c|Le di cinta y pegó los carteles; le costó una hora.|I gave him tape, and he [stuck] the posters up; it [cost] him an hour.
+25|t|Nos dieron un premio y lo dividimos entre todos; apostamos una parte.|They gave us a prize, and we [split] it among everyone; we [bet] part of it.
+25|c|Le di un empujón y se deslizó por el tobogán; se hundió en la piscina.|I gave him a push, and he [slid] down the slide; he [sank] into the pool.
+25|t|Me dieron una oferta mejor y renuncié; me costó despedirme.|They gave me a better offer, and I [quit]; it [cost] me to say goodbye.
+25|c|Le di un bate y lo balanceó con fuerza; la pelota brilló bajo las luces.|I gave him a bat, and he [swung] it hard; the ball [shone] under the lights.
+25|t|Me dio su palabra y se quedó con ella; nunca renunció.|He gave me his word and [stuck] to it; he never [quit].
+25|c|Le dieron una advertencia, pero apostó igual; le costó todo.|They gave him a warning, but he [bet] anyway; it [cost] him everything.
+25|t|Mi abuela me dio un anillo; se deslizó de mi dedo y se hundió en el lago.|My grandmother gave me a ring; it [slid] off my finger and [sank] into the lake.
+25|c|Les dimos una tarea; la dividieron y se quedaron trabajando hasta tarde.|We gave them a task; they [split] it and [stuck] around working late.
+25|t|Me dieron una lámpara que brilló toda la noche; me costó dormir.|They gave me a lamp that [shone] all night; it [cost] me sleep.
+25|c|Le di un consejo: no apuestes; ya se había hundido en deudas porque apostó demasiado.|I gave him advice: don't gamble; he had already [sunk] into debt because he [bet] too much.
+25|t|Nos dieron permiso y nos balanceamos en la hamaca toda la tarde; barrimos las hojas después.|They gave us permission, and we [swung] in the hammock all afternoon; we [swept] the leaves afterward.
+25|c|Le han dado tantas oportunidades; ha renunciado a todas y se ha hundido.|They have given him so many chances; he has [quit] them all and has [sunk] lower.
+25|t|Me dio una foto y la pegué en la pared; la luz del sol brilló sobre ella.|She gave me a photo, and I [stuck] it on the wall; the sunlight [shone] on it.
+
+# --- Regla 26 · Still + hope ---
+26|t|Todavía espero renunciar este año; el trabajo me costó la salud.|I still hope to [quit] this year; the job [cost] me my health.
+26|c|Aún espera que el sol brille; ayer barrió la terraza para la fiesta.|She still hopes the sun will [shine]; yesterday she [swept] the terrace for the party.
+26|t|Todavía esperamos dividir las ganancias; apostamos todo al negocio.|We still hope to [split] the profits; we [bet] everything on the business.
+26|c|Aún espero que el barco no se hunda; ya se deslizó contra las rocas una vez.|I still hope the boat won't [sink]; it has already [slid] against the rocks once.
+26|t|Todavía espera quedarse en el equipo; ayer bateó tres jonrones.|He still hopes to [stick] with the team; yesterday he [swung] for three home runs.
+26|c|Aún esperamos que la reparación cueste poco; el carro se deslizó en el hielo.|We still hope the repair will [cost] little; the car [slid] on the ice.
+26|t|Todavía espero que no apuestes; ayer te hundiste más en deudas.|I still hope you won't [bet]; yesterday you [sank] deeper into debt.
+26|c|Aún espera barrer toda la casa hoy; ya pegó las listas de tareas.|She still hopes to [sweep] the whole house today; she has already [stuck] up the chore lists.
+26|t|Todavía esperamos que no se divida el grupo; dos ya renunciaron.|We still hope the group won't [split]; two have already [quit].
+26|c|Aún espero balancearme en ese columpio; me costó años volver al pueblo.|I still hope to [swing] on that swing; it [cost] me years to return to the town.
+26|t|Todavía espera que brillen las estrellas; anoche el sol se hundió tarde.|She still hopes the stars will [shine]; last night the sun [sank] late.
+26|c|Aún esperamos que se quede; ayer casi renunció.|We still hope she'll [stick] around; yesterday she almost [quit].
+26|t|Todavía espero deslizarme por ese tobogán; el año pasado me quedé atascado.|I still hope to [slide] down that slide; last year I got [stuck].
+26|c|Aún espera que la apuesta valga la pena; le costó cien dólares y apostó más.|He still hopes the bet was worth it; it [cost] him a hundred dollars, and he [bet] more.
+26|t|Todavía esperamos que la tormenta no barra el pueblo; el río ya se dividió en dos.|We still hope the storm won't [sweep] the town; the river has already [split] in two.
+
+# --- Regla 27 · Too vs Very ---
+27|t|Aposté demasiado y me costó la casa.|I [bet] too much, and it [cost] me my house.
+27|c|El sol brilló muy fuerte; barrimos el patio temprano.|The sun [shone] very brightly; we [swept] the yard early.
+27|t|Se deslizó demasiado rápido y se hundió en la piscina.|He [slid] too fast and [sank] into the pool.
+27|c|Renunció muy pronto; le costó encontrar otro trabajo.|She [quit] very soon; it [cost] her a lot to find another job.
+27|t|Pegué la nota demasiado alto; nadie la notó y la luz brilló sobre ella.|I [stuck] the note too high; nobody noticed it, and the light [shone] off it.
+27|c|Dividimos la pizza en pedazos muy pequeños; costó poco por persona.|We [split] the pizza into very small pieces; it [cost] little per person.
+27|t|Se balanceó demasiado alto y se deslizó del columpio.|He [swung] too high and [slid] off the swing.
+27|c|Barrí muy rápido y dejé polvo; el piso no brilló.|I [swept] very fast and left dust; the floor didn't [shine].
+27|t|El barco se hundió demasiado rápido; nadie se quedó a bordo.|The boat [sank] too fast; nobody [stuck] around on board.
+27|c|La cena costó demasiado; renunciamos al postre.|Dinner [cost] too much; we [quit] before dessert.
+27|t|Apostó muy poco y ganó muy poco; dividió el premio con su hermana.|He [bet] very little and won very little; he [split] the prize with his sister.
+27|c|La luna brilló muy fuerte; el bote se deslizó por el agua.|The moon [shone] very brightly; the boat [slid] across the water.
+27|t|Se quedó demasiado tiempo en la fiesta; se hundió en el sofá.|He [stuck] around too long at the party; he [sank] into the sofa.
+27|c|La puerta se balanceó muy fuerte y barrió los papeles del piso.|The door [swung] very hard and [swept] the papers off the floor.
+27|t|El viaje costó demasiado; lo dividimos entre cinco.|The trip [cost] too much; we [split] it among five.
+
+# --- Regla 28 · Preguntas con presente/pasado perfecto ---
+28|t|¿Alguna vez has apostado? A mí me costó una fortuna una vez.|Have you ever [bet]? It [cost] me a fortune once.
+28|c|¿Ya barriste la cocina? ¿Se deslizó alguien?|Have you [swept] the kitchen yet? Did anyone [slide]?
+28|t|¿Habías renunciado antes? Te quedaste muy poco en ese trabajo.|Had you [quit] before? You [stuck] with that job for a very short time.
+28|c|¿Alguna vez se te ha hundido un bote? A mí se me deslizó contra las rocas en el lago.|Has a boat ever [sunk] under you? Mine [slid] against the rocks in the lake.
+28|t|¿Ya dividieron la cuenta? ¿Cuánto costó?|Have you [split] the bill yet? How much did it [cost]?
+28|c|¿Alguna vez has visto brillar así las estrellas? Anoche barrí la terraza para verlas.|Have you ever seen the stars [shine] like this? Last night I [swept] the terrace to watch them.
+28|t|¿Habías pegado alguna vez un afiche? Este se deslizó de la pared.|Had you ever [stuck] up a poster before? This one [slid] off the wall.
+28|c|¿Alguna vez te has balanceado en una liana? Yo me balanceé y me hundí en el río.|Have you ever [swung] on a vine? I did once and [sank] into the river.
+28|t|¿Ya te costó algo esa decisión? ¿Renunciaste a tu trabajo?|Has that decision [cost] you anything yet? Did you [quit] your job?
+28|c|¿Alguna vez se ha deslizado tu carro en el hielo? El mío se quedó atascado una vez.|Has your car ever [slid] on the ice? Mine got [stuck] once.
+28|t|¿Habían barrido el estadio cuando llegaste? El piso brillaba.|Had they [swept] the stadium when you arrived? The floor [shone].
+28|c|¿Alguna vez has apostado con un amigo? Yo dividí el premio con el mío.|Have you ever [bet] with a friend? I [split] the prize with mine.
+28|t|¿Ya se ha hundido el sol en el horizonte? Ya barrimos el patio para la fiesta.|Has the sun [sunk] below the horizon yet? We have already [swept] the patio for the party.
+28|c|¿Alguna vez has renunciado a un sueño? Yo me quedé con el mío.|Have you ever [quit] on a dream? I [stuck] with mine.
+28|t|¿Alguna vez se ha dividido tu familia? A nosotros nos costó años volver a reunirnos.|Has your family ever [split] apart? It [cost] us years to get back together.
+
+# --- Regla 29 · Tag Questions ---
+29|t|Apostaste en la carrera, ¿verdad? Te costó caro.|You [bet] on the race, didn't you? It [cost] you dearly.
+29|c|Renunciaste, ¿no? Te quedaste muy poco tiempo.|You [quit], didn't you? You [stuck] around for a very short time.
+29|t|Barriste la cocina, ¿cierto? El piso brillaba cuando entré.|You [swept] the kitchen, didn't you? The floor [shone] when I came in.
+29|c|No te deslizaste, ¿o sí? Te hundiste en la nieve.|You didn't [slide], did you? You [sank] into the snow.
+29|t|Dividieron la cuenta, ¿verdad? La cena costó poco.|You [split] the bill, didn't you? Dinner [cost] little.
+29|c|Ya pegaste los carteles, ¿no? Los barrió el viento.|You have already [stuck] the posters up, haven't you? The wind [swept] them away.
+29|t|El barco se hundió, ¿cierto? El sol brillaba ese día.|The ship [sank], didn't it? The sun [shone] that day.
+29|c|No has apostado otra vez, ¿o sí? Renunciaste al juego.|You haven't [bet] again, have you? You [quit] gambling.
+29|t|Te balanceaste en el columpio, ¿verdad? Te deslizaste al bajarte.|You [swung] on the swing, didn't you? You [slid] when you got off.
+29|c|Ya te ha costado mucho, ¿no? Te has quedado con el plan.|It has already [cost] you a lot, hasn't it? You have [stuck] to the plan.
+29|t|La banda se separó, ¿cierto? El cantante renunció.|The band [split] up, didn't it? The singer [quit].
+29|c|No barriste el patio, ¿o sí? Las hojas se pegaron a la puerta.|You didn't [sweep] the yard, did you? The leaves [stuck] to the door.
+29|t|La luna brilló toda la noche, ¿verdad? El bote se deslizó en silencio.|The moon [shone] all night, didn't it? The boat [slid] by in silence.
+29|c|Has renunciado a la apuesta, ¿no? Te hundiste en deudas.|You have [quit] betting, haven't you? You [sank] into debt.
+29|t|La puerta se balanceó, ¿cierto? El viento barrió el pasillo.|The door [swung], didn't it? The wind [swept] the hallway.
+
+# --- Regla 30 · Get + adjetivo ---
+30|t|Me puse nervioso cuando aposté; me costó dormir.|I got nervous when I [bet]; it [cost] me sleep.
+30|c|Se enojó porque renuncié; dividimos la oficina en dos.|She got angry because I [quit]; we [split] the office in two.
+30|t|Me asusté cuando el carro se deslizó; se hundió en la nieve.|I got scared when the car [slid]; it [sank] into the snow.
+30|c|Se puso feliz cuando el sol brilló; barrió la terraza enseguida.|He got happy when the sun [shone]; he [swept] the terrace right away.
+30|t|Nos cansamos de barrer; el polvo se pegó a todo y barrimos por horas.|We got tired of sweeping; the dust [stuck] to everything, and we [swept] for hours.
+30|c|Se puso triste cuando el barco se hundió; le había costado años construirlo.|He got sad when the boat [sank]; it had [cost] him years to build it.
+30|t|Me emocioné cuando me balanceé tan alto; el sol brilló en mi cara.|I got excited when I [swung] so high; the sun [shone] on my face.
+30|c|Se preocupó cuando la cena costó tanto; dividimos la cuenta.|She got worried when dinner [cost] so much; we [split] the bill.
+30|t|Me mojé cuando me deslicé por el tobogán; me hundí en la piscina.|I got wet when I [slid] down the slide; I [sank] into the pool.
+30|c|Se hicieron ricos cuando apostaron en la bolsa; renunciaron a sus trabajos.|They got rich when they [bet] on the stock market; they [quit] their jobs.
+30|t|Me aburrí y pegué fotos en la pared; me costó toda la tarde.|I got bored and [stuck] photos on the wall; it [cost] me the whole afternoon.
+30|c|Se enojó cuando se quedó atascado en el tráfico; renunció a ir a la fiesta.|He got angry when he got [stuck] in traffic; he [quit] trying to get to the party.
+30|t|Nos pusimos tristes cuando el grupo se separó; nos costó aceptarlo.|We got sad when the group [split] up; it [cost] us time to accept it.
+30|c|Se puso pálido cuando la puerta se balanceó sola; barrió la habitación con la mirada.|He got pale when the door [swung] by itself; he [swept] the room with his eyes.
+30|t|Me cansé de apostar; me hundí en deudas y lo dejé.|I got tired of betting; I [sank] into debt and [quit].
