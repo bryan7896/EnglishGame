@@ -1,0 +1,63 @@
+# Paquete 8 · lend, seek, shoot, steal, swear, wake, hang, deal, feed, forgive
+
+S|lend.b|¿Me puedes **prestar** tu lápiz?|Can you [lend] me your pencil?|lent,lended
+S|lend.p|Mi hermano me **prestó** su carro.|My brother [lent] me his car.|lend,lended
+S|lend.pp|Le he **prestado** dinero muchas veces.|I have [lent] him money many times.|lend,lended
+S|seek.b|Vamos a **buscar** ayuda profesional.|We are going to [seek] professional help.|sought,seeked
+S|seek.p|**Buscó** refugio de la tormenta.|He [sought] shelter from the storm.|seek,seeked
+S|seek.pp|Han **buscado** una solución por años.|They have [sought] a solution for years.|seek,seeked
+S|shoot.b|El fotógrafo va a **disparar** la cámara al atardecer.|The photographer is going to [shoot] photos at sunset.|shot,shooted
+S|shoot.p|El jugador **disparó** al arco.|The player [shot] at the goal.|shoot,shooted
+S|shoot.pp|Han **disparado** tres veces.|They have [shot] three times.|shoot,shooted
+S|steal.b|Nadie va a **robar** tu bicicleta aquí.|Nobody is going to [steal] your bike here.|stole,stolen
+S|steal.p|Alguien **robó** mi billetera.|Someone [stole] my wallet.|stolen,stealed
+S|steal.pp|Le han **robado** el teléfono.|Someone has [stolen] his phone.|stole,stealed
+S|swear.b|Te prometo que no voy a **jurar** en vano.|I promise I won't [swear] in vain.|swore,sworn
+S|swear.p|**Juró** decir la verdad.|He [swore] to tell the truth.|sworn,sweared
+S|swear.pp|Ha **jurado** que no lo hizo.|She has [sworn] she didn't do it.|swore,sweared
+S|wake.b|No quiero **despertar** al bebé.|I don't want to [wake] the baby.|woke,woken
+S|wake.p|El ruido me **despertó** a las tres.|The noise [woke] me at three.|woken,waked
+S|wake.pp|Me han **despertado** muy temprano.|They have [woken] me very early.|woke,waked
+S|hang.b|Voy a **colgar** el cuadro en la sala.|I'm going to [hang] the picture in the living room.|hung,hanged
+S|hang.p|**Colgó** su abrigo en la puerta.|She [hung] her coat on the door.|hang,hanged
+S|hang.pp|Hemos **colgado** las luces de Navidad.|We have [hung] the Christmas lights.|hang,hanged
+S|deal.b|Tenemos que **tratar** con clientes difíciles.|We have to [deal] with difficult customers.|dealt,dealed
+S|deal.p|**Trató** muy bien el problema.|He [dealt] with the problem very well.|deal,dealed
+S|deal.pp|Ya hemos **tratado** ese tema.|We have already [dealt] with that issue.|deal,dealed
+S|feed.b|¿Puedes **alimentar** al gato?|Can you [feed] the cat?|fed,feeded
+S|feed.p|**Alimentó** a los patos en el parque.|She [fed] the ducks in the park.|feed,feeded
+S|feed.pp|¿Ya has **alimentado** al perro?|Have you [fed] the dog yet?|feed,feeded
+S|forgive.b|Es difícil **perdonar** una traición.|It's hard to [forgive] a betrayal.|forgave,forgiven
+S|forgive.p|Por fin me **perdonó**.|She finally [forgave] me.|forgiven,forgived
+S|forgive.pp|¿Me has **perdonado**?|Have you [forgiven] me?|forgave,forgived
+
+C|lend.b|Los bancos prestan dinero con intereses.|Banks [lend] money with interest.
+C|lend.p|Le presté mi libro favorito.|I [lent] her my favorite book.
+C|lend.pp|El dinero fue prestado sin contrato.|The money was [lent] without a contract.
+C|seek.b|Muchos jóvenes buscan trabajo en la ciudad.|Many young people [seek] work in the city.
+C|seek.p|Los refugiados buscaron asilo.|The refugees [sought] asylum.
+C|seek.pp|Es un actor muy buscado.|He is a highly [sought] actor.
+C|shoot.b|Vamos a grabar el video mañana.|We're going to [shoot] the video tomorrow.
+C|shoot.p|Filmaron la película en Colombia.|They [shot] the movie in Colombia.
+C|shoot.pp|La escena fue filmada de noche.|The scene was [shot] at night.
+C|steal.b|Es un delito robar.|It's a crime to [steal].
+C|steal.p|Nos robaron el carro anoche.|They [stole] our car last night.
+C|steal.pp|La pintura robada apareció en París.|The [stolen] painting turned up in Paris.
+C|swear.b|Te juro que es verdad.|I [swear] it's true.
+C|swear.p|Maldijo cuando se golpeó el pie.|He [swore] when he hit his foot.
+C|swear.pp|El testigo fue juramentado.|The witness was [sworn] in.
+C|wake.b|Me despierto a las seis.|I [wake] up at six.
+C|wake.p|Nos despertamos con el sol.|We [woke] up with the sun.
+C|wake.pp|Fue despertado por una llamada.|He was [woken] by a phone call.
+C|hang.b|Cuelga la toalla para que se seque.|[Hang] the towel so it dries.
+C|hang.p|Me colgó el teléfono.|He [hung] up on me.
+C|hang.pp|Hay un espejo colgado en el pasillo.|There's a mirror [hung] in the hallway.
+C|deal.b|No sé cómo manejar el estrés.|I don't know how to [deal] with stress.
+C|deal.p|Repartió las cartas.|She [dealt] the cards.
+C|deal.pp|El asunto ya fue resuelto.|The matter has already been [dealt] with.
+C|feed.b|Alimentamos a las gallinas cada mañana.|We [feed] the chickens every morning.
+C|feed.p|Le di de comer al bebé.|I [fed] the baby.
+C|feed.pp|Estoy harto de esto.|I'm [fed] up with this.
+C|forgive.b|Perdóname, por favor.|Please [forgive] me.
+C|forgive.p|Mis papás me perdonaron.|My parents [forgave] me.
+C|forgive.pp|Todo está perdonado.|Everything is [forgiven].

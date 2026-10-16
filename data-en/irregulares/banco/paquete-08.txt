@@ -1,0 +1,19 @@
+# Paquete 8 · lend, seek, shoot, steal, swear, wake, hang, deal, feed, forgive
+# regla|t (traducción) o c (completar)|español|inglés con las 2 formas entre [corchetes]
+
+# --- Regla 1 · Past Perfect Continuous ---
+1|t|Llevaba horas durmiendo cuando el perro me despertó; le di de comer y volví a la cama.|I had been sleeping for hours when the dog [woke] me; I [fed] it and went back to bed.
+1|c|Habíamos estado ahorrando por meses cuando alguien nos robó el dinero; mi hermano nos prestó un poco.|We had been saving for months when someone [stole] our money; my brother [lent] us some.
+1|t|Llevaba años buscando a su padre cuando por fin lo encontró y lo perdonó; lo había buscado en tres países.|She had been looking for her father for years when she finally found him and [forgave] him; she had [sought] him in three countries.
+1|c|Habían estado discutiendo toda la noche cuando él juró que cambiaría; ella lo perdonó.|They had been arguing all night when he [swore] he would change; she [forgave] him.
+1|t|Llevaba semanas grabando el documental cuando le robaron la cámara; había grabado cincuenta horas de video.|He had been filming the documentary for weeks when someone [stole] his camera; he had [shot] fifty hours of video.
+1|c|Habíamos estado decorando toda la tarde; colgamos las luces y le dimos de comer a los niños.|We had been decorating all afternoon; we [hung] the lights and [fed] the kids.
+1|t|Llevaba meses luchando con el estrés cuando buscó ayuda profesional; después de eso lo manejó mucho mejor.|She had been struggling with stress for months when she [sought] professional help; she [dealt] with it much better after that.
+1|c|Habían estado jugando cartas por horas; él repartió la última mano y juró que no volvería a jugar.|They had been playing cards for hours; he [dealt] the last hand and [swore] he would never play again.
+1|t|Llevaba años prestándole dinero cuando por fin dejé de hacerlo; nunca me pagó, pero lo perdoné. Le había prestado miles.|I had been lending him money for years when I finally stopped; he never paid me back, but I [forgave] him. I had [lent] him thousands.
+1|c|Habíamos estado durmiendo una hora cuando la alarma nos despertó; alguien estaba robando el carro.|We had been sleeping for an hour when the alarm [woke] us; someone [stole] the car.
+1|t|Llevaba días buscando trabajo cuando por fin colgó su currículum en una bolsa de empleo; le pidió consejo a un amigo.|He had been looking for work for days when he finally [hung] his résumé on a job board; he [sought] advice from a friend.
+1|c|Había estado alimentando a los gatos de la calle por años cuando uno le robó el almuerzo; igual le dio de comer.|She had been feeding the street cats for years when one [stole] her lunch; she [fed] it anyway.
+1|t|Llevaba horas tomando fotos cuando por fin salió el sol; despertó a todos para verlo. Había disparado trescientas fotos.|He had been taking photos for hours when the sun finally rose; he [woke] everyone to see it. He had [shot] three hundred photos.
+1|c|Habían estado buscando al ladrón por semanas cuando confesó que robó las joyas; juró que estaba arrepentido.|They had been looking for the thief for weeks when he confessed that he [stole] the jewels; he [swore] he was sorry.
+1|t|Llevábamos años sin hablarnos cuando por fin me perdonó; me prestó su casa para la boda.|We hadn't been talking for years when she finally [forgave] me; she [lent] me her house for the wedding.

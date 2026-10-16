@@ -111,20 +111,20 @@
 8|c|Leí un cuento para él antes de dormir; se acostó a mi lado.|I [read] a story for him before bed; he [lay] next to me.
 8|t|Hablé con ella sobre el problema; ella dirigió la discusión.|I [spoke] with her about the problem; she [led] the discussion.
 8|c|Crecí con ellos en el mismo barrio; corríamos por ahí todo el día.|I [grew] up with them in the same neighborhood; we [ran] around all day.
-8|t|El guía caminó delante de nosotros y nos llevó al lago.|The guide walked ahead of us and [led] us to the lake; we [sat] by the water.
+8|t|El guía caminó delante de nosotros y nos llevó al lago; nos sentamos junto al agua.|The guide walked ahead of us and [led] us to the lake; we [sat] by the water.
 8|c|Perdí contacto con él después de la universidad; leí sobre él en las noticias.|I [lost] contact with him after college; I [read] about him in the news.
 8|t|Se cayó encima de mí en el bus; los dos quedamos tirados en el piso riéndonos.|She [fell] on top of me on the bus; we both [lay] on the floor laughing.
 8|c|Habló mal de nosotros a sus amigos; le perdimos el respeto.|He [spoke] badly about us to his friends; we [lost] respect for him.
 8|t|Leyó la carta frente a ellos; nadie habló.|She [read] the letter in front of them; nobody [spoke].
 8|c|Pagaron mucho dinero por nosotros; crecimos con todo.|They [paid] a lot of money for us; we [grew] up with everything.
-8|t|Me acosté junto a él en la arena.|I [lay] next to him on the sand; we [read] for hours.
+8|t|Me acosté junto a él en la arena; leímos por horas.|I [lay] next to him on the sand; we [read] for hours.
 8|c|Corrí detrás de ella para devolverle el teléfono; lo había perdido.|I [ran] after her to give her phone back; she had [lost] it.
 8|t|Se sentaron delante de nosotros en el cine y hablaron todo el tiempo.|They [sat] in front of us at the movies and [spoke] the whole time.
 
 # --- Regla 9 · "as" = como ---
 9|t|Trabajó como guía y llevó turistas al volcán; hablaba tres idiomas.|He worked as a guide and [led] tourists to the volcano; he [spoke] three languages.
-9|c|Como leíste en el correo, la reunión es a las diez.|As you [read] in the email, the meeting is at ten; we will [sit] in room B.
-9|t|Usé mi chaqueta como almohada y me acosté en la arena.|I used my jacket as a pillow and [lay] on the sand; I [read] until sunset.
+9|c|Como leíste en el correo, la reunión es a las diez; nos sentaremos en la sala B.|As you [read] in the email, the meeting is at ten; we will [sit] in room B.
+9|t|Usé mi chaqueta como almohada y me acosté en la arena; leí hasta el atardecer.|I used my jacket as a pillow and [lay] on the sand; I [read] until sunset.
 9|c|Como te dije, perdimos el partido; nuestro mejor jugador se cayó en el primer tiempo.|As I told you, we [lost] the game; our best player [fell] in the first half.
 9|t|Creció como hijo único y aprendió a leer muy joven.|He [grew] up as an only child and learned to [read] very young.
 9|c|Pagó la cuenta como regalo de cumpleaños; nos quedamos sentados horas hablando.|She [paid] the bill as a birthday gift; we [sat] for hours talking.
@@ -132,10 +132,10 @@
 9|c|Como siempre, el perro corrió hacia la puerta cuando llegué y se echó a mis pies.|As always, the dog [ran] to the door when I arrived and [lay] at my feet.
 9|t|Como leíste en las noticias, los precios han bajado.|As you [read] in the news, prices have [fallen].
 9|c|Trabajó como mesero y le pagaban muy poco; perdió peso por el estrés.|He worked as a waiter, and they [paid] him very little; he [lost] weight from stress.
-9|t|Lo usamos como mesa: nos sentamos alrededor de la caja.|We used it as a table: we [sat] around the box and [spoke] for hours.
+9|t|Lo usamos como mesa: nos sentamos alrededor de la caja y hablamos por horas.|We used it as a table: we [sat] around the box and [spoke] for hours.
 9|c|Como creció en Londres, siempre ha hablado un inglés perfecto.|As she [grew] up in London, she has always [spoken] perfect English.
 9|t|Como esperábamos, el equipo perdió; el entrenador los dirigió mal.|As we expected, the team [lost]; the coach [led] them badly.
-9|c|Usó la experiencia como lección y nunca volvió a caer en eso.|She used the experience as a lesson and never [fell] for it again; she had [paid] a high price.
+9|c|Usó la experiencia como lección y nunca volvió a caer en eso; había pagado un precio alto.|She used the experience as a lesson and never [fell] for it again; she had [paid] a high price.
 9|t|Como líder, dirigió la empresa con paciencia y dio el ejemplo.|As a leader, she [ran] the company with patience and [led] by example.
 
 # --- Regla 10 · Presente perfecto ---
@@ -164,7 +164,7 @@
 11|c|No traje dinero, así que mi amigo pagó; había perdido la billetera en el bus.|I didn't bring money, so my friend [paid]; I had [lost] my wallet on the bus.
 11|t|Me trajo flores cuando me caí y me lastimé; se quedó sentada conmigo toda la tarde.|She brought me flowers when I [fell] and hurt myself; she [sat] with me all afternoon.
 11|c|Traje el periódico; ¿ya leíste la noticia? El presidente habló anoche.|I brought the newspaper; have you [read] the news? The president [spoke] last night.
-11|t|Trajeron a su perro, que se echó junto a la chimenea.|They brought their dog, which [lay] by the fireplace; it had [run] all day.
+11|t|Trajeron a su perro, que se echó junto a la chimenea; había corrido todo el día.|They brought their dog, which [lay] by the fireplace; it had [run] all day.
 11|c|Traje semillas de la finca donde crecí; mi abuelo me guiaba por los cultivos.|I brought seeds from the farm where I [grew] up; my grandfather [led] me through the fields.
 11|t|¿Quién trajo este pastel? Lo pagó mi jefe, y habló en la fiesta.|Who brought this cake? My boss [paid] for it, and he [spoke] at the party.
 11|c|Trajimos comida porque perdimos la reserva del restaurante; nos sentamos en el parque.|We brought food because we [lost] our restaurant reservation; we [sat] in the park instead.
@@ -329,7 +329,7 @@
 21|t|Me contó que había perdido el trabajo; dijo que igual pagó el arriendo.|He told me he had [lost] his job; he said he [paid] his rent anyway.
 21|c|Dijo que había leído el informe y me contó que hablaría con el jefe.|She said she had [read] the report and told me she would [speak] with the boss.
 21|t|¿Qué te dijo el entrenador? Dijo que corrí bien y que dirigí al equipo.|What did the coach tell you? He said I [ran] well and [led] the team.
-21|c|Le dije que se sentara, pero dijo que prefería estar de pie; había estado sentado todo el día.|I told him to sit down, but he said he preferred to stand; he had [sat] all day and [lost] his patience.
+21|c|Le dije que se sentara, pero dijo que prefería estar de pie; había estado sentado todo el día y perdió la paciencia.|I told him to sit down, but he said he preferred to stand; he had [sat] all day and [lost] his patience.
 21|t|Dijo "lo siento" y me contó que había perdido mi libro; pagó uno nuevo.|He said "sorry" and told me he had [lost] my book; he [paid] for a new one.
 21|c|Cuéntame qué pasó; dijeron que te caíste y te quedaste tirado en el piso.|Tell me what happened; they said you [fell] and [lay] on the floor.
 21|t|Dijo que había hablado con el director y nos contó todo lo que leyó en la carta.|She said she had [spoken] with the director, and she told us everything she [read] in the letter.
