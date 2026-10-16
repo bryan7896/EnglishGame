@@ -700,7 +700,7 @@
 
 # --- Regla 44 · Future Perfect Continuous ---
 44|t|Para junio habré estado buscando trabajo un año; ya traté con veinte empresas y busqué ayuda de un asesor.|By June I will have been looking for work for a year; I have already [dealt] with twenty companies and [sought] help from a coach.
-44|c|Para las ocho habremos estado colgando luces tres horas; ya despertamos a los vecinos.|By eight we will have been hanging lights for three hours; we have already [woken] the neighbors and [fed] the kids.
+44|c|Para las ocho habremos estado colgando luces tres horas; ya despertamos a los vecinos y les dimos de comer a los niños.|By eight we will have been hanging lights for three hours; we have already [woken] the neighbors and [fed] the kids.
 44|t|Para diciembre habrá estado prestándole dinero a su hermano diez años; nunca le ha perdonado nada, pero la semana pasada le prestó más.|By December she will have been lending her brother money for ten years; she has never [forgiven] him for anything, but she [lent] him more last week.
 44|c|Para el viernes habré estado alimentando a los gatos de mi vecina un mes; me han despertado cada mañana y les he dado de comer dos veces al día.|By Friday I will have been feeding my neighbor's cats for a month; they have [woken] me every morning, and I have [fed] them twice a day.
 44|t|Para el lunes habrán estado grabando la película seis meses; ya grabaron doscientas escenas y robaron ideas de otros directores.|By Monday they will have been filming the movie for six months; they have already [shot] two hundred scenes and [stolen] ideas from other directors.
@@ -713,4 +713,4 @@
 44|c|Para el próximo mes habré estado prestándole mi carro a mi primo seis meses; nunca lo han robado y no se lo he prestado a nadie más.|By next month I will have been lending my car to my cousin for six months; it has never been [stolen], and I have [lent] it to nobody else.
 44|t|Para las seis habrá estado alimentando al bebé cada tres horas; le ha dado de comer cuatro veces y la ha despertado dos.|By six he will have been feeding the baby every three hours; he has [fed] her four times and [woken] her twice.
 44|c|Para fin de año habremos estado trabajando con este proveedor cinco años; nunca nos ha robado y lo hemos tratado con justicia.|By the end of the year we will have been dealing with this supplier for five years; it has never [stolen] from us, and we have [dealt] with it fairly.
-44|t|Para el sábado habré estado buscando a mi perro una semana; colgué carteles en todo el barrio.|By Saturday I will have been looking for my dog for a week; I [hung] posters all over the neighborhood and [sought] help from the police.
+44|t|Para el sábado habré estado buscando a mi perro una semana; colgué carteles en todo el barrio y busqué ayuda de la policía.|By Saturday I will have been looking for my dog for a week; I [hung] posters all over the neighborhood and [sought] help from the police.
