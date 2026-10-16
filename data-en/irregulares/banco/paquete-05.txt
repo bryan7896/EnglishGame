@@ -1,0 +1,376 @@
+# Paquete 5 · send, build, understand, draw, break, spend, cut, rise, drive, buy
+# regla|t (traducción) o c (completar)|español|inglés con las 2 formas entre [corchetes]
+
+# --- Regla 1 · Past Perfect Continuous ---
+1|t|Llevaba horas manejando cuando por fin entendí el mapa; había gastado medio tanque de gasolina.|I had been driving for hours when I finally [understood] the map; I had [spent] half a tank of gas.
+1|c|Habíamos estado ahorrando por años cuando compramos la casa; la construyeron en los setenta.|We had been saving for years when we [bought] the house; they [built] it in the seventies.
+1|t|Llevaba toda la mañana dibujando cuando se rompió el lápiz; compré otro en la esquina.|She had been drawing all morning when her pencil [broke]; I [bought] another one at the corner.
+1|c|Habían estado discutiendo cuando él le envió el mensaje; ella lo entendió mal.|They had been arguing when he [sent] her the message; she [understood] it badly.
+1|t|Llevaba meses gastando demasiado cuando por fin cortó la tarjeta de crédito; ya había comprado demasiadas cosas.|He had been spending too much for months when he finally [cut] up his credit card; he had [bought] too many things.
+1|c|El río había estado creciendo toda la noche; al amanecer ya había subido dos metros y había roto la represa.|The river had been rising all night; by dawn it had [risen] two meters and had [broken] the dam.
+1|t|Llevábamos un año construyendo la cabaña cuando un árbol cayó y rompió el techo; gastamos un mes arreglándolo.|We had been building the cabin for a year when a tree fell and [broke] the roof; we [spent] a month fixing it.
+1|c|Había estado conduciendo diez horas, así que me detuve; ya había gastado medio tanque y compré un café.|I had been driving for ten hours, so I stopped; I had [spent] half a tank, and I [bought] coffee.
+1|t|Llevaba días enviando currículos cuando por fin compró un traje para la entrevista; condujo hasta allá temprano.|She had been sending résumés for days when she finally [bought] a suit for the interview; she [drove] there early.
+1|c|Habían estado cortando árboles toda la semana; construyeron una cerca con la madera y no gastaron nada en ella.|They had been cutting trees all week; they [built] a fence with the wood and [spent] nothing on it.
+1|t|Llevaba años estudiando cuando por fin entendí la gramática; envié mi primer correo en inglés.|I had been studying for years when I finally [understood] the grammar; I [sent] my first email in English.
+1|c|Habíamos estado conduciendo por horas cuando el sol salió sobre las montañas; dibujé el paisaje.|We had been driving for hours when the sun [rose] over the mountains; I [drew] the landscape.
+1|t|Llevaba semanas gastando en comida rápida; un día compró verduras y cortó una ensalada.|He had been spending money on fast food for weeks; one day he [bought] vegetables and [cut] a salad.
+1|c|Habían estado ensayando por meses cuando el violinista rompió una cuerda; le envió un mensaje al técnico.|They had been rehearsing for months when the violinist [broke] a string; he [sent] a message to the technician.
+1|t|Llevaba años dibujando cuando por fin construyó su propio estudio; gastó sus ahorros en él.|She had been drawing for years when she finally [built] her own studio; she [spent] her savings on it.
+
+# --- Regla 2 · Wh Questions ---
+2|t|¿Cuánto gastaste en el viaje? ¿Qué compraste?|How much did you [spend] on the trip? What did you [buy]?
+2|c|¿Quién rompió la ventana? ¿Quién envió al niño a jugar afuera?|Who [broke] the window? Who [sent] the kid to play outside?
+2|t|¿Dónde compraste ese carro? ¿Lo has conducido en la ciudad?|Where did you [buy] that car? Have you [driven] it in the city?
+2|c|¿Cuándo construyeron este edificio? ¿Quién dibujó los planos?|When did they [build] this building? Who [drew] the plans?
+2|t|¿Entendiste la tarea? ¿A quién se la enviaste?|Did you [understand] the homework? Who did you [send] it to?
+2|c|¿Por qué subieron los precios? ¿Cuánto gastamos el mes pasado?|Why did prices [rise]? How much did we [spend] last month?
+2|t|¿Quién te cortó el pelo? ¿Compraste un paquete con descuento?|Who [cut] your hair? Did you [buy] a package deal?
+2|c|¿A qué hora salió el sol? ¿Quién condujo primero?|What time did the sun [rise]? Who [drove] first?
+2|t|¿Qué dibujaste en clase? ¿Lo entendió la profesora?|What did you [draw] in class? Did the teacher [understand] it?
+2|c|¿Cuántos huesos se rompió? ¿Quién lo llevó al hospital en carro?|How many bones did he [break]? Who [drove] him to the hospital?
+2|t|¿Cuándo enviaste el paquete? ¿Lo compraste en línea?|When did you [send] the package? Did you [buy] it online?
+2|c|¿Cómo construyeron las pirámides? ¿Cuántos años gastaron en eso?|How did they [build] the pyramids? How many years did they [spend] on it?
+2|t|¿Por qué cortaste el árbol? ¿Se rompió en la tormenta?|Why did you [cut] down the tree? Did it [break] in the storm?
+2|c|¿Quién condujo hasta la playa? ¿Quién compró la comida?|Who [drove] to the beach? Who [bought] the food?
+2|t|¿Qué entendiste del libro? ¿Por qué el autor dibujó ese final?|What did you [understand] from the book? Why did the author [draw] that ending?
+
+# --- Regla 3 · Orden de sustantivos compuestos ---
+3|t|Compré una cafetera nueva y envié la vieja a mi hermana.|I [bought] a new coffee maker and [sent] the old one to my sister.
+3|c|Rompí la pantalla del teléfono y gasté mucho en el arreglo.|I [broke] my phone screen and [spent] a lot on the repair.
+3|t|Construyeron un centro comercial donde antes compraba en el mercado de la esquina.|They [built] a shopping center where I once [bought] food at the corner market.
+3|c|Condujo el camión de la basura y entendió lo difícil que es ese trabajo.|He [drove] the garbage truck and [understood] how hard that job is.
+3|t|Dibujé el plano de la casa y corté el papel de regalo para la maqueta.|I [drew] the house plan and [cut] the wrapping paper for the model.
+3|c|Envié el formulario de solicitud y compré un boleto de bus.|I [sent] the application form and [bought] a bus ticket.
+3|t|El precio de la gasolina subió y gasté más en el viaje de trabajo.|The gas price [rose], and I [spent] more on the work trip.
+3|c|Se rompió la manija de la puerta y compré una nueva en la ferretería.|The door handle [broke], and I [bought] a new one at the hardware store.
+3|t|Construimos una casa del árbol y dibujamos las paredes.|We [built] a tree house and [drew] on the walls.
+3|c|Corté el césped del jardín y envié fotos a mis papás.|I [cut] the garden lawn and [sent] photos to my parents.
+3|t|Condujo el carro deportivo de su papá y lo rompió.|He [drove] his dad's sports car and [broke] it.
+3|c|Compré una tarjeta de cumpleaños y la envié por correo.|I [bought] a birthday card and [sent] it by mail.
+3|t|Entendí el manual de instrucciones después de dibujar un diagrama.|I [understood] the instruction manual after I [drew] a diagram.
+3|c|Gastamos todo el presupuesto del proyecto; construimos una sala de reuniones.|We [spent] the whole project budget; we [built] a meeting room.
+3|t|La temperatura del agua subió y se rompió el termómetro de la piscina.|The water temperature [rose], and the pool thermometer [broke].
+
+# --- Regla 4 · Segundo condicional ---
+4|t|Si tuviera dinero, compraría una casa y construiría un jardín.|If I had money, I would [buy] a house and [build] a garden.
+4|c|Si entendiera las reglas, no gastaría tanto tiempo leyéndolas.|If I [understood] the rules, I wouldn't [spend] so much time reading them.
+4|t|Si condujeras más despacio, no romperías tantas llantas.|If you [drove] more slowly, you wouldn't [break] so many tires.
+4|c|Si compraras menos, gastarías menos.|If you [bought] less, you would [spend] less.
+4|t|Si dibujara mejor, enviaría mis dibujos a un concurso.|If I could [draw] better, I would [send] my drawings to a contest.
+4|c|Si el agua subiera más, rompería la represa.|If the water [rose] any higher, it would [break] the dam.
+4|t|Si cortaras las verduras más pequeñas, entenderías por qué se cocinan más rápido.|If you [cut] the vegetables smaller, you would [understand] why they cook faster.
+4|c|Si construyeran un metro, nadie conduciría al centro.|If they [built] a subway, nobody would [drive] downtown.
+4|t|Si me enviaras la dirección, conduciría hasta allá.|If you [sent] me the address, I would [drive] there.
+4|c|Si gastara menos en café, compraría un carro en un año.|If I [spent] less on coffee, I would [buy] a car in a year.
+4|t|Si rompiera algo, lo compraría otra vez.|If I [broke] something, I would [buy] it again.
+4|c|Si los precios subieran, gastaríamos menos.|If prices [rose], we would [spend] less.
+4|t|Si entendieras el contrato, no lo enviarías sin firmar.|If you [understood] the contract, you wouldn't [send] it unsigned.
+4|c|Si dibujara planos, construiría mi propia casa.|If I [drew] plans, I would [build] my own house.
+4|t|Si condujera, compraría un carro eléctrico.|If I [drove], I would [buy] an electric car.
+
+# --- Regla 5 · Cláusulas relativas ---
+5|t|El hombre que construyó esta casa también dibujó los planos.|The man who [built] this house also [drew] the plans.
+5|c|Este es el carro que compré; lo conduje a la playa ayer.|This is the car that I [bought]; I [drove] it to the beach yesterday.
+5|t|La niña que rompió el vaso entendió que tenía que pedir perdón.|The girl who [broke] the glass [understood] that she had to apologize.
+5|c|El paquete que enviaste nunca llegó; gastamos dinero en otro.|The package that you [sent] never arrived; we [spent] money on another one.
+5|t|El cuchillo con el que corté el pan se rompió.|The knife that I [cut] the bread with [broke].
+5|c|La empresa que construyó el puente compró el terreno del lado.|The company that [built] the bridge [bought] the land next door.
+5|t|El profesor que me envió el correo entendió mi problema.|The teacher who [sent] me the email [understood] my problem.
+5|c|El dinero que gasté en el viaje lo había ahorrado; compré recuerdos para todos.|The money that I [spent] on the trip was my savings; I [bought] souvenirs for everyone.
+5|t|El conductor que manejó el bus rompió el espejo.|The driver who [drove] the bus [broke] the mirror.
+5|c|El cuadro que dibujó mi hija lo envié a mi mamá.|The picture that my daughter [drew] I [sent] to my mom.
+5|t|La ciudad donde construyeron el estadio ha subido de precio.|The city where they [built] the stadium has [risen] in price.
+5|c|El chef que cortó las verduras compró todo en el mercado.|The chef who [cut] the vegetables [bought] everything at the market.
+5|t|La señora a quien le compré el carro lo condujo solo dos años.|The woman who I [bought] the car from [drove] it for only two years.
+5|c|El estudiante que entendió la lección dibujó un esquema para los demás.|The student who [understood] the lesson [drew] a diagram for the others.
+5|t|El vecino cuyo perro rompió la cerca construyó una nueva.|The neighbor whose dog [broke] the fence [built] a new one.
+
+# --- Regla 6 · Need to + infinitivo ---
+6|t|Necesito comprar un regalo; ayer gasté todo mi dinero.|I need to [buy] a gift; I [spent] all my money yesterday.
+6|c|Necesitas enviar el formulario hoy; lo entendí mal la primera vez.|You need to [send] the form today; I [understood] it wrong the first time.
+6|t|Necesitamos construir una cerca; el perro rompió la vieja.|We need to [build] a fence; the dog [broke] the old one.
+6|c|Necesito cortarme el pelo; la última vez gasté mucho en la peluquería.|I need to [cut] my hair; last time I [spent] a lot at the salon.
+6|t|Necesita conducir con cuidado; el mes pasado rompió el espejo.|She needs to [drive] carefully; last month she [broke] the mirror.
+6|c|Necesito entender este contrato; mi abogado me envió un resumen.|I need to [understand] this contract; my lawyer [sent] me a summary.
+6|t|No necesitas comprar pan; yo conduje a la panadería esta mañana.|You don't need to [buy] bread; I [drove] to the bakery this morning.
+6|c|Necesitamos gastar menos; los precios subieron otra vez.|We need to [spend] less; prices [rose] again.
+6|t|Necesito dibujar el plano; ya construimos la base.|I need to [draw] the plan; we have already [built] the base.
+6|c|Necesitas enviarle un mensaje; ella condujo tres horas para verte.|You need to [send] her a message; she [drove] three hours to see you.
+6|t|No necesitas romper nada; ya entendí.|You don't need to [break] anything; I've [understood].
+6|c|Necesitan cortar gastos; gastaron demasiado este año.|They need to [cut] costs; they [spent] too much this year.
+6|t|Necesito conducir a la tienda; compré todo menos la leche.|I need to [drive] to the store; I [bought] everything except milk.
+6|c|Necesitamos construir más escuelas; la población ha subido mucho.|We need to [build] more schools; the population has [risen] a lot.
+6|t|Necesito entender por qué se rompió; lo compré la semana pasada.|I need to [understand] why it [broke]; I bought it last week.
+
+# --- Regla 8 · Pronombre objeto tras preposición ---
+8|t|Compré un regalo para ella y se lo envié por correo.|I [bought] a gift for her and [sent] it to her by mail.
+8|c|Construyó una casa para nosotros y gastó todos sus ahorros.|He [built] a house for us and [spent] all his savings.
+8|t|Dibujé un mapa para ellos; lo entendieron enseguida.|I [drew] a map for them; they [understood] it right away.
+8|c|Condujo hasta mí a pesar de la lluvia; rompió una llanta en el camino.|He [drove] to me despite the rain; he [broke] a tire on the way.
+8|t|Corté un pedazo de pastel para él y lo envié a su oficina.|I [cut] a piece of cake for him and [sent] it to his office.
+8|c|Gastamos mucho en ellos; les compramos ropa nueva.|We [spent] a lot on them; we [bought] them new clothes.
+8|t|Envió una carta para mí; la entendí después de leerla tres veces.|She [sent] a letter for me; I [understood] it after reading it three times.
+8|c|Rompí el jarrón al lado de ella; me compró otro.|I [broke] the vase next to her; she [bought] me another one.
+8|t|Construyeron una rampa para él; condujo la silla hasta la puerta.|They [built] a ramp for him; he [drove] his wheelchair to the door.
+8|c|Mi abuelo dibujó un retrato de nosotros; lo envió como regalo.|My grandfather [drew] a portrait of us; he [sent] it as a gift.
+8|t|Detrás de mí, el sol salió y lo dibujé.|Behind me, the sun [rose], and I [drew] it.
+8|c|No entendí nada de él; habló muy rápido y se cortó la llamada.|I [understood] nothing from him; he spoke very fast, and the call was [cut] off.
+8|t|Compré flores para ti; gasté más de lo que pensaba.|I [bought] flowers for you; I [spent] more than I expected.
+8|c|Condujo con nosotros hasta el aeropuerto; nos envió un mensaje al llegar.|She [drove] with us to the airport; she [sent] us a message when she got home.
+8|t|Rompió con él por teléfono; nunca entendió por qué.|She [broke] up with him over the phone; he never [understood] why.
+
+# --- Regla 9 · "as" = como ---
+9|t|Trabajó como conductor y manejó camiones por diez años; pasó su vida en la carretera.|He worked as a driver and [drove] trucks for ten years; he [spent] his life on the road.
+9|c|Como entendía el idioma, envió la carta él mismo.|As he [understood] the language, he [sent] the letter himself.
+9|t|Usé la caja como mesa y dibujé sobre ella; después la corté en pedazos.|I used the box as a table and [drew] on it; then I [cut] it up.
+9|c|Como el precio había subido, compramos menos.|As the price had [risen], we [bought] less.
+9|t|Como siempre, gastó demasiado y rompió su presupuesto.|As always, he [spent] too much and [broke] his budget.
+9|c|Como arquitecto, construyó tres hospitales y dibujó cientos de planos.|As an architect, he [built] three hospitals and [drew] hundreds of plans.
+9|t|Como no entendí, le envié un mensaje.|As I didn't [understand], I [sent] her a message.
+9|c|Usó la tijera como cuchillo y cortó la cuerda que se rompió después.|He used the scissors as a knife and [cut] the rope; it [broke] later.
+9|t|Como te dije, compré el carro y lo conduje hasta aquí.|As I told you, I [bought] the car and [drove] it here.
+9|c|Como el sol ya había salido, condujimos sin luces.|As the sun had [risen], we [drove] without headlights.
+9|t|Como regalo, me compró un cuaderno y dibujó algo en la primera página.|As a gift, she [bought] me a notebook and [drew] something on the first page.
+9|c|Como siempre, envió el informe tarde; nadie lo entendió.|As always, he [sent] the report late; nobody [understood] it.
+9|t|Trabajó como carpintero y construyó todos los muebles de la casa; cortó cada pieza él mismo.|He worked as a carpenter and [built] all the furniture in the house; he [cut] every piece himself.
+9|c|Como habíamos gastado tanto, rompimos la alcancía.|As we had [spent] so much, we [broke] the piggy bank.
+9|t|Como estudiante, gasté poco y compré libros usados.|As a student, I [spent] little and [bought] used books.
+
+# --- Regla 10 · Presente perfecto ---
+10|t|He comprado un carro nuevo, pero todavía no lo he conducido.|I have [bought] a new car, but I haven't [driven] it yet.
+10|c|Han construido un puente y han gastado millones.|They have [built] a bridge and have [spent] millions.
+10|t|¿Has entendido la lección? Ya te he enviado los apuntes.|Have you [understood] the lesson? I have already [sent] you the notes.
+10|c|He roto el teléfono dos veces este año; he gastado mucho en arreglos.|I have [broken] my phone twice this year; I have [spent] a lot on repairs.
+10|t|Mi hija ha dibujado un retrato de la familia; se lo ha enviado a la abuela.|My daughter has [drawn] a family portrait; she has [sent] it to her grandma.
+10|c|Los precios han subido y hemos comprado menos.|Prices have [risen], and we have [bought] less.
+10|t|He cortado el pasto y he construido una cerca.|I have [cut] the grass and have [built] a fence.
+10|c|Nunca he conducido un camión; nunca he roto una ley de tránsito.|I have never [driven] a truck; I have never [broken] a traffic law.
+10|t|Hemos enviado las invitaciones y hemos comprado el pastel.|We have [sent] the invitations and have [bought] the cake.
+10|c|Ella ha entendido el problema y ha dibujado una solución.|She has [understood] the problem and has [drawn] a solution.
+10|t|El río ha subido tanto que ha roto el puente.|The river has [risen] so much that it has [broken] the bridge.
+10|c|He gastado todo mi dinero; no he comprado nada útil.|I have [spent] all my money; I haven't [bought] anything useful.
+10|t|Han cortado la luz; he enviado una queja.|They have [cut] the power; I have [sent] a complaint.
+10|c|Él ha conducido por todo el país y ha dibujado cada paisaje.|He has [driven] across the whole country and has [drawn] every landscape.
+10|t|Hemos construido una casa pequeña; hemos entendido lo difícil que es.|We have [built] a small house; we have [understood] how hard it is.
+
+# --- Regla 11 · Bring / Brought ---
+11|t|Trajo flores que compró en el mercado; él mismo las cortó.|He brought flowers that he [bought] at the market; he [cut] them himself.
+11|c|Traje el carro; lo conduje desde Cali y pasé la noche en el camino.|I brought the car; I [drove] it from Cali and [spent] the night on the way.
+11|t|Me trajo un dibujo que hizo en la escuela; primero envió una foto.|She brought me a picture she [drew] at school; she [sent] a photo of it first.
+11|c|Trajeron la madera y construyeron una mesa; cortaron cada pieza a mano.|They brought the wood and [built] a table; they [cut] every piece by hand.
+11|t|Trae el vaso que rompiste; compraré otro.|Bring the glass that you [broke]; I'll [buy] another one.
+11|c|Me trajo el libro que le envié el año pasado; nunca lo entendió.|He brought me the book that I [sent] him last year; he never [understood] it.
+11|t|Traje pan que compré y lo corté en rebanadas.|I brought bread that I [bought] and [cut] it into slices.
+11|c|Trajimos poco dinero porque gastamos mucho ayer; el precio había subido.|We brought little money because we [spent] a lot yesterday; the price had [risen].
+11|t|¿Trajiste el contrato? ¿Lo entendiste? ¿Enviaste una copia?|Did you bring the contract? Did you [understand] it? Did you [send] a copy?
+11|c|Trajo un modelo que construyó en la universidad; lo dibujó primero.|She brought a model she [built] at university; she [drew] it first.
+11|t|Trajo el carro roto; lo condujo hasta el taller.|He brought the [broken] car; he [drove] it to the shop.
+11|c|Traje comida porque entendí que no habría restaurante; la compré en el camino.|I brought food because I [understood] there would be no restaurant; I [bought] it on the way.
+11|t|Trajeron regalos que compraron en el viaje y los enviaron a sus amigos.|They brought gifts they [bought] on the trip and [sent] some to friends.
+11|c|Me trajo los papeles que dibujó y los cortó en forma de estrella.|He brought me the papers he [drew] on, and he [cut] them into star shapes.
+11|t|Trae tu bicicleta; ya construí un marco nuevo para la que rompiste.|Bring your bike; I have [built] a new frame for the one you [broke].
+
+# --- Regla 12 · Primer condicional ---
+12|t|Si compras el carro, lo conduciré yo primero.|If you [buy] the car, I'll [drive] it first.
+12|c|Si gastas todo hoy, no podrás comprar nada mañana.|If you [spend] everything today, you won't be able to [buy] anything tomorrow.
+12|t|Si me envías la dirección, conduciré hasta allá.|If you [send] me the address, I'll [drive] there.
+12|c|Si rompes el vaso, compraremos otro.|If you [break] the glass, we'll [buy] another one.
+12|t|Si entiendes la tarea, dibuja un esquema para la clase.|If you [understand] the homework, [draw] a diagram for the class.
+12|c|Si los precios suben, gastaremos menos.|If prices [rise], we'll [spend] less.
+12|t|Si construyen el puente, conduciremos a la ciudad en diez minutos.|If they [build] the bridge, we'll [drive] to the city in ten minutes.
+12|c|Si cortas el árbol, no dejes que rompa el techo.|If you [cut] the tree down, don't let it [break] the roof.
+12|t|Si me envías el plano, lo entenderé mejor.|If you [send] me the plan, I'll [understand] it better.
+12|c|Si dibujas la casa, la construiré yo.|If you [draw] the house, I'll [build] it.
+12|t|Si compras demasiado, romperás el presupuesto.|If you [buy] too much, you'll [break] the budget.
+12|c|Si el río crece más, romperá la represa y cortarán la carretera.|If the river gets higher, it will [break] the dam, and they'll [cut] the road.
+12|t|Si gastas menos, entenderás el valor del dinero.|If you [spend] less, you'll [understand] the value of money.
+12|c|Si conduces tú, yo compraré la gasolina.|If you [drive], I'll [buy] the gas.
+12|t|Si no entiendes, envíame un mensaje.|If you don't [understand], [send] me a message.
+
+# --- Regla 13 · Past Perfect vs Presente vs Futuro ---
+13|t|Cuando llegué, ya habían construido la casa; mañana compraremos los muebles.|When I arrived, they had already [built] the house; tomorrow we will [buy] the furniture.
+13|c|Nunca había conducido de noche; mañana compraré unas gafas para conducir.|I had never [driven] at night; tomorrow I will [buy] glasses for driving.
+13|t|Ya había gastado todo cuando entendí el error.|I had already [spent] everything when I [understood] the mistake.
+13|c|Ella ya había enviado el correo cuando entendió que tenía un error.|She had already [sent] the email when she [understood] it had a mistake.
+13|t|El sol ya había salido cuando condujimos hacia la playa.|The sun had already [risen] when we [drove] to the beach.
+13|c|Había roto el teléfono antes del viaje; mañana compraré uno nuevo.|I had [broken] my phone before the trip; tomorrow I will [buy] a new one.
+13|t|Él había dibujado el plano; mañana lo enviaremos al arquitecto.|He had [drawn] the plan; tomorrow we will [send] it to the architect.
+13|c|Ya habían cortado el pastel cuando llegamos; mañana compraré otro.|They had already [cut] the cake when we arrived; tomorrow I will [buy] another one.
+13|t|Nunca habíamos gastado tanto; el próximo mes compraremos menos.|We had never [spent] so much; next month we will [buy] less.
+13|c|Los precios ya habían subido cuando compramos la casa.|Prices had already [risen] when we [bought] the house.
+13|t|Había conducido diez horas; ahora entiendo por qué estaba tan cansado.|I had [driven] for ten hours; now I [understand] why I was so tired.
+13|c|Ya habían construido el puente cuando se rompió la represa.|They had already [built] the bridge when the dam [broke].
+13|t|No había entendido la tarea; mañana enviaré una pregunta a la profesora.|I hadn't [understood] the homework; tomorrow I will [send] a question to the teacher.
+13|c|Ella había comprado los tiquetes; el viernes conduciremos al aeropuerto.|She had [bought] the tickets; on Friday we will [drive] to the airport.
+13|t|Ya me había cortado el pelo; la semana que viene gastaré menos en la peluquería.|I had already [cut] my hair; next week I will [spend] less at the salon.
+
+# --- Regla 14 · Make vs Do ---
+14|t|Hice la tarea y después dibujé un mapa para la clase; se lo envié a la profesora.|I did my homework and then [drew] a map for the class; I [sent] it to the teacher.
+14|c|Cometí un error y rompí el plato favorito de mi mamá; compré otro.|I made a mistake and [broke] my mom's favorite plate; I [bought] another one.
+14|t|Hicimos las compras y gastamos demasiado; compramos cosas que no necesitábamos.|We did the shopping and [spent] too much; we [bought] things we didn't need.
+14|c|Hizo un esfuerzo y entendió la lección; luego dibujó un resumen.|She made an effort and [understood] the lesson; then she [drew] a summary.
+14|t|Hice la cama, corté el pasto y conduje al trabajo.|I made the bed, [cut] the grass, and [drove] to work.
+14|c|Hicieron un buen trabajo: construyeron la casa en seis meses y gastaron poco.|They did a good job: they [built] the house in six months and [spent] little.
+14|t|Hizo una llamada y envió el contrato; el cliente entendió todo.|He made a phone call and [sent] the contract; the client [understood] everything.
+14|c|Hice una lista y compré todo en una hora; conduje rápido a casa.|I made a list and [bought] everything in an hour; I [drove] home quickly.
+14|t|Hicimos un pastel y lo cortamos en doce pedazos; enviamos uno al vecino.|We made a cake and [cut] it into twelve pieces; we [sent] one to the neighbor.
+14|c|Hizo un ruido enorme cuando rompió la puerta; entendí que estaba furioso.|He made a huge noise when he [broke] the door; I [understood] he was furious.
+14|t|Hice ejercicio y luego construí una repisa; corté la madera yo mismo.|I did some exercise and then [built] a shelf; I [cut] the wood myself.
+14|c|Hizo una promesa y la rompió; gasté horas esperándolo.|He made a promise and [broke] it; I [spent] hours waiting for him.
+14|t|Hicimos planes y compramos los tiquetes; el precio había subido.|We made plans and [bought] the tickets; the price had [risen].
+14|c|Lavé los platos y luego dibujé con mi hija; pasamos la tarde en la mesa.|I did the dishes and then [drew] with my daughter; we [spent] the evening at the table.
+14|t|Hizo una presentación excelente; todos la entendieron y le enviaron felicitaciones.|She made an excellent presentation; everyone [understood] it and [sent] her congratulations.
+
+# --- Regla 15 · Gone vs Left ---
+15|t|Se fue a comprar pan; ayer compró dos panes y gastó muy poco.|She has gone to buy bread; yesterday she [bought] two loaves and [spent] very little.
+15|c|Salió de la casa temprano y condujo hasta la costa; envió fotos del mar.|He left the house early and [drove] to the coast; he [sent] photos of the sea.
+15|t|Se fueron de viaje; el año pasado construyeron una cabaña en la montaña y pasaron allí cada verano.|They have gone on a trip; last year they [built] a cabin in the mountains, and they [spent] every summer there.
+15|c|Dejó el carro en la calle; lo había conducido hasta que se rompió.|He left the car on the street; he had [driven] it until it [broke].
+15|t|Se fue al médico porque se cortó el dedo; entendió que necesitaba puntos.|He has gone to the doctor because he [cut] his finger; he [understood] he needed stitches.
+15|c|Se fue de la reunión después de enviar el informe; nadie entendió por qué.|She left the meeting after she [sent] the report; nobody [understood] why.
+15|t|Se fueron a la playa; salieron cuando el sol apenas había salido y condujeron cuatro horas.|They have gone to the beach; they left when the sun had just [risen] and [drove] for four hours.
+15|c|Dejé el dibujo en la mesa; lo dibujé anoche y compré un marco hoy.|I left the drawing on the table; I [drew] it last night and [bought] a frame today.
+15|t|Se fue al banco; gastó demasiado y rompió su presupuesto.|He has gone to the bank; he [spent] too much and [broke] his budget.
+15|c|Se fue de la ciudad cuando subieron los arriendos; compró una finca.|She left the city when rents [rose]; she [bought] a farm.
+15|t|Se fueron a trabajar; ayer construyeron la pared y cortaron la madera.|They have gone to work; yesterday they [built] the wall and [cut] the wood.
+15|c|Salió de la tienda sin pagar; había roto un vaso y no entendió qué hacer.|He left the store without paying; he had [broken] a glass and didn't [understand] what to do.
+15|t|Se fue a la oficina de correos; envió el paquete que compró ayer.|She has gone to the post office; she [sent] the package she [bought] yesterday.
+15|c|Dejó a los niños en el colegio y condujo al trabajo; gastó una hora en el tráfico.|She left the kids at school and [drove] to work; she [spent] an hour in traffic.
+15|t|Se fue a casa porque se rompió el pie; le envié flores.|He has gone home because he [broke] his foot; I [sent] him flowers.
+
+# --- Regla 16 · Preposiciones de movimiento ---
+16|t|Condujimos hacia el norte y compramos café en un pueblo.|We [drove] toward the north and [bought] coffee in a town.
+16|c|El humo se elevó por encima de los edificios; entendí que había un incendio.|The smoke [rose] above the buildings; I [understood] there was a fire.
+16|t|Envié el paquete a Madrid; lo compré en una tienda del centro.|I [sent] the package to Madrid; I [bought] it in a downtown store.
+16|c|Condujo a través del túnel y rompió un espejo contra la pared.|He [drove] through the tunnel and [broke] a mirror against the wall.
+16|t|Cortamos camino por el parque y dibujamos el atajo en el mapa.|We [cut] through the park and [drew] the shortcut on the map.
+16|c|El globo se elevó hacia las nubes; el niño no entendió adónde fue.|The balloon [rose] into the clouds; the boy didn't [understand] where it went.
+16|t|Condujeron desde Bogotá hasta Cartagena y gastaron una fortuna en peajes.|They [drove] from Bogotá to Cartagena and [spent] a fortune on tolls.
+16|c|Construyeron un puente sobre el río; lo cruzamos en carro el domingo.|They [built] a bridge over the river; we [drove] across it on Sunday.
+16|t|El ladrón rompió la ventana y entró en la casa; compramos una alarma.|The thief [broke] the window and got into the house; we [bought] an alarm.
+16|c|Envió la carta a través de un amigo; la entendí perfectamente.|She [sent] the letter through a friend; I [understood] it perfectly.
+16|t|Dibujé una línea de la casa al colegio y corté el mapa por la mitad.|I [drew] a line from the house to the school and [cut] the map in half.
+16|c|El sol salió detrás de las montañas mientras conducíamos hacia el este.|The sun [rose] behind the mountains while we [drove] east.
+16|t|Construyeron un camino hacia el lago; condujimos por él hasta la orilla.|They [built] a road to the lake; we [drove] along it to the shore.
+16|c|Gastamos todo en el viaje alrededor de Europa; compramos recuerdos en cada país.|We [spent] everything on the trip around Europe; we [bought] souvenirs in every country.
+16|t|Se rompió el vaso al caer por la escalera; envié a mi hijo por la escoba.|The glass [broke] when it fell down the stairs; I [sent] my son for the broom.
+
+# --- Regla 17 · Modales básicos ---
+17|t|Puedo conducir, pero no puedo comprar un carro todavía.|I can [drive], but I can't [buy] a car yet.
+17|c|Deberías enviar el correo; ayer no entendieron tu mensaje.|You should [send] the email; yesterday they didn't [understand] your message.
+17|t|No debes romper las reglas; la última vez gastaste mucho en multas.|You must not [break] the rules; last time you [spent] a lot on fines.
+17|c|¿Puedes cortar el pan? Lo compré esta mañana.|Can you [cut] the bread? I [bought] it this morning.
+17|t|Podríamos construir una casa más pequeña; el año pasado gastamos demasiado.|We could [build] a smaller house; last year we [spent] too much.
+17|c|Ella sabe dibujar muy bien; ayer envió un retrato de toda la familia.|She can [draw] very well; yesterday she [sent] a portrait of the whole family.
+17|t|Debes entender las instrucciones antes de conducir la máquina.|You must [understand] the instructions before you [drive] the machine.
+17|c|¿Podrías enviarme la factura? Compré dos cosas.|Could you [send] me the invoice? I [bought] two things.
+17|t|No debería gastar tanto; los precios han subido.|I shouldn't [spend] so much; prices have [risen].
+17|c|Puedes comprar lo que quieras; ya rompí mi alcancía.|You can [buy] whatever you want; I've already [broken] my piggy bank.
+17|t|Deberías conducir más despacio; ayer rompiste un espejo.|You should [drive] more slowly; yesterday you [broke] a mirror.
+17|c|¿Puedo cortar una flor? Mi abuelo construyó este jardín.|May I [cut] a flower? My grandfather [built] this garden.
+17|t|Tienes que entender el plano; lo dibujé con cuidado.|You have to [understand] the plan; I [drew] it carefully.
+17|c|Podría enviarte el dinero; ayer gasté menos de lo que pensaba.|I could [send] you the money; yesterday I [spent] less than I expected.
+17|t|No puedes construir aquí; el río subió mucho el año pasado.|You can't [build] here; the river [rose] a lot last year.
+
+# --- Regla 18 · Gerundio vs infinitivo ---
+18|t|Decidí comprar un carro y lo conduje todo el verano.|I decided to [buy] a car, and I [drove] it all summer.
+18|c|Dejé de gastar dinero en café; había gastado demasiado y corté el hábito.|I stopped spending money on coffee; I had [spent] too much, and I [cut] the habit.
+18|t|Quiere construir una casa; ya dibujó los planos.|She wants to [build] a house; she has already [drawn] the plans.
+18|c|Ahora evita romper las reglas; la última vez gastó una fortuna en abogados y acabó con sus ahorros.|He avoids breaking the rules now; last time he [spent] a fortune on lawyers and [broke] his savings.
+18|t|Espero entender la lección; envié mis preguntas ayer.|I hope to [understand] the lesson; I [sent] my questions yesterday.
+18|c|Me encanta dibujar; ayer dibujé la ciudad desde la ventana y se la envié a un amigo.|I love drawing; yesterday I [drew] the city from the window, and I [sent] it to a friend.
+18|t|Olvidó enviar el paquete; lo había comprado una semana antes.|She forgot to [send] the package; she had [bought] it a week before.
+18|c|Prometió conducir con cuidado, pero rompió un espejo.|He promised to [drive] carefully, but he [broke] a mirror.
+18|t|Terminé de cortar la madera y construí la mesa; pasé todo el día en eso.|I finished cutting the wood and [built] the table; I [spent] the whole day on it.
+18|c|Necesito entender por qué los precios subieron.|I need to [understand] why prices [rose].
+18|t|Sugirió comprar en línea; gastamos menos y compramos más.|She suggested shopping online; we [spent] less and [bought] more.
+18|c|Planeamos construir un garaje; ya compramos los materiales.|We plan to [build] a garage; we have already [bought] the materials.
+18|t|No me molesta conducir de noche; ayer conduje seis horas y entendí por qué a mi papá le encanta.|I don't mind driving at night; yesterday I [drove] six hours and [understood] why my dad loves it.
+18|c|Intentó romper el récord y gastó meses entrenando.|She tried to [break] the record and [spent] months training.
+18|t|Recuerdo haber enviado la carta; la envié el lunes y entendí que llegaría tarde.|I remember sending the letter; I [sent] it on Monday and [understood] it would arrive late.
+
+# --- Regla 19 · Participios irregulares ---
+19|t|He comprado una casa que fue construida hace cien años.|I have [bought] a house that was [built] a hundred years ago.
+19|c|La ventana ha sido rota otra vez; el mensaje fue enviado a la policía.|The window has been [broken] again; the message was [sent] to the police.
+19|t|Nunca he conducido un carro que haya sido construido en Colombia.|I have never [driven] a car that was [built] in Colombia.
+19|c|Hemos gastado mucho; los precios han subido.|We have [spent] a lot; prices have [risen].
+19|t|¿Has entendido el mapa que fue dibujado por el guía?|Have you [understood] the map that was [drawn] by the guide?
+19|c|El pastel ha sido cortado; el regalo ha sido comprado.|The cake has been [cut]; the gift has been [bought].
+19|t|Ella ha enviado los planos que fueron dibujados por su equipo.|She has [sent] the plans that were [drawn] by her team.
+19|c|He roto mi récord; he conducido mil kilómetros esta semana.|I have [broken] my record; I have [driven] a thousand kilometers this week.
+19|t|El puente ha sido construido y el camino ha sido cortado.|The bridge has been [built], and the road has been [cut].
+19|c|El sol ya ha salido; ya hemos comprado el desayuno.|The sun has already [risen]; we have already [bought] breakfast.
+19|t|El dinero ha sido gastado y el contrato ha sido enviado.|The money has been [spent], and the contract has been [sent].
+19|c|Han entendido el problema; han roto el sistema viejo.|They have [understood] the problem; they have [broken] the old system.
+19|t|Nunca he dibujado un retrato; nunca he comprado pinturas.|I have never [drawn] a portrait; I have never [bought] paints.
+19|c|Él ha conducido toda la noche; ha gastado todo el combustible.|He has [driven] all night; he has [spent] all the fuel.
+19|t|La temperatura ha subido y el hielo se ha roto.|The temperature has [risen], and the ice has [broken].
+
+# --- Regla 20 · 3ra persona singular (-s) ---
+20|t|Mi papá conduce todos los días; ayer condujo hasta la costa y compró pescado.|My dad drives every day; yesterday he [drove] to the coast and [bought] fish.
+20|c|Mi hermana dibuja muy bien; anoche dibujó a mi perro y me envió la foto.|My sister draws very well; last night she [drew] my dog and [sent] me the photo.
+20|t|Él gasta mucho en ropa; el mes pasado gastó todo su salario y rompió su presupuesto.|He spends a lot on clothes; last month he [spent] his whole salary and [broke] his budget.
+20|c|Mi abuelo construye muebles; el año pasado construyó una mesa y la cortó a mano.|My grandfather builds furniture; last year he [built] a table and [cut] it by hand.
+20|t|Ella entiende tres idiomas; ayer entendió todo lo que dijo el turista y le dibujó un mapa.|She understands three languages; yesterday she [understood] everything the tourist said and [drew] him a map.
+20|c|Mi mamá siempre envía postales; la semana pasada envió una que compró en París.|My mom always sends postcards; last week she [sent] one she [bought] in Paris.
+20|t|El sol sale a las seis; ayer salió a las seis y diez y conduje al trabajo con luz.|The sun rises at six; yesterday it [rose] at ten past six, and I [drove] to work in daylight.
+20|c|Mi hijo rompe todo; ayer rompió un vaso y gastó su mesada en uno nuevo.|My son breaks everything; yesterday he [broke] a glass and [spent] his allowance on a new one.
+20|t|El peluquero corta el pelo muy bien; ayer me cortó el pelo y entendió lo que quería.|The barber cuts hair very well; yesterday he [cut] my hair and [understood] what I wanted.
+20|c|Mi jefe conduce un carro viejo; lo compró en 1995 y nunca lo ha roto.|My boss drives an old car; he [bought] it in 1995 and has never [broken] it.
+20|t|Ella compra el pan cada mañana; hoy compró dos y envió uno a la vecina.|She buys bread every morning; today she [bought] two and [sent] one to the neighbor.
+20|c|Él entiende de motores; ayer construyó uno y lo condujo por el barrio.|He understands engines; yesterday he [built] one and [drove] it around the neighborhood.
+20|t|Mi tía dibuja para una revista; el mes pasado dibujó la portada y gastó semanas en ella.|My aunt draws for a magazine; last month she [drew] the cover and [spent] weeks on it.
+20|c|El precio sube cada año; el año pasado subió un diez por ciento y compramos menos.|The price goes up every year; last year it [rose] ten percent, and we [bought] less.
+20|t|Mi vecino corta el pasto los domingos; el domingo pasado lo cortó y rompió la máquina.|My neighbor cuts the grass on Sundays; last Sunday he [cut] it and [broke] the machine.
+
+# --- Regla 21 · Say vs Tell ---
+21|t|Me dijo que había comprado un carro y que lo condujo hasta aquí.|He told me he had [bought] a car and that he [drove] it here.
+21|c|Dijo que no entendió la pregunta; me contó que la envió dos veces.|She said she didn't [understand] the question; she told me she [sent] it twice.
+21|t|Dijeron que habían construido el puente en un año; nos contaron que gastaron millones.|They said they had [built] the bridge in a year; they told us they [spent] millions.
+21|c|Le dije que no rompiera nada, pero dijo que igual compraría otro vaso.|I told him not to [break] anything, but he said he would [buy] another glass anyway.
+21|t|Dijo que el sol salió a las cinco; me contó que condujo toda la noche.|He said the sun [rose] at five; he told me he [drove] all night.
+21|c|Me contó que había dibujado el retrato; dijo que lo envió a un concurso.|She told me she had [drawn] the portrait; she said she [sent] it to a contest.
+21|t|Le dije que cortara el pastel; dijo que ya había comprado otro.|I told her to [cut] the cake; she said she had already [bought] another one.
+21|c|Dijeron que los precios habían subido; nos dijeron que gastáramos menos.|They said prices had [risen]; they told us to [spend] less.
+21|t|¿Qué te dijo el mecánico? Dijo que rompí el motor por conducir tan rápido.|What did the mechanic tell you? He said I [broke] the engine because I [drove] so fast.
+21|c|Me dijo que entendía mi problema y que me enviaría ayuda.|She told me she [understood] my problem and that she would [send] help.
+21|t|Dijo "gracias" y me contó que construyó la casa con sus manos; cortó cada tabla.|He said "thank you" and told me he [built] the house with his hands; he [cut] every board.
+21|c|Dime qué compraste; dijeron que gastaste mucho.|Tell me what you [bought]; they said you [spent] a lot.
+21|t|Dijo que había dibujado el mapa mal; nos contó que lo entendió después.|He said he had [drawn] the map wrong; he told us he [understood] it later.
+21|c|Le conté que había enviado el paquete; dijo que llegó roto.|I told her I had [sent] the package; she said it arrived [broken].
+21|t|Dijeron que el agua subió en la noche; nos contaron que condujeron hasta un lugar alto.|They said the water [rose] in the night; they told us they [drove] to higher ground.
+
+# --- Regla 22 · Artículos ---
+22|t|Compré un carro y lo conduje por la ciudad.|I [bought] a car and [drove] it around the city.
+22|c|El niño rompió una ventana y envió una carta de disculpa.|The boy [broke] a window and [sent] a letter of apology.
+22|t|Construyeron una escuela en el pueblo donde gasté mi infancia.|They [built] a school in the town where I [spent] my childhood.
+22|c|La profesora dibujó un mapa en el tablero; todos lo entendieron.|The teacher [drew] a map on the board; everyone [understood] it.
+22|t|El sol salió sobre el mar y condujimos por la costa.|The sun [rose] over the sea, and we [drove] along the coast.
+22|c|Corté una manzana y envié la mitad a mi hermano.|I [cut] an apple and [sent] half to my brother.
+22|t|Gastamos una fortuna en el hotel; compramos un paquete de lujo.|We [spent] a fortune at the hotel; we [bought] a luxury package.
+22|c|Un hombre condujo un camión por el centro y rompió un semáforo.|A man [drove] a truck through downtown and [broke] a traffic light.
+22|t|La empresa construyó un hospital y compró el equipo médico.|The company [built] a hospital and [bought] the medical equipment.
+22|c|Entendí la idea después de que dibujó un diagrama.|I [understood] the idea after she [drew] a diagram.
+22|t|El precio del pan subió y gastamos más en el desayuno.|The price of bread [rose], and we [spent] more on breakfast.
+22|c|Envié un mensaje al gerente; compró la idea enseguida.|I [sent] a message to the manager; he [bought] the idea right away.
+22|t|El carpintero cortó una tabla y construyó una repisa.|The carpenter [cut] a board and [built] a shelf.
+22|c|Rompí el teléfono el lunes; compré uno nuevo el martes.|I [broke] my phone on Monday; I [bought] a new one on Tuesday.
+22|t|Conduje un carro eléctrico por primera vez; entendí por qué son tan populares.|I [drove] an electric car for the first time; I [understood] why they are so popular.
+
+# --- Regla 23 · Phrasal verbs con "look" ---
+23|t|Busqué un carro barato, compré uno usado y lo conduje a casa.|I looked for a cheap car, [bought] a used one, and [drove] it home.
+23|c|Revisé el contrato y entendí que había gastado demasiado.|I looked over the contract and [understood] that I had [spent] too much.
+23|t|Busca la palabra; no entendí lo que escribió y le envié una pregunta.|Look up the word; I didn't [understand] what he wrote, and I [sent] him a question.
+23|c|Miró el dibujo que hice y entendió todo.|She looked at the picture I [drew] and [understood] everything.
+23|t|Se parece a su abuelo: construyó su casa y condujo el mismo camión.|He looks like his grandfather: he [built] his own house and [drove] the same truck.
+23|c|Busqué un vaso como el que rompí y compré uno igualito.|I looked for a glass like the one I [broke] and [bought] one just like it.
+23|t|Cuida a los niños; la última vez rompieron la lámpara y cortaron las cortinas.|Look after the kids; last time they [broke] the lamp and [cut] the curtains.
+23|c|Mira cuánto subieron los precios; gastamos el doble este mes.|Look how much prices have [risen]; we [spent] double this month.
+23|t|Buscó en el mapa la ruta que condujimos; la dibujó en un cuaderno.|He looked up the route we [drove] on the map; he [drew] it in a notebook.
+23|c|Espero con ansias el paquete que me enviaste; lo compré para mi hija.|I'm looking forward to the package you [sent]; I [bought] it for my daughter.
+23|t|Revisa el informe que te envié; lo construí con mucho cuidado.|Look over the report I [sent] you; I [built] it very carefully.
+23|c|Me miró como si hubiera roto algo; no entendí por qué.|She looked at me as if I had [broken] something; I didn't [understand] why.
+23|t|Busqué tijeras y corté la etiqueta de la camisa que compré.|I looked for scissors and [cut] the tag off the shirt I [bought].
+23|c|Mira el sol: salió detrás de la montaña; lo dibujé esta mañana.|Look at the sun: it [rose] behind the mountain; I [drew] it this morning.
+23|t|Buscamos un lugar para construir; gastamos meses buscando.|We looked for a place to [build]; we [spent] months looking.

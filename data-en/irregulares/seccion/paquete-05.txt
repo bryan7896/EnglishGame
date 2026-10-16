@@ -1,0 +1,63 @@
+# Paquete 5 · send, build, understand, draw, break, spend, cut, rise, drive, buy
+
+S|send.b|Voy a **enviar** el correo ahora.|I'm going to [send] the email now.|sent,sended
+S|send.p|Ayer le **envié** un mensaje.|I [sent] her a message yesterday.|send,sended
+S|send.pp|¿Ya has **enviado** el paquete?|Have you [sent] the package yet?|send,sended
+S|build.b|Queremos **construir** una casa en el campo.|We want to [build] a house in the countryside.|built,builded
+S|build.p|Mi abuelo **construyó** esta mesa.|My grandfather [built] this table.|build,builded
+S|build.pp|Han **construido** un puente nuevo.|They have [built] a new bridge.|build,builded
+S|understand.b|No logro **entender** esta pregunta.|I can't [understand] this question.|understood,understanded
+S|understand.p|Por fin **entendí** el problema.|I finally [understood] the problem.|understand,understanded
+S|understand.pp|¿Has **entendido** las instrucciones?|Have you [understood] the instructions?|understand,understanded
+S|draw.b|Mi hija sabe **dibujar** muy bien.|My daughter can [draw] very well.|drew,drawed
+S|draw.p|**Dibujó** un mapa en la servilleta.|He [drew] a map on the napkin.|drawn,drawed
+S|draw.pp|Nunca había **dibujado** un retrato.|I had never [drawn] a portrait.|drew,drawed
+S|break.b|Cuidado, no vayas a **romper** el vaso.|Careful, don't [break] the glass.|broke,broken
+S|break.p|El niño **rompió** la ventana.|The boy [broke] the window.|broken,breaked
+S|break.pp|Alguien ha **roto** la impresora.|Someone has [broken] the printer.|broke,breaked
+S|spend.b|No quiero **gastar** mucho dinero.|I don't want to [spend] a lot of money.|spent,spended
+S|spend.p|**Gastamos** todo en el viaje.|We [spent] everything on the trip.|spend,spended
+S|spend.pp|Ya he **gastado** mi salario.|I have already [spent] my salary.|spend,spended
+S|cut.b|¿Me ayudas a **cortar** el pastel?|Can you help me [cut] the cake?|cuts,cutted
+S|cut.p|Ayer me **corté** el pelo.|I [cut] my hair yesterday.|cutted,cuts
+S|cut.pp|Se ha **cortado** el dedo.|He has [cut] his finger.|cutted,cuts
+S|rise.b|Los precios van a **subir** el próximo año.|Prices are going to [rise] next year.|rose,risen
+S|rise.p|El sol **salió** a las seis.|The sun [rose] at six.|risen,rised
+S|rise.pp|El nivel del río ha **subido** mucho.|The river level has [risen] a lot.|rose,rised
+S|drive.b|Estoy aprendiendo a **conducir**.|I'm learning to [drive].|drove,driven
+S|drive.p|**Condujo** toda la noche.|She [drove] all night.|driven,drived
+S|drive.pp|¿Alguna vez has **conducido** un camión?|Have you ever [driven] a truck?|drove,drived
+S|buy.b|Necesito **comprar** leche.|I need to [buy] milk.|bought,buyed
+S|buy.p|**Compré** zapatos nuevos.|I [bought] new shoes.|buy,buyed
+S|buy.pp|Hemos **comprado** un carro.|We have [bought] a car.|buy,buyed
+
+C|send.b|Te voy a enviar las fotos esta noche.|I'll [send] you the photos tonight.
+C|send.p|Mis papás me enviaron un regalo.|My parents [sent] me a gift.
+C|send.pp|La carta fue enviada la semana pasada.|The letter was [sent] last week.
+C|build.b|Los pájaros construyen nidos en primavera.|Birds [build] nests in spring.
+C|build.p|Construyeron el hospital en dos años.|They [built] the hospital in two years.
+C|build.pp|La iglesia fue construida en 1800.|The church was [built] in 1800.
+C|understand.b|Entiendo lo que quieres decir.|I [understand] what you mean.
+C|understand.p|Nadie entendió el chiste.|Nobody [understood] the joke.
+C|understand.pp|Nunca he entendido la física.|I have never [understood] physics.
+C|draw.b|Dibuja un círculo en el tablero.|[Draw] a circle on the board.
+C|draw.p|Los niños dibujaron animales.|The kids [drew] animals.
+C|draw.pp|Ha dibujado cómics desde niño.|He has [drawn] comics since he was a kid.
+C|break.b|Si lo presionas, lo vas a romper.|If you press it, you'll [break] it.
+C|break.p|Se rompió la pierna esquiando.|She [broke] her leg skiing.
+C|break.pp|El ascensor está roto otra vez.|The elevator is [broken] again.
+C|spend.b|Me gusta pasar tiempo con mi familia.|I like to [spend] time with my family.
+C|spend.p|Pasé el fin de semana en la playa.|I [spent] the weekend at the beach.
+C|spend.pp|Hemos pasado horas buscando las llaves.|We have [spent] hours looking for the keys.
+C|cut.b|Corta las cebollas en cuadritos.|[Cut] the onions into small pieces.
+C|cut.p|El gobierno recortó los impuestos.|The government [cut] taxes.
+C|cut.pp|El árbol fue cortado ayer.|The tree was [cut] down yesterday.
+C|rise.b|El pan necesita una hora para subir.|The bread needs an hour to [rise].
+C|rise.p|El humo se elevó sobre la ciudad.|Smoke [rose] over the city.
+C|rise.pp|El desempleo ha subido este año.|Unemployment has [risen] this year.
+C|drive.b|¿Me puedes llevar al aeropuerto en carro?|Can you [drive] me to the airport?
+C|drive.p|Manejamos hasta la costa.|We [drove] to the coast.
+C|drive.pp|Nunca había manejado en la nieve.|I had never [driven] in the snow.
+C|buy.b|Vamos a comprar los tiquetes en línea.|Let's [buy] the tickets online.
+C|buy.p|Me compró un café.|He [bought] me a coffee.
+C|buy.pp|¿Ya compraste el regalo de mamá?|Have you [bought] Mom's gift yet?
