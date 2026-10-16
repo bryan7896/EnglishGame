@@ -1,0 +1,63 @@
+# Paquete 9 · bite, blow, bend, dig, shut, spread, strike, tear, ring, lay
+
+S|bite.b|Ese perro puede **morder**.|That dog can [bite].|bit,bitten
+S|bite.p|El perro me **mordió** la mano.|The dog [bit] my hand.|bitten,bited
+S|bite.pp|Me ha **mordido** un mosquito.|A mosquito has [bitten] me.|bit,bited
+S|blow.b|Vamos a **soplar** las velas.|Let's [blow] out the candles.|blew,blown
+S|blow.p|El viento **sopló** toda la noche.|The wind [blew] all night.|blown,blowed
+S|blow.pp|La tormenta ha **soplado** con fuerza.|The storm has [blown] hard.|blew,blowed
+S|bend.b|No vayas a **doblar** la tarjeta.|Don't [bend] the card.|bent,bended
+S|bend.p|**Dobló** la rodilla para recoger la pelota.|He [bent] his knee to pick up the ball.|bend,bended
+S|bend.pp|El tenedor está **doblado**.|The fork is [bent].|bend,bended
+S|dig.b|Vamos a **cavar** un hoyo para el árbol.|Let's [dig] a hole for the tree.|dug,digged
+S|dig.p|El perro **cavó** en el jardín.|The dog [dug] in the garden.|dig,digged
+S|dig.pp|Han **cavado** un pozo nuevo.|They have [dug] a new well.|dig,digged
+S|shut.b|Por favor, no vayas a **cerrar** la puerta.|Please don't [shut] the door.|shuts,shutted
+S|shut.p|**Cerró** la ventana por el frío.|She [shut] the window because of the cold.|shutted,shuts
+S|shut.pp|La tienda ha **cerrado** para siempre.|The store has [shut] for good.|shutted,shuts
+S|spread.b|Vamos a **esparcir** las semillas.|Let's [spread] the seeds.|spreads,spreaded
+S|spread.p|**Esparció** mantequilla en el pan.|He [spread] butter on the bread.|spreaded,spreads
+S|spread.pp|El rumor se ha **esparcido** por todo el colegio.|The rumor has [spread] all over the school.|spreaded,spreads
+S|strike.b|Los trabajadores van a **atacar** el problema de frente.|The workers are going to [strike] at the problem head-on.|struck,striked
+S|strike.p|Un rayo **golpeó** el árbol.|Lightning [struck] the tree.|strike,striked
+S|strike.pp|La ciudad fue **golpeada** por un terremoto.|The city was [struck] by an earthquake.|strike,striked
+S|tear.b|Cuidado, no vayas a **rasgar** el papel.|Careful, don't [tear] the paper.|tore,torn
+S|tear.p|**Rasgó** la carta en pedazos.|She [tore] the letter into pieces.|torn,teared
+S|tear.pp|Mis jeans están **rasgados**.|My jeans are [torn].|tore,teared
+S|ring.b|El teléfono va a **sonar** en cualquier momento.|The phone will [ring] any minute.|rang,rung
+S|ring.p|El timbre **sonó** a las ocho.|The bell [rang] at eight.|rung,ringed
+S|ring.pp|¿Ha **sonado** el despertador?|Has the alarm [rung]?|rang,ringed
+S|lay.b|Voy a **colocar** el mantel en la mesa.|I'm going to [lay] the tablecloth on the table.|laid,layed
+S|lay.p|**Colocó** al bebé en la cuna.|She [laid] the baby in the crib.|lay,layed
+S|lay.pp|La gallina ha **puesto** tres huevos.|The hen has [laid] three eggs.|lay,layed
+
+C|bite.b|No te muerdas las uñas.|Don't [bite] your nails.
+C|bite.p|Mordió la manzana.|She [bit] into the apple.
+C|bite.pp|Lo mordió una serpiente.|He was [bitten] by a snake.
+C|blow.b|Sopla, que está caliente.|[Blow] on it, it's hot.
+C|blow.p|El viento se llevó mi sombrero.|The wind [blew] my hat away.
+C|blow.pp|Se fundió un fusible.|A fuse has [blown].
+C|bend.b|Dobla las rodillas al levantar peso.|[Bend] your knees when you lift weights.
+C|bend.p|Se agachó para atarse los zapatos.|He [bent] down to tie his shoes.
+C|bend.pp|La barra quedó doblada después del choque.|The bar was [bent] after the crash.
+C|dig.b|Los niños cavan en la arena.|The kids [dig] in the sand.
+C|dig.p|Excavaron un túnel.|They [dug] a tunnel.
+C|dig.pp|Las papas fueron cosechadas a mano.|The potatoes were [dug] up by hand.
+C|shut.b|Cierra los ojos.|[Shut] your eyes.
+C|shut.p|Cerraron la fábrica.|They [shut] the factory.
+C|shut.pp|La puerta estaba cerrada con llave.|The door was [shut] and locked.
+C|spread.b|Las malas noticias pueden esparcirse rápido.|Bad news can [spread] fast.
+C|spread.p|La enfermedad se propagó por el país.|The disease [spread] across the country.
+C|spread.pp|El mapa estaba extendido sobre la mesa.|The map was [spread] out on the table.
+C|strike.b|Los trabajadores van a hacer huelga.|The workers are going to [strike].
+C|strike.p|Me llamó la atención su sonrisa.|Her smile [struck] me.
+C|strike.pp|El barco fue golpeado por una ola.|The boat was [struck] by a wave.
+C|tear.b|No rompas el contrato.|Don't [tear] up the contract.
+C|tear.p|Se rasgó la camisa.|He [tore] his shirt.
+C|tear.pp|La bandera estaba rota por el viento.|The flag was [torn] by the wind.
+C|ring.b|Las campanas de la iglesia suenan cada domingo.|The church bells [ring] every Sunday.
+C|ring.p|Sonó el teléfono en medio de la reunión.|The phone [rang] in the middle of the meeting.
+C|ring.pp|La campana ha sonado.|The bell has [rung].
+C|lay.b|Las gallinas ponen huevos cada día.|Hens [lay] eggs every day.
+C|lay.p|Puso los platos en la mesa.|He [laid] the plates on the table.
+C|lay.pp|Los ladrillos fueron colocados con cuidado.|The bricks were [laid] carefully.
