@@ -184,6 +184,8 @@ def cargar_irregulares(verbose=True):
                 if reglas_validas and regla not in reglas_validas:
                     aviso(f"{donde}: la regla {regla} no existe"); continue
                 es, en = parts[2], parts[3]
+                if "✗" in line or "..." in en or "…" in en or "[ " in en:
+                    aviso(f"{donde}: texto incompleto o con notas"); continue
                 marcas = BRACKET.findall(en)
                 if len(marcas) != 2:
                     aviso(f"{donde}: debe tener exactamente 2 [formas] ({len(marcas)})"); continue

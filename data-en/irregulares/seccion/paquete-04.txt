@@ -1,0 +1,63 @@
+# Paquete 4 · run, pay, sit, speak, lie, lead, read, grow, lose, fall
+
+S|run.b|Me gusta **correr** en las mañanas.|I like to [run] in the mornings.|ran,runned
+S|run.p|**Corrió** para alcanzar el bus.|She [ran] to catch the bus.|run,runned
+S|run.pp|Nunca había **corrido** tan rápido.|I had never [run] so fast.|ran,runned
+S|pay.b|¿Puedo **pagar** con tarjeta?|Can I [pay] by card?|paid,payed
+S|pay.p|Ya **pagué** la cuenta.|I already [paid] the bill.|pay,payed
+S|pay.pp|¿Has **pagado** el arriendo?|Have you [paid] the rent?|pay,payed
+S|sit.b|Por favor, **siéntate** aquí.|Please [sit] here.|sat,sitted
+S|sit.p|Nos **sentamos** en la primera fila.|We [sat] in the front row.|sit,sitted
+S|sit.pp|He estado **sentado** aquí toda la tarde.|I have [sat] here all afternoon.|sit,sitted
+S|speak.b|¿Puedes **hablar** más despacio?|Can you [speak] more slowly?|spoke,spoken
+S|speak.p|**Habló** con el director ayer.|He [spoke] with the director yesterday.|spoken,speak
+S|speak.pp|¿Has **hablado** con tu mamá?|Have you [spoken] to your mom?|spoke,speak
+S|lie.b|Necesito **acostarme** un rato.|I need to [lie] down for a while.|lay,lain
+S|lie.p|Se **acostó** en el sofá y se durmió.|She [lay] on the sofa and fell asleep.|lain,lie
+S|lie.pp|La carta había **estado** en el cajón por años.|The letter had [lain] in the drawer for years.|lay,lie
+S|lead.b|Ella va a **dirigir** el proyecto.|She is going to [lead] the project.|led,leaded
+S|lead.p|El guía nos **llevó** a la cima.|The guide [led] us to the top.|lead,leaded
+S|lead.pp|Ha **liderado** el equipo por diez años.|He has [led] the team for ten years.|lead,leaded
+S|read.b|Me encanta **leer** antes de dormir.|I love to [read] before bed.|readed,reads
+S|read.p|Anoche **leí** tu mensaje.|Last night I [read] your message.|readed,reads
+S|read.pp|¿Has **leído** este libro?|Have you [read] this book?|readed,reads
+S|grow.b|Quiero **cultivar** tomates en el balcón.|I want to [grow] tomatoes on the balcony.|grew,grown
+S|grow.p|**Crecí** en un pueblo pequeño.|I [grew] up in a small town.|grown,grow
+S|grow.pp|¡Cómo has **crecido**!|You have [grown] so much!|grew,grow
+S|lose.b|No quiero **perder** mi boleto de tren.|I don't want to [lose] my train ticket.|lost,losed
+S|lose.p|**Perdí** mis llaves otra vez.|I [lost] my keys again.|lose,losed
+S|lose.pp|Hemos **perdido** tres partidos.|We have [lost] three games.|lose,losed
+S|fall.b|Cuidado, te vas a **caer**.|Careful, you're going to [fall].|fell,fallen
+S|fall.p|Se **cayó** de la bicicleta.|He [fell] off his bike.|fallen,fall
+S|fall.pp|Han **caído** muchas hojas.|A lot of leaves have [fallen].|fell,fall
+
+C|run.b|Tenemos que correr o perderemos el bus.|We have to [run] or we'll miss the bus.
+C|run.p|Los niños corrieron al parque.|The kids [ran] to the park.
+C|run.pp|Ha dirigido la empresa por veinte años.|She has [run] the company for twenty years.
+C|pay.b|Yo pago la cena esta vez.|I'll [pay] for dinner this time.
+C|pay.p|Pagamos demasiado por ese carro.|We [paid] too much for that car.
+C|pay.pp|Todavía no me han pagado.|They haven't [paid] me yet.
+C|sit.b|¿Dónde quieres sentarte?|Where do you want to [sit]?
+C|sit.p|Se sentó a mi lado en el bus.|She [sat] next to me on the bus.
+C|sit.pp|Hemos estado sentados aquí por una hora.|We have [sat] here for an hour.
+C|speak.b|Quiero hablar inglés con fluidez.|I want to [speak] English fluently.
+C|speak.p|El presidente habló por la radio.|The president [spoke] on the radio.
+C|speak.pp|Nunca había hablado en público.|I had never [spoken] in public.
+C|lie.b|El médico me dijo que me acostara.|The doctor told me to [lie] down.
+C|lie.p|El perro se echó junto a la chimenea.|The dog [lay] by the fireplace.
+C|lie.pp|La nieve había permanecido en el suelo por semanas.|The snow had [lain] on the ground for weeks.
+C|lead.b|Este camino te llevará al río.|This path will [lead] you to the river.
+C|lead.p|Ella llevó al equipo a la victoria.|She [led] the team to victory.
+C|lead.pp|Sus decisiones nos han llevado al éxito.|His decisions have [led] us to success.
+C|read.b|¿Puedes leer esto en voz alta?|Can you [read] this out loud?
+C|read.p|Leí el periódico esta mañana.|I [read] the newspaper this morning.
+C|read.pp|Ya he leído todos sus libros.|I have already [read] all her books.
+C|grow.b|Los niños crecen muy rápido.|Kids [grow] up so fast.
+C|grow.p|Mi abuelo cultivaba café.|My grandfather [grew] coffee.
+C|grow.pp|La ciudad ha crecido mucho.|The city has [grown] a lot.
+C|lose.b|No pierdas la esperanza.|Don't [lose] hope.
+C|lose.p|Perdimos el partido por un gol.|We [lost] the game by one goal.
+C|lose.pp|He perdido mi teléfono.|I have [lost] my phone.
+C|fall.b|No dejes que el niño se caiga.|Don't let the baby [fall].
+C|fall.p|El vaso se cayó de la mesa.|The glass [fell] off the table.
+C|fall.pp|Los precios han bajado este mes.|Prices have [fallen] this month.
