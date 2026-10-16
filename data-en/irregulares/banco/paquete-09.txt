@@ -714,3 +714,105 @@
 44|t|Para enero la gallina habrá estado poniendo huevos un año; ha puesto trescientos y el perro mordió algunos.|By January the hen will have been laying eggs for a year; it has [laid] three hundred, and the dog [bit] a few.
 44|c|Para la noche habrá estado inflando globos dos horas; ya rasgó diez y sopló cincuenta.|By tonight she will have been blowing up balloons for two hours; she has already [torn] ten and [blown] up fifty.
 44|t|Para el próximo mes habré estado escribiendo este informe tres semanas; ya rasgué dos borradores y organicé la versión final.|By next month I will have been writing this report for three weeks; I have already [torn] up two drafts and [laid] out the final version.
+
+# --- Regla 45 · Voz pasiva ---
+45|t|El niño fue mordido por un perro; la herida fue cerrada con puntos.|The boy was [bitten] by a dog; the wound was [shut] with stitches.
+45|c|El hoyo fue cavado en una hora; el árbol fue colocado al mediodía.|The hole was [dug] in an hour; the tree was [laid] in it at noon.
+45|t|La bandera fue rasgada por el viento; las hojas fueron sopladas por todo el patio.|The flag was [torn] by the wind; the leaves were [blown] all over the yard.
+45|c|El pueblo fue golpeado por un huracán; la noticia fue esparcida por la radio.|The town was [struck] by a hurricane; the news was [spread] by radio.
+45|t|La barra fue doblada por la máquina; el metal fue golpeado mil veces.|The bar was [bent] by the machine; the metal was [struck] a thousand times.
+45|c|La tienda fue cerrada por la policía; los carteles fueron rasgados.|The store was [shut] by the police; the signs were [torn] down.
+45|t|Los ladrillos fueron colocados por mi abuelo; los cimientos fueron cavados por mi papá.|The bricks were [laid] by my grandfather; the foundation was [dug] by my dad.
+45|c|La campana fue tocada a medianoche; el sonido fue esparcido por el viento.|The bell was [rung] at midnight; the sound was [spread] by the wind.
+45|t|Las semillas fueron esparcidas en primavera; la tierra fue cavada en invierno.|The seeds were [spread] in spring; the soil was [dug] in winter.
+45|c|El cartero fue mordido dos veces; la reja fue cerrada con candado.|The mailman was [bitten] twice; the gate was [shut] with a padlock.
+45|t|La carta fue rasgada en pedazos; los pedazos fueron soplados por la ventana.|The letter was [torn] to pieces; the pieces were [blown] out the window.
+45|c|El árbol fue golpeado por un rayo y fue doblado por el viento.|The tree was [struck] by lightning and [bent] by the wind.
+45|t|Los huevos fueron puestos en la mañana; uno fue mordido por el perro.|The eggs were [laid] in the morning; one was [bitten] by the dog.
+45|c|La escuela fue cerrada por la nieve; las calles fueron cavadas por voluntarios.|The school was [shut] because of the snow; the streets were [dug] out by volunteers.
+45|t|La alarma fue sonada tres veces; el edificio fue cerrado.|The alarm was [rung] three times; the building was [shut].
+
+# --- Regla 46 · Modales de posibilidad / deducción ---
+46|t|Debe de haberlo mordido un mosquito; se rasgó la piel rascándose.|A mosquito must have [bitten] him; he [tore] his skin scratching.
+46|c|Ella pudo haber cerrado la puerta; sonó un golpe fuerte.|She might have [shut] the door; something [struck] it hard.
+46|t|No pueden haber cavado tan rápido; colocaron una máquina.|They can't have [dug] that fast; they [laid] down a machine to help.
+46|c|El viento debe de haber soplado toda la noche; dobló los árboles.|The wind must have [blown] all night; it [bent] the trees.
+46|t|Pudo haber rasgado la carta; la colocó en la basura.|She could have [torn] up the letter; she [laid] it in the trash.
+46|c|Debe de haber sonado el timbre; el perro mordió la alfombra de los nervios.|The doorbell must have [rung]; the dog [bit] the rug out of nerves.
+46|t|Un rayo puede haber golpeado la antena; está doblada.|Lightning may have [struck] the antenna; it is [bent].
+46|c|No puede haber esparcido el rumor; cerró la boca todo el día.|He can't have [spread] the rumor; he [shut] his mouth all day.
+46|t|Debe de haber colocado los platos; ya sonó la campana de la cena.|She must have [laid] the plates out; the dinner bell has already [rung].
+46|c|Pudo haberse doblado la rodilla; se golpeó contra la mesa.|He might have [bent] his knee the wrong way; he [struck] the table.
+46|t|Debe de haber cavado el perro; los zapatos están mordidos.|The dog must have [dug] here; the shoes are [bitten] too.
+46|c|No pueden haber cerrado la tienda; la noticia se habría esparcido.|They can't have [shut] the store; the news would have [spread].
+46|t|Puede que el globo se haya rasgado; lo soplaste muy fuerte.|The balloon may have [torn]; you [blew] it up too hard.
+46|c|Debe de haber golpeado la puerta; se le dobló el dedo.|He must have [struck] the door; his finger is [bent].
+46|t|Pudo haber esparcido las semillas; cavó la tierra ayer.|He could have [spread] the seeds; he [dug] the soil yesterday.
+
+# --- Regla 47 · Half of ---
+47|t|Cavé la mitad del hoyo y coloqué la mitad de las plantas.|I [dug] half of the hole and [laid] half of the plants.
+47|c|El perro mordió la mitad de los zapatos; rasgó la otra mitad.|The dog [bit] half of the shoes; it [tore] the other half.
+47|t|La mitad de las tiendas cerró; la noticia se esparció en la otra mitad.|Half of the stores [shut]; the news [spread] through the other half.
+47|c|El viento sopló la mitad de las hojas; dobló la mitad de los árboles.|The wind [blew] half of the leaves away; it [bent] half of the trees.
+47|t|La mitad del pueblo fue golpeada por la tormenta; la campana sonó en la otra mitad.|Half of the town was [struck] by the storm; the bell [rang] in the other half.
+47|c|Rasgué la mitad de las cartas; coloqué la otra mitad en una caja.|I [tore] up half of the letters; I [laid] the other half in a box.
+47|t|Esparcimos la mitad de las semillas; cavamos la otra mitad del jardín mañana.|We [spread] half of the seeds; we [dug] the other half of the garden the next day.
+47|c|La mitad de las velas fueron sopladas; la otra mitad se cayó y se dobló.|Half of the candles were [blown] out; the other half fell and [bent].
+47|t|La mitad de los ladrillos fueron colocados; la otra mitad fue golpeada por el camión.|Half of the bricks were [laid]; the other half were [struck] by the truck.
+47|c|Cerré la mitad de las ventanas; el viento sopló por la otra mitad.|I [shut] half of the windows; the wind [blew] through the other half.
+47|t|La mitad de los niños fueron mordidos por mosquitos; la otra mitad cerró la carpa a tiempo.|Half of the kids were [bitten] by mosquitoes; the other half [shut] the tent in time.
+47|c|La mitad de la clase oyó sonar la campana; la otra mitad dobló las reglas y llegó tarde.|Half of the class heard the bell as it [rang]; the other half [bent] the rules and came late.
+47|t|La mitad del muro fue cavado; la otra mitad fue rasgada por la grúa.|Half of the wall was [dug] out; the other half was [torn] down by the crane.
+47|c|La gallina puso la mitad de los huevos; el perro mordió la mitad de ellos.|The hen [laid] half of the eggs; the dog [bit] half of those.
+47|t|Esparcí la mitad del rumor; la otra mitad golpeó a mi amiga.|I [spread] half of the rumor; the other half [struck] my friend hard.
+
+# --- Regla 48 · "By" para tiempo futuro ---
+48|t|Para el viernes ya habré cavado el pozo y habré colocado la bomba.|By Friday I will have [dug] the well and [laid] the pump.
+48|c|Para las diez ya habrán cerrado la tienda y habrán rasgado los carteles.|By ten they will have [shut] the store and [torn] down the signs.
+48|t|Para cuando llegues, ya habré soplado las velas y la noticia se habrá esparcido.|By the time you arrive, I will have [blown] out the candles, and the news will have [spread].
+48|c|Para el lunes la tormenta habrá golpeado la costa; ya doblamos las sombrillas.|By Monday the storm will have [struck] the coast; we have already [bent] down the umbrellas.
+48|t|Para las seis ya habrá sonado la alarma; ya cerré las ventanas.|By six the alarm will have [rung]; I have already [shut] the windows.
+48|c|Para diciembre habremos colocado mil ladrillos; ya cavamos los cimientos.|By December we will have [laid] a thousand bricks; we have already [dug] the foundation.
+48|t|Para mañana el perro ya habrá mordido el juguete nuevo; ya rasgó el viejo.|By tomorrow the dog will have [bitten] the new toy; it has already [torn] the old one.
+48|c|Para el verano habremos esparcido todas las semillas; ya cavamos los surcos.|By summer we will have [spread] all the seeds; we have already [dug] the furrows.
+48|t|Para el final de la fiesta habremos soplado cien globos; ya rasgamos diez.|By the end of the party we will have [blown] up a hundred balloons; we have already [torn] ten.
+48|c|Para el mediodía habrán cerrado las calles; ya golpeó la primera ola de calor.|By noon they will have [shut] the streets; the first heat wave has already [struck].
+48|t|Para la boda ya habré colocado las flores; ya esparcí los pétalos.|By the wedding I will have [laid] the flowers out; I have already [spread] the petals.
+48|c|Para el sábado habrá sonado la campana cien veces; ya la golpeamos hoy.|By Saturday the bell will have [rung] a hundred times; we have already [struck] it today.
+48|t|Para las cinco ya habré doblado toda la ropa; ya cerré tres maletas.|By five I will have [bent] down and folded all the clothes; I have already [shut] three suitcases.
+48|c|Para la noche el viento habrá soplado toda la nieve; ya cavamos la entrada.|By tonight the wind will have [blown] all the snow away; we have already [dug] out the driveway.
+48|t|Para el próximo año habrán cavado el túnel; ya golpearon roca dura.|By next year they will have [dug] the tunnel; they have already [struck] hard rock.
+
+# --- Regla 49 · because of / because ---
+49|t|Cerramos la ventana por el viento; sopló toda la noche.|We [shut] the window because of the wind; it [blew] all night.
+49|c|Me rasgué el pantalón porque el perro me mordió.|I [tore] my pants because the dog [bit] me.
+49|t|Por la tormenta, el rayo golpeó la torre y sonó la alarma.|Because of the storm, lightning [struck] the tower, and the alarm [rang].
+49|c|Cavamos un pozo porque esparcieron la noticia de una sequía.|We [dug] a well because they [spread] news of a drought.
+49|t|Por el peso, la barra se dobló; la colocamos en el piso.|Because of the weight, the bar [bent]; we [laid] it on the floor.
+49|c|Cerraron la escuela porque la enfermedad se esparció.|They [shut] the school because the disease [spread].
+49|t|Por el ruido, me mordí la lengua; sonó un trueno enorme.|Because of the noise, I [bit] my tongue; a huge thunderclap [rang] out.
+49|c|Rasgué la carta porque me golpeó lo que decía.|I [tore] up the letter because what it said [struck] me hard.
+49|t|Por el frío, colocamos mantas en las camas y cerramos las puertas.|Because of the cold, we [laid] blankets on the beds and [shut] the doors.
+49|c|Sopló las velas rápido porque sonó el teléfono.|She [blew] out the candles quickly because the phone [rang].
+49|t|Por la lluvia, cavamos zanjas; el agua se esparció por el jardín.|Because of the rain, we [dug] ditches; the water [spread] across the garden.
+49|c|Se dobló de dolor porque se golpeó el pie.|He [bent] over in pain because he [struck] his foot.
+49|t|Por el viento, se rasgó la carpa; la colocamos de nuevo.|Because of the wind, the tent [tore]; we [laid] it out again.
+49|c|El perro mordió el cable porque nadie cerró la puerta del cuarto.|The dog [bit] the cable because nobody [shut] the bedroom door.
+49|t|Por la crisis, cerraron la mina; habían cavado ahí cien años.|Because of the crisis, they [shut] the mine; they had [dug] there for a hundred years.
+
+# --- Regla 50 · (put, try, get, take, lie) + (down, off, on) ---
+50|t|Me acosté en el pasto, un mosquito me mordió y me rasgué la piel rascándome.|I lay down on the grass; a mosquito [bit] me, and I [tore] my skin scratching.
+50|c|Me quité la chaqueta y vi que se había rasgado; la coloqué en la cama.|I took off my jacket and saw that it had [torn]; I [laid] it on the bed.
+50|t|Se subió al bus y cerró los ojos; el viento sopló por la ventana.|She got on the bus and [shut] her eyes; the wind [blew] through the window.
+50|c|Se puso los guantes y cavó en el jardín toda la tarde; golpeó una roca.|He put on his gloves and [dug] in the garden all afternoon; he [struck] a rock.
+50|t|El avión despegó y un rayo lo golpeó; la alarma sonó en la cabina.|The plane took off, and lightning [struck] it; the alarm [rang] in the cockpit.
+50|c|Me probé el vestido y se rasgó en la costura; lo coloqué en el mostrador.|I tried on the dress, and it [tore] at the seam; I [laid] it on the counter.
+50|t|Puse el teléfono en la mesa y sonó enseguida; cerré la puerta para contestar.|I put down my phone on the table, and it [rang] right away; I [shut] the door to answer.
+50|c|Se quitó los zapatos y el perro los mordió; rasgó uno en pedazos.|She took off her shoes, and the dog [bit] them; it [tore] one apart.
+50|t|Se acostó en la arena y esparció protector solar en las piernas; cerró los ojos.|He lay down on the sand and [spread] sunscreen on his legs; he [shut] his eyes.
+50|c|Me bajé del carro y el viento sopló mi sombrero lejos; golpeó un árbol.|I got out of the car, and the wind [blew] my hat away; it [struck] a tree.
+50|t|Se puso el casco y colocó los ladrillos del segundo piso; había cavado la base el día anterior.|He put on his helmet and [laid] the bricks for the second floor; he had [dug] the base the day before.
+50|c|Me acosté temprano porque me doblé el tobillo; me lo había golpeado en la escalera.|I lay down early because I [bent] my ankle the wrong way; I had [struck] it on the stairs.
+50|t|Se quitó el anillo y lo colocó en la caja; cerró la tapa.|She took off her ring and [laid] it in the box; she [shut] the lid.
+50|c|Se subió a la escalera y golpeó la campana del techo; sonó en todo el barrio.|He got on the ladder and [struck] the bell on the roof; it [rang] through the whole neighborhood.
+50|t|Puse la carta en el escritorio, la rasgué y soplé los pedazos.|I put down the letter on the desk, [tore] it up, and [blew] the pieces away.
