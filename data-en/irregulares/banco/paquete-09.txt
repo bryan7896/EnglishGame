@@ -663,3 +663,54 @@
 41|t|El gato mordió el cable del cargador anoche y lo rasgó.|The cat [bit] the charger cable last night and [tore] it.
 41|c|Esparcí semillas en el jardín esta mañana; el viento sopló algunas lejos.|I [spread] seeds in the garden this morning; the wind [blew] some away.
 41|t|La gallina puso tres huevos en el nido hoy; el perro mordió uno.|The hen [laid] three eggs in the nest today; the dog [bit] one.
+
+# --- Regla 42 · Vocabulario específico ---
+42|t|El arqueólogo cavó en el sitio y colocó los hallazgos en el museo.|The archaeologist [dug] at the site and [laid] the finds in the museum.
+42|c|El perro callejero mordió al repartidor; el dueño cerró el portón.|The stray dog [bit] the delivery man; the owner [shut] the gate.
+42|t|El árbitro sopló el silbato y el delantero golpeó el balón.|The referee [blew] the whistle, and the striker [struck] the ball.
+42|c|El herrero dobló el metal y lo golpeó en el yunque.|The blacksmith [bent] the metal and [struck] it on the anvil.
+42|t|El albañil colocó los ladrillos y esparció el cemento.|The bricklayer [laid] the bricks and [spread] the cement.
+42|c|El sismo golpeó la región; la noticia se esparció por los medios.|The earthquake [struck] the region; the news [spread] through the media.
+42|t|El sastre rasgó la tela por error y la colocó sobre la mesa.|The tailor [tore] the fabric by mistake and [laid] it on the table.
+42|c|El campanero tocó la campana; el sonido se esparció por el valle.|The bell ringer [rang] the bell; the sound [spread] across the valley.
+42|t|El minero cavó un túnel y golpeó una veta de oro.|The miner [dug] a tunnel and [struck] a vein of gold.
+42|c|El vigilante cerró la bodega y colocó el candado.|The guard [shut] the warehouse and [laid] the padlock on the door.
+42|t|El veterinario fue mordido por el gato; el gato rasgó su bata.|The vet was [bitten] by the cat; the cat [tore] his coat.
+42|c|El huracán sopló durante horas y dobló las palmeras.|The hurricane [blew] for hours and [bent] the palm trees.
+42|t|El agricultor esparció fertilizante y cavó surcos en el campo.|The farmer [spread] fertilizer and [dug] furrows in the field.
+42|c|El sindicalista hizo sonar la alarma de una huelga; la noticia golpeó a la empresa.|The union worker [rang] the alarm about a strike; the news [struck] the company.
+42|t|El cirujano cerró la herida y colocó una venda.|The surgeon [shut] the wound and [laid] a bandage over it.
+
+# --- Regla 43 · Past Perfect ---
+43|t|Cuando llegué, ya habían cavado el hoyo y habían colocado el árbol.|When I arrived, they had already [dug] the hole and had [laid] the tree in it.
+43|c|Me di cuenta de que el perro me había mordido después de que había cerrado la puerta.|I realized the dog had [bitten] me after I had [shut] the door.
+43|t|Nunca había soplado tantas velas; nunca había rasgado tantos regalos.|I had never [blown] out so many candles; I had never [torn] open so many gifts.
+43|c|Cuando volvimos, el viento había doblado los árboles y había esparcido las hojas.|When we came back, the wind had [bent] the trees and had [spread] the leaves.
+43|t|El rayo ya había golpeado la torre cuando sonó la alarma.|Lightning had already [struck] the tower when the alarm [rang].
+43|c|Ya habían cerrado la tienda cuando la noticia se esparció.|They had already [shut] the store when the news [spread].
+43|t|Me dijo que había colocado los ladrillos y que había cavado los cimientos.|He told me he had [laid] the bricks and had [dug] the foundation.
+43|c|Ya había rasgado la carta cuando el viento sopló los pedazos.|I had already [torn] up the letter when the wind [blew] the pieces away.
+43|t|Cuando lo vi, el perro ya le había mordido la mano y le había rasgado la manga.|When I saw him, the dog had already [bitten] his hand and [torn] his sleeve.
+43|c|Nunca había tocado una campana hasta que el párroco me dejó hacerlo; la golpeé muy fuerte.|I had never [rung] a bell until the priest let me; I [struck] it too hard.
+43|t|Habían esparcido sal en la calle antes de que la tormenta golpeara.|They had [spread] salt on the street before the storm [struck].
+43|c|Ya había doblado la ropa cuando el gato la mordió.|I had already [bent] down and folded the clothes when the cat [bit] them.
+43|t|Ya había cerrado los ojos cuando sonó el teléfono.|I had already [shut] my eyes when the phone [rang].
+43|c|La gallina ya había puesto los huevos cuando el perro cavó en el gallinero.|The hen had already [laid] her eggs when the dog [dug] into the coop.
+43|t|Nunca habíamos cavado tan profundo; nunca habíamos golpeado agua.|We had never [dug] so deep; we had never [struck] water.
+
+# --- Regla 44 · Future Perfect Continuous ---
+44|t|Para junio habré estado cavando este pozo un año; ya golpeé roca tres veces y doblé dos palas.|By June I will have been digging this well for a year; I have already [struck] rock three times and [bent] two shovels.
+44|c|Para las ocho habremos estado colocando ladrillos diez horas; ya cavamos la zanja y colocamos medio muro.|By eight we will have been laying bricks for ten hours; we have already [dug] the trench and [laid] half the wall.
+44|t|Para diciembre el viento habrá estado soplando un mes; ya rasgó todas las banderas y tumbó dos cercas.|By December the wind will have been blowing for a month; it has already [torn] all the flags and [blown] down two fences.
+44|c|Para el viernes habré estado esparciendo semillas una semana; el perro ya desenterró la mitad y he esparcido más.|By Friday I will have been spreading seeds for a week; the dog has already [dug] up half of them, and I have [spread] more.
+44|t|Para el lunes el teléfono habrá estado sonando tres días; ya cerré la oficina y ha sonado mil veces.|By Monday the phone will have been ringing for three days; I have already [shut] the office, and it has [rung] a thousand times.
+44|c|Para las cinco el perro habrá estado mordisqueando ese juguete seis horas; ya le arrancó una pata de un mordisco y le rasgó el relleno.|By five the dog will have been chewing that toy for six hours; it has already [bitten] off a leg and [torn] the stuffing out.
+44|t|Para marzo habremos estado excavando la ciudad antigua dos años; ya colocamos mil piezas en el museo y cavamos diez metros de profundidad.|By March we will have been excavating the ancient city for two years; we have already [laid] a thousand pieces in the museum and [dug] ten meters deep.
+44|c|Para el verano la enfermedad habrá estado propagándose seis meses; ya golpeó diez países y se esparció a tres continentes.|By summer the disease will have been spreading for six months; it has already [struck] ten countries and [spread] to three continents.
+44|t|Para la medianoche habré estado doblando ropa cuatro horas; ya cerré tres maletas y coloqué la ropa de mañana.|By midnight I will have been folding clothes for four hours; I have already [shut] three suitcases and [laid] out tomorrow's outfit.
+44|c|Para fin de mes habrán estado martillando la pared una semana; ya arrancaron el papel tapiz y golpearon una tubería.|By the end of the month they will have been hammering the wall for a week; they have already [torn] off the wallpaper and [struck] a pipe.
+44|t|Para las diez habrá estado tocando la campana una hora; el sonido ya se esparció por el valle y la ha tocado cien veces.|By ten he will have been ringing the bell for an hour; the sound has already [spread] across the valley, and he has [rung] it a hundred times.
+44|c|Para el sábado habremos estado cerrando tiendas un mes; ya cerramos cinco y la noticia golpeó al barrio.|By Saturday we will have been closing stores for a month; we have already [shut] five, and the news has [struck] the neighborhood.
+44|t|Para enero la gallina habrá estado poniendo huevos un año; ha puesto trescientos y el perro mordió algunos.|By January the hen will have been laying eggs for a year; it has [laid] three hundred, and the dog [bit] a few.
+44|c|Para la noche habrá estado inflando globos dos horas; ya rasgó diez y sopló cincuenta.|By tonight she will have been blowing up balloons for two hours; she has already [torn] ten and [blown] up fifty.
+44|t|Para el próximo mes habré estado escribiendo este informe tres semanas; ya rasgué dos borradores y organicé la versión final.|By next month I will have been writing this report for three weeks; I have already [torn] up two drafts and [laid] out the final version.
