@@ -238,3 +238,54 @@
 15|t|Se fue a la oficina; anoche cerraron el edificio y esparcieron un comunicado.|He has gone to the office; last night they [shut] the building and [spread] a notice.
 15|c|Salió de casa cuando sonó el despertador; dobló la esquina corriendo y se golpeó con un poste.|She left home when the alarm [rang]; she turned the corner running and [struck] a pole.
 15|t|Se fue a excavar al desierto; el mes pasado cavó durante semanas y colocó sus hallazgos en el museo.|He has gone to excavate in the desert; last month he [dug] for weeks and [laid] his finds in the museum.
+
+# --- Regla 16 · Preposiciones de movimiento ---
+16|t|El viento sopló a través de la ventana y esparció los papeles por el piso.|The wind [blew] through the window and [spread] the papers across the floor.
+16|c|El perro cavó debajo de la cerca y mordió la pelota del vecino.|The dog [dug] under the fence and [bit] the neighbor's ball.
+16|t|Un rayo golpeó sobre la colina y el trueno sonó por todo el valle.|Lightning [struck] over the hill, and the thunder [rang] across the valley.
+16|c|Se dobló hacia adelante y colocó la caja en el piso.|He [bent] forward and [laid] the box on the floor.
+16|t|Cerró la puerta detrás de sí y rasgó la carta en el pasillo.|She [shut] the door behind her and [tore] up the letter in the hallway.
+16|c|Esparcimos semillas a lo largo del camino y cavamos alrededor de los árboles.|We [spread] seeds along the path and [dug] around the trees.
+16|t|El viento sopló el sombrero por encima del muro; se rasgó en las ramas.|The wind [blew] the hat over the wall; it [tore] on the branches.
+16|c|La ola golpeó contra las rocas y esparció espuma por la playa.|The wave [struck] against the rocks and [spread] foam across the beach.
+16|t|El niño se dobló debajo de la mesa y mordió una galleta.|The boy [bent] down under the table and [bit] a cookie.
+16|c|Colocaron los tubos a través del campo y cavaron una zanja junto al río.|They [laid] the pipes across the field and [dug] a trench along the river.
+16|t|El sonido del timbre sonó por toda la casa; cerré la puerta del cuarto.|The doorbell [rang] through the whole house; I [shut] my bedroom door.
+16|c|El viento sopló hacia el norte y dobló los árboles hacia el lago.|The wind [blew] toward the north and [bent] the trees toward the lake.
+16|t|El perro corrió por el jardín y cavó junto a la piscina; mordió la manguera.|The dog ran through the garden and [dug] next to the pool; it [bit] the hose.
+16|c|Colocó la manta sobre la cama y esparció cojines alrededor.|She [laid] the blanket over the bed and [spread] cushions around it.
+16|t|El rumor se esparció de oficina en oficina; el jefe cerró todas las puertas.|The rumor [spread] from office to office; the boss [shut] all the doors.
+
+# --- Regla 17 · Modales básicos ---
+17|t|Puedes cavar aquí; ayer el jardinero colocó las plantas al lado.|You can [dig] here; yesterday the gardener [laid] the plants next to it.
+17|c|Deberías cerrar la ventana; anoche el viento sopló muy fuerte.|You should [shut] the window; last night the wind [blew] very hard.
+17|t|No debes morderte las uñas; ayer te rasgaste la piel hasta sangrar.|You must not [bite] your nails; yesterday you [tore] the skin until it bled.
+17|c|¿Puedes colocar los platos? Ya sonó el timbre.|Can you [lay] the plates out? The doorbell has already [rung].
+17|t|Podríamos esparcir las semillas; ayer cavamos la tierra.|We could [spread] the seeds; yesterday we [dug] the soil.
+17|c|Ella sabe doblar el metal; ayer golpeó una barra hasta darle forma.|She can [bend] metal; yesterday she [struck] a bar until it took shape.
+17|t|Debes cerrar la reja; ayer el perro mordió a un niño.|You must [shut] the gate; yesterday the dog [bit] a child.
+17|c|¿Podrías soplar las velas? Ya colocamos el pastel en la mesa.|Could you [blow] out the candles? We have already [laid] the cake on the table.
+17|t|No deberías rasgar los papeles; ayer esparciste todo por el piso.|You shouldn't [tear] up the papers; yesterday you [spread] everything across the floor.
+17|c|Puedes tocar el timbre; ayer golpeé la puerta tres veces y nadie abrió.|You can [ring] the doorbell; yesterday I [struck] the door three times, and nobody answered.
+17|t|Deberías colocar una alfombra; ayer te golpeaste la cabeza contra el piso.|You should [lay] down a rug; yesterday you [struck] your head on the floor.
+17|c|¿Puedo cavar en tu jardín? Ayer tu perro mordió la manguera.|May I [dig] in your garden? Yesterday your dog [bit] through the hose.
+17|t|Tienes que doblar las rodillas; ayer te rasgaste un músculo de la espalda.|You have to [bend] your knees; yesterday you [tore] a muscle in your back.
+17|c|Podrías cerrar la boca; ayer esparciste el secreto.|You could [shut] your mouth; yesterday you [spread] the secret.
+17|t|No puedes soplar tan fuerte; ayer rasgaste el globo.|You can't [blow] so hard; yesterday you [tore] the balloon.
+
+# --- Regla 18 · Gerundio vs infinitivo ---
+18|t|Decidí cavar un pozo; coloqué los tubos la semana pasada.|I decided to [dig] a well; I [laid] the pipes last week.
+18|c|Dejó de morderse las uñas; guardó el esmalte en un cajón y lo cerró como recordatorio.|She stopped biting her nails; she [laid] her nail polish in a drawer and [shut] it as a reminder.
+18|t|Quiere esparcir las cenizas en el mar; ya colocó la urna en el barco.|She wants to [spread] the ashes in the sea; she has already [laid] the urn on the boat.
+18|c|Evita doblar la espalda; la última vez la golpeó contra el estante y se rasgó un músculo.|He avoids bending his back; last time he [struck] it against the shelf and [tore] a muscle.
+18|t|Espero cerrar la tienda temprano hoy; el teléfono sonó toda la mañana.|I hope to [shut] the store early today; the phone [rang] all morning.
+18|c|Me encanta soplar burbujas; ayer soplé cien y el perro las mordió todas.|I love blowing bubbles; yesterday I [blew] a hundred, and the dog [bit] all of them.
+18|t|Olvidó cerrar la reja; el perro salió y mordió al cartero.|He forgot to [shut] the gate; the dog got out and [bit] the mailman.
+18|c|Prometió no rasgar el contrato, pero lo rasgó cuando la noticia se esparció.|He promised not to tear up the contract, but he [tore] it when the news [spread].
+18|t|Terminé de cavar y coloqué las semillas en los hoyos; luego esparcí tierra encima.|I finished digging and [laid] the seeds in the holes; then I [spread] soil over them.
+18|c|Intentó doblar la barra, pero solo la golpeó.|He tried to [bend] the bar, but he only [struck] it.
+18|t|Sugirió esparcir sal en la entrada; el viento sopló nieve toda la noche y la tormenta golpeó el pueblo.|She suggested spreading salt on the driveway; the wind [blew] snow all night, and the storm [struck] the town.
+18|c|Planeamos colocar el piso nuevo; ya cavamos para los cimientos del baño.|We plan to [lay] the new floor; we have already [dug] for the bathroom foundation.
+18|t|No me importa tocar el timbre; ayer lo toqué diez veces y nadie me cerró la puerta en la cara.|I don't mind ringing the bell; yesterday I [rang] it ten times, and nobody [shut] the door in my face.
+18|c|Dejó de soplar el silbato y cerró la boca; el entrenador había hecho un trato con el árbitro.|He stopped blowing the whistle and [shut] his mouth; the coach had [struck] a deal with the referee.
+18|t|Recuerdo haber cavado en esta playa; cavamos un foso y colocamos un castillo de arena enorme.|I remember digging on this beach; we [dug] a moat and [laid] a huge sandcastle.
