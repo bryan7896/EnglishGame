@@ -9298,7 +9298,7 @@ function n1ReelsTerminar() {
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 18.1";
+  const RL_VERSION = "reels 18.2";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -9600,6 +9600,20 @@ function n1ReelsTerminar() {
       RL.cont.proxYt = rlRand(RL_YT_MIN, RL_YT_MAX);
       if (rlPalabraParaYT()) return { k: "sorpresa", tipo: "yt", uid: rlUid() };
     }
+    // El ciclo general (listening/historia/pct/reglas) va ANTES que Azure: ambos
+    // contadores crecen al mismo ritmo (un ejercicio normal suma a los dos) y el
+    // de Azure es un umbral fijo (cada 8) mientras el general es aleatorio (2-15).
+    // Si Azure se revisara primero, cuando los dos coinciden Azure siempre ganaría
+    // la carrera y listening/historia/etc. quedarían sin salir casi nunca. Así, si
+    // ambos están listos a la vez, el ciclo general tiene prioridad y Azure solo
+    // se retrasa una tarjeta (su contador no se reinicia, así que sale en la
+    // siguiente decisión).
+    if (RL.cont.sorpresa >= RL.cont.proxSorpresa) {
+      RL.cont.sorpresa = 0;
+      RL.cont.proxSorpresa = rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX);
+      const tipo = rlElegirSorpresa();
+      if (tipo) return { k: "sorpresa", tipo, uid: rlUid() };
+    }
     // Azure (curso AI-901): cada N ejercicios, máximo M tandas por día (se configura en el curso).
     if (getTargetLanguage() === "en") {
       const az = rlAzureCfg();
@@ -9607,12 +9621,6 @@ function n1ReelsTerminar() {
         RL.cont.az = 0;
         return { k: "sorpresa", tipo: "azure", uid: rlUid(), restantes: az.porTanda };
       }
-    }
-    if (RL.cont.sorpresa >= RL.cont.proxSorpresa) {
-      RL.cont.sorpresa = 0;
-      RL.cont.proxSorpresa = rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX);
-      const tipo = rlElegirSorpresa();
-      if (tipo) return { k: "sorpresa", tipo, uid: rlUid() };
     }
     return RL.banco.shift();
   }
@@ -11579,7 +11587,7 @@ function n1ReelsTerminar() {
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">18.1 (15-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">18.2 (16-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
