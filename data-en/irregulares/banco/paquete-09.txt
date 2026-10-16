@@ -168,5 +168,73 @@
 11|t|Trajeron huevos que pusieron sus gallinas; los esparcieron en la mesa.|They brought eggs that their hens had [laid]; they [spread] them out on the table.
 11|c|Traje un clavo nuevo porque el viejo se dobló cuando lo golpeé.|I brought a new nail because the old one [bent] when I [struck] it.
 11|t|Me trajo un collar para el perro que me mordió; lo colocamos juntos.|She brought me a collar for the dog that [bit] me; we [laid] it on him together.
-11|c|Trajo noticias que se esparcieron por el pueblo; nadie dejó de hablar de eso.|He brought news that [spread] around the town; nobody [shut] up about it.
+11|c|Trajo noticias que se esparcieron por el pueblo; nadie se calló al respecto.|He brought news that [spread] around the town; nobody [shut] up about it.
 11|t|Trae tu guitarra; anoche sonó la campana y nadie tocó ni un acorde.|Bring your guitar; last night the bell [rang], and nobody [struck] a single chord.
+
+# --- Regla 12 · Primer condicional ---
+12|t|Si los perros muerden, cerraremos la puerta.|If the dogs [bite], we'll [shut] the door.
+12|c|Si cavas aquí, golpearás una tubería.|If you [dig] here, you'll [strike] a pipe.
+12|t|Si oyes sonar el teléfono, cierra la puerta para hablar tranquilo.|If you hear the phones [ring], [shut] the door to talk in peace.
+12|c|Si los vientos soplan fuerte, doblarán los árboles.|If the winds [blow] hard, they'll [bend] the trees.
+12|t|Si rasgas la carta, nadie esparcirá el secreto.|If you [tear] up the letter, nobody will [spread] the secret.
+12|c|Si colocas el mantel, yo soplaré las velas.|If you [lay] the tablecloth, I'll [blow] out the candles.
+12|t|Si esparces las semillas hoy, cavaremos mañana.|If you [spread] the seeds today, we'll [dig] tomorrow.
+12|c|Si cierras la ventana, el viento no rasgará las cortinas.|If you [shut] the window, the wind won't [tear] the curtains.
+12|t|Si doblas las rodillas, no te golpearás la espalda.|If you [bend] your knees, you won't [strike] your back on the shelf.
+12|c|Si los perros te muerden, te colocaré una venda.|If the dogs [bite] you, I'll [lay] a bandage on it.
+12|t|Si los rumores se esparcen, sonará mi teléfono todo el día.|If the rumors [spread], my phone will [ring] all day.
+12|c|Si soplas más fuerte, el globo se rasgará.|If you [blow] harder, the balloon will [tear].
+12|t|Si cavan aquí, encontrarán agua y colocarán un tubo.|If they [dig] here, they'll find water and [lay] a pipe.
+12|c|Si cierran la fábrica, la noticia golpeará al pueblo.|If they [shut] the factory, the news will [strike] the town hard.
+12|t|Si tocas el timbre, el perro te morderá.|If you [ring] the doorbell, the dog will [bite] you.
+
+# --- Regla 13 · Past Perfect vs Presente vs Futuro ---
+13|t|Ya habían cavado el hoyo; mañana colocaremos el árbol.|They had already [dug] the hole; tomorrow we will [lay] the tree in it.
+13|c|Nunca me había mordido un perro; mañana cerraré la reja con candado.|A dog had never [bitten] me; tomorrow I will [shut] the gate with a padlock.
+13|t|Cuando llegué, ya habían soplado las velas; el año que viene esparciré confeti yo.|When I arrived, they had already [blown] out the candles; next year I will [spread] the confetti.
+13|c|El viento había rasgado la carpa; mañana la doblaremos y la guardaremos.|The wind had [torn] the tent; tomorrow we will [bend] the poles back and pack it.
+13|t|Ya había sonado el timbre; ahora cerraré la puerta.|The bell had already [rung]; now I will [shut] the door.
+13|c|El rayo ya había golpeado la torre; mañana colocarán un cable nuevo.|Lightning had already [struck] the tower; tomorrow they will [lay] a new cable.
+13|t|Nunca había colocado ladrillos; mañana cavaré los cimientos.|I had never [laid] bricks; tomorrow I will [dig] the foundation.
+13|c|La noticia ya se había esparcido; mañana sonará el teléfono sin parar.|The news had already [spread]; tomorrow the phone will [ring] nonstop.
+13|t|Ya habían cerrado la tienda; mañana rasgaremos los carteles viejos.|They had already [shut] the store; tomorrow we will [tear] down the old signs.
+13|c|El perro ya había mordido el zapato; mañana colocaré los zapatos en un estante alto.|The dog had already [bitten] the shoe; tomorrow I will [lay] my shoes on a high shelf.
+13|t|Nunca había doblado una barra de metal; mañana la golpearé con el martillo.|I had never [bent] a metal bar; tomorrow I will [strike] it with the hammer.
+13|c|Ya habían cavado tres pozos; el próximo mes esparcirán semillas en el campo.|They had already [dug] three wells; next month they will [spread] seeds in the field.
+13|t|El viento había soplado toda la noche; mañana cerraremos las ventanas antes.|The wind had [blown] all night; tomorrow we will [shut] the windows earlier.
+13|c|Había rasgado mi chaqueta; mañana tocaré el timbre del sastre.|I had [torn] my jacket; tomorrow I will [ring] the tailor's doorbell.
+13|t|La gallina ya había puesto los huevos; mañana el perro los morderá si no los guardamos.|The hen had already [laid] the eggs; tomorrow the dog will [bite] them if we don't put them away.
+
+# --- Regla 14 · Make vs Do ---
+14|t|Hice un hoyo en el jardín: cavé toda la mañana y coloqué las plantas.|I made a hole in the garden: I [dug] all morning and [laid] the plants in it.
+14|c|Cometí un error: cerré la puerta con las llaves adentro y rasgué mi camisa al entrar por la ventana.|I made a mistake: I [shut] the door with the keys inside and [tore] my shirt climbing through the window.
+14|t|Tendí la cama y esparcí una manta encima; luego cerré las cortinas.|I made the bed and [spread] a blanket over it; then I [shut] the curtains.
+14|c|Hizo un ruido enorme cuando golpeó la mesa; el perro mordió su zapato.|He made a huge noise when he [struck] the table; the dog [bit] his shoe.
+14|t|Hicimos un pastel y soplamos las velas; colocamos los platos.|We made a cake and [blew] out the candles; we [laid] the plates out.
+14|c|Hice la tarea y luego cerré el cuaderno; el timbre sonó.|I did my homework and then [shut] my notebook; the bell [rang].
+14|t|Hizo un esfuerzo y dobló la barra de hierro; primero la golpeó diez veces.|He made an effort and [bent] the iron bar; he [struck] it ten times first.
+14|c|Hicieron un trato y rasgaron el contrato; la noticia se esparció rápido.|They made a deal and [tore] up the contract; the news [spread] fast.
+14|t|Hice las compras y coloqué todo en la nevera; cerré la puerta.|I did the shopping and [laid] everything in the fridge; I [shut] the door.
+14|c|Hizo una broma que se esparció por todo el colegio; el profesor golpeó la mesa.|He made a joke that [spread] around the whole school; the teacher [struck] the desk.
+14|t|Hice ejercicio y me doblé para estirar; me mordí la lengua sin querer.|I did some exercise and [bent] down to stretch; I [bit] my tongue by accident.
+14|c|Hicieron una zanja: cavaron diez metros y colocaron los tubos.|They made a trench: they [dug] ten meters and [laid] the pipes.
+14|t|Hice una llamada y sonó tres veces; colgué y cerré la oficina.|I made a call, and it [rang] three times; I hung up and [shut] the office.
+14|c|Lavé los platos y soplé las burbujas de jabón; rasgué una toalla al secarlos.|I did the dishes and [blew] the soap bubbles; I [tore] a towel drying them.
+14|t|Hizo una promesa y la rasgó en pedazos con sus actos; la noticia nos golpeó a todos.|He made a promise and [tore] it to pieces with his actions; the news [struck] us all.
+
+# --- Regla 15 · Gone vs Left ---
+15|t|Se fue a cavar al jardín; ayer cavó un hoyo y colocó un rosal.|He has gone to dig in the garden; yesterday he [dug] a hole and [laid] a rosebush in it.
+15|c|Salió de la casa y cerró la puerta; el perro la mordió.|She left the house and [shut] the door; the dog [bit] it.
+15|t|Se fueron a la playa; el viento sopló sus toallas y rasgó la sombrilla.|They have gone to the beach; the wind [blew] their towels away and [tore] the umbrella.
+15|c|Dejó la tienda cuando la cerraron; esparció sus cosas en el carro.|She left the store when they [shut] it; she [spread] her things out in the car.
+15|t|Se fue al médico porque un perro lo mordió; lo acostaron en una camilla para la vacuna.|He has gone to the doctor because a dog [bit] him; they [laid] him on a bed for the shot.
+15|c|Salió de la reunión cuando sonó su teléfono; golpeó la puerta al salir.|He left the meeting when his phone [rang]; he [struck] the door on the way out.
+15|t|Se fue a pescar; ayer un pez enorme le dobló la caña y rasgó el sedal.|She has gone fishing; yesterday a huge fish [bent] her rod and [tore] the line.
+15|c|Dejé las llaves colocadas en la mesa; cerré la puerta sin ellas.|I left my keys [laid] on the table; I [shut] the door without them.
+15|t|Se fueron a ver los daños; el huracán golpeó la costa y esparció escombros.|They have gone to see the damage; the hurricane [struck] the coast and [spread] debris.
+15|c|Salió del cuarto después de rasgar la carta; nadie sonó el timbre.|She left the room after she [tore] up the letter; nobody [rang] the bell.
+15|t|Se fue a soplar las velas; los invitados colocaron los regalos en la mesa y rasgaron el papel.|She has gone to blow out the candles; the guests [laid] the gifts on the table and [tore] the paper.
+15|c|Dejó el abrigo rasgado en la silla; el gato lo mordió.|He left his [torn] coat on the chair; the cat [bit] it.
+15|t|Se fue a la oficina; anoche cerraron el edificio y esparcieron un comunicado.|He has gone to the office; last night they [shut] the building and [spread] a notice.
+15|c|Salió de casa cuando sonó el despertador; dobló la esquina corriendo y se golpeó con un poste.|She left home when the alarm [rang]; she turned the corner running and [struck] a pole.
+15|t|Se fue a excavar al desierto; el mes pasado cavó durante semanas y colocó sus hallazgos en el museo.|He has gone to excavate in the desert; last month he [dug] for weeks and [laid] his finds in the museum.
