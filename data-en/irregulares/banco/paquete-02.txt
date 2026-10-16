@@ -1,0 +1,971 @@
+# Paquete 2 · see, come, give, find, tell, become, leave, feel, put, bring
+# regla|t (traducción) o c (completar)|español|inglés con las 2 formas entre [corchetes]
+
+# --- Regla 1 · Past Perfect Continuous ---
+1|t|Llevaba una hora esperando cuando por fin vi el bus y sentí alivio.|I had been waiting for an hour when I finally [saw] the bus and [felt] relief.
+1|c|Habían estado buscando por días antes de encontrar al gato y traerlo a casa.|They had been searching for days before they [found] the cat and [brought] it home.
+1|t|Había estado lloviendo toda la mañana, así que dejé la bicicleta en casa y vine en bus.|It had been raining all morning, so I [left] my bike at home and [came] by bus.
+1|c|Había estado trabajando tanto que se sintió enferma y se lo dijo a su jefe.|She had been working so hard that she [felt] sick and [told] her boss.
+1|t|Llevábamos años ahorrando cuando por fin encontramos la casa perfecta y dimos la cuota inicial.|We had been saving for years when we finally [found] the perfect house and [put] down a deposit.
+1|c|Había estado practicando tanto que se convirtió en el mejor del equipo y le dieron un premio.|He had been practicing so much that he [became] the best on the team, and they [gave] him a prize.
+1|t|Llevaba años viviendo sola, así que cuando sus papás vinieron, se sintió feliz.|She had been living alone for years, so when her parents [came], she [felt] happy.
+1|c|Llevaban horas hablando cuando ella le contó la verdad y él se fue.|They had been talking for hours when she [told] him the truth and he [left].
+1|t|Había estado guardando ese vino por años y por fin lo trajo a la cena; todos se sintieron especiales.|He had been saving that wine for years and finally [brought] it to dinner; everyone [felt] special.
+1|c|Llevaba meses buscando trabajo cuando una amiga le dio el contacto de una empresa y recuperó la esperanza.|She had been looking for work for months when a friend [gave] her a company's contact, and she [became] hopeful.
+1|t|Llevábamos horas caminando cuando vimos el lago y armamos la carpa.|We had been walking for hours when we [saw] the lake and [put] up the tent.
+1|c|Había estado tomando clases de baile, así que llegó a la fiesta lista y se convirtió en la estrella de la noche.|She had been taking dance classes, so she [came] to the party ready and [became] the star of the night.
+1|t|Llevaba días pensándolo antes de contárselo a su mamá; ella le dio un abrazo.|He had been thinking about it for days before he [told] his mom; she [gave] him a hug.
+1|c|Había estado nevando toda la noche, así que dejamos el carro y trajimos las botas.|It had been snowing all night, so we [left] the car and [brought] our boots.
+1|t|Llevaban meses entrenando cuando encontraron un nuevo entrenador y llegaron los resultados.|They had been training for months when they [found] a new coach, and the results [came].
+
+# --- Regla 2 · Wh Questions ---
+2|t|¿Qué viste en la tienda? ¿Encontraste algo bonito?|What did you [see] at the store? Did you [find] anything nice?
+2|c|¿Quién te dijo eso? ¿Cuándo vino?|Who [told] you that? When did he [come]?
+2|t|¿Dónde pusiste mis llaves? Las dejé en la mesa.|Where did you [put] my keys? I [left] them on the table.
+2|c|¿Cómo te sentiste cuando te dieron la noticia?|How did you [feel] when they [gave] you the news?
+2|t|¿Por qué trajiste a tu perro? ¿Quién te dio permiso?|Why did you [bring] your dog? Who [gave] you permission?
+2|c|¿Cuándo se convirtió en gerente? ¿Lo has visto desde entonces?|When did he [become] manager? Have you [seen] him since then?
+2|t|¿Por qué se fue? ¿Te dijo algo?|Why did she [leave]? Did she [tell] you anything?
+2|c|¿Qué encontraste en la caja? ¿Quién la trajo?|What have you [found] in the box? Who [brought] it?
+2|t|¿Cuándo vas a venir a verme?|When are you going to [come] and [see] me?
+2|c|¿Dónde pusiste el control? No lo encuentro.|Where have you [put] the remote? I can't [find] it.
+2|t|¿Cómo te has sentido desde que te fuiste?|How have you [felt] since you [left]?
+2|c|¿Qué te dio tu novio? ¿Lo trajo él mismo?|What did your boyfriend [give] you? Did he [bring] it himself?
+2|t|¿Quién vino a la reunión? Nadie me contó nada.|Who [came] to the meeting? Nobody [told] me anything.
+2|c|¿Por qué te has vuelto tan callado? ¿Qué sentiste?|Why have you [become] so quiet? What did you [feel]?
+2|t|¿Cuántas veces has visto esa película? ¿Dónde la encontraste?|How many times have you [seen] that movie? Where did you [find] it?
+
+# --- Regla 3 · Orden de sustantivos compuestos ---
+3|t|Vi a mi profesor de inglés en la parada del bus y me llevó en su carro.|I [saw] my English teacher at the bus stop, and he [gave] me a ride.
+3|c|Dejé mi tarjeta de crédito en el restaurante, pero el mesero me la trajo.|I [left] my credit card at the restaurant, but the waiter [brought] it back.
+3|t|Encontré tu número de teléfono en mi bolso; alguien lo puso ahí.|I [found] your phone number in my bag; someone [put] it there.
+3|c|Vino con su compañero de trabajo y nos contó del proyecto.|She [came] with her coworker and [told] us about the project.
+3|t|Me sentí mejor después de que el médico de urgencias me dio medicina.|I [felt] better after the emergency room doctor [gave] me medicine.
+3|c|Mi hermano se convirtió en conductor de bus; nos lo contó la semana pasada.|My brother [became] a bus driver; he [told] us last week.
+3|t|Pon las tazas de café en la mesa de la cocina; traje galletas.|[Put] the coffee cups on the kitchen table; I [brought] cookies.
+3|c|Han visto el nuevo centro comercial; sintieron que era demasiado grande.|They have [seen] the new shopping mall; they [felt] it was too big.
+3|t|Te traje un cepillo de dientes nuevo; lo encontré en la droguería.|I [brought] you a new toothbrush; I [found] it at the drugstore.
+3|c|Dejamos el carro en el parqueadero del aeropuerto y volvimos una semana después.|We [left] the car in the airport parking lot and [came] back a week later.
+3|t|El profesor de música nos dio una clase gratis; nos sentimos afortunados.|The music teacher [gave] us a free lesson; we [felt] lucky.
+3|c|¿Has encontrado las llaves de la casa? Las puse en el cajón.|Have you [found] the house keys? I [put] them in the drawer.
+3|t|Nos contó de su viaje de negocios; vio la Torre Eiffel.|He [told] us about his business trip; he [saw] the Eiffel Tower.
+3|c|Esa tienda de ropa se ha vuelto muy popular; vi filas afuera.|That clothing store has [become] very popular; I [saw] lines outside.
+3|t|Vinieron los bomberos porque sonó la alarma de incendio; no encontraron nada.|The firefighters [came] because the fire alarm went off; they [found] nothing.
+
+# --- Regla 4 · Segundo condicional ---
+4|t|Si vieras ese lugar, te sentirías en paz.|If you [saw] that place, you would [feel] at peace.
+4|c|Si encontrara una billetera, la devolvería.|If I [found] a wallet, I would [give] it back.
+4|t|Si ella viniera, le contaría todo.|If she [came], I would [tell] her everything.
+4|c|Si me sintiera mejor, iría contigo.|If I [felt] better, I would [come] with you.
+4|t|Si guardaras el teléfono, te sentirías más relajado.|If you [put] your phone away, you would [feel] more relaxed.
+4|c|Si trajeras tu guitarra, podríamos cantar; daría lo que fuera por oírte.|If you [brought] your guitar, we could sing; I would [give] anything to hear you.
+4|t|Si te convirtieras en jefe, ¿les darías un aumento a todos?|If you [became] the boss, would you [give] everyone a raise?
+4|c|Si me dijeras la verdad, no me sentiría así.|If you [told] me the truth, I wouldn't [feel] this way.
+4|t|Si encontráramos un apartamento más barato, nos iríamos de este lugar.|If we [found] a cheaper apartment, we would [leave] this place.
+4|c|Si vinieras mañana, te daría el regalo.|If you [came] tomorrow, I would [give] you the gift.
+4|t|Si lo viera otra vez, le diría que lo siento.|If I [saw] him again, I would [tell] him I'm sorry.
+4|c|Si te pusieras las gafas, verías mejor.|If you [put] your glasses on, you would [see] better.
+4|t|Si él se fuera, nos sentiríamos muy solos.|If he [left], we would [feel] very lonely.
+4|c|Si trajeran comida, vendría más gente.|If they [brought] food, more people would [come].
+4|t|Si te dieran el trabajo, ¿dejarías tu ciudad?|If they [gave] you the job, would you [leave] your city?
+
+# --- Regla 5 · Cláusulas relativas ---
+5|t|La mujer que vi ayer es mi nueva vecina; vino de Perú.|The woman who I [saw] yesterday is my new neighbor; she [came] from Peru.
+5|c|Me encantó el libro que me diste; me sentí inspirado.|I loved the book that you [gave] me; I [felt] inspired.
+5|t|El perro que encontramos tenía collar, así que lo llevamos al veterinario.|The dog that we [found] had a collar, so we [brought] it to the vet.
+5|c|El chico que vino ayer, que es de Bogotá, me contó algo raro.|The guy who [came] yesterday, who is from Bogotá, [told] me something strange.
+5|t|Las llaves que dejaste en la mesa no están; ¿las guardaste?|The keys that you [left] on the table are gone; did you [put] them away?
+5|c|Mi tía, que se volvió abogada, nos dio consejos.|My aunt, who [became] a lawyer, [gave] us advice.
+5|t|El restaurante que vimos en la tele está cerrado; mi amigo me lo contó.|The restaurant that we [saw] on TV is closed; my friend [told] me.
+5|c|La caja que trajiste está muy pesada; ¿dónde la pongo?|The box that you [brought] is very heavy; where should I [put] it?
+5|t|Es un lugar donde siempre me he sentido en casa; lo encontré por casualidad.|It's a place where I have always [felt] at home; I [found] it by accident.
+5|c|El profesor que me dio clases se fue a Europa.|The teacher who [gave] me classes [left] for Europe.
+5|t|La película que vimos, que dura tres horas, se convirtió en mi favorita.|The movie that we [saw], which lasts three hours, [became] my favorite.
+5|c|La persona que encontró mi billetera me la trajo.|The person who [found] my wallet [brought] it to me.
+5|t|El mensaje que me dejaste me hizo sentir mejor.|The message that you [left] me made me [feel] better.
+5|c|La noticia que nos contaron nos sorprendió; nunca lo vimos venir.|The news that they [told] us surprised us; we never [saw] it coming.
+5|t|El abrigo que puse en la silla es de Ana; vino anoche.|The coat that I [put] on the chair is Ana's; she [came] last night.
+
+# --- Regla 6 · Need to + infinitivo ---
+6|t|Necesito ver al médico; no me he sentido bien.|I need to [see] the doctor; I haven't [felt] well.
+6|c|Necesitas encontrar tus llaves; las dejaste en algún lado.|You need to [find] your keys; you [left] them somewhere.
+6|t|Necesito contarte algo; vine tan pronto como pude.|I need to [tell] you something; I [came] as soon as I could.
+6|c|Necesitamos traer más sillas; vinieron muchos invitados.|We need to [bring] more chairs; a lot of guests [came].
+6|t|Necesita darle una respuesta antes del viernes; ya vio la oferta.|She needs to [give] him an answer by Friday; she has [seen] the offer.
+6|c|Necesitas poner los platos en la mesa; ya trajeron la comida.|You need to [put] the plates on the table; they [brought] the food.
+6|t|Necesito salir temprano; me sentí mal toda la mañana.|I need to [leave] early; I [felt] sick all morning.
+6|c|No necesitas venir; ya encontré lo que buscaba.|You don't need to [come]; I have [found] what I was looking for.
+6|t|Necesitamos convertirnos en un mejor equipo; el jefe nos lo dijo.|We need to [become] a better team; the boss [told] us.
+6|c|Necesito sentirme útil; por eso dejé ese trabajo.|I need to [feel] useful; that's why I [left] that job.
+6|t|Necesitas ver esto; lo encontré en internet.|You need to [see] this; I [found] it online.
+6|c|Necesito devolverte el libro que dejaste aquí.|I need to [give] you back the book you [left] here.
+6|t|¿Necesitas que te traiga algo? Me dijiste que tenías hambre.|Do you need me to [bring] you something? You [told] me you were hungry.
+6|c|Necesitamos esforzarnos más; nos hemos vuelto perezosos.|We need to [put] more effort in; we have [become] lazy.
+6|t|Necesitas decirle cómo te sentiste.|You need to [tell] him how you [felt].
+
+# --- Regla 8 · Pronombre objeto tras preposición ---
+8|t|La vi con él en el cine; vinieron juntos.|I [saw] her with him at the movies; they [came] together.
+8|c|Le di el regalo a ella, no a ti; me sentí mal.|I [gave] the gift to her, not to you; I [felt] bad.
+8|t|Encontré esta carta para ti debajo de la puerta; alguien la dejó ahí.|I [found] this letter for you under the door; someone [left] it there.
+8|c|Vino a la fiesta con nosotros y nos contó chistes.|He [came] to the party with us and [told] us jokes.
+8|t|Traje café para ellos y para ti; le puse azúcar al tuyo.|I [brought] coffee for them and for you; I [put] sugar in yours.
+8|c|Se ha vuelto muy importante para mí; lo sentí desde el principio.|She has [become] very important to me; I [felt] it from the start.
+8|t|Dejé un mensaje para él con su secretaria; ella me dijo que estaba ocupado.|I [left] a message for him with his secretary; she [told] me he was busy.
+8|c|Me sentí muy cómodo con ellos; me dieron una cálida bienvenida.|I [felt] very comfortable with them; they [gave] me a warm welcome.
+8|t|Puse una foto de nosotros en la pared; mi mamá la vio y lloró.|I [put] a photo of us on the wall; my mom [saw] it and cried.
+8|c|Nunca he visto a nadie como tú; contigo todo se ha vuelto fácil.|I have never [seen] anyone like you; with you, everything has [become] easy.
+8|t|Dijo mentiras sobre ella y me sentí enojado.|He [told] lies about her, and I [felt] angry.
+8|c|¿Viniste con ellos o solo? Encontré tu carro afuera.|Did you [come] with them or alone? I [found] your car outside.
+8|t|Nos hicieron una fiesta y vinieron muchos amigos.|They [gave] a party for us, and many friends [came].
+8|c|Trajeron flores para ella y chocolates para mí; nos sentimos consentidos.|They [brought] flowers for her and chocolates for me; we [felt] spoiled.
+8|t|Se fue sin nosotros; nos enteramos después.|He [left] without us; we [found] out later.
+
+# --- Regla 9 · "as" = como ---
+9|t|Vino a la fiesta disfrazado de vaquero; todos lo vieron y se rieron.|He [came] to the party as a cowboy; everyone [saw] him and laughed.
+9|c|Me dio el trabajo como un favor; me sentí agradecido.|She [gave] me the job as a favor; I [felt] grateful.
+9|t|Como te dije, ella se fue ayer.|As I [told] you, she [left] yesterday.
+9|c|Encontré trabajo como mesero y me hice amigo del cocinero.|I [found] a job as a waiter and [became] friends with the cook.
+9|t|Puse la caja en el suelo y la usamos como mesa; mis amigos trajeron comida.|I [put] the box on the floor and we used it as a table; my friends [brought] food.
+9|c|Como viste, no fue fácil; me sentí nervioso.|As you [saw], it wasn't easy; I [felt] nervous.
+9|t|Se convirtió en leyenda como jugador; la gente venía de lejos para verlo.|He [became] a legend as a player; people [came] from far away to watch him.
+9|c|Lo traje como regalo para ti; lo encontré en México.|I [brought] it as a gift for you; I [found] it in Mexico.
+9|t|Como siempre, dejó todo para el último momento y se sintió estresado.|As usual, he [left] everything for the last minute and [felt] stressed.
+9|c|Me trataron como familia y me dieron un cuarto; me sentí en casa.|They treated me as family and [gave] me a room; I [felt] at home.
+9|t|Como nos dijo mi papá, hay que trabajar duro; he visto que es verdad.|As my dad [told] us, you have to work hard; I have [seen] that it's true.
+9|c|La puse como fondo de pantalla; mi hermana me dio la foto.|I [put] it as my wallpaper; my sister [gave] me the photo.
+9|t|Como habíamos visto en las noticias, llegó la tormenta.|As we had [seen] on the news, the storm [came].
+9|c|Me sentí feliz como un niño cuando me trajo helado.|I [felt] as happy as a child when he [brought] me ice cream.
+9|t|Trabaja como guía; encontró su vocación y dejó su trabajo de oficina.|She works as a guide; she [found] her calling and [left] her office job.
+
+# --- Regla 10 · Presente perfecto ---
+10|t|Nunca he visto un lugar tan bonito; me he sentido en paz todo el día.|I have never [seen] such a beautiful place; I have [felt] at peace all day.
+10|c|Ha venido a vernos tres veces este mes y ha traído regalos cada vez.|She has [come] to see us three times this month, and she has [brought] gifts every time.
+10|t|¿Has encontrado las llaves? Las he puesto en la mesa.|Have you [found] the keys? I have [put] them on the table.
+10|c|Me han dado una buena noticia y me he sentido feliz todo el día.|They have [given] me good news, and I have [felt] happy all day.
+10|t|Se ha convertido en una gran amiga; me ha contado todos sus secretos.|She has [become] a great friend; she has [told] me all her secrets.
+10|c|Han dejado la puerta abierta otra vez; se lo he dicho cien veces.|They have [left] the door open again; I have [told] them a hundred times.
+10|t|Acabo de ver a tu hermano; me dio saludos para ti.|I have just [seen] your brother; he [gave] me greetings for you.
+10|c|¿Qué has traído? Huele delicioso; vine con hambre.|What have you [brought]? It smells delicious; I [came] hungry.
+10|t|Hemos encontrado un buen restaurante cerca de aquí; deberías venir.|We have [found] a good restaurant near here; you should [come].
+10|c|Nunca me he sentido tan cansado; hoy lo he dado todo.|I have never [felt] so tired; I have [given] everything today.
+10|t|Ya le he contado todo a mi mamá; ella lo vio venir.|I have already [told] my mom everything; she [saw] it coming.
+10|c|Ha puesto mucho esfuerzo en este proyecto y se ha convertido en un éxito.|He has [put] a lot of effort into this project, and it has [become] a success.
+10|t|Se han ido y no han guardado nada.|They have [left] and haven't [put] anything away.
+10|c|¿Alguna vez has visto un oso de verdad? Yo he encontrado sus huellas.|Have you ever [seen] a real bear? I have [found] their tracks.
+10|t|Acaba de llegar y ya nos ha traído problemas.|He has just [come] and has already [brought] us problems.
+
+# --- Regla 11 · Bring / Brought ---
+11|t|Traje el libro que me diste.|I [brought] the book you [gave] me.
+11|c|¿Puedes traer tu cámara? Quiero ver las fotos.|Can you [bring] your camera? I want to [see] the photos.
+11|t|Trajo a su novio a la fiesta y nos contó todo sobre él.|She [brought] her boyfriend to the party and [told] us all about him.
+11|c|¿Trajiste las llaves? Las dejé en tu carro.|Have you [brought] the keys? I [left] them in your car.
+11|t|Trae tu abrigo; ayer sentí mucho frío.|[Bring] your coat; yesterday I [felt] very cold.
+11|c|Nos trajeron comida cuando vinieron.|They [brought] us food when they [came].
+11|t|Te he traído algo que encontré en el mercado.|I have [brought] you something I [found] at the market.
+11|c|No traje la tarea porque la puse en otro bolso.|I didn't [bring] my homework because I [put] it in another bag.
+11|t|Trajeron a un nuevo jefe, que se convirtió en el favorito de todos.|They [brought] in a new boss, who [became] everyone's favorite.
+11|c|Me trajo flores y me sentí muy especial.|He [brought] me flowers, and I [felt] very special.
+11|t|¿Quién trajo este pastel? Nadie me dijo nada.|Who [brought] this cake? Nobody [told] me anything.
+11|c|Trae a tus amigos; quiero verlos.|[Bring] your friends; I want to [see] them.
+11|t|Nos ha traído suerte desde que vino.|He has [brought] us luck since he [came].
+11|c|Le traje un regalo, pero alguien ya le había dado uno igual.|I [brought] her a gift, but someone had already [given] her the same one.
+11|t|Siempre trae algo cuando nos visita; ayer dejó chocolates y trajo flores.|She always brings something when she visits; yesterday she [left] chocolates and [brought] flowers.
+
+# --- Regla 12 · Primer condicional ---
+12|t|Si ves a Juan, dile que me llame.|If you [see] Juan, [tell] him to call me.
+12|c|Si vienes temprano, te daré un regalo.|If you [come] early, I will [give] you a present.
+12|t|Si encuentras mi celular, ponlo en mi escritorio.|If you [find] my phone, [put] it on my desk.
+12|c|Si te sientes mal, sal temprano.|If you [feel] sick, [leave] early.
+12|t|Si traes la música, yo encontraré un lugar para la fiesta.|If you [bring] the music, I will [find] a place for the party.
+12|c|Si sigues así, te convertirás en campeón; lo siento.|If you keep going like this, you will [become] a champion; I [feel] it.
+12|t|Si me dices la verdad, no me sentiré enojado.|If you [tell] me the truth, I won't [feel] angry.
+12|c|Si dejas la puerta abierta, el gato encontrará la forma de salir.|If you [leave] the door open, the cat will [find] a way out.
+12|t|Si vienen, les daremos una sorpresa.|If they [come], we will [give] them a surprise.
+12|c|Si pones los platos, yo traeré la comida.|If you [put] the plates out, I will [bring] the food.
+12|t|Si vemos una buena oferta, te traeremos algo.|If we [see] a good deal, we will [bring] you something.
+12|c|Si lo encuentras, te sentirás mejor.|If you [find] it, you will [feel] better.
+12|t|Si les das una oportunidad, se volverán buenos amigos.|If you [give] them a chance, they will [become] good friends.
+12|c|Si salimos ahora, veremos el atardecer.|If we [leave] now, we will [see] the sunset.
+12|t|Si me cuentas qué pasó, vendré enseguida.|If you [tell] me what happened, I will [come] right away.
+
+# --- Regla 13 · Past Perfect vs Presente vs Futuro ---
+13|t|Cuando entré, ya se habían ido.|When I [came] in, they had already [left].
+13|c|Nunca había visto algo así; mañana se lo contaré a todos.|I had never [seen] anything like it; tomorrow I will [tell] everyone.
+13|t|Ya habían encontrado al perro cuando llegamos.|They had already [found] the dog when we [came].
+13|c|Me había sentido mal toda la semana, así que mañana veré a un médico.|I had [felt] sick all week, so I will [see] a doctor tomorrow.
+13|t|Me había dado su palabra, así que confiaré en ella.|She had [given] me her word, so I will [put] my trust in her.
+13|c|Se había convertido en experto antes de los treinta; el próximo año vendrá a enseñar aquí.|He had [become] an expert before he was thirty; next year he will [come] to teach here.
+13|t|No sabía que ya habías traído el vino; lo pondré en la nevera.|I didn't know you had already [brought] the wine; I will [put] it in the fridge.
+13|c|Me dijo que había encontrado trabajo; hoy empieza.|She [told] me she had [found] a job; she starts today.
+13|t|Ya habíamos visto esa película, así que nos iremos temprano.|We had [seen] that movie before, so we will [leave] early.
+13|c|Cuando llegó a casa, ya le habían dado la noticia.|When he [came] home, they had already [given] him the news.
+13|t|Había puesto el dinero en el banco, pero ahora traeré algo a casa.|I had [put] the money in the bank, but now I will [bring] some home.
+13|c|Ella ya se había ido cuando vinimos a decírselo.|She had already [left] when we [came] to tell her.
+13|t|Me sentí orgulloso porque había dado lo mejor de mí.|I [felt] proud because I had [given] my best.
+13|c|Para entonces la ciudad se había vuelto peligrosa, así que nos fuimos.|By then, the city had [become] dangerous, so we [left].
+13|t|Mañana veremos si ya han encontrado la solución.|Tomorrow we will [see] if they have [found] the solution.
+
+# --- Regla 14 · Make vs Do ---
+14|t|Hice la tarea y luego vi una película; me sentí relajado.|I did my homework and then [saw] a movie; I [felt] relaxed.
+14|c|Hizo un pastel y lo trajo a la oficina; todos vinieron a probarlo.|She made a cake and [brought] it to the office; everyone [came] to try it.
+14|t|Hicimos todo lo que nos dijeron y nos sentimos orgullosos.|We did everything they [told] us, and we [felt] proud.
+14|c|No hagas ruido; acosté al bebé y salí del cuarto.|Don't make noise; I [put] the baby to sleep and [left] the room.
+14|t|Cometí un error y me sentí terrible; mi jefe lo vio.|I made a mistake, and I [felt] terrible; my boss [saw] it.
+14|c|¿Ya tendiste la cama? Te lo dije esta mañana; la encontré desordenada.|Have you made your bed? I [told] you this morning; I [found] it messy.
+14|t|Hizo una promesa y la cumplió: vino a verme.|He made a promise and kept it: he [came] to [see] me.
+14|c|Hacemos ejercicio cada mañana; se ha vuelto un hábito y nos sentimos genial.|We do exercise every morning; it has [become] a habit, and we [feel] great.
+14|t|Haz lo que quieras, pero no dejes la cocina sucia; guarda todo.|Do what you want, but don't [leave] the kitchen dirty; [put] everything away.
+14|c|Hizo un buen trabajo y le dieron un ascenso; se sintió increíble.|She did a good job, and they [gave] her a promotion; she [felt] amazing.
+14|t|Hice una lista y encontré todo lo que necesitábamos; lo traje a casa.|I made a list and [found] everything we needed; I [brought] it home.
+14|c|Hicieron planes para una fiesta y vinieron todos; repartieron premios.|They made plans for a party, and everyone [came]; they [gave] out prizes.
+14|t|Hice un nuevo amigo; se convirtió en mi mejor amigo y me contaba todo.|I made a new friend; he [became] my best friend and [told] me everything.
+14|c|Haz tu mejor esfuerzo; he visto cuánto trabajas y me siento orgulloso.|Do your best; I have [seen] how hard you work, and I [feel] proud.
+14|t|Hicieron un desorden y se fueron sin limpiar; encontré migas por todas partes.|They made a mess and [left] without cleaning; I [found] crumbs everywhere.
+
+# --- Regla 15 · Gone vs Left ---
+15|t|Salió de casa a las siete y no la he visto desde entonces.|She [left] home at seven, and I haven't [seen] her since.
+15|c|Se fue a Bogotá, pero dejó a su perro aquí; me dio pena por él.|He has gone to Bogotá, but he [left] his dog here; I [felt] sad for it.
+15|t|Salimos de la fiesta temprano porque nos sentíamos cansados.|We [left] the party early because we [felt] tired.
+15|c|Partió hacia México y nos dio su dirección.|She [left] for Mexico and [gave] us her address.
+15|t|Se han ido de vacaciones; nos lo contaron ayer cuando pasaron por aquí.|They have gone on vacation; they [told] us yesterday when they [came] by.
+15|c|Dejó la oficina y encontró un trabajo nuevo.|He [left] the office and [found] a new job.
+15|t|Todos se habían ido cuando vine; dejaron una nota.|Everyone had gone when I [came]; they [left] a note.
+15|c|El tren ha salido; vimos cómo se iba.|The train has [left]; we [saw] it go.
+15|t|Se fue a trabajar, pero antes me trajo el desayuno y lo puso en la mesa.|He has gone to work, but first he [brought] me breakfast and [put] it on the table.
+15|c|Salió de la reunión sin decir nada; se sintió ofendido.|He [left] the meeting without a word; he [felt] offended.
+15|t|Mis gafas desaparecieron; las puse aquí y ahora no puedo ver.|My glasses are gone; I [put] them here, and now I can't [see].
+15|c|Se fue a la universidad y se convirtió en abogado; su mamá se sintió orgullosa.|He went off to college and [became] a lawyer; his mom [felt] proud.
+15|t|¿Ya salió el bus? Me dijeron que sale a las ocho.|Has the bus [left]? They [told] me it leaves at eight.
+15|c|Se marchó y nunca volvió a llamar; lo encontramos años después.|He [left] and never called again; we [found] him years later.
+15|t|Se fue a comprar pan y dejó la puerta abierta; entré.|She has gone to buy bread and [left] the door open; I [came] in.
+
+# --- Regla 16 · Preposiciones de movimiento ---
+16|t|Vine a Medellín para ver a mi familia.|I [came] to Medellín to [see] my family.
+16|c|Traje a mi hijo al médico porque se sentía mal.|I [brought] my son to the doctor because he [felt] sick.
+16|t|Salió para el aeropuerto a las seis; yo la llevé.|She [left] for the airport at six; I [gave] her a ride.
+16|c|Fueron a la playa y encontraron conchas; trajeron algunas a casa.|They went to the beach and [found] shells; they [brought] some home.
+16|t|¿Alguna vez has venido a esta ciudad? Yo la vi por primera vez el año pasado.|Have you ever [come] to this city? I [saw] it for the first time last year.
+16|c|Pon los libros en la mesa y ven a la cocina.|[Put] the books on the table and [come] to the kitchen.
+16|t|Me dio un mapa para llegar al museo, pero me sentí perdido de todos modos.|He [gave] me a map to get to the museum, but I [felt] lost anyway.
+16|c|Dejé mis cosas en el carro y entré a la tienda.|I [left] my things in the car and [came] into the store.
+16|t|Nos contó que había ido a Japón y que vio el monte Fuji.|She [told] us she had gone to Japan and [saw] Mount Fuji.
+16|c|Vimos a mucha gente camino al estadio; parecía una fiesta.|We [saw] a lot of people on the way to the stadium; it [felt] like a party.
+16|t|Traje mi bicicleta al trabajo hoy; dejé el carro en casa.|I [brought] my bike to work today; I [left] the car at home.
+16|c|Se convirtió en la primera en llegar a la cima; se sintió increíble.|She [became] the first to get to the top; she [felt] amazing.
+16|t|Encontré el camino a casa sin GPS; mi papá me dijo qué calles tomar.|I [found] the way home without GPS; my dad [told] me which streets to take.
+16|c|¿A qué hora vienes a la oficina? Puse tu correspondencia en tu escritorio.|What time will you [come] to the office? I [put] your mail on your desk.
+16|t|Le di indicaciones para llegar al hotel y se fue enseguida.|I [gave] him directions to the hotel, and he [left] right away.
+
+# --- Regla 17 · Modales básicos ---
+17|t|Deberías ver esa película; me sentí muy conmovido.|You should [see] that movie; I [felt] so moved.
+17|c|¿Puedes venir mañana? Tengo que darte algo.|Can you [come] tomorrow? I must [give] you something.
+17|t|Solía encontrar monedas en la calle; las ponía en un frasco.|I used to [find] coins on the street; I [put] them in a jar.
+17|c|Deberías decirle la verdad; se sintió engañada.|You should [tell] her the truth; she [felt] lied to.
+17|t|Debes traer tu pasaporte; te lo dije ayer.|You must [bring] your passport; I [told] you yesterday.
+17|c|Podría convertirse en un problema; lo vi venir.|It could [become] a problem; I [saw] it coming.
+17|t|No puedes dejar tus cosas aquí; ayer alguien encontró una maleta.|You can't [leave] your things here; someone [found] a bag yesterday.
+17|c|¿Podrías poner las cajas en el carro? Debemos salir pronto.|Could you [put] the boxes in the car? We must [leave] soon.
+17|t|Mi abuela solía darnos dulces cuando íbamos a visitarla.|My grandmother used to [give] us candy when we [came] to visit.
+17|c|Debes sentirte orgulloso; vi lo que hiciste.|You must [feel] proud; I [saw] what you did.
+17|t|¿Me puedes traer un vaso de agua? Me sentí mareado.|Can you [bring] me a glass of water? I [felt] dizzy.
+17|c|Él debería venir a la reunión; le dimos la información.|He should [come] to the meeting; we [gave] him the information.
+17|t|Debes encontrar una solución; no puedes dejar esto así.|You must [find] a solution; you can't [leave] this like this.
+17|c|Mi papá solía contar historias antes de dormir; me sentía seguro.|My dad used to [tell] stories before bed; I [felt] safe.
+17|t|Podríamos ver una serie esta noche; un amigo me habló de una.|We could [see] a show tonight; a friend [told] me about one.
+
+# --- Regla 18 · Gerundio vs infinitivo ---
+18|t|Después de ver el partido, me sentí feliz y se lo conté a todos.|After watching the game, I [felt] happy, and I [told] everyone.
+18|c|Decidió dejar su trabajo para viajar; se sintió libre.|She decided to [leave] her job to travel; she [felt] free.
+18|t|Antes de salir, puse las llaves en mi bolso y le avisé a mi mamá.|Before leaving, I [put] the keys in my bag and [told] my mom.
+18|c|Quiero encontrar una forma de ayudar; vi las noticias.|I want to [find] a way to help; I [saw] the news.
+18|t|Gracias por venir; trajiste mucha alegría y todos la sintieron.|Thanks for coming; you [brought] so much joy, and everyone [felt] it.
+18|c|Disfruté ver a mis amigos; vinieron desde lejos y trajeron regalos.|I enjoyed seeing my friends; they [came] from far away and [brought] gifts.
+18|t|Evitó contarle lo que vio; tenía miedo.|He avoided telling her what he [saw]; he [felt] scared.
+18|c|Prometió venir temprano, pero salió tarde de su casa.|He promised to [come] early, but he [left] his house late.
+18|t|Es buena dando consejos; se ha convertido en mi mentora y me ha enseñado mucho.|She is good at giving advice; she has [become] my mentor and has [told] me so much.
+18|c|Necesito poner en orden mis ideas; ayer me pareció difícil.|I need to [put] my ideas in order; I [found] it hard yesterday.
+18|t|Dejé de sentir miedo cuando vi la situación con claridad; un amigo me dio valor.|I stopped feeling afraid when I [saw] the situation clearly; a friend [gave] me courage.
+18|c|Planeamos traer a los niños; nunca han visto el mar.|We plan to [bring] the kids; they have never [seen] the ocean.
+18|t|Después de encontrar el error, se lo dije al jefe y me dio una nota de agradecimiento.|After finding the mistake, I [told] the boss, and he [gave] me a thank-you note.
+18|c|Intentó dar lo mejor de sí; se sentía lista.|She tried to [give] her best; she [felt] ready.
+18|t|Antes de ser actor, trabajó como mesero y vio a mucha gente famosa; dejó ese trabajo en 2010.|Before becoming an actor, he worked as a waiter and [saw] many famous people; he [left] that job in 2010.
+
+# --- Regla 19 · Participios irregulares ---
+19|t|Nunca he visto algo así; me he sentido feliz todo el día.|I have never [seen] anything like it; I have [felt] happy all day.
+19|c|Ya ha venido y ha traído a su hermana.|She has already [come] and has [brought] her sister.
+19|t|¿Has encontrado la nota que te he dejado?|Have you [found] the note I have [left] you?
+19|c|Me han dicho que se ha convertido en médico.|They have [told] me he has [become] a doctor.
+19|t|He puesto todo en la maleta y ya he dejado las llaves.|I have [put] everything in the suitcase and have [left] the keys.
+19|c|Nos han dado una casa que nunca habíamos visto.|They have [given] us a house we had never [seen].
+19|t|Se ha sentido asustada desde que su papá se fue.|She has [felt] scared since her dad [left].
+19|c|Hemos encontrado la casa de la que nos has hablado.|We have [found] the house you have [told] us about.
+19|t|Se ha vuelto famoso desde que vino a la ciudad.|He has [become] famous since he [came] to the city.
+19|c|He traído el pastel y lo he puesto en la nevera.|I have [brought] the cake, and I have [put] it in the fridge.
+19|t|Nunca me han dado una respuesta clara; me han dejado esperando.|They have never [given] me a clear answer; they have [left] me waiting.
+19|c|¿Has visto a Ana? Me ha dicho que vendría.|Have you [seen] Ana? She has [told] me she would come.
+19|t|Se ha sentido sola desde que dejó su país.|She has [felt] lonely since she [left] her country.
+19|c|Han encontrado petróleo y el pueblo se ha vuelto rico.|They have [found] oil, and the town has [become] rich.
+19|t|Ha venido a ayudarnos y ha puesto todo en orden.|He has [come] to help us and has [put] everything in order.
+
+# --- Regla 20 · 3ra persona singular (-s) ---
+20|t|Mi hermana trabaja en un hospital; ayer vio un caso raro y se sintió preocupada.|My sister works at a hospital; yesterday she [saw] a strange case and [felt] worried.
+20|c|Siempre llega tarde; ayer vino a las diez y no dio ninguna excusa.|He always arrives late; yesterday he [came] at ten and [gave] no excuse.
+20|t|Mi papá lee el periódico; esta mañana nos contó que encontró un artículo sobre nuestro pueblo.|My dad reads the newspaper; this morning he [told] us he [found] an article about our town.
+20|c|Vive sola; se fue de casa a los veinte y se volvió independiente.|She lives alone; she [left] home at twenty and [became] independent.
+20|t|Mi jefe tiene un perro; ayer lo trajo a la oficina y todos se sintieron felices.|My boss has a dog; yesterday he [brought] it to the office, and everyone [felt] happy.
+20|c|Ana estudia mucho y se ha convertido en la mejor de su clase; su profesor le dio un premio.|Ana studies a lot and has [become] the best in her class; her teacher [gave] her a prize.
+20|t|Siempre pone música cuando cocina; ayer puso jazz y se sintió relajado.|He always plays music when he cooks; yesterday he [put] on jazz and [felt] relaxed.
+20|c|Mi mamá nunca dice que no; ayer nos dio permiso y nos dijo que nos divirtiéramos.|My mom never says no; yesterday she [gave] us permission and [told] us to have fun.
+20|t|El niño encuentra todo lo que escondo; ayer encontró las galletas que puse en el clóset.|The boy finds everything I hide; yesterday he [found] the cookies I [put] in the closet.
+20|c|Mi vecino sale a correr cada mañana; hoy salió tarde y vio el amanecer.|My neighbor goes running every morning; today he [left] late and [saw] the sunrise.
+20|t|Trabaja duro y dice que siempre ha sentido que vale la pena; viene de la nada.|She works hard and says she has always [felt] it's worth it; she [came] from nothing.
+20|c|Mi hermano ve televisión todo el día; ayer vio diez capítulos y salió del cuarto solo una vez.|My brother watches TV all day; yesterday he [saw] ten episodes and [left] the room only once.
+20|t|El profesor explica bien; hoy trajo ejemplos y nos contó historias.|The teacher explains well; today he [brought] examples and [told] us stories.
+20|c|Mi abuela cocina para todos; ayer vinieron veinte personas y se sintió cansada.|My grandma cooks for everyone; yesterday twenty people [came], and she [felt] tired.
+20|t|Él cree que la vio en el centro, pero descubrió que era otra persona.|He believes he [saw] her downtown, but he [found] out it was someone else.
+
+# --- Regla 21 · Say vs Tell ---
+21|t|Me contó que había visto un fantasma, pero nadie le creyó.|She [told] me she had [seen] a ghost, but nobody believed her.
+21|c|Dijo que vendría, pero no le dijo a nadie la hora.|He said he would [come], but he didn't [tell] anyone the time.
+21|t|Le dije a mi jefe cómo me sentía y dijo que entendía.|I [told] my boss how I [felt], and he said he understood.
+21|c|Dijo "adiós" y se fue; nunca nos contó por qué.|She said "goodbye" and [left]; she never [told] us why.
+21|t|¿Quién te dijo que encontré trabajo? Yo no dije nada.|Who [told] you I [found] a job? I didn't say anything.
+21|c|Les conté lo que pasó y dijeron que me darían otra oportunidad.|I [told] them what happened, and they said they would [give] me another chance.
+21|t|Dijo que había traído comida para todos; nos contó que la hizo él.|He said he had [brought] food for everyone; he [told] us he made it himself.
+21|c|Siempre dice lo que piensa; por eso se ha convertido en líder.|She always says what she thinks; that's why she has [become] a leader, as many have [told] me.
+21|t|Dime dónde pusiste mis gafas.|[Tell] me where you [put] my glasses.
+21|c|Dijo que se sentía mejor y le contó al médico.|She said she [felt] better and [told] the doctor.
+21|t|Me dijo que viniera temprano, pero dijo otra cosa a los demás.|He [told] me to [come] early, but he said something else to the others.
+21|c|Dijeron que habían encontrado al ladrón; nos lo contaron en la noche.|They said they had [found] the thief; they [told] us at night.
+21|t|No me has contado qué viste en el viaje.|You haven't [told] me what you [saw] on the trip.
+21|c|Dijo "gracias" cuando le di el regalo.|She said "thank you" when I [gave] her the present; she [felt] surprised.
+21|t|Cuéntame por qué dejaste el trabajo; dijiste que te gustaba.|[Tell] me why you [left] the job; you said you liked it.
+
+# --- Regla 22 · Artículos ---
+22|t|Vi un perro en la calle y le di un poco de comida.|I [saw] a dog on the street and [gave] it some food.
+22|c|Encontré una billetera en el parque y la traje a la estación de policía.|I [found] a wallet in the park and [brought] it to the police station.
+22|t|Vino un hombre a la puerta y nos contó una historia extraña.|A man [came] to the door and [told] us a strange story.
+22|c|El sol se puso y sentimos un poco de frío.|The sun went down, and we [felt] a little cold; I [put] on a sweater.
+22|t|Se convirtió en una actriz famosa y dejó la ciudad.|She [became] a famous actress and [left] the city.
+22|c|Le dimos un regalo a la profesora y ella se sintió feliz.|We [gave] the teacher a gift, and she [felt] happy.
+22|t|Puse el libro en la mesa y salí de la casa.|I [put] the book on the table and [left] the house.
+22|c|¿Has visto alguna vez un elefante de verdad?|Have you ever [seen] a real elephant? My dad [told] me they are huge.
+22|t|Trajo una botella de vino y una caja de chocolates.|He [brought] a bottle of wine and a box of chocolates; everyone [felt] spoiled.
+22|c|Encontramos un apartamento cerca de la universidad.|We [found] an apartment near the university, and my parents [came] to see it.
+22|t|El médico me dio una receta y me dijo que descansara.|The doctor [gave] me a prescription and [told] me to rest.
+22|c|La ciudad se ha vuelto un lugar muy caro.|The city has [become] a very expensive place; many people have [left].
+22|t|Vimos la Luna desde el balcón; fue una noche increíble.|We [saw] the moon from the balcony; it [felt] like an amazing night.
+22|c|Un amigo vino de Europa y nos trajo regalos.|A friend [came] from Europe and [brought] us gifts.
+22|t|Encontré un error en el informe y se lo conté al jefe.|I [found] an error in the report and [told] the boss.
+
+# --- Regla 23 · Phrasal verbs con "look" ---
+23|t|Busqué mis gafas por todas partes y al final las encontré en el carro.|I looked for my glasses everywhere and finally [found] them in the car, where I had [put] them.
+23|c|Se parece mucho a su papá; lo vi en la foto.|He looks just like his dad; I [saw] it in the photo, and I [told] him.
+23|t|Busqué la dirección en internet y llegué sin problema.|I looked up the address online and [came] without a problem; it [felt] easy.
+23|c|Mira lo que te traje del viaje.|Look at what I [brought] you from the trip; I [found] it at a market.
+23|t|Estoy buscando a la persona que dejó esta nota.|I'm looking for the person who [left] this note; it [gave] me goosebumps.
+23|c|Me miró y sentí que algo estaba mal.|She looked at me, and I [felt] something was wrong; she [told] me later.
+23|t|Buscaron al perro toda la noche y lo encontraron en la mañana.|They looked for the dog all night and [found] it in the morning; it [came] home tired.
+23|c|Parece que va a llover; ponte la chaqueta.|It looks like it's going to rain; [put] on your jacket, as I [told] you.
+23|t|Busqué la palabra en el diccionario y se la di a mi hermano.|I looked up the word in the dictionary and [gave] it to my brother; he [felt] grateful.
+23|c|¿Qué miras? —Estoy viendo los pájaros que vinieron.|What are you looking at? —The birds that [came]; I have never [seen] so many.
+23|t|Te ves cansado; ¿te sentiste mal anoche?|You look tired; did you [feel] sick last night? You [left] early.
+23|c|Busca a alguien que te dé buenos consejos.|Look for someone who can [give] you good advice; I [found] mine at work.
+23|t|Miré la foto y sentí nostalgia.|I looked at the photo and [felt] nostalgic; my grandma [gave] it to me.
+23|c|Buscamos un hotel, pero se convirtió en una aventura.|We looked for a hotel, but it [became] an adventure; we [saw] half the city.
+23|t|Se parece a la casa donde vine al mundo.|It looks like the house where I [came] into the world; my mom [told] me about it.
+
+# --- Regla 25 · Give / Gave / Given ---
+25|t|Me dio un abrazo cuando me vio.|She [gave] me a hug when she [saw] me.
+25|c|Le he dado todo y nunca me ha dicho gracias.|I have [given] him everything, and he has never [told] me thank you.
+25|t|Dame la mano; te sientes fría.|[Give] me your hand; you [feel] cold.
+25|c|Les dimos las llaves antes de irnos.|We [gave] them the keys before we [left].
+25|t|Nos dieron una sorpresa cuando vinimos a casa.|They [gave] us a surprise when we [came] home.
+25|c|Me han dado un premio y se ha convertido en el mejor día de mi vida.|They have [given] me an award, and it has [become] the best day of my life.
+25|t|Le di el dinero que encontré en la calle.|I [gave] him the money I [found] on the street.
+25|c|Dale esto a tu mamá; lo traje de Cali.|[Give] this to your mom; I [brought] it from Cali.
+25|t|Me dio su número y lo puse en mi teléfono.|She [gave] me her number, and I [put] it in my phone.
+25|c|Nos han dado malas noticias; nos sentimos tristes.|They have [given] us bad news; we [felt] sad.
+25|t|¿Qué te dieron de cumpleaños? ¿Lo viste venir?|What did they [give] you for your birthday? Did you [see] it coming?
+25|c|El profesor nos dio tiempo extra porque llegamos tarde.|The teacher [gave] us extra time because we [came] late.
+25|t|Le di mi palabra y le conté todo.|I [gave] him my word and [told] him everything.
+25|c|Ha dado su vida por esta empresa y ahora se va.|He has [given] his life to this company, and now he has [left].
+25|t|No me dieron nada, pero me sentí feliz igual.|They didn't [give] me anything, but I [felt] happy anyway.
+
+# --- Regla 26 · Still + hope ---
+26|t|Todavía espero verte pronto.|I still hope to [see] you soon; I [felt] sad when you left.
+26|c|Aún espera que su hijo venga para Navidad.|She still hopes her son will [come] for Christmas; he [left] two years ago.
+26|t|Todavía espero encontrar mi anillo; lo puse en algún lado.|I still hope to [find] my ring; I [put] it somewhere.
+26|c|Todavía esperamos que nos den el permiso.|We still hope they will [give] us the permit; we [brought] all the papers.
+26|t|Todavía espero que me cuente la verdad.|I still hope he will [tell] me the truth; I [saw] him lie.
+26|c|Aún espera convertirse en médico; nunca se ha rendido.|He still hopes to [become] a doctor; his parents have [given] him all their support.
+26|t|Todavía espero que no se haya ido.|I still hope she hasn't [left]; I [came] as fast as I could.
+26|c|Todavía tengo la esperanza de sentirme mejor mañana.|I still hope to [feel] better tomorrow; the doctor [gave] me medicine.
+26|t|Aún esperan que traigas el pastel.|They still hope you will [bring] the cake; you [told] them you would.
+26|c|Todavía espero que hayan encontrado al perro.|I still hope they have [found] the dog; it [left] last night.
+26|t|Todavía espero que veas lo mucho que vales.|I still hope you [see] how much you are worth; you have [become] so strong.
+26|c|Todavía esperaba que viniera, pero no llegó.|I still hoped he would [come], but he never did; I [felt] alone.
+26|t|Todavía espero que le hayas dicho que lo siento.|I still hope you have [told] her you're sorry; she [felt] hurt.
+26|c|Aún espera que le den una segunda oportunidad.|She still hopes they will [give] her a second chance; she [found] a new way to work.
+26|t|Todavía espero poner todo en orden antes de irme.|I still hope to [put] everything in order before I [leave].
+
+# --- Regla 27 · Too vs Very ---
+27|t|Me sentí demasiado cansado para venir.|I [felt] too tired to [come].
+27|c|Vi una película muy buena anoche.|I [saw] a very good movie last night; my friend [told] me about it.
+27|t|Llegaste demasiado tarde; ya se fueron.|You [came] too late; they have already [left].
+27|c|Le di un regalo muy bonito.|I [gave] her a very nice gift; she [felt] so happy.
+27|t|Es demasiado pesado para traerlo solo.|It's too heavy to [bring] alone; I [found] someone to help.
+27|c|La ciudad se ha vuelto muy peligrosa.|The city has [become] very dangerous; many people have [left].
+27|t|Es demasiado tarde para contarle.|It's too late to [tell] her; she has already [seen] the news.
+27|c|Encontré un vestido muy lindo, pero era demasiado caro, así que lo devolví a su lugar.|I [found] a very nice dress, but it was too expensive, so I [put] it back.
+27|t|Puso demasiada sal en la sopa.|He [put] too much salt in the soup; we [felt] sick.
+27|c|Salimos muy temprano, pero el tráfico era demasiado.|We [left] very early, but there was too much traffic; we [came] late anyway.
+27|t|Nunca había visto un lugar tan bonito; fue muy especial.|I had never [seen] such a beautiful place; it [felt] very special.
+27|c|Es demasiado joven para que le den ese trabajo.|He is too young for them to [give] him that job; the boss [told] him so.
+27|t|Trajimos demasiada comida; nadie vino con hambre.|We [brought] too much food; nobody [came] hungry.
+27|c|Me sentí muy feliz cuando encontré mi perro.|I [felt] very happy when I [found] my dog.
+27|t|Se volvió demasiado famoso para tener vida privada.|He [became] too famous to have a private life; he [told] me in an interview.
+
+# --- Regla 28 · Preguntas con presente/pasado perfecto ---
+28|t|¿Alguna vez has visto un tiburón?|Have you ever [seen] a shark? My brother [felt] scared when he saw one.
+28|c|¿Ya ha venido el técnico? Dijo que vendría a las diez.|Has the technician [come] yet? He [told] us he would be here at ten.
+28|t|¿Habías encontrado las llaves antes de que llegara?|Had you [found] the keys before I [came]?
+28|c|¿Alguna vez te han dado un premio?|Have they ever [given] you a prize? You [felt] proud, right?
+28|t|¿Le has contado a tu mamá lo que pasó?|Have you [told] your mom what happened? She [saw] you crying.
+28|c|¿Se había convertido en gerente cuando lo conociste?|Had he [become] manager when you met him? He [left] the company last year.
+28|t|¿Ya se habían ido cuando llegaste?|Had they [left] when you [came]?
+28|c|¿Alguna vez te has sentido así?|Have you ever [felt] like this? I [found] it hard to explain.
+28|t|¿Dónde has puesto mi cargador?|Where have you [put] my charger? I [brought] it this morning.
+28|c|¿Has traído tu pasaporte?|Have you [brought] your passport? They [told] us to bring it.
+28|t|¿Habías visto esa película antes?|Had you [seen] that movie before? You [told] me you hadn't.
+28|c|¿Alguna vez has dejado un trabajo sin avisar?|Have you ever [left] a job without notice? I [felt] bad once.
+28|t|¿Ya te han dado los resultados?|Have they [given] you the results yet? I [came] to ask.
+28|c|¿Has encontrado un buen médico aquí?|Have you [found] a good doctor here? My sister [gave] me a name.
+28|t|¿Alguna vez se ha vuelto viral un video tuyo?|Has a video of yours ever [become] viral? I [saw] one last week.
+
+# --- Regla 29 · Tag Questions ---
+29|t|Viste el partido, ¿verdad?|You [saw] the game, didn't you? We [felt] it was unfair.
+29|c|Vino a la fiesta, ¿no?|She [came] to the party, didn't she? She [brought] a cake.
+29|t|Le diste el mensaje, ¿cierto?|You [gave] him the message, didn't you? He [told] me he didn't get it.
+29|c|Encontraste las llaves, ¿verdad?|You [found] the keys, didn't you? You [put] them in your pocket.
+29|t|No le contaste a nadie, ¿o sí?|You didn't [tell] anyone, did you? I [felt] it was a secret.
+29|c|Se ha vuelto muy famoso, ¿no?|He has [become] very famous, hasn't he? I [saw] him on TV.
+29|t|Te fuiste temprano, ¿verdad?|You [left] early, didn't you? You [felt] sick.
+29|c|Te sentiste bien después, ¿no?|You [felt] better after that, didn't you? They [gave] you medicine.
+29|t|Pusiste el pastel en la nevera, ¿cierto?|You [put] the cake in the fridge, didn't you? Ana [brought] it this morning.
+29|c|Trajiste tu traje de baño, ¿verdad?|You [brought] your swimsuit, didn't you? We [came] to swim.
+29|t|No has visto mi teléfono, ¿o sí?|You haven't [seen] my phone, have you? I [left] it here.
+29|c|Ya vinieron, ¿no?|They have already [come], haven't they? I [found] their shoes at the door.
+29|t|Te dieron el trabajo, ¿verdad?|They [gave] you the job, didn't they? You [told] me last week.
+29|c|No encontraste nada, ¿cierto?|You didn't [find] anything, did you? I [felt] the same.
+29|t|Se volvió vegetariano, ¿no?|He [became] a vegetarian, didn't he? He [told] us at dinner.
+
+# --- Regla 30 · Get + adjetivo ---
+30|t|Me puse nervioso cuando la vi.|I got nervous when I [saw] her; I [felt] my heart racing.
+30|c|Se enojó porque no le conté nada.|She got angry because I didn't [tell] her anything; she [felt] left out.
+30|t|Nos perdimos, pero encontramos el camino.|We got lost, but we [found] the way and [came] home.
+30|c|Se puso triste cuando su amigo se fue.|He got sad when his friend [left]; they had [become] very close.
+30|t|Me cansé de esperar y me fui.|I got tired of waiting, so I [left]; nobody [came].
+30|c|Se emocionó cuando le dieron la noticia.|She got excited when they [gave] her the news; she [told] everyone.
+30|t|Se preocupó cuando no encontró a su hijo.|He got worried when he couldn't [find] his son; he [felt] terrible.
+30|c|Me enfermé después de la fiesta.|I got sick after the party; I [felt] awful, and my mom [brought] me soup.
+30|t|Se puso celoso cuando la vio con otro.|He got jealous when he [saw] her with someone else; he [told] his friends.
+30|c|Nos mojamos porque no trajimos paraguas.|We got wet because we didn't [bring] umbrellas; we [felt] silly.
+30|t|Se puso rojo cuando le dieron el premio.|He got red when they [gave] him the award; everyone [saw] it.
+30|c|Me aburrí y puse música.|I got bored, so I [put] on some music; my friends [came] over.
+30|t|Se hicieron ricos cuando encontraron oro.|They got rich when they [found] gold, and the town [became] famous.
+30|c|Se asustó cuando vio la araña.|She got scared when she [saw] the spider and [left] the room.
+30|t|Me alegré cuando vinieron mis primos.|I got happy when my cousins [came]; they [brought] presents.
+
+# --- Regla 31 · some / any / no ---
+31|t|No vi a nadie en la calle.|I didn't [see] anyone on the street; I [felt] alone.
+31|c|¿Encontraste algo interesante en la biblioteca?|Did you [find] anything interesting at the library? I [brought] some books.
+31|t|Alguien vino a buscarte, pero no dejó su nombre.|Somebody [came] looking for you, but he didn't [leave] his name.
+31|c|No me dio ninguna explicación.|He didn't [give] me any explanation; I [felt] confused.
+31|t|No le conté nada a nadie.|I didn't [tell] anyone anything; I [put] the letter away.
+31|c|¿Trajiste algo de comer? No traje nada.|Did you [bring] anything to eat? I [left] my lunch at home.
+31|t|Sentí algo raro cuando entré.|I [felt] something strange when I [came] in.
+31|c|No encontré ningún error en tu trabajo.|I didn't [find] any mistakes in your work; I [told] the boss.
+31|t|Nadie se ha convertido en campeón sin esfuerzo.|Nobody has [become] a champion without effort; I have [seen] it many times.
+31|c|Pon algunas sillas afuera; vienen invitados.|[Put] some chairs outside; some guests have [come] early.
+31|t|No dejó nada en la nevera.|He didn't [leave] anything in the fridge; I [found] it empty.
+31|c|Alguien me dio flores, pero no sé quién.|Somebody [gave] me flowers, but nobody [told] me who.
+31|t|¿Has visto algún lugar bonito por aquí?|Have you [seen] any nice places around here? A friend [told] me about some.
+31|c|No sentí ningún dolor durante la operación.|I didn't [feel] any pain during the surgery; the doctor [gave] me anesthesia.
+31|t|Alguien trajo un pastel, pero no quedó nada.|Somebody [brought] a cake, but there was none left when I [came].
+
+# --- Regla 32 · Already / Yet / Just ---
+32|t|Ya he visto esa película; me la contaron antes.|I have already [seen] that movie; someone [told] me the ending before.
+32|c|Acaba de venir y ya se quiere ir.|He has just [come], and he already wants to [leave].
+32|t|¿Ya encontraste trabajo? Todavía no, pero ya puse mi hoja de vida en varias empresas.|Have you [found] a job yet? Not yet, but I have [put] my résumé in several companies.
+32|c|Ya me han dado los resultados y me siento mejor.|They have already [given] me the results, and I [feel] better.
+32|t|Todavía no le he contado; acaba de llegar.|I haven't [told] her yet; she has just [come] home.
+32|c|Ya se ha convertido en la mejor de la clase.|She has already [become] the best in the class; I [saw] her grades.
+32|t|El tren acaba de salir; tendremos que esperar el siguiente.|The train has just [left]; we [found] out too late.
+32|c|Todavía no me he sentido así; es nuevo para mí.|I haven't [felt] like this yet; it's new, and I [told] my mom.
+32|t|Ya he puesto la mesa; ¿trajiste el vino?|I have already [put] the plates on the table; have you [brought] the wine yet?
+32|c|¿Ya trajiste los documentos? Los acabo de ver en tu escritorio.|Have you [brought] the documents yet? I have just [seen] them on your desk.
+32|t|Ya ha venido tres veces esta semana.|She has already [come] three times this week and has [given] us cookies every time.
+32|c|Todavía no nos han dado la respuesta.|They haven't [given] us the answer yet; we have [felt] nervous all week.
+32|t|Acabo de encontrar las fotos de nuestro viaje.|I have just [found] the photos from our trip; I [felt] so happy.
+32|c|Ya se fue; dejó una nota para ti.|He has already [left]; he [put] a note for you on the table.
+32|t|¿Ya le has dicho a tu jefe? Acaba de llamarte.|Have you [told] your boss yet? He has just [come] looking for you.
+
+# --- Regla 33 · Sujeto "it" ---
+33|t|Hacía mucho frío, así que puse otra cobija.|It was very cold, so I [put] on another blanket and [felt] better.
+33|c|Era tarde cuando vinieron.|It was late when they [came]; they [brought] pizza.
+33|t|Nos tomó horas encontrar el hotel.|It took us hours to [find] the hotel; it [felt] like forever.
+33|c|Está lloviendo; no salgas sin paraguas.|It's raining; don't [leave] without an umbrella, as Mom [told] you.
+33|t|Es difícil contarle esto.|It's hard to [tell] him this; he has [become] so sensitive.
+33|c|Fue increíble ver el mar por primera vez.|It was amazing to [see] the ocean for the first time; I [felt] free.
+33|t|Hace mucho tiempo que no te veo.|It has been a long time since I [saw] you; you [came] to my wedding.
+33|c|Es importante darles una oportunidad.|It's important to [give] them a chance; they [came] a long way.
+33|t|Está a cinco minutos; puedes venir caminando.|It's five minutes away; you can [come] on foot, as I [told] you.
+33|c|Se está haciendo tarde; debemos irnos.|It's getting late; we should [leave]; I [felt] tired an hour ago.
+33|t|Era domingo y no encontramos nada abierto.|It was Sunday, and we didn't [find] anything open; we [left] disappointed.
+33|c|Es fácil ponerse nervioso en una entrevista.|It's easy to [feel] nervous in an interview; I [put] on my best smile.
+33|t|Fue un error traer al perro a la playa.|It was a mistake to [bring] the dog to the beach; it [found] a crab.
+33|c|Se ha vuelto común trabajar desde casa.|It has [become] common to work from home; I have [felt] the change.
+33|t|Hizo calor todo el día; dejamos las ventanas abiertas.|It was hot all day; we [left] the windows open and [felt] the breeze.
+
+# --- Regla 34 · Since vs For ---
+34|t|No la he visto desde la boda.|I haven't [seen] her since the wedding; she [left] for Spain.
+34|c|Ha venido cada domingo durante dos años.|He has [come] every Sunday for two years and has [brought] flowers every time.
+34|t|Me he sentido mejor desde que dejé el café.|I have [felt] better since I [left] coffee behind.
+34|c|Nos ha contado la misma historia por años.|He has [told] us the same story for years; we [found] it funny at first.
+34|t|Ha sido mi mejor amiga desde que nos conocimos; se ha vuelto mi familia.|She has [become] my family since we met; she has [given] me so much.
+34|c|No he encontrado mis llaves desde el lunes.|I haven't [found] my keys since Monday; I think I [left] them at work.
+34|t|Han puesto música toda la noche desde las diez.|They have [put] on loud music since ten, and nobody has [come] to stop them.
+34|c|Ha traído almuerzo a la oficina durante meses.|She has [brought] lunch to the office for months; she [told] us it saves money.
+34|t|No me han dado noticias desde ayer.|They haven't [given] me any news since yesterday; I [felt] worried all night.
+34|c|Se fueron hace una semana y no han llamado.|They [left] a week ago, and they haven't [told] us anything since.
+34|t|Lo he sentido así desde el primer día.|I have [felt] this way since the first day I [saw] you.
+34|c|Vienen a visitarnos desde que nos mudamos.|They have [come] to visit us since we moved; they [gave] us a plant.
+34|t|No he visto a mi abuelo durante meses.|I haven't [seen] my grandfather for months; he [became] ill in June.
+34|c|Hemos puesto dinero en esta cuenta por diez años.|We have [put] money into this account for ten years and [found] it was a good idea.
+34|t|Se ha convertido en una tradición desde 2015; mi familia viene cada año desde entonces.|It has [become] a tradition since 2015; my family has [come] every year since then.
+
+# --- Regla 35 · When / While ---
+35|t|Cuando la vi, sentí mariposas.|When I [saw] her, I [felt] butterflies.
+35|c|Mientras esperaba, encontré un libro viejo.|While I was waiting, I [found] an old book that someone had [left].
+35|t|Cuando vengas, trae tu guitarra.|When you [come], [bring] your guitar.
+35|c|Mientras cocinaba, le conté lo que pasó.|While she was cooking, I [told] her what happened, and she [felt] sad.
+35|t|Cuando era niño, me dieron un perro.|When I was a child, they [gave] me a dog; it [became] my best friend.
+35|c|Mientras dormías, salí a comprar pan.|While you were sleeping, I [left] to buy bread and [found] a bakery.
+35|t|Cuando llegué, ya habían puesto la mesa.|When I [came], they had already [put] the plates out.
+35|c|Mientras caminaba, vi algo extraño en el cielo.|While I was walking, I [saw] something strange in the sky and [felt] scared.
+35|t|Cuando se fue, nos dejó una carta.|When he [left], he [gave] us a letter.
+35|c|Mientras estaba en el hospital, sus amigos le trajeron flores.|While she was in the hospital, her friends [brought] her flowers and [told] her jokes.
+35|t|Cuando encontré el anillo, se lo di a mi mamá.|When I [found] the ring, I [gave] it to my mom.
+35|c|Mientras trabajaba allí, se convirtió en jefe.|While he was working there, he [became] the boss and [left] his old desk.
+35|t|Cuando le conté, se puso feliz.|When I [told] him, he [felt] so happy.
+35|c|Mientras veíamos la película, alguien vino a la puerta.|While we were watching the movie, someone [came] to the door; we [saw] nobody.
+35|t|Cuando sientas miedo, piensa en lo que te dije.|When you [feel] afraid, remember what I [told] you.
+
+# --- Regla 36 · Will vs Going to ---
+36|t|Voy a ver a mis abuelos el domingo; ya les dije.|I'm going to [see] my grandparents on Sunday; I have already [told] them.
+36|c|Tranquilo, yo te traigo un vaso de agua.|Don't worry, I'll [bring] you a glass of water; you [felt] dizzy.
+36|t|Va a venir mañana; compró los boletos.|She is going to [come] tomorrow; she [found] cheap tickets.
+36|c|Creo que te sentirás mejor después de dormir.|I think you will [feel] better after sleeping; I [put] the medicine on your table.
+36|t|Vamos a darle una fiesta sorpresa; ya lo planeamos.|We're going to [give] her a surprise party; we have [found] the perfect place.
+36|c|Se va a ir del país en enero; lo decidió hace meses.|He is going to [leave] the country in January; he [told] us months ago.
+36|t|Creo que se convertirá en un gran líder.|I think he will [become] a great leader; I [saw] it from the start.
+36|c|Prometo que te diré la verdad.|I promise I will [tell] you the truth; I [felt] bad hiding it.
+36|t|Mira esas nubes: va a llover; ponte la chaqueta.|Look at those clouds: it's going to rain; [put] on your jacket. I [saw] the forecast.
+36|c|Tengo una idea: encontraremos una solución juntos.|I have an idea: we will [find] a solution together; you [came] to the right person.
+36|t|Van a traer a su bebé a la reunión.|They are going to [bring] their baby to the meeting; they [told] us last week.
+36|c|Te ayudo: yo pongo la mesa.|I'll help you: I'll [put] the plates on the table; you [came] home late.
+36|t|Creo que no vendrá; dijo que se sentía mal.|I don't think he will [come]; he said he [felt] sick.
+36|c|Vamos a dejar el carro aquí y caminar.|We're going to [leave] the car here and walk; I [found] a nice path.
+36|t|Te daré mi respuesta mañana.|I will [give] you my answer tomorrow; I have [seen] the offer.
+
+# --- Regla 37 · Contables vs incontables ---
+37|t|Vi muy pocas personas en el parque.|I [saw] very few people in the park; it [felt] empty.
+37|c|Trajimos menos comida que la última vez.|We [brought] less food than last time, and fewer people [came].
+37|t|Encontré mucha información en ese libro.|I [found] a lot of information in that book; a friend [gave] it to me.
+37|c|¿Cuánto dinero le diste?|How much money did you [give] him? He [told] me it was a lot.
+37|t|Dejé poca leche en la nevera.|I [left] little milk in the fridge; I [put] the rest in the coffee.
+37|c|Muchas personas vinieron a la boda.|Many people [came] to the wedding; I [saw] faces I didn't know.
+37|t|Siento muy poca energía hoy.|I [feel] very little energy today; I [found] it hard to get up.
+37|c|Nos contó muchas historias de su viaje.|He [told] us many stories about his trip; we [felt] like we were there.
+37|t|Puse demasiada azúcar en el café.|I [put] too much sugar in the coffee; I [felt] sick after.
+37|c|Pocas personas se han convertido en expertos tan rápido.|Few people have [become] experts so fast; I have [seen] her work.
+37|t|Vinieron menos estudiantes de lo esperado.|Fewer students [came] than expected; the teacher [felt] disappointed.
+37|c|No tengo mucho tiempo; tengo que salir pronto.|I don't have much time; I have to [leave] soon; you [came] late.
+37|t|¿Cuántos libros trajiste?|How many books did you [bring]? I [found] only two.
+37|c|Le dieron poca atención al problema.|They [gave] little attention to the problem, and it [became] worse.
+37|t|Hemos visto menos turistas este año.|We have [seen] fewer tourists this year; many have [left] for other places.
+
+# --- Regla 38 · Bad vs Badly ---
+38|t|Me sentí mal por lo que dije.|I [felt] bad about what I [told] her.
+38|c|Lo hizo mal y se sintió terrible.|He did it badly, and he [felt] terrible; his boss [saw] the mistakes.
+38|t|Encontré una mala nota en mi examen.|I [found] a bad grade on my test; I [left] the class sad.
+38|c|Salió mal en la entrevista porque se puso nervioso.|The interview [came] out badly because he [felt] nervous.
+38|t|Me dieron una mala noticia.|They [gave] me some bad news; I [felt] awful.
+38|c|Cantó tan mal que todos se fueron.|He sang so badly that everyone [left]; I [saw] it all.
+38|t|Puso los tenedores al lado equivocado; mi mamá le dijo que estaba mal hecho.|He [put] the forks on the wrong side; my mom [told] him it was badly done.
+38|c|Nos trataron mal en ese hotel.|They treated us badly at that hotel; we [left] a bad review and never [came] back.
+38|t|Se ha portado mal desde que vino su hermano.|He has behaved badly since his brother [came]; he has [become] jealous.
+38|c|Dormí mal porque sentí mucho calor.|I slept badly because I [felt] very hot; I [put] the fan on.
+38|t|Fue una mala idea traer a los niños.|It was a bad idea to [bring] the kids; they [felt] bored.
+38|c|Le fue mal en el partido; no encontró su ritmo.|He played badly; he couldn't [find] his rhythm, and he [felt] frustrated.
+38|t|Me contó que se sentía mal.|She [told] me she [felt] bad.
+38|c|El proyecto salió mal y el cliente se fue.|The project [came] out badly, and the client [left].
+38|t|No te sientas mal; yo también lo he visto difícil.|Don't [feel] bad; I have [found] it hard too.
+
+# --- Regla 39 · Preposiciones ---
+39|t|Vine a Bogotá en enero y me quedé por un año.|I [came] to Bogotá in January and [found] a job in March.
+39|c|Puse las llaves en la mesa del comedor.|I [put] the keys on the dining table; I [saw] them there this morning.
+39|t|Salió de la oficina a las seis.|She [left] the office at six and [came] home at seven.
+39|c|Me dio un regalo para mi cumpleaños.|She [gave] me a present for my birthday; I [felt] so loved.
+39|t|Encontré esta foto en el cajón de mi abuela.|I [found] this photo in my grandma's drawer; she [told] me its story.
+39|c|Durante la reunión, nos contaron las noticias.|During the meeting, they [told] us the news; we [felt] surprised.
+39|t|Trajo regalos de Japón para todos.|He [brought] gifts from Japan for everyone; we [saw] his photos.
+39|c|Se convirtió en director a los treinta años.|He [became] director at thirty; he [came] from a small town.
+39|t|Me sentí en casa desde el primer día.|I [felt] at home from the first day; they [gave] me a warm welcome.
+39|c|Lo vi en el bus el lunes.|I [saw] him on the bus on Monday; he [told] me he was moving.
+39|t|Dejé mi teléfono en el taxi.|I [left] my phone in the taxi; the driver [brought] it back the next day.
+39|c|Vinieron de muy lejos para la boda.|They [came] from far away for the wedding; they [brought] gifts.
+39|t|Puso su mano en mi hombro.|He [put] his hand on my shoulder and [told] me everything would be fine.
+39|c|Encontramos un restaurante en el centro.|We [found] a restaurant downtown and [felt] lucky.
+39|t|Me dieron el trabajo a las tres de la tarde.|They [gave] me the job at three in the afternoon; I [left] the office smiling.
+
+# --- Regla 40 · For + período / During + evento ---
+40|t|Durante la película, sentí ganas de llorar.|During the movie, I [felt] like crying; I [saw] it twice.
+40|c|Vinieron a visitarnos por una semana durante las vacaciones.|They [came] to visit us for a week during the holidays and [brought] gifts.
+40|t|Durante la reunión, le dieron la palabra a ella.|During the meeting, they [gave] her the floor for ten minutes; she [told] us her plan.
+40|c|Busqué por dos horas, pero no encontré nada.|I looked for two hours, but I didn't [find] anything; I [felt] frustrated.
+40|t|Durante el concierto, dejé mi teléfono en el bolso.|During the concert, I [left] my phone in my bag for two hours and [saw] everything with my own eyes.
+40|c|Se convirtió en el centro de atención durante la fiesta.|He [became] the center of attention during the party; he [told] jokes for an hour.
+40|t|Puse el pollo en el horno por una hora.|I [put] the chicken in the oven for an hour; it [came] out perfect.
+40|c|Durante la cena, nos contó su secreto.|During dinner, she [told] us her secret; we [felt] honored.
+40|t|Me sentí mal por tres días durante el viaje.|I [felt] sick for three days during the trip; a local doctor [gave] me medicine.
+40|c|Durante la tormenta, encontramos refugio en una cueva.|During the storm, we [found] shelter in a cave for hours; we [left] at dawn.
+40|t|Trajo comida para el viaje de seis horas.|She [brought] food for the six-hour trip; we [felt] grateful.
+40|c|Lo vi solo una vez durante el verano.|I [saw] him only once during the summer; he [came] for two days.
+40|t|Durante la clase, el profesor nos dio un descanso de diez minutos.|During the class, the teacher [gave] us a break for ten minutes, and some students [left].
+40|c|Salió de casa por un año durante su intercambio.|She [left] home for a year during her exchange and [became] very independent.
+40|t|Durante el partido, sentí que íbamos a ganar.|During the game, I [felt] we were going to win; I [told] my dad.
+
+# --- Regla 41 · Orden natural de la oración ---
+41|t|Ayer vi a tu hermana en el centro comercial.|I [saw] your sister at the mall yesterday; she [told] me about your trip.
+41|c|Siempre pongo las llaves en el mismo lugar.|I always [put] my keys in the same place, but today I couldn't [find] them.
+41|t|Nunca me había sentido tan bien en mi vida.|I had never [felt] so good in my life; you [gave] me a great day.
+41|c|Mis papás vinieron a visitarme el fin de semana pasado.|My parents [came] to visit me last weekend and [brought] a lot of food.
+41|t|Ella se convirtió rápidamente en la mejor del equipo.|She quickly [became] the best on the team; I [saw] it happen.
+41|c|Me dejó un mensaje muy bonito en mi escritorio.|He [left] a very nice message on my desk; I [felt] touched.
+41|t|Encontré una cafetería muy buena cerca de la oficina.|I [found] a very good café near the office; a coworker [told] me about it.
+41|c|El año pasado le dimos un regalo especial a mi abuela.|Last year we [gave] my grandmother a special gift; she [felt] so happy.
+41|t|Casi nunca me contaba lo que sentía.|He hardly ever [told] me what he [felt].
+41|c|Esta mañana traje café para todos.|I [brought] coffee for everyone this morning; nobody [came] late.
+41|t|Ya vino el técnico y puso el internet.|The technician has already [come] and [put] in the internet.
+41|c|De repente, vio a su ex en la fiesta.|Suddenly, he [saw] his ex at the party and [left] early.
+41|t|El lunes pasado se sintió muy cansado y salió temprano del trabajo.|Last Monday he [felt] very tired and [left] work early.
+41|c|Nos contó una historia muy divertida anoche.|He [told] us a very funny story last night; we [felt] better.
+41|t|Me dio su opinión honestamente.|She honestly [gave] me her opinion, and I [found] it useful.
+
+# --- Regla 42 · Vocabulario específico ---
+42|t|Dejé mi equipaje de mano en el compartimiento superior.|I [put] my carry-on luggage in the overhead compartment and [found] my seat.
+42|c|El cajero me dio el cambio incorrecto.|The cashier [gave] me the wrong change; I [told] the manager.
+42|t|Encontré una ganga en la tienda de segunda mano.|I [found] a bargain at the thrift store and [brought] it home.
+42|c|Vino el cerrajero porque dejé las llaves adentro.|The locksmith [came] because I [left] my keys inside.
+42|t|Me sentí mareado durante el despegue.|I [felt] dizzy during takeoff; the flight attendant [brought] me water.
+42|c|La factura se volvió más alta por los intereses.|The bill [became] higher because of the interest; I [saw] it this morning.
+42|t|El mesero nos trajo la cuenta y dejamos propina.|The waiter [brought] us the check, and we [left] a tip.
+42|c|Vi un anuncio de arriendo y llamé al propietario.|I [saw] a rental ad, and the landlord [told] me the apartment was available.
+42|t|Le dimos un depósito al dueño del apartamento.|We [gave] a deposit to the landlord and [felt] relieved.
+42|c|El técnico vino y puso un enchufe nuevo.|The electrician [came] and [put] in a new outlet.
+42|t|Me dieron una multa por exceso de velocidad.|They [gave] me a speeding ticket; I [felt] embarrassed.
+42|c|Encontré mi equipaje en la banda equivocada.|I [found] my luggage on the wrong carousel; nobody [told] me it had changed.
+42|t|Salimos del hotel antes de la hora de salida.|We [left] the hotel before checkout time and [came] back for our bags later.
+42|c|El farmaceuta me dio un medicamento genérico.|The pharmacist [gave] me a generic medicine and [told] me how to take it.
+42|t|Me volví cliente frecuente de esa aerolínea.|I [became] a frequent flyer with that airline; I [found] it convenient.
+
+# --- Regla 43 · Past Perfect ---
+43|t|Cuando llegué, ella ya se había ido.|When I [came], she had already [left].
+43|c|Nunca había visto tanta gente en un solo lugar.|I had never [seen] so many people in one place; I [felt] overwhelmed.
+43|t|Ya me había dado cuenta antes de que me lo contaras.|I had already realized it before you [told] me; I [found] out by chance.
+43|c|Había encontrado trabajo antes de terminar la universidad.|She had [found] a job before she finished college; she [felt] lucky.
+43|t|Me dijo que nunca se había sentido tan feliz.|He [told] me he had never [felt] so happy.
+43|c|Habían traído comida, así que no tuvimos que cocinar.|They had [brought] food, so we didn't have to cook; we [felt] grateful.
+43|t|Cuando vine a vivir aquí, ya se había convertido en una gran ciudad.|When I [came] to live here, it had already [become] a big city.
+43|c|Ya habían puesto la mesa cuando llegamos.|They had already [put] the plates out when we [came].
+43|t|Me di cuenta de que había dejado la estufa prendida.|I realized I had [left] the stove on, so I [came] back home.
+43|c|Le habían dado el premio antes de que yo llegara.|They had [given] him the prize before I [came].
+43|t|Nos había contado la historia mil veces.|He had [told] us the story a thousand times, but we [felt] it was new.
+43|c|Nunca había sentido tanto frío.|I had never [felt] so cold; I [put] on three sweaters.
+43|t|Se había vuelto muy delgado cuando lo vimos.|He had [become] very thin when we [saw] him.
+43|c|Cuando encontré la carta, ella ya se había ido.|When I [found] the letter, she had already [left].
+43|t|Había visto esa película, así que no vine al cine.|I had [seen] that movie, so I didn't [come] to the theater.
+
+# --- Regla 44 · Future Perfect Continuous ---
+44|t|Para diciembre llevaré un año viendo esa serie; un amigo me la recomendó.|By December, I will have been watching that show for a year; a friend [told] me about it, and I have [found] it addictive.
+44|c|Cuando vengas, llevaré horas cocinando; traje todo del mercado.|When you [come], I will have been cooking for hours; I [brought] everything from the market.
+44|t|En junio llevará diez años enseñando; se ha convertido en una gran profesora.|In June, she will have been teaching for ten years; she has [become] a great teacher and has [given] her best.
+44|c|Para cuando lleguemos, llevaremos ocho horas manejando; salimos a las cinco.|By the time we arrive, we will have been driving for eight hours; we [left] at five and [felt] fine at first.
+44|t|El próximo mes llevaré un año buscando casa; todavía no encuentro nada.|Next month, I will have been looking for a house for a year; I still haven't [found] anything, and I [feel] tired.
+44|c|A las seis llevarán todo el día trabajando; les trajimos café.|At six, they will have been working all day; we [brought] them coffee and [told] them to rest.
+44|t|Para entonces llevaré meses sintiéndome así; debo ver a un médico.|By then, I will have been feeling this way for months; I must [see] a doctor, as my wife [told] me.
+44|c|Cuando se jubile, llevará cuarenta años dando clases; ha visto miles de estudiantes.|When he retires, he will have been teaching for forty years; he has [seen] thousands of students and has [given] them his best.
+44|t|Mañana a esta hora llevaré dos horas esperando el vuelo; dejé la casa muy temprano.|At this time tomorrow, I will have been waiting for my flight for two hours; I [left] home very early and [put] everything in one bag.
+44|c|En agosto llevaremos un año ahorrando; ya pusimos la mitad del dinero.|In August, we will have been saving for a year; we have already [put] in half the money and [found] a good bank.
+44|t|Para las nueve llevará tres horas estudiando; le dimos espacio.|By nine, she will have been studying for three hours; we [gave] her space and [came] back later.
+44|c|Cuando lleguen, llevaremos todo el día decorando; vinieron a ayudarnos los vecinos.|When they arrive, we will have been decorating all day; the neighbors [came] to help, and we [felt] grateful.
+44|t|Para fin de año llevará seis meses viajando; nos contó que ha encontrado la paz.|By the end of the year, he will have been traveling for six months; he [told] us he has [found] peace.
+44|c|En mayo llevaré dos años viviendo aquí; me he vuelto parte de la comunidad.|In May, I will have been living here for two years; I have [become] part of the community and have [found] good friends.
+44|t|Para cuando vuelvas, llevaré semanas trabajando en esto; te contaré todo.|By the time you [come] back, I will have been working on this for weeks; I will [tell] you everything.
+
+# --- Regla 45 · Voz pasiva ---
+45|t|El ladrón fue visto cerca del banco.|The thief was [seen] near the bank; the police [found] him an hour later.
+45|c|Estas cartas fueron encontradas en el ático.|These letters were [found] in the attic; my grandmother [told] us about them.
+45|t|Los premios se dan al final del año y todos vienen a la ceremonia.|The awards are [given] at the end of the year, and everyone has [come] to the ceremony before.
+45|c|La comida se trae desde el pueblo cada mañana.|The food is [brought] from the village every morning; I [saw] the trucks.
+45|t|Nos dijeron que los resultados serán dados mañana.|We were [told] that the results will be [given] tomorrow.
+45|c|Las sillas se ponen en el patio para la boda.|The chairs are [put] in the yard for the wedding; the guests [came] early.
+45|t|Se siente que algo va a cambiar.|It is [felt] that something will change; many have [left] the company.
+45|c|El paquete fue dejado en la puerta.|The package was [left] at the door; I [found] it when I got home.
+45|t|Ella es vista como la favorita.|She is [seen] as the favorite; she has [become] famous this year.
+45|c|Los niños deben ser traídos antes de las ocho.|Children must be [brought] before eight; the teacher [told] us.
+45|t|Se le ha dado mucha importancia a este tema.|A lot of importance has been [given] to this topic; I [felt] it in the meeting.
+45|c|El dinero se pone en una caja fuerte.|The money is [put] in a safe; nobody has [found] the key.
+45|t|Fue encontrado sano y salvo.|He was [found] safe and sound; his parents [came] right away.
+45|c|Esa canción se ha convertido en un himno; fue vista por millones en YouTube.|That song has [become] an anthem; it was [seen] by millions on YouTube.
+45|t|Las instrucciones serán dadas en inglés.|The instructions will be [given] in English; they [told] us yesterday.
+
+# --- Regla 46 · Modales de posibilidad / deducción ---
+46|t|Debe de sentirse sola; su esposo se fue.|She must [feel] lonely; her husband [left].
+46|c|No puede ser él; lo vi en Bogotá ayer.|It can't be him; I [saw] him in Bogotá yesterday, and he [told] me he'd stay.
+46|t|Podría haber alguien en la casa; vi una luz.|There might be someone in the house; I [saw] a light and [felt] scared.
+46|c|Debe de haber encontrado las llaves; ya se fue.|He must have [found] the keys; he has already [left].
+46|t|Puede que vengan más tarde; dijeron que estaban ocupados.|They might [come] later; they [told] us they were busy.
+46|c|Debe de estar feliz; le dieron el trabajo.|She must be happy; they [gave] her the job, and she [felt] she deserved it.
+46|t|No puede ser tan difícil; mi hermano lo encontró fácil y me lo dijo.|It can't be that hard; my brother [found] it easy, and he [told] me so.
+46|c|Debe de haber dejado el teléfono en casa.|He must have [left] his phone at home; nobody has [seen] it.
+46|t|Puede que se haya convertido en algo serio.|It might have [become] something serious; the doctor [told] her to come back.
+46|c|Debe de estar cansada; vino caminando desde el centro.|She must be tired; she [came] on foot from downtown and [brought] heavy bags.
+46|t|Podría haber un problema; no sentí el teléfono vibrar.|There might be a problem; I didn't [feel] my phone vibrate, and nobody [told] me.
+46|c|Debe de haber puesto las llaves en otro lugar.|She must have [put] the keys somewhere else; I [found] her purse empty.
+46|t|No puede estar enojado; me dio un abrazo.|He can't be angry; he [gave] me a hug when he [saw] me.
+46|c|Debe de haber traído su almuerzo; no salió.|He must have [brought] his lunch; he never [left] the office.
+46|t|Puede que lo hayan visto en la fiesta.|They might have [seen] him at the party; he [came] late.
+
+# --- Regla 47 · Half of ---
+47|t|La mitad de los invitados vino temprano.|Half of the guests [came] early and [brought] gifts.
+47|c|Encontré la mitad de las fotos que buscaba.|I [found] half of the photos I was looking for; I [felt] happy anyway.
+47|t|Le di la mitad de mi almuerzo a mi amigo.|I [gave] half of my lunch to my friend; he [told] me he was hungry.
+47|c|La mitad del grupo se fue antes de terminar.|Half of the group [left] before the end; they [felt] bored.
+47|t|Vi la mitad de la película y me dormí.|I [saw] half of the movie and fell asleep; you [told] me it was good.
+47|c|Puse la mitad del dinero en el banco.|I [put] half of the money in the bank and [gave] the rest to my mom.
+47|t|La mitad de mis amigos se ha convertido en padres.|Half of my friends have [become] parents; I [feel] old.
+47|c|Trajimos la mitad de lo que necesitábamos.|We [brought] half of what we needed; we [left] the rest at home.
+47|t|La mitad de la clase no vino hoy.|Half of the class didn't [come] today; the teacher [felt] worried.
+47|c|Nos contaron solo la mitad de la historia.|They [told] us only half of the story; we [found] out the rest later.
+47|t|La mitad de la gente sintió el temblor.|Half of the people [felt] the earthquake; I [saw] the lamp move.
+47|c|Dejé la mitad de la comida en el plato.|I [left] half of the food on my plate; the waiter [brought] me a box.
+47|t|La mitad de los estudiantes encontró el examen difícil.|Half of the students [found] the test hard; the teacher [gave] them more time.
+47|c|Le dieron la mitad del premio a cada ganador.|They [gave] half of the prize to each winner; they [came] up on stage together.
+47|t|La mitad de la ciudad se volvió peatonal.|Half of the city [became] pedestrian; we [saw] fewer cars.
+
+# --- Regla 48 · "By" para tiempo futuro ---
+48|t|Para el viernes ya habré encontrado un apartamento.|By Friday, I will have [found] an apartment; a friend [told] me about one.
+48|c|Para las ocho, todos se habrán ido.|By eight, everyone will have [left]; come early if you want to [see] them.
+48|t|Para diciembre habremos visto todas las películas de la saga.|By December, we will have [seen] all the movies in the saga; my brother [gave] me the box set.
+48|c|Para mañana ya le habré contado a mi familia.|By tomorrow, I will have [told] my family; I [felt] ready last night.
+48|t|Para junio se habrá convertido en ingeniero.|By June, he will have [become] an engineer; his parents will [come] to the ceremony.
+48|c|Para cuando llegues, habré puesto la mesa.|By the time you arrive, I will have [put] the plates out; I [found] new candles.
+48|t|Para el lunes ya nos habrán dado los resultados.|By Monday, they will have [given] us the results; we [left] our phone numbers.
+48|c|Para el mediodía ya habrán traído los muebles.|By noon, they will have [brought] the furniture; they [told] us at ten.
+48|t|Para el próximo año habré dejado este trabajo.|By next year, I will have [left] this job; I have [felt] tired for months.
+48|c|Para las cinco ya habrá venido el técnico.|By five, the technician will have [come]; he [gave] us his word.
+48|t|Para cuando te gradúes, habrás visto muchos cambios.|By the time you graduate, you will have [seen] many changes; you will [feel] different.
+48|c|Para el fin de semana habré encontrado una solución.|By the weekend, I will have [found] a solution; I [put] all my energy into it.
+48|t|Para 2030 esta ciudad se habrá convertido en otra.|By 2030, this city will have [become] a different place; many people will have [come] to live here.
+48|c|Para mañana ya habré sentido los efectos del medicamento.|By tomorrow, I will have [felt] the effects of the medicine the doctor [gave] me.
+48|t|Para la próxima semana ya le habrán dicho la verdad.|By next week, they will have [told] her the truth; she [saw] the signs.
+
+# --- Regla 49 · because of / because ---
+49|t|No vine por la lluvia.|I didn't [come] because of the rain; I [felt] lazy too.
+49|c|Me sentí mal porque no le conté la verdad.|I [felt] bad because I didn't [tell] her the truth.
+49|t|Se fue por el ruido del vecino.|He [left] because of the neighbor's noise; he [found] a quieter place.
+49|c|Le dieron el premio porque trabajó muy duro.|They [gave] her the prize because she worked so hard; everyone [saw] it.
+49|t|Encontramos el lugar gracias a tu mapa.|We [found] the place because of your map; you [gave] us great directions.
+49|c|Se convirtió en actor por su madre.|He [became] an actor because of his mother; she [brought] him to the theater as a child.
+49|t|No lo vi porque estaba de espaldas.|I didn't [see] him because I had my back turned; he [left] quickly.
+49|c|Trajimos paraguas porque dijeron que llovería.|We [brought] umbrellas because they [told] us it would rain.
+49|t|Por el tráfico, vinimos tarde.|Because of the traffic, we [came] late; I [felt] embarrassed.
+49|c|Puso el aire acondicionado porque hacía calor.|He [put] on the air conditioning because it was hot; we [felt] better.
+49|t|Por tu ayuda, me sentí capaz.|Because of your help, I [felt] capable; you [gave] me confidence.
+49|c|Dejé el trabajo por el horario.|I [left] the job because of the schedule; I [found] a better one.
+49|t|Nos contó todo porque confiaba en nosotros.|She [told] us everything because she trusted us; we [felt] honored.
+49|c|Por la tormenta, no vinieron los invitados.|Because of the storm, the guests didn't [come]; we [put] the food away.
+49|t|Lo vi diferente por su nuevo corte de pelo.|I [saw] him differently because of his new haircut; he [became] more confident.
+
+# --- Regla 50 · (put, try, get, take, lie) + (down, off, on) ---
+50|t|Me puse la chaqueta y salí.|I [put] on my jacket and [left].
+50|c|Puso la caja en el suelo y se sintió aliviado.|He [put] the box down and [felt] relieved.
+50|t|Se puso los zapatos nuevos que le di.|She [put] on the new shoes I [gave] her.
+50|c|Pon el teléfono abajo y mírame.|[Put] your phone down and look at me; I need to [tell] you something.
+50|t|Me acosté porque me sentí mareado.|I lay down because I [felt] dizzy; my wife [brought] me water.
+50|c|Se puso el abrigo cuando vio la nieve.|He [put] on his coat when he [saw] the snow.
+50|t|Pusimos las maletas en el carro y salimos.|We [put] the bags in the car and [left] at dawn.
+50|c|Se puso un vestido elegante para la cena.|She [put] on an elegant dress for the dinner; everyone [came] dressed up.
+50|t|Bajé el volumen porque mi bebé se durmió.|I [put] the volume down because my baby [felt] sleepy.
+50|c|Me puse las gafas y vi mejor.|I [put] on my glasses and [saw] better.
+50|t|Se puso el uniforme y se convirtió en otra persona.|He [put] on the uniform and [became] a different person.
+50|c|Ponte el casco que te traje.|[Put] on the helmet I [brought] you.
+50|t|Dejé la bolsa en el suelo y encontré mis llaves.|I [put] the bag down and [found] my keys.
+50|c|Se puso a llorar cuando le contamos.|She [put] her head down and cried when we [told] her.
+50|t|Me puse los audífonos y no sentí el tiempo pasar.|I [put] on my headphones and didn't [feel] the time pass.
+
+# --- Regla 51 · Sustantivos compuestos ---
+51|t|Vi un accidente de tránsito camino al trabajo.|I [saw] a car accident on the way to work and [felt] shaken.
+51|c|Encontré mi tarjeta de embarque en el bolsillo.|I [found] my boarding pass in my pocket; I [put] it there this morning.
+51|t|Vino el repartidor de pizza y le di propina.|The pizza delivery guy [came], and I [gave] him a tip.
+51|c|Dejé mi cepillo de dientes en el hotel.|I [left] my toothbrush at the hotel; the receptionist [told] me they found it.
+51|t|Mi compañero de clase se volvió mi mejor amigo.|My classmate [became] my best friend; we [felt] connected from day one.
+51|c|Traje mi portátil a la sala de reuniones.|I [brought] my laptop to the meeting room; nobody [came] on time.
+51|t|Puse el mercado en la nevera y encontré leche vieja.|I [put] the groceries in the fridge and [found] old milk.
+51|c|Nos dieron una tarjeta de regalo por la boda.|They [gave] us a gift card for our wedding; we [felt] grateful.
+51|t|Le conté a mi profesor de piano que lo dejaba.|I [told] my piano teacher I was quitting; I [felt] sad.
+51|c|Vimos el desfile de carnaval desde el balcón.|We [saw] the carnival parade from the balcony; my friends [came] too.
+51|t|Encontré un anillo de compromiso en su cajón.|I [found] an engagement ring in his drawer; I [felt] so excited.
+51|c|Dejamos el carro en el lavadero.|We [left] the car at the car wash and [came] back an hour later.
+51|t|Me dio su número de celular en la parada del bus.|She [gave] me her cell phone number at the bus stop; I [saw] her again a week later.
+51|c|El dolor de espalda se ha vuelto un problema.|My back pain has [become] a problem; the doctor [told] me to rest.
+51|t|Traje el cargador del teléfono, pero lo dejé en el carro.|I [brought] the phone charger, but I [left] it in the car.
+
+# --- Regla 52 · Expresiones de tiempo con "over" ---
+52|t|Durante el fin de semana vinieron mis primos.|Over the weekend, my cousins [came], and we [saw] a movie together.
+52|c|En los últimos años se ha convertido en un experto.|Over the past few years, he has [become] an expert; I have [seen] his progress.
+52|t|Durante las vacaciones encontré un nuevo pasatiempo.|Over the holidays, I [found] a new hobby; my sister [gave] me a guitar.
+52|c|En los últimos meses me he sentido más tranquilo.|Over the last few months, I have [felt] calmer since I [left] that job.
+52|t|Durante la cena nos contó su plan.|Over dinner, she [told] us her plan, and we [felt] excited.
+52|c|Con el tiempo, nos hemos vuelto muy cercanos.|Over time, we have [become] very close; she [came] to every party.
+52|t|Hablamos de eso tomando un café y le di mi opinión.|We talked about it over coffee, and I [gave] him my opinion; he [found] it useful.
+52|c|En el último año han venido muchos turistas.|Over the last year, many tourists have [come]; I have [seen] the change.
+52|t|Durante la noche alguien dejó una caja en mi puerta.|Overnight, someone [left] a box at my door; I [found] it in the morning.
+52|c|En las últimas semanas les he contado mis planes a mis amigos y me han dado ideas.|Over the past few weeks, I have [told] my friends about my plans, and they have [given] me ideas.
+52|t|A lo largo de los años, ha traído alegría a muchas personas.|Over the years, she has [brought] joy to many people; I [felt] it when I met her.
+52|c|Durante el verano pusimos un jardín en el patio.|Over the summer, we [put] a garden in the backyard and [saw] it grow.
+52|t|En la última década, la tecnología se ha vuelto parte de todo.|Over the last decade, technology has [become] part of everything; we have [found] new ways to live.
+52|c|Durante el almuerzo me dio la noticia.|Over lunch, she [gave] me the news, and I [felt] shocked.
+52|t|Con los años he visto a mis hijos crecer.|Over the years, I have [seen] my kids grow, and they have [brought] me so much happiness.
+
+# --- Regla 53 · Future Continuous ---
+53|t|Mañana a esta hora estaré viendo el partido con mis amigos; me dijeron que trajera algo de picar.|This time tomorrow, I will be watching the game with my friends; they [told] me to [bring] snacks.
+53|c|No llames a las ocho; estaré dando clase. Te lo dije ayer y lo puse en el calendario.|Don't call at eight; I will be teaching. I [told] you yesterday, and I [put] it on the calendar.
+53|t|El próximo lunes estaremos viajando a Cartagena; encontramos vuelos baratos y nos sentimos afortunados.|Next Monday, we will be traveling to Cartagena; we [found] cheap flights and [felt] lucky.
+53|c|A las diez estará presentando su proyecto; le dieron una hora y se ha vuelto más segura.|At ten, she will be presenting her project; they [gave] her an hour, and she has [become] more confident.
+53|t|¿Vas a estar usando el carro esta noche? Tengo que salir a las ocho; vi que estaba libre.|Will you be using the car tonight? I have to [leave] at eight; I [saw] it was free.
+53|c|Mañana estaré pensando en ti; sé que te sentiste nervioso, lo vi.|Tomorrow I will be thinking of you; I know you [felt] nervous, and I [saw] it.
+53|t|Esta noche estaremos cenando con mis papás; vinieron desde Cali y trajeron regalos.|Tonight we will be having dinner with my parents; they have [come] from Cali and [brought] gifts.
+53|c|Mañana a esta hora estaré volando a Miami; ya puse todo en la maleta y te dejé mis llaves.|At this time tomorrow, I will be flying to Miami; I have already [put] everything in my suitcase and [left] my keys with you.
+53|t|Estarán esperando en la entrada; nos dijeron que vendrían temprano.|They will be waiting at the entrance; they [told] us they would [come] early.
+53|c|El próximo año estaré trabajando en otra empresa; encontré un trabajo mejor y ya presenté mi renuncia.|Next year, I will be working at another company; I [found] a better job, and I [gave] my notice.
+53|t|No podemos ir a las tres; estaremos en una reunión que pusieron ayer en el calendario, y nadie nos dijo antes.|We can't go at three; we will be in a meeting they [put] on the calendar yesterday; nobody [told] us before.
+53|c|Te estaré esperando cuando vengas; encontré un café bonito.|I will be waiting for you when you [come]; I have [found] a nice café.
+53|t|A medianoche todos estarán durmiendo; no dejes la puerta abierta, como te dije.|At midnight, everyone will be sleeping; don't [leave] the door open, as I [told] you.
+53|c|Mañana estará trabajando desde casa; hoy se sintió mal y salió temprano.|Tomorrow he will be working from home; he [felt] sick today and [left] early.
+53|t|En diciembre estaremos celebrando; nos dieron la casa y nos convertimos en propietarios.|In December, we will be celebrating; they [gave] us the house, and we have [become] homeowners.
+
+# --- Regla 54 · Comparativos y superlativos ---
+54|t|Es la película más triste que he visto; la sentí profundamente.|It's the saddest movie I have ever [seen]; I [felt] it deeply.
+54|c|Llegó más temprano que todos y trajo el mejor pastel.|He [came] earlier than everyone and [brought] the best cake.
+54|t|Es el mejor regalo que me han dado; me sentí muy querido.|It's the best gift anyone has ever [given] me; I [felt] so loved.
+54|c|Encontré un camino más corto para llegar a casa; mi vecino me habló de él.|I [found] a shorter way home; my neighbor [told] me about it.
+54|t|Se ha convertido en la ciudad más cara del país; mucha gente se ha ido.|It has [become] the most expensive city in the country; many people have [left].
+54|c|Me sentí más tranquilo después de hablar contigo; me diste buenos consejos.|I [felt] calmer after talking with you; you [gave] me good advice.
+54|t|Fue la historia más divertida que nos han contado; nos sentimos mejor.|It was the funniest story anyone has ever [told] us; we [felt] better.
+54|c|Puse el libro más pesado en la repisa de abajo; mi hermano lo encontró ahí.|I [put] the heaviest book on the bottom shelf; my brother [found] it there.
+54|t|Salió más tarde de lo que pensaba, así que llegó tarde.|He [left] later than he thought, so he [came] late.
+54|c|Es la persona más generosa que he visto; le dio su abrigo a un desconocido.|She is the most generous person I have ever [seen]; she [gave] her coat to a stranger.
+54|t|Trajeron más comida de la que necesitábamos; regalamos el resto.|They [brought] more food than we needed; we [gave] the rest away.
+54|c|Este año se ha vuelto más difícil encontrar trabajo.|This year it has [become] harder to [find] a job.
+54|t|Me siento mejor que ayer; el médico me dio una medicina más fuerte.|I [feel] better than yesterday; the doctor [gave] me stronger medicine.
+54|c|Nos dijo que era el mejor día de su vida; la vimos llorar.|She [told] us it was the best day of her life; we [saw] her cry.
+54|t|Fue el viaje más largo que hemos hecho; salimos a las cuatro y volvimos a medianoche.|It was the longest trip we have ever made; we [left] at four and [came] back at midnight.
+
+# --- Regla 55 · make/let/help + objeto + infinitivo ---
+55|t|Mi mamá me hizo guardar el teléfono antes de cenar; me sentí molesto.|My mom made me [put] my phone away before dinner; I [felt] annoyed.
+55|c|Déjame ver lo que trajiste.|Let me [see] what you [brought].
+55|t|Me ayudó a encontrar mi primer trabajo; me contó de la vacante.|She helped me [find] my first job; she [told] me about the opening.
+55|c|Mis papás no me dejaban salir de noche; me sentía atrapado.|My parents didn't let me [leave] the house at night; I [felt] trapped.
+55|t|Déjame contarte lo que pasó; lo vi todo.|Let me [tell] you what happened; I [saw] everything.
+55|c|La música me hizo sentir mejor; mi amigo me dio la lista de canciones.|The music made me [feel] better; my friend [gave] me the playlist.
+55|t|Nos dejaron traer a nuestras mascotas; los niños se sintieron felices.|They let us [bring] our pets; the kids [felt] happy.
+55|c|Me ayudaste a convertirme en quien soy; me diste mucho.|You helped me [become] who I am; you [gave] me so much.
+55|t|El profesor nos hizo poner los teléfonos en la mesa; nadie se sintió feliz.|The teacher made us [put] our phones on the table; nobody [felt] happy.
+55|c|Déjame darte un consejo; ya he visto esto antes.|Let me [give] you some advice; I have [seen] this before.
+55|t|Su jefe lo hizo venir el domingo; se sintió enojado.|His boss made him [come] on Sunday; he [felt] angry.
+55|c|Me ayudó a ver las cosas de otra manera; me contó su historia.|He helped me [see] things differently; he [told] me his story.
+55|t|No me dejaron entrar; dejé mi identificación en casa.|They didn't let me [come] in; I [left] my ID at home.
+55|c|Me ayudó a encontrar las palabras correctas para decirle lo que sentía.|She helped me [find] the right words; I [told] him how I felt.
+55|t|La película nos hizo sentir nostalgia; la vimos en la casa de mi abuela.|The movie made us [feel] nostalgic; we [saw] it at my grandma's house.
+
+# --- Regla 56 · Estilo indirecto ---
+56|t|Me dijo que había visto a mi hermano en el centro.|She [told] me she had [seen] my brother downtown.
+56|c|Dijo que vendría a las ocho, pero salió tarde de su casa.|He said he would [come] at eight, but he [left] his house late.
+56|t|Me contó que le habían dado una beca.|She [told] me they had [given] her a scholarship.
+56|c|Dijeron que habían encontrado a los responsables; se sentían orgullosos.|They said they had [found] the people responsible; they [felt] proud.
+56|t|Me preguntó si ya me había ido de la fiesta; le dije que seguía allí.|She asked me if I had [left] the party; I [told] her I was still there.
+56|c|Dijo que se sentía mejor; el médico le había dado una medicina nueva.|He said he [felt] better; the doctor had [given] him new medicine.
+56|t|Me dijo que había traído el postre.|She [told] me she had [brought] dessert.
+56|c|Dijo que se había convertido en abuela; se sentía muy feliz.|She said she had [become] a grandmother; she [felt] so happy.
+56|t|Nos contó que había puesto todo su dinero en el negocio.|He [told] us he had [put] all his money into the business.
+56|c|Me preguntó dónde había encontrado esa chaqueta; le dije que en un mercado.|She asked me where I had [found] that jacket; I [told] her at a market.
+56|t|Dijo que no había visto nada; se sentía nervioso.|He said he hadn't [seen] anything; he [felt] nervous.
+56|c|Me dijeron que habían venido a buscarme.|They [told] me they had [come] looking for me.
+56|t|Dijo que dejaría el trabajo en diciembre; se lo contó a su jefe ayer.|She said she would [leave] her job in December; she [told] her boss yesterday.
+56|c|Me contó que se había sentido sola en el extranjero.|She [told] me she had [felt] lonely abroad.
+56|t|Dijeron que nos darían una respuesta pronto; volvimos la semana siguiente.|They said they would [give] us an answer soon; we [came] back the next week.
+
+# --- Regla 57 · Wish + pasado simple ---
+57|t|Ojalá vinieras más seguido a las fiestas; sentimos tu ausencia.|I wish you [came] to the parties more often; we [felt] your absence.
+57|c|Ojalá me sintiera mejor; hoy salí temprano del trabajo.|I wish I [felt] better; I [left] work early today.
+57|t|Ojalá le dijera lo que siente; he visto cómo la mira.|I wish he [told] her how he feels; I have [seen] the way he looks at her.
+57|c|Ojalá me dieran más vacaciones; el mes pasado me sentí agotado.|I wish they [gave] me more vacation; I [felt] exhausted last month.
+57|t|Ojalá mi hermano viniera a visitarnos; se fue hace tres años.|I wish my brother [came] to visit us; he [left] three years ago.
+57|c|Ojalá trajera a sus hijos más seguido; se han vuelto muy altos.|I wish she [brought] her kids more often; they have [become] so tall.
+57|t|Ojalá no me sintiera tan cansado; hoy me costó levantarme.|I wish I didn't [feel] so tired; I [found] it hard to get up today.
+57|c|Ojalá guardaras el teléfono en clase; la profesora me lo dijo.|I wish you [put] your phone away in class; the teacher [told] me.
+57|t|Ojalá viera a mis abuelos más seguido; me dieron mucho amor.|I wish I [saw] my grandparents more often; they [gave] me so much love.
+57|c|Ojalá nos contaran la verdad; nos sentimos confundidos.|I wish they [told] us the truth; we [felt] confused.
+57|t|Ojalá nos viéramos más; viniste solo una vez este año.|I wish we [saw] each other more; you [came] only once this year.
+57|c|Ojalá no se fuera tan pronto; vino apenas ayer.|I wish she didn't [leave] so soon; she [came] only yesterday.
+57|t|Ojalá me dieras una segunda oportunidad; me he convertido en una mejor persona.|I wish you [gave] me a second chance; I have [become] a better person.
+57|c|Ojalá trajeras a tu perro más seguido; los niños se sintieron muy felices.|I wish you [brought] your dog more often; the kids [felt] so happy.
+57|t|Ojalá me sintiera como antes; encontré esa foto y lloré.|I wish I [felt] like before; I [found] that photo and cried.
+
+# --- Regla 58 · Conectores formales ---
+58|t|Aunque la vi, no le dije nada.|Although I [saw] her, I didn't [tell] her anything.
+58|c|A pesar de la lluvia, vinieron todos; además, trajeron comida.|Despite the rain, everyone [came]; moreover, they [brought] food.
+58|t|Encontramos el lugar; sin embargo, estaba cerrado, así que nos fuimos.|We [found] the place; however, it was closed, so we [left].
+58|c|Aunque se sentía mal, fue a trabajar; sin embargo, salió temprano.|Although she [felt] sick, she went to work; however, she [left] early.
+58|t|A pesar de lo que le dijeron, se convirtió en artista.|Despite what they [told] him, he [became] an artist.
+58|c|Le dieron el trabajo; además, el salario le pareció justo.|They [gave] her the job; moreover, she [found] the salary fair.
+58|t|Aunque trajo comida, nadie tenía hambre; sin embargo, todos se sintieron agradecidos.|Although he [brought] food, nobody was hungry; however, everyone [felt] grateful.
+58|c|Puse todo mi esfuerzo; sin embargo, no gané y me sentí decepcionado.|I [put] in all my effort; however, I didn't win, and I [felt] disappointed.
+58|t|A pesar de haberlo visto antes, no lo reconocí; se había puesto muy delgado.|Despite having [seen] him before, I didn't recognize him; he had [become] very thin.
+58|c|Aunque se fue hace años, todavía llama; además, vino la Navidad pasada.|Although she [left] years ago, she still calls; moreover, she [came] last Christmas.
+58|t|El viaje fue largo; sin embargo, nos sentimos felices cuando vimos el mar.|The trip was long; however, we [felt] happy when we [saw] the ocean.
+58|c|A pesar de que le conté todo, no me creyó; sin embargo, me dio tiempo.|Despite the fact that I [told] him everything, he didn't believe me; however, he [gave] me time.
+58|t|Llegó temprano; además, trajo café para todos.|She [came] early; moreover, she [brought] coffee for everyone.
+58|c|Aunque he encontrado trabajo, sigo buscando; siento que puedo hacerlo mejor.|Although I have [found] a job, I'm still looking; I [feel] I can do better.
+58|t|La casa era pequeña; sin embargo, nos sentimos cómodos y pusimos algunos cuadros.|The house was small; however, we [felt] comfortable, and we [put] up some pictures.
+
+# --- Regla 59 · Phrasal verbs B2 ---
+59|t|Me encontré con Juan en el aeropuerto; vio mi maleta y me echó una mano.|I ran into Juan at the airport; he [saw] my suitcase and [gave] me a hand.
+59|c|Nos hemos llevado bien desde que vino a vivir aquí; se ha vuelto como un hermano.|We have gotten along since he [came] to live here; he has [become] like a brother.
+59|t|Nunca te rindas; encontrarás la forma, lo siento.|Never give up; you will [find] a way, I [feel] it.
+59|c|Espero con ansias el viaje; mi amigo me habló de él y me dio consejos.|I'm looking forward to the trip; my friend [told] me about it and [gave] me tips.
+59|t|Se rindió cuando sintió que no podía más y dejó la carrera.|She gave up when she [felt] she couldn't go on, and she [left] the race.
+59|c|Me encontré con mi exjefe y me contó que había dejado la empresa.|I ran into my old boss, and he [told] me he had [left] the company.
+59|t|¿Te llevas bien con tus suegros? Vinieron a visitarnos y trajeron un pastel.|Do you get along with your in-laws? They [came] to visit and [brought] a cake.
+59|c|Casi me rindo, pero encontré la motivación cuando vi a mis hijos.|I almost gave up, but I [found] the motivation when I [saw] my kids.
+59|t|Esperamos con ansias la boda; ya pusimos la fecha en el calendario y se lo contamos a todos.|We're looking forward to the wedding; we have [put] the date on the calendar and [told] everyone.
+59|c|No se llevaban bien, así que ella se fue; se sintió libre.|They didn't get along, so she [left]; she [felt] free.
+59|t|Me topé con una vieja amiga que se había vuelto famosa; me dio su autógrafo.|I ran into an old friend who had [become] famous; she [gave] me her autograph.
+59|c|Se rindió porque sintió que nadie lo apoyaba; le dije que yo sí.|He gave up because he [felt] nobody supported him; I [told] him I did.
+59|t|Siempre nos hemos llevado bien; me trajo flores en mi cumpleaños y vino a mi fiesta.|We have always gotten along; she [brought] me flowers on my birthday and [came] to my party.
+59|c|Espero con ansias tu visita; trae tu cámara y ven temprano.|I'm looking forward to your visit; [bring] your camera and [come] early.
+59|t|Me encontré con tu hermana; me dijo que se ha sentido mucho mejor.|I ran into your sister; she [told] me she has [felt] much better lately.
