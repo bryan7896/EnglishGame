@@ -532,11 +532,11 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
 }
 
 export function getExerciseTypeIcon(type) {
-  const i = { traduccion: "📝", completar: "✏️", seleccionar: "🎯", corregir: "🔍", dictado: "🎧" };
+  const i = { traduccion: "📝", completar: "✏️", seleccionar: "🎯", corregir: "🔍", dictado: "🎧", ordenamiento: "🔀" };
   return i[type] || "📌";
 }
 
 export function getExerciseTypeName(type) {
-  const n = { traduccion: "Traducción", completar: "Completar", seleccionar: "Emparejar", corregir: "Corregir", dictado: "Dictado" };
+  const n = { traduccion: "Traducción", completar: "Completar", seleccionar: "Emparejar", corregir: "Corregir", dictado: "Dictado", ordenamiento: "Ordenar" };
   return n[type] || type;
 }

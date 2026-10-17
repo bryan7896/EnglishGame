@@ -79,6 +79,7 @@
     if (!ex) return "";
     switch (ex.type) {
       case "traduccion": return ex.englishWord || ex.englishWords || "";
+      case "ordenamiento": return ex.englishWord || "";
       case "completar": try { return fillCompletarBlanks(ex.englishSentence || "", ex.options || []); } catch (e) { return ""; }
       case "corregir": return ex.fraseCorrecta || "";
       case "dictado": return ex.text || "";
@@ -113,13 +114,69 @@
     return arr;
   }
 
+  // Inserta `it` en `banco` en una posición al azar (uniforme entre 0 y el
+  // largo actual) y devuelve esa posición.
+  function rlInsertarAlAzar(banco, it) {
+    const pos = Math.floor(Math.random() * (banco.length + 1));
+    banco.splice(pos, 0, it);
+    return pos;
+  }
+
+  // "Juego de ordenamiento": cada ejercicio de traducción trae consigo 3
+  // tarjetas de ordenamiento con la misma frase (mismo español/inglés).
+  // A propósito NO viajan pegadas ni en bloque: cada una se mezcla por su
+  // cuenta en cualquier parte del banco (se pueden intercalar con
+  // completar, corregir, con las de OTRA traducción, etc.) — lo único que
+  // se garantiza es que las 3 queden en alguna posición ANTERIOR a su
+  // traducción, nunca después ni pegadas entre sí a la fuerza.
+  // Por si rlCorregirRachas (al evitar 3 iguales seguidas) llegó a
+  // intercambiar una tarjeta de ordenamiento con algo que estaba después
+  // de su traducción: la vuelve a poner en una posición al azar ANTES de
+  // ella. No debería pasar seguido, pero así la regla "siempre antes"
+  // queda garantizada pase lo que pase con la corrección de rachas.
+  function rlOrdenAntesDeSuTraduccion(banco) {
+    const hallarTrad = (uid) => banco.findIndex((x) => x.k === "ex" && x.ex && x.ex.type === "traduccion" && x.uid === uid);
+    // Cada corrección cambia los índices de todo lo demás, así que se
+    // reinicia el barrido desde el principio después de cada una (son
+    // pocas tarjetas, esto termina rápido).
+    for (let guard = 0; guard < 50; guard++) {
+      let corregido = false;
+      for (let i = 0; i < banco.length; i++) {
+        const it = banco[i];
+        if (!(it.k === "ex" && it.ex && it.ex.type === "ordenamiento" && it.ex.origenUid)) continue;
+        const posTrad = hallarTrad(it.ex.origenUid);
+        if (posTrad === -1 || i < posTrad) continue;
+        banco.splice(i, 1);
+        const posTradTrasQuitar = hallarTrad(it.ex.origenUid);
+        const pos = Math.floor(Math.random() * (posTradTrasQuitar + 1));
+        banco.splice(pos, 0, it);
+        corregido = true;
+        break;
+      }
+      if (!corregido) break;
+    }
+    return banco;
+  }
+
   function rlMezclarEnBanco(nuevas, alFrente) {
     const banco = RL.banco.slice();
     shuffleArray(nuevas).forEach((it) => {
-      const pos = Math.floor(Math.random() * (banco.length + 1));
-      banco.splice(pos, 0, it);
+      if (it.k === "ex" && it.ex && it.ex.type === "traduccion") {
+        rlInsertarAlAzar(banco, it);
+        const base = buildOrdenamientoFromTraduccion(it.ex);
+        if (base) {
+          for (let n = 0; n < 3; n++) {
+            const limite = banco.indexOf(it); // se va corriendo +1 con cada inserción previa
+            const ordItem = { k: "ex", uid: rlUid(), ex: Object.assign({}, base, { origenUid: it.uid }), src: it.src, retry: false };
+            const pos = Math.floor(Math.random() * (limite + 1));
+            banco.splice(pos, 0, ordItem);
+          }
+        }
+      } else {
+        rlInsertarAlAzar(banco, it);
+      }
     });
-    RL.banco = rlCorregirRachas(banco);
+    RL.banco = rlOrdenAntesDeSuTraduccion(rlCorregirRachas(banco));
     if (alFrente && alFrente.length) RL.banco = alFrente.concat(RL.banco);
   }
 
@@ -512,6 +569,15 @@
             rlEjercicioTerminado(item, passed, decision, getTraduccionReportEntry(ex, ans, duda), ans);
           });
         };
+        break;
+      }
+      case "ordenamiento": {
+        const limpiarOrdenamiento = renderOrdenamientoExercise(ex, c);
+        c.addEventListener("ordenamiento-done", (e) => {
+          const { passed } = e.detail;
+          rlEjercicioTerminado(item, passed, null, getOrdenamientoReportEntry(ex, passed), ex.englishWord);
+        });
+        RLV.limpiar = limpiarOrdenamiento || null;
         break;
       }
       case "completar": {
