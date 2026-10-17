@@ -2267,6 +2267,65 @@ textarea:focus-visible,
 .aventura-overlay[hidden] { display: none; }
 .aventura-overlay iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #0e0f1a; }
 
+/* ============ 14. ORDENAMIENTO (arrastrar palabras) ============ */
+.ord-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.ord-pill {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  padding-inline: 5px;
+  padding-block: 2px;
+  border-radius: 10px;
+  background: #cef1f9;
+  color: #000000;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background 0.15s ease;
+}
+
+.ord-pill:active { cursor: grabbing; }
+
+.ord-pill.ord-hover { background: #bcffbb; }
+
+.ord-pill.ord-ghost {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0.5;
+  pointer-events: none;
+  justify-content: center;
+}
+
+.ord-row-solved {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #d7f4ff;
+  color: #000000;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.28);
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
 
 /* ============================================================
    Reels — secuencia infinita a pantalla completa
@@ -3867,12 +3926,12 @@ export function renderMap(nodes, progress, callbacks, practicaInicial) {
 }
 
 export function getExerciseTypeIcon(type) {
-  const i = { traduccion: "📝", completar: "✏️", seleccionar: "🎯", corregir: "🔍", dictado: "🎧" };
+  const i = { traduccion: "📝", completar: "✏️", seleccionar: "🎯", corregir: "🔍", dictado: "🎧", ordenamiento: "🔀" };
   return i[type] || "📌";
 }
 
 export function getExerciseTypeName(type) {
-  const n = { traduccion: "Traducción", completar: "Completar", seleccionar: "Emparejar", corregir: "Corregir", dictado: "Dictado" };
+  const n = { traduccion: "Traducción", completar: "Completar", seleccionar: "Emparejar", corregir: "Corregir", dictado: "Dictado", ordenamiento: "Ordenar" };
   return n[type] || type;
 }
   // exercises/idioma.js
@@ -4404,6 +4463,212 @@ export function getTraduccionReportEntry(exercise, userAnswer, duda) {
     duda: duda || ''
   };
 }
+  // exercises/ordenamiento.js
+// ---------------------------------------------------------------------
+// "Juego de ordenamiento": arrastrar palabras sueltas hasta armar la
+// traducción correcta. Se genera automáticamente a partir de un ejercicio
+// de traducción (misma frase español/inglés) — ver rlExpandirTraducciones
+// en reels/reels-core.js, que mete 3 tarjetas de este tipo justo antes de
+// cada tarjeta de traducción.
+// ---------------------------------------------------------------------
+
+// Limpia un texto en el idioma objetivo y lo separa en palabras sueltas,
+// todas en minúscula y sin signos de puntuación en los bordes (sin punto
+// final, sin mayúscula inicial), conservando apóstrofos internos
+// ("she's", "don't").
+export function tokenizeOrdenamiento(text) {
+  return String(text || "")
+    .trim()
+    .split(/\s+/)
+    .map((w) => w.replace(/^[¿¡"'“‘(]+/, "").replace(/[.,!?;:"”’)]+$/, "").toLowerCase())
+    .filter(Boolean);
+}
+
+// A partir de un ejercicio de traducción construye uno de ordenamiento con
+// la misma frase. Frases de menos de 3 palabras no se arman (no tiene
+// sentido "ordenar" 1-2 fichas), así que devuelve null en ese caso.
+export function buildOrdenamientoFromTraduccion(traduccionEx) {
+  if (!traduccionEx) return null;
+  const spanish = traduccionEx.spanishWord || traduccionEx.spanishWords || "";
+  const english = traduccionEx.englishWord || traduccionEx.englishWords || "";
+  const tokens = tokenizeOrdenamiento(english);
+  if (tokens.length < 3) return null;
+  return {
+    type: "ordenamiento",
+    spanishWord: spanish,
+    englishWord: tokens.join(" "),
+    reglaIds: Array.isArray(traduccionEx.reglaIds) ? traduccionEx.reglaIds.slice() : [],
+  };
+}
+
+function speakOrdenamientoText(text, rate) {
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  setTimeout(() => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = getTargetLangMeta().ttsLang;
+    utterance.rate = rate || 0.95;
+    applyPreferredVoice(utterance, getTargetLangMeta().code);
+    window.speechSynthesis.speak(utterance);
+  }, 50);
+}
+
+// Renderiza el ejercicio dentro de `container` y conecta el arrastre.
+// Cuando el usuario termina (acierta o presiona "Me rindo" y luego
+// "Continuar") dispara un evento "ordenamiento-done" en `container` con
+// detail: { passed }. Devuelve una función de limpieza (por si la tarjeta
+// se cierra a mitad de un arrastre).
+export function renderOrdenamientoExercise(exercise, container) {
+  const spanish = exercise.spanishWord || exercise.spanishWords || "";
+  const tokens = tokenizeOrdenamiento(exercise.englishWord || exercise.englishWords || "");
+  const idsCorrectos = tokens.map((_, i) => i);
+
+  let order = shuffleArray(idsCorrectos.slice());
+  if (idsCorrectos.length > 1) {
+    let intentos = 0;
+    while (order.every((v, i) => v === idsCorrectos[i]) && intentos < 10) {
+      order = shuffleArray(idsCorrectos.slice());
+      intentos++;
+    }
+  }
+
+  container.innerHTML = `
+    <div class="question-bubble">Organiza la traducción de:<br><strong>${window._escHTML(spanish)}</strong></div>
+    <div class="ord-row"></div>
+    <div class="button-group"><button type="button" class="btn-action btn-check ord-giveup">Me rindo</button></div>
+  `;
+  const rowEl = container.querySelector(".ord-row");
+  const giveupBtn = container.querySelector(".ord-giveup");
+
+  let solved = false;
+  let dragId = null;
+  let ghost = null;
+  let offX = 0, offY = 0;
+
+  function pintarFila() {
+    rowEl.innerHTML = order
+      .map((id) => `<button type="button" class="ord-pill" data-id="${id}">${window._escHTML(tokens[id])}</button>`)
+      .join("");
+    rowEl.querySelectorAll(".ord-pill").forEach((pill) => pill.addEventListener("pointerdown", onPointerDown));
+  }
+
+  function moverGhost(x, y) {
+    if (!ghost) return;
+    ghost.style.left = (x - offX) + "px";
+    ghost.style.top = (y - offY) + "px";
+  }
+
+  function pillsActuales() { return Array.from(rowEl.querySelectorAll(".ord-pill")); }
+
+  // Decide en qué hueco (0..N) caería la ficha soltada en (x,y), según qué
+  // ficha está más cerca y si el cursor está en su mitad izquierda o derecha.
+  function calcularIndiceInsercion(x, y, pills) {
+    if (!pills.length) return 0;
+    let mejorIdx = 0, mejorDist = Infinity, lado = 0;
+    pills.forEach((p, idx) => {
+      const r = p.getBoundingClientRect();
+      const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      const dx = x - cx, dy = y - cy;
+      const dist = dx * dx + dy * dy * 4; // más peso al eje Y: no saltar de fila
+      if (dist < mejorDist) { mejorDist = dist; mejorIdx = idx; lado = x < cx ? 0 : 1; }
+    });
+    return mejorIdx + lado;
+  }
+
+  function marcarHover(x, y) {
+    const pills = pillsActuales();
+    pills.forEach((p) => p.classList.remove("ord-hover"));
+    if (!pills.length) return;
+    const idx = calcularIndiceInsercion(x, y, pills);
+    if (pills[idx - 1]) pills[idx - 1].classList.add("ord-hover");
+    if (pills[idx]) pills[idx].classList.add("ord-hover");
+  }
+
+  function limpiarHover() { pillsActuales().forEach((p) => p.classList.remove("ord-hover")); }
+
+  function onPointerMove(e) {
+    if (dragId === null) return;
+    moverGhost(e.clientX, e.clientY);
+    marcarHover(e.clientX, e.clientY);
+  }
+
+  function onPointerUp(e) {
+    if (dragId === null) return;
+    const pills = pillsActuales();
+    const idx = calcularIndiceInsercion(e.clientX, e.clientY, pills);
+    order.splice(Math.max(0, Math.min(order.length, idx)), 0, dragId);
+    terminarDrag();
+    pintarFila();
+    if (order.length === idsCorrectos.length && order.every((v, i) => v === idsCorrectos[i])) resolver(true);
+  }
+
+  function terminarDrag() {
+    document.removeEventListener("pointermove", onPointerMove);
+    document.removeEventListener("pointerup", onPointerUp);
+    document.removeEventListener("pointercancel", onPointerUp);
+    if (ghost) { ghost.remove(); ghost = null; }
+    limpiarHover();
+    dragId = null;
+  }
+
+  function onPointerDown(e) {
+    if (solved || dragId !== null) return;
+    const pill = e.currentTarget;
+    const id = parseInt(pill.dataset.id, 10);
+    e.preventDefault();
+    const r = pill.getBoundingClientRect();
+    offX = e.clientX - r.left;
+    offY = e.clientY - r.top;
+    dragId = id;
+    speakOrdenamientoText(tokens[id]);
+    order = order.filter((x) => x !== id);
+    pintarFila();
+    ghost = document.createElement("div");
+    ghost.className = "ord-pill ord-ghost";
+    ghost.style.width = r.width + "px";
+    ghost.style.height = r.height + "px";
+    ghost.textContent = tokens[id];
+    document.body.appendChild(ghost);
+    moverGhost(e.clientX, e.clientY);
+    document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("pointerup", onPointerUp);
+    document.addEventListener("pointercancel", onPointerUp);
+  }
+
+  function resolver(porSuCuenta) {
+    solved = true;
+    rowEl.innerHTML = `<div class="ord-row-solved">${window._escHTML(tokens.join(" "))}</div>`;
+    speakOrdenamientoText(tokens.join(" "), 0.85);
+    giveupBtn.textContent = "Continuar";
+    giveupBtn.dataset.solvedBySelf = porSuCuenta ? "1" : "0";
+  }
+
+  giveupBtn.addEventListener("click", () => {
+    if (!solved) {
+      terminarDrag();
+      order = idsCorrectos.slice();
+      resolver(false);
+      return;
+    }
+    const passed = giveupBtn.dataset.solvedBySelf === "1";
+    container.dispatchEvent(new CustomEvent("ordenamiento-done", { detail: { passed }, bubbles: true }));
+  });
+
+  pintarFila();
+
+  return function limpiar() { terminarDrag(); };
+}
+
+export function getOrdenamientoReportEntry(exercise, solvedByUser) {
+  return {
+    type: "ordenamiento",
+    original: exercise.spanishWord,
+    expected: exercise.englishWord,
+    userAnswer: solvedByUser ? exercise.englishWord : "(usó \"Me rindo\")",
+    duda: "",
+  };
+}
+
   // exercises/completar.js
 
 export function renderCompletarExercise(exercise, container, isRetry = false) {
@@ -9298,7 +9563,7 @@ function n1ReelsTerminar() {
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 50;
-  const RL_VERSION = "reels 18.1";
+  const RL_VERSION = "reels 18.2";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -9371,6 +9636,7 @@ function n1ReelsTerminar() {
     if (!ex) return "";
     switch (ex.type) {
       case "traduccion": return ex.englishWord || ex.englishWords || "";
+      case "ordenamiento": return ex.englishWord || "";
       case "completar": try { return fillCompletarBlanks(ex.englishSentence || "", ex.options || []); } catch (e) { return ""; }
       case "corregir": return ex.fraseCorrecta || "";
       case "dictado": return ex.text || "";
@@ -9405,13 +9671,69 @@ function n1ReelsTerminar() {
     return arr;
   }
 
+  // Inserta `it` en `banco` en una posición al azar (uniforme entre 0 y el
+  // largo actual) y devuelve esa posición.
+  function rlInsertarAlAzar(banco, it) {
+    const pos = Math.floor(Math.random() * (banco.length + 1));
+    banco.splice(pos, 0, it);
+    return pos;
+  }
+
+  // "Juego de ordenamiento": cada ejercicio de traducción trae consigo 3
+  // tarjetas de ordenamiento con la misma frase (mismo español/inglés).
+  // A propósito NO viajan pegadas ni en bloque: cada una se mezcla por su
+  // cuenta en cualquier parte del banco (se pueden intercalar con
+  // completar, corregir, con las de OTRA traducción, etc.) — lo único que
+  // se garantiza es que las 3 queden en alguna posición ANTERIOR a su
+  // traducción, nunca después ni pegadas entre sí a la fuerza.
+  // Por si rlCorregirRachas (al evitar 3 iguales seguidas) llegó a
+  // intercambiar una tarjeta de ordenamiento con algo que estaba después
+  // de su traducción: la vuelve a poner en una posición al azar ANTES de
+  // ella. No debería pasar seguido, pero así la regla "siempre antes"
+  // queda garantizada pase lo que pase con la corrección de rachas.
+  function rlOrdenAntesDeSuTraduccion(banco) {
+    const hallarTrad = (uid) => banco.findIndex((x) => x.k === "ex" && x.ex && x.ex.type === "traduccion" && x.uid === uid);
+    // Cada corrección cambia los índices de todo lo demás, así que se
+    // reinicia el barrido desde el principio después de cada una (son
+    // pocas tarjetas, esto termina rápido).
+    for (let guard = 0; guard < 50; guard++) {
+      let corregido = false;
+      for (let i = 0; i < banco.length; i++) {
+        const it = banco[i];
+        if (!(it.k === "ex" && it.ex && it.ex.type === "ordenamiento" && it.ex.origenUid)) continue;
+        const posTrad = hallarTrad(it.ex.origenUid);
+        if (posTrad === -1 || i < posTrad) continue;
+        banco.splice(i, 1);
+        const posTradTrasQuitar = hallarTrad(it.ex.origenUid);
+        const pos = Math.floor(Math.random() * (posTradTrasQuitar + 1));
+        banco.splice(pos, 0, it);
+        corregido = true;
+        break;
+      }
+      if (!corregido) break;
+    }
+    return banco;
+  }
+
   function rlMezclarEnBanco(nuevas, alFrente) {
     const banco = RL.banco.slice();
     shuffleArray(nuevas).forEach((it) => {
-      const pos = Math.floor(Math.random() * (banco.length + 1));
-      banco.splice(pos, 0, it);
+      if (it.k === "ex" && it.ex && it.ex.type === "traduccion") {
+        rlInsertarAlAzar(banco, it);
+        const base = buildOrdenamientoFromTraduccion(it.ex);
+        if (base) {
+          for (let n = 0; n < 3; n++) {
+            const limite = banco.indexOf(it); // se va corriendo +1 con cada inserción previa
+            const ordItem = { k: "ex", uid: rlUid(), ex: Object.assign({}, base, { origenUid: it.uid }), src: it.src, retry: false };
+            const pos = Math.floor(Math.random() * (limite + 1));
+            banco.splice(pos, 0, ordItem);
+          }
+        }
+      } else {
+        rlInsertarAlAzar(banco, it);
+      }
     });
-    RL.banco = rlCorregirRachas(banco);
+    RL.banco = rlOrdenAntesDeSuTraduccion(rlCorregirRachas(banco));
     if (alFrente && alFrente.length) RL.banco = alFrente.concat(RL.banco);
   }
 
@@ -9600,6 +9922,20 @@ function n1ReelsTerminar() {
       RL.cont.proxYt = rlRand(RL_YT_MIN, RL_YT_MAX);
       if (rlPalabraParaYT()) return { k: "sorpresa", tipo: "yt", uid: rlUid() };
     }
+    // El ciclo general (listening/historia/pct/reglas) va ANTES que Azure: ambos
+    // contadores crecen al mismo ritmo (un ejercicio normal suma a los dos) y el
+    // de Azure es un umbral fijo (cada 8) mientras el general es aleatorio (2-15).
+    // Si Azure se revisara primero, cuando los dos coinciden Azure siempre ganaría
+    // la carrera y listening/historia/etc. quedarían sin salir casi nunca. Así, si
+    // ambos están listos a la vez, el ciclo general tiene prioridad y Azure solo
+    // se retrasa una tarjeta (su contador no se reinicia, así que sale en la
+    // siguiente decisión).
+    if (RL.cont.sorpresa >= RL.cont.proxSorpresa) {
+      RL.cont.sorpresa = 0;
+      RL.cont.proxSorpresa = rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX);
+      const tipo = rlElegirSorpresa();
+      if (tipo) return { k: "sorpresa", tipo, uid: rlUid() };
+    }
     // Azure (curso AI-901): cada N ejercicios, máximo M tandas por día (se configura en el curso).
     if (getTargetLanguage() === "en") {
       const az = rlAzureCfg();
@@ -9607,12 +9943,6 @@ function n1ReelsTerminar() {
         RL.cont.az = 0;
         return { k: "sorpresa", tipo: "azure", uid: rlUid(), restantes: az.porTanda };
       }
-    }
-    if (RL.cont.sorpresa >= RL.cont.proxSorpresa) {
-      RL.cont.sorpresa = 0;
-      RL.cont.proxSorpresa = rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX);
-      const tipo = rlElegirSorpresa();
-      if (tipo) return { k: "sorpresa", tipo, uid: rlUid() };
     }
     return RL.banco.shift();
   }
@@ -9796,6 +10126,15 @@ function n1ReelsTerminar() {
             rlEjercicioTerminado(item, passed, decision, getTraduccionReportEntry(ex, ans, duda), ans);
           });
         };
+        break;
+      }
+      case "ordenamiento": {
+        const limpiarOrdenamiento = renderOrdenamientoExercise(ex, c);
+        c.addEventListener("ordenamiento-done", (e) => {
+          const { passed } = e.detail;
+          rlEjercicioTerminado(item, passed, null, getOrdenamientoReportEntry(ex, passed), ex.englishWord);
+        });
+        RLV.limpiar = limpiarOrdenamiento || null;
         break;
       }
       case "completar": {
@@ -11449,6 +11788,10 @@ function n1ReelsTerminar() {
       lines.push("   🎧 Correcto: " + entry.original); 
       lines.push("   ✏️ Usuario: " + entry.userAnswer); 
     }
+    else if (entry.type === "ordenamiento") {
+      lines.push("   🔀 Frase: " + entry.expected);
+      lines.push("   ✏️ " + (entry.userAnswer === entry.expected ? "La armó sin ayuda" : entry.userAnswer));
+    }
     if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
     lines.push("");
     return lines;
@@ -11579,7 +11922,7 @@ function n1ReelsTerminar() {
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">18.1 (15-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">18.2 (16-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>

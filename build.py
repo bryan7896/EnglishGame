@@ -43,6 +43,7 @@ EXERCISE_FILES = {
     "exercises/idioma.js": "__IDIOMA_JS__",
     "exercises/contracciones.js": "__CONTRACCIONES_JS__",
     "exercises/traduccion.js": "__TRADUCCION_JS__",
+    "exercises/ordenamiento.js": "__ORDENAMIENTO_JS__",
     "exercises/completar.js": "__COMPLETAR_JS__",
     "exercises/seleccionar.js": "__SELECCIONAR_JS__",
     "exercises/corregir.js": "__CORREGIR_JS__",
@@ -727,6 +728,7 @@ def get_html_template():
   __IDIOMA_JS__
   __CONTRACCIONES_JS__
   __TRADUCCION_JS__
+  __ORDENAMIENTO_JS__
   __COMPLETAR_JS__
   __SELECCIONAR_JS__
   __CORREGIR_JS__
@@ -1442,6 +1444,10 @@ def get_main_logic():
     else if (entry.type === "dictado") { 
       lines.push("   🎧 Correcto: " + entry.original); 
       lines.push("   ✏️ Usuario: " + entry.userAnswer); 
+    }
+    else if (entry.type === "ordenamiento") {
+      lines.push("   🔀 Frase: " + entry.expected);
+      lines.push("   ✏️ " + (entry.userAnswer === entry.expected ? "La armó sin ayuda" : entry.userAnswer));
     }
     if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
     lines.push("");
