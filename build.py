@@ -1443,8 +1443,7 @@ def get_main_logic():
       lines.push("   ✏️ Usuario: " + entry.userAnswer); 
     }
     else if (entry.type === "ordenamiento") {
-      lines.push("   🔀 Frase: " + entry.expected);
-      lines.push("   ✏️ " + (entry.userAnswer === entry.expected ? "La armó sin ayuda" : entry.userAnswer));
+      lines.push("   🔀 Ejercicio de ordenamiento 🔀");
     }
     if (entry.duda) lines.push("   💭 Consulta: " + entry.duda);
     lines.push("");
