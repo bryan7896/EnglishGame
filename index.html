@@ -10166,14 +10166,15 @@ function n1ReelsTerminar() {
 
   // ---------- Informe ----------
   function rlRegistrar(item, entrada, passed) {
-    if (!entrada) return;
-    RL.reporte.entradas.push(Object.assign({}, entrada, {
-      rid: rlUid(),
-      reglaIds: (item.ex && item.ex.reglaIds) || [],
-      retry: !!item.retry,
-      passed: !!passed,
-      fecha: new Date().toISOString(),
-    }));
+      if (!entrada) return;
+      if (item.ex && item.ex.type === "ordenamiento") return; // no entra al informe
+      RL.reporte.entradas.push(Object.assign({}, entrada, {
+        rid: rlUid(),
+        reglaIds: (item.ex && item.ex.reglaIds) || [],
+        retry: !!item.retry,
+        passed: !!passed,
+        fecha: new Date().toISOString(),
+      }));
   }
 
   function rlGrupoKey(e) { return (e.reglaIds || []).slice().sort((a, b) => a - b).join(",") || "none"; }
@@ -10211,16 +10212,6 @@ function n1ReelsTerminar() {
       }
       lines.push("");
     });
-    const mundo = RL.reporte.mundo || [];
-    if (mundo.length) {
-      lines.push("🌎 MUNDO REAL (clips de YouGlish)");
-      lines.push("=".repeat(40));
-      mundo.forEach((m, i) => {
-        lines.push((i + 1) + ". " + (m.ok ? "✅" : "❌") + " Frase: \"" + m.frase + "\"");
-        lines.push("   🎯 Palabra a reconocer: " + m.objetivo + " · ✏️ Elegiste: " + m.elegida + " · (búsqueda: " + m.palabra + ")");
-      });
-      lines.push("");
-    }
     const aventura = buildAventuraReportLines();
     if (aventura.length) {
       lines.push("🎮 AVENTURA (juego de conversaciones por audio)");
@@ -13024,7 +13015,6 @@ function n1ReelsTerminar() {
     const lines = [];
     lines.push(counter + ". " + (entry.original || entry.messageText || "").substring(0, 80));
     if (entry.type === "traduccion") { 
-      lines.push("   ✅ Esperado: " + entry.expected); 
       lines.push("   ✏️ Usuario: " + entry.userAnswer); 
     }
     else if (entry.type === "completar") { 
@@ -13035,10 +13025,8 @@ function n1ReelsTerminar() {
       if (entry.manualReview) {
         lines.push("   🔁 Marcado para corrección (antes: " + (ORIGIN_TYPE_LABELS[entry.originType] || entry.originType) + ")");
         lines.push("   ✏️ Tu respuesta: " + entry.original);
-        lines.push("   ✅ Correcto: " + entry.expected);
       } else {
         lines.push("   ❌ Error: " + entry.original); 
-        lines.push("   ✅ Correcto: " + entry.expected); 
         lines.push("   ✏️ Usuario: " + entry.userAnswer); 
       }
     }
@@ -13059,12 +13047,12 @@ function n1ReelsTerminar() {
   // AppRules (por si cambió de dispositivo, el
   // NOMBRE de la regla siempre se toma de la lista vigente).
   function reglaGroupLabel(reglaIds) {
-    if (!reglaIds || !reglaIds.length) return "📎 Sin regla gramatical asociada";
-    const nombres = reglaIds.map((id) => {
-      const r = findRegla(id);
-      return r ? r.regla : ("Regla #" + id);
-    });
-    return "📚 " + nombres.join(" + ");
+      if (!reglaIds || !reglaIds.length) return "📎 Sin regla gramatical asociada";
+      const nombres = reglaIds.map((id) => {
+        const r = findRegla(id);
+        return r ? (r.regla + " (#" + r.id + ")") : ("Regla #" + id);
+      });
+      return "📚 " + nombres.join(" + ");
   }
 
   const REPORT_TYPE_NAMES = { traduccion: "TRADUCCIÓN", completar: "COMPLETAR", seleccionar: "EMPAREJAR", corregir: "CORREGIR" };

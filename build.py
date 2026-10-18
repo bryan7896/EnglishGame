@@ -1423,7 +1423,6 @@ def get_main_logic():
     const lines = [];
     lines.push(counter + ". " + (entry.original || entry.messageText || "").substring(0, 80));
     if (entry.type === "traduccion") { 
-      lines.push("   ✅ Esperado: " + entry.expected); 
       lines.push("   ✏️ Usuario: " + entry.userAnswer); 
     }
     else if (entry.type === "completar") { 
@@ -1434,10 +1433,8 @@ def get_main_logic():
       if (entry.manualReview) {
         lines.push("   🔁 Marcado para corrección (antes: " + (ORIGIN_TYPE_LABELS[entry.originType] || entry.originType) + ")");
         lines.push("   ✏️ Tu respuesta: " + entry.original);
-        lines.push("   ✅ Correcto: " + entry.expected);
       } else {
         lines.push("   ❌ Error: " + entry.original); 
-        lines.push("   ✅ Correcto: " + entry.expected); 
         lines.push("   ✏️ Usuario: " + entry.userAnswer); 
       }
     }
@@ -1458,12 +1455,12 @@ def get_main_logic():
   // AppRules (por si cambió de dispositivo, el
   // NOMBRE de la regla siempre se toma de la lista vigente).
   function reglaGroupLabel(reglaIds) {
-    if (!reglaIds || !reglaIds.length) return "📎 Sin regla gramatical asociada";
-    const nombres = reglaIds.map((id) => {
-      const r = findRegla(id);
-      return r ? r.regla : ("Regla #" + id);
-    });
-    return "📚 " + nombres.join(" + ");
+      if (!reglaIds || !reglaIds.length) return "📎 Sin regla gramatical asociada";
+      const nombres = reglaIds.map((id) => {
+        const r = findRegla(id);
+        return r ? (r.regla + " (#" + r.id + ")") : ("Regla #" + id);
+      });
+      return "📚 " + nombres.join(" + ");
   }
 
   const REPORT_TYPE_NAMES = { traduccion: "TRADUCCIÓN", completar: "COMPLETAR", seleccionar: "EMPAREJAR", corregir: "CORREGIR" };

@@ -257,14 +257,15 @@
 
   // ---------- Informe ----------
   function rlRegistrar(item, entrada, passed) {
-    if (!entrada) return;
-    RL.reporte.entradas.push(Object.assign({}, entrada, {
-      rid: rlUid(),
-      reglaIds: (item.ex && item.ex.reglaIds) || [],
-      retry: !!item.retry,
-      passed: !!passed,
-      fecha: new Date().toISOString(),
-    }));
+      if (!entrada) return;
+      if (item.ex && item.ex.type === "ordenamiento") return; // no entra al informe
+      RL.reporte.entradas.push(Object.assign({}, entrada, {
+        rid: rlUid(),
+        reglaIds: (item.ex && item.ex.reglaIds) || [],
+        retry: !!item.retry,
+        passed: !!passed,
+        fecha: new Date().toISOString(),
+      }));
   }
 
   function rlGrupoKey(e) { return (e.reglaIds || []).slice().sort((a, b) => a - b).join(",") || "none"; }
@@ -302,16 +303,6 @@
       }
       lines.push("");
     });
-    const mundo = RL.reporte.mundo || [];
-    if (mundo.length) {
-      lines.push("🌎 MUNDO REAL (clips de YouGlish)");
-      lines.push("=".repeat(40));
-      mundo.forEach((m, i) => {
-        lines.push((i + 1) + ". " + (m.ok ? "✅" : "❌") + " Frase: \"" + m.frase + "\"");
-        lines.push("   🎯 Palabra a reconocer: " + m.objetivo + " · ✏️ Elegiste: " + m.elegida + " · (búsqueda: " + m.palabra + ")");
-      });
-      lines.push("");
-    }
     const aventura = buildAventuraReportLines();
     if (aventura.length) {
       lines.push("🎮 AVENTURA (juego de conversaciones por audio)");
