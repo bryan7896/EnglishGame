@@ -78,6 +78,7 @@ export function renderOrdenamientoExercise(exercise, container) {
   let solved = false;
   let dragId = null;
   let ghost = null;
+  let draggingEl = null;
   let offX = 0, offY = 0;
 
   function pintarFila() {
@@ -93,7 +94,9 @@ export function renderOrdenamientoExercise(exercise, container) {
     ghost.style.top = (y - offY) + "px";
   }
 
-  function pillsActuales() { return Array.from(rowEl.querySelectorAll(".ord-pill")); }
+  function pillsActuales() {
+    return Array.from(rowEl.querySelectorAll(".ord-pill:not(.ord-pill-dragging):not(.ord-pill-fade-clone)"));
+  }
 
   // Decide en qué hueco (0..N) caería la ficha soltada en (x,y), según qué
   // ficha está más cerca y si el cursor está en su mitad izquierda o derecha.
@@ -131,9 +134,32 @@ export function renderOrdenamientoExercise(exercise, container) {
     if (dragId === null) return;
     const pills = pillsActuales();
     const idx = calcularIndiceInsercion(e.clientX, e.clientY, pills);
-    order.splice(Math.max(0, Math.min(order.length, idx)), 0, dragId);
+
+    const draggedWord = tokens[dragId];
+    const originalRect = draggingEl ? draggingEl.getBoundingClientRect() : null;
+    const rowRect = rowEl.getBoundingClientRect();
+
+    const orderWithoutDragged = order.filter((x) => x !== dragId);
+    const clampedIdx = Math.max(0, Math.min(orderWithoutDragged.length, idx));
+    orderWithoutDragged.splice(clampedIdx, 0, dragId);
+    order = orderWithoutDragged;
+
     terminarDrag();
     pintarFila();
+
+    if (originalRect) {
+      const fadeClone = document.createElement("div");
+      fadeClone.className = "ord-pill ord-pill-fade-clone";
+      fadeClone.textContent = draggedWord;
+      fadeClone.style.left = (originalRect.left - rowRect.left) + "px";
+      fadeClone.style.top = (originalRect.top - rowRect.top) + "px";
+      fadeClone.style.width = originalRect.width + "px";
+      fadeClone.style.height = originalRect.height + "px";
+      rowEl.appendChild(fadeClone);
+      requestAnimationFrame(() => fadeClone.classList.add("ord-pill-fade-out"));
+      setTimeout(() => fadeClone.remove(), 1050);
+    }
+
     if (order.length === idsCorrectos.length && order.every((v, i) => v === idsCorrectos[i])) resolver(true);
   }
 
@@ -142,6 +168,7 @@ export function renderOrdenamientoExercise(exercise, container) {
     document.removeEventListener("pointerup", onPointerUp);
     document.removeEventListener("pointercancel", onPointerUp);
     if (ghost) { ghost.remove(); ghost = null; }
+    if (draggingEl) { draggingEl.classList.remove("ord-pill-dragging"); draggingEl = null; }
     limpiarHover();
     dragId = null;
   }
@@ -155,9 +182,9 @@ export function renderOrdenamientoExercise(exercise, container) {
     offX = e.clientX - r.left;
     offY = e.clientY - r.top;
     dragId = id;
+    draggingEl = pill;
+    pill.classList.add("ord-pill-dragging"); // se vuelve transparente, pero sigue ocupando su lugar
     speakOrdenamientoText(tokens[id]);
-    order = order.filter((x) => x !== id);
-    pintarFila();
     ghost = document.createElement("div");
     ghost.className = "ord-pill ord-ghost";
     ghost.style.width = r.width + "px";

@@ -2258,12 +2258,35 @@ textarea:focus-visible,
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 3px;
   min-height: 48px;
   padding: 14px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
+  position: relative; /* ← nuevo, para el clon fantasma absoluto */
+}
+
+/* Ficha original mientras se arrastra: se queda en su lugar pero transparente,
+   así el resto del texto no se mueve mientras dura el arrastre. */
+.ord-pill.ord-pill-dragging {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Clon fantasma que queda en la posición vieja tras soltar, y se
+   desvanece poco a poco en 1s mientras la palabra ya está en su destino. */
+.ord-pill.ord-pill-fade-clone {
+  position: absolute;
+  margin: 0;
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.25;
+  transition: opacity 1s ease;
+  z-index: 1;
+}
+.ord-pill.ord-pill-fade-clone.ord-pill-fade-out {
+  opacity: 0;
 }
 
 .ord-pill {

@@ -135,26 +135,14 @@
     const f = (RL.reglasEstudio || {})[id];
     return !!f && f >= rlFechaMenosDias(2);
   }
-  function rlReglasParaElegir(minimo) {
-    const dia = rlReglasDia();
+  function rlReglasParaElegir() {
     const disp = rlReglasDisponibles();
-    const libre = (r) => !rlEstudiadaReciente(r.id);
     const conPct = disp.filter((r) => r.porcentaje > 0).sort((a, b) => a.porcentaje - b.porcentaje);
-    const rojas = conPct.filter((r) => pctTier(r.porcentaje) === "bad" && libre(r));
-    const naranjas = conPct.filter((r) => pctTier(r.porcentaje) === "warn" && libre(r));
-    const verdes = shuffleArray(conPct.filter((r) => pctTier(r.porcentaje) === "good" && libre(r)));
-    const nuevas = shuffleArray(disp.filter((r) => r.porcentaje <= 0 && libre(r)));
-    const cupoVerdes = Math.max(0, 2 - (dia.verdes || 0));
-    const cupoNuevas = Math.max(0, 1 - (dia.ceros || 0));
-    const lista = [].concat(rojas, naranjas, verdes.slice(0, cupoVerdes), nuevas.slice(0, cupoNuevas));
-    if (lista.length < (minimo || 1)) {
-      // Completa con rojas/naranjas estudiadas hace más tiempo (las más antiguas primero).
-      const f = RL.reglasEstudio || {};
-      const resto = conPct.filter((r) => pctTier(r.porcentaje) !== "good" && !lista.includes(r))
-        .sort((a, b) => String(f[a.id] || "").localeCompare(String(f[b.id] || "")));
-      resto.forEach((r) => { if (lista.length < Math.max(minimo || 1, 5)) lista.push(r); });
-    }
-    return lista;
+    const rojas = conPct.filter((r) => pctTier(r.porcentaje) === "bad");
+    const naranjas = conPct.filter((r) => pctTier(r.porcentaje) === "warn");
+    const verdes = conPct.filter((r) => pctTier(r.porcentaje) === "good");
+    const nuevas = disp.filter((r) => r.porcentaje <= 0);
+    return [].concat(rojas, naranjas, verdes, nuevas);
   }
 
   function rlAporte(r) { return RL_APORTE[r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad"]; }
@@ -178,7 +166,7 @@
       // paquete del día (de las reglas que elijas). Se descuenta de la parte del sistema.
       item.irr = typeof irrCupoRecarga === "function" ? Math.min(item.sistema, irrCupoRecarga(item.manual + item.sistema)) : 0;
       const xDeseado = item.sistema > 0 ? Math.max(1, Math.round(item.sistema / 8)) : 0;
-      item.reglas = rlReglasParaElegir(xDeseado).map((r) => r.id);
+      item.reglas = rlReglasParaElegir().map((r) => r.id);
       item.x = xDeseado ? Math.min(item.reglas.length, xDeseado) : 0;
       if (item.reglas.length) {
         const dia = rlReglasDia();
