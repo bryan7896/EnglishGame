@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "18.2 (16-10-2026)"
+VERSION = "19.0 (16-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -74,6 +74,16 @@ REELS_FILES = {
     "reels/reels-youglish.js": "__REELS_YOUGLISH_JS__",
 }
 REELS_STYLES_FILE = os.path.join("reels", "reels.css")
+
+# Irregulares (solo inglés): 100 verbos en 10 paquetes, sección propia con su
+# diseño (irregulares.css) y un banco aparte que entra como el 25 % de cada
+# recarga de Reels. Los datos viven en data-en/irregulares/ y los valida y
+# compila irregulares/compilar.py (también se puede correr suelto).
+IRREGULARES_FILES = {
+    "irregulares/irregulares.js": "__IRREGULARES_JS__",
+}
+IRREGULARES_STYLES_FILE = os.path.join("irregulares", "irregulares.css")
+IRREGULARES_FONTS_URL = "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,600;1,9..144,700;1,9..144,800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
 # Historias de la sorpresa 5: reels/historias/<idioma>/*.json. Cada archivo es
 # un array de historias {id, titulo, story, preguntas: [{q, opciones[4], correcta}] x4}.
 # Una historia ya terminada (4 lecturas) no se vuelve a usar; se pueden borrar del repo.
@@ -371,6 +381,20 @@ def load_historias(lang):
     return historias
 
 
+def load_irregulares():
+    """Datos de Irregulares (verbos, sección y banco) ya validados por irregulares/compilar.py.
+    Si falta la carpeta, el build sigue y la sección queda vacía (oculta en la app)."""
+    if not os.path.exists(os.path.join("data-en", "irregulares", "verbos-irregulares.json")):
+        print("⚠️  No encontrado: data-en/irregulares/verbos-irregulares.json (Irregulares quedará vacío)")
+        return {"verbos": [], "seccion": {}, "banco": {}}
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("irr_compilar", os.path.join("irregulares", "compilar.py"))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    data, _avisos, _resumen = mod.cargar_irregulares(verbose=True)
+    return data
+
+
 def read_file(filepath):
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
@@ -451,6 +475,7 @@ const ASSETS = [
   './manifest.json',
   'https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Baloo+2:wght@500;600;700;800&display=swap',
   'https://cdn-icons-png.flaticon.com/512/3898/3898082.png',
+  '__IRR_FONTS__',
 ];
 const AVENTURA_ASSETS = __AVENTURA_ASSETS__;
 const NIVEL1_ASSETS = __NIVEL1_ASSETS__;
@@ -490,6 +515,7 @@ self.addEventListener('fetch', (event) => {
 });
 '''
     sw_code = sw_code.replace('__CACHE_NAME__', cache_name_for_version())
+    sw_code = sw_code.replace('__IRR_FONTS__', IRREGULARES_FONTS_URL)
     sw_code = sw_code.replace('__AVENTURA_ASSETS__', json.dumps(aventura_asset_list(), indent=2))
     sw_code = sw_code.replace('__NIVEL1_ASSETS__', json.dumps(nivel1_asset_list(), indent=2))
     with open('service-worker.js', 'w', encoding='utf-8') as f:
@@ -512,6 +538,7 @@ def get_html_template():
   <title>English Trainer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="__IRR_FONTS__" rel="stylesheet">
   <style>__STYLES__</style>
 </head>
 <body>
@@ -547,6 +574,10 @@ def get_html_template():
         <button class="home-tile home-tile-reels" id="homeReelsBtn">
           <span class="home-tile-ico">▶</span>
           <span><b>Reels</b><small>Sigue donde quedaste. Nunca sabes qué viene.</small></span>
+        </button>
+        <button class="home-tile home-tile-irr" id="homeIrregularesBtn">
+          <span class="home-tile-ico"><span class="irr-logo" aria-hidden="true"><i></i><i></i><i></i></span></span>
+          <span><b>Irregulares</b><small>100 verbos · un paquete de 10 por día</small></span>
         </button>
         <button class="home-tile" id="homeJuegoBtn">
           <span class="home-tile-ico">🎮</span>
@@ -680,6 +711,8 @@ def get_html_template():
   <button class="rl-float rl-help" id="rlHelpBtn" aria-label="Ayuda de gramática" title="Ayuda">❓</button>
 </div>
 
+<div id="irrOverlay" class="irr-overlay irr-theme" hidden></div>
+
 <div id="toastFun" class="toast-fun"></div>
 
 <script type="module">
@@ -712,6 +745,8 @@ def get_html_template():
   __REELS_CORE_JS__
   __REELS_SORPRESAS_JS__
   __REELS_YOUGLISH_JS__
+  const IRREGULARES_DATA = __IRREGULARES_JSON__;
+  __IRREGULARES_JS__
   __MAIN_LOGIC__
 </script>
 </body>
@@ -1042,7 +1077,7 @@ def get_main_logic():
   // dentro de Reels (botón flotante, solo inglés).
   function updateHelpBtnVisibility() {
     const isEnglish = getTargetLanguage() === "en";
-    ["homeJuegoBtn", "homeListeningBtn", "homeAzureBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
+    ["homeJuegoBtn", "homeListeningBtn", "homeAzureBtn", "homeIrregularesBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
     const tag = document.getElementById("homeLangTag");
     if (tag) tag.textContent = getTargetLangMeta().flag + " Practicando " + getTargetLangMeta().labelLower;
   }
@@ -1524,6 +1559,7 @@ def get_main_logic():
   function switchStudyDataToCurrentLanguage() {
     AppRules = loadGrammarRules();
     rlCambioDeIdioma();
+    if (typeof irrCambioDeIdioma === "function") irrCambioDeIdioma();
     showMainView("home");
     updateHelpBtnVisibility();
   }
@@ -1547,6 +1583,7 @@ def get_main_logic():
         <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">__VERSION__</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
+          ${getTargetLanguage() === "en" ? `<button class="fun-btn" id="menuIrregularesBtn">🔁 Irregulares</button>` : ""}
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
           <button class="fun-btn" id="menuAddJsonBtn">📥 Agregar ejercicios (JSON)</button>
           <button class="fun-btn" id="menuHistoriaBtn">📜 Copiar historia</button>
@@ -1569,6 +1606,7 @@ def get_main_logic():
       toast(getTargetLangMeta().flag + " Ahora practicando " + getTargetLangMeta().labelLower);
     });
     modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
+    modal.querySelector('#menuIrregularesBtn')?.addEventListener('click', () => { close(); openIrregulares(); });
     modal.querySelector('#menuAddJsonBtn').addEventListener('click', () => { close(); rlModalAgregarJSON(); });
     modal.querySelector('#menuHistoriaBtn').addEventListener('click', () => { close(); rlCopiarHistoria(); });
     modal.querySelector('#menuTimerBtn').addEventListener('click', () => { close(); rlModalTimer(); });
@@ -1669,6 +1707,7 @@ def get_main_logic():
     document.getElementById("homeReelsBtn")?.addEventListener("click", openReels);
     document.getElementById("homeJuegoBtn")?.addEventListener("click", openAventura);
     document.getElementById("homeAzureBtn")?.addEventListener("click", openAzure);
+    document.getElementById("homeIrregularesBtn")?.addEventListener("click", openIrregulares);
     window.addEventListener("message", onAzureMessage);
     wireReels();
     window.addEventListener("message", onAventuraMessage);
@@ -1731,6 +1770,7 @@ def build_html():
     print("📂 Leyendo archivos...")
     styles = read_file('styles/main.css')
     styles += "\n\n" + read_file(REELS_STYLES_FILE)
+    styles += "\n\n" + read_file(IRREGULARES_STYLES_FILE)
     if os.path.exists(LISTENING_STYLES_FILE):
         styles += "\n\n" + read_file(LISTENING_STYLES_FILE)
     else:
@@ -1783,6 +1823,14 @@ def build_html():
         html = html.replace(marker, content)
         print(f"  ✅ {filepath} -> {marker} ({len(content):,} bytes)")
 
+    for filepath, marker in IRREGULARES_FILES.items():
+        content = read_file(filepath)
+        html = html.replace(marker, content)
+        print(f"  ✅ {filepath} -> {marker} ({len(content):,} bytes)")
+    irregulares = load_irregulares()
+    html = html.replace('__IRREGULARES_JSON__', json.dumps(irregulares, ensure_ascii=False, separators=(",", ":")))
+    html = html.replace('__IRR_FONTS__', IRREGULARES_FONTS_URL)
+
     historias_by_lang = {lang: load_historias(lang) for lang in DATA_LANGUAGES}
     for lang, hs in historias_by_lang.items():
         print(f"  ✅ [{lang}] {len(hs)} historia(s) en {os.path.join(HISTORIAS_DIR, lang)}/")
@@ -1812,7 +1860,7 @@ def main():
     print(f"📦 Version: {VERSION}")
     print("=" * 60)
     
-    required_files = ['styles/main.css', 'mapa/map.js', REELS_STYLES_FILE] + list(EXERCISE_FILES.keys()) + list(REELS_FILES.keys())
+    required_files = ['styles/main.css', 'mapa/map.js', REELS_STYLES_FILE, IRREGULARES_STYLES_FILE] + list(EXERCISE_FILES.keys()) + list(REELS_FILES.keys()) + list(IRREGULARES_FILES.keys())
     missing = [f for f in required_files if not os.path.exists(f)]
     if missing:
         print("❌ Faltan archivos:")

@@ -1,0 +1,4434 @@
+{
+  "meta": {
+    "version": 1,
+    "dialect": "en-US",
+    "totalVerbs": 100,
+    "packages": 10,
+    "verbsPerPackage": 10,
+    "ordering": "frecuencia aproximada de uso (1 = más usado)",
+    "patternLegend": {
+      "AAA": "las 3 formas iguales",
+      "ABA": "base = participio",
+      "ABB": "pasado = participio",
+      "ABC": "las 3 distintas"
+    },
+    "grammarRuleId": 19,
+    "grammarRuleName": "Participios irregulares"
+  },
+  "verbs": [
+    {
+      "id": "irr-001",
+      "rank": 1,
+      "package": 1,
+      "order": 1,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-001-b",
+          "en": "be",
+          "variants": [
+            "be"
+          ],
+          "es": "ser/estar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-001-p",
+          "en": "was",
+          "variants": [
+            "was",
+            "were"
+          ],
+          "es": "fue/estuvo",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-001-pp",
+          "en": "been",
+          "variants": [
+            "been"
+          ],
+          "es": "sido/estado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Pasado: was (I/he/she/it) – were (you/we/they). Verbo auxiliar clave."
+    },
+    {
+      "id": "irr-002",
+      "rank": 2,
+      "package": 1,
+      "order": 2,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-002-b",
+          "en": "have",
+          "variants": [
+            "have"
+          ],
+          "es": "tener",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-002-p",
+          "en": "had",
+          "variants": [
+            "had"
+          ],
+          "es": "tuvo",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-002-pp",
+          "en": "had",
+          "variants": [
+            "had"
+          ],
+          "es": "tenido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-003",
+      "rank": 3,
+      "package": 1,
+      "order": 3,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-003-b",
+          "en": "do",
+          "variants": [
+            "do"
+          ],
+          "es": "realizar",
+          "esAlt": [
+            "hacer"
+          ]
+        },
+        "past": {
+          "id": "irr-003-p",
+          "en": "did",
+          "variants": [
+            "did"
+          ],
+          "es": "realizó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-003-pp",
+          "en": "done",
+          "variants": [
+            "done"
+          ],
+          "es": "realizado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Aquí 'do' = realizar/hacer una acción; 'make' = fabricar/crear."
+    },
+    {
+      "id": "irr-004",
+      "rank": 4,
+      "package": 1,
+      "order": 4,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-004-b",
+          "en": "say",
+          "variants": [
+            "say"
+          ],
+          "es": "decir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-004-p",
+          "en": "said",
+          "variants": [
+            "said"
+          ],
+          "es": "dijo",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-004-pp",
+          "en": "said",
+          "variants": [
+            "said"
+          ],
+          "es": "dicho",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-005",
+      "rank": 5,
+      "package": 1,
+      "order": 5,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-005-b",
+          "en": "go",
+          "variants": [
+            "go"
+          ],
+          "es": "ir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-005-p",
+          "en": "went",
+          "variants": [
+            "went"
+          ],
+          "es": "fue",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-005-pp",
+          "en": "gone",
+          "variants": [
+            "gone"
+          ],
+          "es": "ido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-006",
+      "rank": 6,
+      "package": 1,
+      "order": 6,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-006-b",
+          "en": "get",
+          "variants": [
+            "get"
+          ],
+          "es": "conseguir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-006-p",
+          "en": "got",
+          "variants": [
+            "got"
+          ],
+          "es": "consiguió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-006-pp",
+          "en": "gotten",
+          "variants": [
+            "gotten"
+          ],
+          "es": "conseguido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Americano: participio 'gotten' (británico 'got'; no se estudia)."
+    },
+    {
+      "id": "irr-007",
+      "rank": 7,
+      "package": 1,
+      "order": 7,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-007-b",
+          "en": "make",
+          "variants": [
+            "make"
+          ],
+          "es": "fabricar",
+          "esAlt": [
+            "hacer",
+            "crear"
+          ]
+        },
+        "past": {
+          "id": "irr-007-p",
+          "en": "made",
+          "variants": [
+            "made"
+          ],
+          "es": "fabricó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-007-pp",
+          "en": "made",
+          "variants": [
+            "made"
+          ],
+          "es": "fabricado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "En español suele ser 'hacer'; se usa 'fabricar/crear' para no chocar con 'do'."
+    },
+    {
+      "id": "irr-008",
+      "rank": 8,
+      "package": 1,
+      "order": 8,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-008-b",
+          "en": "know",
+          "variants": [
+            "know"
+          ],
+          "es": "saber",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-008-p",
+          "en": "knew",
+          "variants": [
+            "knew"
+          ],
+          "es": "supo",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-008-pp",
+          "en": "known",
+          "variants": [
+            "known"
+          ],
+          "es": "sabido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-009",
+      "rank": 9,
+      "package": 1,
+      "order": 9,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-009-b",
+          "en": "think",
+          "variants": [
+            "think"
+          ],
+          "es": "pensar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-009-p",
+          "en": "thought",
+          "variants": [
+            "thought"
+          ],
+          "es": "pensó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-009-pp",
+          "en": "thought",
+          "variants": [
+            "thought"
+          ],
+          "es": "pensado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-010",
+      "rank": 10,
+      "package": 1,
+      "order": 10,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-010-b",
+          "en": "take",
+          "variants": [
+            "take"
+          ],
+          "es": "tomar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-010-p",
+          "en": "took",
+          "variants": [
+            "took"
+          ],
+          "es": "tomó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-010-pp",
+          "en": "taken",
+          "variants": [
+            "taken"
+          ],
+          "es": "tomado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-011",
+      "rank": 11,
+      "package": 2,
+      "order": 1,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-011-b",
+          "en": "see",
+          "variants": [
+            "see"
+          ],
+          "es": "ver",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-011-p",
+          "en": "saw",
+          "variants": [
+            "saw"
+          ],
+          "es": "vio",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-011-pp",
+          "en": "seen",
+          "variants": [
+            "seen"
+          ],
+          "es": "visto",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-012",
+      "rank": 12,
+      "package": 2,
+      "order": 2,
+      "pattern": "ABA",
+      "forms": {
+        "base": {
+          "id": "irr-012-b",
+          "en": "come",
+          "variants": [
+            "come"
+          ],
+          "es": "venir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-012-p",
+          "en": "came",
+          "variants": [
+            "came"
+          ],
+          "es": "vino",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-012-pp",
+          "en": "come",
+          "variants": [
+            "come"
+          ],
+          "es": "venido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Base y participio iguales (come–came–come)."
+    },
+    {
+      "id": "irr-013",
+      "rank": 13,
+      "package": 2,
+      "order": 3,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-013-b",
+          "en": "give",
+          "variants": [
+            "give"
+          ],
+          "es": "dar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-013-p",
+          "en": "gave",
+          "variants": [
+            "gave"
+          ],
+          "es": "dio",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-013-pp",
+          "en": "given",
+          "variants": [
+            "given"
+          ],
+          "es": "dado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-014",
+      "rank": 14,
+      "package": 2,
+      "order": 4,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-014-b",
+          "en": "find",
+          "variants": [
+            "find"
+          ],
+          "es": "encontrar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-014-p",
+          "en": "found",
+          "variants": [
+            "found"
+          ],
+          "es": "encontró",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-014-pp",
+          "en": "found",
+          "variants": [
+            "found"
+          ],
+          "es": "encontrado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-015",
+      "rank": 15,
+      "package": 2,
+      "order": 5,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-015-b",
+          "en": "tell",
+          "variants": [
+            "tell"
+          ],
+          "es": "contar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-015-p",
+          "en": "told",
+          "variants": [
+            "told"
+          ],
+          "es": "contó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-015-pp",
+          "en": "told",
+          "variants": [
+            "told"
+          ],
+          "es": "contado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "tell = contar/decir algo a alguien; 'say' = decir."
+    },
+    {
+      "id": "irr-016",
+      "rank": 16,
+      "package": 2,
+      "order": 6,
+      "pattern": "ABA",
+      "forms": {
+        "base": {
+          "id": "irr-016-b",
+          "en": "become",
+          "variants": [
+            "become"
+          ],
+          "es": "convertirse",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-016-p",
+          "en": "became",
+          "variants": [
+            "became"
+          ],
+          "es": "se convirtió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-016-pp",
+          "en": "become",
+          "variants": [
+            "become"
+          ],
+          "es": "convertido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Base y participio iguales (become–became–become)."
+    },
+    {
+      "id": "irr-017",
+      "rank": 17,
+      "package": 2,
+      "order": 7,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-017-b",
+          "en": "leave",
+          "variants": [
+            "leave"
+          ],
+          "es": "dejar",
+          "esAlt": [
+            "salir"
+          ]
+        },
+        "past": {
+          "id": "irr-017-p",
+          "en": "left",
+          "variants": [
+            "left"
+          ],
+          "es": "dejó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-017-pp",
+          "en": "left",
+          "variants": [
+            "left"
+          ],
+          "es": "dejado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-018",
+      "rank": 18,
+      "package": 2,
+      "order": 8,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-018-b",
+          "en": "feel",
+          "variants": [
+            "feel"
+          ],
+          "es": "sentir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-018-p",
+          "en": "felt",
+          "variants": [
+            "felt"
+          ],
+          "es": "sintió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-018-pp",
+          "en": "felt",
+          "variants": [
+            "felt"
+          ],
+          "es": "sentido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-019",
+      "rank": 19,
+      "package": 2,
+      "order": 9,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-019-b",
+          "en": "put",
+          "variants": [
+            "put"
+          ],
+          "es": "poner",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-019-p",
+          "en": "put",
+          "variants": [
+            "put"
+          ],
+          "es": "puso",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-019-pp",
+          "en": "put",
+          "variants": [
+            "put"
+          ],
+          "es": "puesto",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-020",
+      "rank": 20,
+      "package": 2,
+      "order": 10,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-020-b",
+          "en": "bring",
+          "variants": [
+            "bring"
+          ],
+          "es": "traer",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-020-p",
+          "en": "brought",
+          "variants": [
+            "brought"
+          ],
+          "es": "trajo",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-020-pp",
+          "en": "brought",
+          "variants": [
+            "brought"
+          ],
+          "es": "traído",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-021",
+      "rank": 21,
+      "package": 3,
+      "order": 1,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-021-b",
+          "en": "begin",
+          "variants": [
+            "begin"
+          ],
+          "es": "comenzar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-021-p",
+          "en": "began",
+          "variants": [
+            "began"
+          ],
+          "es": "comenzó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-021-pp",
+          "en": "begun",
+          "variants": [
+            "begun"
+          ],
+          "es": "comenzado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-022",
+      "rank": 22,
+      "package": 3,
+      "order": 2,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-022-b",
+          "en": "keep",
+          "variants": [
+            "keep"
+          ],
+          "es": "mantener",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-022-p",
+          "en": "kept",
+          "variants": [
+            "kept"
+          ],
+          "es": "mantuvo",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-022-pp",
+          "en": "kept",
+          "variants": [
+            "kept"
+          ],
+          "es": "mantenido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-023",
+      "rank": 23,
+      "package": 3,
+      "order": 3,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-023-b",
+          "en": "hold",
+          "variants": [
+            "hold"
+          ],
+          "es": "sostener",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-023-p",
+          "en": "held",
+          "variants": [
+            "held"
+          ],
+          "es": "sostuvo",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-023-pp",
+          "en": "held",
+          "variants": [
+            "held"
+          ],
+          "es": "sostenido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-024",
+      "rank": 24,
+      "package": 3,
+      "order": 4,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-024-b",
+          "en": "write",
+          "variants": [
+            "write"
+          ],
+          "es": "escribir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-024-p",
+          "en": "wrote",
+          "variants": [
+            "wrote"
+          ],
+          "es": "escribió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-024-pp",
+          "en": "written",
+          "variants": [
+            "written"
+          ],
+          "es": "escrito",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-025",
+      "rank": 25,
+      "package": 3,
+      "order": 5,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-025-b",
+          "en": "stand",
+          "variants": [
+            "stand"
+          ],
+          "es": "pararse",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-025-p",
+          "en": "stood",
+          "variants": [
+            "stood"
+          ],
+          "es": "se paró",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-025-pp",
+          "en": "stood",
+          "variants": [
+            "stood"
+          ],
+          "es": "parado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-026",
+      "rank": 26,
+      "package": 3,
+      "order": 6,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-026-b",
+          "en": "hear",
+          "variants": [
+            "hear"
+          ],
+          "es": "oír",
+          "esAlt": [
+            "escuchar"
+          ]
+        },
+        "past": {
+          "id": "irr-026-p",
+          "en": "heard",
+          "variants": [
+            "heard"
+          ],
+          "es": "oyó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-026-pp",
+          "en": "heard",
+          "variants": [
+            "heard"
+          ],
+          "es": "oído",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-027",
+      "rank": 27,
+      "package": 3,
+      "order": 7,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-027-b",
+          "en": "let",
+          "variants": [
+            "let"
+          ],
+          "es": "permitir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-027-p",
+          "en": "let",
+          "variants": [
+            "let"
+          ],
+          "es": "permitió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-027-pp",
+          "en": "let",
+          "variants": [
+            "let"
+          ],
+          "es": "permitido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-028",
+      "rank": 28,
+      "package": 3,
+      "order": 8,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-028-b",
+          "en": "mean",
+          "variants": [
+            "mean"
+          ],
+          "es": "significar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-028-p",
+          "en": "meant",
+          "variants": [
+            "meant"
+          ],
+          "es": "significó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-028-pp",
+          "en": "meant",
+          "variants": [
+            "meant"
+          ],
+          "es": "significado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Pasado y participio: meant /mɛnt/."
+    },
+    {
+      "id": "irr-029",
+      "rank": 29,
+      "package": 3,
+      "order": 9,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-029-b",
+          "en": "set",
+          "variants": [
+            "set"
+          ],
+          "es": "establecer",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-029-p",
+          "en": "set",
+          "variants": [
+            "set"
+          ],
+          "es": "estableció",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-029-pp",
+          "en": "set",
+          "variants": [
+            "set"
+          ],
+          "es": "establecido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-030",
+      "rank": 30,
+      "package": 3,
+      "order": 10,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-030-b",
+          "en": "meet",
+          "variants": [
+            "meet"
+          ],
+          "es": "conocer",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-030-p",
+          "en": "met",
+          "variants": [
+            "met"
+          ],
+          "es": "conoció",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-030-pp",
+          "en": "met",
+          "variants": [
+            "met"
+          ],
+          "es": "conocido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-031",
+      "rank": 31,
+      "package": 4,
+      "order": 1,
+      "pattern": "ABA",
+      "forms": {
+        "base": {
+          "id": "irr-031-b",
+          "en": "run",
+          "variants": [
+            "run"
+          ],
+          "es": "correr",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-031-p",
+          "en": "ran",
+          "variants": [
+            "ran"
+          ],
+          "es": "corrió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-031-pp",
+          "en": "run",
+          "variants": [
+            "run"
+          ],
+          "es": "corrido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Base y participio iguales (run–ran–run)."
+    },
+    {
+      "id": "irr-032",
+      "rank": 32,
+      "package": 4,
+      "order": 2,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-032-b",
+          "en": "pay",
+          "variants": [
+            "pay"
+          ],
+          "es": "pagar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-032-p",
+          "en": "paid",
+          "variants": [
+            "paid"
+          ],
+          "es": "pagó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-032-pp",
+          "en": "paid",
+          "variants": [
+            "paid"
+          ],
+          "es": "pagado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-033",
+      "rank": 33,
+      "package": 4,
+      "order": 3,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-033-b",
+          "en": "sit",
+          "variants": [
+            "sit"
+          ],
+          "es": "sentarse",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-033-p",
+          "en": "sat",
+          "variants": [
+            "sat"
+          ],
+          "es": "se sentó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-033-pp",
+          "en": "sat",
+          "variants": [
+            "sat"
+          ],
+          "es": "sentado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-034",
+      "rank": 34,
+      "package": 4,
+      "order": 4,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-034-b",
+          "en": "speak",
+          "variants": [
+            "speak"
+          ],
+          "es": "hablar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-034-p",
+          "en": "spoke",
+          "variants": [
+            "spoke"
+          ],
+          "es": "habló",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-034-pp",
+          "en": "spoken",
+          "variants": [
+            "spoken"
+          ],
+          "es": "hablado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-035",
+      "rank": 35,
+      "package": 4,
+      "order": 5,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-035-b",
+          "en": "lie",
+          "variants": [
+            "lie"
+          ],
+          "es": "acostarse",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-035-p",
+          "en": "lay",
+          "variants": [
+            "lay"
+          ],
+          "es": "se acostó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-035-pp",
+          "en": "lain",
+          "variants": [
+            "lain"
+          ],
+          "es": "acostado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Aquí 'lie' = acostarse/yacer (lie–lay–lain). 'Mentir' es regular (lied)."
+    },
+    {
+      "id": "irr-036",
+      "rank": 36,
+      "package": 4,
+      "order": 6,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-036-b",
+          "en": "lead",
+          "variants": [
+            "lead"
+          ],
+          "es": "guiar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-036-p",
+          "en": "led",
+          "variants": [
+            "led"
+          ],
+          "es": "guió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-036-pp",
+          "en": "led",
+          "variants": [
+            "led"
+          ],
+          "es": "guiado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-037",
+      "rank": 37,
+      "package": 4,
+      "order": 7,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-037-b",
+          "en": "read",
+          "variants": [
+            "read"
+          ],
+          "es": "leer",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-037-p",
+          "en": "read",
+          "variants": [
+            "read"
+          ],
+          "es": "leyó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-037-pp",
+          "en": "read",
+          "variants": [
+            "read"
+          ],
+          "es": "leído",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Las 3 formas se escriben igual; pronunciación: base /riːd/, pasado y participio /rɛd/."
+    },
+    {
+      "id": "irr-038",
+      "rank": 38,
+      "package": 4,
+      "order": 8,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-038-b",
+          "en": "grow",
+          "variants": [
+            "grow"
+          ],
+          "es": "crecer",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-038-p",
+          "en": "grew",
+          "variants": [
+            "grew"
+          ],
+          "es": "creció",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-038-pp",
+          "en": "grown",
+          "variants": [
+            "grown"
+          ],
+          "es": "crecido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-039",
+      "rank": 39,
+      "package": 4,
+      "order": 9,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-039-b",
+          "en": "lose",
+          "variants": [
+            "lose"
+          ],
+          "es": "perder",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-039-p",
+          "en": "lost",
+          "variants": [
+            "lost"
+          ],
+          "es": "perdió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-039-pp",
+          "en": "lost",
+          "variants": [
+            "lost"
+          ],
+          "es": "perdido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-040",
+      "rank": 40,
+      "package": 4,
+      "order": 10,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-040-b",
+          "en": "fall",
+          "variants": [
+            "fall"
+          ],
+          "es": "caer",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-040-p",
+          "en": "fell",
+          "variants": [
+            "fell"
+          ],
+          "es": "cayó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-040-pp",
+          "en": "fallen",
+          "variants": [
+            "fallen"
+          ],
+          "es": "caído",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-041",
+      "rank": 41,
+      "package": 5,
+      "order": 1,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-041-b",
+          "en": "send",
+          "variants": [
+            "send"
+          ],
+          "es": "enviar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-041-p",
+          "en": "sent",
+          "variants": [
+            "sent"
+          ],
+          "es": "envió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-041-pp",
+          "en": "sent",
+          "variants": [
+            "sent"
+          ],
+          "es": "enviado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-042",
+      "rank": 42,
+      "package": 5,
+      "order": 2,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-042-b",
+          "en": "build",
+          "variants": [
+            "build"
+          ],
+          "es": "construir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-042-p",
+          "en": "built",
+          "variants": [
+            "built"
+          ],
+          "es": "construyó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-042-pp",
+          "en": "built",
+          "variants": [
+            "built"
+          ],
+          "es": "construido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-043",
+      "rank": 43,
+      "package": 5,
+      "order": 3,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-043-b",
+          "en": "understand",
+          "variants": [
+            "understand"
+          ],
+          "es": "entender",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-043-p",
+          "en": "understood",
+          "variants": [
+            "understood"
+          ],
+          "es": "entendió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-043-pp",
+          "en": "understood",
+          "variants": [
+            "understood"
+          ],
+          "es": "entendido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-044",
+      "rank": 44,
+      "package": 5,
+      "order": 4,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-044-b",
+          "en": "draw",
+          "variants": [
+            "draw"
+          ],
+          "es": "dibujar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-044-p",
+          "en": "drew",
+          "variants": [
+            "drew"
+          ],
+          "es": "dibujó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-044-pp",
+          "en": "drawn",
+          "variants": [
+            "drawn"
+          ],
+          "es": "dibujado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-045",
+      "rank": 45,
+      "package": 5,
+      "order": 5,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-045-b",
+          "en": "break",
+          "variants": [
+            "break"
+          ],
+          "es": "romper",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-045-p",
+          "en": "broke",
+          "variants": [
+            "broke"
+          ],
+          "es": "rompió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-045-pp",
+          "en": "broken",
+          "variants": [
+            "broken"
+          ],
+          "es": "roto",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-046",
+      "rank": 46,
+      "package": 5,
+      "order": 6,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-046-b",
+          "en": "spend",
+          "variants": [
+            "spend"
+          ],
+          "es": "gastar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-046-p",
+          "en": "spent",
+          "variants": [
+            "spent"
+          ],
+          "es": "gastó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-046-pp",
+          "en": "spent",
+          "variants": [
+            "spent"
+          ],
+          "es": "gastado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-047",
+      "rank": 47,
+      "package": 5,
+      "order": 7,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-047-b",
+          "en": "cut",
+          "variants": [
+            "cut"
+          ],
+          "es": "cortar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-047-p",
+          "en": "cut",
+          "variants": [
+            "cut"
+          ],
+          "es": "cortó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-047-pp",
+          "en": "cut",
+          "variants": [
+            "cut"
+          ],
+          "es": "cortado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-048",
+      "rank": 48,
+      "package": 5,
+      "order": 8,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-048-b",
+          "en": "rise",
+          "variants": [
+            "rise"
+          ],
+          "es": "elevarse",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-048-p",
+          "en": "rose",
+          "variants": [
+            "rose"
+          ],
+          "es": "se elevó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-048-pp",
+          "en": "risen",
+          "variants": [
+            "risen"
+          ],
+          "es": "elevado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-049",
+      "rank": 49,
+      "package": 5,
+      "order": 9,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-049-b",
+          "en": "drive",
+          "variants": [
+            "drive"
+          ],
+          "es": "conducir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-049-p",
+          "en": "drove",
+          "variants": [
+            "drove"
+          ],
+          "es": "condujo",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-049-pp",
+          "en": "driven",
+          "variants": [
+            "driven"
+          ],
+          "es": "conducido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-050",
+      "rank": 50,
+      "package": 5,
+      "order": 10,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-050-b",
+          "en": "buy",
+          "variants": [
+            "buy"
+          ],
+          "es": "comprar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-050-p",
+          "en": "bought",
+          "variants": [
+            "bought"
+          ],
+          "es": "compró",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-050-pp",
+          "en": "bought",
+          "variants": [
+            "bought"
+          ],
+          "es": "comprado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-051",
+      "rank": 51,
+      "package": 6,
+      "order": 1,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-051-b",
+          "en": "wear",
+          "variants": [
+            "wear"
+          ],
+          "es": "llevar puesto",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-051-p",
+          "en": "wore",
+          "variants": [
+            "wore"
+          ],
+          "es": "llevó puesto",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-051-pp",
+          "en": "worn",
+          "variants": [
+            "worn"
+          ],
+          "es": "llevado puesto",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Llevar puesto (ropa, accesorios)."
+    },
+    {
+      "id": "irr-052",
+      "rank": 52,
+      "package": 6,
+      "order": 2,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-052-b",
+          "en": "choose",
+          "variants": [
+            "choose"
+          ],
+          "es": "elegir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-052-p",
+          "en": "chose",
+          "variants": [
+            "chose"
+          ],
+          "es": "eligió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-052-pp",
+          "en": "chosen",
+          "variants": [
+            "chosen"
+          ],
+          "es": "elegido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-053",
+      "rank": 53,
+      "package": 6,
+      "order": 3,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-053-b",
+          "en": "eat",
+          "variants": [
+            "eat"
+          ],
+          "es": "comer",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-053-p",
+          "en": "ate",
+          "variants": [
+            "ate"
+          ],
+          "es": "comió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-053-pp",
+          "en": "eaten",
+          "variants": [
+            "eaten"
+          ],
+          "es": "comido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-054",
+      "rank": 54,
+      "package": 6,
+      "order": 4,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-054-b",
+          "en": "sell",
+          "variants": [
+            "sell"
+          ],
+          "es": "vender",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-054-p",
+          "en": "sold",
+          "variants": [
+            "sold"
+          ],
+          "es": "vendió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-054-pp",
+          "en": "sold",
+          "variants": [
+            "sold"
+          ],
+          "es": "vendido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-055",
+      "rank": 55,
+      "package": 6,
+      "order": 5,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-055-b",
+          "en": "win",
+          "variants": [
+            "win"
+          ],
+          "es": "ganar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-055-p",
+          "en": "won",
+          "variants": [
+            "won"
+          ],
+          "es": "ganó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-055-pp",
+          "en": "won",
+          "variants": [
+            "won"
+          ],
+          "es": "ganado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-056",
+      "rank": 56,
+      "package": 6,
+      "order": 6,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-056-b",
+          "en": "teach",
+          "variants": [
+            "teach"
+          ],
+          "es": "enseñar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-056-p",
+          "en": "taught",
+          "variants": [
+            "taught"
+          ],
+          "es": "enseñó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-056-pp",
+          "en": "taught",
+          "variants": [
+            "taught"
+          ],
+          "es": "enseñado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-057",
+      "rank": 57,
+      "package": 6,
+      "order": 7,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-057-b",
+          "en": "throw",
+          "variants": [
+            "throw"
+          ],
+          "es": "lanzar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-057-p",
+          "en": "threw",
+          "variants": [
+            "threw"
+          ],
+          "es": "lanzó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-057-pp",
+          "en": "thrown",
+          "variants": [
+            "thrown"
+          ],
+          "es": "lanzado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-058",
+      "rank": 58,
+      "package": 6,
+      "order": 8,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-058-b",
+          "en": "catch",
+          "variants": [
+            "catch"
+          ],
+          "es": "atrapar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-058-p",
+          "en": "caught",
+          "variants": [
+            "caught"
+          ],
+          "es": "atrapó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-058-pp",
+          "en": "caught",
+          "variants": [
+            "caught"
+          ],
+          "es": "atrapado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-059",
+      "rank": 59,
+      "package": 6,
+      "order": 9,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-059-b",
+          "en": "fight",
+          "variants": [
+            "fight"
+          ],
+          "es": "pelear",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-059-p",
+          "en": "fought",
+          "variants": [
+            "fought"
+          ],
+          "es": "peleó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-059-pp",
+          "en": "fought",
+          "variants": [
+            "fought"
+          ],
+          "es": "peleado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-060",
+      "rank": 60,
+      "package": 6,
+      "order": 10,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-060-b",
+          "en": "forget",
+          "variants": [
+            "forget"
+          ],
+          "es": "olvidar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-060-p",
+          "en": "forgot",
+          "variants": [
+            "forgot"
+          ],
+          "es": "olvidó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-060-pp",
+          "en": "forgotten",
+          "variants": [
+            "forgotten"
+          ],
+          "es": "olvidado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-061",
+      "rank": 61,
+      "package": 7,
+      "order": 1,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-061-b",
+          "en": "sleep",
+          "variants": [
+            "sleep"
+          ],
+          "es": "dormir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-061-p",
+          "en": "slept",
+          "variants": [
+            "slept"
+          ],
+          "es": "durmió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-061-pp",
+          "en": "slept",
+          "variants": [
+            "slept"
+          ],
+          "es": "dormido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-062",
+      "rank": 62,
+      "package": 7,
+      "order": 2,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-062-b",
+          "en": "drink",
+          "variants": [
+            "drink"
+          ],
+          "es": "beber",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-062-p",
+          "en": "drank",
+          "variants": [
+            "drank"
+          ],
+          "es": "bebió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-062-pp",
+          "en": "drunk",
+          "variants": [
+            "drunk"
+          ],
+          "es": "bebido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-063",
+      "rank": 63,
+      "package": 7,
+      "order": 3,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-063-b",
+          "en": "sing",
+          "variants": [
+            "sing"
+          ],
+          "es": "cantar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-063-p",
+          "en": "sang",
+          "variants": [
+            "sang"
+          ],
+          "es": "cantó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-063-pp",
+          "en": "sung",
+          "variants": [
+            "sung"
+          ],
+          "es": "cantado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-064",
+      "rank": 64,
+      "package": 7,
+      "order": 4,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-064-b",
+          "en": "swim",
+          "variants": [
+            "swim"
+          ],
+          "es": "nadar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-064-p",
+          "en": "swam",
+          "variants": [
+            "swam"
+          ],
+          "es": "nadó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-064-pp",
+          "en": "swum",
+          "variants": [
+            "swum"
+          ],
+          "es": "nadado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-065",
+      "rank": 65,
+      "package": 7,
+      "order": 5,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-065-b",
+          "en": "fly",
+          "variants": [
+            "fly"
+          ],
+          "es": "volar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-065-p",
+          "en": "flew",
+          "variants": [
+            "flew"
+          ],
+          "es": "voló",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-065-pp",
+          "en": "flown",
+          "variants": [
+            "flown"
+          ],
+          "es": "volado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-066",
+      "rank": 66,
+      "package": 7,
+      "order": 6,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-066-b",
+          "en": "ride",
+          "variants": [
+            "ride"
+          ],
+          "es": "montar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-066-p",
+          "en": "rode",
+          "variants": [
+            "rode"
+          ],
+          "es": "montó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-066-pp",
+          "en": "ridden",
+          "variants": [
+            "ridden"
+          ],
+          "es": "montado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-067",
+      "rank": 67,
+      "package": 7,
+      "order": 7,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-067-b",
+          "en": "hide",
+          "variants": [
+            "hide"
+          ],
+          "es": "esconder",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-067-p",
+          "en": "hid",
+          "variants": [
+            "hid"
+          ],
+          "es": "escondió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-067-pp",
+          "en": "hidden",
+          "variants": [
+            "hidden"
+          ],
+          "es": "escondido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-068",
+      "rank": 68,
+      "package": 7,
+      "order": 8,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-068-b",
+          "en": "shake",
+          "variants": [
+            "shake"
+          ],
+          "es": "sacudir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-068-p",
+          "en": "shook",
+          "variants": [
+            "shook"
+          ],
+          "es": "sacudió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-068-pp",
+          "en": "shaken",
+          "variants": [
+            "shaken"
+          ],
+          "es": "sacudido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-069",
+      "rank": 69,
+      "package": 7,
+      "order": 9,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-069-b",
+          "en": "hit",
+          "variants": [
+            "hit"
+          ],
+          "es": "golpear",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-069-p",
+          "en": "hit",
+          "variants": [
+            "hit"
+          ],
+          "es": "golpeó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-069-pp",
+          "en": "hit",
+          "variants": [
+            "hit"
+          ],
+          "es": "golpeado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-070",
+      "rank": 70,
+      "package": 7,
+      "order": 10,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-070-b",
+          "en": "hurt",
+          "variants": [
+            "hurt"
+          ],
+          "es": "lastimar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-070-p",
+          "en": "hurt",
+          "variants": [
+            "hurt"
+          ],
+          "es": "lastimó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-070-pp",
+          "en": "hurt",
+          "variants": [
+            "hurt"
+          ],
+          "es": "lastimado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-071",
+      "rank": 71,
+      "package": 8,
+      "order": 1,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-071-b",
+          "en": "lend",
+          "variants": [
+            "lend"
+          ],
+          "es": "prestar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-071-p",
+          "en": "lent",
+          "variants": [
+            "lent"
+          ],
+          "es": "prestó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-071-pp",
+          "en": "lent",
+          "variants": [
+            "lent"
+          ],
+          "es": "prestado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-072",
+      "rank": 72,
+      "package": 8,
+      "order": 2,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-072-b",
+          "en": "seek",
+          "variants": [
+            "seek"
+          ],
+          "es": "buscar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-072-p",
+          "en": "sought",
+          "variants": [
+            "sought"
+          ],
+          "es": "buscó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-072-pp",
+          "en": "sought",
+          "variants": [
+            "sought"
+          ],
+          "es": "buscado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-073",
+      "rank": 73,
+      "package": 8,
+      "order": 3,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-073-b",
+          "en": "shoot",
+          "variants": [
+            "shoot"
+          ],
+          "es": "disparar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-073-p",
+          "en": "shot",
+          "variants": [
+            "shot"
+          ],
+          "es": "disparó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-073-pp",
+          "en": "shot",
+          "variants": [
+            "shot"
+          ],
+          "es": "disparado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-074",
+      "rank": 74,
+      "package": 8,
+      "order": 4,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-074-b",
+          "en": "steal",
+          "variants": [
+            "steal"
+          ],
+          "es": "robar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-074-p",
+          "en": "stole",
+          "variants": [
+            "stole"
+          ],
+          "es": "robó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-074-pp",
+          "en": "stolen",
+          "variants": [
+            "stolen"
+          ],
+          "es": "robado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-075",
+      "rank": 75,
+      "package": 8,
+      "order": 5,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-075-b",
+          "en": "swear",
+          "variants": [
+            "swear"
+          ],
+          "es": "jurar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-075-p",
+          "en": "swore",
+          "variants": [
+            "swore"
+          ],
+          "es": "juró",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-075-pp",
+          "en": "sworn",
+          "variants": [
+            "sworn"
+          ],
+          "es": "jurado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-076",
+      "rank": 76,
+      "package": 8,
+      "order": 6,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-076-b",
+          "en": "wake",
+          "variants": [
+            "wake"
+          ],
+          "es": "despertar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-076-p",
+          "en": "woke",
+          "variants": [
+            "woke"
+          ],
+          "es": "despertó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-076-pp",
+          "en": "woken",
+          "variants": [
+            "woken"
+          ],
+          "es": "despertado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-077",
+      "rank": 77,
+      "package": 8,
+      "order": 7,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-077-b",
+          "en": "hang",
+          "variants": [
+            "hang"
+          ],
+          "es": "colgar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-077-p",
+          "en": "hung",
+          "variants": [
+            "hung"
+          ],
+          "es": "colgó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-077-pp",
+          "en": "hung",
+          "variants": [
+            "hung"
+          ],
+          "es": "colgado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Aquí 'hang' = colgar objetos (hung). Ahorcar a una persona es regular (hanged)."
+    },
+    {
+      "id": "irr-078",
+      "rank": 78,
+      "package": 8,
+      "order": 8,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-078-b",
+          "en": "deal",
+          "variants": [
+            "deal"
+          ],
+          "es": "tratar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-078-p",
+          "en": "dealt",
+          "variants": [
+            "dealt"
+          ],
+          "es": "trató",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-078-pp",
+          "en": "dealt",
+          "variants": [
+            "dealt"
+          ],
+          "es": "tratado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-079",
+      "rank": 79,
+      "package": 8,
+      "order": 9,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-079-b",
+          "en": "feed",
+          "variants": [
+            "feed"
+          ],
+          "es": "alimentar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-079-p",
+          "en": "fed",
+          "variants": [
+            "fed"
+          ],
+          "es": "alimentó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-079-pp",
+          "en": "fed",
+          "variants": [
+            "fed"
+          ],
+          "es": "alimentado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-080",
+      "rank": 80,
+      "package": 8,
+      "order": 10,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-080-b",
+          "en": "forgive",
+          "variants": [
+            "forgive"
+          ],
+          "es": "perdonar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-080-p",
+          "en": "forgave",
+          "variants": [
+            "forgave"
+          ],
+          "es": "perdonó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-080-pp",
+          "en": "forgiven",
+          "variants": [
+            "forgiven"
+          ],
+          "es": "perdonado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-081",
+      "rank": 81,
+      "package": 9,
+      "order": 1,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-081-b",
+          "en": "bite",
+          "variants": [
+            "bite"
+          ],
+          "es": "morder",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-081-p",
+          "en": "bit",
+          "variants": [
+            "bit"
+          ],
+          "es": "mordió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-081-pp",
+          "en": "bitten",
+          "variants": [
+            "bitten"
+          ],
+          "es": "mordido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-082",
+      "rank": 82,
+      "package": 9,
+      "order": 2,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-082-b",
+          "en": "blow",
+          "variants": [
+            "blow"
+          ],
+          "es": "soplar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-082-p",
+          "en": "blew",
+          "variants": [
+            "blew"
+          ],
+          "es": "sopló",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-082-pp",
+          "en": "blown",
+          "variants": [
+            "blown"
+          ],
+          "es": "soplado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-083",
+      "rank": 83,
+      "package": 9,
+      "order": 3,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-083-b",
+          "en": "bend",
+          "variants": [
+            "bend"
+          ],
+          "es": "doblar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-083-p",
+          "en": "bent",
+          "variants": [
+            "bent"
+          ],
+          "es": "dobló",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-083-pp",
+          "en": "bent",
+          "variants": [
+            "bent"
+          ],
+          "es": "doblado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-084",
+      "rank": 84,
+      "package": 9,
+      "order": 4,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-084-b",
+          "en": "dig",
+          "variants": [
+            "dig"
+          ],
+          "es": "cavar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-084-p",
+          "en": "dug",
+          "variants": [
+            "dug"
+          ],
+          "es": "cavó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-084-pp",
+          "en": "dug",
+          "variants": [
+            "dug"
+          ],
+          "es": "cavado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-085",
+      "rank": 85,
+      "package": 9,
+      "order": 5,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-085-b",
+          "en": "shut",
+          "variants": [
+            "shut"
+          ],
+          "es": "cerrar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-085-p",
+          "en": "shut",
+          "variants": [
+            "shut"
+          ],
+          "es": "cerró",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-085-pp",
+          "en": "shut",
+          "variants": [
+            "shut"
+          ],
+          "es": "cerrado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-086",
+      "rank": 86,
+      "package": 9,
+      "order": 6,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-086-b",
+          "en": "spread",
+          "variants": [
+            "spread"
+          ],
+          "es": "esparcir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-086-p",
+          "en": "spread",
+          "variants": [
+            "spread"
+          ],
+          "es": "esparció",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-086-pp",
+          "en": "spread",
+          "variants": [
+            "spread"
+          ],
+          "es": "esparcido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-087",
+      "rank": 87,
+      "package": 9,
+      "order": 7,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-087-b",
+          "en": "strike",
+          "variants": [
+            "strike"
+          ],
+          "es": "atacar",
+          "esAlt": [
+            "golpear"
+          ]
+        },
+        "past": {
+          "id": "irr-087-p",
+          "en": "struck",
+          "variants": [
+            "struck"
+          ],
+          "es": "atacó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-087-pp",
+          "en": "struck",
+          "variants": [
+            "struck"
+          ],
+          "es": "atacado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Verbo poco coloquial; sentido base: atacar/golpear con fuerza."
+    },
+    {
+      "id": "irr-088",
+      "rank": 88,
+      "package": 9,
+      "order": 8,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-088-b",
+          "en": "tear",
+          "variants": [
+            "tear"
+          ],
+          "es": "rasgar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-088-p",
+          "en": "tore",
+          "variants": [
+            "tore"
+          ],
+          "es": "rasgó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-088-pp",
+          "en": "torn",
+          "variants": [
+            "torn"
+          ],
+          "es": "rasgado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-089",
+      "rank": 89,
+      "package": 9,
+      "order": 9,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-089-b",
+          "en": "ring",
+          "variants": [
+            "ring"
+          ],
+          "es": "sonar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-089-p",
+          "en": "rang",
+          "variants": [
+            "rang"
+          ],
+          "es": "sonó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-089-pp",
+          "en": "rung",
+          "variants": [
+            "rung"
+          ],
+          "es": "sonado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-090",
+      "rank": 90,
+      "package": 9,
+      "order": 10,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-090-b",
+          "en": "lay",
+          "variants": [
+            "lay"
+          ],
+          "es": "colocar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-090-p",
+          "en": "laid",
+          "variants": [
+            "laid"
+          ],
+          "es": "colocó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-090-pp",
+          "en": "laid",
+          "variants": [
+            "laid"
+          ],
+          "es": "colocado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "'Lay' = colocar (lay–laid–laid). Ojo: 'lay' también es el pasado de 'lie'."
+    },
+    {
+      "id": "irr-091",
+      "rank": 91,
+      "package": 10,
+      "order": 1,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-091-b",
+          "en": "bet",
+          "variants": [
+            "bet"
+          ],
+          "es": "apostar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-091-p",
+          "en": "bet",
+          "variants": [
+            "bet"
+          ],
+          "es": "apostó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-091-pp",
+          "en": "bet",
+          "variants": [
+            "bet"
+          ],
+          "es": "apostado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-092",
+      "rank": 92,
+      "package": 10,
+      "order": 2,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-092-b",
+          "en": "cost",
+          "variants": [
+            "cost"
+          ],
+          "es": "costar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-092-p",
+          "en": "cost",
+          "variants": [
+            "cost"
+          ],
+          "es": "costó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-092-pp",
+          "en": "cost",
+          "variants": [
+            "cost"
+          ],
+          "es": "costado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-093",
+      "rank": 93,
+      "package": 10,
+      "order": 3,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-093-b",
+          "en": "quit",
+          "variants": [
+            "quit"
+          ],
+          "es": "renunciar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-093-p",
+          "en": "quit",
+          "variants": [
+            "quit"
+          ],
+          "es": "renunció",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-093-pp",
+          "en": "quit",
+          "variants": [
+            "quit"
+          ],
+          "es": "renunciado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-094",
+      "rank": 94,
+      "package": 10,
+      "order": 4,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-094-b",
+          "en": "shine",
+          "variants": [
+            "shine"
+          ],
+          "es": "brillar",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-094-p",
+          "en": "shone",
+          "variants": [
+            "shone"
+          ],
+          "es": "brilló",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-094-pp",
+          "en": "shone",
+          "variants": [
+            "shone"
+          ],
+          "es": "brillado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": "Brillar (shone). Si es 'pulir/lustrar' se usa 'shined'."
+    },
+    {
+      "id": "irr-095",
+      "rank": 95,
+      "package": 10,
+      "order": 5,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-095-b",
+          "en": "slide",
+          "variants": [
+            "slide"
+          ],
+          "es": "deslizarse",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-095-p",
+          "en": "slid",
+          "variants": [
+            "slid"
+          ],
+          "es": "se deslizó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-095-pp",
+          "en": "slid",
+          "variants": [
+            "slid"
+          ],
+          "es": "deslizado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-096",
+      "rank": 96,
+      "package": 10,
+      "order": 6,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-096-b",
+          "en": "stick",
+          "variants": [
+            "stick"
+          ],
+          "es": "pegar",
+          "esAlt": [
+            "adherir"
+          ]
+        },
+        "past": {
+          "id": "irr-096-p",
+          "en": "stuck",
+          "variants": [
+            "stuck"
+          ],
+          "es": "pegó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-096-pp",
+          "en": "stuck",
+          "variants": [
+            "stuck"
+          ],
+          "es": "pegado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-097",
+      "rank": 97,
+      "package": 10,
+      "order": 7,
+      "pattern": "ABC",
+      "forms": {
+        "base": {
+          "id": "irr-097-b",
+          "en": "sink",
+          "variants": [
+            "sink"
+          ],
+          "es": "hundirse",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-097-p",
+          "en": "sank",
+          "variants": [
+            "sank"
+          ],
+          "es": "se hundió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-097-pp",
+          "en": "sunk",
+          "variants": [
+            "sunk"
+          ],
+          "es": "hundido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": false,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-098",
+      "rank": 98,
+      "package": 10,
+      "order": 8,
+      "pattern": "AAA",
+      "forms": {
+        "base": {
+          "id": "irr-098-b",
+          "en": "split",
+          "variants": [
+            "split"
+          ],
+          "es": "dividir",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-098-p",
+          "en": "split",
+          "variants": [
+            "split"
+          ],
+          "es": "dividió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-098-pp",
+          "en": "split",
+          "variants": [
+            "split"
+          ],
+          "es": "dividido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-099",
+      "rank": 99,
+      "package": 10,
+      "order": 9,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-099-b",
+          "en": "sweep",
+          "variants": [
+            "sweep"
+          ],
+          "es": "barrer",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-099-p",
+          "en": "swept",
+          "variants": [
+            "swept"
+          ],
+          "es": "barrió",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-099-pp",
+          "en": "swept",
+          "variants": [
+            "swept"
+          ],
+          "es": "barrido",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    },
+    {
+      "id": "irr-100",
+      "rank": 100,
+      "package": 10,
+      "order": 10,
+      "pattern": "ABB",
+      "forms": {
+        "base": {
+          "id": "irr-100-b",
+          "en": "swing",
+          "variants": [
+            "swing"
+          ],
+          "es": "balancearse",
+          "esAlt": []
+        },
+        "past": {
+          "id": "irr-100-p",
+          "en": "swung",
+          "variants": [
+            "swung"
+          ],
+          "es": "se balanceó",
+          "esAlt": []
+        },
+        "participle": {
+          "id": "irr-100-pp",
+          "en": "swung",
+          "variants": [
+            "swung"
+          ],
+          "es": "balanceado",
+          "esAlt": []
+        }
+      },
+      "identicalForms": true,
+      "badgeNeeded": {
+        "base": false,
+        "past": false,
+        "participle": false
+      },
+      "dialect": "en-US",
+      "note": ""
+    }
+  ]
+}

@@ -1,11 +1,12 @@
 // service-worker.js
-const CACHE_NAME = 'english-trainer-18-2-16-10-2026';
+const CACHE_NAME = 'english-trainer-19-0-16-10-2026';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
   'https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Baloo+2:wght@500;600;700;800&display=swap',
   'https://cdn-icons-png.flaticon.com/512/3898/3898082.png',
+  'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,600;1,9..144,700;1,9..144,800&family=Space+Grotesk:wght@400;500;600;700&display=swap',
 ];
 const AVENTURA_ASSETS = [
   "./aventura/jugar.html",

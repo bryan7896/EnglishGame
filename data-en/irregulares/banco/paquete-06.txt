@@ -1,0 +1,971 @@
+# Paquete 6 · wear, choose, eat, sell, win, teach, throw, catch, fight, forget
+# regla|t (traducción) o c (completar)|español|inglés con las 2 formas entre [corchetes]
+
+# --- Regla 1 · Past Perfect Continuous ---
+1|t|Llevaba horas pescando cuando por fin atrapó un pez; se lo comió esa noche.|He had been fishing for hours when he finally [caught] a fish; he [ate] it that night.
+1|c|Habíamos estado entrenando por meses cuando ganamos la final; el entrenador nos enseñó todo.|We had been training for months when we [won] the final; the coach [taught] us everything.
+1|t|Llevaba años vendiendo ropa cuando eligió abrir su propia tienda; vendió su carro para pagarla.|She had been selling clothes for years when she [chose] to open her own store; she [sold] her car to pay for it.
+1|c|Habían estado discutiendo toda la noche; al final pelearon y él olvidó su chaqueta.|They had been arguing all night; in the end they [fought], and he [forgot] his jacket.
+1|t|Llevaba meses enseñando en esa escuela cuando ganó un premio; llevó puesto un vestido nuevo a la ceremonia.|She had been teaching at that school for months when she [won] an award; she [wore] a new dress to the ceremony.
+1|c|Habíamos estado caminando por horas, así que comimos todo lo que llevábamos; olvidamos guardar algo para la vuelta.|We had been walking for hours, so we [ate] everything we had; we [forgot] to save something for the way back.
+1|t|Llevaba días lanzando la pelota contra la pared cuando por fin la atrapó con una mano; le ganó una apuesta a su hermano.|He had been throwing the ball against the wall for days when he finally [caught] it with one hand; he [won] a bet with his brother.
+1|c|Habían estado vendiendo boletas toda la semana; vendieron quinientas y ganaron un viaje.|They had been selling tickets all week; they [sold] five hundred and [won] a trip.
+1|t|Llevaba años usando el mismo abrigo cuando por fin elegí uno nuevo; vendí el viejo en una feria.|I had been wearing the same coat for years when I finally [chose] a new one; I [sold] the old one at a fair.
+1|c|Había estado lloviendo toda la tarde; me resfrié y olvidé el paraguas en el bus.|It had been raining all afternoon; I [caught] a cold and [forgot] my umbrella on the bus.
+1|t|Llevábamos meses peleando por la herencia cuando el juez eligió una solución; nadie ganó.|We had been fighting over the inheritance for months when the judge [chose] a solution; nobody [won].
+1|c|Llevaba años enseñando cuando olvidó el nombre de su primer estudiante; le enseñó en 1990.|She had been teaching for years when she [forgot] the name of her first student; she [taught] him in 1990.
+1|t|Habíamos estado jugando por horas cuando por fin ganamos; lanzamos las gorras al aire.|We had been playing for hours when we finally [won]; we [threw] our caps into the air.
+1|c|Había estado comiendo poco por semanas, así que eligió una dieta más sana; comía tres veces al día.|He had been eating little for weeks, so he [chose] a healthier diet; he [ate] three meals a day.
+1|t|Llevaba años usando gafas cuando por fin eligió operarse; tiró las gafas.|She had been wearing glasses for years when she finally [chose] surgery; she [threw] the glasses away.
+
+# --- Regla 2 · Wh Questions ---
+2|t|¿Qué comiste en el almuerzo? ¿Quién eligió el restaurante?|What did you [eat] for lunch? Who [chose] the restaurant?
+2|c|¿Quién ganó el partido? ¿Quién lanzó el último penal?|Who [won] the game? Who [threw] the last penalty?
+2|t|¿Cuándo vendiste el carro? ¿Por qué no elegiste quedártelo?|When did you [sell] the car? Why didn't you [choose] to keep it?
+2|c|¿Quién te enseñó a nadar? ¿Dónde atrapaste ese pez?|Who [taught] you to swim? Where did you [catch] that fish?
+2|t|¿Qué llevaste puesto a la boda? ¿Lo elegiste tú?|What did you [wear] to the wedding? Did you [choose] it yourself?
+2|c|¿Por qué pelearon? ¿Quién olvidó la promesa?|Why did they [fight]? Who [forgot] the promise?
+2|t|¿Cuántos premios has ganado? ¿Quién te enseñó a pintar?|How many awards have you [won]? Who [taught] you to paint?
+2|c|¿Qué olvidaste en la casa? ¿Ya comiste?|What did you [forget] at home? Have you [eaten] yet?
+2|t|¿Cuántas boletas vendieron? ¿Quién ganó la rifa?|How many tickets did they [sell]? Who [won] the raffle?
+2|c|¿Dónde atrapaste el resfriado? ¿Qué comiste ayer?|Where did you [catch] that cold? What did you [eat] yesterday?
+2|t|¿Quién lanzó la piedra? ¿Quién la atrapó?|Who [threw] the stone? Who [caught] it?
+2|c|¿Qué elegiste para la cena? ¿Quién te enseñó esa receta?|What did you [choose] for dinner? Who [taught] you that recipe?
+2|t|¿Por qué peleaste con él? ¿Lo olvidaste ya?|Why did you [fight] with him? Have you [forgotten] about it yet?
+2|c|¿Cuándo vendieron la casa? ¿Qué se llevaron puesto al irse?|When did they [sell] the house? What did they [wear] when they left?
+2|t|¿Cómo ganaste la carrera? ¿Qué comiste antes?|How did you [win] the race? What did you [eat] before?
+
+# --- Regla 3 · Orden de sustantivos compuestos ---
+3|t|Llevé puesto un vestido de fiesta y elegí zapatos de tacón.|I [wore] a party dress and [chose] high-heeled shoes.
+3|c|Comimos en un restaurante de comida rápida y olvidé la tarjeta de crédito.|We [ate] at a fast-food restaurant, and I [forgot] my credit card.
+3|t|Vendió su colección de estampillas y ganó mucho dinero.|He [sold] his stamp collection and [won] a lot of money.
+3|c|El profesor de inglés nos enseñó una canción de cumpleaños; la elegimos para la fiesta.|The English teacher [taught] us a birthday song; we [chose] it for the party.
+3|t|Lanzó la pelota de tenis y el perro la atrapó.|He [threw] the tennis ball, and the dog [caught] it.
+3|c|Ganamos el campeonato de fútbol; el equipo de baloncesto perdió y peleó con el árbitro.|We [won] the soccer championship; the basketball team lost and [fought] with the referee.
+3|t|Olvidé mi cepillo de dientes y compré uno en la tienda del hotel; comí en la cafetería.|I [forgot] my toothbrush and bought one at the hotel shop; I [ate] in the cafeteria.
+3|c|Vendieron la máquina de café y eligieron una tetera eléctrica.|They [sold] the coffee machine and [chose] an electric kettle.
+3|t|Llevaba puestas unas gafas de sol y no atrapó la pelota de playa.|He [wore] sunglasses and didn't [catch] the beach ball.
+3|c|La entrenadora de natación me enseñó a respirar; gané la carrera de relevos.|The swimming coach [taught] me how to breathe; I [won] the relay race.
+3|t|Tiré el cartón de leche al bote de reciclaje y olvidé cerrar la nevera.|I [threw] the milk carton in the recycling bin and [forgot] to close the fridge.
+3|c|Comimos sopa de pollo y elegimos un postre de chocolate.|We [ate] chicken soup and [chose] a chocolate dessert.
+3|t|El vendedor de carros vendió diez autos y ganó un bono.|The car salesman [sold] ten cars and [won] a bonus.
+3|c|Atrapé un resfriado de invierno y olvidé la cita con el médico.|I [caught] a winter cold and [forgot] my doctor's appointment.
+3|t|Pelearon en la sala de espera y el guardia de seguridad los sacó; nadie llevaba puesto el tapabocas.|They [fought] in the waiting room, and the security guard took them out; nobody [wore] a face mask.
+
+# --- Regla 4 · Segundo condicional ---
+4|t|Si ganara la lotería, vendería mi carro y compraría uno nuevo.|If I [won] the lottery, I would [sell] my car and buy a new one.
+4|c|Si eligieras mejor, comerías más sano.|If you [chose] better, you would [eat] more healthily.
+4|t|Si enseñara inglés, elegiría trabajar con niños.|If I [taught] English, I would [choose] to work with kids.
+4|c|Si atraparas el bus de las siete, no olvidarías tus citas.|If you [caught] the seven o'clock bus, you wouldn't [forget] your appointments.
+4|t|Si lanzaras más fuerte, ganaríamos el partido.|If you [threw] harder, we would [win] the game.
+4|c|Si no pelearan tanto, ganarían más partidos.|If they didn't [fight] so much, they would [win] more games.
+4|t|Si llevaras puesto un abrigo, no atraparías un resfriado.|If you [wore] a coat, you wouldn't [catch] a cold.
+4|c|Si vendiéramos la casa, elegiríamos un apartamento en el centro.|If we [sold] the house, we would [choose] an apartment downtown.
+4|t|Si comieras menos dulce, elegirías mejores postres.|If you [ate] less sugar, you would [choose] better desserts.
+4|c|Si olvidara tu cumpleaños, me enseñarías a pedir perdón.|If I [forgot] your birthday, you would [teach] me to apologize.
+4|t|Si ganaras, ¿qué llevarías puesto a la ceremonia?|If you [won], what would you [wear] to the ceremony?
+4|c|Si atrapara un pez grande, lo comeríamos esta noche.|If I [caught] a big fish, we would [eat] it tonight.
+4|t|Si eligieras otra carrera, enseñarías historia.|If you [chose] another career, you would [teach] history.
+4|c|Si vendieras más, ganarías un bono.|If you [sold] more, you would [win] a bonus.
+4|t|Si lucharas por tu sueño, no lo olvidarías.|If you [fought] for your dream, you wouldn't [forget] it.
+
+# --- Regla 5 · Cláusulas relativas ---
+5|t|El hombre que vendió la casa ganó mucho dinero.|The man who [sold] the house [won] a lot of money.
+5|c|Este es el vestido que llevé puesto en la boda; lo elegí en París.|This is the dress that I [wore] at the wedding; I [chose] it in Paris.
+5|t|La profesora que me enseñó a leer olvidó mi nombre.|The teacher who [taught] me to read [forgot] my name.
+5|c|El pez que atrapé lo comimos a la parrilla.|The fish that I [caught] we [ate] on the grill.
+5|t|El jugador que lanzó el balón ganó el premio.|The player who [threw] the ball [won] the award.
+5|c|El restaurante que elegiste vendió su último plato a las nueve.|The restaurant that you [chose] [sold] its last dish at nine.
+5|t|Los soldados que lucharon en esa guerra nunca la olvidaron.|The soldiers who [fought] in that war never [forgot] it.
+5|c|El niño que atrapó la pelota la lanzó de vuelta.|The boy who [caught] the ball [threw] it back.
+5|t|La comida que comimos la eligió mi abuela.|The food that we [ate] was [chosen] by my grandmother.
+5|c|El equipo que ganó la copa olvidó el trofeo en el bus.|The team that [won] the cup [forgot] the trophy on the bus.
+5|t|El libro que me enseñó tanto lo vendí por error.|I [sold] the book that [taught] me so much by mistake.
+5|c|El hombre que eligió la chaqueta primero compró la que yo llevaba puesta.|The man who [chose] the jacket first bought the one I [wore].
+5|t|La señora cuyo perro atrapé me enseñó a entrenarlo.|The woman whose dog I [caught] [taught] me how to train it.
+5|c|Los hermanos que pelearon ayer olvidaron todo hoy.|The brothers who [fought] yesterday have [forgotten] everything today.
+5|t|El cocinero que eligió el menú comió con nosotros.|The cook who [chose] the menu [ate] with us.
+
+# --- Regla 6 · Need to + infinitivo ---
+6|t|Necesito elegir un vestido; el que llevé puesto el año pasado ya no me queda.|I need to [choose] a dress; the one I [wore] last year doesn't fit anymore.
+6|c|Necesitas comer algo; olvidaste el almuerzo.|You need to [eat] something; you [forgot] lunch.
+6|t|Necesitamos vender el carro; este año ganamos muy pocos contratos.|We need to [sell] the car; we [won] very few contracts this year.
+6|c|Necesito enseñarle a mi hijo a nadar; ayer lo atrapé justo antes de que cayera a la piscina.|I need to [teach] my son to swim; yesterday I [caught] him just before he fell into the pool.
+6|t|Necesitas lanzar con más fuerza; ayer ganamos por suerte.|You need to [throw] harder; yesterday we [won] by luck.
+6|c|Necesito atrapar el tren de las seis; ayer lo perdí porque olvidé el reloj.|I need to [catch] the six o'clock train; yesterday I missed it because I [forgot] my watch.
+6|t|No necesitamos pelear; ya elegimos una solución.|We don't need to [fight]; we have already [chosen] a solution.
+6|c|Necesitas olvidar lo que pasó; él ya peleó contigo y se disculpó.|You need to [forget] what happened; he [fought] with you, and he apologized.
+6|t|Necesito llevar puesto algo formal; ayer elegí una corbata.|I need to [wear] something formal; yesterday I [chose] a tie.
+6|c|Necesitamos ganar este partido; el entrenador nos enseñó una jugada nueva.|We need to [win] this game; the coach [taught] us a new play.
+6|t|No necesitas enseñarme; ya aprendí cuando vendí mi primera casa.|You don't need to [teach] me; I learned when I [sold] my first house.
+6|c|Necesito comer menos; anoche olvidé mi dieta.|I need to [eat] less; last night I [forgot] my diet.
+6|t|Necesitas elegir; ayer vendieron el último modelo azul.|You need to [choose]; yesterday they [sold] the last blue model.
+6|c|Necesitamos tirar la comida vieja; nadie la ha comido.|We need to [throw] away the old food; nobody has [eaten] it.
+6|t|Necesito atrapar a ese perro; ya se comió mis zapatos.|I need to [catch] that dog; it has already [eaten] my shoes.
+
+# --- Regla 8 · Pronombre objeto tras preposición ---
+8|t|Elegí un regalo para ella y lo llevó puesto toda la noche.|I [chose] a gift for her, and she [wore] it all night.
+8|c|Cocinó para nosotros y comimos hasta las once; olvidamos la hora.|He cooked for us, and we [ate] until eleven; we [forgot] the time.
+8|t|Vendió el carro a ellos y ganó buen dinero.|He [sold] the car to them and [won] good money.
+8|c|La profesora nos enseñó a todos; aprendí mucho de ella y nunca la he olvidado.|The teacher [taught] all of us; I learned a lot from her and have never [forgotten] her.
+8|t|Lanzó la pelota hacia mí y la atrapé.|He [threw] the ball toward me, and I [caught] it.
+8|c|Peleó por nosotros y ganó el caso.|She [fought] for us and [won] the case.
+8|t|Olvidé el libro de él en el bus; alguien lo vendió en una tienda de segunda.|I [forgot] his book on the bus; somebody [sold] it in a second-hand store.
+8|c|Comí con ellos y elegí el restaurante.|I [ate] with them and [chose] the restaurant.
+8|t|Ganó la carrera delante de mí; le lancé flores.|She [won] the race in front of me; I [threw] her flowers.
+8|c|Atrapé el resfriado de él; me enseñó a no compartir vasos.|I [caught] the cold from him; it [taught] me not to share glasses.
+8|t|Llevé puesta la chaqueta de ella; olvidé devolvérsela.|I [wore] her jacket; I [forgot] to give it back to her.
+8|c|Eligió entre ellos y vendió la casa al más joven.|She [chose] between them and [sold] the house to the youngest one.
+8|t|Peleó contra él en la final y ganó.|He [fought] against him in the final and [won].
+8|c|Enseñó a mi lado veinte años; nunca se olvidó de mí.|She [taught] next to me for twenty years; she never [forgot] about me.
+8|t|Tiró las llaves hacia nosotros, pero ninguno las atrapó.|He [threw] the keys toward us, but none of us [caught] them.
+
+# --- Regla 9 · "as" = como ---
+9|t|Trabajó como profesor y enseñó en tres países; nunca olvidó su primera clase.|He worked as a teacher and [taught] in three countries; he never [forgot] his first class.
+9|c|Usó la bufanda como cinturón; la llevó puesta toda la noche y ganó el concurso de disfraces.|She used the scarf as a belt; she [wore] it all night and [won] the costume contest.
+9|t|Como ganamos, elegimos dónde celebrar.|As we [won], we [chose] where to celebrate.
+9|c|Como olvidó la billetera, vendió su reloj para pagar.|As he [forgot] his wallet, he [sold] his watch to pay.
+9|t|Como siempre, comimos demasiado y olvidamos el postre en la nevera.|As always, we [ate] too much and [forgot] the dessert in the fridge.
+9|c|Trabajó como vendedora y vendió más que nadie; ganó todos los bonos.|She worked as a saleswoman and [sold] more than anyone; she [won] every bonus.
+9|t|Como te dije, atrapé al perro y le enseñé a sentarse.|As I told you, I [caught] the dog and [taught] it to sit.
+9|c|Como capitán, eligió a los jugadores y lanzó el primer tiro.|As captain, he [chose] the players and [threw] the first shot.
+9|t|Como esperábamos, pelearon por el último pedazo y nadie se lo comió.|As we expected, they [fought] over the last piece, and nobody [ate] it.
+9|c|Usé la caja como mesa y comimos sobre ella; después la tiramos.|I used the box as a table, and we [ate] on it; we [threw] it away later.
+9|t|Como regalo, me enseñó a pescar; atrapé tres peces.|As a gift, he [taught] me to fish; I [caught] three fish.
+9|c|Como no ganó, olvidó la promesa.|As he didn't [win], he [forgot] his promise.
+9|t|Como abogada, luchó por los pobres y ganó muchos casos.|As a lawyer, she [fought] for the poor and [won] many cases.
+9|c|Como hacía frío, me puse el abrigo que elegiste.|As it was cold, I [wore] the coat that you [chose].
+9|t|Trabajó como pescador y vendió todo lo que atrapó.|He worked as a fisherman and [sold] everything he [caught].
+
+# --- Regla 10 · Presente perfecto ---
+10|t|He ganado tres partidos y he lanzado diez goles.|I have [won] three games and have [thrown] ten goals.
+10|c|Han vendido la casa y han elegido un apartamento.|They have [sold] the house and have [chosen] an apartment.
+10|t|¿Has comido? He olvidado el almuerzo otra vez.|Have you [eaten]? I have [forgotten] lunch again.
+10|c|Ella ha enseñado aquí veinte años y nunca ha peleado con nadie.|She has [taught] here for twenty years and has never [fought] with anyone.
+10|t|Nunca he llevado puesto un traje; nunca he elegido una corbata.|I have never [worn] a suit; I have never [chosen] a tie.
+10|c|El gato ha atrapado un ratón y se lo ha comido.|The cat has [caught] a mouse and has [eaten] it.
+10|t|Hemos luchado mucho y por fin hemos ganado.|We have [fought] hard, and we have finally [won].
+10|c|He olvidado su nombre; me lo ha enseñado tres veces.|I have [forgotten] his name; he has [taught] it to me three times.
+10|t|Han lanzado basura al río; los han atrapado.|They have [thrown] trash into the river; they have been [caught].
+10|c|Hemos vendido todas las entradas y hemos ganado mucho dinero.|We have [sold] all the tickets and have [won] a lot of money.
+10|t|He elegido el menú; ya han comido los niños.|I have [chosen] the menu; the kids have already [eaten].
+10|c|Nunca ha llevado puesto ese vestido; lo ha olvidado en el armario.|She has never [worn] that dress; she has [forgotten] it in the closet.
+10|t|Me ha enseñado a cocinar y hemos vendido pasteles en el barrio.|She has [taught] me to cook, and we have [sold] cakes in the neighborhood.
+10|c|He atrapado un resfriado; he comido muy poco.|I have [caught] a cold; I have [eaten] very little.
+10|t|Han peleado por años; nunca han ganado nada.|They have [fought] for years; they have never [won] anything.
+
+# --- Regla 11 · Bring / Brought ---
+11|t|Trajo el pez que atrapó y lo comimos.|He brought the fish he [caught], and we [ate] it.
+11|c|Trae el vestido que llevaste puesto; lo vendemos en la feria.|Bring the dress you [wore]; we'll [sell] it at the fair.
+11|t|Trajo el trofeo que ganó y lo lanzó al aire.|She brought the trophy she [won] and [threw] it into the air.
+11|c|Traje la comida que elegiste; ¿ya comiste?|I brought the food you [chose]; have you [eaten] yet?
+11|t|¿Trajiste las llaves? Ayer las olvidaste e hiciste un berrinche.|Did you bring the keys? You [forgot] them yesterday and [threw] a fit.
+11|c|Trajeron libros que vendieron en el mercado; ganaron un poco de dinero.|They brought books that they [sold] at the market; they [won] a little money.
+11|t|Me trajo el cuaderno que usaba cuando enseñaba; lo había olvidado.|She brought me the notebook she used when she [taught]; she had [forgotten] it.
+11|c|Traje la pelota que atrapé en el estadio; la lancé al jardín.|I brought the ball I [caught] at the stadium; I [threw] it into the yard.
+11|t|Trajo flores porque olvidó mi cumpleaños; peleamos un poco.|He brought flowers because he [forgot] my birthday; we [fought] a little.
+11|c|Trae algo de comer; ayer nos comimos todo y tiramos las bolsas.|Bring something to eat; we [ate] everything yesterday and [threw] away the bags.
+11|t|Trajo el abrigo que eligió y lo llevó puesto toda la tarde.|She brought the coat she [chose] and [wore] it all afternoon.
+11|c|Trajeron la copa que ganaron; el entrenador que les enseñó lloró.|They brought the cup they [won]; the coach who [taught] them cried.
+11|t|Traje los zapatos que vendiste; nunca los llevé puestos.|I brought the shoes you [sold] me; I never [wore] them.
+11|c|Trajo al perro que atrapó en la calle; le enseñó a sentarse.|He brought the dog he [caught] on the street; he [taught] it to sit.
+11|t|Trajimos la mesa que elegimos y comimos en ella esa noche.|We brought the table we [chose] and [ate] at it that night.
+
+# --- Regla 12 · Primer condicional ---
+12|t|Si ganamos, elegiremos el restaurante.|If we [win], we'll [choose] the restaurant.
+12|c|Si comes eso, atraparás un resfriado.|If you [eat] that, you'll [catch] a cold.
+12|t|Si vendes el carro, ganarás poco.|If you [sell] the car, you'll [win] little.
+12|c|Si me enseñas, no lo olvidaré.|If you [teach] me, I won't [forget] it.
+12|t|Si lanzas la pelota, la atraparé.|If you [throw] the ball, I'll [catch] it.
+12|c|Si peleas con él, perderás; nunca ganas.|If you [fight] with him, you'll lose; you never [win].
+12|t|Si olvidas el abrigo, ponte el mío.|If you [forget] your coat, [wear] mine.
+12|c|Si eliges el rojo, lo venderé más barato.|If you [choose] the red one, I'll [sell] it cheaper.
+12|t|Si llevas puesto ese vestido, ganarás el concurso.|If you [wear] that dress, you'll [win] the contest.
+12|c|Si atrapamos un pez, lo comeremos esta noche.|If we [catch] a fish, we'll [eat] it tonight.
+12|t|Si le enseñas a pescar, comerá toda la vida.|If you [teach] him to fish, he'll [eat] for life.
+12|c|Si no comes, olvidarás la clase.|If you don't [eat], you'll [forget] the lesson.
+12|t|Si vendemos todo, lucharemos menos con las deudas.|If we [sell] everything, we'll [fight] less with debt.
+12|c|Si tiras basura, te atraparán.|If you [throw] trash, they'll [catch] you.
+12|t|Si ganamos, elegiremos el premio.|If we [win], we'll [choose] the prize.
+
+# --- Regla 13 · Past Perfect vs Presente vs Futuro ---
+13|t|Cuando llegué, ya habían comido; mañana elegiré yo el restaurante.|When I arrived, they had already [eaten]; tomorrow I will [choose] the restaurant.
+13|c|Nunca había ganado un premio; el próximo año lucharé por otro.|I had never [won] an award; next year I will [fight] for another one.
+13|t|Ya había vendido el carro cuando me enseñaste a manejar.|I had already [sold] the car when you [taught] me to drive.
+13|c|Había olvidado las llaves; mañana llevaré puesta una cadena con ellas.|I had [forgotten] my keys; tomorrow I will [wear] them on a chain.
+13|t|El perro ya había atrapado la pelota cuando la lancé otra vez.|The dog had already [caught] the ball when I [threw] it again.
+13|c|Ella había enseñado en Japón; el próximo año elegirá trabajar en casa.|She had [taught] in Japan; next year she will [choose] to work from home.
+13|t|Nunca habíamos peleado tanto; mañana olvidaremos todo.|We had never [fought] so much; tomorrow we will [forget] everything.
+13|c|Ya habían elegido el menú cuando comimos.|They had already [chosen] the menu when we [ate].
+13|t|Había llevado puesto ese vestido una vez; mañana lo venderé.|I had [worn] that dress once; tomorrow I will [sell] it.
+13|c|Ya habían vendido todas las entradas cuando ganamos la semifinal.|They had already [sold] all the tickets when we [won] the semifinal.
+13|t|Nunca había comido pulpo; mañana elegiré otro plato nuevo.|I had never [eaten] octopus; tomorrow I will [choose] another new dish.
+13|c|Él ya había lanzado la piedra cuando el policía lo atrapó.|He had already [thrown] the stone when the police officer [caught] him.
+13|t|Habíamos ganado tres partidos; el sábado lucharemos por la copa.|We had [won] three games; on Saturday we will [fight] for the cup.
+13|c|Ya habían olvidado la pelea cuando volvimos a comer juntos.|They had already [forgotten] the fight when we [ate] together again.
+13|t|Me había enseñado a pescar; mañana atraparé mi primer pez solo.|He had [taught] me to fish; tomorrow I will [catch] my first fish alone.
+
+# --- Regla 14 · Make vs Do ---
+14|t|Hice la cena, comimos en el jardín y olvidamos el postre.|I made dinner; we [ate] in the garden and [forgot] dessert.
+14|c|Cometí un error: olvidé su nombre y elegí mal las palabras.|I made a mistake: I [forgot] her name and [chose] the wrong words.
+14|t|Hicimos un gran esfuerzo, ganamos el campeonato y lanzamos al entrenador al aire.|We made a great effort; we [won] the championship and [threw] the coach into the air.
+14|c|Hizo la tarea y luego me enseñó lo que aprendió; nunca lo olvidé.|She did her homework and then [taught] me what she learned; I never [forgot] it.
+14|t|Hicieron un trato y vendieron la empresa; ganaron millones.|They made a deal and [sold] the company; they [won] millions.
+14|c|Hice las compras y elegí la mejor fruta; nos la comimos de postre.|I did the shopping and [chose] the best fruit; we [ate] it for dessert.
+14|t|Hizo ruido y lanzó un plato al piso; peleamos una hora.|He made noise and [threw] a plate on the floor; we [fought] for an hour.
+14|c|Hice ejercicio y luego comí una ensalada; elegí un aderezo ligero.|I did some exercise and then [ate] a salad; I [chose] a light dressing.
+14|t|Hicieron las paces después de haber peleado toda la semana; olvidaron la discusión.|They made peace after they had [fought] all week; they [forgot] the argument.
+14|c|Hizo una broma y todos la entendieron enseguida; se ganó al público.|He made a joke, and everyone [caught] it right away; he [won] over the room.
+14|t|Hice la cama y elegí la ropa que llevé puesta al trabajo.|I made the bed and [chose] the clothes I [wore] to work.
+14|c|Hicimos un pastel y lo vendimos en la feria; también ganamos un premio.|We made a cake and [sold] it at the fair; we [won] a prize too.
+14|t|Hizo un buen trabajo enseñando; nadie olvidó sus clases y ganó un premio.|She did a good job teaching; nobody [forgot] her classes, and she [won] an award.
+14|c|Lavé los platos y saqué la basura; olvidé el reciclaje.|I did the dishes and [threw] out the trash; I [forgot] the recycling.
+14|t|Hicieron dinero vendiendo ropa usada; vendieron todo y ganaron más de lo esperado.|They made money selling used clothes; they [sold] everything and [won] more than expected.
+
+# --- Regla 15 · Gone vs Left ---
+15|t|Se fue a comer; ayer comió en el mismo lugar y eligió el mismo plato.|She has gone to eat; yesterday she [ate] at the same place and [chose] the same dish.
+15|c|Salió de la casa sin desayunar; olvidó la lonchera y tomó el bus tarde.|He left the house without breakfast; he [forgot] his lunch box and [caught] the bus late.
+15|t|Se fueron a pescar; el sábado atraparon diez peces y los vendieron.|They have gone fishing; on Saturday they [caught] ten fish and [sold] them.
+15|c|Dejó el trabajo después de ganar la lotería; vendió su carro viejo.|He left his job after he [won] the lottery; he [sold] his old car.
+15|t|Se fue al gimnasio; ayer peleó en un torneo y ganó.|He has gone to the gym; yesterday he [fought] in a tournament and [won].
+15|c|Salió de la fiesta temprano; olvidó la chaqueta que llevaba puesta.|She left the party early; she [forgot] the jacket she [wore].
+15|t|Se fue a enseñar a otro país; me enseñó todo lo que sé y me eligió como su reemplazo.|She has gone to teach in another country; she [taught] me everything I know and [chose] me as her replacement.
+15|c|Dejó a su equipo después de pelear con el entrenador; eligió otro club.|He left his team after he [fought] with the coach; he [chose] another club.
+15|t|Se fueron a la playa; ayer comieron mariscos y lanzaron una pelota por horas.|They have gone to the beach; yesterday they [ate] seafood and [threw] a ball for hours.
+15|c|Salió del restaurante sin pagar; el mesero lo atrapó en la puerta y olvidó su excusa.|He left the restaurant without paying; the waiter [caught] him at the door and he [forgot] his excuse.
+15|t|Se fue al mercado a vender; el domingo vendió todo y ganó bien.|She has gone to the market to sell; on Sunday she [sold] everything and [won] good money.
+15|c|Dejé la ropa que llevé puesta en la lavadora; olvidé sacarla.|I left the clothes I [wore] in the washing machine; I [forgot] to take them out.
+15|t|Se fue a la final; ganó la semifinal y eligió su mejor camiseta.|He has gone to the final; he [won] the semifinal and [chose] his best shirt.
+15|c|Salió de clase después de enseñar cuatro horas; comió algo rápido.|She left class after she [taught] for four hours; she [ate] something quickly.
+15|t|Se fue a casa porque atrapó un resfriado; olvidó la mitad de sus cosas.|He has gone home because he [caught] a cold; he [forgot] half his things.
+
+# --- Regla 16 · Preposiciones de movimiento ---
+16|t|Lanzó la pelota por encima del muro y el vecino la atrapó.|He [threw] the ball over the wall, and the neighbor [caught] it.
+16|c|Tiró las llaves por la ventana; olvidé que estaban en mi bolsillo.|She [threw] the keys out of the window; I [forgot] they were in my pocket.
+16|t|Corrió hacia la meta y ganó la carrera; lanzó los brazos al aire.|She ran toward the finish line and [won] the race; she [threw] her arms up.
+16|c|Pelearon a lo largo de toda la calle; la policía los atrapó en la esquina.|They [fought] all along the street; the police [caught] them at the corner.
+16|t|Lanzamos piedras al río y atrapamos ranas junto a la orilla.|We [threw] stones into the river and [caught] frogs along the bank.
+16|c|Caminamos por el mercado y elegimos frutas de cada puesto; nos las comimos en el camino.|We walked through the market and [chose] fruit from every stall; we [ate] it on the way.
+16|t|Vendió su casa en el campo y se mudó a la ciudad; eligió un apartamento cerca del metro.|He [sold] his house in the country and moved to the city; he [chose] an apartment near the subway.
+16|c|Atrapé el bus hacia el centro; olvidé bajarme en mi parada.|I [caught] the bus to downtown; I [forgot] to get off at my stop.
+16|t|El perro corrió por el parque y atrapó la pelota que lancé.|The dog ran through the park and [caught] the ball that I [threw].
+16|c|Lanzó el balón hacia el arco y ganamos el partido.|He [threw] the ball toward the goal, and we [won] the game.
+16|t|Enseñó por todo el país y nunca olvidó a sus alumnos.|She [taught] across the country and never [forgot] her students.
+16|c|Comimos a lo largo del río y elegimos un buen lugar para pescar.|We [ate] along the river and [chose] a good place to fish.
+16|t|Tiró la bolsa dentro del carro y olvidó cerrar la puerta.|He [threw] the bag into the car and [forgot] to close the door.
+16|c|Llevé puesto el abrigo a través de la nieve; gané la apuesta.|I [wore] my coat through the snow; I [won] the bet.
+16|t|Peleamos por todo el camino hasta la casa; al llegar comimos en silencio.|We [fought] all the way home; when we arrived, we [ate] in silence.
+
+# --- Regla 17 · Modales básicos ---
+17|t|Puedes elegir lo que quieras; ayer yo comí el postre más caro.|You can [choose] whatever you want; yesterday I [ate] the most expensive dessert.
+17|c|Deberías comer algo; olvidaste el almuerzo.|You should [eat] something; you [forgot] lunch.
+17|t|No debes lanzar piedras; ayer atraparon a un niño haciéndolo.|You must not [throw] stones; yesterday they [caught] a kid doing it.
+17|c|¿Puedes enseñarme a nadar? Olvidé cómo se hace.|Can you [teach] me to swim? I have [forgotten] how.
+17|t|Podríamos vender la casa; el año pasado ganamos poco.|We could [sell] the house; last year we [won] very little.
+17|c|Ella puede ganar; el año pasado peleó muy bien.|She can [win]; last year she [fought] very well.
+17|t|Debes llevar puesto el casco; ayer olvidaste el tuyo.|You must [wear] a helmet; yesterday you [forgot] yours.
+17|c|¿Podrías atrapar el bus? Olvidé el carro en la oficina.|Could you [catch] the bus? I [forgot] the car at the office.
+17|t|No deberías pelear; ayer ganaste por suerte.|You shouldn't [fight]; yesterday you [won] by luck.
+17|c|Puedes comer aquí; ya vendimos todo lo demás.|You can [eat] here; we have already [sold] everything else.
+17|t|Deberías elegir con cuidado; la última vez vendiste el carro muy barato.|You should [choose] carefully; last time you [sold] the car too cheap.
+17|c|¿Puedo lanzar primero? Ayer atrapaste todas las pelotas.|May I [throw] first? Yesterday you [caught] every ball.
+17|t|Tienes que olvidar esa pelea; él ya ganó la discusión.|You have to [forget] that fight; he has already [won] the argument.
+17|c|Podría enseñar en la universidad; el año pasado ganó un premio.|She could [teach] at the university; last year she [won] an award.
+17|t|No puedes vender lo que no has elegido.|You can't [sell] what you haven't [chosen].
+
+# --- Regla 18 · Gerundio vs infinitivo ---
+18|t|Decidí vender el carro; después de eso elegí caminar.|I decided to [sell] the car; I [chose] to walk after that.
+18|c|Dejó de comer dulces y ganó más energía; eligió fruta en su lugar.|She stopped eating sweets and [won] more energy; she [chose] fruit instead.
+18|t|Quiere enseñar en el extranjero; ya eligió el país.|She wants to [teach] abroad; she has already [chosen] the country.
+18|c|Evita pelear; la última vez perdió y olvidó por qué peleaba.|He avoids fighting; last time he lost and [forgot] why he had [fought].
+18|t|Espero ganar la beca; elegí estudiar medicina.|I hope to [win] the scholarship; I [chose] to study medicine.
+18|c|Me encanta pescar; ayer atrapé dos truchas y nos las comimos.|I love fishing; yesterday I [caught] two trout, and we [ate] them.
+18|t|Olvidó llevar puesto el reloj; lo eligió para la entrevista.|He forgot to [wear] his watch; he had [chosen] it for the interview.
+18|c|Prometió no olvidar mi cumpleaños, y me enseñó que cumple sus promesas.|He promised not to [forget] my birthday, and he [taught] me that he keeps his promises.
+18|t|Terminé de comer y lancé la servilleta a la mesa; comí demasiado.|I finished eating and [threw] my napkin on the table; I [ate] too much.
+18|c|Intentó atrapar la pelota y ganó el aplauso del público.|He tried to [catch] the ball and [won] the crowd's applause.
+18|t|Sugirió vender los muebles; elegimos regalarlos y vendimos solo el sofá.|She suggested selling the furniture; we [chose] to give it away and [sold] only the sofa.
+18|c|Planeamos comer afuera; ya elegimos el lugar.|We plan to [eat] out; we have already [chosen] the place.
+18|t|No me importa enseñar los sábados; el año pasado enseñé todos los fines de semana y gané un pago extra.|I don't mind teaching on Saturdays; last year I [taught] every weekend and [won] extra pay.
+18|c|Dejé de usar corbata; la última vez que la llevé puesta la olvidé en un taxi.|I stopped wearing ties; the last time I [wore] one, I [forgot] it in a taxi.
+18|t|Recuerdo haber ganado ese partido; lancé el último tiro y atrapé el rebote.|I remember winning that game; I [threw] the last shot and [caught] the rebound.
+
+# --- Regla 19 · Participios irregulares ---
+19|t|He comido en ese restaurante; nunca he elegido mal allí.|I have [eaten] at that restaurant; I have never [chosen] badly there.
+19|c|La casa ha sido vendida y el dinero ha sido ganado limpiamente.|The house has been [sold], and the money has been [won] fairly.
+19|t|Nunca he llevado puesto un esmoquin; nunca me han enseñado a hacer el nudo.|I have never [worn] a tuxedo; I have never been [taught] to tie the knot.
+19|c|El ladrón ha sido atrapado; la piedra que lanzó ha sido encontrada.|The thief has been [caught]; the stone he [threw] has been found.
+19|t|Hemos luchado mucho; no hemos olvidado a nuestros amigos.|We have [fought] hard; we haven't [forgotten] our friends.
+19|c|La pelota fue lanzada y atrapada en el mismo segundo.|The ball was [thrown] and [caught] in the same second.
+19|t|El presidente ha sido elegido; ha ganado por poco.|The president has been [chosen]; he has [won] by a small margin.
+19|c|Ya he enseñado esta lección; ya la han olvidado.|I have already [taught] this lesson; they have already [forgotten] it.
+19|t|Todas las entradas han sido vendidas; el pastel ha sido comido.|All the tickets have been [sold]; the cake has been [eaten].
+19|c|Esos zapatos han sido muy usados; han sido elegidos para el museo.|Those shoes have been [worn] a lot; they have been [chosen] for the museum.
+19|t|El premio ha sido ganado por una niña que ha luchado toda su vida.|The prize has been [won] by a girl who has [fought] all her life.
+19|c|Me han enseñado a pescar, pero nunca he atrapado nada.|I have been [taught] to fish, but I have never [caught] anything.
+19|t|Hemos comido y hemos vendido todo lo que sobró.|We have [eaten], and we have [sold] everything that was left.
+19|c|Su nombre ha sido olvidado; su ropa ha sido lanzada a la basura.|His name has been [forgotten]; his clothes have been [thrown] in the trash.
+19|t|Han peleado por esa tierra; ha sido vendida tres veces.|They have [fought] over that land; it has been [sold] three times.
+
+# --- Regla 20 · 3ra persona singular (-s) ---
+20|t|Mi hermana come mucho; ayer comió dos pizzas y eligió un postre.|My sister eats a lot; yesterday she [ate] two pizzas and [chose] a dessert.
+20|c|Mi papá vende carros; la semana pasada vendió cinco y ganó un bono.|My dad sells cars; last week he [sold] five and [won] a bonus.
+20|t|Ella enseña inglés; el año pasado enseñó en Japón y llevó puesto un kimono.|She teaches English; last year she [taught] in Japan and [wore] a kimono.
+20|c|Mi hijo siempre olvida las llaves; ayer las olvidó y lanzó una piedra a la ventana.|My son always forgets his keys; yesterday he [forgot] them and [threw] a stone at the window.
+20|t|El gato atrapa ratones; anoche atrapó uno y se lo comió.|The cat catches mice; last night it [caught] one and [ate] it.
+20|c|Mi equipo gana casi siempre; el sábado ganó y el capitán lanzó la copa al aire.|My team almost always wins; on Saturday it [won], and the captain [threw] the cup into the air.
+20|t|Ella elige su ropa con cuidado; hoy eligió un vestido que llevó puesto en la boda de su hermana.|She chooses her clothes carefully; today she [chose] a dress she [wore] at her sister's wedding.
+20|c|Mi vecino pelea con todos; ayer peleó con el cartero y olvidó disculparse.|My neighbor fights with everyone; yesterday he [fought] with the mailman and [forgot] to apologize.
+20|t|Él lanza muy bien; en el último partido lanzó diez veces y ganó.|He throws very well; in the last game he [threw] ten times and [won].
+20|c|Mi abuela enseña a tejer; el mes pasado me enseñó y vendí mi primera bufanda.|My grandmother teaches knitting; last month she [taught] me, and I [sold] my first scarf.
+20|t|Ella lleva gafas; ayer las olvidó y no atrapó la pelota.|She wears glasses; yesterday she [forgot] them and didn't [catch] the ball.
+20|c|Mi primo vende frutas; el domingo vendió todo y comió en un restaurante.|My cousin sells fruit; on Sunday he [sold] everything and [ate] at a restaurant.
+20|t|El entrenador elige a los jugadores; ayer me eligió y gané el partido.|The coach chooses the players; yesterday he [chose] me, and I [won] the game.
+20|c|Mi perro atrapa todo lo que lanzo; ayer atrapó un frisbee y se comió la mitad.|My dog catches everything I throw; yesterday it [caught] a frisbee and [ate] half of it.
+20|t|Ella olvida todo; ayer olvidó el almuerzo y comió una galleta.|She forgets everything; yesterday she [forgot] her lunch and [ate] a cookie.
+
+# --- Regla 21 · Say vs Tell ---
+21|t|Me dijo que había ganado la lotería y que había vendido su casa.|He told me he had [won] the lottery and had [sold] his house.
+21|c|Dijo que ya había comido; me contó que eligió un plato vegetariano.|She said she had already [eaten]; she told me she [chose] a vegetarian dish.
+21|t|Dijeron que habían peleado; nos contaron que olvidaron por qué.|They said they had [fought]; they told us they [forgot] why.
+21|c|Le dije que no lanzara la pelota, pero dijo que el perro siempre la había atrapado.|I told him not to [throw] the ball, but he said the dog had always [caught] it.
+21|t|Me contó que su abuelo le enseñó a pescar; dijo que atrapó su primer pez a los cinco años.|She told me her grandfather [taught] her to fish; she said she [caught] her first fish at five.
+21|c|Dijo que había olvidado el abrigo; me contó que llevaba puesto el de su hermano.|He said he had [forgotten] his coat; he told me he [wore] his brother's.
+21|t|Dime qué elegiste; dijeron que comiste muy bien.|Tell me what you [chose]; they said you [ate] very well.
+21|c|Dijeron que el equipo ganó; nos contaron que el portero atrapó tres penales.|They said the team [won]; they told us the goalkeeper [caught] three penalties.
+21|t|Me dijo que había vendido el carro; dijo que ganó buen dinero.|He told me he had [sold] the car; he said he [won] good money.
+21|c|Dijo "lo siento" y me contó que había olvidado nuestra cita; comió solo.|He said "sorry" and told me he had [forgotten] our date; he [ate] alone.
+21|t|Le conté que me habían enseñado a bailar; dijo que llevaba puestos los zapatos equivocados.|I told her I had been [taught] to dance; she said I [wore] the wrong shoes.
+21|c|Dijeron que lucharon hasta el final; nos contaron que ganaron por un punto.|They said they [fought] until the end; they told us they [won] by one point.
+21|t|Me dijo que lanzó su teléfono al mar; dijo que olvidó la contraseña.|She told me she [threw] her phone into the sea; she said she had [forgotten] the password.
+21|c|Dijo que eligió esa universidad porque allí enseñó su papá.|He said he [chose] that university because his dad [taught] there.
+21|t|Cuéntame qué comieron; dijeron que vendieron todo el pastel.|Tell me what you [ate]; they said you [sold] the whole cake.
+
+# --- Regla 22 · Artículos ---
+22|t|Comí una manzana y lancé el corazón a la basura.|I [ate] an apple and [threw] the core in the trash.
+22|c|La profesora nos enseñó una canción; la elegimos para el concurso.|The teacher [taught] us a song; we [chose] it for the contest.
+22|t|Un niño atrapó la pelota y la lanzó al campo.|A boy [caught] the ball and [threw] it onto the field.
+22|c|Vendí el carro a un vecino y gané un poco de dinero.|I [sold] the car to a neighbor and [won] a little money.
+22|t|El equipo ganó la final; el capitán llevó puesta una corona.|The team [won] the final; the captain [wore] a crown.
+22|c|Olvidé el paraguas en un taxi y atrapé un resfriado.|I [forgot] my umbrella in a taxi and [caught] a cold.
+22|t|Elegí una mesa junto a la ventana y comimos en paz.|I [chose] a table by the window, and we [ate] in peace.
+22|c|Dos hombres pelearon en la calle; la policía atrapó a uno.|Two men [fought] in the street; the police [caught] one.
+22|t|Mi abuelo me enseñó un truco que nunca he olvidado.|My grandfather [taught] me a trick that I have never [forgotten].
+22|c|La tienda vendió el último televisor; un cliente lo eligió en segundos.|The store [sold] the last TV; a customer [chose] it in seconds.
+22|t|Llevé puesto un sombrero y gané el premio al mejor disfraz.|I [wore] a hat and [won] the prize for the best costume.
+22|c|El perro comió una galleta y tumbó el plato al piso; después vomitó.|The dog [ate] a cookie and knocked the plate to the floor; it [threw] up later.
+22|t|Una mujer ganó la carrera y lanzó flores al público.|A woman [won] the race and [threw] flowers to the crowd.
+22|c|El pescador atrapó un pez enorme y lo vendió en el mercado.|The fisherman [caught] a huge fish and [sold] it at the market.
+22|t|Olvidé el nombre de la película que elegimos.|I [forgot] the name of the movie that we [chose].
+
+# --- Regla 23 · Phrasal verbs con "look" ---
+23|t|Busqué el abrigo que llevé puesto ayer; lo olvidé en el bus.|I looked for the coat I [wore] yesterday; I [forgot] it on the bus.
+23|c|Se parece a su mamá: enseñó en la misma escuela y ganó el mismo premio.|She looks like her mom: she [taught] at the same school and [won] the same award.
+23|t|Busca la receta; ayer comimos ese plato y lo elegí yo.|Look up the recipe; yesterday we [ate] that dish, and I [chose] it.
+23|c|Me miró y lanzó la pelota; la atrapé con una mano.|He looked at me and [threw] the ball; I [caught] it with one hand.
+23|t|Estoy buscando el libro que vendí; olvidé que tenía notas importantes.|I'm looking for the book I [sold]; I [forgot] it had important notes.
+23|c|Cuida a los niños; la última vez pelearon y lanzaron juguetes.|Look after the kids; last time they [fought] and [threw] toys.
+23|t|Miré la carta y elegí el pescado; me lo comí todo.|I looked at the menu and [chose] the fish; I [ate] all of it.
+23|c|Espero con ansias el partido; el año pasado ganamos y el portero atrapó todo.|I'm looking forward to the game; last year we [won], and the goalkeeper [caught] everything.
+23|t|Buscaron al ladrón y lo atraparon; había vendido el reloj.|They looked for the thief and [caught] him; he had [sold] the watch.
+23|c|Revisa el examen; olvidaste una pregunta que te enseñé.|Look over the exam; you [forgot] a question I [taught] you.
+23|t|Se veía feliz porque ganó; llevaba puesta la camiseta del equipo.|She looked happy because she [won]; she [wore] the team shirt.
+23|c|Busqué en internet quién ganó; olvidé ver el partido.|I looked up who [won]; I [forgot] to watch the game.
+23|t|Mira lo que lanzaron al río; alguien vendió la bicicleta y otra persona la tiró.|Look what they [threw] into the river; someone [sold] the bike, and someone else dumped it.
+23|c|Me miró como si hubiera olvidado algo; había comido su postre.|She looked at me as if I had [forgotten] something; I had [eaten] her dessert.
+23|t|Busqué un regalo y elegí un reloj; lo vendieron con descuento.|I looked for a gift and [chose] a watch; they [sold] it at a discount.
+
+# --- Regla 25 · Give / Gave / Given ---
+25|t|Me dio una manzana y me la comí en el bus; tiré el corazón.|She gave me an apple, and I [ate] it on the bus; I [threw] the core away.
+25|c|Le di dos opciones y eligió la más cara; después vendió la otra.|I gave him two options, and he [chose] the most expensive one; he [sold] the other one later.
+25|t|Nos dieron un premio porque ganamos el concurso; elegimos un viaje.|They gave us a prize because we [won] the contest; we [chose] a trip.
+25|c|Mi abuelo me dio su reloj y lo llevé puesto el día de mi boda; nunca lo olvidé.|My grandfather gave me his watch, and I [wore] it on my wedding day; I never [forgot] him.
+25|t|Le di la pelota y la lanzó muy lejos; nadie la atrapó.|I gave him the ball, and he [threw] it very far; nobody [caught] it.
+25|c|Me dieron una segunda oportunidad y no la olvidé; gané el puesto.|They gave me a second chance, and I didn't [forget] it; I [won] the job.
+25|t|La profesora nos dio tiempo extra y nos enseñó el truco; ganamos el concurso de preguntas.|The teacher gave us extra time and [taught] us the trick; we [won] the quiz.
+25|c|Le dieron una medalla por luchar en la guerra; vendió la medalla años después.|They gave him a medal for having [fought] in the war; he [sold] it years later.
+25|t|Me dio su número, pero lo olvidé; lo atrapé en la calle al día siguiente.|She gave me her number, but I [forgot] it; I [caught] her on the street the next day.
+25|c|Les dimos comida y comieron como reyes; nos enseñaron una canción.|We gave them food, and they [ate] like kings; they [taught] us a song.
+25|t|Me dieron a elegir y elegí el rojo; lo llevé puesto toda la semana.|They gave me a choice, and I [chose] the red one; I [wore] it all week.
+25|c|El público le dio un aplauso cuando atrapó la pelota; ganó el juego.|The crowd gave him applause when he [caught] the ball; he [won] the game.
+25|t|Le di mi bicicleta vieja y la vendió por buen dinero; comió afuera con ese dinero.|I gave him my old bike, and he [sold] it for good money; he [ate] out with the money.
+25|c|Me dieron un consejo que nunca he olvidado: después de eso elegí a mis amigos con cuidado.|They gave me advice that I have never [forgotten]: I [chose] my friends carefully after that.
+25|t|Le han dado todo; ha ganado todo lo que ha querido y ha llevado puesta la mejor ropa.|They have given him everything; he has [won] everything he wanted and has [worn] the best clothes.
+
+# --- Regla 26 · Still + hope ---
+26|t|Todavía espero ganar la carrera; el año pasado lancé mal en la final.|I still hope to [win] the race; last year I [threw] badly in the final.
+26|c|Aún espera vender la casa; ya eligió un comprador.|She still hopes to [sell] the house; she has already [chosen] a buyer.
+26|t|Todavía esperamos comer en ese restaurante; olvidamos reservar.|We still hope to [eat] at that restaurant; we [forgot] to book.
+26|c|Aún espero que no olvides mi cumpleaños; el año pasado peleamos por eso.|I still hope you won't [forget] my birthday; last year we [fought] about it.
+26|t|Todavía espera enseñar en la universidad; ya ganó una beca.|He still hopes to [teach] at the university; he has already [won] a scholarship.
+26|c|Aún esperamos atrapar al ladrón; vendió todo lo que robó.|We still hope to [catch] the thief; he [sold] everything he took.
+26|t|Todavía espero que elijas bien; la última vez comiste mal.|I still hope you will [choose] well; last time you [ate] badly.
+26|c|Aún espera llevar puesto el vestido de su mamá; lo eligió hace años.|She still hopes to [wear] her mom's dress; she [chose] it years ago.
+26|t|Todavía espero que no peleen; ayer olvidaron su promesa.|I still hope they won't [fight]; yesterday they [forgot] their promise.
+26|c|Aún esperan ganar la copa; el entrenador les enseñó una jugada nueva.|They still hope to [win] the cup; the coach [taught] them a new play.
+26|t|Todavía espero atrapar el último tren; ya comí algo en la estación.|I still hope to [catch] the last train; I have already [eaten] something at the station.
+26|c|Aún espera que le enseñen a lanzar; ayer atrapó todas las pelotas.|He still hopes they'll [teach] him to throw; yesterday he [caught] every ball.
+26|t|Todavía espero que no hayas olvidado mi nombre; te enseñé en 2010.|I still hope you haven't [forgotten] my name; I [taught] you in 2010.
+26|c|Aún esperamos que vendan más barato; el año pasado elegimos esperar.|We still hope they'll [sell] it cheaper; last year we [chose] to wait.
+26|t|Todavía espera que su equipo gane; llevó puesta la camiseta de la suerte.|He still hopes his team will [win]; he [wore] his lucky shirt.
+
+# --- Regla 27 · Too vs Very ---
+27|t|Comí demasiado y olvidé el postre.|I [ate] too much and [forgot] about dessert.
+27|c|Lanzó la pelota muy alto y nadie la atrapó.|He [threw] the ball very high, and nobody [caught] it.
+27|t|Eligió un vestido demasiado largo; nunca lo llevó puesto.|She [chose] a dress that was too long; she never [wore] it.
+27|c|Vendimos la casa muy rápido y ganamos muy poco.|We [sold] the house very quickly and [won] very little.
+27|t|Pelearon demasiado y olvidaron por qué empezaron.|They [fought] too much and [forgot] why they started.
+27|c|Me enseñó muy bien; gané el examen con facilidad.|She [taught] me very well; I [won] the exam easily.
+27|t|Llevaba puesto un abrigo demasiado delgado y atrapó un resfriado.|He [wore] a coat that was too thin and [caught] a cold.
+27|c|Comimos muy tarde; el restaurante ya había vendido casi todo.|We [ate] very late; the restaurant had already [sold] almost everything.
+27|t|Lanzó demasiado fuerte; perdimos la pelota y nadie ganó.|He [threw] too hard; we lost the ball, and nobody [won].
+27|c|Elegí muy bien el regalo; nunca lo ha olvidado.|I [chose] the gift very well; she has never [forgotten] it.
+27|t|El examen era demasiado difícil; nadie ganó y el profesor enseñó todo otra vez.|The exam was too difficult; nobody [won], and the teacher [taught] everything again.
+27|c|Atrapé un pez muy grande y lo comimos todos.|I [caught] a very big fish, and we all [ate] it.
+27|t|Vendieron las entradas demasiado caras; nadie eligió ir.|They [sold] the tickets too expensive; nobody [chose] to go.
+27|c|Peleó muy bien y ganó en el primer asalto.|He [fought] very well and [won] in the first round.
+27|t|Olvidé demasiadas cosas; me llevé puesta la ropa de ayer.|I [forgot] too many things; I [wore] yesterday's clothes.
+
+# --- Regla 28 · Preguntas con presente/pasado perfecto ---
+28|t|¿Alguna vez has comido pulpo? Yo lo elegí una vez en España.|Have you ever [eaten] octopus? I [chose] it once in Spain.
+28|c|¿Ya vendiste el carro? ¿Ganaste algo?|Have you [sold] the car yet? Did you [win] anything?
+28|t|¿Habías enseñado antes? Explicaste todo muy bien y gané el examen.|Had you [taught] before? You explained everything very well, and I [won] the exam.
+28|c|¿Alguna vez has ganado un premio? Yo lancé el tiro ganador en 2015.|Have you ever [won] an award? I [threw] the winning shot in 2015.
+28|t|¿Ya elegiste el vestido? ¿Lo has llevado puesto?|Have you [chosen] the dress yet? Have you [worn] it?
+28|c|¿Alguna vez has atrapado un pez? Yo lo vendí en el mercado.|Have you ever [caught] a fish? I [sold] mine at the market.
+28|t|¿Habías olvidado la cita? Comí solo.|Had you [forgotten] the date? I [ate] alone.
+28|c|¿Alguna vez has peleado con tu hermano? Una vez le lancé un zapato.|Have you ever [fought] with your brother? I [threw] a shoe at him once.
+28|t|¿Alguna vez has llevado puesto un disfraz? Yo gané un concurso.|Have you ever [worn] a costume? I [won] a contest.
+28|c|¿Ya habían comido cuando llegaste? Yo olvidé llevar el postre.|Had they [eaten] when you arrived? I [forgot] to bring dessert.
+28|t|¿Alguna vez te han enseñado a cocinar? Yo elegí aprender sola.|Have you ever been [taught] to cook? I [chose] to learn alone.
+28|c|¿Alguna vez has lanzado algo al río? Yo atrapé una botella con un mensaje.|Have you ever [thrown] something into the river? I [caught] a bottle with a message.
+28|t|¿Habías vendido algo en línea antes? Gané dinero con mi ropa vieja.|Had you [sold] anything online before? I [won] money with my old clothes.
+28|c|¿Alguna vez has olvidado tu pasaporte? Una vez peleé con el agente.|Have you ever [forgotten] your passport? I [fought] with the agent once.
+28|t|¿Ya has elegido equipo? Yo elegí el que ganó el año pasado.|Have you [chosen] a team yet? I picked the one that [won] last year.
+
+# --- Regla 29 · Tag Questions ---
+29|t|Comiste el pastel, ¿verdad? Olvidaste dejarme un pedazo.|You [ate] the cake, didn't you? You [forgot] to leave me a piece.
+29|c|Ganaron, ¿no? El portero atrapó todo.|They [won], didn't they? The goalkeeper [caught] everything.
+29|t|Vendiste la bicicleta, ¿cierto? La elegiste tú.|You [sold] the bike, didn't you? You [chose] it yourself.
+29|c|No olvidaste las llaves, ¿o sí? Las lancé a tu bolso.|You didn't [forget] the keys, did you? I [threw] them into your bag.
+29|t|Ella te enseñó a nadar, ¿verdad? Ganaste una medalla.|She [taught] you to swim, didn't she? You [won] a medal.
+29|c|Ya has comido, ¿no? Elegiste el restaurante.|You have already [eaten], haven't you? You [chose] the restaurant.
+29|t|Llevaste puesto mi suéter, ¿cierto? Lo olvidaste en el carro.|You [wore] my sweater, didn't you? You [forgot] it in the car.
+29|c|No pelearon, ¿o sí? Comieron juntos.|You didn't [fight], did you? You [ate] together.
+29|t|Atrapaste el bus, ¿verdad? Olvidaste tu café.|You [caught] the bus, didn't you? You [forgot] your coffee.
+29|c|Han vendido todo, ¿no? Ganaron mucho.|They have [sold] everything, haven't they? They [won] a lot.
+29|t|Lanzaste la pelota, ¿cierto? El vecino que te enseñó a jugar está enojado.|You [threw] the ball, didn't you? The neighbor who [taught] you to play is angry.
+29|c|No has olvidado mi nombre, ¿o sí? Te enseñé el año pasado.|You haven't [forgotten] my name, have you? I [taught] you last year.
+29|t|Ganaste, ¿verdad? Llevabas puesta la camiseta de la suerte.|You [won], didn't you? You [wore] your lucky shirt.
+29|c|Elegiste el rojo, ¿no? Lo vendieron con descuento.|You [chose] the red one, didn't you? They [sold] it at a discount.
+29|t|Pelearon otra vez, ¿cierto? Olvidaron la promesa.|You [fought] again, didn't you? You [forgot] your promise.
+
+# --- Regla 30 · Get + adjetivo ---
+30|t|Me puse nervioso cuando lanzó la pelota; no la atrapé.|I got nervous when he [threw] the ball; I didn't [catch] it.
+30|c|Se enojó porque olvidé su cumpleaños; peleamos toda la noche.|She got angry because I [forgot] her birthday; we [fought] all night.
+30|t|Me puse feliz cuando ganamos; lancé mi gorra al aire.|I got happy when we [won]; I [threw] my cap into the air.
+30|c|Se puso triste cuando vendieron su casa; eligió no hablar del tema.|He got sad when they [sold] his house; he [chose] not to talk about it.
+30|t|Nos cansamos de pelear y comimos juntos; olvidamos la discusión.|We got tired of fighting, and we [ate] together; we [forgot] the argument.
+30|c|Me enfermé porque comí algo malo; olvidé revisar la fecha.|I got sick because I [ate] something bad; I [forgot] to check the date.
+30|t|Se emocionó cuando le enseñé el truco; ganó la apuesta.|He got excited when I [taught] him the trick; he [won] the bet.
+30|c|Se puso pálido cuando lo atraparon; había vendido cosas robadas.|He got pale when they [caught] him; he had [sold] stolen things.
+30|t|Me aburrí y elegí otra película; olvidé el final de la primera.|I got bored and [chose] another movie; I [forgot] the ending of the first one.
+30|c|Se mojó porque olvidó el paraguas; llevaba puesto un vestido blanco.|She got wet because she [forgot] her umbrella; she [wore] a white dress.
+30|t|Se hicieron famosos cuando ganaron el concurso; vendieron mil discos.|They got famous when they [won] the contest; they [sold] a thousand records.
+30|c|Me preocupé cuando no comió; eligió quedarse en su cuarto.|I got worried when he didn't [eat]; he [chose] to stay in his room.
+30|t|Se enojó cuando perdió; lanzó la raqueta al piso y peleó con el árbitro.|He got angry when he lost; he [threw] his racket on the floor and [fought] with the referee.
+30|c|Nos perdimos y atrapamos el bus equivocado; olvidamos el mapa.|We got lost and [caught] the wrong bus; we [forgot] the map.
+30|t|Me emocioné cuando me eligieron; llevé puesto mi mejor traje.|I got excited when they [chose] me; I [wore] my best suit.
+
+# --- Regla 31 · some / any / no ---
+31|t|No comí nada en el viaje; olvidé la comida en casa.|I didn't [eat] anything on the trip; I [forgot] the food at home.
+31|c|¿Ganaste algo en la rifa? Yo no gané nada, pero vendí algunas boletas.|Did you [win] anything in the raffle? I didn't, but I [sold] some tickets.
+31|t|Nadie atrapó la pelota; alguien la lanzó demasiado alto.|Nobody [caught] the ball; somebody [threw] it too high.
+31|c|Vendimos algunos libros; nadie eligió los de historia.|We [sold] some books; nobody [chose] the history ones.
+31|t|Alguien olvidó una chaqueta; nadie la llevó puesta a casa.|Somebody [forgot] a jacket; nobody [wore] it home.
+31|c|No peleamos por nada; comimos en paz.|We didn't [fight] about anything; we [ate] in peace.
+31|t|¿Alguien te enseñó algo útil? Nadie me enseñó a cocinar, así que comí mal.|Did anyone teach you anything useful? Nobody [taught] me to cook, so I [ate] badly.
+31|c|Algunos jugadores lanzaron bien; ninguno ganó el premio.|Some players [threw] well; none of them [won] the prize.
+31|t|No elegí ningún postre; comí algo de fruta.|I didn't [choose] any dessert; I [ate] some fruit.
+31|c|Nadie olvidó nada; alguien vendió las sillas que sobraban.|Nobody [forgot] anything; somebody [sold] the extra chairs.
+31|t|Alguien atrapó al perro; nadie peleó con él.|Somebody [caught] the dog; nobody [fought] with it.
+31|c|¿Has comido algo? Yo no he elegido nada todavía.|Have you [eaten] anything? I haven't [chosen] anything yet.
+31|t|Algunos estudiantes ganaron becas; ninguno olvidó a su profesora.|Some students [won] scholarships; none of them [forgot] their teacher.
+31|c|No vendí nada; nadie eligió mis pinturas.|I didn't [sell] anything; nobody [chose] my paintings.
+31|t|Alguien lanzó algo por la ventana; nadie lo atrapó.|Somebody [threw] something out of the window; nobody [caught] it.
+
+# --- Regla 32 · Already / Yet / Just ---
+32|t|Ya comí, pero todavía no he elegido el postre.|I have already [eaten], but I haven't [chosen] dessert yet.
+32|c|Acaba de ganar la carrera; ya lanzó su gorra al público.|She has just [won] the race; she has already [thrown] her cap to the crowd.
+32|t|¿Ya vendiste el carro? Todavía no; acabo de enseñarle a un comprador cómo funciona.|Have you [sold] the car yet? Not yet; I have just [taught] a buyer how it works.
+32|c|Ya olvidé su nombre; acabo de comer con él.|I have already [forgotten] his name; I have just [eaten] with him.
+32|t|Acabamos de atrapar al perro; todavía no se ha comido la comida.|We have just [caught] the dog; it hasn't [eaten] its food yet.
+32|c|¿Ya elegiste el vestido? Acabo de llevarlo puesto en la tienda.|Have you [chosen] the dress yet? I have just [worn] it in the store.
+32|t|Ya han peleado tres veces hoy; acaban de olvidar la última.|They have already [fought] three times today; they have just [forgotten] the last one.
+32|c|Todavía no me han enseñado esa canción; acabo de elegirla para el concierto.|They haven't [taught] me that song yet; I have just [chosen] it for the concert.
+32|t|Acaba de vender su última pintura; ya ganó el dinero del arriendo.|He has just [sold] his last painting; he has already [won] the rent money.
+32|c|Ya lancé la basura; acabo de olvidar el reciclaje.|I have already [thrown] out the trash; I have just [forgotten] the recycling.
+32|t|¿Ya ganaron? Todavía no; acaban de atrapar un rebote.|Have they [won] yet? Not yet; they have just [caught] a rebound.
+32|c|Acabo de comer; todavía no he vendido nada en la feria.|I have just [eaten]; I haven't [sold] anything at the fair yet.
+32|t|Ya llevé puesto ese abrigo; acabo de elegir otro.|I have already [worn] that coat; I have just [chosen] another one.
+32|c|Acaba de enseñarme a lanzar; ya atrapé diez pelotas.|He has just [taught] me to throw; I have already [caught] ten balls.
+32|t|Todavía no han olvidado la pelea; acaban de pelear otra vez.|They haven't [forgotten] the fight yet; they have just [fought] again.
+
+# --- Regla 33 · Sujeto "it" ---
+33|t|Era tarde cuando comimos; ya habían vendido el último postre.|It was late when we [ate]; they had already [sold] the last dessert.
+33|c|Es difícil elegir; ayer comí lo que no debía.|It's hard to [choose]; yesterday I [ate] the wrong thing.
+33|t|Fue un error lanzar la pelota adentro; la atrapé antes de que rompiera algo.|It was a mistake to [throw] the ball inside; I [caught] it before it broke anything.
+33|c|Es importante no olvidar el pasaporte; el año pasado peleé con el agente por eso.|It's important not to [forget] your passport; last year I [fought] with the agent over that.
+33|t|Fue increíble ganar; llevé puesta la camiseta de mi papá.|It was amazing to [win]; I [wore] my dad's shirt.
+33|c|Hacía frío y atrapé un resfriado; olvidé la bufanda.|It was cold, and I [caught] a cold; I [forgot] my scarf.
+33|t|Es fácil enseñar a niños que quieren aprender; el año pasado gané el premio a la mejor profesora.|It's easy to [teach] kids who want to learn; last year I [won] the best-teacher award.
+33|c|Fue un placer comer contigo; elegiste un lugar perfecto.|It was a pleasure to [eat] with you; you [chose] a perfect place.
+33|t|Es triste vender la casa donde crecí; olvidaré muchas cosas.|It's sad to [sell] the house where I grew up; I will [forget] many things.
+33|c|Llovió tanto que el partido se canceló; nadie ganó y nadie lanzó un solo tiro.|It rained so much that the game was canceled; nobody [won], and nobody [threw] a single shot.
+33|t|Fue difícil atrapar al gato; se comió el pescado primero.|It was hard to [catch] the cat; it [ate] the fish first.
+33|c|Es mejor no pelear; la última vez olvidamos por qué empezamos.|It's better not to [fight]; last time we [forgot] why we started.
+33|t|Queda a diez minutos; ayer elegí caminar y llevé puestos zapatos nuevos.|It's ten minutes away; yesterday I [chose] to walk and [wore] new shoes.
+33|c|Fue un honor enseñar en esta escuela; nunca la olvidaré.|It was an honor to [teach] at this school; I will never [forget] it.
+33|t|Es domingo y vendimos todo en la feria; comimos afuera para celebrar.|It's Sunday, and we [sold] everything at the fair; we [ate] out to celebrate.
+
+# --- Regla 34 · Since vs For ---
+34|t|He enseñado aquí desde 2010 y nunca he olvidado a mis alumnos.|I have [taught] here since 2010 and have never [forgotten] my students.
+34|c|No hemos comido desde la mañana; olvidamos el almuerzo.|We haven't [eaten] since the morning; we [forgot] lunch.
+34|t|Han ganado todos los partidos durante dos años; el entrenador eligió bien.|They have [won] every game for two years; the coach [chose] well.
+34|c|Ha llevado puesto el mismo reloj desde que se lo regalé; nunca lo ha vendido.|He has [worn] the same watch since I gave it to him; he has never [sold] it.
+34|t|Hemos vendido pan durante treinta años; ganamos premios desde el principio.|We have [sold] bread for thirty years; we [won] awards from the start.
+34|c|No han peleado desde la boda; comieron juntos ayer.|They haven't [fought] since the wedding; they [ate] together yesterday.
+34|t|No he atrapado un resfriado desde el invierno; llevé puesto un abrigo todos los días.|I haven't [caught] a cold since the winter; I [wore] a coat every day.
+34|c|Ha elegido el mismo plato durante años; lo comió otra vez hoy.|She has [chosen] the same dish for years; she [ate] it again today.
+34|t|He olvidado muchas cosas desde el accidente; mi esposa me enseñó a usar notas.|I have [forgotten] many things since the accident; my wife [taught] me to use notes.
+34|c|Ha lanzado para el equipo durante cinco años; ganó la copa en 2022.|He has [thrown] for the team for five years; he [won] the cup in 2022.
+34|t|No he vendido nada desde el lunes; olvidé poner el anuncio.|I haven't [sold] anything since Monday; I [forgot] to post the ad.
+34|c|Hemos luchado por este proyecto durante meses; por fin ganamos.|We have [fought] for this project for months; we finally [won].
+34|t|Ha enseñado piano desde los veinte años; eligió esa carrera muy joven.|She has [taught] piano since she was twenty; she [chose] that career very young.
+34|c|No he comido carne desde enero; elegí ser vegetariano.|I haven't [eaten] meat since January; I [chose] to be vegetarian.
+34|t|La policía lo ha buscado durante años; lo atraparon ayer después de que vendió un carro robado.|The police have looked for him for years; they [caught] him yesterday after he [sold] a stolen car.
+
+# --- Regla 35 · When / While ---
+35|t|Mientras comíamos, alguien lanzó una piedra a la ventana; nadie lo atrapó.|While we were eating, someone [threw] a stone at the window; nobody [caught] him.
+35|c|Cuando ganamos, el entrenador lanzó su gorra al aire.|When we [won], the coach [threw] his cap into the air.
+35|t|Mientras enseñaba, olvidó el nombre de un estudiante; eligió reírse de eso.|While she was teaching, she [forgot] a student's name; she [chose] to laugh about it.
+35|c|Cuando vendí la casa, elegí un apartamento pequeño.|When I [sold] the house, I [chose] a small apartment.
+35|t|Mientras peleaban, el perro se comió la cena; se olvidaron de ella.|While they were fighting, the dog [ate] the dinner; they [forgot] about it.
+35|c|Cuando atrapé el pez, lo vendí en el mercado.|When I [caught] the fish, I [sold] it at the market.
+35|t|Cuando era niño, llevaba puesta la ropa de mi hermano y comía lo que sobraba.|When I was a kid, I [wore] my brother's clothes and [ate] whatever was left.
+35|c|Mientras elegía el regalo, olvidé la hora; tomé el último bus.|While I was choosing the gift, I [forgot] the time; I [caught] the last bus.
+35|t|Cuando me enseñaste a nadar, gané confianza.|When you [taught] me to swim, I [won] confidence.
+35|c|Mientras lanzábamos la pelota, el perro la atrapó; luego se la comió.|While we were throwing the ball, the dog [caught] it; then it [ate] it.
+35|t|Cuando olvidé las llaves, peleé con la puerta media hora.|When I [forgot] my keys, I [fought] with the door for half an hour.
+35|c|Mientras comíamos, nos enseñó una receta familiar; nunca la olvidamos.|While we were eating, she [taught] us a family recipe; we never [forgot] it.
+35|t|Cuando ganó la lotería, vendió todo y se fue.|When he [won] the lottery, he [sold] everything and left.
+35|c|Mientras vendía en la feria, atrapé un resfriado; comí sopa toda la semana.|While I was selling at the fair, I [caught] a cold; I [ate] soup all week.
+35|t|Cuando elegimos la casa, ya habíamos vendido el carro.|When we [chose] the house, we had already [sold] the car.
+
+# --- Regla 36 · Will vs Going to ---
+36|t|Voy a vender mi bicicleta; ya elegí una nueva.|I'm going to [sell] my bike; I have already [chosen] a new one.
+36|c|Tranquilo, yo atrapo la pelota; la última vez gané el concurso de atrapadas.|Don't worry, I'll [catch] the ball; last time I [won] the catching contest.
+36|t|Va a enseñar en Japón; ya eligió la escuela.|She's going to [teach] in Japan; she has already [chosen] the school.
+36|c|Creo que ganaremos; el año pasado peleamos hasta el final.|I think we'll [win]; last year we [fought] until the end.
+36|t|Mira esas nubes: vas a atrapar un resfriado; olvidaste el abrigo.|Look at those clouds: you're going to [catch] a cold; you [forgot] your coat.
+36|c|Te prometo que no olvidaré; ya comí y estoy concentrado.|I promise I won't [forget]; I have already [eaten], and I'm focused.
+36|t|Vamos a comer afuera; ya elegimos el restaurante.|We're going to [eat] out; we have already [chosen] the restaurant.
+36|c|Creo que llevaré puesto el azul; el rojo lo vendí.|I think I'll [wear] the blue one; I [sold] the red one.
+36|t|Van a pelear; ya lanzaron insultos.|They're going to [fight]; they have already [thrown] insults.
+36|c|Creo que venderé la casa; ya gané suficiente para mudarme.|I think I'll [sell] the house; I have already [won] enough to move.
+36|t|Va a ganar; hoy llevó puesta la camiseta de la suerte.|He's going to [win]; he [wore] his lucky shirt today.
+36|c|Te enseñaré a lanzar; ayer atrapaste todo.|I'll [teach] you to throw; yesterday you [caught] everything.
+36|t|Voy a olvidar este día; comí demasiado y peleé con todos.|I'm going to [forget] this day; I [ate] too much and fought with everyone.
+36|c|Creo que elegiré el pescado; ayer comí carne.|I think I'll [choose] the fish; yesterday I [ate] meat.
+36|t|Van a atrapar al ladrón; ya vendió el carro robado.|They're going to [catch] the thief; he has already [sold] the stolen car.
+
+# --- Regla 37 · Contables vs incontables ---
+37|t|Comí muy poca comida; elegí pocas cosas del menú.|I [ate] very little food; I [chose] few things from the menu.
+37|c|¿Cuántos premios ganaste? ¿Por cuánto dinero vendiste tus pinturas?|How many awards did you [win]? How much money did you [sell] your paintings for?
+37|t|Vendimos muchas camisetas; ganamos poco dinero.|We [sold] many T-shirts; we [won] little money.
+37|c|Atrapé pocos peces; comimos poca carne esa noche.|I [caught] few fish; we [ate] little meat that night.
+37|t|Me enseñó mucha gramática; olvidé pocas reglas.|She [taught] me a lot of grammar; I [forgot] few rules.
+37|c|Lanzamos muchas piedras; atrapamos pocas ranas.|We [threw] many stones; we [caught] few frogs.
+37|t|¿Cuánta ropa llevaste puesta? Elegí demasiadas capas.|How much clothing did you [wear]? I [chose] too many layers.
+37|c|Pelearon muchas veces; olvidaron poco.|They [fought] many times; they [forgot] little.
+37|t|Comimos mucho arroz y pocas verduras; elegimos mal.|We [ate] a lot of rice and few vegetables; we [chose] badly.
+37|c|Vendió muchos libros; ganó mucha fama.|He [sold] many books; he [won] a lot of fame.
+37|t|Olvidé muchos nombres; enseñé a demasiados estudiantes.|I [forgot] many names; I [taught] too many students.
+37|c|Ganamos pocos partidos; lanzamos muy pocos tiros.|We [won] few games; we [threw] very few shots.
+37|t|¿Cuántos peces atrapaste? ¿Cuánto pescado comieron?|How many fish did you [catch]? How much fish did you [eat]?
+37|c|Elegí poca información para la presentación; enseñé lo esencial.|I [chose] little information for the presentation; I [taught] the essentials.
+37|t|Llevé puestas pocas joyas; vendí muchas antes del viaje.|I [wore] little jewelry; I [sold] a lot before the trip.
+
+# --- Regla 38 · Bad vs Badly ---
+38|t|Lanzó muy mal y perdimos; nadie atrapó la pelota.|He [threw] badly, and we lost; nobody [caught] the ball.
+38|c|Me sentí mal porque olvidé tu cumpleaños; elegí un regalo tarde.|I felt bad because I [forgot] your birthday; I [chose] a gift late.
+38|t|Comí mal toda la semana; elegí comida rápida.|I [ate] badly all week; I [chose] fast food.
+38|c|Peleó mal y no ganó ni un asalto.|He [fought] badly and didn't [win] a single round.
+38|t|Nos enseñaron mal la regla y la olvidamos rápido.|They [taught] us the rule badly, and we [forgot] it fast.
+38|c|Fue un mal negocio: vendimos la casa barata y ganamos poco.|It was a bad deal: we [sold] the house cheap and [won] little.
+38|t|Llevaba puesta una camisa en mal estado; la eligió con prisa.|He [wore] a shirt in bad condition; he [chose] it in a hurry.
+38|c|Atrapé muy mal la pelota y me lastimé; olvidé los guantes.|I [caught] the ball badly and hurt myself; I [forgot] my gloves.
+38|t|Me sentí mal después de comer mariscos; los vendían en la calle.|I felt bad after I [ate] seafood; they [sold] it on the street.
+38|c|Elegimos mal el restaurante y comimos mal.|We [chose] the restaurant badly, and we [ate] badly.
+38|t|Lo hizo mal en el examen; olvidó todo lo que le enseñé.|He did badly on the exam; he [forgot] everything I [taught] him.
+38|c|El equipo jugó mal pero ganó por suerte; el portero atrapó un penal.|The team played badly but [won] by luck; the goalkeeper [caught] a penalty.
+38|t|No es mala idea vender el carro; elegí no repararlo más.|It's not a bad idea to [sell] the car; I [chose] not to repair it again.
+38|c|Me enseñó mal a lanzar; he lanzado terrible desde entonces.|He [taught] me to throw badly; I have [thrown] terribly ever since.
+38|t|Se sintió mal porque peleó con su mejor amigo; olvidó disculparse.|She felt bad because she [fought] with her best friend; she [forgot] to apologize.
+
+# --- Regla 39 · Preposiciones ---
+39|t|Comimos en el restaurante a las nueve; elegí la mesa junto a la ventana.|We [ate] at the restaurant at nine; I [chose] the table by the window.
+39|c|Vendí mi bicicleta en internet el martes y gané cien dólares.|I [sold] my bike on the internet on Tuesday and [won] a hundred dollars.
+39|t|Enseñó en una escuela de Cali durante diez años; nunca olvidó a sus estudiantes.|She [taught] at a school in Cali for ten years; she never [forgot] her students.
+39|c|Lanzó la pelota sobre la cerca a las cinco; el vecino la atrapó.|He [threw] the ball over the fence at five; the neighbor [caught] it.
+39|t|Olvidé mi abrigo en el bus el lunes; llevé puesto el de mi hermano.|I [forgot] my coat on the bus on Monday; I [wore] my brother's.
+39|c|Ganamos en casa el sábado; comimos con el equipo en la noche.|We [won] at home on Saturday; we [ate] with the team at night.
+39|t|Atrapé un pez en el lago al amanecer y lo comimos al mediodía.|I [caught] a fish in the lake at dawn, and we [ate] it at noon.
+39|c|Pelearon en la calle a medianoche; la policía los atrapó en la esquina.|They [fought] in the street at midnight; the police [caught] them at the corner.
+39|t|Elegí un vestido en la tienda del centro y lo llevé puesto en la boda.|I [chose] a dress at the downtown store and [wore] it at the wedding.
+39|c|Vendimos limonada en la esquina durante el verano y ganamos bastante.|We [sold] lemonade on the corner during the summer and [won] quite a bit.
+39|t|Mi abuela me enseñó a cocinar en su cocina los domingos; nunca lo he olvidado.|My grandmother [taught] me to cook in her kitchen on Sundays; I have never [forgotten] it.
+39|c|Lanzamos piedras al río desde el puente; atrapamos ranas en la orilla.|We [threw] stones into the river from the bridge; we [caught] frogs on the bank.
+39|t|Comí en el avión de Madrid a Bogotá; olvidé el libro en el asiento.|I [ate] on the plane from Madrid to Bogotá; I [forgot] my book on the seat.
+39|c|Ganó la carrera en mayo y vendió su medalla en diciembre.|She [won] the race in May and [sold] her medal in December.
+39|t|Elegimos la casa en la colina; comimos en el jardín la primera noche.|We [chose] the house on the hill; we [ate] in the garden the first night.
+
+# --- Regla 40 · For + período / During + evento ---
+40|t|Comimos durante dos horas y olvidamos la hora durante la cena.|We [ate] for two hours and [forgot] the time during dinner.
+40|c|Durante el partido lanzó diez tiros; ganamos por un punto.|During the game he [threw] ten shots; we [won] by one point.
+40|t|Enseñó durante veinte años y nunca olvidó un nombre durante ese tiempo.|She [taught] for twenty years and never [forgot] a name during that time.
+40|c|Durante la feria vendimos todo; atrapé un resfriado durante el último día.|During the fair we [sold] everything; I [caught] a cold during the last day.
+40|t|Pelearon durante una hora y nadie ganó.|They [fought] for an hour, and nobody [won].
+40|c|Durante la boda llevé puesto un traje azul; comí durante toda la noche.|During the wedding I [wore] a blue suit; I [ate] for the whole night.
+40|t|Durante la crisis vendimos el carro y elegimos usar el bus por un año.|During the crisis we [sold] the car and [chose] to take the bus for a year.
+40|c|Pesqué durante seis horas y atrapé un solo pez durante la tarde; nos lo comimos en la cena.|I fished for six hours and [caught] only one fish during the afternoon; we [ate] it for dinner.
+40|t|Durante el examen olvidé todo lo que me enseñaron durante el semestre.|During the exam I [forgot] everything they had [taught] me during the semester.
+40|c|Durante la guerra lucharon por cinco años; ganaron al final.|During the war they [fought] for five years; they [won] in the end.
+40|t|Durante la película comí palomitas por una hora y lancé las sobras a la basura.|During the movie I [ate] popcorn for an hour and [threw] the leftovers in the trash.
+40|c|Durante las vacaciones elegí no trabajar; olvidé el correo por dos semanas.|During the vacation I [chose] not to work; I [forgot] about email for two weeks.
+40|t|Durante el campeonato ganamos seis partidos; el portero atrapó todo por noventa minutos.|During the championship we [won] six games; the goalkeeper [caught] everything for ninety minutes.
+40|c|Llevó puesto el yeso durante un mes; durante ese tiempo enseñó desde casa.|He [wore] a cast for a month; during that time he [taught] from home.
+40|t|Durante la mudanza vendimos los muebles y tiramos cajas por días.|During the move we [sold] the furniture and [threw] out boxes for days.
+
+# --- Regla 41 · Orden natural de la oración ---
+41|t|Ayer comí sushi en un restaurante japonés con mis amigos; elegimos el menú del chef.|I [ate] sushi at a Japanese restaurant with my friends yesterday; we [chose] the chef's menu.
+41|c|Mi hermana ganó la carrera el domingo y lanzó flores al público.|My sister [won] the race on Sunday and [threw] flowers to the crowd.
+41|t|La profesora nos enseñó una regla nueva esta mañana y nadie la olvidó.|The teacher [taught] us a new rule this morning, and nobody [forgot] it.
+41|c|Mi papá vendió su carro viejo la semana pasada y eligió uno eléctrico.|My dad [sold] his old car last week and [chose] an electric one.
+41|t|El portero atrapó la pelota con las dos manos en el último minuto; ganamos.|The goalkeeper [caught] the ball with both hands in the last minute; we [won].
+41|c|Siempre llevo puesto un reloj, pero hoy lo olvidé en casa.|I always [wear] a watch, but today I [forgot] it at home.
+41|t|Los niños pelearon por el juguete toda la tarde; luego comieron juntos.|The kids [fought] over the toy all afternoon; then they [ate] together.
+41|c|Elegimos un restaurante pequeño cerca del mar y comimos muy bien.|We [chose] a small restaurant near the sea and [ate] very well.
+41|t|Mi abuelo me enseñó a pescar en el lago el verano pasado; atrapé tres peces.|My grandfather [taught] me to fish at the lake last summer; I [caught] three fish.
+41|c|La tienda vendió todos los boletos en una hora; nadie ganó el premio mayor.|The store [sold] all the tickets in an hour; nobody [won] the grand prize.
+41|t|Anoche olvidé apagar la luz de la cocina; tiré la comida vieja esta mañana.|I [forgot] to turn off the kitchen light last night; I [threw] out the old food this morning.
+41|c|De joven, ella siempre elegía la misma mesa y comía lentamente.|She always [chose] the same table and [ate] slowly when she was young.
+41|t|Mi equipo ganó el campeonato el año pasado por primera vez; llevamos puestas camisetas nuevas.|My team [won] the championship last year for the first time; we [wore] new shirts.
+41|c|El policía atrapó al ladrón en la estación de tren ayer; había vendido tres relojes.|The police officer [caught] the thief at the train station yesterday; he had [sold] three watches.
+41|t|Mi mamá me enseñó esta receta hace muchos años; nunca la he olvidado.|My mom [taught] me this recipe many years ago; I have never [forgotten] it.
+
+# --- Regla 42 · Vocabulario específico ---
+42|t|El lanzador lanzó la última bola y el receptor la atrapó.|The pitcher [threw] the last pitch, and the catcher [caught] it.
+42|c|El vendedor vendió diez carros y ganó la comisión más alta.|The salesman [sold] ten cars and [won] the highest commission.
+42|t|El chef eligió los ingredientes y los comensales comieron en silencio.|The chef [chose] the ingredients, and the diners [ate] in silence.
+42|c|El boxeador peleó doce asaltos y ganó por decisión.|The boxer [fought] twelve rounds and [won] by decision.
+42|t|El tutor le enseñó álgebra y el estudiante no olvidó nada.|The tutor [taught] him algebra, and the student [forgot] nothing.
+42|c|La modelo llevó puesto un vestido de diseñador; la marca lo eligió para la campaña.|The model [wore] a designer dress; the brand [chose] it for the campaign.
+42|t|El pescador atrapó un salmón y lo vendió en la lonja.|The fisherman [caught] a salmon and [sold] it at the fish market.
+42|c|El candidato ganó las elecciones; los votantes lo eligieron por mayoría.|The candidate [won] the election; the voters [chose] him by majority.
+42|t|El árbitro lanzó la moneda y el capitán eligió el campo.|The referee [threw] the coin, and the captain [chose] the field.
+42|c|El subastador vendió el cuadro; el comprador ganó la puja.|The auctioneer [sold] the painting; the buyer [won] the bid.
+42|t|El testigo olvidó detalles importantes; el abogado peleó por él.|The witness [forgot] important details; the lawyer [fought] for him.
+42|c|El instructor nos enseñó a empacar el paracaídas; nadie olvidó los pasos.|The instructor [taught] us to pack the parachute; nobody [forgot] the steps.
+42|t|El soldado luchó en la frontera y ganó una medalla.|The soldier [fought] at the border and [won] a medal.
+42|c|El huésped comió en el comedor del hotel y olvidó su llave.|The guest [ate] in the hotel dining room and [forgot] his key.
+42|t|El portero atrapó el penal y el estadio lo eligió como el mejor del partido.|The goalkeeper [caught] the penalty, and the stadium [chose] him as man of the match.
+
+# --- Regla 43 · Past Perfect ---
+43|t|Cuando llegué, ya habían comido y habían elegido el postre.|When I arrived, they had already [eaten] and had [chosen] dessert.
+43|c|Me di cuenta de que había olvidado la billetera después de que había elegido la comida.|I realized I had [forgotten] my wallet after I had [chosen] the food.
+43|t|Nunca había ganado nada antes de que me enseñaras a jugar.|I had never [won] anything before you [taught] me to play.
+43|c|Cuando volvimos, alguien había vendido la casa y había tirado nuestras cosas.|When we came back, someone had [sold] the house and had [thrown] out our things.
+43|t|Ya habían atrapado al ladrón cuando llegó la policía; había peleado con el dueño.|They had already [caught] the thief when the police arrived; he had [fought] with the owner.
+43|c|Ella ya había llevado puesto ese vestido; lo había elegido para otra boda.|She had already [worn] that dress; she had [chosen] it for another wedding.
+43|t|Habíamos peleado tanto que olvidamos por qué empezamos.|We had [fought] so much that we [forgot] why we started.
+43|c|Ya había enseñado esa lección cuando el director eligió cambiar el programa.|I had already [taught] that lesson when the principal [chose] to change the program.
+43|t|Me dijo que había ganado la lotería y que había vendido su carro.|He told me he had [won] the lottery and had [sold] his car.
+43|c|El perro ya se había comido la comida cuando lancé la pelota.|The dog had already [eaten] its food when I [threw] the ball.
+43|t|Nunca había atrapado un pez antes de ese viaje; lo comimos esa noche.|I had never [caught] a fish before that trip; we [ate] it that night.
+43|c|Habían vendido todas las entradas antes de que ganáramos la semifinal.|They had [sold] all the tickets before we [won] the semifinal.
+43|t|Había olvidado su nombre, aunque me lo había enseñado mil veces.|I had [forgotten] her name, although she had [taught] it to me a thousand times.
+43|c|Cuando lo vi, ya había lanzado la piedra; lo atraparon después.|When I saw him, he had already [thrown] the stone; they [caught] him later.
+43|t|Ya había elegido la universidad cuando ganó la beca.|She had already [chosen] the university when she [won] the scholarship.
+
+# --- Regla 44 · Future Perfect Continuous ---
+44|t|Para junio habré estado enseñando diez años; nunca he olvidado a mi primer grupo y gané un premio el año pasado.|By June I will have been teaching for ten years; I have never [forgotten] my first group, and I [won] an award last year.
+44|c|Para las ocho habremos estado comiendo tres horas; ya elegimos un tercer postre y ya nos comimos dos.|By eight we will have been eating for three hours; we have already [chosen] a third dessert, and we [ate] two already.
+44|t|Para diciembre habrá estado vendiendo seguros cinco años; ha ganado muchos premios y vendió miles de pólizas.|By December she will have been selling insurance for five years; she has [won] many awards and [sold] thousands of policies.
+44|c|Para el viernes habré estado usando estas botas un año; nunca he elegido otras y las he llevado puestas todos los días.|By Friday I will have been wearing these boots for a year; I have never [chosen] others, and I have [worn] them every day.
+44|t|Para el próximo año habrán estado peleando por la herencia diez años; nadie ha ganado y han olvidado por qué empezaron.|By next year they will have been fighting over the inheritance for ten years; nobody has [won], and they have [forgotten] why they started.
+44|c|Para las cinco habré estado pescando seis horas; ya atrapé tres peces y comí mi almuerzo.|By five I will have been fishing for six hours; I have already [caught] three fish and [eaten] my lunch.
+44|t|Para marzo habré estado entrenando a este equipo dos años; ganamos el campeonato y les enseñé todo.|By March I will have been coaching this team for two years; we [won] the championship, and I [taught] them everything.
+44|c|Para el lunes habrá estado lanzando en las ligas mayores un año; ha lanzado más de mil bolas y ganó veinte partidos.|By Monday he will have been pitching in the major leagues for a year; he has [thrown] more than a thousand pitches and [won] twenty games.
+44|t|En agosto habré estado aprendiendo inglés cinco años; olvidé muchas palabras y elegí aprender otras.|In August I will have been learning English for five years; I have [forgotten] many words, and I have [chosen] to learn others.
+44|c|Para la medianoche habremos estado celebrando seis horas; ganamos la copa y lanzamos al entrenador a la piscina.|By midnight we will have been celebrating for six hours; we [won] the cup and [threw] the coach into the pool.
+44|t|Para el verano habrá estado comiendo sano un año; eligió dejar el azúcar y vendió su máquina de helados.|By summer she will have been eating healthily for a year; she [chose] to give up sugar and [sold] her ice cream machine.
+44|c|Para las diez habrán estado buscando al perro todo el día; ya lo atraparon una vez y se escapó otra vez porque olvidaron cerrar la puerta.|By ten they will have been looking for the dog all day; they [caught] it once, and it escaped because they [forgot] to close the gate.
+44|t|Para el próximo mes habré estado vendiendo pan dos años; gané clientes fieles y elegí abrir otra tienda.|By next month I will have been selling bread for two years; I [won] loyal customers and [chose] to open another store.
+44|c|Para el final del torneo habrá estado peleando seis meses; ganó cuatro peleas y la semana pasada peleó contra el campeón.|By the end of the tournament he will have been fighting for six months; he [won] four fights, and he [fought] the champion last week.
+44|t|Para enero habré estado enseñando a mi hijo a nadar un año; ya le cogió el truco a la técnica y ganó su primera carrera.|By January I will have been teaching my son to swim for a year; he has [caught] on to the technique and [won] his first race.
+
+# --- Regla 45 · Voz pasiva ---
+45|t|La casa fue vendida en una semana; fue elegida por una familia joven.|The house was [sold] in a week; it was [chosen] by a young family.
+45|c|El ladrón fue atrapado y el reloj fue vendido otra vez a su dueño.|The thief was [caught], and the watch was [sold] back to its owner.
+45|t|El premio fue ganado por una niña de diez años; le enseñaron en casa.|The prize was [won] by a ten-year-old girl; she was [taught] at home.
+45|c|La pelota fue lanzada desde el techo y fue atrapada por un niño.|The ball was [thrown] from the roof and was [caught] by a boy.
+45|t|El pastel fue comido en minutos; la receta fue olvidada.|The cake was [eaten] in minutes; the recipe was [forgotten].
+45|c|El vestido fue llevado puesto por una actriz famosa y fue vendido en una subasta.|The dress was [worn] by a famous actress and was [sold] at an auction.
+45|t|Esa guerra fue peleada por jóvenes; muchos nombres fueron olvidados.|That war was [fought] by young men; many names were [forgotten].
+45|c|Los jugadores fueron elegidos por el entrenador; el partido fue ganado por dos goles.|The players were [chosen] by the coach; the game was [won] by two goals.
+45|t|Inglés es enseñado en todas las escuelas; nunca es olvidado del todo.|English is [taught] in every school; it is never completely [forgotten].
+45|c|Se han vendido millones de copias; el libro ha sido elegido como el mejor del año.|Millions of copies have been [sold]; the book has been [chosen] as the best of the year.
+45|t|La comida fue comida en el jardín; los platos fueron lanzados a la basura por error.|The food was [eaten] in the garden; the plates were [thrown] in the trash by mistake.
+45|c|El campeonato fue ganado en 1998; la copa fue llevada puesta como sombrero por el capitán.|The championship was [won] in 1998; the cup was [worn] as a hat by the captain.
+45|t|El pez fue atrapado en el lago y fue comido esa noche.|The fish was [caught] in the lake and was [eaten] that night.
+45|c|El ganador fue elegido al azar; las boletas fueron vendidas en línea.|The winner was [chosen] at random; the tickets were [sold] online.
+45|t|Fue enseñado por los mejores; nunca ha sido olvidado.|He was [taught] by the best; he has never been [forgotten].
+
+# --- Regla 46 · Modales de posibilidad / deducción ---
+46|t|Debe de haber comido algo malo; eligió el pescado del día.|He must have [eaten] something bad; he [chose] the fish of the day.
+46|c|Ella pudo haber olvidado la cita; ayer peleamos.|She might have [forgotten] the appointment; we [fought] yesterday.
+46|t|No pueden haber ganado; lanzaron muy mal.|They can't have [won]; they [threw] very badly.
+46|c|Debe de haber vendido el carro; esta semana eligió el bus.|He must have [sold] the car; he [chose] the bus this week.
+46|t|Pudieron haber atrapado al ladrón; vendió el reloj en el barrio.|They could have [caught] the thief; he [sold] the watch in the neighborhood.
+46|c|Debe de haber enseñado aquí antes; nunca olvidó el camino.|She must have [taught] here before; she never [forgot] the way.
+46|t|Puede que haya llevado puesto tu abrigo; olvidó el suyo.|He may have [worn] your coat; he [forgot] his own.
+46|c|No puede haber elegido ese vestido; nunca lo ha llevado puesto.|She can't have [chosen] that dress; she has never [worn] it.
+46|t|Debe de haberse resfriado; comió helado bajo la lluvia.|He must have [caught] a cold; he [ate] ice cream in the rain.
+46|c|Pudieron haber peleado; él lanzó su teléfono contra la pared.|They might have [fought]; he [threw] his phone against the wall.
+46|t|Debe de haber ganado mucho; vendió su empresa.|He must have [won] a lot; he [sold] his company.
+46|c|No puede haber olvidado mi nombre; me enseñó durante tres años.|She can't have [forgotten] my name; she [taught] me for three years.
+46|t|Puede que hayan elegido otro restaurante; comieron temprano.|They may have [chosen] another restaurant; they [ate] early.
+46|c|Debe de haber lanzado la pelota muy lejos; nadie la atrapó.|He must have [thrown] the ball very far; nobody [caught] it.
+46|t|Pudo haber vendido más; eligió cerrar temprano.|She could have [sold] more; she [chose] to close early.
+
+# --- Regla 47 · Half of ---
+47|t|Comí la mitad del pastel y olvidé el resto en la nevera.|I [ate] half of the cake and [forgot] the rest in the fridge.
+47|c|Vendimos la mitad de las entradas; ganamos la mitad de lo esperado.|We [sold] half of the tickets; we [won] half of what we expected.
+47|t|La mitad de los estudiantes olvidó lo que les enseñé.|Half of the students [forgot] what I [taught] them.
+47|c|La mitad del equipo peleó con el árbitro; la otra mitad lanzó botellas.|Half of the team [fought] with the referee; the other half [threw] bottles.
+47|t|Atrapé la mitad de los peces; mi hermano atrapó el resto y los vendió.|I [caught] half of the fish; my brother caught the rest and [sold] them.
+47|c|La mitad de los invitados eligió el pollo; la otra mitad comió pescado.|Half of the guests [chose] chicken; the other half [ate] fish.
+47|t|Llevé puesta la mitad de mi ropa nueva; vendí la otra mitad.|I [wore] half of my new clothes; I [sold] the other half.
+47|c|Ganamos la mitad de los partidos; el portero atrapó la mitad de los penales.|We [won] half of the games; the goalkeeper [caught] half of the penalties.
+47|t|La mitad de la clase eligió francés; la profesora enseñó a los dos grupos.|Half of the class [chose] French; the teacher [taught] both groups.
+47|c|Olvidé la mitad del discurso; comí demasiado antes de hablar.|I [forgot] half of the speech; I [ate] too much before speaking.
+47|t|La mitad de las pelotas que lancé terminaron en el río; nadie las atrapó.|Half of the balls I [threw] ended up in the river; nobody [caught] them.
+47|c|Invertí la mitad del dinero que gané; elegí acciones seguras.|I invested half of the money I [won]; I [chose] safe stocks.
+47|t|La mitad de la gente que luchó en esa batalla fue olvidada.|Half of the people who [fought] in that battle have been [forgotten].
+47|c|Vendió la mitad de su colección y eligió quedarse con el resto.|He [sold] half of his collection and [chose] to keep the rest.
+47|t|Comimos la mitad de lo que pedimos; lanzamos el resto a los perros.|We [ate] half of what we ordered; we [threw] the rest to the dogs.
+
+# --- Regla 48 · "By" para tiempo futuro ---
+48|t|Para el viernes ya habré vendido el carro y habré elegido uno nuevo.|By Friday I will have [sold] the car and [chosen] a new one.
+48|c|Para las diez ya habrán comido y habrán olvidado la pelea.|By ten they will have [eaten] and [forgotten] the fight.
+48|t|Para junio habremos ganado la liga; ya peleamos lo más difícil.|By June we will have [won] the league; we have already [fought] the hardest part.
+48|c|Para cuando llegues, ya habré enseñado tres clases y habré comido.|By the time you arrive, I will have [taught] three classes and [eaten].
+48|t|Para el lunes la policía ya habrá atrapado al ladrón; vendió todo lo robado.|By Monday the police will have [caught] the thief; he [sold] everything he took.
+48|c|Para el final de la fiesta habré llevado puestos tres vestidos; elegí uno para cada hora.|By the end of the party I will have [worn] three dresses; I [chose] one for each hour.
+48|t|Para diciembre habrán vendido mil casas y habrán ganado millones.|By December they will have [sold] a thousand houses and [won] millions.
+48|c|Para mañana ya habré olvidado este error; hoy comí mi peso en chocolate.|By tomorrow I will have [forgotten] this mistake; today I [ate] my weight in chocolate.
+48|t|Para las cinco ya habrá lanzado cien veces; atrapó todas las devoluciones.|By five he will have [thrown] a hundred times; he [caught] every return.
+48|c|Para el próximo año habré enseñado a cien estudiantes; elegí esta carrera por amor.|By next year I will have [taught] a hundred students; I [chose] this career for love.
+48|t|Para el final de la temporada habremos ganado diez partidos y habremos peleado cada uno.|By the end of the season we will have [won] ten games, and we will have [fought] for every one.
+48|c|Para el mediodía ya habrán elegido al ganador; vendieron mil boletas.|By noon they will have [chosen] the winner; they [sold] a thousand tickets.
+48|t|Para cuando termine el curso, habrás olvidado el miedo y habrás ganado confianza.|By the time the course ends, you will have [forgotten] your fear and [won] confidence.
+48|c|Para el sábado ya habré comido en todos los restaurantes; elegí uno distinto cada noche.|By Saturday I will have [eaten] at every restaurant; I [chose] a different one each night.
+48|t|Para el final del día habré atrapado diez peces; ya vendí cinco.|By the end of the day I will have [caught] ten fish; I have already [sold] five.
+
+# --- Regla 49 · because of / because ---
+49|t|Ganamos por el portero; atrapó tres penales.|We [won] because of the goalkeeper; he [caught] three penalties.
+49|c|Olvidé el almuerzo porque comí tarde en el desayuno.|I [forgot] lunch because I [ate] a late breakfast.
+49|t|Vendieron la casa por las deudas; eligieron un apartamento pequeño.|They [sold] the house because of their debts; they [chose] a small apartment.
+49|c|Pelearon porque él olvidó el aniversario.|They [fought] because he [forgot] their anniversary.
+49|t|Atrapé un resfriado por la lluvia; llevaba puesta una camisa delgada.|I [caught] a cold because of the rain; I [wore] a thin shirt.
+49|c|Elegí esa universidad porque allí enseñó mi abuelo.|I [chose] that university because my grandfather [taught] there.
+49|t|Lanzó la raqueta por la rabia; perdió y no ganó ni un punto.|He [threw] his racket because of his anger; he didn't [win] a single point.
+49|c|Comimos afuera porque olvidé comprar comida.|We [ate] out because I [forgot] to buy food.
+49|t|Por la lesión, eligió retirarse; había peleado veinte años.|Because of his injury, he [chose] to retire; he had [fought] for twenty years.
+49|c|Ganó el premio porque su profesora le enseñó todo.|She [won] the prize because her teacher [taught] her everything.
+49|t|Por el precio, vendieron poco; nadie eligió comprar.|Because of the price, they [sold] little; nobody [chose] to buy.
+49|c|Llevé puesto el abrigo porque atrapé un resfriado la semana pasada.|I [wore] my coat because I [caught] a cold last week.
+49|t|Por el ruido, olvidé lo que me enseñaste.|Because of the noise, I [forgot] what you [taught] me.
+49|c|Tiramos la comida porque nadie se la comió.|We [threw] out the food because nobody [ate] it.
+49|t|Por la lluvia, elegimos comer adentro; comimos junto a la chimenea.|Because of the rain, we [chose] to eat inside; we [ate] by the fireplace.
+
+# --- Regla 50 · (put, try, get, take, lie) + (down, off, on) ---
+50|t|Me quité el abrigo que llevaba puesto y comí algo.|I took off the coat I [wore] and [ate] something.
+50|c|Me probé tres vestidos y elegí el azul; lo llevé puesto esa noche.|I tried on three dresses and [chose] the blue one; I [wore] it that night.
+50|t|Se subió al bus que atrapé; olvidó pagar.|He got on the bus I [caught]; he [forgot] to pay.
+50|c|Me acosté después de comer; olvidé lavar los platos.|I lay down after I [ate]; I [forgot] to wash the dishes.
+50|t|El avión despegó tarde; ganamos tiempo porque elegimos un vuelo directo.|The plane took off late; we [won] time back because we [chose] a direct flight.
+50|c|Puse los libros que vendí en una caja; olvidé uno en la mesa.|I put down the books I [sold] in a box; I [forgot] one on the table.
+50|t|Se bajó del ring después de pelear diez asaltos; ganó por puntos.|He got off the ring after he [fought] ten rounds; he [won] on points.
+50|c|Se puso los guantes y atrapó la pelota; luego la lanzó de vuelta.|He put on his gloves and [caught] the ball; then he [threw] it back.
+50|t|Se quitó el anillo y lo lanzó al mar; ese día lo olvidó.|She took off her ring and [threw] it into the sea; she [forgot] him that day.
+50|c|Me probé los zapatos que vendían en la feria; elegí los negros.|I tried on the shoes they [sold] at the fair; I [chose] the black ones.
+50|t|Bajé el teléfono y comí con mi familia; olvidé los mensajes.|I put down my phone and [ate] with my family; I [forgot] about my messages.
+50|c|Se puso el uniforme y enseñó la clase de gimnasia; se ganó a los estudiantes.|She put on her uniform and [taught] the gym class; she [won] the students over.
+50|t|Se acostó temprano porque había peleado todo el día con la gripe que atrapó.|He lay down early because he had [fought] the flu he [caught] all day.
+50|c|Me quité los zapatos que llevé puestos todo el día y los lancé al armario.|I took off the shoes I had [worn] all day and [threw] them into the closet.
+50|t|Se subió al escenario, ganó el premio y lanzó un beso al público.|She got on stage, [won] the prize, and [threw] a kiss to the audience.
+
+# --- Regla 51 · Sustantivos compuestos ---
+51|t|Comí en el centro comercial y olvidé mi tarjeta de crédito en la caja.|I [ate] at the shopping mall and [forgot] my credit card at the register.
+51|c|El equipo de fútbol ganó el partido de vuelta; el portero atrapó todo.|The soccer team [won] the return game; the goalkeeper [caught] everything.
+51|t|Vendí mi colección de discos y elegí un tocadiscos nuevo.|I [sold] my record collection and [chose] a new record player.
+51|c|La profesora de baile nos enseñó un paso nuevo; lo olvidé al día siguiente.|The dance teacher [taught] us a new step; I [forgot] it the next day.
+51|t|Llevé puesto mi vestido de novia una sola vez; lo vendí en una tienda de segunda.|I [wore] my wedding dress only once; I [sold] it at a second-hand store.
+51|c|Lancé la botella de plástico al bote de reciclaje; el portero del edificio la atrapó.|I [threw] the plastic bottle at the recycling bin; the building doorman [caught] it.
+51|t|Elegimos una mesa de picnic junto al lago y comimos sándwiches de jamón.|We [chose] a picnic table by the lake and [ate] ham sandwiches.
+51|c|Peleamos por el control remoto; mi hermano ganó.|We [fought] over the remote control; my brother [won].
+51|t|Olvidé el cargador del teléfono en el cuarto del hotel; comí en la cafetería del aeropuerto.|I [forgot] my phone charger in the hotel room; I [ate] at the airport cafeteria.
+51|c|La tienda de ropa vendió todos los abrigos de invierno; elegí un suéter de lana.|The clothing store [sold] all the winter coats; I [chose] a wool sweater.
+51|t|El entrenador de tenis me enseñó a lanzar la pelota de saque; gané mi primer partido.|The tennis coach [taught] me to throw the serving ball; I [won] my first match.
+51|c|Gané un boleto de avión en un concurso de radio; elegí ir a México.|I [won] a plane ticket in a radio contest; I [chose] to go to Mexico.
+51|t|Atrapé un resfriado de verano y comí sopa de pollo toda la semana.|I [caught] a summer cold and [ate] chicken soup all week.
+51|c|Llevé puestas las gafas de sol y olvidé el protector solar.|I [wore] sunglasses and [forgot] the sunscreen.
+51|t|Lanzó la pelota de béisbol por la ventana de la cocina; peleamos por eso.|He [threw] the baseball through the kitchen window; we [fought] about it.
+
+# --- Regla 52 · Expresiones de tiempo con "over" ---
+52|t|Durante los últimos años han ganado todo y han vendido millones de camisetas.|Over the last few years they have [won] everything and have [sold] millions of shirts.
+52|c|A lo largo del fin de semana comí demasiado y olvidé el gimnasio.|Over the weekend I [ate] too much and [forgot] about the gym.
+52|t|Durante el verano enseñé natación y me pegó una quemadura de sol terrible.|Over the summer I [taught] swimming and [caught] a terrible sunburn.
+52|c|En los últimos meses hemos peleado menos y hemos comido juntos más.|Over the past few months we have [fought] less and have [eaten] together more.
+52|t|A lo largo de los años elegí bien a mis amigos; nunca he olvidado a ninguno.|Over the years I [chose] my friends well; I have never [forgotten] any of them.
+52|c|Durante el almuerzo me enseñó un truco de cartas; gané la siguiente partida.|Over lunch he [taught] me a card trick; I [won] the next game.
+52|t|En la última década la tienda ha vendido más que nunca y ha ganado premios.|Over the last decade the store has [sold] more than ever and has [won] awards.
+52|c|Durante la cena elegimos un vino y comimos lentamente.|Over dinner we [chose] a wine and [ate] slowly.
+52|t|En las últimas semanas he llevado puesto el mismo suéter; olvidé lavar la ropa.|Over the last few weeks I have [worn] the same sweater; I [forgot] to do the laundry.
+52|c|A lo largo de su carrera ganó diez títulos y peleó contra los mejores.|Over his career he [won] ten titles and [fought] the best.
+52|t|Durante el café me contó que había vendido su casa y elegido vivir en el campo.|Over coffee she told me she had [sold] her house and [chosen] to live in the country.
+52|c|En los últimos días he atrapado tres ratones; el gato se comió uno.|Over the last few days I have [caught] three mice; the cat [ate] one.
+52|t|A lo largo del año lancé cien piedras al lago y olvidé contar las que rebotaron.|Over the year I [threw] a hundred stones into the lake and [forgot] to count the ones that skipped.
+52|c|Durante las vacaciones comimos en la playa y vendimos conchas a los turistas.|Over the holidays we [ate] on the beach and [sold] shells to the tourists.
+52|t|En los últimos años me han enseñado mucho y he ganado experiencia.|Over the past few years they have [taught] me a lot, and I have [won] experience.
+
+# --- Regla 53 · Future Continuous ---
+53|t|Mañana a esta hora estaré enseñando mi primera clase; ya elegí el tema y no he olvidado nada.|This time tomorrow I'll be teaching my first class; I have already [chosen] the topic, and I haven't [forgotten] anything.
+53|c|Esta noche estaremos comiendo en el restaurante que elegiste; olvidé reservar, pero tienen mesas.|Tonight we'll be eating at the restaurant you [chose]; I [forgot] to book, but they have tables.
+53|t|A las ocho estaré viendo el partido; el año pasado ganamos y lancé confeti.|At eight I'll be watching the game; last year we [won], and I [threw] confetti.
+53|c|El lunes estará vendiendo en la feria; ya vendió la mitad de sus pinturas en línea y ganó un premio.|On Monday she'll be selling at the fair; she has already [sold] half of her paintings online, and she [won] a prize.
+53|t|A las diez estaremos pescando; la semana pasada atrapamos cinco truchas y las comimos.|At ten we'll be fishing; last week we [caught] five trout and [ate] them.
+53|c|La próxima semana estaré usando el traje que elegí; lo llevé puesto una vez en una boda.|Next week I'll be wearing the suit I [chose]; I [wore] it once at a wedding.
+53|t|Mañana estarán peleando por el título; el campeón ganó sus últimas diez peleas y peleó contra los mejores.|Tomorrow they'll be fighting for the title; the champion [won] his last ten fights and [fought] the best.
+53|c|En diez años estarás enseñando en la universidad; ya ganaste tu primera beca y elegiste tu especialidad.|In ten years you'll be teaching at the university; you have already [won] your first scholarship and [chosen] your field.
+53|t|El sábado estaremos comiendo con mis papás; olvidé comprar el vino y elegí una torta.|On Saturday we'll be eating with my parents; I [forgot] to buy wine, so I [chose] a cake.
+53|c|Esta tarde estaré vendiendo la bicicleta; ya elegí el precio y le enseñé a mi hijo a montar una nueva.|This afternoon I'll be selling the bike; I have already [chosen] the price and [taught] my son to ride a new one.
+53|t|En junio estaré lanzando para el equipo nacional; ya gané mi puesto y lancé un juego sin hits.|In June I'll be pitching for the national team; I have already [won] my spot and [thrown] a no-hitter.
+53|c|A medianoche estaremos celebrando; ganamos la copa y olvidamos el cansancio.|At midnight we'll be celebrating; we [won] the cup and [forgot] how tired we were.
+53|t|Mañana estará llevando puesto el uniforme nuevo; lo eligió ella misma y lo llevó puesto al entrenamiento.|Tomorrow she'll be wearing the new uniform; she [chose] it herself and [wore] it to practice.
+53|c|El viernes estaré enseñando a pescar a mi hijo; ayer atrapé un pez enorme y nos lo comimos.|On Friday I'll be teaching my son to fish; yesterday I [caught] a huge fish and we [ate] it.
+53|t|Esta noche estarán comiendo pizza; ya se comieron todo lo de la nevera y tiraron las cajas.|Tonight they'll be eating pizza; they have already [eaten] everything in the fridge and [thrown] away the boxes.
+
+# --- Regla 54 · Comparativos y superlativos ---
+54|t|Comió más que yo y eligió el postre más grande.|He [ate] more than me and [chose] the biggest dessert.
+54|c|Vendimos más que el año pasado; ganamos el premio a la mejor tienda.|We [sold] more than last year; we [won] the best-store award.
+54|t|Es la mejor profesora que me ha enseñado; nunca olvidaré sus clases.|She's the best teacher who has ever [taught] me; I will never [forget] her classes.
+54|c|Lanzó más lejos que todos y ganó la medalla de oro.|She [threw] farther than everyone and [won] the gold medal.
+54|t|Es el vestido más bonito que he llevado puesto; lo elegí en Italia.|It's the most beautiful dress I have ever [worn]; I [chose] it in Italy.
+54|c|Fue la pelea más larga que han peleado; nadie ganó.|It was the longest fight they have ever [fought]; nobody [won].
+54|t|Es el pez más grande que he atrapado; lo vendí por mucho dinero.|It's the biggest fish I have ever [caught]; I [sold] it for a lot of money.
+54|c|Fue la peor comida que he comido; olvidé el nombre del restaurante a propósito.|It was the worst meal I have ever [eaten]; I [forgot] the restaurant's name on purpose.
+54|t|Ganó más partidos que su hermano; lanzó mejor toda la temporada.|He [won] more games than his brother; he [threw] better all season.
+54|c|Es la decisión más difícil que he tomado: elegí vender la casa más bonita del barrio.|It's the hardest decision I have made: I [chose] to [sell] the prettiest house in the neighborhood.
+54|t|Olvidé más nombres que nunca; enseñé a más estudiantes este año.|I [forgot] more names than ever; I [taught] more students this year.
+54|c|Es el libro que más se ha vendido este año; lo elegí para el club de lectura.|It's the book that has [sold] the most copies this year; I [chose] it for the book club.
+54|t|Atrapó más pelotas que nadie y ganó el premio al mejor jugador.|He [caught] more balls than anyone and [won] the best-player award.
+54|c|Comimos mejor en el pueblo que en la ciudad; elegimos platos más sencillos.|We [ate] better in the town than in the city; we [chose] simpler dishes.
+54|t|Fue el regalo más original que me han dado; lo llevé puesto toda la semana y nunca olvidé quién me lo dio.|It was the most original gift anyone has given me; I [wore] it all week and never [forgot] who gave it.
+
+# --- Regla 55 · make/let/help + objeto + infinitivo ---
+55|t|Mi mamá me hizo comer verduras; nunca lo he olvidado.|My mom made me [eat] vegetables; I have never [forgotten] it.
+55|c|Mis papás me dejaron elegir la universidad; me enseñaron a decidir solo.|My parents let me [choose] the university; they [taught] me to decide for myself.
+55|t|El entrenador nos hizo lanzar cien veces; ganamos el sábado.|The coach made us [throw] a hundred times; we [won] on Saturday.
+55|c|Mi abuelo me ayudó a vender mi primer carro; me enseñó a negociar.|My grandfather helped me [sell] my first car; he [taught] me to negotiate.
+55|t|La profesora nos dejó llevar puesta ropa normal; elegí jeans.|The teacher let us [wear] normal clothes; I [chose] jeans.
+55|c|Mi hermano me hizo pelear por el último pedazo; él se lo comió igual.|My brother made me [fight] for the last piece; he [ate] it anyway.
+55|t|No me dejes olvidar las llaves; ayer me atrapaste saliendo sin ellas.|Don't let me [forget] my keys; yesterday you [caught] me leaving without them.
+55|c|Ella me ayudó a atrapar al perro; se había comido mis zapatos.|She helped me [catch] the dog; it had [eaten] my shoes.
+55|t|El jefe me hizo enseñar a los nuevos; gané experiencia.|The boss made me [teach] the new employees; I [won] experience.
+55|c|Déjame elegir el postre; tú escogiste la cena y comimos bien.|Let me [choose] dessert; you picked dinner, and we [ate] well.
+55|t|Mis amigos me ayudaron a ganar la elección; lucharon conmigo hasta el final.|My friends helped me [win] the election; they [fought] with me until the end.
+55|c|El médico me hizo comer menos sal; olvidé lo rica que era.|The doctor made me [eat] less salt; I [forgot] how good it tasted.
+55|t|Déjalo lanzar; ayer atrapó todo.|Let him [throw]; yesterday he [caught] everything.
+55|c|Mi papá me ayudó a elegir el traje y lo llevé puesto en la entrevista.|My dad helped me [choose] the suit, and I [wore] it at the interview.
+55|t|La vida me hizo luchar; gané más de lo que perdí.|Life made me [fight]; I [won] more than I lost.
+
+# --- Regla 56 · Estilo indirecto ---
+56|t|Dijo que había comido y que había elegido el pescado.|He said he had [eaten] and had [chosen] the fish.
+56|c|Me dijo que había vendido el carro y que había ganado buen dinero.|She told me she had [sold] the car and had [won] good money.
+56|t|Dijeron que habían peleado y que habían olvidado por qué.|They said they had [fought] and had [forgotten] why.
+56|c|Me preguntó si había atrapado el bus y si había comido.|She asked me if I had [caught] the bus and if I had [eaten].
+56|t|Dijo que le habían enseñado a nadar y que había ganado una carrera.|He said he had been [taught] to swim and had [won] a race.
+56|c|Me contó que había llevado puesto el vestido de su abuela y que lo había elegido ella misma.|She told me she had [worn] her grandmother's dress and had [chosen] it herself.
+56|t|Dijo que había lanzado la pelota y que nadie la había atrapado.|He said he had [thrown] the ball and nobody had [caught] it.
+56|c|Me preguntó por qué había olvidado su cumpleaños y por qué no había comido con ella.|She asked me why I had [forgotten] her birthday and why I hadn't [eaten] with her.
+56|t|Dijeron que venderían la casa y que elegirían un apartamento.|They said they would [sell] the house and would [choose] an apartment.
+56|c|Me dijo que ganaría y que lanzaría el primer tiro.|He told me he would [win] and would [throw] the first shot.
+56|t|Dijo que me enseñaría a pescar y que atraparíamos algo grande.|He said he would [teach] me to fish and that we would [catch] something big.
+56|c|Le pregunté si había vendido algo; dijo que había olvidado abrir la tienda.|I asked her if she had [sold] anything; she said she had [forgotten] to open the store.
+56|t|Me contó que había peleado en la guerra y que había ganado una medalla.|He told me he had [fought] in the war and had [won] a medal.
+56|c|Dijeron que ya habían comido y que habían elegido una película.|They said they had already [eaten] and had [chosen] a movie.
+56|t|Dijo que nunca olvidaría lo que le enseñé.|She said she would never [forget] what I had [taught] her.
+
+# --- Regla 57 · Wish + pasado simple ---
+57|t|Ojalá ganara más; vendí mi carro para pagar el arriendo.|I wish I [won] more money; I [sold] my car to pay the rent.
+57|c|Ojalá no hubiera comido tanto; elegí el menú más grande.|I wish I hadn't [eaten] so much; I [chose] the biggest menu.
+57|t|Ojalá no hubiera olvidado tu cumpleaños; peleamos por eso.|I wish I hadn't [forgotten] your birthday; we [fought] about it.
+57|c|Ojalá me enseñaras a cocinar; ayer comí cereal en la cena.|I wish you [taught] me to cook; yesterday I [ate] cereal for dinner.
+57|t|Ojalá hubiera elegido otra carrera; enseñé diez años sin pasión.|I wish I had [chosen] another career; I [taught] for ten years without passion.
+57|c|Ojalá no hubiera vendido la casa; gané poco con ella.|I wish I hadn't [sold] the house; I [won] little from it.
+57|t|Ojalá llevara puesto un abrigo; atrapé un resfriado.|I wish I [wore] a coat; I [caught] a cold.
+57|c|Ojalá hubiera atrapado esa pelota; perdimos y nadie ganó nada.|I wish I had [caught] that ball; we lost, and nobody [won] anything.
+57|t|Ojalá no peleáramos tanto; ayer lanzaste un plato.|I wish we didn't [fight] so much; yesterday you [threw] a plate.
+57|c|Ojalá hubiera ganado; lancé mal en la final.|I wish I had [won]; I [threw] badly in the final.
+57|t|Ojalá olvidara esa pelea; comí mal toda la semana por eso.|I wish I [forgot] that fight; I [ate] badly all week because of it.
+57|c|Ojalá me hubieran enseñado a nadar; elegí no ir a la playa.|I wish they had [taught] me to swim; I [chose] not to go to the beach.
+57|t|Ojalá hubiera llevado puesto el vestido rojo; elegí el negro.|I wish I had [worn] the red dress; I [chose] the black one.
+57|c|Ojalá vendieran comida sana aquí; ayer comí papas fritas.|I wish they [sold] healthy food here; yesterday I [ate] fries.
+57|t|Ojalá no hubiera lanzado la piedra; me atraparon enseguida.|I wish I hadn't [thrown] the stone; they [caught] me right away.
+
+# --- Regla 58 · Conectores formales ---
+58|t|El equipo ganó la liga; sin embargo, el entrenador eligió renunciar.|The team [won] the league; however, the coach [chose] to resign.
+58|c|Vendieron la empresa; por lo tanto, ganaron millones.|They [sold] the company; therefore, they [won] millions.
+58|t|Además de enseñar, luchó por los derechos de los profesores.|In addition to having [taught], she [fought] for teachers' rights.
+58|c|Comimos poco; no obstante, elegimos el restaurante más caro.|We [ate] little; nevertheless, we [chose] the most expensive restaurant.
+58|t|Olvidó la cita; en consecuencia, eligieron a otro candidato.|He [forgot] the appointment; consequently, they [chose] another candidate.
+58|c|Atraparon al ladrón; asimismo, vendieron las joyas recuperadas.|They [caught] the thief; likewise, they [sold] the recovered jewels.
+58|t|Aunque peleó bien, no ganó.|Although he [fought] well, he didn't [win].
+58|c|Lanzó la pelota con fuerza; sin embargo, el portero la atrapó.|She [threw] the ball hard; however, the goalkeeper [caught] it.
+58|t|A pesar de haber comido mucho, eligió postre.|Despite having [eaten] a lot, he [chose] dessert.
+58|c|Ganamos el contrato; además, vendimos el doble.|We [won] the contract; furthermore, we [sold] double.
+58|t|La profesora enseñó con paciencia; por consiguiente, nadie olvidó la lección.|The teacher [taught] with patience; as a result, nobody [forgot] the lesson.
+58|c|Llevó puesto el uniforme correcto; no obstante, olvidó la identificación.|He [wore] the correct uniform; nevertheless, he [forgot] his ID.
+58|t|Eligieron una estrategia nueva; por lo tanto, ganaron.|They [chose] a new strategy; therefore, they [won].
+58|c|Vendió poco; por consiguiente, peleó con su jefe por el bono.|He [sold] little; consequently, he [fought] with his boss over the bonus.
+58|t|Aunque lo atraparon, olvidaron revisar sus bolsillos.|Although they [caught] him, they [forgot] to check his pockets.
+
+# --- Regla 59 · Phrasal verbs B2 ---
+59|t|Tiré la ropa vieja y vendí los muebles.|I [threw] away the old clothes and [sold] the furniture.
+59|c|Se le gastaron los zapatos y los tiró a la basura.|His shoes [wore] out, and he [threw] them in the trash.
+59|t|Me puse al día con el trabajo; olvidé almorzar.|I [caught] up on my work; I [forgot] to have lunch.
+59|c|Se agotaron las entradas en una hora; olvidé comprar la mía.|The tickets [sold] out in an hour; I [forgot] to buy mine.
+59|t|Comimos afuera y elegimos un lugar nuevo.|We [ate] out and [chose] a new place.
+59|c|Peleó contra el miedo y ganó.|He [fought] off his fear and [won].
+59|t|Me pilló la lluvia y atrapé un resfriado; comí sopa toda la semana.|I got caught in the rain, and I [caught] a cold; I [ate] soup all week.
+59|c|Ganó a su público con humor; nunca olvidaron su discurso.|She [won] over the audience with humor; they never [forgot] her speech.
+59|t|Vomitó después de comer mariscos.|He [threw] up after he [ate] seafood.
+59|c|El efecto del café se pasó; elegí tomar otro.|The effect of the coffee [wore] off; I [chose] to have another one.
+59|t|Vendió su parte del negocio y ganó una fortuna.|He [sold] off his share of the business and [won] a fortune.
+59|c|Me puse al día con mis amigos; comimos juntos el sábado.|I [caught] up with my friends; we [ate] together on Saturday.
+59|t|Echaron al jugador que peleó con el árbitro.|They [threw] out the player who [fought] with the referee.
+59|c|Al final ganó su argumento; lo eligieron como líder.|In the end he [won] the argument; they [chose] him as leader.
+59|t|Comí de más y me dejó agotado.|I [ate] too much, and it [wore] me out.

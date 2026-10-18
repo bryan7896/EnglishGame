@@ -1,0 +1,63 @@
+# Paquete 2 · see, come, give, find, tell, become, leave, feel, put, bring
+
+S|see.b|Quiero **ver** esa película.|I want to [see] that movie.|saw,seen
+S|see.p|**Vi** a tu hermana en el centro.|I [saw] your sister downtown.|seen,see
+S|see.pp|¿Alguna vez has **visto** la nieve?|Have you ever [seen] snow?|saw,see
+S|come.b|¿Puedes **venir** a mi fiesta?|Can you [come] to my party?|came,comed
+S|come.p|Mis primos **vinieron** a visitarnos.|My cousins [came] to visit us.|come,comed
+S|come.pp|La primavera ha **llegado**.|Spring has [come].|came,comed
+S|give.b|Te voy a **dar** un consejo.|I'm going to [give] you some advice.|gave,given
+S|give.p|Ella me **dio** un abrazo.|She [gave] me a hug.|given,give
+S|give.pp|Me han **dado** una beca.|They have [given] me a scholarship.|gave,give
+S|find.b|No puedo **encontrar** mis llaves.|I can't [find] my keys.|found,finded
+S|find.p|**Encontré** un billete en la calle.|I [found] a bill on the street.|find,finded
+S|find.pp|¿Has **encontrado** trabajo?|Have you [found] a job?|find,finded
+S|tell.b|Te voy a **contar** un secreto.|I'm going to [tell] you a secret.|told,telled
+S|tell.p|Mi abuelo nos **contó** una historia.|My grandfather [told] us a story.|tell,telled
+S|tell.pp|¿Le has **dicho** la verdad?|Have you [told] her the truth?|tell,telled
+S|become.b|Quiere **convertirse** en piloto.|She wants to [become] a pilot.|became,becomed
+S|become.p|Se **convirtió** en un gran músico.|He [became] a great musician.|become,becomed
+S|become.pp|La ciudad se ha **vuelto** muy cara.|The city has [become] very expensive.|became,becomed
+S|leave.b|Tengo que **salir** temprano hoy.|I have to [leave] early today.|left,leaved
+S|leave.p|**Dejé** mi paraguas en el bus.|I [left] my umbrella on the bus.|leave,leaved
+S|leave.pp|El tren ya ha **salido**.|The train has already [left].|leave,leaved
+S|feel.b|Empiezo a **sentir** frío.|I'm starting to [feel] cold.|felt,feeled
+S|feel.p|Me **sentí** muy feliz ese día.|I [felt] very happy that day.|feel,feeled
+S|feel.pp|Nunca me había **sentido** tan cansado.|I had never [felt] so tired.|feel,feeled
+S|put.b|¿Dónde quieres que **ponga** esto?|Where do you want me to [put] this?|putted,puts
+S|put.p|Ayer **puse** las llaves en la mesa.|Yesterday I [put] the keys on the table.|putted,puts
+S|put.pp|¿Dónde has **puesto** mi teléfono?|Where have you [put] my phone?|putted,puts
+S|bring.b|¿Puedes **traer** algo de beber?|Can you [bring] something to drink?|brought,brang
+S|bring.p|Ella **trajo** un pastel a la reunión.|She [brought] a cake to the meeting.|bring,brang
+S|bring.pp|¿Qué has **traído** para la cena?|What have you [brought] for dinner?|bring,brang
+
+C|see.b|Ven a ver lo que hice.|Come and [see] what I made.
+C|see.p|Vimos una película muy buena anoche.|We [saw] a really good movie last night.
+C|see.pp|No la he visto en años.|I haven't [seen] her in years.
+C|come.b|¿A qué hora vas a venir?|What time are you going to [come]?
+C|come.p|Ella vino a la clase tarde.|She [came] to class late.
+C|come.pp|Mis papás han venido desde Cali.|My parents have [come] all the way from Cali.
+C|give.b|¿Me puedes dar tu correo?|Can you [give] me your email?
+C|give.p|Le dimos flores a la profesora.|We [gave] the teacher flowers.
+C|give.pp|Ha dado lo mejor de sí.|She has [given] her best.
+C|find.b|Necesito encontrar un apartamento.|I need to [find] an apartment.
+C|find.p|Encontraron al perro en el parque.|They [found] the dog in the park.
+C|find.pp|Todavía no hemos encontrado una solución.|We haven't [found] a solution yet.
+C|tell.b|No le cuentes a nadie.|Don't [tell] anyone.
+C|tell.p|Me dijo que estaba enferma.|She [told] me she was sick.
+C|tell.pp|Ya te lo he dicho mil veces.|I have [told] you a thousand times.
+C|become.b|Quiero ser mejor cada día.|I want to [become] better every day.
+C|become.p|Se hicieron amigos en el colegio.|They [became] friends at school.
+C|become.pp|Se ha convertido en mi lugar favorito.|It has [become] my favorite place.
+C|leave.b|Por favor, no me dejes solo.|Please don't [leave] me alone.
+C|leave.p|Salimos de casa a las seis.|We [left] home at six.
+C|leave.pp|Ella ha dejado su trabajo.|She has [left] her job.
+C|feel.b|¿Cómo te sientes hoy?|How do you [feel] today?
+C|feel.p|Me sentí mal después de comer.|I [felt] sick after eating.
+C|feel.pp|Siempre me he sentido bien aquí.|I have always [felt] good here.
+C|put.b|Pon la leche en la nevera.|[Put] the milk in the fridge.
+C|put.p|Él puso su abrigo en la silla.|He [put] his coat on the chair.
+C|put.pp|Hemos puesto todo en orden.|We have [put] everything in order.
+C|bring.b|No olvides traer tu pasaporte.|Don't forget to [bring] your passport.
+C|bring.p|Le trajimos un regalo a mi abuela.|We [brought] my grandma a present.
+C|bring.pp|¿Has traído tu almuerzo?|Have you [brought] your lunch?

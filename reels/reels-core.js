@@ -5,12 +5,12 @@
   // - Cada 5-15 tarjetas aparece una sorpresa (reels-sorpresas.js).
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
-  const RL_BANCO = 50;
-  const RL_VERSION = "reels 18.2";
+  const RL_BANCO = 70;
+  const RL_VERSION = "reels 19.0";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
-  const RL_REPORTE_MIN = 60, RL_REPORTE_MAX = 70;
+  const RL_REPORTE_MIN = 65, RL_REPORTE_MAX = 70;
   const RL_MIN_POR_REGLA = 5;
   const RL_PARTE_MANUAL = 0.6;               // 30 de cada 50
   const RL_REPASO_MIN = 3, RL_REPASO_MAX = 8; // "Repasar luego": vuelve N tarjetas después
@@ -32,7 +32,7 @@
       cur: null,          // tarjeta en pantalla (para retomar)
       reserva: [],        // ejercicios manuales en espera
       usados: [],         // ids del banco del sistema ya usados (no repetir)
-      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0, ord: 0 },
+      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0, ordPend: [] },
       ultSorpresa: null,
       reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
       historias: { usadas: [], activa: null },
@@ -54,7 +54,8 @@
     // defecto salen de un estado nuevo (así una partida vieja recibe yt/proxYt).
     const def = rlNuevo().cont;
     RL.cont = Object.assign({}, def, d.cont || {});
-    Object.keys(def).forEach((k) => { if (!Number.isFinite(RL.cont[k])) RL.cont[k] = def[k]; });
+    Object.keys(def).forEach((k) => { if (typeof def[k] === "number" && !Number.isFinite(RL.cont[k])) RL.cont[k] = def[k]; });
+    if (!Array.isArray(RL.cont.ordPend)) RL.cont.ordPend = [];
     RL.reporte = Object.assign(rlNuevo().reporte, d.reporte || {});
     RL.historias = Object.assign(rlNuevo().historias, d.historias || {});
     RL.yt = Object.assign(rlNuevo().yt, d.yt || {});
@@ -165,17 +166,15 @@
     shuffleArray(nuevas).forEach((it) => {
       if (it.k === "ex" && it.ex && it.ex.type === "traduccion") {
         rlInsertarAlAzar(banco, it);
-        RL.cont.ord = (RL.cont.ord || 0) + 1;
-        if (RL.cont.ord >= RL_ORD_CADA) {
-          RL.cont.ord = 0;
-          const base = buildOrdenamientoFromTraduccion(it.ex);
+        RL.cont.ordPend = RL.cont.ordPend || [];
+        RL.cont.ordPend.push({ uid: it.uid, ex: it.ex });
+        if (RL.cont.ordPend.length >= RL_ORD_CADA) {
+          const elegido = RL.cont.ordPend[Math.floor(Math.random() * RL.cont.ordPend.length)];
+          RL.cont.ordPend = [];
+          const base = buildOrdenamientoFromTraduccion(elegido.ex);
           if (base) {
-            for (let n = 0; n < 3; n++) {
-              const limite = banco.indexOf(it); // se va corriendo +1 con cada inserción previa
-              const ordItem = { k: "ex", uid: rlUid(), ex: Object.assign({}, base, { origenUid: it.uid }), src: it.src, retry: false };
-              const pos = Math.floor(Math.random() * (limite + 1));
-              banco.splice(pos, 0, ordItem);
-            }
+            const ordItem = { k: "ex", uid: rlUid(), ex: Object.assign({}, base, { origenUid: elegido.uid }), src: it.src, retry: false };
+            rlInsertarAlAzar(banco, ordItem);
           }
         }
       } else {
@@ -366,6 +365,12 @@
     if (!rlContarBanco() && !RL.banco.length) {
       return { k: "sorpresa", tipo: "reglas", uid: rlUid(), forzada: true };
     }
+    // Irregulares (solo inglés): reconocimiento, seleccionar y completar del paquete del día,
+    // por contadores de ejercicios. Mientras no se termine esa parte no se sigue con Reels.
+    if (typeof irrDecidirSorpresa === "function") {
+      const irr = irrDecidirSorpresa();
+      if (irr) return irr;
+    }
     if (RL.cont.yt >= RL.cont.proxYt) {
       RL.cont.yt = 0;
       RL.cont.proxYt = rlRand(RL_YT_MIN, RL_YT_MAX);
@@ -414,6 +419,7 @@
   function rlEjercicioTerminado(item, passed, decision, entrada, respuesta) {
     rlRegistrar(item, entrada, passed);
     if (getTargetLanguage() === "en") rlSumarDia("ingles");
+    if (typeof irrContarEjercicio === "function") irrContarEjercicio(item);
     RL.cont.sorpresa++;
     RL.cont.reporte++;
     RL.cont.yt++;
@@ -475,13 +481,13 @@
   }
 
   // ---------- Historia de estudio ----------
-  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening" };
+  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening", irr: "irregulares" };
   function rlAnotar(item, nota) {
     if (!RL) return;
     let tipo = "—";
-    if (item && item.k === "ex") tipo = (item.ex.type === "traduccion" ? "traduccion" : item.ex.type === "seleccionar" ? "emparejar" : item.ex.type) + (item.retry ? " (repaso)" : "") + (item.src === "man" ? " (tuyo)" : "");
+    if (item && item.k === "ex") tipo = (item.ex.type === "traduccion" ? "traduccion" : item.ex.type === "seleccionar" ? "emparejar" : item.ex.type) + (item.retry ? " (repaso)" : "") + (item.src === "man" ? " (tuyo)" : "") + (item.ex.irr ? " (irregulares)" : "");
     else if (item && item.k === "info") tipo = "lección de información";
-    else if (item && item.k === "sorpresa") tipo = RL_NOMBRE_SORPRESA[item.tipo] || item.tipo;
+    else if (item && item.k === "sorpresa") tipo = (RL_NOMBRE_SORPRESA[item.tipo] || item.tipo) + (item.tipo === "irr" ? " (" + item.fase + ")" : "");
     RL.historial = RL.historial || [];
     RL.historial.push({ f: new Date().toISOString(), t: tipo + (nota ? " · " + nota : "") });
     if (RL.historial.length > RL_MAX_HISTORIAL) RL.historial = RL.historial.slice(-RL_MAX_HISTORIAL);
@@ -560,6 +566,7 @@
       getExerciseTypeIcon(ex.type) + " " + getExerciseTypeName(ex.type),
       item.retry ? "🧠 Repaso" : "",
       item.src === "man" ? "📥 Tuyo" : "",
+      ex.irr ? "🔁 Irregulares · paquete " + (ex.irr.p || "") : "",
     ]) + `<div class="rl-ex exercise-area"><div class="rl-ex-container"></div></div>`;
     const c = body.querySelector(".rl-ex-container");
 

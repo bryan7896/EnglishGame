@@ -1,0 +1,63 @@
+# Paquete 10 · bet, cost, quit, shine, slide, stick, sink, split, sweep, swing
+
+S|bet.b|No quiero **apostar** dinero.|I don't want to [bet] money.|bets,betted
+S|bet.p|**Apostó** cien dólares al equipo rojo.|He [bet] a hundred dollars on the red team.|betted,bets
+S|bet.pp|Nunca he **apostado** en un casino.|I have never [bet] at a casino.|betted,bets
+S|cost.b|¿Cuánto va a **costar** el arreglo?|How much will the repair [cost]?|costs,costed
+S|cost.p|El viaje **costó** una fortuna.|The trip [cost] a fortune.|costed,costs
+S|cost.pp|Ese error nos ha **costado** mucho.|That mistake has [cost] us a lot.|costed,costs
+S|quit.b|Quiero **renunciar** a mi trabajo.|I want to [quit] my job.|quits,quitted
+S|quit.p|**Renunció** el mes pasado.|She [quit] last month.|quitted,quits
+S|quit.pp|Ha **renunciado** al azúcar.|He has [quit] sugar.|quitted,quits
+S|shine.b|El sol va a **brillar** mañana.|The sun will [shine] tomorrow.|shone,shined
+S|shine.p|Las estrellas **brillaron** toda la noche.|The stars [shone] all night.|shine,shined
+S|shine.pp|La luna ha **brillado** sobre el lago.|The moon has [shone] over the lake.|shine,shined
+S|slide.b|Los niños quieren **deslizarse** por el tobogán.|The kids want to [slide] down the slide.|slid,slided
+S|slide.p|El carro **se deslizó** en el hielo.|The car [slid] on the ice.|slide,slided
+S|slide.pp|La carta se ha **deslizado** debajo de la puerta.|The letter has [slid] under the door.|slide,slided
+S|stick.b|Voy a **pegar** la foto en la pared.|I'm going to [stick] the photo on the wall.|stuck,sticked
+S|stick.p|**Pegó** una nota en la nevera.|She [stuck] a note on the fridge.|stick,sticked
+S|stick.pp|Hemos **pegado** las etiquetas.|We have [stuck] the labels on.|stick,sticked
+S|sink.b|Esa piedra va a **hundirse**.|That stone is going to [sink].|sank,sunk
+S|sink.p|El barco **se hundió** en 1912.|The ship [sank] in 1912.|sunk,sinked
+S|sink.pp|El sol se ha **hundido** en el horizonte.|The sun has [sunk] below the horizon.|sank,sinked
+S|split.b|Vamos a **dividir** la cuenta.|Let's [split] the bill.|splits,splitted
+S|split.p|**Dividieron** la pizza en ocho.|They [split] the pizza into eight.|splitted,splits
+S|split.pp|El grupo se ha **dividido** en dos.|The group has [split] in two.|splitted,splits
+S|sweep.b|Tengo que **barrer** la cocina.|I have to [sweep] the kitchen.|swept,sweeped
+S|sweep.p|**Barrió** el patio esta mañana.|He [swept] the yard this morning.|sweep,sweeped
+S|sweep.pp|¿Ya has **barrido** el piso?|Have you [swept] the floor yet?|sweep,sweeped
+S|swing.b|A los niños les gusta **balancearse** en el columpio.|Kids like to [swing] on the swing.|swung,swang
+S|swing.p|**Se balanceó** de un lado a otro.|He [swung] from side to side.|swing,swang
+S|swing.pp|La puerta se ha **balanceado** con el viento.|The door has [swung] in the wind.|swang,swing
+
+C|bet.b|Te apuesto a que llueve hoy.|I [bet] it will rain today.
+C|bet.p|Apostamos quién llegaría primero.|We [bet] on who would arrive first.
+C|bet.pp|Se ha apostado mucho dinero en este partido.|A lot of money has been [bet] on this game.
+C|cost.b|Los buenos zapatos cuestan caro.|Good shoes [cost] a lot.
+C|cost.p|¿Cuánto te costó el teléfono?|How much did the phone [cost] you?
+C|cost.pp|Le ha costado mucho aprender.|It has [cost] her a lot of effort to learn.
+C|quit.b|Deja de quejarte.|[Quit] complaining.
+C|quit.p|Dejó de fumar hace un año.|He [quit] smoking a year ago.
+C|quit.pp|Nunca he renunciado a un sueño.|I have never [quit] on a dream.
+C|shine.b|Sus ojos brillan cuando sonríe.|Her eyes [shine] when she smiles.
+C|shine.p|La luz brilló a través de la ventana.|The light [shone] through the window.
+C|shine.pp|El sol no ha brillado en toda la semana.|The sun hasn't [shone] all week.
+C|slide.b|Desliza la tarjeta por la ranura.|[Slide] the card through the slot.
+C|slide.p|Se resbaló en el piso mojado.|She [slid] on the wet floor.
+C|slide.pp|Los precios han bajado un poco.|Prices have [slid] a little.
+C|stick.b|Quédate conmigo.|[Stick] with me.
+C|stick.p|Se mantuvo fiel a su plan.|She [stuck] to her plan.
+C|stick.pp|La puerta está atascada.|The door is [stuck].
+C|sink.b|No dejes que los platos sucios se hundan en el agua.|Don't let the dirty dishes [sink] in the water.
+C|sink.p|Se me encogió el corazón cuando oí la noticia.|My heart [sank] when I heard the news.
+C|sink.pp|El barco fue hundido por una tormenta.|The boat was [sunk] by a storm.
+C|split.b|Partamos la diferencia.|Let's [split] the difference.
+C|split.p|Se separaron después de cinco años.|They [split] up after five years.
+C|split.pp|La madera estaba partida por la mitad.|The wood was [split] in half.
+C|sweep.b|Barre debajo de la cama.|[Sweep] under the bed.
+C|sweep.p|La ola arrastró al surfista.|The wave [swept] the surfer away.
+C|sweep.pp|El piso ya está barrido.|The floor is already [swept].
+C|swing.b|Batea con fuerza.|[Swing] the bat hard.
+C|swing.p|El mono se balanceó de rama en rama.|The monkey [swung] from branch to branch.
+C|swing.pp|El columpio ha estado meciéndose solo.|The swing has [swung] by itself.

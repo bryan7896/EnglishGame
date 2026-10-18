@@ -1,0 +1,63 @@
+# Paquete 3 · begin, keep, hold, write, stand, hear, let, mean, set, meet
+
+S|begin.b|La clase va a **comenzar** pronto.|The class is going to [begin] soon.|began,begun
+S|begin.p|La película **comenzó** a las ocho.|The movie [began] at eight.|begun,begin
+S|begin.pp|Ya ha **comenzado** a llover.|It has already [begun] to rain.|began,begin
+S|keep.b|Puedes **quedarte** con el cambio.|You can [keep] the change.|kept,keeped
+S|keep.p|**Guardó** el secreto por años.|She [kept] the secret for years.|keep,keeped
+S|keep.pp|Siempre he **cumplido** mis promesas.|I have always [kept] my promises.|keep,keeped
+S|hold.b|¿Puedes **sostener** mi bolso un momento?|Can you [hold] my bag for a moment?|held,holded
+S|hold.p|Ella **tomó** mi mano con fuerza.|She [held] my hand tightly.|hold,holded
+S|hold.pp|La reunión se ha **celebrado** en Bogotá.|The meeting has been [held] in Bogotá.|hold,holded
+S|write.b|Tengo que **escribir** un correo.|I have to [write] an email.|wrote,written
+S|write.p|Mi abuelo me **escribió** una carta.|My grandfather [wrote] me a letter.|written,write
+S|write.pp|Ha **escrito** tres novelas.|She has [written] three novels.|wrote,write
+S|stand.b|No **soporto** el ruido.|I can't [stand] the noise.|stood,standed
+S|stand.p|Todos se **pusieron** de pie cuando entró.|Everyone [stood] up when she came in.|stand,standed
+S|stand.pp|La casa ha **resistido** muchas tormentas.|The house has [stood] through many storms.|stand,standed
+S|hear.b|No puedo **oír** nada.|I can't [hear] anything.|heard,heared
+S|hear.p|**Oí** un ruido extraño anoche.|I [heard] a strange noise last night.|hear,heared
+S|hear.pp|¿Has **oído** la noticia?|Have you [heard] the news?|hear,heared
+S|let.b|Por favor, **déjame** ayudarte.|Please [let] me help you.|letted,lets
+S|let.p|Ayer mi papá me **dejó** manejar.|Yesterday my dad [let] me drive.|letted,lets
+S|let.pp|Nunca me han **dejado** salir tarde.|They have never [let] me go out late.|letted,lets
+S|mean.b|¿Qué **significa** esta palabra?|What does this word [mean]?|meant,meaned
+S|mean.p|**Quise** decir otra cosa.|I [meant] something else.|mean,meaned
+S|mean.pp|Siempre he **querido** decirte esto.|I have always [meant] to tell you this.|mean,meaned
+S|set.b|Vamos a **poner** la mesa.|Let's [set] the table.|setted,sets
+S|set.p|Ella **puso** la alarma a las seis.|She [set] the alarm for six.|setted,sets
+S|set.pp|Ya han **fijado** la fecha de la boda.|They have [set] the date for the wedding.|setted,sets
+S|meet.b|Quiero **conocer** a tus papás.|I want to [meet] your parents.|met,meeted
+S|meet.p|**Conocí** a mi esposa en la universidad.|I [met] my wife in college.|meet,meeted
+S|meet.pp|¿Has **conocido** a alguien interesante?|Have you [met] anyone interesting?|meet,meeted
+
+C|begin.b|¿Cuándo vas a comenzar el curso?|When are you going to [begin] the course?
+C|begin.p|Comenzamos el proyecto en enero.|We [began] the project in January.
+C|begin.pp|La temporada ya ha comenzado.|The season has already [begun].
+C|keep.b|Mantén la calma, por favor.|Please [keep] calm.
+C|keep.p|Guardé todas tus cartas.|I [kept] all your letters.
+C|keep.pp|Hemos mantenido la casa limpia.|We have [kept] the house clean.
+C|hold.b|Sostén la puerta, por favor.|Please [hold] the door.
+C|hold.p|Hicieron una reunión ayer.|They [held] a meeting yesterday.
+C|hold.pp|El concierto se ha realizado en el estadio.|The concert has been [held] at the stadium.
+C|write.b|Voy a escribir mi nombre aquí.|I'm going to [write] my name here.
+C|write.p|Escribió un poema para su mamá.|She [wrote] a poem for her mom.
+C|write.pp|¿Has escrito el informe?|Have you [written] the report?
+C|stand.b|Por favor, ponte de pie.|Please [stand] up.
+C|stand.p|Estuvimos de pie en la fila por una hora.|We [stood] in line for an hour.
+C|stand.pp|Ese árbol ha estado allí por cien años.|That tree has [stood] there for a hundred years.
+C|hear.b|¿Me puedes oír?|Can you [hear] me?
+C|hear.p|Oímos a alguien en la puerta.|We [heard] someone at the door.
+C|hear.pp|Nunca había oído esa canción.|I had never [heard] that song.
+C|let.b|No dejes que te moleste.|Don't [let] him bother you.
+C|let.p|La profesora nos dejó salir temprano.|The teacher [let] us leave early.
+C|let.pp|Me han dejado usar su carro.|They have [let] me use their car.
+C|mean.b|¿Qué quieres decir?|What do you [mean]?
+C|mean.p|Lo dije en serio.|I [meant] what I said.
+C|mean.pp|Esa canción siempre ha significado mucho para mí.|That song has always [meant] a lot to me.
+C|set.b|Necesito poner la alarma.|I need to [set] the alarm.
+C|set.p|El sol se puso a las seis.|The sun [set] at six.
+C|set.pp|Hemos establecido nuevas reglas.|We have [set] new rules.
+C|meet.b|¿Dónde nos vemos mañana?|Where should we [meet] tomorrow?
+C|meet.p|Nos conocimos en una fiesta.|We [met] at a party.
+C|meet.pp|Nunca había conocido a alguien tan amable.|I had never [met] someone so kind.

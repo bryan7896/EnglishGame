@@ -1,0 +1,971 @@
+# Paquete 10 · bet, cost, quit, shine, slide, stick, sink, split, sweep, swing
+# regla|t (traducción) o c (completar)|español|inglés con las 2 formas entre [corchetes]
+
+# --- Regla 1 · Past Perfect Continuous ---
+1|t|Llevaba años fumando cuando por fin lo dejó; le costó mucho.|He had been smoking for years when he finally [quit]; it [cost] him a lot.
+1|c|Habíamos estado navegando por horas cuando el barco se hundió; el sol brillaba fuerte.|We had been sailing for hours when the boat [sank]; the sun [shone] brightly.
+1|t|Llevaba toda la mañana barriendo cuando el niño se deslizó en el piso mojado; había barrido toda la casa.|She had been sweeping all morning when the boy [slid] on the wet floor; she had [swept] the whole house.
+1|c|Habían estado discutiendo por meses cuando por fin se separaron; la decisión les costó lágrimas.|They had been arguing for months when they finally [split] up; the decision [cost] them tears.
+1|t|Llevaba horas jugando en el parque cuando se balanceó demasiado alto; las manos se le pegaron a las cadenas.|He had been playing in the park for hours when he [swung] too high; his hands [stuck] to the chains.
+1|c|Había estado lloviendo toda la semana cuando por fin el sol brilló; barrimos el patio.|It had been raining all week when the sun finally [shone]; we [swept] the yard.
+1|t|Llevaba meses apostando cuando perdió la casa; le costó todo y lo dejó para siempre.|He had been betting for months when he lost the house; it [cost] him everything, and he [quit] for good.
+1|c|Habíamos estado caminando por la nieve cuando nos deslizamos por la colina; nos quedamos pegados a un árbol.|We had been walking through the snow when we [slid] down the hill; we got [stuck] against a tree.
+1|t|Llevaba años trabajando allí cuando renunció; la empresa se hundió poco después.|She had been working there for years when she [quit]; the company [sank] soon after.
+1|c|Habían estado ahorrando por meses cuando el viaje costó el doble; dividieron los gastos.|They had been saving for months when the trip [cost] double; they [split] the expenses.
+1|t|Llevaba horas pegando fotos en el álbum; pegué la última justo cuando la luz del sol brilló sobre la mesa.|I had been putting photos in the album for hours; I [stuck] the last one just as the sunlight [shone] on the table.
+1|c|Había estado nevando toda la noche cuando la tormenta barrió el pueblo; el carro se deslizó en la calle.|It had been snowing all night when the storm [swept] through the town; the car [slid] in the street.
+1|t|Llevábamos una hora esperando cuando la puerta se balanceó y se abrió; apostamos a que era el viento.|We had been waiting for an hour when the door [swung] open; we [bet] it was the wind.
+1|c|Llevaba semanas entrenando cuando bateó la pelota y se hundió en el lago.|He had been training for weeks when he [swung] at the ball, and it [sank] in the lake.
+1|t|Había estado limpiando el barco cuando se hundió; le había costado años construirlo.|He had been cleaning the boat when it [sank]; it had [cost] him years to build it.
+
+# --- Regla 2 · Wh Questions ---
+2|t|¿Cuánto costó el carro? ¿Cuánto apostaste?|How much did the car [cost]? How much did you [bet]?
+2|c|¿Por qué renunciaste? ¿Quién se quedó con tu puesto?|Why did you [quit]? Who [stuck] around in your place?
+2|t|¿Cuándo se hundió el barco? ¿Brillaba el sol?|When did the ship [sink]? Did the sun [shine]?
+2|c|¿Quién barrió la cocina? ¿Quién se deslizó en el piso?|Who [swept] the kitchen? Who [slid] on the floor?
+2|t|¿Cómo dividieron la cuenta? ¿Cuánto costó la cena?|How did you [split] the bill? How much did dinner [cost]?
+2|c|¿Dónde pegaste la nota? ¿Quién la tumbó de la nevera al barrer?|Where did you [stick] the note? Who [swept] it off the fridge?
+2|t|¿Por qué se balanceó la lámpara? ¿Quién la golpeó al barrer?|Why did the lamp [swing]? Who hit it when they [swept]?
+2|c|¿Cuántas veces has apostado? ¿Cuánto te ha costado?|How many times have you [bet]? How much has it [cost] you?
+2|t|¿Quién dejó el trabajo? ¿Por qué se dividió el equipo?|Who [quit] the job? Why did the team [split]?
+2|c|¿Qué se hundió en el lago? ¿Quién lo vio deslizarse?|What [sank] in the lake? Who saw it [slide] in?
+2|t|¿Cuándo brilló la luna así? ¿Quién barrió la terraza?|When has the moon [shone] like this? Who [swept] the terrace?
+2|c|¿Por qué te quedaste atascado? ¿Te deslizaste en el lodo?|Why did you get [stuck]? Did you [slide] in the mud?
+2|t|¿Cuánto apostaron? ¿Quién dividió el premio?|How much did they [bet]? Who [split] the prize?
+2|c|¿Quién se balanceó en el columpio? ¿Se le hundió el corazón?|Who [swung] on the swing? Did his heart [sink]?
+2|t|¿Cuánto te costó dejar el café? ¿Por qué lo dejaste?|How much did it [cost] you to give up coffee? Why did you [quit]?
+
+# --- Regla 3 · Orden de sustantivos compuestos ---
+3|t|Apostó en la carrera de caballos; le costó todo el salario del mes.|He [bet] on the horse race; it [cost] him his whole monthly salary.
+3|c|Renunció a la empresa de seguros y se quedó en la tienda de su papá.|She [quit] the insurance company and [stuck] with her dad's store.
+3|t|El barco de pesca se hundió en la tormenta de invierno; el sol no brilló en días.|The fishing boat [sank] in the winter storm; the sun didn't [shine] for days.
+3|c|Barrí el piso de la cocina y me deslicé en el agua del lavaplatos.|I [swept] the kitchen floor and [slid] on the dishwasher water.
+3|t|Dividimos la cuenta del restaurante; la cena costó poco.|We [split] the restaurant bill; dinner [cost] little.
+3|c|Pegué la etiqueta del precio en la caja de zapatos; brillaba con la luz de la vitrina.|I [stuck] the price tag on the shoe box; it [shone] in the shop window light.
+3|t|El niño se balanceó en el columpio del parque y se deslizó por el tobogán de agua.|The boy [swung] on the park swing and [slid] down the water slide.
+3|c|La tarjeta de crédito se quedó pegada en el cajero automático; me costó una hora sacarla.|My credit card got [stuck] in the ATM; it [cost] me an hour to get it out.
+3|t|La tormenta de arena barrió el campo de fútbol; el equipo se dividió en dos grupos.|The sandstorm [swept] the soccer field; the team [split] into two groups.
+3|c|Apostamos en el partido de fútbol y dejamos la apuesta de baloncesto.|We [bet] on the soccer game and [quit] the basketball pool.
+3|t|La luz de la luna brilló sobre el agua del lago; la piedra se hundió despacio.|The moonlight [shone] on the lake water; the stone [sank] slowly.
+3|c|El pedido de comida costó el doble; lo dividimos entre cuatro compañeros de cuarto.|The food order [cost] double; we [split] it among four roommates.
+3|t|Se deslizó en la pista de hielo y se pegó a la baranda de seguridad.|He [slid] on the ice rink and [stuck] to the safety rail.
+3|c|Barrimos la entrada del garaje; el portón del garaje se balanceó con el viento.|We [swept] the garage driveway; the garage door [swung] in the wind.
+3|t|Renunció al club de lectura; le había costado tiempo de trabajo.|She [quit] the book club; it had [cost] her work time.
+
+# --- Regla 4 · Segundo condicional ---
+4|t|Si apostara, perdería; el último viaje me costó demasiado.|If I [bet], I would lose; the last trip [cost] me too much.
+4|c|Si renunciaras, te quedarías sin seguro; dividiríamos los gastos.|If you [quit], you would lose your insurance; we would [split] the expenses.
+4|t|Si el sol brillara, barreríamos el patio.|If the sun [shone], we would [sweep] the yard.
+4|c|Si el barco se hundiera, nos deslizaríamos al bote salvavidas.|If the ship [sank], we would [slide] into the lifeboat.
+4|t|Si pegaras la foto aquí, brillaría con la luz.|If you [stuck] the photo here, it would [shine] in the light.
+4|c|Si dividiéramos la pizza, costaría menos por persona.|If we [split] the pizza, it would [cost] less per person.
+4|t|Si barrieras el piso, nadie se deslizaría.|If you [swept] the floor, nobody would [slide].
+4|c|Si bateara más fuerte, la pelota se hundiría en el lago.|If he [swung] harder, the ball would [sink] in the lake.
+4|t|Si dejara el azúcar, me costaría una semana acostumbrarme.|If I [quit] sugar, it would [cost] me a week to get used to it.
+4|c|Si te quedaras con el plan, apostaría por ti.|If you [stuck] to the plan, I would [bet] on you.
+4|t|Si la puerta se balanceara con el viento, la pegaríamos con cinta.|If the door [swung] in the wind, we would [stick] it shut with tape.
+4|c|Si el carro se deslizara en el hielo, se hundiría en la nieve.|If the car [slid] on the ice, it would [sink] into the snow.
+4|t|Si las estrellas brillaran más, dividiríamos la noche mirándolas.|If the stars [shone] brighter, we would [split] the night watching them.
+4|c|Si barriéramos ahora, no nos costaría tanto después.|If we [swept] now, it wouldn't [cost] us so much effort later.
+4|t|Si apostaras menos, no te hundirías en deudas.|If you [bet] less, you wouldn't [sink] into debt.
+
+# --- Regla 5 · Cláusulas relativas ---
+5|t|El hombre que apostó todo renunció a su trabajo.|The man who [bet] everything [quit] his job.
+5|c|El barco que se hundió costó millones.|The ship that [sank] [cost] millions.
+5|t|La niña que se deslizó por el tobogán se quedó pegada en el agua.|The girl who [slid] down the slide got [stuck] in the water.
+5|c|El piso que barrí brilló como nuevo.|The floor that I [swept] [shone] like new.
+5|t|La cuenta que dividimos costó menos de lo esperado.|The bill that we [split] [cost] less than expected.
+5|c|El columpio en el que se balanceó se hundió en el lodo.|The swing that he [swung] on [sank] into the mud.
+5|t|La nota que pegué en la nevera brillaba con el sol.|The note that I [stuck] on the fridge [shone] in the sun.
+5|c|El jugador que renunció apostó contra su equipo.|The player who [quit] had [bet] against his team.
+5|t|La ola que barrió la playa hundió dos botes.|The wave that [swept] the beach [sank] two boats.
+5|c|El niño que bateó la pelota se deslizó en la tercera base.|The boy who [swung] the bat [slid] into third base.
+5|t|El viaje que nos costó tanto lo dividimos entre todos.|We [split] the trip that [cost] us so much among everyone.
+5|c|La estrella que brilló anoche se hundió en el horizonte.|The star that [shone] last night [sank] below the horizon.
+5|t|La señora cuyo carro se deslizó en el hielo renunció a manejar.|The woman whose car [slid] on the ice [quit] driving.
+5|c|El amigo con el que aposté se quedó con mi dinero.|The friend I [bet] with [stuck] around with my money.
+5|t|El conserje que barrió el pasillo pegó un aviso en la puerta.|The janitor who [swept] the hallway [stuck] a notice on the door.
+
+# --- Regla 6 · Need to + infinitivo ---
+6|t|Necesito dejar de fumar; el año pasado me costó una fortuna y apuesto a que puedo lograrlo.|I need to quit smoking; last year it [cost] me a fortune, and I [bet] I can do it.
+6|c|Necesitas barrer la cocina; ayer alguien se deslizó en el aceite.|You need to [sweep] the kitchen; yesterday someone [slid] on the oil.
+6|t|Necesitamos dividir la cuenta; la cena costó demasiado.|We need to [split] the bill; dinner [cost] too much.
+6|c|Necesito pegar esta nota; ayer renuncié a recordar todo de memoria.|I need to [stick] this note up; yesterday I [quit] trying to remember everything.
+6|t|Necesitas brillar en la entrevista; el otro candidato apostó por la experiencia.|You need to [shine] in the interview; the other candidate [bet] on experience.
+6|c|Necesitamos sacar el barco; ya se hundió un poco y las olas pasaron por encima.|We need to get the boat out; it has already [sunk] a little, and the waves [swept] over it.
+6|t|No necesitas apostar; ya te costó mucho la última vez.|You don't need to [bet]; it already [cost] you a lot last time.
+6|c|Necesito balancear mejor el bate; ayer bateé y la pelota se hundió en la piscina.|I need to [swing] the bat better; yesterday the ball [sank] in the pool.
+6|t|Necesitas quedarte con el plan; ayer te deslizaste de tu objetivo.|You need to [stick] to the plan; yesterday you [slid] away from your goal.
+6|c|Necesitamos limpiar el patio; el viento barrió las hojas hacia la puerta y se pegaron a ella.|We need to clean the yard; the wind [swept] the leaves to the door, and they [stuck] to it.
+6|t|Necesito renunciar; la empresa se hundió este año.|I need to [quit]; the company [sank] this year.
+6|c|Necesitas dividir el trabajo; el proyecto nos costó semanas.|You need to [split] the work; the project [cost] us weeks.
+6|t|Necesitamos que el sol brille; ayer la lluvia barrió el campo.|We need the sun to [shine]; yesterday the rain [swept] across the field.
+6|c|Necesito deslizar la carta debajo de la puerta; ya pegué la estampilla.|I need to [slide] the letter under the door; I have already [stuck] the stamp on.
+6|t|No necesitas balancearte tan alto; ayer te costó bajar.|You don't need to [swing] so high; yesterday it [cost] you a scare to get down.
+
+# --- Regla 8 · Pronombre objeto tras preposición ---
+8|t|Aposté contra él y perdí; me costó cien dólares.|I [bet] against him and lost; it [cost] me a hundred dollars.
+8|c|Dividió el pastel entre nosotros y barrió las migas.|She [split] the cake between us and [swept] up the crumbs.
+8|t|Renunció por ella; se quedó a su lado en el hospital.|He [quit] for her; he [stuck] by her side at the hospital.
+8|c|El sol brilló sobre nosotros y el barco se deslizó por el agua.|The sun [shone] on us, and the boat [slid] through the water.
+8|t|Se balanceó junto a mí en el columpio; el corazón se me hundió cuando se cayó.|She [swung] next to me on the swing; my heart [sank] when she fell.
+8|c|Pegó una nota para mí en la puerta; la barrió el viento.|He [stuck] a note for me on the door; the wind [swept] it away.
+8|t|La cena le costó a él más que a nosotros; dividimos solo las bebidas.|Dinner [cost] him more than us; we [split] only the drinks.
+8|c|Se deslizó hacia nosotros en el hielo y se quedó pegado a la baranda.|He [slid] toward us on the ice and got [stuck] on the rail.
+8|t|Apostaron por mí; renuncié a decepcionarlos.|They [bet] on me; I [quit] being afraid of disappointing them.
+8|c|Barrí alrededor de ellos mientras el sol brillaba por la ventana.|I [swept] around them while the sun [shone] through the window.
+8|t|El barco se hundió delante de nosotros; nos costó creerlo.|The boat [sank] in front of us; it [cost] us a moment to believe it.
+8|c|Se balanceó hacia ella y le dio la mano; se quedaron juntos toda la noche.|He [swung] toward her and took her hand; they [stuck] together all night.
+8|t|Dividimos la herencia entre ellos; la casa costó menos de lo que pensábamos.|We [split] the inheritance among them; the house [cost] less than we thought.
+8|c|Renunció delante de todos y barrió su escritorio en una caja.|She [quit] in front of everyone and [swept] her desk into a box.
+8|t|La luz brilló detrás de él y su sombra se deslizó por la pared.|The light [shone] behind him, and his shadow [slid] across the wall.
+
+# --- Regla 9 · "as" = como ---
+9|t|Trabajó como conserje y barrió el colegio por veinte años; nunca renunció.|He worked as a janitor and [swept] the school for twenty years; he never [quit].
+9|c|Como el sol brillaba, dividimos el día entre la playa y el parque.|As the sun [shone], we [split] the day between the beach and the park.
+9|t|Usó la tabla como trineo y se deslizó por la colina; se quedó pegado en la nieve.|He used the board as a sled and [slid] down the hill; he got [stuck] in the snow.
+9|c|Como la cena costó mucho, apostamos quién pagaría.|As dinner [cost] a lot, we [bet] on who would pay.
+9|t|Como siempre, el barco viejo se hundió un poco cuando subimos; nos costó remar.|As always, the old boat [sank] a little when we got in; it [cost] us effort to row.
+9|c|Trabajó como bateador y bateó cien jonrones; nunca renunció al béisbol.|He played as a batter and [swung] for a hundred home runs; he never [quit] baseball.
+9|t|Como te dije, renuncié; la empresa se hundió en deudas.|As I told you, I [quit]; the company [sank] into debt.
+9|c|Usé una escoba como bate; barrí las hojas y luego la balanceé como un bate.|I used a broom as a bat; I [swept] the leaves and then [swung] it like a bat.
+9|t|Como esperábamos, la luna brilló sobre el lago; las piedras se hundieron en silencio.|As we expected, the moon [shone] over the lake; the stones [sank] in silence.
+9|c|Como capitán, dividió al equipo en dos y se quedó con los más jóvenes.|As captain, he [split] the team in two and [stuck] with the youngest players.
+9|t|Como regalo, pegó fotos en mi cuaderno; le costó toda la tarde.|As a gift, she [stuck] photos in my notebook; it [cost] her the whole afternoon.
+9|c|Como el piso estaba mojado, me deslicé y aposté a que nadie me vio.|As the floor was wet, I [slid]; I [bet] nobody saw me.
+9|t|Como amiga, se quedó conmigo cuando todos renunciaron.|As a friend, she [stuck] with me when everyone else [quit].
+9|c|Como la tormenta barrió el pueblo, el puerto se hundió en el caos.|As the storm [swept] the town, the port [sank] into chaos.
+9|t|Como siempre, la puerta se balanceó con el viento y la luz brilló por la rendija.|As always, the door [swung] in the wind, and the light [shone] through the crack.
+
+# --- Regla 10 · Presente perfecto ---
+10|t|He dejado el café y me ha costado mucho.|I have [quit] coffee, and it has [cost] me a lot.
+10|c|Han dividido el premio y han apostado una parte.|They have [split] the prize and have [bet] part of it.
+10|t|El sol ha brillado toda la semana; hemos barrido la terraza cada día.|The sun has [shone] all week; we have [swept] the terrace every day.
+10|c|El barco se ha hundido y los restos se han deslizado hacia el fondo.|The ship has [sunk], and the wreckage has [slid] to the bottom.
+10|t|He pegado las fotos en el álbum; me ha costado toda la tarde.|I have [stuck] the photos in the album; it has [cost] me the whole afternoon.
+10|c|La puerta se ha balanceado toda la noche; el viento ha barrido el patio.|The door has [swung] all night; the wind has [swept] the yard.
+10|t|Nunca he apostado; nunca he renunciado a un trabajo.|I have never [bet]; I have never [quit] a job.
+10|c|Los precios han bajado y la empresa se ha hundido en pérdidas.|Prices have [slid], and the company has [sunk] into losses.
+10|t|Hemos dividido la cuenta; la cena ha costado poco.|We have [split] the bill; dinner has [cost] little.
+10|c|Se ha quedado con nosotros; nunca ha renunciado al equipo.|She has [stuck] with us; she has never [quit] the team.
+10|t|La luna ha brillado sobre el mar; las estrellas se han hundido en el horizonte.|The moon has [shone] over the sea; the stars have [sunk] below the horizon.
+10|c|He barrido la cocina; nadie se ha deslizado hoy.|I have [swept] the kitchen; nobody has [slid] today.
+10|t|Ha bateado diez veces y ha apostado su reputación en cada una.|He has [swung] ten times and has [bet] his reputation on each one.
+10|c|Han renunciado tres empleados; la empresa se ha dividido.|Three employees have [quit]; the company has [split].
+10|t|El error nos ha costado caro; nos hemos quedado sin presupuesto.|The mistake has [cost] us dearly; we have been [stuck] without a budget.
+
+# --- Regla 11 · Bring / Brought ---
+11|t|Trajo la escoba y barrió el patio; el sol brillaba fuerte.|He brought the broom and [swept] the yard; the sun [shone] brightly.
+11|c|Traje cinta y pegué el cartel; me costó ponerlo derecho.|I brought tape and [stuck] the poster up; it [cost] me effort to put it straight.
+11|t|Trajo la pizza y la dividimos en ocho; costó muy poco.|She brought the pizza, and we [split] it into eight; it [cost] very little.
+11|c|Trae el dinero que apostaste; perdimos y el equipo se rindió en el segundo tiempo.|Bring the money you [bet]; we lost, and the team [quit] in the second half.
+11|t|Trajeron un trineo y se deslizaron por la colina; se hundieron en la nieve.|They brought a sled and [slid] down the hill; they [sank] into the snow.
+11|c|Me trajo el bate con el que bateó su primer jonrón; brillaba como nuevo.|He brought me the bat he [swung] for his first home run; it [shone] like new.
+11|t|¿Trajiste la carta de renuncia? Renunciaste ayer y te costó mucho.|Did you bring the resignation letter? You [quit] yesterday, and it [cost] you a lot.
+11|c|Trajimos comida porque el restaurante costaba mucho; dividimos todo.|We brought food because the restaurant [cost] too much; we [split] everything.
+11|t|Trajo una foto del barco que se hundió; la pegó en la pared.|She brought a photo of the ship that [sank]; she [stuck] it on the wall.
+11|c|Traje el columpio nuevo; el viejo se balanceó tanto que se rompió.|I brought the new swing; the old one [swung] so much that it [split] in half.
+11|t|Trajo las cartas y apostamos fósforos; se quedó despierto toda la noche.|He brought the cards, and we [bet] matches; he [stuck] around all night.
+11|c|Trae un trapo; el agua se deslizó por la mesa y la barrí al piso.|Bring a rag; the water [slid] across the table, and I [swept] it onto the floor.
+11|t|Trajo una lámpara que brilló toda la noche; nos costó dormir.|She brought a lamp that [shone] all night; it [cost] us sleep.
+11|c|Trajeron una sierra y partieron la madera; la puerta se balanceó al cortarla.|They brought a saw and [split] the wood; the door [swung] as they cut it.
+11|t|Trae a tus amigos; anoche se quedaron hasta tarde y barrieron todo antes de irse.|Bring your friends; last night they [stuck] around late and [swept] everything before leaving.
+
+# --- Regla 12 · Primer condicional ---
+12|t|Si apuestas, perderás; el año pasado te costó mucho.|If you [bet], you'll lose; last year it [cost] you a lot.
+12|c|Si renuncias, te apoyaré; me quedaré contigo.|If you [quit], I'll support you; I'll [stick] with you.
+12|t|Si las estrellas brillan esta noche, barreremos la terraza para verlas.|If the stars [shine] tonight, we'll [sweep] the terrace to watch them.
+12|c|Si barres el piso, nadie se deslizará.|If you [sweep] the floor, nobody will [slide].
+12|t|Si dividimos la cuenta, costará menos.|If we [split] the bill, it will [cost] less.
+12|c|Si pegas la nota en la nevera, no la barreré por error.|If you [stick] the note on the fridge, I won't [sweep] it away by mistake.
+12|t|Si bateas así, la pelota se hundirá en el lago.|If you [swing] like that, the ball will [sink] in the lake.
+12|c|Si te quedas con el plan, apostaré por ti.|If you [stick] to the plan, I'll [bet] on you.
+12|t|Si dejas el azúcar, te costará una semana acostumbrarte.|If you [quit] sugar, it will [cost] you a week to get used to it.
+12|c|Si las estrellas brillan, dividiremos la noche mirándolas.|If the stars [shine], we'll [split] the night watching them.
+12|t|Si los barcos se hunden, nos deslizaremos al bote salvavidas.|If the boats [sink], we'll [slide] into the lifeboat.
+12|c|Si los columpios se balancean solos, apostaré que es el viento.|If the swings [swing] by themselves, I'll [bet] it's the wind.
+12|t|Si barremos ahora, no nos costará tanto después.|If we [sweep] now, it won't [cost] us so much effort later.
+12|c|Si renuncias hoy, la empresa se hundirá.|If you [quit] today, the company will [sink].
+12|t|Si te deslizas en el hielo, te quedarás pegado en la nieve.|If you [slide] on the ice, you'll get [stuck] in the snow.
+
+# --- Regla 13 · Past Perfect vs Presente vs Futuro ---
+13|t|Ya había renunciado; mañana me costará explicárselo a mi familia.|I had already [quit]; tomorrow it will [cost] me to explain it to my family.
+13|c|Nunca había apostado; el sábado dividiré una apuesta con mi hermano en la carrera.|I had never [bet]; on Saturday I will [split] a bet with my brother on the race.
+13|t|Cuando llegué, ya habían barrido el patio; mañana pegaré un horario en la puerta.|When I arrived, they had already [swept] the yard; tomorrow I will [stick] a schedule on the door.
+13|c|El barco ya se había hundido; mañana los buzos se deslizarán hasta el fondo.|The ship had already [sunk]; tomorrow the divers will [slide] down to the bottom.
+13|t|Ya habían dividido la herencia; ahora el abogado cuesta más que la casa.|They had already [split] the inheritance; now the lawyer will [cost] more than the house.
+13|c|El sol había brillado toda la mañana; mañana barreremos la terraza temprano.|The sun had [shone] all morning; tomorrow we will [sweep] the terrace early.
+13|t|Nunca me había quedado atascado en la nieve; mañana apostaré por el carro nuevo.|I had never been [stuck] in the snow; tomorrow I will [bet] on the new car.
+13|c|Ya se había deslizado por el tobogán diez veces; mañana se balanceará en el columpio.|He had already [slid] down the slide ten times; tomorrow he will [swing] on the swing.
+13|t|Ese error ya nos había costado mucho; el próximo año dejaremos de cometerlo.|That mistake had already [cost] us a lot; next year we will [quit] making it.
+13|c|Ya habían pegado los carteles; mañana el viento los barrerá.|They had already [stuck] the posters up; tomorrow the wind will [sweep] them away.
+13|t|La empresa ya se había hundido; ahora renuncian todos.|The company had already [sunk]; now everyone will [quit].
+13|c|Nunca había bateado tan fuerte; el sábado la pelota brillará en las noticias.|He had never [swung] so hard; on Saturday the ball will [shine] in the news.
+13|t|Ya había apostado todo; mañana se hundirá en deudas.|He had already [bet] everything; tomorrow he will [sink] into debt.
+13|c|Ya habíamos dividido el grupo; mañana nos quedaremos juntos otra vez.|We had already [split] the group; tomorrow we will [stick] together again.
+13|t|La luna ya había brillado sobre el lago; mañana nos deslizaremos en el bote.|The moon had already [shone] over the lake; tomorrow we will [slide] out in the boat.
+
+# --- Regla 14 · Make vs Do ---
+14|t|Hice la limpieza: barrí la casa y pegué las fotos en el álbum.|I did the cleaning: I [swept] the house and [stuck] the photos in the album.
+14|c|Cometí un error al apostar; me costó todo el salario.|I made a mistake when I [bet]; it [cost] me my whole salary.
+14|t|Hicimos un trato y dividimos las ganancias; no nos costó nada.|We made a deal and [split] the profits; it [cost] us nothing.
+14|c|Hizo un esfuerzo y renunció al cigarrillo; se quedó firme todo el año.|He made an effort and [quit] smoking; he [stuck] to it all year.
+14|t|Hice la tarea y luego me balanceé en el columpio; el sol brilló toda la tarde.|I did my homework and then [swung] on the swing; the sun [shone] all afternoon.
+14|c|Hicieron un gran trabajo: barrieron el estadio y el piso brilló.|They did a great job: they [swept] the stadium, and the floor [shone].
+14|t|Hice una lista y la pegué en la nevera; me costó diez minutos.|I made a list and [stuck] it on the fridge; it [cost] me ten minutes.
+14|c|Hizo un ruido y el barco se hundió un poco; nos deslizamos hacia el borde.|He made a noise, and the boat [sank] a little; we [slid] toward the edge.
+14|t|Lavamos los platos y barrimos la cocina; nadie se deslizó en el piso mojado.|We did the dishes and [swept] the kitchen; nobody [slid] on the wet floor.
+14|c|Hizo una apuesta y la perdió; le costó cien dólares y dejó de apostar.|He made a bet and lost it; it [cost] him a hundred dollars, and he [quit] betting.
+14|t|Hice una fiesta y dividimos el pastel en veinte; las velas brillaron toda la noche.|I threw a party, and we [split] the cake into twenty; the candles [shone] all night.
+14|c|Le fue muy bien en la entrevista y brilló; los demás candidatos se retiraron.|She did a great job in the interview and [shone]; the other candidates [quit].
+14|t|Hice ejercicio y me deslicé de la caminadora; me costó un moretón.|I did some exercise and [slid] off the treadmill; it [cost] me a bruise.
+14|c|Hicieron un plan y se quedaron con él hasta el final; dividieron el trabajo por igual.|They made a plan and [stuck] to it until the end; they [split] the work evenly.
+14|t|Hice un esfuerzo por no apostar; me costó la primera semana.|I made an effort not to [bet]; it [cost] me the first week.
+
+# --- Regla 15 · Gone vs Left ---
+15|t|Se fue al casino; anoche apostó y perdió, y le costó todo.|He has gone to the casino; last night he [bet] and lost, and it [cost] him everything.
+15|c|Salió de la empresa después de renunciar; nunca se quedó en un trabajo mucho tiempo.|She left the company after she [quit]; she never [stuck] with a job for long.
+15|t|Se fueron a navegar; el sábado el bote casi se hundió y el sol brilló todo el tiempo.|They have gone sailing; on Saturday the boat almost [sank], and the sun [shone] the whole time.
+15|c|Dejé la escoba en el patio después de barrer; el viento la balanceó contra la pared.|I left the broom in the yard after I [swept]; the wind [swung] it against the wall.
+15|t|Se fue a la pista de hielo; ayer se deslizó y se quedó pegada a la baranda.|She has gone to the ice rink; yesterday she [slid] and [stuck] to the rail.
+15|c|Salió del restaurante después de dividir la cuenta; la cena costó poco.|He left the restaurant after we [split] the bill; dinner [cost] little.
+15|t|Se fue a ver el atardecer; el sol se hundió detrás de la montaña y brilló rojo.|She has gone to watch the sunset; the sun [sank] behind the mountain and [shone] red.
+15|c|Dejó una nota pegada en la puerta; se balanceaba con el viento.|She left a note [stuck] to the door; it [swung] in the wind.
+15|t|Se fue al parque; ayer se balanceó en el columpio y se deslizó por el tobogán.|He has gone to the park; yesterday he [swung] on the swing and [slid] down the slide.
+15|c|Salió del grupo cuando se dividió; apostó por la otra banda.|He left the group when it [split]; he [bet] on the other band.
+15|t|Se fue a casa porque la entrevista le costó demasiado; renunció a la vacante.|She has gone home because the interview [cost] her too much stress; she [quit] the process.
+15|c|Dejé los zapatos en la entrada; se habían pegado al lodo y los limpié con la escoba.|I left my shoes at the entrance; they had [stuck] in the mud, and I [swept] them clean.
+15|t|Se fueron a barrer la iglesia; el sábado barrieron todo y el piso brilló.|They have gone to clean the church; on Saturday they [swept] everything, and the floor [shone].
+15|c|Salió del trabajo cuando la empresa se hundió; renunció antes del cierre.|He left work when the company [sank]; he [quit] before it closed.
+15|t|Se fue a la final; apostamos a que gana y le costará muy poco.|He has gone to the final; we [bet] he will win, and it will [cost] him very little effort.
+
+# --- Regla 16 · Preposiciones de movimiento ---
+16|t|El carro se deslizó por la colina y se hundió en el lago.|The car [slid] down the hill and [sank] into the lake.
+16|c|El viento barrió las hojas a través del patio; se quedaron pegadas en la reja.|The wind [swept] the leaves across the yard; they [stuck] to the fence.
+16|t|El mono se balanceó de rama en rama y se deslizó por el tronco.|The monkey [swung] from branch to branch and [slid] down the trunk.
+16|c|La luz brilló a través de la ventana y se deslizó por el piso.|The light [shone] through the window and [slid] across the floor.
+16|t|El barco se hundió bajo las olas; el sol brillaba sobre el mar.|The ship [sank] beneath the waves; the sun [shone] over the sea.
+16|c|Barrí el polvo hacia la puerta y lo pegué con cinta en una bolsa.|I [swept] the dust toward the door and [stuck] the bag shut with tape.
+16|t|La carta se deslizó debajo de la puerta; le costó llegar hasta aquí.|The letter [slid] under the door; it had [cost] a lot to send it here.
+16|c|El grupo se dividió alrededor de la fogata; apostamos quién contaba la mejor historia.|The group [split] up around the campfire; we [bet] on who told the best story.
+16|t|La puerta se balanceó hacia afuera y la luz del pasillo brilló en el cuarto.|The door [swung] outward, and the hallway light [shone] into the room.
+16|c|Se deslizó por el tobogán hacia la piscina y se hundió hasta el fondo.|He [slid] down the slide into the pool and [sank] to the bottom.
+16|t|La ola barrió la arena hacia el mar; las conchas se quedaron pegadas a las rocas.|The wave [swept] the sand toward the sea; the shells [stuck] to the rocks.
+16|c|Renunció y se fue a través del parque; le costó no mirar atrás.|She [quit] and walked off through the park; it [cost] her not to look back.
+16|t|El columpio se balanceó por encima de la cerca y la pelota se deslizó por el pasto.|The swing [swung] over the fence, and the ball [slid] across the grass.
+16|c|La luna brilló sobre el lago mientras el bote se deslizaba hacia la orilla.|The moon [shone] over the lake as the boat [slid] toward the shore.
+16|t|El río dividió el valle en dos; el puente se hundió en el centro.|The river [split] the valley in two; the bridge [sank] in the middle.
+
+# --- Regla 17 · Modales básicos ---
+17|t|Puedes apostar si quieres; ayer aposté y me costó caro.|You can [bet] if you want; yesterday it [cost] me dearly.
+17|c|Deberías renunciar; ese trabajo te costó la salud.|You should [quit]; that job [cost] you your health.
+17|t|No debes deslizarte por la baranda; ayer un niño se hundió en la piscina al caer.|You must not [slide] down the railing; yesterday a boy [sank] into the pool when he fell.
+17|c|¿Puedes barrer la cocina? Ayer se pegó miel en el piso.|Can you [sweep] the kitchen? Yesterday honey [stuck] to the floor.
+17|t|Podríamos dividir la cuenta; la cena costó mucho.|We could [split] the bill; dinner [cost] a lot.
+17|c|Ella sabe brillar en el escenario; ayer clavó el aterrizaje a la perfección.|She can really [shine] on stage; yesterday she [stuck] the landing perfectly.
+17|t|Debes quedarte con el plan; ayer te deslizaste hacia tus viejos hábitos.|You must [stick] to the plan; yesterday you [slid] back into old habits.
+17|c|¿Podrías balancear el bate más rápido? Ayer la pelota se hundió en el lago.|Could you [swing] the bat faster? Yesterday the ball [sank] in the lake.
+17|t|No deberías apostar tu sueldo; el mes pasado te hundiste en deudas.|You shouldn't [bet] your salary; last month you [sank] into debt.
+17|c|Puedes dejar de preocuparte; ya barrimos todo.|You can [quit] worrying; we have already [swept] everything.
+17|t|Deberías pegar la foto aquí; ayer el sol brilló justo en esta pared.|You should [stick] the photo here; yesterday the sun [shone] right on this wall.
+17|c|¿Puedo dividir el pastel? Ayer tú lo barriste todo del plato.|May I [split] the cake? Yesterday you [swept] it all off the plate.
+17|t|Tienes que barrer antes de que llegue la visita; ayer alguien se deslizó en el polvo.|You have to [sweep] before the guests arrive; yesterday someone [slid] on the dust.
+17|c|Podrías renunciar al azúcar; el año pasado te costó poco dejar la sal.|You could [quit] sugar; last year it [cost] you little to give up salt.
+17|t|No puedes balancearte tan alto; ayer te quedaste pegado arriba.|You can't [swing] so high; yesterday you got [stuck] at the top.
+
+# --- Regla 18 · Gerundio vs infinitivo ---
+18|t|Decidí renunciar; me costó un año tomar la decisión.|I decided to [quit]; it [cost] me a year to make the decision.
+18|c|Dejó de apostar y se quedó con su familia; dejó el casino para siempre.|He stopped betting and [stuck] with his family; he [quit] the casino for good.
+18|t|Quiere dividir la herencia; la casa costó una fortuna.|She wants to [split] the inheritance; the house [cost] a fortune.
+18|c|Evita deslizarse en el hielo; la última vez se hundió en la nieve y se quedó atascado.|He avoids sliding on the ice; last time he [sank] into the snow and [stuck] there.
+18|t|Espero brillar en la competencia; ayer barrí con todos en la práctica.|I hope to [shine] in the competition; yesterday I [swept] everyone in practice.
+18|c|Me encanta balancearme en el columpio; ayer me balanceé por una hora y el sol brilló todo el tiempo.|I love swinging; yesterday I [swung] for an hour, and the sun [shone] the whole time.
+18|t|Olvidó pegar la estampilla; la carta se deslizó de vuelta a su buzón.|He forgot to [stick] the stamp on; the letter [slid] back into his mailbox.
+18|c|Prometió no apostar, pero apostó otra vez y le costó caro.|He promised not to bet, but he [bet] again, and it [cost] him dearly.
+18|t|Terminé de barrer y el piso brilló; barrí incluso debajo de la cama.|I finished sweeping, and the floor [shone]; I [swept] even under the bed.
+18|c|Intentó quedarse con el plan, pero se deslizó al final.|She tried to [stick] to the plan, but she [slid] at the end.
+18|t|Sugirió dividir el trabajo; nos costó la mitad del tiempo y también dividimos la recompensa.|She suggested splitting the work; it [cost] us half the time, and we [split] the reward too.
+18|c|Planeamos renunciar juntos; ya apostamos por un negocio propio.|We plan to [quit] together; we have already [bet] on our own business.
+18|t|No me importa barrer; ayer barrí toda la casa y nadie se deslizó.|I don't mind sweeping; yesterday I [swept] the whole house, and nobody [slid].
+18|c|Dejó de balancearse y se hundió en el sofá; se había balanceado por horas.|He stopped swinging and [sank] into the sofa; he had [swung] for hours.
+18|t|Recuerdo haber apostado en esa carrera; me costó todo mi dinero y después dejé las apuestas.|I remember betting on that race; it [cost] me all my money, and I [quit] gambling after that.
+
+# --- Regla 19 · Participios irregulares ---
+19|t|He dejado el cigarrillo; me ha costado un año.|I have [quit] smoking; it has [cost] me a year.
+19|c|El barco ha sido hundido por la tormenta; la costa ha sido barrida por las olas.|The ship has been [sunk] by the storm; the coast has been [swept] by the waves.
+19|t|Hemos dividido la cuenta; hemos apostado la propina.|We have [split] the bill; we have [bet] the tip.
+19|c|El sol ha brillado toda la semana; el piso ha sido barrido.|The sun has [shone] all week; the floor has been [swept].
+19|t|La carta se ha deslizado debajo de la puerta; la estampilla ha sido pegada al revés.|The letter has [slid] under the door; the stamp has been [stuck] on upside down.
+19|c|La reja se ha balanceado toda la tarde; las hojas han sido barridas hacia la calle.|The gate has [swung] all afternoon; the leaves have been [swept] into the street.
+19|t|Mucho dinero ha sido apostado; mucho se ha perdido y ha costado lágrimas.|A lot of money has been [bet]; much has been lost, and it has [cost] tears.
+19|c|Nunca he renunciado a nada; siempre me he quedado hasta el final.|I have never [quit] anything; I have always [stuck] it out until the end.
+19|t|La madera ha sido partida y la casa ha sido barrida.|The wood has been [split], and the house has been [swept].
+19|c|El precio ha bajado; la empresa se ha hundido.|The price has [slid]; the company has [sunk].
+19|t|Ha bateado cien veces; ha brillado en cada partido.|He has [swung] a hundred times; he has [shone] in every game.
+19|c|Las fotos han sido pegadas; el álbum ha costado una fortuna.|The photos have been [stuck] in; the album has [cost] a fortune.
+19|t|Hemos barrido la playa; el sol se ha hundido en el horizonte.|We have [swept] the beach; the sun has [sunk] below the horizon.
+19|c|El grupo se ha dividido; dos miembros han renunciado.|The group has [split]; two members have [quit].
+19|t|La luna ha brillado sobre el mar; el bote se ha deslizado hacia la orilla.|The moon has [shone] over the sea; the boat has [slid] toward the shore.
+
+# --- Regla 20 · 3ra persona singular (-s) ---
+20|t|Mi tío apuesta en los caballos; ayer apostó cien dólares y le costó caro.|My uncle bets on horses; yesterday he [bet] a hundred dollars, and it [cost] him dearly.
+20|c|Mi mamá barre la cocina cada noche; anoche barrió y el piso brilló.|My mom sweeps the kitchen every night; last night she [swept], and the floor [shone].
+20|t|El sol brilla todos los días aquí; ayer brilló tanto que nos deslizamos al lago a refrescarnos.|The sun shines every day here; yesterday it [shone] so much that we [slid] into the lake to cool off.
+20|c|Mi hermano se queda con sus planes; el año pasado se quedó con su dieta y dejó el azúcar.|My brother sticks to his plans; last year he [stuck] to his diet and [quit] sugar.
+20|t|El mono se balancea en los árboles; ayer se balanceó y se deslizó por una liana.|The monkey swings in the trees; yesterday it [swung] and [slid] down a vine.
+20|c|Mi papá divide la leña cada invierno; el año pasado la dividió en una tarde y le costó poco.|My dad splits wood every winter; last year he [split] it in one afternoon, and it [cost] him little effort.
+20|t|La empresa cuesta mucho de mantener; el año pasado se hundió en deudas y les costó millones a sus dueños.|The company costs a lot to run; last year it [sank] into debt and [cost] its owners millions.
+20|c|Ella deja todo a medias; ayer dejó la clase de yoga y se hundió en el sofá.|She quits everything halfway; yesterday she [quit] yoga class and [sank] into the sofa.
+20|t|El niño se desliza por el tobogán; ayer se deslizó y se quedó pegado al fondo.|The boy slides down the slide; yesterday he [slid] and got [stuck] at the bottom.
+20|c|Mi vecino barre la calle; ayer barrió las hojas y las pegó en una bolsa.|My neighbor sweeps the street; yesterday he [swept] the leaves and [stuck] them in a bag.
+20|t|El bateador balancea el bate muy rápido; ayer bateó y la pelota se hundió en el río.|The batter swings very fast; yesterday he [swung], and the ball [sank] in the river.
+20|c|Ella apuesta por sus amigos; ayer apostó por mí y dividió el premio conmigo.|She bets on her friends; yesterday she [bet] on me and [split] the prize with me.
+20|t|La luna brilla sobre el lago; anoche brilló y el bote se deslizó en silencio.|The moon shines over the lake; last night it [shone], and the boat [slid] by in silence.
+20|c|El barco se hunde un poco con cada ola; anoche se hundió más y renunciamos a navegar.|The boat sinks a little with every wave; last night it [sank] more, and we [quit] sailing.
+20|t|El columpio se balancea solo; anoche se balanceó y barrió las hojas del suelo.|The swing moves by itself; last night it [swung] and [swept] the leaves off the ground.
+
+# --- Regla 21 · Say vs Tell ---
+21|t|Me dijo que había renunciado; me contó que le costó mucho.|He told me he had [quit]; he said it [cost] him a lot.
+21|c|Dijo que había apostado en la carrera; me contó que dividió el premio con su hermano.|She said she had [bet] on the race; she told me she [split] the prize with her brother.
+21|t|Dijeron que el barco se había hundido; nos contaron que el sol brillaba ese día.|They said the ship had [sunk]; they told us the sun [shone] that day.
+21|c|Le dije que barriera la cocina, pero dijo que ya la había barrido y había pegado una nota en la nevera.|I told him to sweep the kitchen, but he said he had already [swept] it and [stuck] a note on the fridge.
+21|t|Me contó que se deslizó en el hielo; dijo que se quedó pegado a la baranda.|She told me she [slid] on the ice; she said she [stuck] to the railing.
+21|c|Dijo que el columpio se balanceó solo; me contó que barrió las hojas al moverse.|He said the swing [swung] by itself; he told me it [swept] the leaves as it moved.
+21|t|Dime cuánto costó; dijeron que lo dividiste con tu socio.|Tell me how much it [cost]; they said you [split] it with your partner.
+21|c|Dijeron que la empresa se hundió; nos contaron que todos renunciaron.|They said the company [sank]; they told us everyone [quit].
+21|t|Me dijo que pegó las fotos en el álbum; dijo que le costó toda la tarde.|She told me she [stuck] the photos in the album; she said it [cost] her the whole afternoon.
+21|c|Dijo "te lo apuesto" y me contó que la luna brilló toda la noche.|He said "I [bet] you" and told me the moon [shone] all night.
+21|t|Le conté que había barrido el patio; dijo que las hojas se habían pegado otra vez al piso mojado.|I told her I had [swept] the yard; she said the leaves had [stuck] to the wet ground again.
+21|c|Dijeron que bateó muy fuerte; nos contaron que la pelota se hundió en el río.|They said he [swung] very hard; they told us the ball [sank] in the river.
+21|t|Me dijo que se había quedado con el plan; dijo que no renunció nunca.|He told me he had [stuck] to the plan; he said he never [quit].
+21|c|Dijo que el grupo se dividió; me contó que costó mucho volverlo a unir.|She said the group [split]; she told me it [cost] a lot to bring it back together.
+21|t|Cuéntame cómo te deslizaste; dijeron que te hundiste en la nieve.|Tell me how you [slid]; they said you [sank] into the snow.
+
+# --- Regla 22 · Artículos ---
+22|t|Aposté un dólar y el juego me costó una hora.|I [bet] a dollar, and the game [cost] me an hour.
+22|c|El barco se hundió en una tormenta; el sol brilló al día siguiente.|The ship [sank] in a storm; the sun [shone] the next day.
+22|t|Barrí la cocina y me deslicé en una cáscara de banano.|I [swept] the kitchen and [slid] on a banana peel.
+22|c|Dividimos una pizza y el pedido costó poco.|We [split] a pizza, and the order [cost] little.
+22|t|Una niña se balanceó en el columpio; se le pegó la manga a una cadena.|A girl [swung] on the swing; her sleeve [stuck] to a chain.
+22|c|El jefe renunció en una reunión; la empresa se hundió en un mes.|The boss [quit] in a meeting; the company [sank] within a month.
+22|t|Pegué una nota en la puerta; el sol brilló sobre ella toda la tarde.|I [stuck] a note on the door; the sun [shone] on it all afternoon.
+22|c|Una ola barrió la playa y un bote se hundió.|A wave [swept] the beach, and a boat [sank].
+22|t|Un hombre apostó todo en una carrera; le costó la casa.|A man [bet] everything on a race; it [cost] him his house.
+22|c|El carro se deslizó en una curva y se quedó atascado en el barro.|The car [slid] on a curve and got [stuck] in the mud.
+22|t|Un jugador bateó una pelota que brilló bajo las luces.|A player [swung] at a ball that [shone] under the lights.
+22|c|La banda se dividió en un año; el cantante renunció primero.|The band [split] up within a year; the singer [quit] first.
+22|t|Barrimos una terraza enorme; nos costó toda la mañana.|We [swept] a huge terrace; it [cost] us the whole morning.
+22|c|Una moneda se deslizó por el piso y se hundió en una grieta.|A coin [slid] across the floor and [sank] into a crack.
+22|t|Una amiga apostó por mí; dividimos el premio.|A friend [bet] on me; we [split] the prize.
+
+# --- Regla 23 · Phrasal verbs con "look" ---
+23|t|Busqué el barco que se hundió; le costó a mi abuelo toda su fortuna.|I looked for the ship that [sank]; it had [cost] my grandfather his whole fortune.
+23|c|Se parece a su papá: apostaba igual y nunca renunciaba.|He looks like his dad: he [bet] the same way and never [quit].
+23|t|Busca la palabra; ayer la pegué en mi cuaderno y me costó un rato encontrarla.|Look up the word; I [stuck] it in my notebook yesterday, and it [cost] me a while to find it.
+23|c|Me miró y se balanceó en la silla; casi se desliza al piso.|She looked at me and [swung] back on her chair; she almost [slid] to the floor.
+23|t|Estoy buscando la escoba con la que barrí; la luz del sol brillaba en el rincón.|I'm looking for the broom I [swept] with; the sunlight [shone] in that corner.
+23|c|Cuida al niño; ayer se deslizó por la baranda y se quedó pegado.|Look after the boy; yesterday he [slid] down the railing and got [stuck].
+23|t|Mira cómo brilla el lago; ayer el sol se hundió detrás de él y brilló anaranjado.|Look how the lake shines; yesterday the sun [sank] behind it and [shone] orange.
+23|c|Espero con ansias el partido; el año pasado apostamos y dividimos las ganancias.|I'm looking forward to the game; last year we [bet] and [split] the winnings.
+23|t|Revisa la cuenta; la cena costó más de lo que dividimos.|Look over the bill; dinner [cost] more than we [split].
+23|c|Busqué en internet por qué la empresa se hundió; el gerente renunció.|I looked up why the company [sank]; the manager had [quit].
+23|t|Se veía feliz porque renunció; se quedó en casa toda la semana.|She looked happy because she [quit]; she [stuck] around the house all week.
+23|c|Mira lo que barrió el viento; las hojas se pegaron a la ventana.|Look at what the wind [swept] in; the leaves [stuck] to the window.
+23|t|Me miró como si hubiera apostado su dinero; le costó mucho perdonarme.|He looked at me as if I had [bet] his money; it [cost] him a lot to forgive me.
+23|c|Busqué un lugar para balancear la hamaca; el sol brillaba entre los árboles.|I looked for a place to [swing] the hammock; the sun [shone] through the trees.
+23|t|Buscamos el anillo que se deslizó por el desagüe; se hundió para siempre.|We looked for the ring that [slid] down the drain; it [sank] forever.
+
+# --- Regla 25 · Give / Gave / Given ---
+25|t|Me dio una escoba y barrí toda la casa; el piso brilló.|She gave me a broom, and I [swept] the whole house; the floor [shone].
+25|c|Le di cinta y pegó los carteles; le costó una hora.|I gave him tape, and he [stuck] the posters up; it [cost] him an hour.
+25|t|Nos dieron un premio y lo dividimos entre todos; apostamos una parte.|They gave us a prize, and we [split] it among everyone; we [bet] part of it.
+25|c|Le di un empujón y se deslizó por el tobogán; se hundió en la piscina.|I gave him a push, and he [slid] down the slide; he [sank] into the pool.
+25|t|Me dieron una oferta mejor y renuncié; me costó despedirme.|They gave me a better offer, and I [quit]; it [cost] me to say goodbye.
+25|c|Le di un bate y lo balanceó con fuerza; la pelota brilló bajo las luces.|I gave him a bat, and he [swung] it hard; the ball [shone] under the lights.
+25|t|Me dio su palabra y se quedó con ella; nunca renunció.|He gave me his word and [stuck] to it; he never [quit].
+25|c|Le dieron una advertencia, pero apostó igual; le costó todo.|They gave him a warning, but he [bet] anyway; it [cost] him everything.
+25|t|Mi abuela me dio un anillo; se deslizó de mi dedo y se hundió en el lago.|My grandmother gave me a ring; it [slid] off my finger and [sank] into the lake.
+25|c|Les dimos una tarea; la dividieron y se quedaron trabajando hasta tarde.|We gave them a task; they [split] it and [stuck] around working late.
+25|t|Me dieron una lámpara que brilló toda la noche; me costó dormir.|They gave me a lamp that [shone] all night; it [cost] me sleep.
+25|c|Le di un consejo: no apuestes; ya se había hundido en deudas porque apostó demasiado.|I gave him advice: don't gamble; he had already [sunk] into debt because he [bet] too much.
+25|t|Nos dieron permiso y nos balanceamos en la hamaca toda la tarde; barrimos las hojas después.|They gave us permission, and we [swung] in the hammock all afternoon; we [swept] the leaves afterward.
+25|c|Le han dado tantas oportunidades; ha renunciado a todas y se ha hundido.|They have given him so many chances; he has [quit] them all and has [sunk] lower.
+25|t|Me dio una foto y la pegué en la pared; la luz del sol brilló sobre ella.|She gave me a photo, and I [stuck] it on the wall; the sunlight [shone] on it.
+
+# --- Regla 26 · Still + hope ---
+26|t|Todavía espero renunciar este año; el trabajo me costó la salud.|I still hope to [quit] this year; the job [cost] me my health.
+26|c|Aún espera que el sol brille; ayer barrió la terraza para la fiesta.|She still hopes the sun will [shine]; yesterday she [swept] the terrace for the party.
+26|t|Todavía esperamos dividir las ganancias; apostamos todo al negocio.|We still hope to [split] the profits; we [bet] everything on the business.
+26|c|Aún espero que el barco no se hunda; ya se deslizó contra las rocas una vez.|I still hope the boat won't [sink]; it has already [slid] against the rocks once.
+26|t|Todavía espera quedarse en el equipo; ayer bateó tres jonrones.|He still hopes to [stick] with the team; yesterday he [swung] for three home runs.
+26|c|Aún esperamos que la reparación cueste poco; el carro se deslizó en el hielo.|We still hope the repair will [cost] little; the car [slid] on the ice.
+26|t|Todavía espero que no apuestes; ayer te hundiste más en deudas.|I still hope you won't [bet]; yesterday you [sank] deeper into debt.
+26|c|Aún espera barrer toda la casa hoy; ya pegó las listas de tareas.|She still hopes to [sweep] the whole house today; she has already [stuck] up the chore lists.
+26|t|Todavía esperamos que no se divida el grupo; dos ya renunciaron.|We still hope the group won't [split]; two have already [quit].
+26|c|Aún espero balancearme en ese columpio; me costó años volver al pueblo.|I still hope to [swing] on that swing; it [cost] me years to return to the town.
+26|t|Todavía espera que brillen las estrellas; anoche el sol se hundió tarde.|She still hopes the stars will [shine]; last night the sun [sank] late.
+26|c|Aún esperamos que se quede; ayer casi renunció.|We still hope she'll [stick] around; yesterday she almost [quit].
+26|t|Todavía espero deslizarme por ese tobogán; el año pasado me quedé atascado.|I still hope to [slide] down that slide; last year I got [stuck].
+26|c|Aún espera que la apuesta valga la pena; le costó cien dólares y apostó más.|He still hopes the bet was worth it; it [cost] him a hundred dollars, and he [bet] more.
+26|t|Todavía esperamos que la tormenta no barra el pueblo; el río ya se dividió en dos.|We still hope the storm won't [sweep] the town; the river has already [split] in two.
+
+# --- Regla 27 · Too vs Very ---
+27|t|Aposté demasiado y me costó la casa.|I [bet] too much, and it [cost] me my house.
+27|c|El sol brilló muy fuerte; barrimos el patio temprano.|The sun [shone] very brightly; we [swept] the yard early.
+27|t|Se deslizó demasiado rápido y se hundió en la piscina.|He [slid] too fast and [sank] into the pool.
+27|c|Renunció muy pronto; le costó encontrar otro trabajo.|She [quit] very soon; it [cost] her a lot to find another job.
+27|t|Pegué la nota demasiado alto; nadie la notó y la luz brilló sobre ella.|I [stuck] the note too high; nobody noticed it, and the light [shone] off it.
+27|c|Dividimos la pizza en pedazos muy pequeños; costó poco por persona.|We [split] the pizza into very small pieces; it [cost] little per person.
+27|t|Se balanceó demasiado alto y se deslizó del columpio.|He [swung] too high and [slid] off the swing.
+27|c|Barrí muy rápido y dejé polvo; el piso no brilló.|I [swept] very fast and left dust; the floor didn't [shine].
+27|t|El barco se hundió demasiado rápido; nadie se quedó a bordo.|The boat [sank] too fast; nobody [stuck] around on board.
+27|c|La cena costó demasiado; renunciamos al postre.|Dinner [cost] too much; we [quit] before dessert.
+27|t|Apostó muy poco y ganó muy poco; dividió el premio con su hermana.|He [bet] very little and won very little; he [split] the prize with his sister.
+27|c|La luna brilló muy fuerte; el bote se deslizó por el agua.|The moon [shone] very brightly; the boat [slid] across the water.
+27|t|Se quedó demasiado tiempo en la fiesta; se hundió en el sofá.|He [stuck] around too long at the party; he [sank] into the sofa.
+27|c|La puerta se balanceó muy fuerte y barrió los papeles del piso.|The door [swung] very hard and [swept] the papers off the floor.
+27|t|El viaje costó demasiado; lo dividimos entre cinco.|The trip [cost] too much; we [split] it among five.
+
+# --- Regla 28 · Preguntas con presente/pasado perfecto ---
+28|t|¿Alguna vez has apostado? A mí me costó una fortuna una vez.|Have you ever [bet]? It [cost] me a fortune once.
+28|c|¿Ya barriste la cocina? ¿Se deslizó alguien?|Have you [swept] the kitchen yet? Did anyone [slide]?
+28|t|¿Habías renunciado antes? Te quedaste muy poco en ese trabajo.|Had you [quit] before? You [stuck] with that job for a very short time.
+28|c|¿Alguna vez se te ha hundido un bote? A mí se me deslizó contra las rocas en el lago.|Has a boat ever [sunk] under you? Mine [slid] against the rocks in the lake.
+28|t|¿Ya dividieron la cuenta? ¿Cuánto costó?|Have you [split] the bill yet? How much did it [cost]?
+28|c|¿Alguna vez has visto brillar así las estrellas? Anoche barrí la terraza para verlas.|Have you ever seen the stars [shine] like this? Last night I [swept] the terrace to watch them.
+28|t|¿Habías pegado alguna vez un afiche? Este se deslizó de la pared.|Had you ever [stuck] up a poster before? This one [slid] off the wall.
+28|c|¿Alguna vez te has balanceado en una liana? Yo me balanceé y me hundí en el río.|Have you ever [swung] on a vine? I did once and [sank] into the river.
+28|t|¿Ya te costó algo esa decisión? ¿Renunciaste a tu trabajo?|Has that decision [cost] you anything yet? Did you [quit] your job?
+28|c|¿Alguna vez se ha deslizado tu carro en el hielo? El mío se quedó atascado una vez.|Has your car ever [slid] on the ice? Mine got [stuck] once.
+28|t|¿Habían barrido el estadio cuando llegaste? El piso brillaba.|Had they [swept] the stadium when you arrived? The floor [shone].
+28|c|¿Alguna vez has apostado con un amigo? Yo dividí el premio con el mío.|Have you ever [bet] with a friend? I [split] the prize with mine.
+28|t|¿Ya se ha hundido el sol en el horizonte? Ya barrimos el patio para la fiesta.|Has the sun [sunk] below the horizon yet? We have already [swept] the patio for the party.
+28|c|¿Alguna vez has renunciado a un sueño? Yo me quedé con el mío.|Have you ever [quit] on a dream? I [stuck] with mine.
+28|t|¿Alguna vez se ha dividido tu familia? A nosotros nos costó años volver a reunirnos.|Has your family ever [split] apart? It [cost] us years to get back together.
+
+# --- Regla 29 · Tag Questions ---
+29|t|Apostaste en la carrera, ¿verdad? Te costó caro.|You [bet] on the race, didn't you? It [cost] you dearly.
+29|c|Renunciaste, ¿no? Te quedaste muy poco tiempo.|You [quit], didn't you? You [stuck] around for a very short time.
+29|t|Barriste la cocina, ¿cierto? El piso brillaba cuando entré.|You [swept] the kitchen, didn't you? The floor [shone] when I came in.
+29|c|No te deslizaste, ¿o sí? Te hundiste en la nieve.|You didn't [slide], did you? You [sank] into the snow.
+29|t|Dividieron la cuenta, ¿verdad? La cena costó poco.|You [split] the bill, didn't you? Dinner [cost] little.
+29|c|Ya pegaste los carteles, ¿no? Los barrió el viento.|You have already [stuck] the posters up, haven't you? The wind [swept] them away.
+29|t|El barco se hundió, ¿cierto? El sol brillaba ese día.|The ship [sank], didn't it? The sun [shone] that day.
+29|c|No has apostado otra vez, ¿o sí? Renunciaste al juego.|You haven't [bet] again, have you? You [quit] gambling.
+29|t|Te balanceaste en el columpio, ¿verdad? Te deslizaste al bajarte.|You [swung] on the swing, didn't you? You [slid] when you got off.
+29|c|Ya te ha costado mucho, ¿no? Te has quedado con el plan.|It has already [cost] you a lot, hasn't it? You have [stuck] to the plan.
+29|t|La banda se separó, ¿cierto? El cantante renunció.|The band [split] up, didn't it? The singer [quit].
+29|c|No barriste el patio, ¿o sí? Las hojas se pegaron a la puerta.|You didn't [sweep] the yard, did you? The leaves [stuck] to the door.
+29|t|La luna brilló toda la noche, ¿verdad? El bote se deslizó en silencio.|The moon [shone] all night, didn't it? The boat [slid] by in silence.
+29|c|Has renunciado a la apuesta, ¿no? Te hundiste en deudas.|You have [quit] betting, haven't you? You [sank] into debt.
+29|t|La puerta se balanceó, ¿cierto? El viento barrió el pasillo.|The door [swung], didn't it? The wind [swept] the hallway.
+
+# --- Regla 30 · Get + adjetivo ---
+30|t|Me puse nervioso cuando aposté; me costó dormir.|I got nervous when I [bet]; it [cost] me sleep.
+30|c|Se enojó porque renuncié; dividimos la oficina en dos.|She got angry because I [quit]; we [split] the office in two.
+30|t|Me asusté cuando el carro se deslizó; se hundió en la nieve.|I got scared when the car [slid]; it [sank] into the snow.
+30|c|Se puso feliz cuando el sol brilló; barrió la terraza enseguida.|He got happy when the sun [shone]; he [swept] the terrace right away.
+30|t|Nos cansamos de barrer; el polvo se pegó a todo y barrimos por horas.|We got tired of sweeping; the dust [stuck] to everything, and we [swept] for hours.
+30|c|Se puso triste cuando el barco se hundió; le había costado años construirlo.|He got sad when the boat [sank]; it had [cost] him years to build it.
+30|t|Me emocioné cuando me balanceé tan alto; el sol brilló en mi cara.|I got excited when I [swung] so high; the sun [shone] on my face.
+30|c|Se preocupó cuando la cena costó tanto; dividimos la cuenta.|She got worried when dinner [cost] so much; we [split] the bill.
+30|t|Me mojé cuando me deslicé por el tobogán; me hundí en la piscina.|I got wet when I [slid] down the slide; I [sank] into the pool.
+30|c|Se hicieron ricos cuando apostaron en la bolsa; renunciaron a sus trabajos.|They got rich when they [bet] on the stock market; they [quit] their jobs.
+30|t|Me aburrí y pegué fotos en la pared; me costó toda la tarde.|I got bored and [stuck] photos on the wall; it [cost] me the whole afternoon.
+30|c|Se enojó cuando se quedó atascado en el tráfico; renunció a ir a la fiesta.|He got angry when he got [stuck] in traffic; he [quit] trying to get to the party.
+30|t|Nos pusimos tristes cuando el grupo se separó; nos costó aceptarlo.|We got sad when the group [split] up; it [cost] us time to accept it.
+30|c|Se puso pálido cuando la puerta se balanceó sola; barrió la habitación con la mirada.|He got pale when the door [swung] by itself; he [swept] the room with his eyes.
+30|t|Me cansé de apostar; me hundí en deudas y lo dejé.|I got tired of betting; I [sank] into debt and [quit].
+
+# --- Regla 31 · some / any / no ---
+31|t|No aposté nada; el boleto no me costó mucho tampoco.|I didn't [bet] anything; the ticket didn't [cost] much either.
+31|c|¿Renunciaste a algo importante? No renuncié a nada, pero algo se quedó pegado en mi mente todo el día.|Did you [quit] anything important? I didn't quit anything, but something [stuck] in my mind all day.
+31|t|Nadie barrió el porche esta mañana; nadie se balanceó en la hamaca tampoco.|Nobody [swept] the porch this morning; nobody [swung] in the hammock either.
+31|c|No hay nada pegado a la pared; algo se deslizó hasta el piso anoche.|There's nothing [stuck] to the wall; something [slid] to the floor last night.
+31|t|¿Se hundió algo en el lago? No, nada se hundió, pero algo brilló bajo el agua por un momento.|Did anything [sink] in the lake? No, nothing sank, but something [shone] under the water for a moment.
+31|c|No hemos dividido nada todavía; apostamos algo de dinero primero para decidir quién empieza.|We haven't [split] anything yet; we [bet] some money first to decide who starts.
+31|t|No renunció a nada; solo le costó algo de orgullo admitir que se equivocó.|He didn't [quit] anything; it just [cost] him some pride to admit he was wrong.
+31|c|Algo brilló en la oscuridad del cuarto; nada se me quedó tan pegado en la memoria como eso.|Something [shone] in the dark room; nothing has ever [stuck] in my memory like that.
+31|t|No apostamos nada esta vez; tampoco nadie se deslizó por el hielo del lago.|We didn't [bet] anything this time; nobody [slid] on the lake ice either.
+31|c|Nada me costó tanto orgullo como cuando por fin renuncié a ese trabajo.|Nothing has [cost] me as much pride as when I finally [quit] that job.
+31|t|¿Barriste algo del jardín? No barrí nada, pero sí me quedé pegado en el lodo por media hora.|Did you [sweep] anything in the yard? I didn't sweep anything, but I did get [stuck] in the mud for half an hour.
+31|c|Nadie se balanceó en el columpio; algo costó mucho ese día y todos se fueron temprano a casa.|Nobody [swung] on the swing; something [cost] a lot that day, and everyone went home early.
+31|t|No apostó nada, y tampoco se hundió en deudas como pensábamos.|He didn't [bet] anything, and he didn't [sink] into debt like we thought either.
+31|c|Nada se dividió de forma justa; alguien se quedó pegado con la peor parte del trabajo.|Nothing was [split] fairly; somebody got [stuck] with the worst part of the job.
+31|t|No renuncié a nada fácil; me costó mucho terminar ese proyecto.|I didn't [quit] anything easy; it [cost] me a lot to finish that project.
+
+# --- Regla 32 · Already / Yet / Just ---
+32|t|Ya aposté en ese caballo, pero todavía no me ha costado nada.|I have already [bet] on that horse, but it hasn't [cost] me anything yet.
+32|c|Acaba de renunciar a su trabajo; todavía no se le ha pegado la idea de buscar otro.|He has just [quit] his job; the idea of looking for another hasn't [stuck] with him yet.
+32|t|¿Ya barriste la cocina? Todavía no, pero ya el sol ha brillado por la ventana toda la mañana.|Have you [swept] the kitchen yet? Not yet, but the sun has already [shone] through the window all morning.
+32|c|Todavía no se ha hundido el barco, pero ya se ha deslizado peligrosamente hacia las rocas.|The boat hasn't [sunk] yet, but it has already [slid] dangerously toward the rocks.
+32|t|Ya dividimos la cuenta; todavía no hemos apostado quién paga la propina.|We have already [split] the bill; we haven't [bet] on who pays the tip yet.
+32|c|Acaba de columpiarse muy alto; todavía no se le ha pegado el miedo a las alturas.|She has just [swung] very high; the fear of heights hasn't [stuck] with her yet.
+32|t|Ya nos costó mucho llegar hasta aquí; todavía no hemos renunciado a seguir intentándolo.|It has already [cost] us a lot to get here; we haven't [quit] trying yet.
+32|c|Todavía no ha brillado el sol hoy; ya barrimos todo el patio esta mañana.|The sun hasn't [shone] today yet; we have already [swept] the whole yard this morning.
+32|t|Ya se hundió el ánimo del equipo; todavía no se ha dividido la responsabilidad entre todos.|The team's morale has already [sunk]; the responsibility hasn't been [split] among everyone yet.
+32|c|Todavía no he apostado nada en este juego; ya me costó suficiente la última vez.|I haven't [bet] anything in this game yet; it already [cost] me enough last time.
+32|t|Acabamos de renunciar al plan original; todavía no se nos ha pegado la idea nueva.|We have just [quit] the original plan; the new idea hasn't [stuck] with us yet.
+32|c|¿Ya se deslizó la puerta del garaje? Todavía no, pero ya se ha balanceado un poco con el viento.|Has the garage door [slid] open yet? Not yet, but it has already [swung] a little in the wind.
+32|t|Ya se quedó pegado el cartel en la pared; todavía no ha brillado la luz nueva que instalamos.|The poster has already [stuck] to the wall; the new light hasn't [shone] yet.
+32|c|Todavía no ha costado nada arreglar el techo; ya renunciamos a hacerlo nosotros mismos.|Fixing the roof hasn't [cost] anything yet; we have already [quit] doing it ourselves.
+32|t|Acabo de barrer toda la casa; todavía no se ha hundido el sol detrás de las montañas.|I have just [swept] the whole house; the sun hasn't [sunk] behind the mountains yet.
+
+# --- Regla 33 · Sujeto "it" ---
+33|t|Costó mucho llegar hasta la cima; el sol brilló todo el camino.|It [cost] a lot to get to the top; the sun [shone] the whole way.
+33|c|Era demasiado tarde cuando el barco se hundió; nos costó mucho rescatar a la tripulación.|It was too late when the boat [sank]; it [cost] us a lot to rescue the crew.
+33|t|Le costó años aceptar que debía renunciar a ese sueño.|It [cost] him years to accept that he had to [quit] that dream.
+33|c|Toma diez minutos caminando hasta la playa, donde el agua brilló bajo el atardecer y las olas se deslizaron sobre la arena.|It's a ten-minute walk to the beach, where the water [shone] under the sunset and the waves [slid] over the sand.
+33|t|Costó una fortuna reparar el techo después de que la tormenta lo barrió por completo.|It [cost] a fortune to repair the roof after the storm [swept] through it completely.
+33|c|Era tan tarde que la puerta se balanceó sola; costó mucho volver a cerrarla.|It was so late that the door [swung] open on its own; it [cost] a lot of effort to close it again.
+33|t|Le costó años pagar esa deuda, y al final tuvo que renunciar a muchas cosas.|It [cost] him years to pay off that debt, and in the end he had to [quit] a lot of things.
+33|c|Era de noche cuando el carro se deslizó fuera de la carretera; nos costó horas sacarlo del barro.|It was dark out when the car [slid] off the road; it [cost] us hours to pull it out of the mud.
+33|t|Cuesta mucho esfuerzo mantener algo pegado bajo el agua; por eso casi cualquier cosa se hundiría.|It takes a lot of effort to keep something [stuck] underwater; that's why almost anything would [sink].
+33|c|Fue divertido ver cómo el niño se balanceaba tan alto; le costó a su mamá algunos nervios.|It was fun to watch the kid [swing] so high; it [cost] his mom a few nervous moments.
+33|t|Es difícil saber cuánto costará reparar el bote después de que se hundió.|It's hard to know how much it will [cost] to fix the boat after it [sank].
+33|c|Era viernes cuando por fin apostamos todo nuestro dinero en ese negocio; eso nos costó todo lo que teníamos.|It was Friday when we finally [bet] all our money on that business; it [cost] us everything we had.
+33|t|Toma mucho tiempo limpiar la playa después de que la marea barrió toda la basura hacia la orilla.|It takes a long time to clean the beach after the tide [swept] all the trash onto the shore; it [cost] the town a lot of work.
+33|c|Era imposible seguir después de que el equipo se dividió en dos grupos; eso les costó el campeonato.|It was impossible to continue after the team [split] into two groups; it [cost] them the championship.
+33|t|Puede costar mucho confiar de nuevo después de que alguien se quedó pegado a una mentira tan grande.|It can [cost] a lot to trust again after someone [stuck] to such a big lie.
+
+# --- Regla 34 · Since vs For ---
+34|t|Llevo apostando en este casino desde 2015; nunca me ha costado tanto como esta noche.|I have [bet] at this casino since 2015; it has never [cost] me as much as tonight.
+34|c|Ha estado atascado en el tráfico por una hora; el sol ha brillado desde las seis de la mañana.|He has been [stuck] in traffic for an hour; the sun has [shone] since six in the morning.
+34|t|Hemos renunciado a la televisión desde enero; nos ha costado acostumbrarnos a leer más.|We have [quit] watching TV since January; it has [cost] us some effort to get used to reading more.
+34|c|El barco se ha hundido un poco más cada día esta semana; nadie se ha quedado a vigilarlo desde el muelle.|The boat has [sunk] a little more each day this week; nobody has [stuck] around to watch it from the dock.
+34|t|He apostado en la lotería desde que tenía veinte años; nunca me ha costado tanto perder.|I have [bet] on the lottery since I was twenty; it has never [cost] me so much to lose.
+34|c|El columpio se ha balanceado solo durante toda la tormenta; el viento lo ha mantenido pegado contra la cerca.|The swing has [swung] on its own throughout the whole storm; the wind has kept it [stuck] against the fence.
+34|t|Se ha quedado pegada a esa rutina desde el accidente; le ha costado mucho cambiarla.|She has [stuck] to that routine since the accident; it has [cost] her a lot to change it.
+34|c|Hemos dividido las tareas de la casa desde que nació el bebé; nos ha costado encontrar el equilibrio.|We have [split] the housework since the baby was born; it has [cost] us some time to find balance.
+34|t|El bote se ha deslizado por ese río durante años; nunca se ha hundido en ese tramo.|The boat has [slid] along that river for years; it has never [sunk] in that stretch.
+34|c|He renunciado al azúcar desde marzo; me ha costado mucho al principio, pero ya me acostumbré.|I have [quit] sugar since March; it has [cost] me a lot at first, but I got used to it.
+34|t|Ha apostado en ese mismo número durante años; nunca le ha costado la suerte abandonarlo.|He has [bet] on that same number for years; it has never [cost] him the will to stop.
+34|c|El sol ha brillado sin parar durante toda la semana; el césped se ha quedado pegado y seco.|The sun has [shone] nonstop for the whole week; the grass has gotten dry and [stuck] together.
+34|t|Hemos barrido la entrada todos los días desde que empezó el otoño; las hojas se han pegado al suelo mojado.|We have [swept] the entrance every day since fall started; the leaves have [stuck] to the wet ground.
+34|c|Se ha deslizado por esa pendiente cientos de veces desde que era niño; nunca le ha costado el equilibrio.|He has [slid] down that hill hundreds of times since he was a kid; it has never [cost] him his balance.
+34|t|He apostado poco dinero desde que empecé a ahorrar; nunca me ha costado tanto decir que no.|I have [bet] very little money since I started saving; it has never [cost] me so much to say no.
+
+# --- Regla 35 · When / While ---
+35|t|Cuando el barco se hundió, todos se quedaron pegados al bote salvavidas.|When the boat [sank], everyone [stuck] together on the lifeboat.
+35|c|Mientras barríamos el patio, el sol brilló entre las nubes por un momento.|While we [swept] the yard, the sun [shone] through the clouds for a moment.
+35|t|Cuando aposté por primera vez, me costó entender las reglas del juego.|When I [bet] for the first time, it [cost] me some time to understand the rules.
+35|c|Mientras se balanceaba en el columpio, el niño se deslizó y cayó en la arena.|While he [swung] on the swing, the kid [slid] and fell into the sand.
+35|t|Cuando renuncié a mi trabajo, el equipo se dividió sin saber qué hacer.|When I [quit] my job, the team [split] without knowing what to do.
+35|c|Mientras el carro se deslizaba en el hielo, mi corazón se hundió del susto.|While the car [slid] on the ice, my heart [sank] with fear.
+35|t|Cuando el precio nos costó más de lo esperado, decidimos renunciar al plan original.|When the price [cost] us more than expected, we decided to [quit] the original plan.
+35|c|Mientras barría la terraza, algo se quedó pegado a la escoba.|While she [swept] the terrace, something [stuck] to the broom.
+35|t|Cuando el sol brilló por primera vez esa semana, apostamos a que no duraría.|When the sun [shone] for the first time that week, we [bet] it wouldn't last.
+35|c|Mientras nos dividíamos las tareas, el perro se deslizó bajo la cerca y se escapó.|While we [split] up the chores, the dog [slid] under the fence and got away.
+35|t|Cuando el barco se hundió lentamente, el capitán se quedó pegado al timón hasta el final.|When the boat slowly [sank], the captain [stuck] to the wheel until the end.
+35|c|Mientras se balanceaba la rama, el nido se deslizó y cayó al suelo.|While the branch [swung], the nest [slid] off and fell to the ground.
+35|t|Cuando renunciamos al contrato, nos costó encontrar otro cliente tan bueno.|When we [quit] the contract, it [cost] us a while to find another client as good.
+35|c|Mientras apostaba en la mesa, su suerte se hundió rápidamente.|While he [bet] at the table, his luck [sank] quickly.
+35|t|Cuando se dividió la herencia, a nadie le costó aceptar su parte.|When the inheritance was [split], it didn't [cost] anyone much to accept their share.
+
+# --- Regla 36 · Will vs Going to ---
+36|t|Voy a apostar en ese caballo; va a costarme todos mis ahorros si pierdo.|I'm going to [bet] on that horse; it's going to [cost] me all my savings if I lose.
+36|c|Creo que renunciaré pronto; sé que eso me costará mucho aceptar.|I think I will [quit] soon; I know it will [cost] me a lot to accept.
+36|t|Va a barrer la cocina antes de que lleguen los invitados; el sol brillará toda la tarde.|She's going to [sweep] the kitchen before the guests arrive; the sun will [shine] all afternoon.
+36|c|Me voy a columpiar un rato; va a costarme bajar del columpio cuando mis hijos lo vean.|I'm going to [swing] for a while; it's going to [cost] me a fight to get off when my kids see it.
+36|t|Vamos a dividir el premio en partes iguales; así el grupo no se hundirá en discusiones.|We're going to [split] the prize equally; that way the group won't [sink] into arguments.
+36|c|El carro se va a deslizar si no ponemos cadenas; nos va a costar mucho si eso pasa.|The car is going to [slide] if we don't put on chains; it's going to [cost] us a lot if that happens.
+36|t|Voy a renunciar a las apuestas; sé que me va a costar dejar el hábito.|I'm going to [quit] betting; I know it's going to [cost] me to break the habit.
+36|c|El letrero se va a quedar pegado a la ventana; el sol va a brillar justo sobre él toda la mañana.|The sign is going to [stick] to the window; the sun is going to [shine] right on it all morning.
+36|t|Voy a apostar todo en esta mano; si pierdo, me va a costar caro.|I'm going to [bet] everything on this hand; if I lose, it's going to [cost] me dearly.
+36|c|Vamos a barrer el garaje este fin de semana; eso nos costará casi todo el sábado.|We're going to [sweep] out the garage this weekend; that will [cost] us almost all of Saturday.
+36|t|El bote se va a hundir si seguimos cargándolo; va a costarnos todo lo que llevamos.|The boat is going to [sink] if we keep loading it; it's going to [cost] us everything we're carrying.
+36|c|Va a renunciar al cargo mañana; eso va a costarle la confianza de su equipo.|He's going to [quit] the position tomorrow; it's going to [cost] him his team's trust.
+36|t|Voy a dividir el trabajo entre los dos; así no me va a costar tanto terminar a tiempo.|I'm going to [split] the work between the two of us; that way it won't [cost] me so much to finish on time.
+36|c|El columpio se va a balancear solo con este viento; va a costarnos arreglarlo si se rompe.|The swing is going to [swing] on its own in this wind; it's going to [cost] us to fix it if it breaks.
+36|t|Voy a apostar que el barco no se hunde; si me equivoco, me va a costar una cena.|I'm going to [bet] that the boat won't [sink]; if I'm wrong, it's going to cost me dinner.
+
+# --- Regla 37 · Contables vs incontables ---
+37|t|Tuvimos poco tiempo, así que solo apostamos en un juego y eso nos costó poco dinero.|We had little time, so we only [bet] on one game, and it [cost] us very little money.
+37|c|¿Cuántas veces se ha hundido ese bote? Pocas veces, pero arreglarlo siempre costó mucho.|How many times has that boat [sunk]? Few times, but fixing it always [cost] a lot.
+37|t|Barrimos pocas hojas esta vez; la mayoría ya se habían deslizado hacia la calle.|We [swept] few leaves this time; most had already [slid] into the street.
+37|c|Hay poca luz hoy; el sol apenas brilló esta mañana, y eso nos costó energía todo el día.|There's little light today; the sun barely [shone] this morning, and that [cost] us energy all day.
+37|t|Renunciamos a muy pocas cosas; en realidad solo nos costó dejar el café.|We [quit] very few things; really it only [cost] us giving up coffee.
+37|c|Pocas personas apostaron en ese partido; el resto se quedó pegado viendo las noticias.|Few people [bet] on that game; the rest [stuck] around watching the news.
+37|t|Dividimos el postre en pocas partes; cada una costó más de lo que esperábamos.|We [split] the dessert into a few pieces; each one [cost] more than we expected.
+37|c|Poca gente sabía cuánto se iba a hundir el barco esa noche; a pocos les costó creerlo después.|Few people knew how much the boat was going to [sink] that night; it [cost] few of them much to believe it later.
+37|t|Tomó poco tiempo barrer la terraza; el viento apenas se balanceó entre los árboles.|It took little time to [sweep] the terrace; the wind barely [swung] through the trees.
+37|c|Pocas cosas me han costado tanto esfuerzo como cuando por fin renuncié a ese hábito.|Few things have [cost] me as much effort as when I finally [quit] that habit.
+37|t|Apostamos poco dinero esa noche; aun así, nos costó más de lo que ganamos.|We [bet] little money that night; still, it [cost] us more than we won.
+37|c|Pocos botes se han hundido en ese lago; el agua siempre brilló tanto que se veía todo desde arriba.|Few boats have [sunk] in that lake; the water always [shone] so brightly you could see everything from above.
+37|t|Me costó pocas horas barrer todo el almacén, aunque el polvo se había pegado en cada rincón.|It [cost] me few hours to sweep the whole warehouse, even though the dust had [stuck] in every corner.
+37|c|Hay poca gente que haya apostado tanto y le haya costado tan poco perder.|There are few people who have [bet] so much and had it [cost] them so little to lose.
+37|t|Tuvimos pocas opciones, así que renunciamos al plan que menos nos costaba.|We had few options, so we [quit] the plan that [cost] us the least.
+
+# --- Regla 38 · Bad vs Badly ---
+38|t|Aposté mal esa mano; me costó caro ese error.|I [bet] badly on that hand; it [cost] me dearly, that mistake.
+38|c|Barrió tan mal el piso que se le pegó el polvo en los zapatos.|He [swept] the floor so badly that the dust [stuck] to his shoes.
+38|t|Renuncié de mal modo a esa relación; me costó mucho aprender a hacerlo mejor.|I [quit] that relationship badly; it [cost] me a lot to learn how to do it better.
+38|c|El bote se hundió mal, demasiado rápido; eso le costó caro al capitán.|The boat [sank] badly, too fast; that [cost] the captain dearly.
+38|t|Se deslizó mal por la pista y se quedó pegado en la nieve.|He [slid] badly down the slope and got [stuck] in the snow.
+38|c|Dividió mal las tareas; eso le costó la confianza del equipo.|She [split] the tasks badly; that [cost] her the team's trust.
+38|t|Se balanceó mal en la cuerda floja; casi le cuesta la vida.|He [swung] badly on the tightrope; it almost [cost] him his life.
+38|c|El letrero quedó mal pegado; el sol no brilla donde debería ahora.|The sign got [stuck] badly; the sun doesn't [shine] where it should now.
+38|t|Fue una mala apuesta; apostamos mal y nos costó todo el ahorro.|It was a bad bet; we [bet] badly, and it [cost] us all our savings.
+38|c|Barrió tan mal el porche que todavía hay hojas pegadas en las esquinas.|She [swept] the porch so badly that there are still leaves [stuck] in the corners.
+38|t|Renunció mal a su puesto, sin avisar; eso le costó una buena recomendación.|He [quit] his job badly, without notice; that [cost] him a good reference.
+38|c|El bote se deslizó mal por la rampa; eso nos costó una reparación cara.|The boat [slid] badly down the ramp; that [cost] us an expensive repair.
+38|t|Dividimos mal el dinero esa vez, y eso nos costó una pelea grande.|We [split] the money badly that time, and it [cost] us a big fight.
+38|c|El barco se hundió mal, de lado; eso le costó la carga completa al dueño.|The ship [sank] badly, on its side; that [cost] the owner the whole cargo.
+38|t|Se balanceó mal el columpio viejo y eso le costó una caída al niño.|The old swing [swung] badly, and that [cost] the kid a bad fall.
+
+# --- Regla 39 · Preposiciones ---
+39|t|Aposté en esa carrera desde la tribuna; me costó caro el boleto.|I [bet] on that race from the stands; the ticket [cost] me a lot.
+39|c|Se quedó pegado en el tráfico durante una hora; eso le costó la reunión.|He got [stuck] in traffic for an hour; that [cost] him the meeting.
+39|t|Renunció en enero a su trabajo en la fábrica; eso le costó su estabilidad.|He [quit] his job at the factory in January; that [cost] him his stability.
+39|c|El sol brilló sobre la ciudad durante toda la tarde; eso nos costó una buena quemadura.|The sun [shone] over the city all afternoon; that [cost] us a nasty sunburn.
+39|t|Se deslizó por el pasamanos en la fiesta; eso le costó un regaño de su mamá.|He [slid] down the handrail at the party; that [cost] him a scolding from his mom.
+39|c|Barrimos la entrada de la tienda durante la mañana; eso nos costó poco tiempo.|We [swept] the store entrance during the morning; that [cost] us little time.
+39|t|El barco se hundió frente a la costa de Florida; eso le costó al dueño todo el seguro.|The ship [sank] off the coast of Florida; that [cost] the owner his whole insurance payout.
+39|c|Dividimos la cuenta en la mesa del restaurante; a nadie le costó ponerse de acuerdo.|We [split] the bill at the restaurant table; it didn't [cost] anyone much to agree.
+39|t|Se balanceó en el columpio del parque durante horas; eso le costó un calambre en las piernas.|She [swung] on the park swing for hours; that [cost] her a cramp in her legs.
+39|c|Apostamos en la mesa de póker del casino; nos costó casi toda la noche recuperar lo perdido.|We [bet] at the poker table in the casino; it [cost] us almost all night to win back what we lost.
+39|t|Se quedó pegado en la puerta de la oficina; eso le costó llegar tarde a la junta.|He got [stuck] at the office door; that [cost] him being late to the meeting.
+39|c|Renunciamos al plan de viaje a última hora; eso nos costó el depósito del hotel.|We [quit] the trip plan at the last minute; that [cost] us the hotel deposit.
+39|t|El carro se deslizó por la calle durante la tormenta; eso le costó un golpe al poste.|The car [slid] down the street during the storm; that [cost] it a hit against the pole.
+39|c|Barrimos la playa después de la fiesta; eso nos costó casi toda la noche.|We [swept] the beach after the party; that [cost] us almost the whole night.
+39|t|Se hundió en el sofá después de un día largo; eso le costó quedarse dormido en segundos.|He [sank] into the sofa after a long day; that [cost] him just seconds to fall asleep.
+
+# --- Regla 40 · For + período / During + evento ---
+40|t|Apostamos durante toda la noche; nos costó la mitad de nuestros ahorros al final.|We [bet] during the whole night; it [cost] us half our savings in the end.
+40|c|Durante la tormenta, el bote se hundió en cuestión de minutos; eso costó mucho rescatar a la tripulación.|During the storm, the boat [sank] within minutes; it [cost] a lot to rescue the crew.
+40|t|Renuncié a las redes sociales por un mes entero; me costó mucho al principio.|I [quit] social media for a whole month; it [cost] me a lot at first.
+40|c|Durante el eclipse, el sol brilló apenas un poco entre las nubes; eso nos costó la chance de verlo bien.|During the eclipse, the sun barely [shone] through the clouds; that [cost] us the chance to see it fully.
+40|t|Nos deslizamos por esa colina durante todo el invierno; nos costó algunas caídas aprender.|We [slid] down that hill all winter; it [cost] us a few falls to learn.
+40|c|Durante el festival, barrimos el escenario entre cada presentación; eso nos costó muy poco esfuerzo.|During the festival, we [swept] the stage between each show; it [cost] us very little effort.
+40|t|Apostamos por tres días seguidos en ese torneo; nos costó la paciencia al final.|We [bet] for three straight days in that tournament; it [cost] us our patience in the end.
+40|c|Durante la fiesta, el columpio se balanceó solo con el viento toda la noche; eso nos costó un par de sustos.|During the party, the swing [swung] on its own all night; that [cost] us a few nervous glances.
+40|t|Nos quedamos pegados en ese proyecto por seis meses; nos costó mucho terminarlo bien.|We [stuck] with that project for six months; it [cost] us a lot to finish it well.
+40|c|Durante el verano, dividimos las tareas de la casa entre todos; eso nos costó muy poco conflicto.|During the summer, we [split] the housework among everyone; it [cost] us little conflict.
+40|t|El barco navegó diez días antes de hundirse cerca del puerto; el accidente le costó a la empresa millones.|The ship sailed for ten days before it [sank] near the port; the accident [cost] the company millions.
+40|c|Durante la clase, se balanceó en la silla hasta que se cayó; eso le costó un buen susto.|During the class, he [swung] in his chair until he fell; that [cost] him a bruise.
+40|t|Renunciamos a comer dulces por dos semanas; nos costó resistir las tentaciones.|We [quit] eating sweets for two weeks; it [cost] us a fight against temptation.
+40|c|Durante la tormenta, el carro se deslizó varias veces en la carretera mojada; eso nos costó muchos nervios.|During the storm, the car [slid] several times on the wet road; it [cost] us a lot of nerves.
+40|t|Apostamos en ese negocio por un año entero; nos costó más de lo que ganamos.|We [bet] on that business for a whole year; it [cost] us more than we earned.
+
+# --- Regla 41 · Orden natural de la oración ---
+41|t|Ayer aposté demasiado dinero en el casino con mis amigos; eso me costó una lección.|Yesterday I [bet] too much money at the casino with my friends; it [cost] me a lesson.
+41|c|Siempre barrió la cocina antes de dormir; nunca le costó hacerlo rápido.|She always [swept] the kitchen before bed; it never [cost] her much time.
+41|t|Rápidamente renuncié a esa oferta de trabajo sin pensarlo dos veces; no me costó nada decidir.|I quickly [quit] that job offer without thinking twice; it [cost] me nothing to decide.
+41|c|El sol siempre brillaba fuerte sobre el valle; nunca le costó nada a nadie disfrutarlo.|The sun always [shone] brightly over the valley; it never [cost] anyone anything to enjoy it.
+41|t|Mi hermano siempre se balanceaba muy alto cada vez que iba al parque; nunca le costó nada más que energía.|My brother always [swung] very high every time he went to the park; it never [cost] him anything but energy.
+41|c|El carro se deslizó lentamente hasta detenerse frente a la casa; no nos costó nada arreglarlo.|The car [slid] slowly until it stopped in front of the house; it [cost] us nothing to fix.
+41|t|Nunca dividimos el trabajo de manera justa en ese equipo; eso nos costó el proyecto al final.|We never [split] the work fairly on that team; it [cost] us the project in the end.
+41|c|Rápidamente se quedó pegado en esa mala costumbre de llegar tarde; eso le costó el trabajo.|He quickly got [stuck] in that bad habit of being late; that [cost] him his job.
+41|t|Siempre apostamos poco dinero cuando jugábamos cartas en familia; nunca nos costó nada divertirnos así.|We always [bet] little money when we played cards as a family; it never [cost] us anything to have fun.
+41|c|El barco se hundió silenciosamente durante la noche sin que nadie lo notara; eso le costó la confianza a la tripulación.|The ship [sank] silently during the night without anyone noticing; that [cost] the crew their trust in the captain.
+41|t|Cuidadosamente barrimos cada rincón del taller antes de cerrar; eso nos costó una hora extra.|We carefully [swept] every corner of the workshop before closing; it [cost] us an extra hour.
+41|c|Renunciaron rápidamente al plan cuando vieron el presupuesto; eso les costó una buena oportunidad.|They quickly [quit] the plan when they saw the budget; it [cost] the company a good opportunity.
+41|t|El columpio siempre se balanceaba suavemente con la brisa de la tarde; nunca costó nada sentarse ahí a relajarse.|The swing always [swung] gently in the afternoon breeze; it never [cost] anything to sit there and relax.
+41|c|Apostamos cuidadosamente esta vez, después de que eso nos costó tanto la semana pasada.|We [bet] carefully this time, after it [cost] us so much last week.
+41|t|Siempre se quedaba pegado en el mismo error cuando jugaba ajedrez; eso le costaba la partida cada vez.|He always [stuck] to the same mistake when he played chess; that [cost] him the game every time.
+
+# --- Regla 42 · Vocabulario específico ---
+42|t|Hice una apuesta arriesgada en la bolsa; me costó gran parte de mis ahorros.|I [bet] on a risky move in the stock market; it [cost] me a big part of my savings.
+42|c|El plomero se quedó atascado bajo el fregadero por horas; la reparación nos costó una fortuna.|The plumber got [stuck] under the sink for hours; the repair [cost] us a fortune.
+42|t|Renuncié a mi membresía del gimnasio porque ya no la usaba; eso me costaba demasiado para nada.|I [quit] my gym membership because I wasn't using it anymore; it [cost] too much for nothing.
+42|c|La lámpara nueva brilló más que la vieja la primera noche que la encendimos, y costó un poco más también.|The new lamp [shone] brighter than the old one the first night we turned it on, and it [cost] a bit more too.
+42|t|El bote de pesca se hundió por una fuga que nadie revisó a tiempo; eso le costó al pescador su temporada.|The fishing boat [sank] because of a leak nobody checked in time; it [cost] the fisherman his season.
+42|c|Dividimos la factura del restaurante entre los cuatro amigos; a cada uno le costó muy poco.|We [split] the restaurant bill among the four friends; it [cost] each of us very little.
+42|t|Se deslizó por la baranda de la escalera y casi se cae; eso le costó un buen susto.|He [slid] down the stair railing and almost fell; that [cost] him a scare.
+42|c|Barrimos el taller antes de que llegara el inspector; eso nos costó toda la mañana.|We [swept] the workshop before the inspector arrived; it [cost] us the whole morning.
+42|t|Apostó su reputación en ese proyecto riesgoso; eso le costó varias noches sin dormir.|She [bet] her reputation on that risky project; it [cost] her sleepless nights.
+42|c|El columpio del jardín se balanceó con fuerza durante la tormenta; el daño les costó uno nuevo.|The garden swing [swung] hard during the storm; the damage [cost] them a new one.
+42|t|Me quedé pegado en el ascensor durante media hora ayer; eso me costó una cita importante.|I got [stuck] in the elevator for half an hour yesterday; it [cost] me an important appointment.
+42|c|Renunciaron al contrato de arrendamiento antes de que terminara el año; eso les costó el depósito.|They [quit] the lease before the year was over; it [cost] them the deposit.
+42|t|El sol brilló fuerte sobre el desierto durante todo el viaje; eso nos costó mucha agua.|The sun [shone] hard over the desert the whole trip; that [cost] us a lot of water.
+42|c|Dividieron la empresa en dos después de años de desacuerdos; eso le costó a ambas partes mucho dinero.|They [split] the company in two after years of disagreements; it [cost] both sides a lot of money.
+42|t|El carro se deslizó sobre el aceite derramado en la pista; el choque le costó al piloto la carrera.|The car [slid] over the spilled oil on the track; the crash [cost] the driver the race.
+
+# --- Regla 43 · Past Perfect ---
+43|t|Cuando llegamos, el barco ya se había hundido cerca del puerto; la tormenta le había costado todo a los pescadores.|When we got there, the boat had already [sunk] near the port; the storm had [cost] the fishermen everything.
+43|c|Nunca había apostado tanto dinero antes de esa noche; eso ya me había costado la confianza.|I had never [bet] so much money before that night; it had already [cost] me my confidence.
+43|t|Ya había renunciado al trabajo cuando le ofrecieron el ascenso; eso le costó la oportunidad.|He had already [quit] the job when they offered him the promotion; that [cost] him the chance.
+43|c|El sol ya había brillado toda la mañana cuando empezó a llover; el cambio nos costó el picnic.|The sun had already [shone] all morning when it started to rain; the change [cost] us our picnic.
+43|t|Se dio cuenta de que se había quedado pegada en el mismo error de siempre; eso le había costado el ascenso otra vez.|She realized she had [stuck] to the same old mistake; that had [cost] her the promotion again.
+43|c|Habíamos dividido el trabajo antes de que llegara el jefe; eso nos costó muy poco tiempo.|We had already [split] the work before the boss got there; it [cost] us very little time.
+43|t|El carro ya se había deslizado fuera de la carretera cuando llegó la ayuda; el accidente le costó su antiguo trabajo.|The car had already [slid] off the road when help arrived; the accident [cost] him his old job.
+43|c|Habíamos barrido toda la casa antes de que llegaran los invitados; eso nos costó toda la tarde.|We had already [swept] the whole house before the guests arrived; it [cost] us the whole afternoon.
+43|t|Nunca había visto un columpio que se balanceara tan alto antes de ese día; eso le costó al niño una rodilla raspada después.|I had never seen a swing [swing] that high before that day; it [cost] the kid a scraped knee later.
+43|c|Ya había apostado todo su dinero cuando se dio cuenta del error; eso le costó el fondo del viaje.|She had already [bet] all her money when she realized the mistake; that [cost] her the whole trip fund.
+43|t|El equipo ya se había dividido en grupos antes de empezar el juego; eso les costó algo de confusión al inicio.|The team had already [split] into groups before the game started; that [cost] them some confusion at first.
+43|c|Habíamos renunciado a esperar cuando por fin llegó el bus; la demora nos había costado una hora.|We had already [quit] waiting when the bus finally arrived; the delay had [cost] us an hour.
+43|t|El barco ya se había hundido cuando llegaron los botes de rescate; el desastre le costó la vida a muchos.|The ship had already [sunk] when the rescue boats arrived; the disaster [cost] many their lives.
+43|c|Se había quedado pegado a esa idea tanto que no quería escuchar otra opinión; eso le costó algunas amistades.|He had [stuck] so much to that idea that it [cost] him some good friendships.
+43|t|Ya habíamos barrido el patio cuando empezó a nevar otra vez; el trabajo extra nos costó toda la mañana.|We had already [swept] the yard when it started snowing again; the extra work [cost] us the whole morning.
+
+# --- Regla 44 · Future Perfect Continuous ---
+44|t|Para diciembre llevaré tres años invirtiendo; aposté por mi primera acción en 2021, y eso me ha costado muchas lecciones.|By December, I will have been investing for three years; I [bet] on my first stock in 2021, and it has [cost] me a lot of lessons.
+44|c|Cuando llegues, llevaré dos horas limpiando el patio; empecé temprano porque el sol ya brillaba fuerte, y eso me costó una quemadura.|When you get here, I will have been cleaning the yard for two hours; I started early because the sun already [shone] bright, and that [cost] me a sunburn.
+44|t|Para junio, ella llevará un año renunciando a cosas para ahorrar; dejó el café en enero y eso le ha costado disciplina.|By June, she will have been giving up things to save money for a year; she [quit] coffee in January, and it has [cost] her a lot of discipline.
+44|c|Para cuando lleguemos, llevaremos diez horas manejando; el carro se deslizó una vez en la nieve y eso nos costó tiempo.|By the time we get there, we will have been driving for ten hours; the car [slid] once in the snow, and that [cost] us time.
+44|t|El próximo mes llevaré un año apostando en bolsa; mi primera apuesta me costó casi todo lo que tenía.|Next month, I will have been investing in the stock market for a year; my first [bet] [cost] me almost everything I had.
+44|c|A las cinco llevarán todo el día reunidos; el sol ya se habrá hundido detrás de las montañas para entonces, y eso les costará luz.|At five, they will have been meeting all day; the sun will have already [sunk] behind the mountains by then, and that will [cost] them daylight.
+44|t|Para entonces, llevaré meses renunciando a los dulces; me ha costado mucho mantener la disciplina desde que renuncié al azúcar.|By then, I will have been giving up sweets for months; it has [cost] me a lot to stay disciplined ever since I [quit] sugar completely.
+44|c|Cuando se jubile, llevará treinta años barriendo ese mismo salón; nunca le ha costado quejarse de su rutina, a la que siempre se ha quedado pegada.|When she retires, she will have been sweeping that same hall for thirty years; it has never [cost] her much to [stick] with that routine.
+44|t|Mañana a esta hora llevaré seis horas volando; me costó encontrar un vuelo que no me hiciera apostar con el clima.|At this time tomorrow, I will have been flying for six hours; it [cost] me a while to find a flight that didn't make me [bet] on the weather.
+44|c|En agosto llevaremos un año dividiendo los gastos de la casa; dividimos todo por primera vez un fin de semana que nos costó varias discusiones.|In August, we will have been splitting household expenses for a year; we first [split] everything one weekend that [cost] us a few arguments.
+44|t|Para las diez llevará dos horas corriendo; dijo que quería renunciar a mitad de camino, pero no le costó seguir.|By ten, he will have been running for two hours; he said he wanted to [quit] halfway through, but it didn't [cost] him much to keep going.
+44|c|Cuando lleguen, llevaremos todo el día cocinando; el pastel se quedó pegado al molde y eso nos costó tiempo extra.|When they arrive, we will have been cooking all day; the cake got [stuck] to the pan, and that [cost] us extra time.
+44|t|Para fin de año llevará seis meses apostando en ese negocio; su primera apuesta ya le costó más de lo que ganó al principio.|By the end of the year, she will have been investing in that business for six months; her first [bet] already [cost] her more than she earned at first.
+44|c|En mayo llevaré dos años trabajando en este libro; el capítulo final se hundió entre tantas revisiones y me costó terminar.|In May, I will have been working on this book for two years; the final chapter [sank] under so many revisions, and it [cost] me a long time to finish.
+44|t|Para cuando llegues, llevaré toda la mañana limpiando; algo se quedó pegado al piso y me costó horas quitarlo.|By the time you arrive, I will have been cleaning all morning; something got [stuck] to the floor, and it [cost] me hours to remove it.
+
+# --- Regla 45 · Voz pasiva ---
+45|t|El dinero se apuesta todos los sábados en el club; luego se divide entre los ganadores.|The money is [bet] every Saturday at the club; it is then [split] among the winners.
+45|c|La casa debe barrerse antes del viernes; el piso se puede quedar pegado si no se limpia bien.|The house must be [swept] before Friday; the floor can get [stuck] if it isn't cleaned well.
+45|t|Se dice que ese bote se hundió por un descuido; el costo se dividió entre los dueños.|It is said that the boat [sank] due to carelessness; the cost was [split] between the owners.
+45|c|El dinero ya ha sido apostado; el gasto ya se ha dividido entre todos.|The money has already been [bet]; the cost has already been [split] among everyone.
+45|t|Este trofeo se pule hasta que puede brillar; se mantiene pegado al estante más alto.|This trophy is polished until it can [shine]; it is kept [stuck] to the top shelf.
+45|c|El dinero del premio se divide en partes iguales; nunca se ha apostado nada extra.|The prize money is [split] into equal parts; nothing extra has ever been [bet].
+45|t|El trabajo se puede dividir entre los dos equipos; ya se apostó quién empieza primero.|The work can be [split] between the two teams; it's already been [bet] who goes first.
+45|c|El escenario se barre antes de cada show; las luces brillan hasta la medianoche.|The stage is [swept] before every show; the lights [shine] until midnight.
+45|t|Este dinero se apuesta cada año en la feria; nunca se ha dividido injustamente.|This money is [bet] every year at the fair; it has never been [split] unfairly.
+45|c|El dinero se puede apostar solo con permiso; el ahorro se divide entre los hermanos.|The money can only be [bet] with permission; the savings are [split] between the siblings.
+45|t|Se cree que el barco se hundió por una tormenta; el seguro se dividió entre varias compañías.|It is believed that the ship [sank] because of a storm; the insurance was [split] among several companies.
+45|c|La cancha se barre todos los días antes del partido; el dinero del torneo se divide al final.|The court is [swept] every day before the game; the tournament money is [split] at the end.
+45|t|El puente se puede balancear un poco con el viento fuerte; eso no debe costar la seguridad de nadie.|The bridge can [swing] a little in strong wind; that shouldn't [cost] anyone's safety.
+45|c|El premio se divide entre los finalistas; nunca se apuesta más de lo permitido.|The prize is [split] between the finalists; never more than allowed is [bet].
+45|t|Se dice que esa mesa de juego ha costado muchas fortunas; mucho se ha apostado allí.|It is said that gaming table has [cost] many fortunes; a lot has been [bet] there.
+
+# --- Regla 46 · Modales de posibilidad / deducción ---
+46|t|Debe haberle costado mucho esfuerzo; renunció justo antes de terminar.|It must have [cost] him a lot of effort; he [quit] right before finishing.
+46|c|Puede que el barco se haya hundido; eso le habría costado todo al pescador.|The boat might have [sunk]; that would have [cost] the fisherman everything.
+46|t|No puede haberle costado tanto; apenas apostó una pequeña cantidad.|It can't have [cost] him that much; he only [bet] a small amount.
+46|c|Puede que se haya quedado pegado en el tráfico; eso le costaría llegar a tiempo.|He might have gotten [stuck] in traffic; that would [cost] him being on time.
+46|t|Debe de haber renunciado ya; le costaba mucho seguir en ese ambiente.|He must have already [quit]; it [cost] him a lot to stay in that environment.
+46|c|No puede haberse hundido tan rápido; eso le costaría la temporada al capitán.|It can't have [sunk] that fast; that would [cost] the captain his whole season.
+46|t|Debe haber apostado mucho; parece que eso le costó todos sus ahorros.|He must have [bet] a lot; it looks like it [cost] him all his savings.
+46|c|Puede que se haya dividido el grupo; eso le costaría al proyecto algo de tiempo.|The group might have [split] up; that would [cost] the project some time.
+46|t|No puede haberle costado tan poco; renunció a esa oferta después de una decisión difícil.|It can't have [cost] him that little; he [quit] that offer after a hard decision.
+46|c|Debe haberse quedado pegado en algún lado; eso le costaría su asistencia perfecta.|He must have gotten [stuck] somewhere; that would [cost] him his perfect attendance.
+46|t|Puede que el sol haya brillado toda la noche en el otro hemisferio; eso no le costaría nada a nadie aquí.|The sun might have [shone] all night on the other side of the world; that wouldn't [cost] anyone anything here.
+46|c|No puede haber barrido toda la casa en diez minutos; eso le costaría al menos una hora.|She can't have [swept] the whole house in ten minutes; that would [cost] at least an hour.
+46|t|Debe haberse balanceado muy fuerte; eso le costó a la cuerda algo de su tensión.|It must have [swung] really hard; that [cost] the rope some of its tension.
+46|c|Puede que se haya deslizado por el hielo; eso le costaría un golpe o dos.|He might have [slid] on the ice; that would [cost] him a bruise or two.
+46|t|No puede haber apostado todo; eso le habría costado la casa.|He can't have [bet] everything; that would have [cost] him the house.
+
+# --- Regla 47 · Half of ---
+47|t|Apostamos la mitad de nuestros ahorros; nos costó valor hacerlo.|We [bet] half of our savings; it [cost] us some courage to do it.
+47|c|La mitad del equipo renunció esa semana; eso le costó el proyecto a la empresa.|Half of the team [quit] that week; that [cost] the company the project.
+47|t|Barrí la mitad del jardín; el resto se quedó pegado de hojas mojadas.|I [swept] half of the garden; the rest got [stuck] with wet leaves.
+47|c|La mitad del barco ya se había hundido antes de que llegara la ayuda; eso le costó a muchos sus pertenencias.|Half of the ship had already [sunk] before help arrived; that [cost] many their belongings.
+47|t|Dividimos la mitad de la ganancia entre los dos; la otra mitad se apostó en el siguiente juego.|We [split] half of the profit between us; the other half was [bet] on the next game.
+47|c|La mitad del columpio se balanceó sola con el viento; eso nos costó una escena extraña de ver.|Half of the swing [swung] on its own in the wind; that [cost] us a strange sight to watch.
+47|t|La mitad del trofeo alguna vez brilló como nuevo; la otra mitad se quedó pegada de óxido.|Half of the trophy once [shone] like new; the other half is [stuck] with rust.
+47|c|Renunciamos a la mitad del plan original; eso nos costó la mitad del presupuesto.|We [quit] half of the original plan; that [cost] us half the budget.
+47|t|La mitad del grupo se deslizó por la colina sin problema; a la otra mitad le costó mucho.|Half of the group [slid] down the hill with no problem; it [cost] the other half a lot.
+47|c|Barrimos la mitad de la bodega antes del mediodía; terminar la otra mitad nos costó toda la tarde.|We [swept] half of the warehouse before noon; finishing the other half [cost] us the whole afternoon.
+47|t|Apostó la mitad de su sueldo en ese negocio arriesgado; eso le costó noches sin dormir.|He [bet] half of his salary on that risky business; that [cost] him sleepless nights.
+47|c|La mitad del dinero se dividió entre los socios; la otra mitad se quedó pegada en el banco por meses.|Half of the money was [split] among the partners; the other half [stuck] in the bank for months.
+47|t|La mitad del barco ya se había hundido cuando llegamos; eso nos costó la carga entera.|Half of the boat had already [sunk] when we got there; that [cost] us the whole cargo.
+47|c|Renunció a la mitad de su colección de monedas; eso le costó mucho desprenderse de ellas.|He [quit] half of his coin collection; that [cost] him a lot to let go.
+47|t|La mitad del cielo brillaba con estrellas; la otra mitad se quedó cubierta y pegada a las nubes.|Half of the sky [shone] with stars; the other half [stuck] under thick clouds.
+
+# --- Regla 48 · "By" para tiempo futuro ---
+48|t|Para el viernes habré apostado todo mi plan en esta idea; eso me habrá costado el ahorro de un mes.|By Friday, I will have [bet] my whole plan on this idea; that will have [cost] me a month's savings.
+48|c|Para las ocho, el sol se habrá hundido detrás de las montañas; eso nos costará la luz para terminar.|By eight, the sun will have [sunk] behind the mountains; that will [cost] us the light to finish.
+48|t|Para diciembre habremos renunciado a ese contrato; nos habrá costado encontrar otro cliente.|By December, we will have [quit] that contract; it will have [cost] us finding another client.
+48|c|Para mañana habré barrido toda la casa; eso me habrá costado todo el día libre.|By tomorrow, I will have [swept] the whole house; that will have [cost] me my whole day off.
+48|t|Para el próximo año, habrá dividido su herencia entre sus hijos; eso le habrá costado algunas peleas.|By next year, he will have [split] his inheritance among his kids; that will have [cost] him a few fights.
+48|c|Para cuando llegues a casa, el sol ya habrá brillado y se habrá puesto; eso nos costará la vista del atardecer.|By the time you get home, the sun will have already [shone] and set; that will [cost] us the sunset view.
+48|t|Para junio habrá apostado todo lo que tiene en ese negocio; eso le habrá costado su zona de confort.|By June, he will have [bet] everything he has on that business; it will have [cost] him his comfort zone.
+48|c|Para el lunes ya habrán dividido el equipo en dos grupos; eso le habrá costado a algunos su puesto.|By Monday, they will have already [split] the team into two groups; that will have [cost] some people their spot.
+48|t|Para las cinco habremos barrido todo el estadio después del concierto; eso nos habrá costado toda la tarde.|By five, we will have [swept] the whole stadium after the concert; that will have [cost] us the whole afternoon.
+48|c|Para el fin de semana habré renunciado a ese mal hábito por completo; eso me habrá costado mucha fuerza de voluntad.|By the weekend, I will have completely [quit] that bad habit; it will have [cost] me a lot of willpower.
+48|t|Para cuando lleguen, ya habremos apostado todo en la primera ronda; eso nos habrá costado todo el presupuesto.|By the time they arrive, we will have already [bet] everything in the first round; that will have [cost] us the whole budget.
+48|c|Para 2030 habremos dividido la empresa en tres partes; eso nos habrá costado años de planeación.|By 2030, we will have [split] the company into three parts; that will have [cost] us years of planning.
+48|t|Para el mediodía, el barco ya se habrá hundido si nadie hace algo; eso le costará la vida a todos a bordo.|By noon, the ship will have already [sunk] if nobody does something; that will [cost] everyone on board their lives.
+48|c|Para la próxima semana habrán barrido toda la bodega vieja; eso les habrá costado mucho polvo en los pulmones.|By next week, they will have [swept] the whole old warehouse; it will have [cost] them a lot of dust in their lungs.
+48|t|Para cuando te gradúes, te habrá costado mucho esfuerzo, pero nunca habrás renunciado.|By the time you graduate, it will have [cost] you a lot of effort, but you will never have [quit].
+
+# --- Regla 49 · because of / because ---
+49|t|No apostamos nada por el riesgo; nos costó mucho decidir no hacerlo.|We didn't [bet] anything because of the risk; it [cost] us a lot to decide against it.
+49|c|Renunció porque el trabajo le costaba demasiada salud.|He [quit] because the job [cost] him too much of his health.
+49|t|El bote se hundió por el peso extra; eso le costó al dueño toda la carga.|The boat [sank] because of the extra weight; that [cost] the owner the entire cargo.
+49|c|No barrimos el patio porque la lluvia nos costó el tiempo que teníamos.|We didn't [sweep] the yard because the rain [cost] us the time we had.
+49|t|Se quedó pegado en el aeropuerto por el mal clima; eso le costó el vuelo de conexión.|He got [stuck] at the airport because of the bad weather; that [cost] him his connecting flight.
+49|c|No se deslizó porque la pista estaba seca; eso nos costó un poco de diversión.|He didn't [slide] because the track was dry; that [cost] us a bit of fun.
+49|t|Por su mala suerte, apostó y perdió; eso le costó casi todo lo que tenía.|Because of his bad luck, he [bet] and lost; that [cost] him almost everything he had.
+49|c|El grupo se dividió por una discusión tonta; eso nos costó la amistad de años.|The group [split] because of a silly argument; that [cost] us years of friendship.
+49|t|No renunció por miedo; le costaba demasiado perder la estabilidad.|He didn't [quit] because of fear; it [cost] him too much to lose his stability.
+49|c|El columpio se balanceó fuerte por el viento; eso le costó un susto a mi hija.|The swing [swung] hard because of the wind; that [cost] my daughter a good scare.
+49|t|Por el calor, el helado se deslizó de la mesa; eso le costó la merienda al niño.|Because of the heat, the ice cream [slid] off the table; that [cost] the kid his snack.
+49|c|No brilló el sol por las nubes; eso nos costó la foto que queríamos tomar.|The sun didn't [shine] because of the clouds; that [cost] us the picture we wanted to take.
+49|t|Por el tráfico, apostamos que llegaríamos tarde; nos costó perder la reserva.|Because of the traffic, we [bet] we'd be late; it [cost] us losing the reservation.
+49|c|No barrió el garaje porque el polvo le costaba la alergia.|He didn't [sweep] the garage because the dust [cost] him his allergies acting up.
+49|t|Por el descuido, el barco se hundió; eso le costó la licencia al capitán.|Because of the carelessness, the ship [sank]; that [cost] the captain his license.
+
+# --- Regla 50 · (put, try, get, take, lie) + (down, off, on) ---
+50|t|El grupo se dividió; algunos se separaron y otros se quedaron pegados al plan original.|The group [split] up; some went their own way, and others [stuck] with the original plan.
+50|c|Pasé por tu casa, pero no estabas; de todos modos, me quedé pegado charlando con tu mamá.|I [swung] by your house, but you weren't there; I still got [stuck] chatting with your mom.
+50|t|La noticia se hundió lentamente en mi mente antes de entenderla del todo; eso me costó una noche sin dormir.|The news slowly [sank] in before I fully understood it; it [cost] me a sleepless night.
+50|c|Renuncié a seguir intentando; me costó aceptar que no iba a funcionar.|I [quit] trying; it [cost] me a lot to accept it wasn't going to work.
+50|t|Se deslizó la puerta y se quedó pegada a medio abrir.|The door [slid] and got [stuck] halfway open.
+50|c|La empresa se dividió en dos cuando los socios renunciaron a seguir juntos.|The company [split] in two when the partners [quit] staying together.
+50|t|Apuesto a que la puerta se abrirá de golpe con este viento; eso nos costará un buen susto.|I [bet] the door will swing open with this wind; that will [cost] us a good scare.
+50|c|Se quedó pegado a esa idea sin importar cuánto le costara.|He [stuck] to that idea no matter how much it [cost] him.
+50|t|El mensaje por fin se me quedó pegado después de que me costó tanto entenderlo.|The message finally [stuck] with me after it [cost] me so much to understand it.
+50|c|Renuncié a buscar excusas; me costó mucho ser honesto conmigo mismo.|I [quit] making excuses; it [cost] me a lot to be honest with myself.
+50|t|El bote se hundió poco a poco mientras todos se quedaban pegados mirando.|The boat slowly [sank] while everyone [stuck] around watching.
+50|c|Pasamos por la tienda de camino a casa; eso nos costó solo unos minutos extra.|We [swung] by the store on the way home; that [cost] us only a few extra minutes.
+50|t|Se dividió la clase en dos grupos; a uno le costó más que al otro.|The class [split] into two groups; it [cost] one group more than the other.
+50|c|Renuncié a pelear por eso; no valía la pena lo que me iba a costar.|I [quit] fighting over it; it wasn't worth what it was going to [cost] me.
+50|t|El barco se deslizó suavemente hasta el muelle; nos costó muy poco maniobrarlo.|The boat [slid] smoothly up to the dock; it [cost] us very little to steer it.
+
+# --- Regla 51 · Sustantivos compuestos ---
+51|t|Entré a una rifa de apuestas en la feria; me costó solo cinco dólares entrar.|I entered a betting pool at the fair; it only [cost] me five dollars to join, and I [bet] on my lucky number.
+51|c|El equipo de limpieza barrió toda la estación antes del amanecer; eso le costó a la ciudad un buen presupuesto.|The cleanup crew [swept] the whole station before dawn; that [cost] the city a good budget.
+51|t|Renuncié a mi membresía del club de golf; eso me costó una buena cantidad de dinero al año.|I [quit] my golf club membership; that [cost] me a good amount of money each year.
+51|c|El barco se hundió hace años y se convirtió en un arrecife artificial; eso le costó al dueño el reclamo del seguro.|The ship [sank] years ago and became an artificial reef; that [cost] the owner his insurance claim.
+51|t|Fuimos a la feria de pulgas; dividimos los gastos del viaje entre los tres, y eso nos costó muy poco.|We went to the flea market; we [split] the trip costs among the three of us, and that [cost] us very little.
+51|c|El guardia de seguridad se quedó pegado en su puesto toda la noche; eso le costó un turno muy cansado.|The security guard [stuck] to his post all night; that [cost] him a very tiring shift.
+51|t|Compramos boletos para el sorteo de la lotería; apostamos a nuestro número de la suerte, y eso nos costó solo dos dólares.|We bought lottery tickets; we [bet] on our lucky number, and it [cost] us only two dollars.
+51|c|El equipo de rescate barrió la zona del naufragio por completo; la búsqueda les costó dos días completos.|The rescue crew [swept] the shipwreck area completely; the search [cost] them two full days.
+51|t|Fuimos al parque de diversiones; mi hijo se balanceó en cada columpio que encontró, y eso nos costó una tarde larga.|We went to the amusement park; my son [swung] on every swing he could find, and that [cost] us a long afternoon.
+51|c|El club de apuestas cerró después de que su dueño renunció; el cierre le costó a muchos socios su membresía.|The betting club closed after its owner [quit]; the closure [cost] many members their memberships.
+51|t|El salvavidas del lago vio cómo el bote se hundía y actuó rápido; el rescate le costó mucha energía.|The lake lifeguard watched the boat [sink] and acted fast; the rescue [cost] him a lot of energy.
+51|c|El equipo de limpieza de calles barrió el centro de la ciudad temprano; eso le costó a la ciudad un buen presupuesto cada mes.|The street cleanup crew [swept] downtown early; that [cost] the city a good budget each month.
+51|t|El fondo de apuestas de la oficina se dividió entre todos al final del año; cada quien apostó de forma distinta.|The office betting pool was [split] among everyone at year's end; each person [bet] a little differently.
+51|c|El grupo de senderismo se quedó pegado en el lodo durante la excursión; eso les costó una hora extra en el camino.|The hiking group got [stuck] in the mud during the trip; that [cost] them an extra hour on the trail.
+51|t|El club de ahorro renunció a su antiguo sistema de pagos; el cambio le costó a los miembros algo de confusión al principio.|The savings club [quit] its old payment system; the change [cost] members some confusion at first.
+
+# --- Regla 52 · Expresiones de tiempo con "over" ---
+52|t|Durante el fin de semana apostamos en varios juegos; nos costó casi todo lo que llevábamos.|Over the weekend, we [bet] on several games; it [cost] us almost everything we brought.
+52|c|En los últimos años ha renunciado a muchas cosas por su carrera; eso le ha costado tiempo con su familia.|Over the past few years, she has [quit] a lot of things for her career; that has [cost] her time with family.
+52|t|Durante las vacaciones el bote se hundió en una tormenta; nos costó todo el viaje.|Over the holidays, the boat [sank] in a storm; that [cost] us the whole trip.
+52|c|En los últimos meses hemos dividido mejor las tareas; eso nos ha costado mucho menos pelear.|Over the last few months, we have [split] chores better; that has [cost] us a lot less arguing.
+52|t|Durante la cena apostamos quién pagaría la cuenta; a mí me costó la mitad.|Over dinner, we [bet] on who would pay the bill; it [cost] me half.
+52|c|En el último año he barrido esa misma calle cientos de veces; nunca me ha costado quejarme de ella.|Over the last year, I have [swept] that same street hundreds of times; it has never [cost] me much to complain about it.
+52|t|Con los años se ha quedado pegado a ese viejo sombrero; nunca le costó nada deshacerse de él.|Over the years, he has [stuck] with that old hat; it never [cost] him anything to keep wearing it.
+52|c|Durante el verano el columpio se balanceó día y noche con los niños del barrio; eso le costó a la familia una reparación en el otoño.|Over the summer, the swing [swung] day and night with the neighborhood kids; that [cost] the family a repair in the fall.
+52|t|A lo largo de su carrera ha apostado en grandes negocios y ha renunciado a otros tantos.|Over his career, he has [bet] on big deals and [quit] just as many.
+52|c|Durante la noche alguien barrió todo el almacén sin hacer ruido; eso le costó al dueño una noche sin dormir preguntándose quién fue.|Overnight, someone [swept] the whole warehouse without a sound; that [cost] the owner a sleepless night wondering who did it.
+52|t|En la última década el barco viejo se ha hundido en el olvido de todos; la pérdida le costó al pueblo un pedazo de su historia.|Over the last decade, the old ship has [sunk] into everyone's memory and been forgotten; the loss [cost] the town a piece of its history.
+52|c|Durante el almuerzo me dijo que había renunciado; eso me costó el apetito el resto del día.|Over lunch, she told me she had [quit]; that [cost] me my appetite for the rest of the day.
+52|t|Con el tiempo hemos llegado a dividir mejor nuestras responsabilidades; eso nos ha costado mucho menos discusiones.|Over time, we have come to [split] our responsibilities better; that has [cost] us far fewer disagreements.
+52|c|En las últimas semanas el sol ha brillado poco; eso nos ha costado días grises.|Over the past few weeks, the sun has [shone] little; that has [cost] us some gray days.
+52|t|Durante el torneo apostamos en cada partido; al final nos costó más de lo que esperábamos.|Over the tournament, we [bet] on every match; in the end it [cost] us more than we expected.
+
+# --- Regla 53 · Future Continuous ---
+53|t|Mañana a esta hora estaré jugando en el torneo; aposté mi entrada hace una semana, y eso me costó bastante.|This time tomorrow, I will be playing in the tournament; I [bet] my entry fee a week ago, and that [cost] me quite a bit.
+53|c|No me llames a las ocho; estaré limpiando. Ya barrí la mitad de la casa hoy, y eso me costó todo mi tiempo libre.|Don't call me at eight; I will be cleaning. I already [swept] half the house today, and it [cost] me my whole free time.
+53|t|El próximo lunes estaremos viajando a la costa; renunciamos a cancelar el viaje aunque nos costó caro el boleto.|Next Monday, we will be traveling to the coast; we [quit] on canceling the trip even though the ticket [cost] us a lot.
+53|c|A las diez estará presentando su proyecto; el equipo se dividió las tareas para terminar a tiempo, y eso les costó una noche larga.|At ten, she will be giving her presentation; the team [split] the tasks to finish on time, and it [cost] them a long night.
+53|t|¿Vas a estar trabajando esta noche? El barco se hundió ayer y eso le costó mucho a la empresa.|Will you be working tonight? The boat [sank] yesterday, and that [cost] the company a lot.
+53|c|Mañana estaré pensando en ti durante el examen; me costó mucho estudiar y casi renuncié a presentarlo.|Tomorrow I will be thinking of you during the exam; it [cost] me a lot to study, and I almost [quit] taking it.
+53|t|Esta noche estaremos cenando afuera; el sol brilló todo el día y eso nos costó una buena quemadura.|Tonight we will be having dinner outside; the sun [shone] all day, and that [cost] us a nasty sunburn.
+53|c|Mañana a esta hora estaré volando a Miami; aposté que llegaría a tiempo, aunque me costó conseguir el vuelo.|At this time tomorrow, I will be flying to Miami; I [bet] I'd make it on time, even though it [cost] me a while to find the flight.
+53|t|Estarán esperando en la entrada; el columpio se balanceó tanto que casi se rompe, y eso les costará repararlo.|They will be waiting at the entrance; the swing [swung] so much it almost broke, and that will [cost] them a repair.
+53|c|El próximo año estaré trabajando en otra empresa; renuncié a la anterior porque el estrés me costaba demasiado.|Next year, I will be working at another company; I [quit] the last one because the stress [cost] me too much.
+53|t|No podemos ir a las tres; estaremos en una reunión. El carro se deslizó ayer y nos costó una reparación.|We can't go at three; we will be in a meeting. The car [slid] yesterday, and it [cost] us a repair.
+53|c|Estaré esperándote cuando llegues; ya barrí la entrada y eso solo me costó diez minutos.|I will be waiting for you when you arrive; I already [swept] the entrance, and it only [cost] me ten minutes.
+53|t|A medianoche todos estarán durmiendo; el barco ya se habrá hundido para entonces, y eso le costará la vida a todos si nadie actúa.|At midnight, everyone will be sleeping; the boat will have already [sunk] by then, and that will [cost] everyone their safety if nobody acts.
+53|c|Mañana estará trabajando desde casa; renunció a la oficina porque el tráfico le costaba demasiado tiempo.|Tomorrow he will be working from home; he [quit] the office because the commute [cost] him too much time in traffic.
+53|t|En diciembre estaremos celebrando; apostamos que todo saldría bien, y por suerte no nos costó nada.|In December, we will be celebrating; we [bet] everything would work out, and luckily it didn't [cost] us anything.
+
+# --- Regla 54 · Comparativos y superlativos ---
+54|t|Esta fue la peor apuesta que he hecho; me costó más de lo que gané en meses.|This was the worst [bet] I have ever made; it [cost] me more than I had earned in months.
+54|c|Cuando renuncié a ese trabajo, fue la decisión más difícil que he tomado; me costó mucho aceptarlo.|When I [quit] that job, it was the hardest decision I have ever made; it [cost] me a lot to accept it.
+54|t|Es la apuesta más grande que hemos hecho; nos costó el doble de lo normal.|It's the biggest [bet] we have ever made; it [cost] us double the usual amount.
+54|c|Es la persona más terca que conozco; siempre se quedó pegado a sus ideas, incluso cuando eso le costó algunas amistades.|He's the most stubborn person I know; he always [stuck] to his ideas, even when it [cost] him some friendships.
+54|t|Llegué más rápido que tú porque aposté a tomar el camino corto; eso me costó muy poco tiempo.|I got here faster than you because I [bet] on taking the shortcut; it [cost] me very little time.
+54|c|Fue el día más largo de mi vida; barrí tres casas distintas sin parar, y eso me costó toda la energía.|It was the longest day of my life; I [swept] three different houses without stopping, and it [cost] me every ounce of energy.
+54|t|Fue el peor error que he cometido; renuncié justo antes de que todo mejorara, y eso me costó la oportunidad.|It was the worst mistake I have made; I [quit] right before things got better, and that [cost] me the opportunity.
+54|c|Esta es la caída de agua más brillante que he visto; el agua brilló incluso de noche una vez, y eso le costó a los fotógrafos una buena toma.|This is the shiniest waterfall I have seen; the water [shone] even at night once, and that [cost] photographers a good shot.
+54|t|Es el barco más grande que se ha hundido en esta costa; el desastre les costó a cientos su sustento.|It's the biggest ship that has ever [sunk] off this coast; the disaster [cost] hundreds their livelihoods.
+54|c|Esta es la decisión que más nos ha costado tomar; dividimos la empresa a la mitad.|This is the decision that has [cost] us the most to make; we [split] the company in half.
+54|t|Fue la peor tormenta que ha barrido la región en décadas; el daño le costó al pueblo millones.|It was the worst storm to [sweep] the region in decades; the damage [cost] the town millions.
+54|c|Es el mejor trato que he conseguido; apuesto a que no encontrarás uno mejor, y eso solo me costó una llamada.|It's the best deal I have gotten; I [bet] you won't find a better one, and it only [cost] me a phone call.
+54|t|Esta es la mentira más grande a la que se ha quedado pegado; eso le costó toda la confianza que la gente le tenía.|This is the biggest lie he has ever [stuck] to; that [cost] him every bit of trust people had in him.
+54|c|Esta es la apuesta más arriesgada que hemos hecho; nos costó casi todo lo que teníamos.|This is the riskiest [bet] we have ever made; it [cost] us almost everything we had.
+54|t|Fue el columpio que más alto se ha balanceado en todo el parque; eso le costó a mi corazón un buen susto.|It was the swing that has [swung] the highest in the whole park; that [cost] my heart a good scare.
+
+# --- Regla 55 · make/let/help + objeto + infinitivo ---
+55|t|Mi jefe me hizo renunciar a mis vacaciones; eso me costó mucho estrés.|My boss made me [quit] my vacation plans; that [cost] me a lot of stress.
+55|c|Déjame apostar solo una vez más, por favor; sé que me va a costar caro.|Let me [bet] just one more time, please; I know it's going to [cost] me dearly.
+55|t|Mi mamá me hizo barrer el patio antes de salir con mis amigos; eso me costó una hora de mi tarde.|My mom made me [sweep] the yard before going out with my friends; that [cost] me an hour of my afternoon.
+55|c|Me ayudó a dividir las tareas de forma justa; eso me costó pedir ayuda al principio.|She helped me [split] the tasks fairly; that [cost] me a lot to ask for help in the first place.
+55|t|Sus papás no la dejan apostar dinero todavía; piensan que eso le costaría demasiado tan joven.|Her parents don't let her [bet] money yet; they think it would [cost] her too much too soon.
+55|c|El entrenador nos hizo renunciar al descanso para terminar el entrenamiento; eso nos costó algunas quejas del equipo.|The coach made us [quit] our break to finish training; that [cost] us some complaints from the team.
+55|t|Me ayudó a quedarme pegado al plan cuando quería rendirme; eso le costó mucha paciencia.|She helped me [stick] to the plan when I wanted to give up; that [cost] her a lot of patience.
+55|c|Déjame balancearme un rato más en el columpio, por favor; eso no le cuesta nada a nadie.|Let me [swing] a little longer on the swing, please; it doesn't [cost] anyone anything.
+55|t|Mi papá me dejó barrer el garaje como él quería; eso me costó aprender su forma de hacerlo.|My dad let me [sweep] the garage his way; that [cost] me some patience to learn his method.
+55|c|Nos ayudó a dividir el trabajo entre todos; eso nos costó un rato decidir quién hacía qué.|She helped us [split] the work among everyone; that [cost] us a while to decide who did what.
+55|t|El entrenador lo hizo renunciar al equipo después de ese error; eso le costó su puesto por toda la temporada.|The coach made him [quit] the team after that mistake; that [cost] him his spot for the whole season.
+55|c|Déjame deslizarme por el tobogán una vez más antes de irnos; nunca le costó nada a nadie tener un poco más de diversión.|Let me [slide] down the slide one more time before we leave; it never [cost] anyone anything to have a little more fun.
+55|t|Me ayudaron a quedarme pegado a mi presupuesto; eso me costó decir que no varias veces.|They helped me [stick] to my budget; that [cost] me having to say no a few times.
+55|c|No me hagas apostar en algo tan arriesgado; sé que me costaría demasiado.|Don't make me [bet] on something so risky; I know it would [cost] me too much.
+55|t|Nos dejaron barrer la cancha nosotros mismos; eso nos costó casi toda la tarde.|They let us [sweep] the court ourselves; that [cost] us almost the whole afternoon.
+
+# --- Regla 56 · Estilo indirecto ---
+56|t|Dijo que había apostado demasiado dinero esa noche; dijo que eso le había costado mucho arrepentimiento.|She said she had [bet] too much money that night; she said it had [cost] her a lot of regret.
+56|c|Me dijo que no sabía nada; había renunciado a buscar respuestas, y eso le había costado la tranquilidad.|He told me he didn't know anything; he had [quit] looking for answers, and that had [cost] him peace of mind.
+56|t|Dijeron que el barco se había hundido cerca de la costa; dijeron que el accidente le había costado la vida a muchos.|They said the ship had [sunk] near the coast; they said the accident had [cost] many their lives.
+56|c|Me contó que había barrido toda la casa antes de que llegaran; dijo que eso le había costado toda la mañana.|She told me she had [swept] the whole house before they arrived; she said it had [cost] her the whole morning.
+56|t|Dijo que estaba cansado y que había renunciado al gimnasio; dijo que eso le había costado motivación.|He said he was tired and that he had [quit] the gym; he said it had [cost] him too much motivation to continue.
+56|c|Me preguntó si me había quedado pegado en el tráfico; le dije que eso me había costado casi una hora.|She asked me if I had gotten [stuck] in traffic; I said it had [cost] me almost an hour.
+56|t|Dijo que había dividido la herencia entre sus hermanos; dijo que eso no les había costado ninguna pelea.|He said he had [split] the inheritance among his siblings; he said it hadn't [cost] them any arguments.
+56|c|Me dijeron que habían apostado todo en ese negocio nuevo; dijeron que eso ya les había costado algo de sueño.|They told me they had [bet] everything on that new business; they said it had already [cost] them some sleep.
+56|t|Dijo que el sol había brillado todo el día en la playa; dijo que eso le había costado una quemadura fea.|She said the sun had [shone] all day at the beach; she said it had [cost] her a bad sunburn.
+56|c|Me preguntó qué había hecho el fin de semana, y le dije que había barrido todo el patio; eso me había costado el sábado entero.|She asked me what I had done over the weekend, and I told her I had [swept] the whole yard; it had [cost] me my whole Saturday.
+56|t|Dijo que se había quedado pegado a esa vieja costumbre desde niño; dijo que eso nunca le había costado nada.|He said he had [stuck] to that old habit since he was a kid; he said it had never [cost] him anything.
+56|c|Me contó que habían dividido el equipo porque nadie se ponía de acuerdo; dijo que eso les había costado el torneo.|She told me they had [split] the team because nobody agreed; she said it had [cost] them the tournament.
+56|t|Dijeron que iban a renunciar al plan; dijeron que ya les había costado demasiado.|They said they were going to [quit] the plan; they said it had already [cost] them too much.
+56|c|Mi mamá dijo que debía quedarme pegado al presupuesto este mes; dijo que eso nos costaría menos estrés.|My mom said I should [stick] to the budget this month; she said it would [cost] us less stress.
+56|t|Me dijo que nunca había apostado tanto en su vida; dijo que eso le había costado todos sus ahorros.|She told me she had never [bet] so much in her life; she said it had [cost] her every bit of her savings.
+
+# --- Regla 57 · Wish + pasado simple ---
+57|t|Ojalá no apostara tanto dinero cada vez; la última apuesta me costó mis ahorros.|I wish I didn't [bet] so much money every time; my last bet [cost] me my savings.
+57|c|Ojalá pudiera renunciar a mi trabajo ahora mismo; me costó mucho quedarme tanto tiempo.|I wish I could [quit] my job right now; it [cost] me a lot to stay this long.
+57|t|Ojalá el sol brillara más seguido aquí; eso ahorraría lo que la calefacción solía costarnos.|I wish the sun [shone] here more often; that would save what heating used to [cost] us.
+57|c|Ojalá no se hundiera tan rápido ese barco viejo; ya nos costó una reparación grande.|I wish that old boat didn't [sink] so fast; it already [cost] us a big repair.
+57|t|Ojalá pudiéramos dividir mejor las tareas; la última vez nos costó varias peleas.|I wish we could [split] the chores better; last time it [cost] us several fights.
+57|c|Ojalá no se quedara tan pegado el cajón; siempre me costó una lucha abrirlo.|I wish the drawer didn't get so [stuck]; it always [cost] me a struggle to open it.
+57|t|Ojalá renunciara a comer tanta comida chatarra; eso ya me ha costado mi energía.|I wish I would [quit] eating so much junk food; it has already [cost] me my energy.
+57|c|Ojalá no apostáramos tanto en esos juegos; eso siempre nos costó más de lo que ganamos.|I wish we didn't [bet] so much on those games; it always [cost] us more than we won.
+57|t|Ojalá el columpio no se balanceara tanto con el viento; ya nos costó un susto grande.|I wish the swing didn't [swing] so much in the wind; it already [cost] us a big scare.
+57|c|Ojalá pudiera dividir mi tiempo mejor; eso siempre me costó mucho estrés.|I wish I could [split] my time better; that always [cost] me a lot of stress.
+57|t|Ojalá no se deslizara tanto el piso mojado; ya nos costó una caída fea.|I wish the wet floor didn't [slide] so much underfoot; it already [cost] us a bad fall.
+57|c|Ojalá se quedara pegado ese recuerdo feliz para siempre; el triste ya me costó demasiadas lágrimas.|I wish that happy memory [stuck] with me forever; the sad one already [cost] me too many tears.
+57|t|Ojalá renunciáramos juntos a ese mal hábito; nos costaría menos si lo hiciéramos en pareja.|I wish we [quit] that bad habit together; it would [cost] us less if we did it as a team.
+57|c|Ojalá no apostara tanto en cada partido; ya me ha costado una buena parte de mi sueldo.|I wish I didn't [bet] so much on every game; it has already [cost] me a good part of my paycheck.
+57|t|Ojalá el barco no se hundiera cada vez que hay tormenta; eso siempre nos costó demasiado.|I wish the boat didn't [sink] every time there's a storm; that always [cost] us too much.
+
+# --- Regla 58 · Conectores formales ---
+58|t|Aunque apostamos poco, nos costó más de lo esperado.|Although we [bet] little, it [cost] us more than expected.
+58|c|A pesar de la lluvia, barrimos el patio; además, nos costó menos tiempo de lo normal.|Despite the rain, we [swept] the yard; moreover, it [cost] us less time than usual.
+58|t|Renunció al puesto; sin embargo, le costó encontrar otro tan bueno.|He [quit] the position; however, it [cost] him a while to find one as good.
+58|c|Aunque el barco se hundió, el seguro le costó poco gracias a la póliza completa.|Although the ship [sank], the insurance only [cost] him a little thanks to his full policy.
+58|t|A pesar de sus dudas, apostó todo; además, le costó la mitad de lo que ganó después.|Despite his doubts, he [bet] everything; moreover, it [cost] him half of what he earned later.
+58|c|El viaje fue caro; además, nos costó renunciar a otras vacaciones ese año.|The trip was expensive; moreover, it [cost] us having to [quit] other vacation plans that year.
+58|t|Aunque se quedó pegado en el tráfico, llegó a tiempo; sin embargo, le costó el buen humor.|Although he got [stuck] in traffic, he made it on time; however, it [cost] him his good mood.
+58|c|Aunque dividimos bien las tareas, nos costó terminar a tiempo.|Although we [split] the tasks well, it [cost] us time to finish.
+58|t|El plan tenía fallas; sin embargo, nadie renunció a seguirlo, y eso les costó algunos dolores de cabeza después.|The plan had flaws; however, nobody [quit] following it, and that [cost] them a few headaches later.
+58|c|Aunque barrimos todo el piso, el polvo siguió pegado en las esquinas.|Although we [swept] the whole floor, the dust [stuck] in the corners.
+58|t|Además del riesgo, apostamos ahí, y eso nos costó casi todo nuestro presupuesto.|Besides the risk, we [bet] there, and it [cost] us almost our whole budget.
+58|c|A pesar de lo que dijeron, el barco no se hundió esa noche; solo les costó un buen susto.|Despite what they said, the ship didn't [sink] that night; it only [cost] them a scare.
+58|t|Pensé que sería fácil; sin embargo, renunciar me costó más de lo que imaginé.|I thought it would be easy; however, it [cost] me more than I imagined when I [quit].
+58|c|Aunque hizo frío, el sol brilló toda la tarde; además, eso no nos costó nada disfrutar.|Although it was cold, the sun [shone] all afternoon; moreover, it [cost] us nothing to enjoy it.
+58|t|El plan tenía problemas; además, nadie sabía cuánto nos iba a costar dividir el equipo.|The plan had problems; moreover, nobody knew how much it was going to [cost] to [split] the team.
+
+# --- Regla 59 · Phrasal verbs B2 ---
+59|t|Me encontré con mi profesor en el centro comercial y me dijo que apostó por mí desde el principio; eso no le costó nada creer en mí.|I ran into my teacher at the mall, and he told me he [bet] on me from the start; it [cost] him nothing to believe in me.
+59|c|Nos llevamos muy bien desde el primer día; nunca nos costó entendernos, y nunca renunciamos a intentarlo.|We have gotten along well since the first day; it has never [cost] us much to understand each other, and we never [quit] trying.
+59|t|Nunca te rindas; sé que puedes lograrlo, aunque te costara algo de esfuerzo y nunca hayas renunciado antes.|Never give up; I know you can do it, even if it [cost] some effort, and you've never [quit] before.
+59|c|Espero con ansias ese viaje; ya aposté que será inolvidable, y eso me costó muy poco reservarlo.|I'm looking forward to that trip; I already [bet] it will be unforgettable, and it [cost] me very little to book it.
+59|t|Dejó las apuestas después de que eso le costó su matrimonio, y nunca volvió a apostar una vez que renunció.|He gave up betting after it [cost] him his marriage, and he never looked back once he [quit].
+59|c|Me encontré con Ana después de años; me dijo que había renunciado a su trabajo viejo, y eso le había costado mucho valor.|I ran into Ana after years; she told me she had [quit] her old job, and that had [cost] her a lot of courage.
+59|t|¿Te llevas bien con tu jefe? A mí me costó mucho acostumbrarme al principio, y casi renuncié el primer mes.|Do you get along with your boss? It [cost] me a lot to get used to him at first, and I almost [quit] in the first month.
+59|c|Casi me rindo, pero seguí intentando; al final no me costó tanto como pensé, y nunca renuncié.|I almost gave up, but I kept trying; in the end it didn't [cost] me as much as I thought, and I never [quit].
+59|t|Esperamos con ansias el torneo; apostamos que ganaríamos esta vez, aunque nos costó mucha práctica.|We're looking forward to the tournament; we [bet] we'd win this time, even though it [cost] us a lot of practice.
+59|c|No se llevaban bien, así que uno de los dos renunció al proyecto, y eso le costó al equipo su mejor miembro.|They didn't get along, so one of them [quit] the project; that [cost] the team its best member.
+59|t|Me encontré con un viejo amigo y me dijo que nunca había renunciado a su sueño, aunque eso le había costado mucho.|I ran into an old friend, and he told me he had never [quit] his dream; it had [cost] him a lot, but he kept going.
+59|c|Se rindió porque pensó que ya le había costado demasiado seguir intentando, y por fin renunció.|She gave up because she thought it had already [cost] her too much to keep trying, and she finally [quit].
+59|t|Siempre me he llevado bien con mi vecino; nunca me ha costado pedirle ayuda, aunque apuesto a que a veces se cansa de mí.|I have always gotten along with my neighbor; it has never [cost] me much to ask for his help, even though I [bet] he gets tired of me sometimes.
+59|c|Esperaba con ansias el resultado; me costó la paciencia esperar tanto tiempo, y casi renuncié a revisar.|I was looking forward to the result; it [cost] me my patience to wait that long, and I almost [quit] checking altogether.
+59|t|¿Por qué te rendiste? Sabías que no te iba a costar tanto si seguías; nunca deberías haber renunciado.|Why did you give up? You knew it wasn't going to [cost] you that much if you kept going; you should never have [quit].

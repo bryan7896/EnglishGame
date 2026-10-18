@@ -2,11 +2,13 @@
   // 1 yt       → clip real de YouGlish (va aparte: cada 3-6 ejercicios, ver rlDecidirSiguiente)
   // Las demás salen cada 2-15 tarjetas. "Elige reglas" es obligatoria solo con
   // el banco por debajo de RL_MIN_OBLIGATORIO; si no, compite con peso bajo.
-  // 2 pct      → 5 porcentajes (1 verde, 2 naranja, 2 rojo), solo para ver
+  // 2 pct      → todas las reglas con su % y botón de estadística, más la tabla de irregulares
   // 3 reglas   → elige X reglas: rellena el banco hasta RL_BANCO
   // 4 reporte  → copiar informe (cada 60-70 ejercicios) + agregar JSON
   // 5 historia → misma historia 4 veces (3 leyendo, la 4ª solo audio)
   // 6 listening → 3 ejercicios seguidos del Nivel 1 de Listening (mismo avance que el módulo)
+  // 8 irr      → partes de la sesión de Irregulares (no compite: sale por sus contadores,
+  //              ver irrDecidirSorpresa en irregulares/irregulares.js)
   const RL_PESOS = { listening: 35, historia: 30, pct: 20, reglas: 10 };
   const RL_LISTENING_N = 3;
   const RL_APORTE = { bad: 10, warn: 7, good: 5 };
@@ -22,7 +24,7 @@
     const cands = [];
     if (getTargetLanguage() === "en" && typeof n1ReelsDisponible === "function" && n1ReelsDisponible()) cands.push("listening");
     if (rlHistoriaSiguiente()) cands.push("historia");
-    if (rlReglasConPct().length) cands.push("pct");
+    if (AppRules.length) cands.push("pct");
     if (rlContarBanco() < RL_BANCO && (rlReglasDisponibles().length || RL.reserva.length)) cands.push("reglas");
     let lista = cands.filter((t) => t !== RL.ultSorpresa);
     if (!lista.length) lista = cands;
@@ -48,6 +50,7 @@
       case "yt": return rlRenderYT(item, body);
       case "listening": return rlRenderListening(item, body);
       case "azure": return rlRenderAzure(item, body);
+      case "irr": return irrRenderSorpresaReels(item, body);
       default: setTimeout(rlSiguiente, 0);
     }
   }
@@ -69,34 +72,45 @@
       </span>`;
   }
 
-  // ---------- 2. Cinco porcentajes ----------
-  function rlCincoPct() {
-    const conPct = shuffleArray(rlReglasConPct());
-    const by = { good: [], warn: [], bad: [] };
-    conPct.forEach((r) => by[pctTier(r.porcentaje)].push(r));
-    const elegidas = [].concat(by.good.slice(0, 1), by.warn.slice(0, 2), by.bad.slice(0, 2));
-    conPct.forEach((r) => { if (elegidas.length < 5 && !elegidas.includes(r)) elegidas.push(r); });
-    return elegidas.sort((a, b) => b.porcentaje - a.porcentaje);
+  // ---------- 2. Porcentajes: TODAS las reglas + tabla de irregulares ----------
+  // Lista completa (de mayor a menor %, las que aún no tienen registro al final)
+  // con el botón 📊 de estadística en cada una. Debajo, en inglés, la tabla de
+  // veces que se ha estudiado cada verbo irregular.
+  function rlTodasConOrden() {
+    return AppRules.slice().sort((a, b) => (b.porcentaje || 0) - (a.porcentaje || 0) || a.id - b.id);
   }
 
   function rlRenderPct(item, body) {
-    if (!item.ids) { item.ids = rlCincoPct().map((r) => r.id); rlGuardar(); }
     const pintar = () => {
-      const reglas = item.ids.map((id) => findRegla(id)).filter(Boolean);
-      body.innerHTML = rlCabecera(["📊 Tu avance"]) + `
-        <div class="rl-sorpresa rl-pct">
-          <h2 class="rl-title">Así vas en algunas reglas</h2>
-          <p class="rl-sub">Solo un vistazo. Para ver otras, sigue estudiando.</p>
-          <div class="rules-select-list">
-            ${reglas.map((r) => `<div class="rule-card tier-${pctTier(r.porcentaje)} percentages-row">${rlFilaRegla(r)}
-              <button type="button" class="rule-stats-btn" data-id="${r.id}" title="Ver estadísticas">📊</button></div>`).join("")}
+      const reglas = rlTodasConOrden();
+      const cuenta = { good: 0, warn: 0, bad: 0, nueva: 0 };
+      reglas.forEach((r) => { if (r.porcentaje > 0) cuenta[pctTier(r.porcentaje)]++; else cuenta.nueva++; });
+      const fila = (r) => `<div class="rule-card tier-${r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad"} percentages-row">${rlFilaRegla(r)}
+              <button type="button" class="rule-stats-btn" data-id="${r.id}" title="Ver estadísticas">📊</button></div>`;
+      const conPct = reglas.filter((r) => r.porcentaje > 0);
+      const sinPct = reglas.filter((r) => !(r.porcentaje > 0));
+      body.innerHTML = rlCabecera(["📊 Tu avance", reglas.length + " reglas"]) + `
+        <div class="rl-sorpresa rl-pct rl-pct-todas">
+          <h2 class="rl-title">Así vas en tus reglas</h2>
+          <div class="rl-pct-resumen">
+            <span class="tier-good">● ${cuenta.good} verdes</span>
+            <span class="tier-warn">● ${cuenta.warn} naranjas</span>
+            <span class="tier-bad">● ${cuenta.bad} rojas</span>
+            ${cuenta.nueva ? `<span>○ ${cuenta.nueva} sin registro</span>` : ""}
           </div>
+          <div class="rules-select-list">
+            ${conPct.map(fila).join("")}
+            ${sinPct.length ? `<p class="rl-pct-sep">Sin registro todavía</p>` + sinPct.map(fila).join("") : ""}
+          </div>
+          ${typeof irrDisponible === "function" && irrDisponible() ? irrTablaHTML() : ""}
           <button class="fun-btn primary-btn full-width rl-continuar">Continuar ⬆</button>
         </div>`;
       body.querySelectorAll(".rule-stats-btn").forEach((b) => b.onclick = () => showRuleStatsModal(parseInt(b.dataset.id, 10)));
       body.querySelector(".rl-continuar").onclick = () => rlSorpresaHecha(item);
     };
     pintar();
+    // Si los % todavía se están consultando, se repinta cuando lleguen.
+    if (!RLV.syncListo && RLV.sync) RLV.sync.then(() => { if (RL.cur === item && body.isConnected) pintar(); });
   }
 
   // ---------- 3. Elegir reglas (rellena el banco) ----------
@@ -121,26 +135,14 @@
     const f = (RL.reglasEstudio || {})[id];
     return !!f && f >= rlFechaMenosDias(2);
   }
-  function rlReglasParaElegir(minimo) {
-    const dia = rlReglasDia();
+  function rlReglasParaElegir() {
     const disp = rlReglasDisponibles();
-    const libre = (r) => !rlEstudiadaReciente(r.id);
     const conPct = disp.filter((r) => r.porcentaje > 0).sort((a, b) => a.porcentaje - b.porcentaje);
-    const rojas = conPct.filter((r) => pctTier(r.porcentaje) === "bad" && libre(r));
-    const naranjas = conPct.filter((r) => pctTier(r.porcentaje) === "warn" && libre(r));
-    const verdes = shuffleArray(conPct.filter((r) => pctTier(r.porcentaje) === "good" && libre(r)));
-    const nuevas = shuffleArray(disp.filter((r) => r.porcentaje <= 0 && libre(r)));
-    const cupoVerdes = Math.max(0, 2 - (dia.verdes || 0));
-    const cupoNuevas = Math.max(0, 1 - (dia.ceros || 0));
-    const lista = [].concat(rojas, naranjas, verdes.slice(0, cupoVerdes), nuevas.slice(0, cupoNuevas));
-    if (lista.length < (minimo || 1)) {
-      // Completa con rojas/naranjas estudiadas hace más tiempo (las más antiguas primero).
-      const f = RL.reglasEstudio || {};
-      const resto = conPct.filter((r) => pctTier(r.porcentaje) !== "good" && !lista.includes(r))
-        .sort((a, b) => String(f[a.id] || "").localeCompare(String(f[b.id] || "")));
-      resto.forEach((r) => { if (lista.length < Math.max(minimo || 1, 5)) lista.push(r); });
-    }
-    return lista;
+    const rojas = conPct.filter((r) => pctTier(r.porcentaje) === "bad");
+    const naranjas = conPct.filter((r) => pctTier(r.porcentaje) === "warn");
+    const verdes = conPct.filter((r) => pctTier(r.porcentaje) === "good");
+    const nuevas = disp.filter((r) => r.porcentaje <= 0);
+    return [].concat(rojas, naranjas, verdes, nuevas);
   }
 
   function rlAporte(r) { return RL_APORTE[r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad"]; }
@@ -160,8 +162,11 @@
       }
       item.manual = m;
       item.sistema = reglas.length ? Math.max(0, deficit - m) : 0;
+      // Irregulares: el 25 % de lo que se carga sale del banco de irregulares del
+      // paquete del día (de las reglas que elijas). Se descuenta de la parte del sistema.
+      item.irr = typeof irrCupoRecarga === "function" ? Math.min(item.sistema, irrCupoRecarga(item.manual + item.sistema)) : 0;
       const xDeseado = item.sistema > 0 ? Math.max(1, Math.round(item.sistema / 8)) : 0;
-      item.reglas = rlReglasParaElegir(xDeseado).map((r) => r.id);
+      item.reglas = rlReglasParaElegir().map((r) => r.id);
       item.x = xDeseado ? Math.min(item.reglas.length, xDeseado) : 0;
       if (item.reglas.length) {
         const dia = rlReglasDia();
@@ -184,7 +189,7 @@
       ? `Selecciona <b>${item.x}</b> regla${item.x === 1 ? "" : "s"}`
       : (item.manual ? "Entran ejercicios tuyos" : "Tu banco está lleno");
     const subt = [
-      item.sistema ? `El sistema cargará <b>${item.sistema}</b> ejercicio${item.sistema === 1 ? "" : "s"} repartidos entre las que elijas.` : "",
+      item.sistema ? `El sistema cargará <b>${item.sistema}</b> ejercicio${item.sistema === 1 ? "" : "s"} repartidos entre las que elijas${item.irr ? ` (<b>${item.irr}</b> con verbos irregulares del paquete ${irrEstado().paquete})` : ""}.` : "",
       item.manual ? `<b>${item.manual}</b> ejercicio${item.manual === 1 ? "" : "s"} de tu reserva manual entran también.` : "",
       vacio ? (rlReglasDisponibles().length ? "No hace falta cargar nada por ahora." : "No hay ejercicios disponibles en el banco del sistema para este idioma. Agrega ejercicios desde el menú (📥).") : "",
     ].filter(Boolean).join(" ");
@@ -242,12 +247,20 @@
       RL.reserva.splice(0, item.manual).forEach((e) => nuevas.push(rlItemEx(e, "man")));
       total += item.manual;
     }
-    if (ids.length && item.sistema) {
+    let irrN = 0;
+    if (item.irr && typeof irrTomarParaRecarga === "function") {
+      const irrEjs = irrTomarParaRecarga(item.irr, ids);
+      irrEjs.forEach((e) => nuevas.push(rlItemEx(e, "irr")));
+      irrN = irrEjs.length;
+      total += irrN;
+    }
+    const sistema = Math.max(0, (item.sistema || 0) - irrN);
+    if (ids.length && sistema) {
       const reglas = ids.map((id) => findRegla(id)).filter(Boolean);
       const suma = reglas.reduce((s, r) => s + rlAporte(r), 0) || 1;
       const elegidos = new Set();
       reglas.forEach((r) => {
-        const n = Math.max(RL_MIN_POR_REGLA, Math.round(item.sistema * rlAporte(r) / suma));
+        const n = Math.max(RL_MIN_POR_REGLA, Math.round(sistema * rlAporte(r) / suma));
         const ejs = rlTomarDeRegla(r.id, n, elegidos);
         ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys")));
         total += ejs.length;

@@ -1,0 +1,971 @@
+# Paquete 8 · lend, seek, shoot, steal, swear, wake, hang, deal, feed, forgive
+# regla|t (traducción) o c (completar)|español|inglés con las 2 formas entre [corchetes]
+
+# --- Regla 1 · Past Perfect Continuous ---
+1|t|Llevaba horas durmiendo cuando el perro me despertó; le di de comer y volví a la cama.|I had been sleeping for hours when the dog [woke] me; I [fed] it and went back to bed.
+1|c|Habíamos estado ahorrando por meses cuando alguien nos robó el dinero; mi hermano nos prestó un poco.|We had been saving for months when someone [stole] our money; my brother [lent] us some.
+1|t|Llevaba años buscando a su padre cuando por fin lo encontró y lo perdonó; lo había buscado en tres países.|She had been looking for her father for years when she finally found him and [forgave] him; she had [sought] him in three countries.
+1|c|Habían estado discutiendo toda la noche cuando él juró que cambiaría; ella lo perdonó.|They had been arguing all night when he [swore] he would change; she [forgave] him.
+1|t|Llevaba semanas grabando el documental cuando le robaron la cámara; había grabado cincuenta horas de video.|He had been filming the documentary for weeks when someone [stole] his camera; he had [shot] fifty hours of video.
+1|c|Habíamos estado decorando toda la tarde; colgamos las luces y le dimos de comer a los niños.|We had been decorating all afternoon; we [hung] the lights and [fed] the kids.
+1|t|Llevaba meses luchando con el estrés cuando buscó ayuda profesional; después de eso lo manejó mucho mejor.|She had been struggling with stress for months when she [sought] professional help; she [dealt] with it much better after that.
+1|c|Habían estado jugando cartas por horas; él repartió la última mano y juró que no volvería a jugar.|They had been playing cards for hours; he [dealt] the last hand and [swore] he would never play again.
+1|t|Llevaba años prestándole dinero cuando por fin dejé de hacerlo; nunca me pagó, pero lo perdoné. Le había prestado miles.|I had been lending him money for years when I finally stopped; he never paid me back, but I [forgave] him. I had [lent] him thousands.
+1|c|Habíamos estado durmiendo una hora cuando la alarma nos despertó; alguien estaba robando el carro.|We had been sleeping for an hour when the alarm [woke] us; someone [stole] the car.
+1|t|Llevaba días buscando trabajo cuando por fin colgó su currículum en una bolsa de empleo; le pidió consejo a un amigo.|He had been looking for work for days when he finally [hung] his résumé on a job board; he [sought] advice from a friend.
+1|c|Había estado alimentando a los gatos de la calle por años cuando uno le robó el almuerzo; igual le dio de comer.|She had been feeding the street cats for years when one [stole] her lunch; she [fed] it anyway.
+1|t|Llevaba horas tomando fotos cuando por fin salió el sol; despertó a todos para verlo. Había disparado trescientas fotos.|He had been taking photos for hours when the sun finally rose; he [woke] everyone to see it. He had [shot] three hundred photos.
+1|c|Habían estado buscando al ladrón por semanas cuando confesó que robó las joyas; juró que estaba arrepentido.|They had been looking for the thief for weeks when he confessed that he [stole] the jewels; he [swore] he was sorry.
+1|t|Llevábamos años sin hablarnos cuando por fin me perdonó; me prestó su casa para la boda.|We hadn't been talking for years when she finally [forgave] me; she [lent] me her house for the wedding.
+
+# --- Regla 2 · Wh Questions ---
+2|t|¿Quién te prestó el carro? ¿Quién lo robó?|Who [lent] you the car? Who [stole] it?
+2|c|¿A qué hora te despertaste? ¿Le diste de comer al perro?|What time did you [wake] up? Did you [feed] the dog?
+2|t|¿Por qué juraste eso? ¿Ya te perdonó?|Why did you [swear] that? Has she [forgiven] you yet?
+2|c|¿Dónde colgaste mi chaqueta? ¿Quién la robó?|Where did you [hang] my jacket? Who [stole] it?
+2|t|¿Cómo manejaste el problema? ¿Buscaste ayuda?|How did you [deal] with the problem? Did you [seek] help?
+2|c|¿Quién disparó la foto? ¿Quién colgó el cuadro?|Who [shot] the photo? Who [hung] the picture?
+2|t|¿Cuánto dinero le has prestado? ¿Te ha jurado que te pagará?|How much money have you [lent] him? Has he [sworn] to pay you back?
+2|c|¿Quién repartió las cartas? ¿Por qué juró tanto?|Who [dealt] the cards? Why did he [swear] so much?
+2|t|¿Qué le diste de comer al bebé? ¿Lo despertaste?|What did you [feed] the baby? Did you [wake] him up?
+2|c|¿Cuándo te robaron la bicicleta? ¿Buscaste en el barrio?|When did they [steal] your bike? Did you [seek] it in the neighborhood?
+2|t|¿Por qué lo perdonaste? ¿Juró que no lo haría otra vez?|Why did you [forgive] him? Did he [swear] he wouldn't do it again?
+2|c|¿Dónde grabaron la película? ¿Quién les prestó el equipo?|Where did they [shoot] the movie? Who [lent] them the equipment?
+2|t|¿Quién te despertó? ¿Quién colgó el teléfono tan fuerte?|Who [woke] you up? Who [hung] up the phone so loudly?
+2|c|¿Cómo has manejado el estrés? ¿Has buscado un terapeuta?|How have you [dealt] with stress? Have you [sought] a therapist?
+2|t|¿Quién alimentó a los peces? ¿Quién se robó la comida del gato?|Who [fed] the fish? Who [stole] the cat's food?
+
+# --- Regla 3 · Orden de sustantivos compuestos ---
+3|t|Me prestó su cámara de video y disparé fotos en la fiesta de cumpleaños.|She [lent] me her video camera, and I [shot] photos at the birthday party.
+3|c|Me robaron la tarjeta de crédito en la estación de tren; busqué ayuda en la oficina de policía.|Someone [stole] my credit card at the train station; I [sought] help at the police station.
+3|t|El despertador me despertó a las seis; le di de comer al perro guardián.|The alarm clock [woke] me at six; I [fed] the guard dog.
+3|c|Colgué el abrigo de invierno en el perchero del pasillo; perdoné al gato por romperlo.|I [hung] the winter coat on the hallway coat rack; I [forgave] the cat for tearing it.
+3|t|El jugador de fútbol disparó al arco; el portero lo perdonó con una sonrisa.|The soccer player [shot] at the goal; the goalkeeper [forgave] him with a smile.
+3|c|Manejé la queja del cliente y le presté mi número de teléfono.|I [dealt] with the customer complaint and [lent] him my phone number.
+3|t|Juró en la sala del tribunal que no robó la bicicleta de montaña.|He [swore] in the courtroom that he didn't [steal] the mountain bike.
+3|c|Le di de comer a los peces del acuario y colgué la red de pesca.|I [fed] the aquarium fish and [hung] up the fishing net.
+3|t|Buscó trabajo en la feria de empleo y le prestaron un traje de entrevista.|He [sought] work at the job fair, and they [lent] him an interview suit.
+3|c|El ladrón de bancos robó la caja fuerte; la policía disparó al aire.|The bank robber [stole] the safe; the police [shot] into the air.
+3|t|Me despertó el camión de basura; colgué las cortinas nuevas.|The garbage truck [woke] me; I [hung] the new curtains.
+3|c|Repartió las cartas en la mesa de juego y juró que no hizo trampa.|He [dealt] the cards at the game table and [swore] he didn't cheat.
+3|t|Le presté mi cargador de teléfono; me lo robó.|I [lent] him my phone charger; he [stole] it.
+3|c|Perdonó la deuda de la tarjeta de crédito y alimentó a la familia con el dinero.|She [forgave] the credit card debt and [fed] the family with the money.
+3|t|Disparamos fotos de boda en el jardín botánico; colgamos las mejores en la sala.|We [shot] wedding photos at the botanical garden; we [hung] the best ones in the living room.
+
+# --- Regla 4 · Segundo condicional ---
+4|t|Si me prestaras tu carro, te perdonaría todo.|If you [lent] me your car, I would [forgive] you for everything.
+4|c|Si alguien robara mi bicicleta, buscaría ayuda en la policía.|If someone [stole] my bike, I would [seek] help from the police.
+4|t|Si te despertaras más temprano, le darías de comer al perro.|If you [woke] up earlier, you would [feed] the dog.
+4|c|Si juraras decir la verdad, te perdonaría.|If you [swore] to tell the truth, I would [forgive] you.
+4|t|Si manejaras mejor el estrés, no colgarías el teléfono tan fuerte.|If you [dealt] with stress better, you wouldn't [hang] up the phone so hard.
+4|c|Si colgaras el cuadro aquí, yo grabaría un video para mostrarlo.|If you [hung] the picture here, I would [shoot] a video to show it.
+4|t|Si buscara trabajo, alguien me prestaría un traje.|If I [sought] work, someone would [lend] me a suit.
+4|c|Si alimentaras a los pájaros, te despertarían cantando.|If you [fed] the birds, they would [wake] you up singing.
+4|t|Si disparara mejor, nadie me robaría el puesto.|If I [shot] better, nobody would [steal] my spot.
+4|c|Si me perdonaras, juraría no hacerlo otra vez.|If you [forgave] me, I would [swear] never to do it again.
+4|t|Si robaran el carro, lo buscaríamos toda la noche.|If they [stole] the car, we would [seek] it all night.
+4|c|Si me prestaras dinero, te daría parte de las ganancias.|If you [lent] me money, I would [deal] you in on the profits.
+4|t|Si me despertaras a las cinco, colgaría las luces antes de la fiesta.|If you [woke] me at five, I would [hang] the lights before the party.
+4|c|Si dijeras menos groserías, la gente te perdonaría más rápido.|If you [swore] less, people would [forgive] you faster.
+4|t|Si alimentáramos mejor al perro, no robaría comida.|If we [fed] the dog better, it wouldn't [steal] food.
+
+# --- Regla 5 · Cláusulas relativas ---
+5|t|El hombre que me prestó el dinero me perdonó la deuda.|The man who [lent] me the money [forgave] my debt.
+5|c|La bicicleta que robaron la encontró un vecino que buscaba a su perro.|A neighbor who [sought] his dog found the bike that they [stole].
+5|t|El ruido que me despertó vino del perro que alimenté anoche.|The noise that [woke] me came from the dog that I [fed] last night.
+5|c|El cuadro que colgué en la sala lo pintó la mujer que juró no vender nunca su arte.|The woman who painted the picture I [hung] in the living room [swore] never to sell her art.
+5|t|El fotógrafo que disparó estas fotos robó la atención de todos.|The photographer who [shot] these photos [stole] everyone's attention.
+5|c|El cliente con el que traté ayer me perdonó el error.|The customer I [dealt] with yesterday [forgave] my mistake.
+5|t|El testigo que juró decir la verdad buscó protección.|The witness who [swore] to tell the truth [sought] protection.
+5|c|El niño que alimentó a los patos colgó una foto en la pared.|The boy who [fed] the ducks [hung] a photo on the wall.
+5|t|La señora a quien le robaron el bolso perdonó al ladrón.|The woman whose bag was [stolen] [forgave] the thief.
+5|c|El amigo que me prestó su carro me despertó a las cinco.|The friend who [lent] me his car [woke] me at five.
+5|t|La película que grabaron aquí trata de un hombre que robó un banco.|The movie they [shot] here is about a man who [stole] from a bank.
+5|c|El jefe que trató el problema buscó una solución rápida.|The boss who [dealt] with the problem [sought] a quick solution.
+5|t|La vecina cuyo gato alimenté me prestó su escalera.|The neighbor whose cat I [fed] [lent] me her ladder.
+5|c|El hombre que juró venganza nunca perdonó a su hermano.|The man who [swore] revenge never [forgave] his brother.
+5|t|El abrigo que colgué en la puerta fue robado.|The coat that I [hung] on the door was [stolen].
+
+# --- Regla 6 · Need to + infinitivo ---
+6|t|Necesito despertar a los niños; anoche les di de comer muy tarde.|I need to [wake] the kids; last night I [fed] them very late.
+6|c|Necesitas perdonarlo; ya juró que no lo hará otra vez.|You need to [forgive] him; he has already [sworn] he won't do it again.
+6|t|Necesitamos colgar los cuadros; ya buscamos el lugar perfecto.|We need to [hang] the pictures; we have already [sought] the perfect place.
+6|c|Necesito prestarle dinero; le robaron la billetera ayer.|I need to [lend] him money; someone [stole] his wallet yesterday.
+6|t|Necesita buscar ayuda; ha tratado con demasiado estrés.|She needs to [seek] help; she has [dealt] with too much stress.
+6|c|Necesitas alimentar al gato; nadie le dio de comer esta mañana y me despertó llorando.|You need to feed the cat; nobody [fed] it this morning, and it [woke] me crying.
+6|t|No necesitas jurar; te perdoné ayer.|You don't need to [swear]; I [forgave] you yesterday.
+6|c|Necesitamos grabar la escena otra vez; alguien robó la cámara.|We need to [shoot] the scene again; someone [stole] the camera.
+6|t|Necesito tratar este asunto hoy; ya colgué el teléfono dos veces.|I need to [deal] with this issue today; I have already [hung] up the phone twice.
+6|c|Necesitas despertarte temprano; ayer te despertaste a las diez y le diste de comer tarde al perro.|You need to wake up early; yesterday you [woke] up at ten and [fed] the dog late.
+6|t|Necesito pedirte prestado dinero; me robaron en el bus.|I need you to [lend] me money; they [stole] from me on the bus.
+6|c|Necesitamos buscar al perro; robó la carne y huyó.|We need to [seek] the dog; it [stole] the meat and ran away.
+6|t|Necesita perdonarse a sí mismo; juró que nunca cometería ese error.|He needs to [forgive] himself; he [swore] he would never make that mistake.
+6|c|Necesito colgar la ropa; ya alimenté a las gallinas.|I need to [hang] the laundry; I have already [fed] the chickens.
+6|t|Necesitas tratar con calma a los clientes; ayer uno juró que no volvería.|You need to [deal] calmly with customers; yesterday one [swore] he would never come back.
+
+# --- Regla 8 · Pronombre objeto tras preposición ---
+8|t|Le presté mi carro a ella y lo robaron frente a su casa.|I [lent] my car to her, and someone [stole] it in front of her house.
+8|c|Busqué consejo en él y me perdonó por llegar tarde.|I [sought] advice from him, and he [forgave] me for being late.
+8|t|Disparó una foto de nosotros y la colgó en la pared.|He [shot] a photo of us and [hung] it on the wall.
+8|c|Juró delante de ellos que no robó nada.|He [swore] in front of them that he didn't [steal] anything.
+8|t|El perro me despertó a mí primero; luego le di de comer.|The dog [woke] me first; then I [fed] it.
+8|c|Trató con nosotros directamente y nos prestó su oficina.|She [dealt] with us directly and [lent] us her office.
+8|t|Colgó el teléfono sin despedirse de mí; nunca lo perdoné.|He [hung] up on me without saying goodbye; I never [forgave] him.
+8|c|Alimentamos a los niños antes que a ellos; luego buscamos postre.|We [fed] the kids before them; then we [sought] dessert.
+8|t|Robaron algo de mí, pero perdoné a quien lo hizo.|They [stole] something from me, but I [forgave] whoever did it.
+8|c|Me prestó sus apuntes a mí y no a él; él juró vengarse.|She [lent] her notes to me and not to him; he [swore] revenge.
+8|t|Despertamos a nuestros hijos y les dimos de comer.|We [woke] our kids and [fed] them.
+8|c|Apuntó la cámara hacia ellos y grabó todo; nadie se la robó.|He pointed the camera at them and [shot] everything; nobody [stole] it from him.
+8|t|Buscaron ayuda en nosotros; les prestamos dinero.|They [sought] help from us; we [lent] them money.
+8|c|Repartió las cartas entre nosotros y juró que no miró.|He [dealt] the cards among us and [swore] he didn't look.
+8|t|Colgó un cuadro de él en la sala; lo perdonó al final.|She [hung] a picture of him in the living room; she [forgave] him in the end.
+
+# --- Regla 9 · "as" = como ---
+9|t|Trabajó como fotógrafo y disparó fotos en cien bodas; colgó las mejores en su estudio.|He worked as a photographer and [shot] photos at a hundred weddings; he [hung] the best ones in his studio.
+9|c|Como no me despertaste, no le di de comer al perro.|As you didn't [wake] me, I didn't [feed] the dog.
+9|t|Como amigo, le presté dinero sin pedir nada; juró pagarme.|As a friend, I [lent] him money without asking for anything; he [swore] to pay me back.
+9|c|Usó la puerta como mesa y colgó un mantel encima; alimentamos a veinte invitados.|He used the door as a table and [hung] a tablecloth over it; we [fed] twenty guests.
+9|t|Como siempre, el gato robó comida y me despertó a medianoche.|As always, the cat [stole] food and [woke] me at midnight.
+9|c|Como abogada, trató casos difíciles y buscó justicia.|As a lawyer, she [dealt] with difficult cases and [sought] justice.
+9|t|Como te dije, me robaron el teléfono; busqué ayuda en la policía.|As I told you, someone [stole] my phone; I [sought] help from the police.
+9|c|Como juró decir la verdad, el juez lo perdonó.|As he had [sworn] to tell the truth, the judge [forgave] him.
+9|t|Como regalo, colgó luces en mi ventana y me despertó con música.|As a gift, he [hung] lights in my window and [woke] me with music.
+9|c|Como capitán, disparó el último penal y repartió las medallas.|As captain, he [shot] the last penalty and [dealt] out the medals.
+9|t|Como madre, alimentó a cinco hijos y perdonó todos sus errores.|As a mother, she [fed] five children and [forgave] all their mistakes.
+9|c|Usó el dinero prestado como fondo de emergencia; nadie lo robó.|He used the [lent] money as an emergency fund; nobody [stole] it.
+9|t|Como esperábamos, juró inocencia y buscó un abogado.|As we expected, he [swore] he was innocent and [sought] a lawyer.
+9|c|Como no había trabajo, buscó en otra ciudad y su tío le prestó un cuarto.|As there was no work, he [sought] a job in another city, and his uncle [lent] him a room.
+9|t|Como siempre, me despertó el gallo; alimenté a los animales.|As always, the rooster [woke] me; I [fed] the animals.
+
+# --- Regla 10 · Presente perfecto ---
+10|t|Le he prestado dinero tres veces y nunca me ha perdonado que se lo pida de vuelta.|I have [lent] him money three times, and he has never [forgiven] me for asking for it back.
+10|c|Han robado dos carros en la calle; la policía ha buscado a los ladrones toda la semana.|They have [stolen] two cars on the street; the police have [sought] the thieves all week.
+10|t|¿Ya le has dado de comer al perro? Me ha despertado tres veces.|Have you [fed] the dog yet? It has [woken] me three times.
+10|c|He colgado todas las fotos que hemos disparado este año.|I have [hung] all the photos we have [shot] this year.
+10|t|Ha jurado que no lo hizo; ya lo he perdonado.|He has [sworn] he didn't do it; I have already [forgiven] him.
+10|c|Hemos tratado con muchos clientes difíciles; nunca hemos robado a nadie.|We have [dealt] with many difficult customers; we have never [stolen] from anyone.
+10|t|Han buscado una solución por años; nadie les ha prestado atención.|They have [sought] a solution for years; nobody has [lent] them an ear.
+10|c|He despertado a todos; ya les he dado de comer a los niños.|I have [woken] everyone; I have already [fed] the kids.
+10|t|Ha disparado mil fotos y las ha colgado en la pared.|She has [shot] a thousand photos and has [hung] them on the wall.
+10|c|Nunca he robado nada; siempre he jurado decir la verdad.|I have never [stolen] anything; I have always [sworn] to tell the truth.
+10|t|Me ha perdonado; me ha prestado su carro otra vez.|She has [forgiven] me; she has [lent] me her car again.
+10|c|Hemos alimentado a los gatos de la calle y hemos buscado hogares para ellos.|We have [fed] the street cats and have [sought] homes for them.
+10|t|Ha colgado el teléfono; ha tratado muy mal a su jefe.|He has [hung] up the phone; he has [dealt] very badly with his boss.
+10|c|¿Has jurado alguna vez en un tribunal? Yo he despertado al juez con mi tos.|Have you ever [sworn] in a court? I have [woken] the judge with my cough.
+10|t|Le han robado la bicicleta dos veces; ha buscado en todo el barrio.|Someone has [stolen] his bike twice; he has [sought] it all over the neighborhood.
+
+# --- Regla 11 · Bring / Brought ---
+11|t|Trajo la cámara que le presté y disparó fotos toda la tarde.|He brought the camera I [lent] him and [shot] photos all afternoon.
+11|c|Trae la comida del perro; nadie lo ha alimentado y me despertó dos veces.|Bring the dog food; nobody has [fed] it, and it [woke] me twice.
+11|t|Trajo flores porque le perdoné; juró que no volvería a mentir.|He brought flowers because I [forgave] him; he [swore] he would never lie again.
+11|c|Trajeron el cuadro que robaron y lo colgaron en la pared.|They brought the painting they [stole] and [hung] it on the wall.
+11|t|Me trajo el libro que le presté hace un año; lo había buscado por todas partes.|She brought me the book I [lent] her a year ago; I had [sought] it everywhere.
+11|c|Traje las cartas y repartí la primera mano; nadie juró.|I brought the cards and [dealt] the first hand; nobody [swore].
+11|t|Trae el abrigo que colgaste en la puerta; lo van a robar.|Bring the coat you [hung] on the door; someone will [steal] it.
+11|c|Trajo a su hijo, que lo despertó a las cinco; le dio de comer en el carro.|He brought his son, who [woke] him at five; he [fed] him in the car.
+11|t|¿Trajiste el dinero que te presté? Juraste que lo traerías hoy.|Did you bring the money I [lent] you? You [swore] you would bring it today.
+11|c|Trajeron comida para los perros que alimentaron en el refugio; buscaron dueños para ellos.|They brought food for the dogs they [fed] at the shelter; they [sought] owners for them.
+11|t|Me trajo las fotos que disparó en la boda; las colgué en la sala.|He brought me the photos he [shot] at the wedding; I [hung] them in the living room.
+11|c|Traje un pastel para que me perdonaras; robé tu última galleta.|I brought a cake so you would [forgive] me; I [stole] your last cookie.
+11|t|Trae tus preguntas; trataremos cada una y buscaremos respuestas.|Bring your questions; we will [deal] with each one and [seek] answers.
+11|c|Me trajo un despertador porque nunca me despierto a tiempo; le presté mi cafetera.|She brought me an alarm clock because I never [wake] up on time; I [lent] her my coffee maker.
+11|t|Trajo a la policía porque alguien le robó el carro; juró encontrar al ladrón.|She brought the police because someone [stole] her car; she [swore] to find the thief.
+
+# --- Regla 12 · Primer condicional ---
+12|t|Si me prestas el carro, te perdonaré.|If you [lend] me the car, I'll [forgive] you.
+12|c|Si roban algo, buscaremos ayuda.|If they [steal] anything, we'll [seek] help.
+12|t|Si te despiertas temprano, alimenta a las gallinas.|If you [wake] up early, [feed] the chickens.
+12|c|Si juras decir la verdad, te perdonaré.|If you [swear] to tell the truth, I'll [forgive] you.
+12|t|Si cuelgas el cuadro, lo grabaré en video.|If you [hang] the picture, I'll [shoot] a video of it.
+12|c|Si tratas bien a los clientes, te prestarán atención.|If you [deal] well with customers, they'll [lend] you their attention.
+12|t|Si buscas trabajo, te prestaré mi traje.|If you [seek] work, I'll [lend] you my suit.
+12|c|Si alimentas al gato, no te despertará.|If you [feed] the cat, it won't [wake] you.
+12|t|Si disparas bien, nadie te robará el puesto.|If you [shoot] well, nobody will [steal] your spot.
+12|c|Si me perdonas, juro que no lo haré otra vez.|If you [forgive] me, I [swear] I won't do it again.
+12|t|Si robas, te buscarán.|If you [steal], they'll [seek] you out.
+12|c|Si repartes las cartas, juraré que no miro.|If you [deal] the cards, I'll [swear] I'm not looking.
+12|t|Si me despiertas, colgaré las luces contigo.|If you [wake] me, I'll [hang] the lights with you.
+12|c|Si cuelgas el teléfono, no te perdonaré.|If you [hang] up the phone, I won't [forgive] you.
+12|t|Si alimentas bien al perro, no robará comida.|If you [feed] the dog well, it won't [steal] food.
+
+# --- Regla 13 · Past Perfect vs Presente vs Futuro ---
+13|t|Ya le había prestado dinero; mañana le perdonaré la deuda.|I had already [lent] him money; tomorrow I will [forgive] the debt.
+13|c|Nunca había robado nada; mañana jurará ante el juez que no lo volverá a hacer.|He had never [stolen] anything; tomorrow he will [swear] before the judge never to do it again.
+13|t|Cuando llegué, ya habían alimentado al perro; mañana lo despertaré yo.|When I arrived, they had already [fed] the dog; tomorrow I will [wake] it up.
+13|c|Ya había colgado los cuadros; mañana grabaremos el video.|I had already [hung] the pictures; tomorrow we will [shoot] the video.
+13|t|Nunca la había perdonado; mañana buscaré la manera de hacerlo.|I had never [forgiven] her; tomorrow I will [seek] a way to do it.
+13|c|Ya habían tratado el tema; la próxima semana juramentarán al nuevo funcionario.|They had already [dealt] with the issue; next week they will [swear] in the new officer.
+13|t|Me habían despertado tres veces; esta noche alimentaré al bebé yo.|They had [woken] me three times; tonight I will [feed] the baby.
+13|c|Había buscado trabajo por meses; mañana colgaré mi currículum en el tablero de la bolsa de empleo.|I had [sought] work for months; tomorrow I will [hang] my résumé on the board at the job center.
+13|t|Ya habían disparado la escena; mañana robaremos un poco de tiempo para editar.|They had already [shot] the scene; tomorrow we will [steal] some time to edit.
+13|c|Nunca había jurado en un tribunal; el lunes me prestarán un abogado.|I had never [sworn] in a court; on Monday they will [lend] me a lawyer.
+13|t|Le habían robado el carro; mañana le prestaré el mío.|Someone had [stolen] his car; tomorrow I will [lend] him mine.
+13|c|Ya había perdonado a su hermano; ahora buscará reconciliarse.|She had already [forgiven] her brother; now she will [seek] to make peace.
+13|t|Ya había alimentado a los caballos; mañana colgaremos las monturas.|I had already [fed] the horses; tomorrow we will [hang] the saddles.
+13|c|Nunca había tratado con un cliente así; mañana lo despertaré con una llamada temprano.|I had never [dealt] with a client like that; tomorrow I will [wake] him with an early call.
+13|t|Habíamos colgado las luces; esta noche despertaremos a los niños para verlas.|We had [hung] the lights; tonight we will [wake] the kids to see them.
+
+# --- Regla 14 · Make vs Do ---
+14|t|Hice la cena y les di de comer a los niños; luego colgué la ropa.|I made dinner and [fed] the kids; then I [hung] up the laundry.
+14|c|Cometí un error y me robaron la billetera; mi amigo me prestó dinero.|I made a mistake, and someone [stole] my wallet; my friend [lent] me money.
+14|t|Hicimos un trato y juramos guardar el secreto; él me perdonó la deuda.|We made a deal and [swore] to keep the secret; he [forgave] my debt.
+14|c|Hizo la tarea y luego buscó un trabajo de medio tiempo; trató con muchos clientes.|She did her homework and then [sought] a part-time job; she [dealt] with many customers.
+14|t|Hice ruido y desperté al bebé; le di de comer otra vez.|I made noise and [woke] the baby; I [fed] him again.
+14|c|Hicieron un gran trabajo: grabaron el video y colgaron el afiche en el vestíbulo.|They did a great job: they [shot] the video and [hung] the poster in the lobby.
+14|t|Hizo una promesa y la juró ante todos; nadie lo perdonó cuando la rompió.|He made a promise and [swore] it before everyone; nobody [forgave] him when he broke it.
+14|c|Hice las compras y le presté el carro a mi hermano; alguien lo robó en el parqueadero.|I did the shopping and [lent] the car to my brother; someone [stole] it in the parking lot.
+14|t|Hicimos un esfuerzo y tratamos con el problema; buscamos una solución juntos.|We made an effort and [dealt] with the problem; we [sought] a solution together.
+14|c|Hizo una llamada y colgó enojado; luego me despertó para contarme.|He made a call and [hung] up angry; then he [woke] me to tell me about it.
+14|t|Hice la cama y desperté a los niños; les di de comer en la cocina.|I made the bed and [woke] the kids; I [fed] them in the kitchen.
+14|c|Hicieron una película sobre un ladrón que robó un museo; la grabaron en París.|They made a movie about a thief who [stole] from a museum; they [shot] it in Paris.
+14|t|Hice lo mejor que pude y me perdonó; juró que no estaba enojada.|I did my best, and she [forgave] me; she [swore] she wasn't angry.
+14|c|Hizo una lista de lo que robaron y buscó ayuda en la policía.|She made a list of what they [stole] and [sought] help from the police.
+14|t|Hicimos los platos y colgamos los trapos; alimentamos al perro con las sobras.|We did the dishes and [hung] the towels; we [fed] the dog the leftovers.
+
+# --- Regla 15 · Gone vs Left ---
+15|t|Se fue a buscar trabajo; ayer buscó en tres empresas y le prestaron un traje.|He has gone to look for work; yesterday he [sought] jobs at three companies, and they [lent] him a suit.
+15|c|Salió de la casa sin despertarme; ya le había dado de comer al perro y había colgado la ropa.|She left the house without waking me; she had already [fed] the dog and [hung] the laundry.
+15|t|Se fue a la policía porque le robaron el carro; juró encontrar al ladrón.|He has gone to the police because someone [stole] his car; he [swore] to find the thief.
+15|c|Dejó el trabajo después de pelear con su jefe; nunca lo perdonó y juró no volver.|He left his job after a fight with his boss; he never [forgave] him, and he [swore] never to go back.
+15|t|Se fue a grabar un documental; el año pasado grabó en Brasil y colgó el afiche en el cine.|She has gone to shoot a documentary; last year she [shot] in Brazil and [hung] the poster at the cinema.
+15|c|Salió de la reunión después de tratar el tema; buscó a su jefe para hablar.|She left the meeting after she had [dealt] with the issue; she [sought] her boss to talk.
+15|t|Se fueron de vacaciones; me prestaron su casa y alimenté a sus gatos.|They have gone on vacation; they [lent] me their house, and I [fed] their cats.
+15|c|Dejé el abrigo colgado en la puerta y alguien lo robó.|I left my coat [hung] on the door, and someone [stole] it.
+15|t|Se fue a dormir; el bebé lo despertó cinco veces anoche y le dio de comer cada vez.|He has gone to sleep; the baby [woke] him five times last night, and he [fed] her every time.
+15|c|Salió del tribunal después de jurar; el juez lo perdonó.|He left the court after he had [sworn] an oath; the judge [forgave] him.
+15|t|Se fue a buscar al perro; robó un pollo y huyó, y ella lo ha buscado por horas.|She has gone to look for the dog; it [stole] a chicken and ran away, and she has [sought] it for hours.
+15|c|Dejó a los niños con la abuela; ella les dio de comer y los despertó temprano.|She left the kids with their grandmother; she [fed] them and [woke] them early.
+15|t|Se fue al banco; le prestaron dinero para la casa y trató con un asesor muy amable.|He has gone to the bank; they [lent] him money for the house, and he [dealt] with a very kind advisor.
+15|c|Salió de la fiesta temprano; colgó el teléfono cuando su novio llamó y no lo perdonó.|She left the party early; she [hung] up when her boyfriend called and didn't [forgive] him.
+15|t|Se fue al estadio; el sábado disparó el penal decisivo y robó el corazón de la afición.|He has gone to the stadium; on Saturday he [shot] the deciding penalty and [stole] the fans' hearts.
+
+# --- Regla 16 · Preposiciones de movimiento ---
+16|t|Colgó la bandera sobre la puerta y disparó una foto desde la calle.|He [hung] the flag over the door and [shot] a photo from the street.
+16|c|El ladrón robó el bolso y corrió hacia el parque; la policía lo buscó entre los árboles.|The thief [stole] the bag and ran toward the park; the police [sought] him among the trees.
+16|t|Disparó el balón por encima del portero y robó la victoria.|He [shot] the ball over the goalkeeper and [stole] the victory.
+16|c|Le prestamos el carro y manejó hasta la costa; nos despertó al llegar.|We [lent] him the car, and he drove to the coast; he [woke] us when he arrived.
+16|t|Colgamos las luces alrededor de la ventana; despertamos a los niños para verlas.|We [hung] the lights around the window; we [woke] the kids to see them.
+16|c|Le dimos de comer a los patos junto al lago; buscamos pan por toda la casa.|We [fed] the ducks by the lake; we [sought] bread all over the house.
+16|t|El gato robó el pescado y salió por la ventana; lo perdoné al día siguiente.|The cat [stole] the fish and went out through the window; I [forgave] it the next day.
+16|c|Colgó el cuadro entre las dos ventanas; lo grabó en video para su mamá.|She [hung] the picture between the two windows; she [shot] a video of it for her mom.
+16|t|Buscamos refugio debajo del puente; un señor nos prestó una manta.|We [sought] shelter under the bridge; a man [lent] us a blanket.
+16|c|Disparó la flecha a través del campo; juró que daría en el blanco.|He [shot] the arrow across the field; he [swore] it would hit the target.
+16|t|Repartió volantes por toda la ciudad; buscó a su perro durante días.|She [dealt] out flyers all over the city; she [sought] her dog for days.
+16|c|Colgamos la hamaca entre dos árboles y alimentamos a los pájaros desde ella.|We [hung] the hammock between two trees and [fed] the birds from it.
+16|t|El niño robó una galleta de la cocina y corrió hacia su cuarto; su mamá lo perdonó.|The boy [stole] a cookie from the kitchen and ran to his room; his mom [forgave] him.
+16|c|Le prestaron un bote para cruzar el río; despertó a todos al otro lado.|They [lent] him a boat to cross the river; he [woke] everyone on the other side.
+16|t|La foto que disparó desde el avión la colgó en la pared.|He [hung] the photo he [shot] from the plane on the wall.
+
+# --- Regla 17 · Modales básicos ---
+17|t|Puedo prestarte mi carro; ayer lo tuvo mi hermano y nadie lo robó.|I can [lend] you my car; yesterday nobody [stole] it when my brother had it.
+17|c|Deberías perdonarlo; ya juró que cambiará.|You should [forgive] him; he has already [sworn] he will change.
+17|t|No debes robar; ayer atraparon a un niño en la tienda y juró que tenía hambre.|You must not [steal]; yesterday they caught a boy in the store, and he [swore] he was hungry.
+17|c|¿Puedes despertarme a las seis? Ayer falló la alarma y le di de comer tarde al perro.|Can you [wake] me at six? Yesterday the alarm failed, and I [fed] the dog late.
+17|t|Podríamos colgar el cuadro aquí; ayer buscamos el mejor lugar.|We could [hang] the picture here; yesterday we [sought] the best spot.
+17|c|Ella puede tratar con cualquier cliente; ayer perdonó a uno muy grosero.|She can [deal] with any customer; yesterday she [forgave] a very rude one.
+17|t|Debes alimentar al perro; ayer robó comida porque nadie le dio de comer.|You must [feed] the dog; yesterday it [stole] food because nobody fed it.
+17|c|¿Podrías prestarme tu cámara? Ayer disparé cien fotos con la mía y se dañó.|Could you [lend] me your camera? Yesterday I [shot] a hundred photos with mine, and it broke.
+17|t|No deberías jurar en vano; ayer te perdoné, pero no lo haré otra vez.|You shouldn't [swear] in vain; yesterday I [forgave] you, but I won't do it again.
+17|c|Puedes buscar ayuda aquí; ayer alimentamos a cincuenta personas.|You can [seek] help here; yesterday we [fed] fifty people.
+17|t|Deberías colgar la ropa; ayer alguien te la robó del tendedero.|You should [hang] the laundry; yesterday someone [stole] it from the line.
+17|c|¿Puedo disparar una foto? Ayer colgué las fotos de la boda en la pared.|May I [shoot] a photo? Yesterday I [hung] the wedding photos on the wall.
+17|t|Tienes que despertar a tu hermano; ayer le prestó tu carro a un amigo.|You have to [wake] your brother; yesterday he [lent] your car to a friend.
+17|c|Podrías perdonarme; ayer juré que no lo haría otra vez.|You could [forgive] me; yesterday I [swore] I wouldn't do it again.
+17|t|No puedes robar ideas; ayer el profesor trató el tema en clase.|You can't [steal] ideas; yesterday the teacher [dealt] with the topic in class.
+
+# --- Regla 18 · Gerundio vs infinitivo ---
+18|t|Decidí prestarle el dinero; ya me había perdonado.|I decided to [lend] him the money; he had already [forgiven] me.
+18|c|Dejó de robar y juró trabajar honestamente; buscó un trabajo de verdad.|He stopped stealing and [swore] to work honestly; he [sought] a real job.
+18|t|Quiere buscar un trabajo nuevo; ayer trató con un jefe horrible.|She wants to [seek] a new job; yesterday she [dealt] with a horrible boss.
+18|c|Evita despertar al bebé; anoche le di de comer tres veces y se despertó llorando.|Avoid waking the baby; last night I [fed] him three times, and he [woke] up crying.
+18|t|Espero perdonarlo algún día; juró que fue un accidente.|I hope to [forgive] him someday; he [swore] it was an accident.
+18|c|Me encanta tomar fotos; ayer disparé cien en el parque y colgué diez en la pared.|I love taking photos; yesterday I [shot] a hundred in the park and [hung] ten on the wall.
+18|t|Olvidó alimentar al gato; el gato robó la cena.|He forgot to [feed] the cat; the cat [stole] dinner.
+18|c|Prometió prestarme su carro, pero lo robaron.|He promised to [lend] me his car, but someone [stole] it.
+18|t|Terminé de colgar los cuadros y desperté a los niños para mostrárselos; juraron que era la mejor pared de la casa.|I finished hanging the pictures and [woke] the kids to show them; they [swore] it was the best wall in the house.
+18|c|Intentó buscar al ladrón, pero había robado todo y desaparecido.|He tried to [seek] the thief, but he had [stolen] everything and disappeared.
+18|t|Sugirió perdonar la deuda; le prestamos el dinero hace años y nunca buscó la manera de pagar.|She suggested forgiving the debt; we [lent] him the money years ago, and he never [sought] a way to pay.
+18|c|Planeamos grabar el video mañana; ya colgamos el fondo.|We plan to [shoot] the video tomorrow; we have already [hung] the backdrop.
+18|t|No me importa alimentar a tus perros; ayer les di de comer dos veces y me despertaron al amanecer.|I don't mind feeding your dogs; yesterday I [fed] them twice, and they [woke] me at dawn.
+18|c|Dejó de jurar delante de los niños; su mamá la perdonó y le dio de comer su plato favorito.|She stopped swearing in front of the kids; her mom [forgave] her and [fed] her favorite dish.
+18|t|Recuerdo haber prestado ese libro; se lo presté a alguien que luego lo robó de la biblioteca.|I remember lending that book; I [lent] it to someone who later [stole] it from the library.
+
+# --- Regla 19 · Participios irregulares ---
+19|t|He prestado mi carro y me han robado la bicicleta.|I have [lent] my car, and someone has [stolen] my bike.
+19|c|El ladrón ha sido buscado durante meses; ha jurado que es inocente.|The thief has been [sought] for months; he has [sworn] he is innocent.
+19|t|Me han despertado tres veces; nadie ha alimentado al perro.|They have [woken] me three times; nobody has [fed] the dog.
+19|c|El cuadro ha sido colgado; la foto ha sido disparada por un profesional.|The picture has been [hung]; the photo has been [shot] by a professional.
+19|t|He sido perdonado; el problema ha sido tratado.|I have been [forgiven]; the problem has been [dealt] with.
+19|c|Hemos alimentado a los niños y hemos colgado la ropa.|We have [fed] the kids and have [hung] the laundry.
+19|t|Nunca he robado nada; nunca he jurado en falso.|I have never [stolen] anything; I have never [sworn] falsely.
+19|c|La película ha sido grabada y el dinero ha sido prestado por un banco.|The movie has been [shot], and the money has been [lent] by a bank.
+19|t|Ha buscado trabajo y ha tratado con veinte empresas.|He has [sought] work and has [dealt] with twenty companies.
+19|c|El bebé ha sido alimentado y ha sido despertado para su baño.|The baby has been [fed] and has been [woken] for his bath.
+19|t|Mi bicicleta ha sido robada; la policía ha jurado encontrarla.|My bike has been [stolen]; the police have [sworn] to find it.
+19|c|Has sido perdonado; ya has sido despertado de ese error.|You have been [forgiven]; you have [woken] up from that mistake.
+19|t|Los cuadros han sido colgados; los clientes han sido tratados con respeto.|The pictures have been [hung]; the customers have been [dealt] with respectfully.
+19|c|Le hemos prestado la casa; nos ha perdonado la renta.|We have [lent] him the house; he has [forgiven] our rent.
+19|t|La escena ha sido grabada; el actor ha jurado no repetirla.|The scene has been [shot]; the actor has [sworn] not to repeat it.
+
+# --- Regla 20 · 3ra persona singular (-s) ---
+20|t|Mi hermano presta dinero a todos; ayer le prestó a un amigo y nunca lo perdonó por no pagar.|My brother lends money to everyone; yesterday he [lent] some to a friend, and he never [forgave] him for not paying.
+20|c|Ella busca trabajo; la semana pasada buscó en diez empresas y trató con muchos jefes.|She seeks work; last week she [sought] jobs at ten companies and [dealt] with many bosses.
+20|t|El fotógrafo dispara fotos en bodas; el sábado disparó mil y colgó las mejores.|The photographer shoots weddings; on Saturday he [shot] a thousand photos and [hung] the best ones.
+20|c|Mi gato roba comida; ayer robó un pescado y me despertó a medianoche.|My cat steals food; yesterday it [stole] a fish and [woke] me at midnight.
+20|t|Mi abuelo jura que vio un fantasma; anoche lo juró otra vez y nadie le perdonó que asustara a los niños.|My grandfather swears he saw a ghost; last night he [swore] it again, and nobody [forgave] him for scaring the kids.
+20|c|Mi mamá despierta a todos a las seis; hoy nos despertó a las cinco y nos dio de comer.|My mom wakes everyone at six; today she [woke] us at five and [fed] us.
+20|t|Él cuelga cuadros por todas partes; ayer colgó uno en el baño y lo grabó para su blog.|He hangs pictures everywhere; yesterday he [hung] one in the bathroom and [shot] a video for his blog.
+20|c|Mi jefa trata bien a todos; ayer trató con un cliente furioso y lo perdonó.|My boss treats everyone well; yesterday she [dealt] with a furious client and [forgave] him.
+20|t|Mi vecina alimenta a los gatos de la calle; ayer les dio de comer y buscó al más pequeño.|My neighbor feeds the street cats; yesterday she [fed] them and [sought] the smallest one.
+20|c|Ella perdona fácilmente; ayer perdonó a su hermano que le robó la ropa.|She forgives easily; yesterday she [forgave] her brother, who [stole] her clothes.
+20|t|El banco presta dinero; el mes pasado nos prestó para la casa y juró que el interés no subiría.|The bank lends money; last month it [lent] us money for the house and [swore] the interest wouldn't go up.
+20|c|Mi perro despierta a los vecinos; anoche los despertó y uno juró llamar a la policía.|My dog wakes the neighbors; last night it [woke] them, and one [swore] he would call the police.
+20|t|El crupier reparte las cartas; anoche repartió mil manos y nadie le robó.|The dealer deals the cards; last night he [dealt] a thousand hands, and nobody [stole] from him.
+20|c|Mi hermana busca a su gato; ayer lo buscó por todo el barrio y le dio de comer cuando lo encontró.|My sister seeks her cat; yesterday she [sought] it all over the neighborhood and [fed] it when she found it.
+20|t|Él jura mucho; ayer juró en la reunión y su jefe no lo perdonó.|He swears a lot; yesterday he [swore] in the meeting, and his boss didn't [forgive] him.
+
+# --- Regla 21 · Say vs Tell ---
+21|t|Me dijo que le había prestado dinero a su hermano; me contó que se lo robaron.|He told me he had [lent] money to his brother; he said someone [stole] it.
+21|c|Dijo que me había perdonado; me contó que juró no guardar rencor.|She said she had [forgiven] me; she told me she [swore] not to hold a grudge.
+21|t|Dijeron que habían buscado al perro; nos contaron que lo alimentaron en un refugio.|They said they had [sought] the dog; they told us they [fed] it at a shelter.
+21|c|Le dije que no colgara el teléfono, pero dijo que ya había tratado con suficiente.|I told her not to [hang] up, but she said she had already [dealt] with enough.
+21|t|Me contó que el ruido lo despertó; dijo que alguien robó la radio del carro.|He told me the noise [woke] him; he said someone [stole] the car radio.
+21|c|Dijo que había grabado el video; me contó que colgó el afiche en la escuela.|She said she had [shot] the video; she told me she [hung] the poster at the school.
+21|t|Dime qué te robaron; dijeron que juraste encontrar al ladrón.|Tell me what they [stole]; they said you [swore] to find the thief.
+21|c|Dijeron que el banco les prestó el dinero; nos contaron que trataron con un asesor.|They said the bank [lent] them the money; they told us they [dealt] with an advisor.
+21|t|Me dijo que se despertó a las cinco; dijo que alimentó a los caballos.|He told me he [woke] up at five; he said he [fed] the horses.
+21|c|Dijo "lo juro" y me contó que no había robado nada.|He said "I [swear]" and told me he hadn't [stolen] anything.
+21|t|Le conté que había colgado los cuadros; dijo que los grabaría para su blog.|I told her I had [hung] the pictures; she said she would [shoot] a video for her blog.
+21|c|Dijeron que buscaron ayuda; nos contaron que nadie les prestó atención.|They said they [sought] help; they told us nobody [lent] them an ear.
+21|t|Me dijo que lo había perdonado; dijo que juró empezar de nuevo.|She told me she had [forgiven] him; she said he [swore] to start over.
+21|c|Dijo que trató el problema; me contó que lo despertaron a medianoche.|He said he [dealt] with the problem; he told me they [woke] him at midnight.
+21|t|Cuéntame qué le diste de comer; dijeron que robó comida del plato.|Tell me what you [fed] it; they said it [stole] food from the plate.
+
+# --- Regla 22 · Artículos ---
+22|t|Le presté un libro a una amiga y lo perdió; la perdoné enseguida.|I [lent] a book to a friend, and she lost it; I [forgave] her right away.
+22|c|Un ladrón robó una bicicleta; la policía buscó al hombre por toda la ciudad.|A thief [stole] a bike; the police [sought] the man all over the city.
+22|t|El gallo me despertó a las cinco; le di de comer a las gallinas.|The rooster [woke] me at five; I [fed] the hens.
+22|c|Colgué un cuadro en la sala y disparé una foto para mi mamá.|I [hung] a picture in the living room and [shot] a photo for my mom.
+22|t|El testigo juró decir la verdad; el juez trató el caso con cuidado.|The witness [swore] to tell the truth; the judge [dealt] with the case carefully.
+22|c|Una mujer alimentó a un perro de la calle y lo perdonó por morderla.|A woman [fed] a street dog and [forgave] it for biting her.
+22|t|El banco nos prestó dinero para una casa; buscamos una en el campo.|The bank [lent] us money for a house; we [sought] one in the countryside.
+22|c|Un niño robó una manzana; el vendedor lo perdonó.|A boy [stole] an apple; the seller [forgave] him.
+22|t|El director grabó una escena en la playa; colgaron un telón enorme.|The director [shot] a scene on the beach; they [hung] a huge backdrop.
+22|c|Desperté a mi hermano con una canción; juró vengarse.|I [woke] my brother with a song; he [swore] revenge.
+22|t|Una empresa trató con el problema; prestaron ayuda a las familias.|A company [dealt] with the problem; they [lent] help to the families.
+22|c|El perro robó un zapato y lo escondió; lo buscamos toda la tarde.|The dog [stole] a shoe and hid it; we [sought] it all afternoon.
+22|t|Le di de comer a un gato y me despertó al día siguiente pidiendo más.|I [fed] a cat, and it [woke] me the next day asking for more.
+22|c|El jugador disparó un penal; el portero juró que lo tocó.|The player [shot] a penalty; the goalkeeper [swore] he touched it.
+22|t|Colgué una hamaca en el jardín; perdoné al vecino por el ruido.|I [hung] a hammock in the garden; I [forgave] the neighbor for the noise.
+
+# --- Regla 23 · Phrasal verbs con "look" ---
+23|t|Busqué la cámara que te presté; alguien me dijo que te la robaron.|I looked for the camera I [lent] you; someone told me it was [stolen] from you.
+23|c|Se parece a su papá: juraba igual y perdonaba a todos.|He looks like his dad: he [swore] the same way and [forgave] everyone.
+23|t|Busca la palabra; juré que la sabía en el examen, pero la busqué en vano.|Look up the word; I [swore] I knew it on the exam, but I [sought] it in vain.
+23|c|Me miró y colgó el teléfono; nunca lo perdoné.|He looked at me and [hung] up the phone; I never [forgave] him.
+23|t|Estoy buscando la bicicleta que me robaron; la busqué toda la semana.|I'm looking for the bike that someone [stole]; I [sought] it all week.
+23|c|Cuida a los niños; ayer los desperté tarde y no les di de comer.|Look after the kids; yesterday I [woke] them late and didn't [feed] them.
+23|t|Mira la foto que disparé; la colgué en la pared.|Look at the photo I [shot]; I [hung] it on the wall.
+23|c|Espero con ansias la boda; ya colgamos las luces y juramos no llorar.|I'm looking forward to the wedding; we have already [hung] the lights and [sworn] not to cry.
+23|t|Revisa el contrato; el banco nos prestó menos de lo que juró.|Look over the contract; the bank [lent] us less than it [swore] it would.
+23|c|Busqué al gato y lo encontré comiendo; alguien lo alimentó y lo despertó de su siesta.|I looked for the cat and found it eating; someone [fed] it and [woke] it from its nap.
+23|t|Se veía cansado porque el bebé lo despertó; le dio de comer cuatro veces.|He looked tired because the baby [woke] him; he [fed] her four times.
+23|c|Busqué en internet cómo tratar con el estrés; busqué un curso de meditación.|I looked up how to [deal] with stress; I [sought] a meditation course.
+23|t|Mira lo que robaron; juré que cerré la puerta.|Look at what they [stole]; I [swore] I locked the door.
+23|c|Me miró como si no me hubiera perdonado; le había prestado su carro a otro.|She looked at me as if she hadn't [forgiven] me; I had [lent] her car to someone else.
+23|t|Buscaron ayuda y trataron con un abogado; buscaron justicia durante meses.|They looked for help and [dealt] with a lawyer; they [sought] justice for months.
+
+# --- Regla 25 · Give / Gave / Given ---
+25|t|Me dio su palabra y la juró; lo perdoné.|He gave me his word and [swore] it; I [forgave] him.
+25|c|Le di dinero y luego le presté mi carro; alguien lo robó.|I gave him money and then [lent] him my car; someone [stole] it.
+25|t|Nos dieron comida y alimentamos a los niños; buscamos un lugar para dormir.|They gave us food, and we [fed] the kids; we [sought] a place to sleep.
+25|c|Le di un cuadro y lo colgó en su oficina; lo grabó en video.|I gave her a picture, and she [hung] it in her office; she [shot] a video of it.
+25|t|Me dieron una segunda oportunidad; juré no fallar y me perdonaron.|They gave me a second chance; I [swore] not to fail, and they [forgave] me.
+25|c|Le dieron un premio porque trató a los pacientes con amor; los alimentó en su casa.|They gave her an award because she [dealt] with patients lovingly; she [fed] them at her house.
+25|t|Me dio un susto y me despertó a medianoche; juré vengarme.|He gave me a scare and [woke] me at midnight; I [swore] revenge.
+25|c|Le di el número del abogado; buscó consejo y trató el caso rápido.|I gave him the lawyer's number; he [sought] advice and [dealt] with the case quickly.
+25|t|Mi abuela me dio su anillo; me lo robaron en el metro y lo busqué durante semanas.|My grandmother gave me her ring; someone [stole] it on the subway, and I [sought] it for weeks.
+25|c|Le dimos las llaves y colgó la bandera en el balcón; nos despertó con música.|We gave him the keys, and he [hung] the flag on the balcony; he [woke] us with music.
+25|t|Me han dado mucho; me han prestado su casa y me han perdonado mis errores.|They have given me a lot; they have [lent] me their house and [forgiven] my mistakes.
+25|c|Le dieron una cámara y disparó fotos toda la semana; colgó las mejores.|They gave him a camera, and he [shot] photos all week; he [hung] the best ones.
+25|t|Me dio de comer cuando no tenía nada; me alimentó durante un mes y juré devolvérselo.|She gave me food when I had nothing; she [fed] me for a month, and I [swore] to repay her.
+25|c|Le dieron las cartas y repartió la primera mano; juró que ganaría.|They gave him the cards, and he [dealt] the first hand; he [swore] he would win.
+25|t|Le di la noticia y me perdonó por no contarle antes; me despertó al día siguiente para hablar.|I gave her the news, and she [forgave] me for not telling her sooner; she [woke] me the next day to talk.
+
+# --- Regla 26 · Still + hope ---
+26|t|Todavía espero que me perdone; juré que no volvería a pasar.|I still hope she will [forgive] me; I [swore] it wouldn't happen again.
+26|c|Aún espera que le devuelvan lo que le robaron; buscó en todas las tiendas.|She still hopes to get back what they [stole]; she [sought] it in every store.
+26|t|Todavía esperamos que el banco nos preste dinero; ya tratamos con tres asesores.|We still hope the bank will [lend] us money; we have already [dealt] with three advisors.
+26|c|Aún espero dormir sin que el perro me despierte; anoche le di de comer a las tres y me despertó otra vez a las cinco.|I still hope to sleep without the dog waking me; last night I [fed] it at three, and it [woke] me again at five.
+26|t|Todavía espera encontrar trabajo; ha buscado empleo durante un año y ha lidiado con muchos rechazos.|He still hopes to find work; he has [sought] a job for a year and has [dealt] with many rejections.
+26|c|Aún esperamos colgar los cuadros hoy; ya disparamos las fotos.|We still hope to [hang] the pictures today; we have already [shot] the photos.
+26|t|Todavía espero que no roben el carro; lo presté a un amigo.|I still hope nobody will [steal] the car; I [lent] it to a friend.
+26|c|Aún espera que su hijo lo perdone; juró cambiar hace años.|He still hopes his son will [forgive] him; he [swore] to change years ago.
+26|t|Todavía espero grabar la película este año; ya buscamos los actores.|I still hope to [shoot] the movie this year; we have already [sought] the actors.
+26|c|Aún esperan que alguien alimente a los gatos; se despertaron con hambre.|They still hope someone will [feed] the cats; they [woke] up hungry.
+26|t|Todavía espero que me despiertes a tiempo; ayer colgaste el teléfono y me quedé dormido.|I still hope you'll [wake] me on time; yesterday you [hung] up and I overslept.
+26|c|Aún esperamos tratar el tema hoy; ayer el jefe juró que lo haría.|We still hope to [deal] with the issue today; yesterday the boss [swore] he would.
+26|t|Todavía espera que le presten la casa; ya perdonó a su hermana.|She still hopes they'll [lend] her the house; she has already [forgiven] her sister.
+26|c|Aún espero que no hayan robado mi bicicleta; la colgué en la pared del garaje.|I still hope nobody has [stolen] my bike; I [hung] it on the garage wall.
+26|t|Todavía esperamos que busquen al perro; lo alimentamos durante años.|We still hope they'll [seek] the dog; we [fed] it for years.
+
+# --- Regla 27 · Too vs Very ---
+27|t|Le presté demasiado dinero; nunca me lo devolvió y lo perdoné igual.|I [lent] him too much money; he never paid me back, and I [forgave] him anyway.
+27|c|Robaron muy rápido; la policía los buscó toda la noche.|They [stole] very fast; the police [sought] them all night.
+27|t|Me despertó demasiado temprano; le di de comer al perro a las cuatro.|He [woke] me too early; I [fed] the dog at four.
+27|c|Colgó el cuadro muy alto; lo grabó para mostrar el error.|She [hung] the picture very high; she [shot] a video to show the mistake.
+27|t|Juró demasiadas veces; nadie lo perdonó.|He [swore] too many times; nobody [forgave] him.
+27|c|Trató muy bien a los clientes; le prestaron su confianza.|She [dealt] very well with the customers; they [lent] her their trust.
+27|t|Alimenté demasiado al gato; robó comida igual.|I [fed] the cat too much; it [stole] food anyway.
+27|c|Disparó muy bien; colgaron su foto en el club.|He [shot] very well; they [hung] his photo at the club.
+27|t|Buscó demasiado tiempo; el ladrón ya había robado todo.|He [sought] it for too long; the thief had already [stolen] everything.
+27|c|Me perdonó muy rápido; juré no volver a hacerlo.|She [forgave] me very quickly; I [swore] never to do it again.
+27|t|El bebé se despertó demasiadas veces; le di de comer cada dos horas.|The baby [woke] up too many times; I [fed] him every two hours.
+27|c|Trató el problema muy tarde; buscó ayuda cuando ya era imposible.|He [dealt] with the problem very late; he [sought] help when it was already impossible.
+27|t|Colgaron demasiadas luces; despertaron a todo el barrio.|They [hung] too many lights; they [woke] the whole neighborhood.
+27|c|Le prestamos el carro por muy poco tiempo; nadie lo robó.|We [lent] him the car for a very short time; nobody [stole] it.
+27|t|Juró muy alto en el partido; el árbitro no lo perdonó.|He [swore] very loudly during the game; the referee didn't [forgive] him.
+
+# --- Regla 28 · Preguntas con presente/pasado perfecto ---
+28|t|¿Alguna vez te han robado? A mí me robaron el teléfono y lo busqué en internet.|Have you ever had something [stolen]? I [sought] my phone online after it happened.
+28|c|¿Ya le diste de comer al perro? ¿Lo despertaste?|Have you [fed] the dog yet? Did you [wake] it up?
+28|t|¿Habías prestado dinero antes? Yo lo perdoné todo.|Had you [lent] money before? I [forgave] all of it.
+28|c|¿Alguna vez has jurado en un tribunal? Yo traté con un juez muy amable.|Have you ever [sworn] in court? I [dealt] with a very kind judge.
+28|t|¿Ya colgaste los cuadros? ¿Disparaste las fotos?|Have you [hung] the pictures yet? Did you [shoot] the photos?
+28|c|¿Alguna vez has perdonado una traición? Yo juré no volver a hablarle.|Have you ever [forgiven] a betrayal? I [swore] never to speak to him again.
+28|t|¿Habías buscado trabajo antes? Te prestaré mi traje.|Had you [sought] work before? I'll [lend] you my suit.
+28|c|¿Alguna vez te ha despertado un terremoto? A mí me despertó y colgué el teléfono del susto.|Has an earthquake ever [woken] you? I [hung] up the phone from fright.
+28|t|¿Alguna vez has grabado un video musical? Yo robé ideas de muchos.|Have you ever [shot] a music video? I [stole] ideas from many.
+28|c|¿Ya trataron el problema? ¿Buscaron una solución?|Have they [dealt] with the problem yet? Did they [seek] a solution?
+28|t|¿Alguna vez has alimentado a un caballo? Yo le di una manzana a uno y juré no hacerlo otra vez.|Have you ever [fed] a horse? I gave one an apple and [swore] never to do it again.
+28|c|¿Ya te había perdonado cuando llegaste? Juró que sí.|Had she [forgiven] you when you arrived? She [swore] she had.
+28|t|¿Alguna vez te han prestado un carro? A mí me lo robaron al día siguiente.|Has anyone ever [lent] you a car? Someone [stole] mine the next day.
+28|c|¿Alguna vez has colgado una hamaca? Yo dormí en una y me despertó la lluvia.|Have you ever [hung] a hammock? The rain [woke] me in one.
+28|t|¿Habías jurado guardar el secreto? Lo trataste muy mal.|Had you [sworn] to keep the secret? You [dealt] with it very badly.
+
+# --- Regla 29 · Tag Questions ---
+29|t|Le prestaste el carro, ¿verdad? Te lo robaron.|You [lent] him the car, didn't you? Someone [stole] it from you.
+29|c|No lo perdonaste, ¿o sí? Juró que cambiaría.|You didn't [forgive] him, did you? He [swore] he would change.
+29|t|Le diste de comer al perro, ¿cierto? Te despertó a las cinco.|You [fed] the dog, didn't you? It [woke] you at five.
+29|c|Ya colgaste los cuadros, ¿no? Disparaste fotos de todos.|You have already [hung] the pictures, haven't you? You [shot] photos of all of them.
+29|t|Buscaste ayuda, ¿verdad? Trataste con un abogado.|You [sought] help, didn't you? You [dealt] with a lawyer.
+29|c|No has robado nada, ¿o sí? Lo juraste.|You haven't [stolen] anything, have you? You [swore] it.
+29|t|Te despertaste temprano, ¿cierto? Alimentaste a los caballos.|You [woke] up early, didn't you? You [fed] the horses.
+29|c|Ya te perdonó, ¿no? Te prestó su carro otra vez.|She has already [forgiven] you, hasn't she? She [lent] you her car again.
+29|t|Grabaron la película aquí, ¿verdad? Colgaron luces por toda la calle.|They [shot] the movie here, didn't they? They [hung] lights all along the street.
+29|c|No trataste el problema, ¿o sí? Buscaste excusas.|You didn't [deal] with the problem, did you? You [sought] excuses.
+29|t|Juraste decir la verdad, ¿cierto? Te perdonaron por eso.|You [swore] to tell the truth, didn't you? They [forgave] you for that.
+29|c|Han robado otra bicicleta, ¿no? La buscaron toda la noche.|They have [stolen] another bike, haven't they? They [sought] it all night.
+29|t|Me prestaste tu cámara, ¿verdad? Disparé cien fotos con ella.|You [lent] me your camera, didn't you? I [shot] a hundred photos with it.
+29|c|No despertaste al bebé, ¿o sí? Le diste de comer hace una hora.|You didn't [wake] the baby, did you? You [fed] him an hour ago.
+29|t|Colgó el teléfono, ¿cierto? No te perdonó.|She [hung] up, didn't she? She didn't [forgive] you.
+
+# --- Regla 30 · Get + adjetivo ---
+30|t|Me enojé cuando me robaron la bicicleta; juré encontrar al ladrón.|I got angry when someone [stole] my bike; I [swore] to find the thief.
+30|c|Se puso feliz cuando lo perdoné; me prestó su carro para celebrar.|He got happy when I [forgave] him; he [lent] me his car to celebrate.
+30|t|Me puse nervioso cuando el jefe me buscó; había tratado mal a un cliente.|I got nervous when the boss [sought] me out; I had [dealt] badly with a client.
+30|c|Se cansó de esperar y colgó el teléfono; nadie lo despertó después.|He got tired of waiting and [hung] up; nobody [woke] him after that.
+30|t|Me asusté cuando el perro me despertó; esa noche alguien robó el carro.|I got scared when the dog [woke] me; someone [stole] the car that night.
+30|c|Se puso triste cuando nadie alimentó a los gatos; buscó un refugio para ellos.|She got sad when nobody [fed] the cats; she [sought] a shelter for them.
+30|t|Nos emocionamos cuando grabaron la película en el pueblo; colgamos banderas.|We got excited when they [shot] the movie in our town; we [hung] flags.
+30|c|Se enojó porque juré en la mesa; no me perdonó en toda la noche.|She got angry because I [swore] at the table; she didn't [forgive] me all night.
+30|t|Me preocupé cuando le presté el dinero; no lo trató bien.|I got worried when I [lent] him the money; he didn't [deal] with it well.
+30|c|Se puso celoso cuando ella perdonó a otro; juró no hablarle.|He got jealous when she [forgave] someone else; he [swore] not to speak to her.
+30|t|Me aburrí y desperté a mi hermano; le di de comer a su pez.|I got bored and [woke] my brother; I [fed] his fish.
+30|c|Se puso pálido cuando le robaron el pasaporte; buscó la embajada.|He got pale when someone [stole] his passport; he [sought] the embassy.
+30|t|Me cansé de tratar con él; colgué el teléfono y juré no volver a llamarlo.|I got tired of dealing with him; I [hung] up and [swore] never to call again.
+30|c|Se hicieron amigos cuando él le prestó un libro; ella lo perdonó por perderlo.|They got close when he [lent] her a book; she [forgave] him for losing it.
+30|t|Se enfermó después de alimentar a los patos; se despertó con fiebre.|She got sick after she [fed] the ducks; she [woke] up with a fever.
+
+# --- Regla 31 · some / any / no ---
+31|t|No le presté nada; nadie me robó tampoco.|I didn't [lend] him anything; nobody [stole] from me either.
+31|c|¿Alguien alimentó al perro? Nadie lo despertó esta mañana.|Did anyone [feed] the dog? Nobody [woke] it this morning.
+31|t|Alguien robó mi bicicleta; no busqué en ningún lado.|Somebody [stole] my bike; I didn't [seek] it anywhere.
+31|c|No perdoné a nadie; nadie juró decir la verdad.|I didn't [forgive] anyone; nobody [swore] to tell the truth.
+31|t|Algunos cuadros los colgamos; otros los disparé en fotos.|We [hung] some of the pictures; I [shot] photos of the others.
+31|c|¿Trataste con algún cliente? Yo no traté con ninguno; alguien me despertó tarde.|Did you [deal] with any customers? I didn't; somebody [woke] me late.
+31|t|Nadie me prestó nada; alguien me robó la idea.|Nobody [lent] me anything; somebody [stole] my idea.
+31|c|Algunos niños se despertaron; otros comieron lo que les dimos de comer.|Some kids [woke] up; others ate what we [fed] them.
+31|t|No juré nada; alguien me perdonó sin pedirlo.|I didn't [swear] anything; somebody [forgave] me without being asked.
+31|c|¿Has buscado algún trabajo? Yo no he tratado con ningún jefe todavía.|Have you [sought] any jobs? I haven't [dealt] with any bosses yet.
+31|t|Algo robaron del carro; nadie colgó un aviso.|Somebody [stole] something from the car; nobody [hung] a notice.
+31|c|No le di de comer a ningún gato; alguien los alimentó antes que yo y nadie me despertó.|I didn't feed any cats; somebody [fed] them before me, and nobody [woke] me.
+31|t|Alguien disparó una foto; nadie la colgó en la pared.|Somebody [shot] a photo; nobody [hung] it on the wall.
+31|c|No despertamos a nadie; alguien juró que hicimos ruido.|We didn't [wake] anyone; somebody [swore] we made noise.
+31|t|Algunos perdonaron la deuda; otros prestaron más dinero.|Some [forgave] the debt; others [lent] more money.
+
+# --- Regla 32 · Already / Yet / Just ---
+32|t|Ya le di de comer al perro, pero todavía no lo he despertado para pasear.|I have already [fed] the dog, but I haven't [woken] it for its walk yet.
+32|c|Acaba de perdonarme; ya me prestó su carro otra vez.|She has just [forgiven] me; she has already [lent] me her car again.
+32|t|¿Ya colgaste los cuadros? Todavía no; acabo de disparar las fotos.|Have you [hung] the pictures yet? Not yet; I have just [shot] the photos.
+32|c|Acaban de robar la tienda; la policía ya buscó en todo el barrio.|They have just [stolen] from the store; the police have already [sought] the thieves all over the neighborhood.
+32|t|Ya juró decir la verdad; acaba de tratar con el abogado.|He has already [sworn] to tell the truth; he has just [dealt] with the lawyer.
+32|c|Todavía no hemos alimentado a los caballos; acabamos de despertar.|We haven't [fed] the horses yet; we have just [woken] up.
+32|t|Acabo de prestarle mi bicicleta; ya me la robaron una vez.|I have just [lent] him my bike; someone has already [stolen] it once.
+32|c|¿Ya trataron el problema? Acaban de buscar una solución.|Have they [dealt] with the problem yet? They have just [sought] a solution.
+32|t|Ya me despertó el bebé; acabo de darle de comer.|The baby has already [woken] me; I have just [fed] him.
+32|c|Todavía no lo he perdonado; acaba de jurar que cambiará.|I haven't [forgiven] him yet; he has just [sworn] he will change.
+32|t|Acaban de grabar la última escena; ya colgaron los créditos en la pantalla.|They have just [shot] the last scene; they have already [hung] the credits on the screen.
+32|c|Ya busqué trabajo en diez empresas; acabo de tratar con la última.|I have already [sought] work at ten companies; I have just [dealt] with the last one.
+32|t|¿Ya te robaron otra vez? Acabo de prestarte dinero.|Have they [stolen] from you again? I have just [lent] you money.
+32|c|Acaba de colgar el teléfono; todavía no me ha perdonado.|She has just [hung] up; she hasn't [forgiven] me yet.
+32|t|Ya le dimos de comer al gato; acaba de robar comida del vecino.|We have already [fed] the cat; it has just [stolen] food from the neighbor.
+
+# --- Regla 33 · Sujeto "it" ---
+33|t|Era tarde cuando me despertaste; ya le había dado de comer al perro.|It was late when you [woke] me; I had already [fed] the dog.
+33|c|Es difícil perdonar; ayer juré que lo haría.|It's hard to [forgive]; yesterday I [swore] I would.
+33|t|Fue un error prestarle dinero; nunca me lo devolvió y robó más.|It was a mistake to [lend] him money; he never paid me back, and he [stole] more.
+33|c|Es importante buscar ayuda; yo traté con la depresión solo.|It's important to [seek] help; I [dealt] with depression alone.
+33|t|Fue increíble grabar en la playa; colgamos luces en las palmeras.|It was amazing to [shoot] on the beach; we [hung] lights on the palm trees.
+33|c|Hace frío; alguien robó mi abrigo y busqué otro en el armario.|It's cold; someone [stole] my coat, and I [sought] another one in the closet.
+33|t|Es fácil alimentar a un gato; el de mi vecina me despertó al amanecer pidiendo comida.|It's easy to [feed] a cat; my neighbor's [woke] me at dawn asking for food.
+33|c|Fue un placer tratar con usted; me prestó mucha ayuda.|It was a pleasure to [deal] with you; you [lent] me a lot of help.
+33|t|Es mejor no jurar; ayer mi mamá no me perdonó por hacerlo.|It's better not to [swear]; yesterday my mom didn't [forgive] me for doing it.
+33|c|Fue difícil despertar a los niños; anoche colgaron luces hasta tarde.|It was hard to [wake] the kids; last night they [hung] lights until late.
+33|t|Es triste que roben a los ancianos; ayer buscamos al ladrón en el barrio.|It's sad when people [steal] from old people; yesterday we [sought] the thief in the neighborhood.
+33|c|Fue un honor jurar como médico; traté a mi primer paciente ese día.|It was an honor to [swear] in as a doctor; I [dealt] with my first patient that day.
+33|t|Es domingo; colgué la ropa y le di de comer a las gallinas.|It's Sunday; I [hung] the laundry and [fed] the chickens.
+33|c|Fue un error colgar el teléfono; me perdonó al día siguiente.|It was a mistake to [hang] up; she [forgave] me the next day.
+33|t|Queda lejos; me prestaron un carro y busqué la dirección en el mapa.|It's far away; they [lent] me a car, and I [sought] the address on the map.
+
+# --- Regla 34 · Since vs For ---
+34|t|Le he prestado dinero desde 2019 y nunca me ha perdonado que se lo cobre.|I have [lent] him money since 2019, and he has never [forgiven] me for asking for it back.
+34|c|Han buscado al ladrón durante meses; ha robado en diez casas.|They have [sought] the thief for months; he has [stolen] from ten houses.
+34|t|No he dormido bien desde que nació el bebé; me ha despertado cada noche y le he dado de comer a las tres.|I haven't slept well since the baby was born; she has [woken] me every night, and I have [fed] her at three.
+34|c|He colgado cuadros en esta casa durante veinte años; he disparado miles de fotos.|I have [hung] pictures in this house for twenty years; I have [shot] thousands of photos.
+34|t|Ha jurado su inocencia desde el principio; nadie lo ha perdonado.|He has [sworn] his innocence from the start; nobody has [forgiven] him.
+34|c|Hemos tratado con esa empresa durante años; nunca nos ha robado.|We have [dealt] with that company for years; it has never [stolen] from us.
+34|t|Ha alimentado a los gatos del barrio desde que se jubiló; ha buscado hogar para muchos de ellos.|She has [fed] the neighborhood cats since she retired; she has [sought] homes for many of them.
+34|c|No me han robado nada desde que colgué una cámara en la puerta.|Nobody has [stolen] anything from me since I [hung] a camera on the door.
+34|t|Ha buscado trabajo durante seis meses; le hemos prestado dinero desde marzo.|He has [sought] work for six months; we have [lent] him money since March.
+34|c|No se ha despertado temprano desde el lunes; no le ha dado de comer al perro.|He hasn't [woken] up early since Monday; he hasn't [fed] the dog.
+34|t|Hemos grabado este programa durante diez años; hemos tratado con cien invitados.|We have [shot] this show for ten years; we have [dealt] with a hundred guests.
+34|c|No la he perdonado desde la boda; juró que no fue su culpa.|I haven't [forgiven] her since the wedding; she [swore] it wasn't her fault.
+34|t|El cuadro ha colgado allí desde 1950; alguien intentó robarlo una vez.|The painting has [hung] there since 1950; someone tried to [steal] it once.
+34|c|Ha juramentado testigos durante quince años; ha tratado miles de casos.|She has [sworn] in witnesses for fifteen years; she has [dealt] with thousands of cases.
+34|t|Le he dado de comer a este caballo desde que era un potro; lo he despertado cada mañana.|I have [fed] this horse since it was a foal; I have [woken] it every morning.
+
+# --- Regla 35 · When / While ---
+35|t|Mientras dormía, alguien robó mi teléfono; me desperté cuando abrieron la puerta.|While I was sleeping, someone [stole] my phone; it [woke] me when they opened the door.
+35|c|Cuando me perdonó, le presté mi carro.|When she [forgave] me, I [lent] her my car.
+35|t|Mientras colgaba los cuadros, mi hijo disparó fotos y colgó los pequeños.|While I was hanging the pictures, my son [shot] photos and [hung] the small ones.
+35|c|Cuando el bebé se despertó, le di de comer.|When the baby [woke] up, I [fed] him.
+35|t|Mientras buscaba trabajo, mi tío me prestó dinero; buscaba empleo todos los días.|While I was looking for work, my uncle [lent] me money; I [sought] jobs every day.
+35|c|Cuando juró decir la verdad, el juez lo perdonó.|When he [swore] to tell the truth, the judge [forgave] him.
+35|t|Mientras grababan la película, alguien robó una cámara; grabaron el resto con un teléfono.|While they were filming, someone [stole] a camera; they [shot] the rest with a phone.
+35|c|Cuando era niño, alimentaba a los patos y colgaba sus dibujos en la nevera.|When I was a kid, I [fed] the ducks and [hung] my drawings on the fridge.
+35|t|Mientras atendía a un cliente, el jefe la buscó; manejó ambas cosas con calma.|While she was dealing with a customer, the boss [sought] her out; she [dealt] with both calmly.
+35|c|Cuando le robaron la bicicleta, juró no volver a comprar otra.|When someone [stole] his bike, he [swore] never to buy another one.
+35|t|Mientras le daba de comer al perro, el gato robó su comida; les di de comer a los dos otra vez.|While I was feeding the dog, the cat [stole] its food; I [fed] them both again.
+35|c|Cuando colgué el teléfono, me arrepentí; ella me perdonó al día siguiente.|When I [hung] up, I regretted it; she [forgave] me the next day.
+35|t|Mientras tomaba fotos, se despertó el oso; disparó una última foto y corrió.|While he was taking photos, the bear [woke] up; he [shot] one last picture and ran.
+35|c|Cuando me prestaste el libro, lo perdí y lo busqué en todas partes.|When you [lent] me the book, I lost it, and I [sought] it everywhere.
+35|t|Cuando trató el problema, juró que no se repetiría.|When he [dealt] with the problem, he [swore] it wouldn't happen again.
+
+# --- Regla 36 · Will vs Going to ---
+36|t|Voy a prestarle dinero; ya me perdonó por lo del año pasado.|I'm going to [lend] him money; he has already [forgiven] me for last year.
+36|c|Tranquilo, yo le doy de comer al perro; ya lo desperté.|Don't worry, I'll [feed] the dog; I have already [woken] it.
+36|t|Va a buscar trabajo en otra ciudad; ya trató con varias empresas.|She's going to [seek] work in another city; she has already [dealt] with several companies.
+36|c|Creo que la perdonaré; juró que fue un error.|I think I'll [forgive] her; she [swore] it was a mistake.
+36|t|Van a grabar la película aquí; ya colgaron los carteles.|They're going to [shoot] the movie here; they have already [hung] the posters.
+36|c|Te prometo que no robaré nada; ya juré ante el juez.|I promise I won't [steal] anything; I have already [sworn] before the judge.
+36|t|Mira esas nubes: vamos a colgar la ropa adentro; ayer la robaron del tendedero.|Look at those clouds: we're going to [hang] the laundry inside; yesterday someone [stole] it from the line.
+36|c|Creo que trataré el tema mañana; hoy me despertaron a las cuatro.|I think I'll [deal] with the issue tomorrow; today they [woke] me at four.
+36|t|Va a despertar a todos; ya le dio de comer al gallo.|He's going to [wake] everyone; he has already [fed] the rooster.
+36|c|Te presto mi carro; el tuyo lo robaron ayer.|I'll [lend] you my car; yours was [stolen] yesterday.
+36|t|Vamos a buscar al perro; robó la carne y huyó.|We're going to [seek] the dog; it [stole] the meat and ran away.
+36|c|Creo que colgaré el cuadro aquí; ya disparé una foto para ver cómo queda.|I think I'll [hang] the picture here; I have already [shot] a photo to see how it looks.
+36|t|Va a jurar como presidente; ya trató con todos los partidos.|He's going to [swear] in as president; he has already [dealt] with all the parties.
+36|c|Te perdono; ya me prestaste suficiente atención.|I'll [forgive] you; you have [lent] me enough attention.
+36|t|Van a alimentar a los animales del zoológico; ya los despertaron.|They're going to [feed] the zoo animals; they have already [woken] them.
+
+# --- Regla 37 · Contables vs incontables ---
+37|t|Le presté muy poco dinero; me perdonó muchas deudas.|I [lent] him very little money; he [forgave] many of my debts.
+37|c|¿Cuántas bicicletas robaron? ¿Cuánta ayuda buscaron?|How many bikes did they [steal]? How much help did they [seek]?
+37|t|Disparé muchas fotos; colgué pocas en la pared.|I [shot] many photos; I [hung] few on the wall.
+37|c|Alimentamos a muchos gatos; despertamos a pocos vecinos.|We [fed] many cats; we [woke] few neighbors.
+37|t|Juró muchas veces; lo perdonaron pocas.|He [swore] many times; they [forgave] him few times.
+37|c|Tratamos con mucha gente; robaron muy poco dinero.|We [dealt] with a lot of people; they [stole] very little money.
+37|t|¿Cuánto dinero te prestaron? ¿Cuántas veces buscaste trabajo?|How much money did they [lend] you? How many times did you [seek] work?
+37|c|Colgamos muchas luces; disparamos mucho video.|We [hung] many lights; we [shot] a lot of video.
+37|t|Me despertaron muchas veces; le di de comer al bebé poca leche.|They [woke] me many times; I [fed] the baby little milk.
+37|c|Perdonó muchos errores; juró pocas promesas.|She [forgave] many mistakes; she [swore] few oaths.
+37|t|Robaron muchas joyas; buscaron poca información.|They [stole] a lot of jewelry; they [sought] little information.
+37|c|Prestamos muchos libros; tratamos con pocos lectores difíciles.|We [lent] many books; we [dealt] with few difficult readers.
+37|t|Alimenté a muchos pájaros; colgué poca comida.|I [fed] many birds; I [hung] little food.
+37|c|¿Cuántas escenas grabaron? ¿Cuánto tiempo robaron al descanso?|How many scenes did they [shoot]? How much time did they [steal] from the break?
+37|t|Desperté a pocos niños; perdoné muchas travesuras.|I [woke] few kids; I [forgave] many pranks.
+
+# --- Regla 38 · Bad vs Badly ---
+38|t|Trató muy mal al cliente y su jefe no lo perdonó.|He [dealt] badly with the customer, and his boss didn't [forgive] him.
+38|c|Me sentí mal porque te robaron la bicicleta que te presté.|I felt bad because someone [stole] the bike I [lent] you.
+38|t|Dormí mal porque el perro me despertó tres veces; le di de comer a medianoche.|I slept badly because the dog [woke] me three times; I [fed] it at midnight.
+38|c|Colgó mal el cuadro y se cayó; lo grabé todo.|He [hung] the picture badly, and it fell; I [shot] the whole thing.
+38|t|Fue una mala idea prestarle el carro; lo robaron en una hora.|It was a bad idea to [lend] him the car; it was [stolen] within an hour.
+38|c|Disparó muy mal en el partido; juró que estaba enfermo.|He [shot] badly in the game; he [swore] he was sick.
+38|t|Me sentí mal después de jurar delante de mi abuela; me perdonó igual.|I felt bad after I [swore] in front of my grandmother; she [forgave] me anyway.
+38|c|Alimentamos mal al perro y robó comida de la mesa.|We [fed] the dog badly, and it [stole] food from the table.
+38|t|Buscó mal y no encontró nada; colgó el teléfono frustrado.|He [sought] it badly and found nothing; he [hung] up frustrated.
+38|c|Trataron muy mal el problema; nadie buscó una solución.|They [dealt] with the problem badly; nobody [sought] a solution.
+38|t|No es mala idea despertar temprano; ayer alimenté a los caballos antes del amanecer.|It's not a bad idea to [wake] up early; yesterday I [fed] the horses before dawn.
+38|c|Grabaron mal la escena; la robaron de otra película.|They [shot] the scene badly; they [stole] it from another movie.
+38|t|Se sintió mal porque no lo perdonaron; juró hacerlo mejor.|He felt bad because they didn't [forgive] him; he [swore] to do better.
+38|c|Me prestó un libro en mal estado; lo traté con cuidado igual.|She [lent] me a book in bad condition; I [dealt] with it carefully anyway.
+38|t|Me desperté de mal humor; colgué el teléfono a mi jefe.|I [woke] up in a bad mood; I [hung] up on my boss.
+
+# --- Regla 39 · Preposiciones ---
+39|t|Le presté mi carro a mi hermano el lunes; lo robaron en el centro.|I [lent] my car to my brother on Monday; someone [stole] it downtown.
+39|c|Me desperté a las seis y le di de comer al gato en la cocina.|I [woke] up at six and [fed] the cat in the kitchen.
+39|t|Colgué el cuadro en la pared de la sala en diciembre; le disparé una foto para mi mamá.|I [hung] the picture on the living room wall in December; I [shot] a photo of it for my mom.
+39|c|Buscamos refugio en una cueva durante la tormenta; un pastor nos prestó una manta.|We [sought] shelter in a cave during the storm; a shepherd [lent] us a blanket.
+39|t|Juró en el tribunal el martes; el juez lo perdonó en enero.|He [swore] in court on Tuesday; the judge [forgave] him in January.
+39|c|Grabaron la película en Cartagena en el verano; colgaron luces en la plaza.|They [shot] the movie in Cartagena in the summer; they [hung] lights in the square.
+39|t|Robaron mi bicicleta en el parque a las tres; la busqué hasta la noche.|Someone [stole] my bike in the park at three; I [sought] it until night.
+39|c|Traté con el cliente por teléfono a las nueve; lo perdoné por gritar.|I [dealt] with the client on the phone at nine; I [forgave] him for shouting.
+39|t|Alimentamos a los patos en el lago el domingo y disparamos fotos en el muelle.|We [fed] the ducks at the lake on Sunday and [shot] photos on the dock.
+39|c|Me despertó un ruido a medianoche; alguien robó el carro en la calle.|A noise [woke] me at midnight; someone [stole] the car on the street.
+39|t|Le presté dinero en marzo y me perdonó la deuda en mayo.|I [lent] him money in March, and he [forgave] my debt in May.
+39|c|Colgamos la bandera en el balcón durante la fiesta; juramos lealtad en la plaza.|We [hung] the flag on the balcony during the festival; we [swore] loyalty in the square.
+39|t|Buscó trabajo en internet por la noche; trató con un reclutador en la mañana.|He [sought] work online at night; he [dealt] with a recruiter in the morning.
+39|c|El gato robó el pescado de la mesa a las ocho; le di de comer en el patio.|The cat [stole] the fish from the table at eight; I [fed] it on the patio.
+39|t|Disparé la foto desde el puente al amanecer; la colgué en mi cuarto.|I [shot] the photo from the bridge at dawn; I [hung] it in my room.
+
+# --- Regla 40 · For + período / During + evento ---
+40|t|Busqué trabajo durante seis meses; durante la entrevista juré que era puntual.|I [sought] work for six months; during the interview I [swore] I was punctual.
+40|c|Durante la boda grabamos por tres horas; colgamos las luces durante el almuerzo.|During the wedding we [shot] video for three hours; we [hung] the lights during lunch.
+40|t|Le presté mi casa durante un mes; nadie robó nada durante ese tiempo.|I [lent] him my house for a month; nobody [stole] anything during that time.
+40|c|Durante la noche el bebé me despertó por horas; le di de comer durante la madrugada.|During the night the baby [woke] me for hours; I [fed] him during the early morning.
+40|t|Durante el juicio el testigo juró por diez minutos; el juez lo perdonó durante la sentencia.|During the trial the witness [swore] for ten minutes; the judge [forgave] him during the sentencing.
+40|c|Traté con clientes durante ocho horas; durante el descanso alguien robó mi almuerzo.|I [dealt] with customers for eight hours; during the break someone [stole] my lunch.
+40|t|Durante las vacaciones alimenté a los gatos de mi vecina por dos semanas; me despertaban cada mañana.|During the vacation I [fed] my neighbor's cats for two weeks; they [woke] me every morning.
+40|c|Durante la tormenta buscamos refugio por una hora; un señor nos prestó su garaje.|During the storm we [sought] shelter for an hour; a man [lent] us his garage.
+40|t|Disparé fotos durante todo el concierto; colgué cien en la pared durante la noche.|I [shot] photos during the whole concert; I [hung] a hundred on the wall during the night.
+40|c|Durante el partido juró por noventa minutos; el árbitro no lo perdonó.|During the game he [swore] for ninety minutes; the referee didn't [forgive] him.
+40|t|Durante la mudanza robaron una caja; la buscamos por días.|During the move someone [stole] a box; we [sought] it for days.
+40|c|Me prestaron un libro por una semana; durante el viaje lo traté con cuidado.|They [lent] me a book for a week; during the trip I [dealt] with it carefully.
+40|t|Durante el campamento me despertaron a las cinco por una semana; alimentamos a los caballos cada mañana.|During the camp they [woke] me at five for a week; we [fed] the horses every morning.
+40|c|Colgaron el cuadro por un año; durante la exposición alguien lo robó.|They [hung] the painting for a year; during the exhibition someone [stole] it.
+40|t|Durante la crisis buscamos trabajo por meses; el banco nos prestó dinero durante un año.|During the crisis we [sought] work for months; the bank [lent] us money for a year.
+
+# --- Regla 41 · Orden natural de la oración ---
+41|t|Ayer le presté mi carro a mi primo para ir al aeropuerto; me lo devolvió y le perdoné el retraso.|I [lent] my car to my cousin yesterday to go to the airport; he returned it, and I [forgave] him for being late.
+41|c|Mi hermana colgó las fotos de la boda en la sala anoche; las disparó un amigo.|My sister [hung] the wedding photos in the living room last night; a friend [shot] them.
+41|t|El perro me despertó muy temprano esta mañana; le di de comer enseguida.|The dog [woke] me very early this morning; I [fed] it right away.
+41|c|Alguien robó la bicicleta de mi hijo frente al colegio el viernes; la buscamos todo el fin de semana.|Someone [stole] my son's bike in front of the school on Friday; we [sought] it all weekend.
+41|t|El testigo juró decir la verdad ante el juez esta mañana; el juez trató el caso con cuidado.|The witness [swore] to tell the truth before the judge this morning; the judge [dealt] with the case carefully.
+41|c|Siempre le doy de comer a los peces antes de despertar a los niños.|I always [feed] the fish before I [wake] the kids.
+41|t|Mi abuela perdonó a mi abuelo después de cuarenta años; él juró amarla siempre.|My grandmother [forgave] my grandfather after forty years; he [swore] to love her forever.
+41|c|Los fotógrafos dispararon cientos de fotos en el estadio ayer; colgaron las mejores en la revista.|The photographers [shot] hundreds of photos at the stadium yesterday; they [hung] the best ones in the magazine.
+41|t|Mi jefe trató muy bien la crisis el mes pasado y buscó ayuda externa.|My boss [dealt] with the crisis very well last month and [sought] outside help.
+41|c|El banco nos prestó el dinero para la casa en enero; nadie robó nuestra identidad.|The bank [lent] us the money for the house in January; nobody [stole] our identity.
+41|t|Colgué la ropa en el patio esta mañana; el viento la robó por la tarde.|I [hung] the laundry in the yard this morning; the wind [stole] it in the afternoon.
+41|c|Mi papá alimentó a las gallinas muy temprano y me despertó para ayudar.|My dad [fed] the chickens very early and [woke] me to help.
+41|t|Ayer busqué el libro que te presté en toda la casa.|I [sought] the book I [lent] you all over the house yesterday.
+41|c|El niño juró que no robó las galletas de la cocina.|The boy [swore] he didn't [steal] the cookies from the kitchen.
+41|t|Mi vecina me perdonó por el ruido de la fiesta; le colgué una nota de disculpa en la puerta.|My neighbor [forgave] me for the party noise; I [hung] an apology note on her door.
+
+# --- Regla 42 · Vocabulario específico ---
+42|t|El prestamista le prestó dinero al comerciante; luego le perdonó los intereses.|The lender [lent] money to the merchant; later he [forgave] the interest.
+42|c|El ladrón robó la joyería; los detectives lo buscaron durante semanas.|The thief [stole] from the jewelry store; the detectives [sought] him for weeks.
+42|t|El camarógrafo grabó el partido; el editor colgó el video en la página oficial.|The cameraman [shot] the game; the editor [hung] the video on the official page.
+42|c|El crupier repartió las cartas; el jugador juró que hubo trampa.|The dealer [dealt] the cards; the player [swore] there was cheating.
+42|t|El granjero alimentó al ganado y despertó a los trabajadores.|The farmer [fed] the cattle and [woke] the workers.
+42|c|El testigo juró ante el tribunal; el juez perdonó la multa.|The witness [swore] before the court; the judge [forgave] the fine.
+42|t|El cazador disparó al aire; el guardabosques lo buscó por todo el parque.|The hunter [shot] into the air; the ranger [sought] him all over the park.
+42|c|El curador colgó el cuadro en la galería; alguien lo robó en la inauguración.|The curator [hung] the painting in the gallery; someone [stole] it at the opening.
+42|t|El banco prestó millones a la empresa; el gerente trató con los inversionistas.|The bank [lent] millions to the company; the manager [dealt] with the investors.
+42|c|La enfermera despertó al paciente y le dio de comer.|The nurse [woke] the patient and [fed] him.
+42|t|El carterista robó una billetera en el metro; la víctima juró denunciarlo.|The pickpocket [stole] a wallet on the subway; the victim [swore] to report him.
+42|c|El delantero disparó al arco y el portero lo perdonó con una mirada.|The striker [shot] at the goal, and the goalkeeper [forgave] him with a look.
+42|t|El cuidador del zoológico alimentó a los leones y colgó carne en los árboles.|The zookeeper [fed] the lions and [hung] meat in the trees.
+42|c|El abogado buscó pruebas y trató el caso con el fiscal.|The lawyer [sought] evidence and [dealt] with the case with the prosecutor.
+42|t|El director juramentó al nuevo empleado y le prestó una oficina.|The director [swore] in the new employee and [lent] him an office.
+
+# --- Regla 43 · Past Perfect ---
+43|t|Cuando llegué, ya habían robado la casa y habían colgado una nota en la puerta.|When I arrived, they had already [stolen] from the house and had [hung] a note on the door.
+43|c|Me di cuenta de que le había prestado demasiado después de que me había perdonado.|I realized I had [lent] him too much after he had [forgiven] me.
+43|t|Nunca había jurado en un tribunal antes; había tratado con abogados, pero no con jueces.|I had never [sworn] in a court before; I had [dealt] with lawyers but not judges.
+43|c|Cuando volvimos, alguien había alimentado a los gatos y había despertado al perro.|When we came back, someone had [fed] the cats and had [woken] the dog.
+43|t|Ya habían grabado la escena cuando el actor juró que se había equivocado.|They had already [shot] the scene when the actor [swore] he had made a mistake.
+43|c|Había buscado trabajo por meses cuando por fin le prestaron una oportunidad.|He had [sought] work for months when they finally [lent] him a hand.
+43|t|Me dijo que lo había perdonado y que había colgado su foto otra vez.|She told me she had [forgiven] him and had [hung] his photo again.
+43|c|Ya me había despertado cuando el gato robó el pescado.|I had already [woken] up when the cat [stole] the fish.
+43|t|Nunca había alimentado a un caballo; había jurado tenerles miedo.|I had never [fed] a horse; I had [sworn] I was afraid of them.
+43|c|Cuando llegó la policía, el ladrón ya había robado todo y había buscado una salida.|When the police arrived, the thief had already [stolen] everything and had [sought] a way out.
+43|t|Habían tratado con el problema antes de que el jefe los despertara.|They had [dealt] with the problem before the boss [woke] them.
+43|c|Ya le había prestado el carro cuando me di cuenta de que lo habían robado antes.|I had already [lent] him the car when I realized it had been [stolen] before.
+43|t|Nunca la había perdonado hasta que juró decir la verdad.|I had never [forgiven] her until she [swore] to tell the truth.
+43|c|Ya habían colgado las luces cuando grabamos el video.|They had already [hung] the lights when we [shot] the video.
+43|t|Me había despertado tres veces; ya le había dado de comer al bebé dos veces.|I had [woken] up three times; I had already [fed] the baby twice.
+
+# --- Regla 44 · Future Perfect Continuous ---
+44|t|Para junio habré estado buscando trabajo un año; ya traté con veinte empresas y busqué ayuda de un asesor.|By June I will have been looking for work for a year; I have already [dealt] with twenty companies and [sought] help from a coach.
+44|c|Para las ocho habremos estado colgando luces tres horas; ya despertamos a los vecinos y les dimos de comer a los niños.|By eight we will have been hanging lights for three hours; we have already [woken] the neighbors and [fed] the kids.
+44|t|Para diciembre habrá estado prestándole dinero a su hermano diez años; nunca le ha perdonado nada, pero la semana pasada le prestó más.|By December she will have been lending her brother money for ten years; she has never [forgiven] him for anything, but she [lent] him more last week.
+44|c|Para el viernes habré estado alimentando a los gatos de mi vecina un mes; me han despertado cada mañana y les he dado de comer dos veces al día.|By Friday I will have been feeding my neighbor's cats for a month; they have [woken] me every morning, and I have [fed] them twice a day.
+44|t|Para el lunes habrán estado grabando la película seis meses; ya grabaron doscientas escenas y robaron ideas de otros directores.|By Monday they will have been filming the movie for six months; they have already [shot] two hundred scenes and [stolen] ideas from other directors.
+44|c|Para la medianoche habrá estado atendiendo clientes doce horas; ha tratado con cien personas y ha jurado que renunciará.|By midnight she will have been dealing with customers for twelve hours; she has [dealt] with a hundred people and [sworn] she will quit.
+44|t|Para marzo habré estado despertándome a las cinco un año; he alimentado a los caballos cada día y he despertado a toda la finca.|By March I will have been waking up at five for a year; I have [fed] the horses every day and [woken] the whole farm.
+44|c|Para el verano habrán estado persiguiendo al ladrón dos años; ha robado en cinco ciudades y lo han buscado en todas partes.|By summer they will have been searching for the thief for two years; he has [stolen] from five cities, and they have [sought] him everywhere.
+44|t|Para el final del juicio habrá estado jurando su inocencia un año; la ha jurado cien veces y nadie lo ha perdonado.|By the end of the trial he will have been swearing his innocence for a year; he has [sworn] it a hundred times, and nobody has [forgiven] him.
+44|c|Para las diez habremos estado colgando cuadros toda la mañana; ya colgamos veinte y disparamos fotos de cada uno.|By ten we will have been hanging pictures all morning; we have already [hung] twenty and [shot] photos of each one.
+44|t|Para enero habrá estado perdonando a su hijo diez años; él juró cambiar cada vez y ella lo perdonó otra vez.|By January she will have been forgiving her son for ten years; he [swore] to change every time, and she [forgave] him again.
+44|c|Para el próximo mes habré estado prestándole mi carro a mi primo seis meses; nunca lo han robado y no se lo he prestado a nadie más.|By next month I will have been lending my car to my cousin for six months; it has never been [stolen], and I have [lent] it to nobody else.
+44|t|Para las seis habrá estado alimentando al bebé cada tres horas; le ha dado de comer cuatro veces y la ha despertado dos.|By six he will have been feeding the baby every three hours; he has [fed] her four times and [woken] her twice.
+44|c|Para fin de año habremos estado trabajando con este proveedor cinco años; nunca nos ha robado y lo hemos tratado con justicia.|By the end of the year we will have been dealing with this supplier for five years; it has never [stolen] from us, and we have [dealt] with it fairly.
+44|t|Para el sábado habré estado buscando a mi perro una semana; colgué carteles en todo el barrio y busqué ayuda de la policía.|By Saturday I will have been looking for my dog for a week; I [hung] posters all over the neighborhood and [sought] help from the police.
+
+# --- Regla 45 · Voz pasiva ---
+45|t|El cuadro fue robado del museo y fue buscado por la policía durante años.|The painting was [stolen] from the museum and was [sought] by the police for years.
+45|c|El dinero fue prestado por un banco; la deuda fue perdonada después.|The money was [lent] by a bank; the debt was [forgiven] later.
+45|t|La película fue grabada en Colombia; los carteles fueron colgados en toda la ciudad.|The movie was [shot] in Colombia; the posters were [hung] all over the city.
+45|c|Los niños fueron despertados a las seis y fueron alimentados en la escuela.|The kids were [woken] at six and were [fed] at school.
+45|t|El testigo fue juramentado; el caso fue tratado en una hora.|The witness was [sworn] in; the case was [dealt] with in an hour.
+45|c|La bicicleta fue robada frente al colegio; fue encontrada colgada de un árbol.|The bike was [stolen] in front of the school; it was found [hung] from a tree.
+45|t|Los animales fueron alimentados por voluntarios; fueron buscados hogares para todos.|The animals were [fed] by volunteers; homes were [sought] for all of them.
+45|c|El problema fue tratado por expertos; el error fue perdonado.|The problem was [dealt] with by experts; the mistake was [forgiven].
+45|t|Las cartas fueron repartidas; el jugador fue juramentado como capitán.|The cards were [dealt]; the player was [sworn] in as captain.
+45|c|El carro fue prestado a un amigo y fue robado esa misma noche.|The car was [lent] to a friend and was [stolen] that same night.
+45|t|El bebé fue despertado por el trueno; fue alimentado enseguida.|The baby was [woken] by the thunder; he was [fed] right away.
+45|c|Los cuadros fueron colgados en la galería; fueron disparadas fotos de cada uno.|The paintings were [hung] in the gallery; photos were [shot] of each one.
+45|t|El ladrón fue perdonado por la víctima; el dinero robado fue devuelto.|The thief was [forgiven] by the victim; the [stolen] money was returned.
+45|c|El nuevo presidente fue juramentado; el discurso fue grabado en video.|The new president was [sworn] in; the speech was [shot] on video.
+45|t|La ayuda fue buscada en otros países; el dinero fue prestado sin intereses.|Help was [sought] in other countries; the money was [lent] without interest.
+
+# --- Regla 46 · Modales de posibilidad / deducción ---
+46|t|Debe de haber robado el dinero; juró que no, pero lo vieron.|He must have [stolen] the money; he [swore] he didn't, but they saw him.
+46|c|Ella pudo haberlo perdonado; le prestó su carro ayer.|She might have [forgiven] him; she [lent] him her car yesterday.
+46|t|No pueden haber grabado eso aquí; colgaron otro cartel.|They can't have [shot] that here; they [hung] a different sign.
+46|c|Debe de haberse despertado temprano; ya le dio de comer al perro.|He must have [woken] up early; he has already [fed] the dog.
+46|t|Pudieron haber buscado ayuda; trataron el problema solos.|They could have [sought] help; they [dealt] with the problem alone.
+46|c|Debe de haberle prestado dinero; juró que nunca lo haría.|She must have [lent] him money; she [swore] she never would.
+46|t|Puede que el gato haya robado el pescado; nadie lo alimentó hoy.|The cat may have [stolen] the fish; nobody [fed] it today.
+46|c|No puede haber colgado el teléfono a propósito; me perdonó ayer.|She can't have [hung] up on purpose; she [forgave] me yesterday.
+46|t|Debe de haber jurado en falso; buscaron pruebas contra él.|He must have [sworn] falsely; they [sought] evidence against him.
+46|c|Pudo haber tratado mejor al cliente; lo despertó con una llamada a las seis.|She could have [dealt] better with the client; she [woke] him with a call at six.
+46|t|Debe de haber alimentado al bebé; se despertó feliz.|She must have [fed] the baby; he [woke] up happy.
+46|c|No pueden haber robado la casa; colgamos una alarma nueva.|They can't have [stolen] from the house; we [hung] a new alarm.
+46|t|Puede que lo hayan perdonado; juró cambiar.|They may have [forgiven] him; he [swore] to change.
+46|c|Debe de haber disparado mil fotos; colgó cincuenta en la pared.|He must have [shot] a thousand photos; he [hung] fifty on the wall.
+46|t|Pudo haber buscado trabajo en otra ciudad; le prestaron un apartamento allí.|He might have [sought] work in another city; they [lent] him an apartment there.
+
+# --- Regla 47 · Half of ---
+47|t|Le presté la mitad de mis ahorros; me perdonó la otra mitad de la deuda.|I [lent] him half of my savings; he [forgave] the other half of my debt.
+47|c|Robaron la mitad de las joyas; la policía buscó el resto.|They [stole] half of the jewels; the police [sought] the rest.
+47|t|Colgué la mitad de los cuadros; disparé fotos de la otra mitad.|I [hung] half of the pictures; I [shot] photos of the other half.
+47|c|La mitad de los niños se despertó; le di de comer a la otra mitad dormida.|Half of the kids [woke] up; I [fed] the other half while they were asleep.
+47|t|La mitad del jurado juró en contra; la otra mitad lo perdonó.|Half of the jury [swore] against him; the other half [forgave] him.
+47|c|Traté con la mitad de los clientes; mi colega buscó al resto.|I [dealt] with half of the customers; my colleague [sought] the rest.
+47|t|Alimentamos a la mitad de los animales; la otra mitad robó comida.|We [fed] half of the animals; the other half [stole] food.
+47|c|La mitad del dinero fue prestado; la otra mitad fue robada.|Half of the money was [lent]; the other half was [stolen].
+47|t|Grabaron la mitad de la película en la playa; colgaron luces en la otra mitad.|They [shot] half of the movie on the beach; they [hung] lights for the other half.
+47|c|Perdoné la mitad de sus errores; juré olvidar el resto.|I [forgave] half of his mistakes; I [swore] to forget the rest.
+47|t|La mitad del pueblo buscó al niño; la otra mitad le prestó ayuda a la familia.|Half of the town [sought] the boy; the other half [lent] help to the family.
+47|c|La mitad de los vecinos se despertó con el ruido; la otra mitad juró que no oyó nada.|Half of the neighbors [woke] up with the noise; the other half [swore] they heard nothing.
+47|t|Repartió la mitad de las cartas; le robaron la otra mitad.|He [dealt] half of the cards; someone [stole] the other half.
+47|c|Colgamos la mitad de la ropa; alimentamos a las gallinas con la otra mitad del pan.|We [hung] half of the laundry; we [fed] the chickens with the other half of the bread.
+47|t|La mitad de los empleados juró lealtad; la otra mitad buscó otro trabajo.|Half of the employees [swore] loyalty; the other half [sought] other jobs.
+
+# --- Regla 48 · "By" para tiempo futuro ---
+48|t|Para el viernes ya le habré prestado el dinero y me habrá perdonado.|By Friday I will have [lent] him the money, and he will have [forgiven] me.
+48|c|Para las diez ya habrán robado la tienda y habrán buscado una salida.|By ten they will have [stolen] from the store and [sought] a way out.
+48|t|Para cuando llegues, ya habré colgado las luces y habré despertado a los niños.|By the time you arrive, I will have [hung] the lights and [woken] the kids.
+48|c|Para el lunes habrán grabado la película y habrán jurado no hablar del final.|By Monday they will have [shot] the movie and [sworn] not to talk about the ending.
+48|t|Para las seis ya le habré dado de comer al bebé; ya lo desperté una vez.|By six I will have [fed] the baby; I have already [woken] him once.
+48|c|Para diciembre habremos tratado con todos los clientes; ya buscamos nuevos.|By December we will have [dealt] with all the clients; we have already [sought] new ones.
+48|t|Para el final del juicio habrá jurado diez veces; nadie lo habrá perdonado.|By the end of the trial he will have [sworn] ten times; nobody will have [forgiven] him.
+48|c|Para mañana ya habré colgado los cuadros; ayer disparé fotos de cada pared.|By tomorrow I will have [hung] the pictures; yesterday I [shot] photos of each wall.
+48|t|Para el verano habremos alimentado a cien perros; ya buscamos más voluntarios.|By summer we will have [fed] a hundred dogs; we have already [sought] more volunteers.
+48|c|Para las cinco ya habrá tratado el problema; ya juró que lo resolvería.|By five she will have [dealt] with the problem; she has already [sworn] she would solve it.
+48|t|Para el próximo año me habrán prestado el dinero; ya me perdonaron la deuda anterior.|By next year they will have [lent] me the money; they have already [forgiven] my previous debt.
+48|c|Para el mediodía ya habrán despertado a todos; ya alimentaron a los caballos.|By noon they will have [woken] everyone; they have already [fed] the horses.
+48|t|Para cuando termine el partido, habrá disparado diez veces; ya robó dos balones.|By the time the game ends, he will have [shot] ten times; he has already [stolen] two balls.
+48|c|Para el sábado habré buscado en todas las tiendas; ya colgué carteles.|By Saturday I will have [sought] it in every store; I have already [hung] posters.
+48|t|Para la boda ya la habrá perdonado; juró que lo haría.|By the wedding she will have [forgiven] her; she [swore] she would.
+
+# --- Regla 49 · because of / because ---
+49|t|Me desperté por el ruido; esa noche alguien robó el carro.|I [woke] up because of the noise; someone [stole] the car that night.
+49|c|La perdoné porque juró decir la verdad.|I [forgave] her because she [swore] to tell the truth.
+49|t|Le presté dinero por su situación; trató muy mal la crisis.|I [lent] him money because of his situation; he [dealt] badly with the crisis.
+49|c|Buscamos refugio porque robaron nuestra carpa.|We [sought] shelter because someone [stole] our tent.
+49|t|Por la lluvia, colgamos la ropa adentro; grabamos el video en la sala.|Because of the rain, we [hung] the laundry inside; we [shot] the video in the living room.
+49|c|Le di de comer al perro porque me despertó.|I [fed] the dog because it [woke] me.
+49|t|Por su honestidad, lo perdonaron; juró que fue un error.|Because of his honesty, they [forgave] him; he [swore] it was a mistake.
+49|c|Colgó el teléfono porque trató con un cliente grosero.|She [hung] up because she [dealt] with a rude customer.
+49|t|Por la crisis, buscaron trabajo afuera; el banco les prestó poco.|Because of the crisis, they [sought] work abroad; the bank [lent] them little.
+49|c|Robó comida porque nadie lo alimentaba.|He [stole] food because nobody [fed] him.
+49|t|Por el bebé, me desperté cinco veces; le di de comer cada vez.|Because of the baby, I [woke] up five times; I [fed] her every time.
+49|c|Juró venganza porque le robaron la bicicleta.|He [swore] revenge because someone [stole] his bike.
+49|t|Por el error, la buscaron; la perdonaron después.|Because of the mistake, they [sought] her out; they [forgave] her later.
+49|c|Disparó la foto porque el sol colgaba sobre el mar.|He [shot] the photo because the sun [hung] over the sea.
+49|t|Por la amistad, le presté el carro; me juró que lo cuidaría.|Because of our friendship, I [lent] him the car; he [swore] he would take care of it.
+
+# --- Regla 50 · (put, try, get, take, lie) + (down, off, on) ---
+50|t|Me acosté temprano, pero el perro me despertó a medianoche y le di de comer.|I lay down early, but the dog [woke] me at midnight, and I [fed] it.
+50|c|Me quité el abrigo, lo colgué en la puerta y alguien lo robó.|I took off my coat and [hung] it on the door, and someone [stole] it.
+50|t|Se subió al bus y le robaron la billetera; juró que no sintió nada.|She got on the bus, and someone [stole] her wallet; she [swore] she felt nothing.
+50|c|Se puso los guantes y le dio de comer a los caballos; después colgó los baldes.|He put on his gloves and [fed] the horses; he [hung] the buckets afterward.
+50|t|El avión despegó tarde; colgué el teléfono y dormí hasta que una azafata me despertó.|The plane took off late; I [hung] up the phone and fell asleep until a flight attendant [woke] me.
+50|c|Me probé el traje que me prestaste; juré devolvértelo limpio.|I tried on the suit you [lent] me; I [swore] to return it clean.
+50|t|Bajé el teléfono y la perdoné; tratamos el tema cara a cara.|I put down my phone and [forgave] her; we [dealt] with it face to face.
+50|c|Se quitó los zapatos y buscó sus pantuflas; el perro se las había robado.|He took off his shoes and [sought] his slippers; the dog had [stolen] them.
+50|t|Se bajó del carro y disparó una foto del atardecer; la colgó en su oficina.|She got out of the car and [shot] a photo of the sunset; she [hung] it in her office.
+50|c|Me acosté en el sofá y los niños me despertaron; querían que les diera de comer.|I lay down on the sofa, and the kids [woke] me; they wanted me to [feed] them.
+50|t|Se puso el uniforme y juró como policía; buscaba proteger a su pueblo.|He put on his uniform and [swore] in as a police officer; he [sought] to protect his town.
+50|c|Me quité el reloj y alguien lo robó del vestidor; lo busqué por todas partes.|I took off my watch, and someone [stole] it from the locker room; I [sought] it everywhere.
+50|t|Se subió a la tarima y trató el tema con calma; el público estuvo pendiente de cada palabra.|She got on stage and [dealt] with the topic calmly; the audience [hung] on her every word.
+50|c|Puse la cámara en el trípode, grabé toda la escena y colgué el micrófono encima.|I put the camera down on the tripod, [shot] the whole scene, and [hung] the microphone above it.
+50|t|Se puso las gafas y buscó las llaves que le presté.|She put on her glasses and [sought] the keys I [lent] her.
+
+# --- Regla 51 · Sustantivos compuestos ---
+51|t|Me robaron la tarjeta de crédito en el centro comercial; busqué ayuda en el puesto de seguridad.|Someone [stole] my credit card at the shopping mall; I [sought] help at the security desk.
+51|c|El despertador me despertó a las cinco; le di de comer al pez dorado.|The alarm clock [woke] me at five; I [fed] the goldfish.
+51|t|Colgué el cuadro de la familia en la pared de la sala; disparé una foto con el teléfono celular.|I [hung] the family portrait on the living room wall; I [shot] a photo with my cell phone.
+51|c|El banco me prestó dinero para la casa de campo; el gerente del banco trató conmigo.|The bank [lent] me money for the country house; the bank manager [dealt] with me.
+51|t|Juró en la sala del tribunal; el juez de paz lo perdonó.|He [swore] in the courtroom; the justice of the peace [forgave] him.
+51|c|Le di de comer al perro guardián y colgué la correa del perro en el gancho.|I [fed] the guard dog and [hung] the dog leash on the hook.
+51|t|El ladrón de bicicletas robó tres en la estación de tren; la policía buscó en las cámaras de seguridad.|The bike thief [stole] three at the train station; the police [sought] clues on the security cameras.
+51|c|Grabamos el video musical en la azotea del edificio; colgamos luces de colores.|We [shot] the music video on the building rooftop; we [hung] colored lights.
+51|t|Me prestó su cepillo de dientes; nunca lo perdoné por eso.|He [lent] me his toothbrush; I never [forgave] him for that.
+51|c|Traté con la queja del cliente en la sala de reuniones; juré resolverla.|I [dealt] with the customer complaint in the meeting room; I [swore] to solve it.
+51|t|La alarma de incendios despertó a todo el edificio; buscamos la escalera de emergencia.|The fire alarm [woke] the whole building; we [sought] the emergency stairs.
+51|c|Robaron el cajero automático del barrio; colgaron un aviso en la puerta del banco.|They [stole] the neighborhood ATM; they [hung] a notice on the bank door.
+51|t|Alimenté a los pájaros del parque con migas de pan; disparé fotos con mi cámara digital.|I [fed] the park birds with bread crumbs; I [shot] photos with my digital camera.
+51|c|Me perdonó la deuda de la tarjeta de crédito; juré no volver a pedirle dinero prestado.|She [forgave] my credit card debt; I [swore] never to borrow money from her again.
+51|t|Le presté mi cargador del teléfono; lo buscó en su mochila de viaje.|I [lent] him my phone charger; he [sought] it in his travel backpack.
+
+# --- Regla 52 · Expresiones de tiempo con "over" ---
+52|t|Durante los últimos años le he prestado mucho dinero y lo he perdonado muchas veces.|Over the last few years I have [lent] him a lot of money and have [forgiven] him many times.
+52|c|A lo largo del fin de semana robaron tres casas; la policía buscó a los ladrones.|Over the weekend they [stole] from three houses; the police [sought] the thieves.
+52|t|Durante el verano grabamos un documental y colgamos fotos en la galería.|Over the summer we [shot] a documentary and [hung] photos in the gallery.
+52|c|En los últimos meses el bebé me ha despertado cada noche; le he dado de comer a las tres.|Over the past few months the baby has [woken] me every night; I have [fed] him at three.
+52|t|A lo largo de los años juró muchas cosas; nunca trató bien a nadie.|Over the years he [swore] many things; he never [dealt] well with anyone.
+52|c|Durante el almuerzo me perdonó y me prestó su carro.|Over lunch she [forgave] me and [lent] me her car.
+52|t|En la última década hemos buscado soluciones y hemos tratado con muchos gobiernos.|Over the last decade we have [sought] solutions and have [dealt] with many governments.
+52|c|Durante la cena juró que no robó nada.|Over dinner he [swore] he hadn't [stolen] anything.
+52|t|En las últimas semanas he alimentado a los gatos de la calle y he colgado carteles para adoptarlos.|Over the last few weeks I have [fed] the street cats and have [hung] posters to get them adopted.
+52|c|A lo largo de su carrera disparó miles de fotos y robó el corazón del público.|Over her career she [shot] thousands of photos and [stole] the public's heart.
+52|t|Durante la noche me despertaron tres veces; colgué el teléfono cada vez.|Over the night they [woke] me three times; I [hung] up the phone every time.
+52|c|En los últimos días he buscado trabajo y me han prestado un computador.|Over the last few days I have [sought] work, and they have [lent] me a computer.
+52|t|A lo largo del año perdonó a todos y trató cada problema con calma.|Over the year she [forgave] everyone and [dealt] with every problem calmly.
+52|c|Durante las vacaciones alimentamos a los caballos y nos despertamos con el sol.|Over the holidays we [fed] the horses and [woke] up with the sun.
+52|t|En los últimos años le han robado tres veces; ha jurado mudarse.|Over the past few years someone has [stolen] from him three times; he has [sworn] to move.
+
+# --- Regla 53 · Future Continuous ---
+53|t|Mañana a esta hora estaré grabando el video; ya colgamos las luces y grabamos la primera escena.|This time tomorrow I'll be filming the video; we have already [hung] the lights and [shot] the first scene.
+53|c|Esta noche estaré alimentando a los gatos de mi vecina; ayer me despertaron a las cinco y les di de comer temprano.|Tonight I'll be feeding my neighbor's cats; yesterday they [woke] me at five, and I [fed] them early.
+53|t|A las ocho estaré atendiendo a un cliente difícil; ayer juró que demandaría a la empresa y lo traté con calma.|At eight I'll be dealing with a difficult client; yesterday he [swore] he would sue the company, and I [dealt] with him calmly.
+53|c|El lunes estará buscando trabajo; ya le prestamos un traje y le buscamos contactos.|On Monday he'll be looking for work; we have already [lent] him a suit and [sought] contacts for him.
+53|t|A las diez estaremos colgando los cuadros; ayer les disparamos fotos y colgamos el primero.|At ten we'll be hanging the pictures; yesterday we [shot] photos of them and [hung] the first one.
+53|c|La próxima semana estaré prestando juramento como abogada; ya perdoné a todos los que dudaron de mí y juré trabajar duro.|Next week I'll be taking my oath as a lawyer; I have already [forgiven] everyone who doubted me and [sworn] to work hard.
+53|t|Mañana estarán persiguiendo al ladrón; anoche robó en tres casas y lo buscaron hasta el amanecer.|Tomorrow they'll be searching for the thief; last night he [stole] from three houses, and they [sought] him until dawn.
+53|c|En diez años estarás haciendo préstamos en tu propio banco; ya trataste con tus primeros clientes y les prestaste pequeñas sumas.|In ten years you'll be making loans at your own bank; you have already [dealt] with your first clients and [lent] them small sums.
+53|t|El sábado estaremos cuidando a los animales del refugio; el mes pasado alimentamos a cien y les buscamos hogar a veinte.|On Saturday we'll be caring for the shelter animals; last month we [fed] a hundred and [sought] homes for twenty.
+53|c|Esta tarde estaré levantando a los niños de la siesta; anoche colgaron luces hasta tarde y se despertaron temprano.|This afternoon I'll be getting the kids up from their nap; last night they [hung] lights until late and [woke] up early.
+53|t|En junio estaré grabando un documental; ya robé algunas ideas de mis directores favoritos y grabé un avance.|In June I'll be filming a documentary; I have already [stolen] some ideas from my favorite directors and [shot] a trailer.
+53|c|A medianoche todavía estaremos poniendo las últimas decoraciones; ya despertamos a los vecinos dos veces y colgamos cien luces.|At midnight we'll still be putting up the last decorations; we have already [woken] the neighbors twice and [hung] a hundred lights.
+53|t|Mañana estará hablando con su hermano; ayer él juró que cambiaría y ella lo perdonó un poco.|Tomorrow she'll be talking to her brother; yesterday he [swore] he would change, and she [forgave] him a little.
+53|c|El viernes estaré discutiendo el tema con el jefe; ya busqué todos los datos y resolví la parte más difícil.|On Friday I'll be discussing the issue with the boss; I have already [sought] all the data and [dealt] with the hardest part.
+53|t|Esta noche estarán jugando cartas; ayer alguien robó una del mazo y repartieron con un juego incompleto.|Tonight they'll be playing cards; yesterday someone [stole] one from the deck, and they [dealt] with an incomplete set.
+
+# --- Regla 54 · Comparativos y superlativos ---
+54|t|Le presté más dinero que a nadie y me perdonó más rápido que todos.|I [lent] him more money than anyone, and he [forgave] me faster than everyone.
+54|c|Es el robo más grande que han cometido; robaron más que el año pasado y la policía los buscó más tiempo.|It's the biggest robbery they have committed; they [stole] more than last year, and the police [sought] them longer.
+54|t|Es la mejor foto que he disparado; la colgué en el lugar más visible de la casa.|It's the best photo I have ever [shot]; I [hung] it in the most visible spot in the house.
+54|c|Me desperté más temprano que nunca y le di de comer al perro antes que todos.|I [woke] up earlier than ever and [fed] the dog before everyone.
+54|t|Fue el juramento más serio que ha jurado; lo perdonaron más rápido de lo esperado.|It was the most serious oath he has ever [sworn]; they [forgave] him faster than expected.
+54|c|Trató el problema mejor que su jefe; buscó la solución más simple.|She [dealt] with the problem better than her boss; she [sought] the simplest solution.
+54|t|Es el cuadro más caro que han robado; había colgado en la galería más famosa.|It's the most expensive painting ever [stolen]; it had [hung] in the most famous gallery.
+54|c|Alimenté a más gatos que mi vecina; me despertaron más veces también.|I [fed] more cats than my neighbor; they [woke] me more times too.
+54|t|Disparó mejor que todos y robó la atención del público.|He [shot] better than everyone and [stole] the crowd's attention.
+54|c|Es la persona más generosa que conozco; me prestó más de lo que pedí y me perdonó la deuda.|She is the most generous person I know; she [lent] me more than I asked and [forgave] my debt.
+54|t|Busqué más tiempo que tú; lo encontré colgado en el armario más pequeño.|I [sought] it longer than you; I found it [hung] in the smallest closet.
+54|c|Fue la noche más larga: el bebé me despertó más que nunca y le di de comer cinco veces.|It was the longest night: the baby [woke] me more than ever, and I [fed] him five times.
+54|t|Juró más fuerte que su hermano y trató peor a los invitados.|He [swore] louder than his brother and [dealt] worse with the guests.
+54|c|Es el peor cliente con el que he tratado; juró que nunca pagaría.|He's the worst client I have ever [dealt] with; he [swore] he would never pay.
+54|t|Es el error más difícil que he perdonado; lo busqué para hablar más de una vez.|It's the hardest mistake I have ever [forgiven]; I [sought] him out to talk more than once.
+
+# --- Regla 55 · make/let/help + objeto + infinitivo ---
+55|t|Mi mamá me hizo perdonar a mi hermano; él juró no volver a hacerlo.|My mom made me [forgive] my brother; he [swore] never to do it again.
+55|c|Mis papás me dejaron prestarle mi bicicleta; alguien la robó.|My parents let me [lend] him my bike; someone [stole] it.
+55|t|El entrenador nos hizo disparar cien veces al arco; colgamos la red nueva después.|The coach made us [shoot] at the goal a hundred times; we [hung] the new net afterward.
+55|c|Mi abuela me ayudó a alimentar a las gallinas; me despertó a las cinco.|My grandmother helped me [feed] the chickens; she [woke] me at five.
+55|t|El juez lo hizo jurar decir la verdad; luego lo perdonó.|The judge made him [swear] to tell the truth; then he [forgave] him.
+55|c|Déjame tratar con el cliente; ayer buscó a otro empleado y no lo encontró.|Let me [deal] with the customer; yesterday he [sought] another employee and couldn't find one.
+55|t|Mi amigo me ayudó a colgar los cuadros; disparó fotos del resultado.|My friend helped me [hang] the pictures; he [shot] photos of the result.
+55|c|No me dejes despertar tarde; ayer no le di de comer al perro a tiempo.|Don't let me [wake] up late; yesterday I didn't [feed] the dog on time.
+55|t|La policía nos ayudó a buscar la bicicleta que robaron.|The police helped us [seek] the bike that someone [stole].
+55|c|Mi jefe me hizo prestarle mi oficina; trató con los clientes allí.|My boss made me [lend] him my office; he [dealt] with the clients there.
+55|t|El ruido me hizo despertar; alguien estaba robando el carro.|The noise made me [wake] up; someone [stole] the car that night.
+55|c|Déjala alimentar al perro; ya la perdoné por olvidarlo ayer.|Let her [feed] the dog; I have already [forgiven] her for forgetting yesterday.
+55|t|Mi abuelo me ayudó a perdonar; juró que el rencor solo hace daño.|My grandfather helped me [forgive]; he [swore] that grudges only do harm.
+55|c|El director nos hizo grabar la escena diez veces; colgó el resultado en la pantalla grande.|The director made us [shoot] the scene ten times; he [hung] the result on the big screen.
+55|t|Mis amigos me ayudaron a tratar con la tristeza; me prestaron su casa en la playa.|My friends helped me [deal] with the sadness; they [lent] me their beach house.
+
+# --- Regla 56 · Estilo indirecto ---
+56|t|Dijo que le había prestado dinero y que lo había perdonado.|She said she had [lent] him money and had [forgiven] him.
+56|c|Me dijo que le habían robado la bicicleta y que la había buscado por todas partes.|He told me someone had [stolen] his bike and that he had [sought] it everywhere.
+56|t|Dijeron que habían grabado la película y que habían colgado los carteles.|They said they had [shot] the movie and had [hung] the posters.
+56|c|Me preguntó si me había despertado temprano y si le había dado de comer al perro.|She asked me if I had [woken] up early and if I had [fed] the dog.
+56|t|Dijo que había jurado decir la verdad y que había tratado con el juez.|He said he had [sworn] to tell the truth and had [dealt] with the judge.
+56|c|Me contó que había colgado el teléfono porque nadie la había perdonado.|She told me she had [hung] up because nobody had [forgiven] her.
+56|t|Dijeron que habían alimentado a los animales y que habían buscado hogares para ellos.|They said they had [fed] the animals and had [sought] homes for them.
+56|c|Le pregunté si había robado algo; juró que no.|I asked him if he had [stolen] anything; he [swore] he hadn't.
+56|t|Me dijo que me prestaría su carro y que yo debía tratarlo con cuidado.|She told me she would [lend] me her car and that I should [deal] with it carefully.
+56|c|Dijo que buscaría al ladrón y juró que lo encontraría.|He said he would [seek] the thief and [swore] he would find him.
+56|t|Me preguntó por qué había despertado a los niños y por qué no les había dado de comer.|She asked me why I had [woken] the kids and why I hadn't [fed] them.
+56|c|Dijeron que el banco les había prestado dinero y que habían tratado con un asesor.|They said the bank had [lent] them money and that they had [dealt] with an advisor.
+56|t|Me contó que había disparado mil fotos y que había colgado diez en la exposición.|He told me he had [shot] a thousand photos and had [hung] ten in the exhibition.
+56|c|Dijo que nunca la perdonaría y que había jurado no volver a verla.|He said he would never [forgive] her and that he had [sworn] never to see her again.
+56|t|Me dijo que el gato había robado el pescado y que lo había alimentado igual.|She told me the cat had [stolen] the fish and that she had [fed] it anyway.
+
+# --- Regla 57 · Wish + pasado simple ---
+57|t|Ojalá no le hubiera prestado el carro; lo robaron esa noche.|I wish I hadn't [lent] him the car; someone [stole] it that night.
+57|c|Ojalá me perdonara; juré que cambiaría.|I wish she [forgave] me; I [swore] I would change.
+57|t|Ojalá no me hubiera despertado tan temprano; le di de comer al perro a las cuatro.|I wish I hadn't [woken] up so early; I [fed] the dog at four.
+57|c|Ojalá hubiera colgado el cuadro más bajo; disparé una foto y se ve torcido.|I wish I had [hung] the picture lower; I [shot] a photo, and it looks crooked.
+57|t|Ojalá no hubiera jurado delante de mi jefe; no me perdonó.|I wish I hadn't [sworn] in front of my boss; he didn't [forgive] me.
+57|c|Ojalá tratara mejor el estrés; busqué ayuda demasiado tarde.|I wish I [dealt] with stress better; I [sought] help too late.
+57|t|Ojalá no hubieran robado mi bicicleta; la busqué toda la semana.|I wish they hadn't [stolen] my bike; I [sought] it all week.
+57|c|Ojalá alguien alimentara a esos gatos; anoche me despertaron llorando de hambre.|I wish someone [fed] those cats; last night they [woke] me crying from hunger.
+57|t|Ojalá hubiera grabado ese momento; colgué el teléfono justo antes.|I wish I had [shot] that moment; I [hung] up the phone just before.
+57|c|Ojalá me prestaras tu cámara; la mía la robaron.|I wish you [lent] me your camera; mine was [stolen].
+57|t|Ojalá no hubiera perdonado tan rápido; juró y volvió a mentir.|I wish I hadn't [forgiven] him so quickly; he [swore] and lied again.
+57|c|Ojalá me despertaras a tiempo; ayer trataste con mi jefe por mí.|I wish you [woke] me on time; yesterday you [dealt] with my boss for me.
+57|t|Ojalá hubiera buscado trabajo antes; me prestaron dinero todo el año.|I wish I had [sought] work sooner; they [lent] me money all year.
+57|c|Ojalá no hubiera colgado; me perdonó al día siguiente.|I wish I hadn't [hung] up; she [forgave] me the next day.
+57|t|Ojalá alimentaran mejor a los animales del zoológico; alguien robó su comida.|I wish they [fed] the zoo animals better; someone [stole] their food.
+
+# --- Regla 58 · Conectores formales ---
+58|t|Le prestó millones; sin embargo, nunca le perdonó la deuda.|She [lent] him millions; however, she never [forgave] the debt.
+58|c|Robaron la casa; por lo tanto, buscaron ayuda en la policía.|Someone [stole] from the house; therefore, they [sought] help from the police.
+58|t|Además de grabar la película, colgó los carteles en toda la ciudad.|In addition to having [shot] the movie, he [hung] the posters all over the city.
+58|c|Juró decir la verdad; no obstante, el juez no lo perdonó.|He [swore] to tell the truth; nevertheless, the judge didn't [forgive] him.
+58|t|El bebé se despertó temprano; en consecuencia, le dimos de comer antes.|The baby [woke] up early; consequently, we [fed] him earlier.
+58|c|Trató el problema con calma; asimismo, buscó una solución duradera.|She [dealt] with the problem calmly; likewise, she [sought] a lasting solution.
+58|t|Aunque le robaron todo, perdonó al ladrón.|Although they [stole] everything from her, she [forgave] the thief.
+58|c|Colgamos las luces; sin embargo, despertamos a los vecinos.|We [hung] the lights; however, we [woke] the neighbors.
+58|t|A pesar de haber jurado lealtad, robó información de la empresa.|Despite having [sworn] loyalty, he [stole] information from the company.
+58|c|Alimentaron a los refugiados; además, les prestaron mantas.|They [fed] the refugees; furthermore, they [lent] them blankets.
+58|t|El fotógrafo disparó mil fotos; por consiguiente, colgó las cien mejores.|The photographer [shot] a thousand photos; as a result, he [hung] the hundred best.
+58|c|Buscaron al niño toda la noche; no obstante, un vecino lo había encontrado y le había dado de comer.|They [sought] the boy all night; nevertheless, a neighbor had found him and [fed] him.
+58|t|Le prestamos el carro; por lo tanto, juró cuidarlo.|We [lent] him the car; therefore, he [swore] to take care of it.
+58|c|Trataron con la crisis; por consiguiente, el pueblo los perdonó.|They [dealt] with the crisis; consequently, the people [forgave] them.
+58|t|Aunque el perro nos despertó a medianoche, le dimos de comer.|Although the dog [woke] us at midnight, we [fed] it.
+
+# --- Regla 59 · Phrasal verbs B2 ---
+59|t|Me colgó el teléfono y nunca lo perdoné.|He [hung] up on me, and I never [forgave] him.
+59|c|Me desperté de golpe y le di de comer al perro.|I [woke] up suddenly and [fed] the dog.
+59|t|Repartió los premios y juró volver el próximo año.|He [dealt] out the prizes and [swore] to come back next year.
+59|c|Buscamos al perro perdido y alguien nos prestó una linterna.|We [sought] out the lost dog, and someone [lent] us a flashlight.
+59|t|Le colgó a su jefe y juró renunciar.|She [hung] up on her boss and [swore] to quit.
+59|c|Se le acabaron las ideas, así que robó algunas de internet y grabó el video igual.|He ran out of ideas, so he [stole] some from the internet and [shot] the video anyway.
+59|t|Le prestó una mano a su vecino y colgaron la puerta juntos.|She [lent] her neighbor a hand, and they [hung] the door together.
+59|c|Me desperté con el ruido y busqué la linterna.|I [woke] up to the noise and [sought] the flashlight.
+59|t|Aguantó sin colgar y atendió al cliente hasta el final.|She [hung] on and [dealt] with the customer until the end.
+59|c|El precio se disparó y más gente robó comida.|Prices [shot] up, and more people [stole] food.
+59|t|Le dimos de comer a los perros y luego perdonamos al que se había llevado el pan.|We [fed] the dogs and then [forgave] the one that had run off with the bread.
+59|c|Juró dejar el cigarrillo y buscó ayuda.|He [swore] off cigarettes and [sought] help.
+59|t|Se le pasó el enojo y la perdonó; juró olvidar la pelea.|He got over his anger and [forgave] her; he [swore] to forget the fight.
+59|c|Despertó a la realidad y trató con sus deudas.|He [woke] up to reality and [dealt] with his debts.
+59|t|Disparó contra el arco y le robaron el balón.|He [shot] at the goal, and someone [stole] the ball from him.

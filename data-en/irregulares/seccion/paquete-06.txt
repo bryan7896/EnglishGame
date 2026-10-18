@@ -1,0 +1,63 @@
+# Paquete 6 · wear, choose, eat, sell, win, teach, throw, catch, fight, forget
+
+S|wear.b|Hoy voy a **llevar puesto** un vestido azul.|Today I'm going to [wear] a blue dress.|wore,worn
+S|wear.p|**Llevó puesta** una corbata roja en la boda.|He [wore] a red tie at the wedding.|worn,weared
+S|wear.pp|Nunca he **llevado puesto** un traje.|I have never [worn] a suit.|wore,weared
+S|choose.b|Es difícil **elegir** un regalo.|It's hard to [choose] a gift.|chose,chosen
+S|choose.p|**Eligió** la camisa verde.|She [chose] the green shirt.|chosen,choosed
+S|choose.pp|¿Ya has **elegido** el restaurante?|Have you [chosen] the restaurant yet?|chose,choosed
+S|eat.b|Quiero **comer** algo ligero.|I want to [eat] something light.|ate,eaten
+S|eat.p|**Comimos** pizza anoche.|We [ate] pizza last night.|eaten,eated
+S|eat.pp|¿Alguna vez has **comido** sushi?|Have you ever [eaten] sushi?|ate,eated
+S|sell.b|Vamos a **vender** el carro viejo.|We're going to [sell] the old car.|sold,selled
+S|sell.p|**Vendió** su casa el mes pasado.|He [sold] his house last month.|sell,selled
+S|sell.pp|Ya hemos **vendido** todas las entradas.|We have already [sold] all the tickets.|sell,selled
+S|win.b|Espero **ganar** el partido.|I hope to [win] the game.|won,winned
+S|win.p|Nuestro equipo **ganó** la copa.|Our team [won] the cup.|win,winned
+S|win.pp|Ha **ganado** tres premios.|She has [won] three awards.|win,winned
+S|teach.b|Me gustaría **enseñar** inglés.|I'd like to [teach] English.|taught,teached
+S|teach.p|Mi abuela me **enseñó** a cocinar.|My grandmother [taught] me to cook.|teach,teached
+S|teach.pp|Ha **enseñado** matemáticas por veinte años.|He has [taught] math for twenty years.|teach,teached
+S|throw.b|No vayas a **lanzar** la pelota adentro.|Don't [throw] the ball inside.|threw,thrown
+S|throw.p|**Lanzó** la piedra al río.|He [threw] the stone into the river.|thrown,throwed
+S|throw.pp|Alguien ha **lanzado** basura a la calle.|Someone has [thrown] trash into the street.|threw,throwed
+S|catch.b|Intenta **atrapar** la pelota.|Try to [catch] the ball.|caught,catched
+S|catch.p|El policía **atrapó** al ladrón.|The police officer [caught] the thief.|catch,catched
+S|catch.pp|Nunca había **atrapado** un pez tan grande.|I had never [caught] such a big fish.|catch,catched
+S|fight.b|No quiero **pelear** contigo.|I don't want to [fight] with you.|fought,fighted
+S|fight.p|Los hermanos **pelearon** por el control.|The brothers [fought] over the remote.|fight,fighted
+S|fight.pp|Han **peleado** toda la mañana.|They have [fought] all morning.|fight,fighted
+S|forget.b|No vayas a **olvidar** las llaves.|Don't [forget] your keys.|forgot,forgotten
+S|forget.p|**Olvidé** su cumpleaños.|I [forgot] her birthday.|forgotten,forgetted
+S|forget.pp|¿Has **olvidado** mi nombre?|Have you [forgotten] my name?|forgot,forgetted
+
+C|wear.b|Siempre uso gafas para leer.|I always [wear] glasses to read.
+C|wear.p|Ella llevaba un sombrero enorme.|She [wore] a huge hat.
+C|wear.pp|Estos zapatos están muy gastados.|These shoes are very [worn].
+C|choose.b|Puedes escoger el postre.|You can [choose] the dessert.
+C|choose.p|Escogimos la mesa junto a la ventana.|We [chose] the table by the window.
+C|choose.pp|Fue elegido presidente del club.|He was [chosen] president of the club.
+C|eat.b|Los niños comen verduras todos los días.|The kids [eat] vegetables every day.
+C|eat.p|Se comió todo el pastel.|He [ate] the whole cake.
+C|eat.pp|Ya he comido, gracias.|I have already [eaten], thanks.
+C|sell.b|Las tiendas de ese barrio venden ropa de segunda mano.|The stores in that neighborhood [sell] second-hand clothes.
+C|sell.p|Vendimos limonada en la calle.|We [sold] lemonade on the street.
+C|sell.pp|La casa fue vendida en una semana.|The house was [sold] in a week.
+C|win.b|Siempre ganas a las cartas.|You always [win] at cards.
+C|win.p|Ganó la lotería.|She [won] the lottery.
+C|win.pp|Nunca hemos ganado un torneo.|We have never [won] a tournament.
+C|teach.b|Ellos enseñan piano los sábados.|They [teach] piano on Saturdays.
+C|teach.p|La vida me enseñó a ser paciente.|Life [taught] me to be patient.
+C|teach.pp|Nos han enseñado a respetar a los mayores.|We have been [taught] to respect our elders.
+C|throw.b|Lánzame las llaves.|[Throw] me the keys.
+C|throw.p|Tiró el papel a la basura.|She [threw] the paper in the trash.
+C|throw.pp|Fue lanzado del caballo.|He was [thrown] from the horse.
+C|catch.b|Tenemos que tomar el tren de las ocho.|We have to [catch] the eight o'clock train.
+C|catch.p|Me resfrié la semana pasada.|I [caught] a cold last week.
+C|catch.pp|El ladrón fue atrapado en el aeropuerto.|The thief was [caught] at the airport.
+C|fight.b|Los médicos luchan contra la enfermedad.|Doctors [fight] against the disease.
+C|fight.p|Mi abuelo luchó en la guerra.|My grandfather [fought] in the war.
+C|fight.pp|Hemos luchado mucho por esta casa.|We have [fought] hard for this house.
+C|forget.b|Nunca olvido una cara.|I never [forget] a face.
+C|forget.p|Se le olvidó apagar la luz.|He [forgot] to turn off the light.
+C|forget.pp|Es un actor olvidado.|He is a [forgotten] actor.
