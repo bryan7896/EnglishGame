@@ -1,4 +1,4 @@
-  // ==================== IRREGULARES ====================
+// ==================== IRREGULARES ====================
   // Sección de verbos irregulares (solo inglés americano). 100 verbos en 10
   // paquetes de 10; cada sesión completada estudia UN paquete y el siguiente
   // queda para otro día. Tras el paquete 10 vuelve al 1 (ciclo de 10 días).
@@ -19,7 +19,7 @@
   const IRR_PASOS = { rec: 10, sel1: 10, sel: 5, comp1: 15, comp: 5 };
   const IRR_SEL_TANDAS = 3, IRR_SEL_POR = 5;
   const IRR_COMP_TANDAS = 2, IRR_COMP_POR = 5;
-  const IRR_REC_REPS = 2, IRR_REC_FILAS = 5;
+  const IRR_REC_REPS = 2, IRR_REC_FILAS = 5, IRR_REC_LOTE = 3;
   const IRR_PCT_RECARGA = 0.25;
   const IRR_FORMA_NOMBRE = ["Base", "Pasado", "Participio"];
   const IRR_FORMA_CLASE = ["irr-f-b", "irr-f-p", "irr-f-pp"];
@@ -318,7 +318,7 @@
   function irrJugarReconocimiento(root, ses, guardar, terminar, ctx) {
     if (!ses.rec) {
       const cola = irrNuevaCola(ses.paquete);
-      ses.rec = { cola, izq: [], der: [], hechos: 0, total: cola.length, err: 0 };
+      ses.rec = { cola, izq: [], der: [], hechos: 0, total: cola.length, err: 0, pendIzq: [], pendDer: [] };
       // Primer tablero
       for (let i = 0; i < IRR_REC_FILAS && ses.rec.cola.length; i++) {
         const id = irrSacarDeCola(ses.rec, ses.rec.izq);
@@ -328,9 +328,17 @@
       guardar();
     }
     const R = ses.rec;
+    R.pendIzq = R.pendIzq || [];
+    R.pendDer = R.pendDer || [];
     const pkg = ses.paquete;
     let sel = null;           // { lado: "izq"|"der", i }
     let ocupado = false;
+    // pointerdown con preventDefault: evita que el navegador enfoque el botón
+    // y arrastre/desplace la columna al tocar; el "click" normal sigue intacto.
+    const irrEnganchar = (b) => {
+      b.addEventListener("pointerdown", (e) => e.preventDefault());
+      b.addEventListener("click", () => tocar(b));
+    };
     const pintar = () => {
       const pct = R.total ? (R.hechos / R.total) * 100 : 0;
       root.innerHTML = irrCabecera("Reconocimiento", "Paquete " + pkg + (ctx.practica ? " · práctica" : ""), pct) + `
@@ -341,7 +349,7 @@
         </div>
         <div class="irr-rec-foot"><span class="irr-count"><b class="irr-hechos">${R.hechos}</b> / <span class="irr-total">${R.total}</span></span>
         ${R.err ? `<span class="irr-err">✕ ${R.err}</span>` : `<span class="irr-err" hidden></span>`}</div>`;
-      root.querySelectorAll(".irr-tile").forEach((b) => b.addEventListener("click", () => tocar(b)));
+      root.querySelectorAll(".irr-tile").forEach((b) => irrEnganchar(b));
     };
     const celdaDe = (lado, i) => root.querySelector(`.irr-tile[data-lado="${lado}"][data-i="${i}"]`);
     const actualizarPie = () => {
@@ -351,9 +359,37 @@
       const bar = root.querySelector(".irr-prog > span"); if (bar) bar.style.width = (R.total ? (R.hechos / R.total) * 100 : 0) + "%";
     };
     const enDe = (id) => irrNorm((irrForma(id) || {}).en);
+    // Repone hasta IRR_REC_LOTE casillas vacías a la vez, siempre en su mismo
+    // lugar (nada se reordena ni se mueve). Si ya no quedan palabras en la
+    // cola, esas casillas se quedan vacías.
+    const recargarLote = () => {
+      const tantos = Math.min(IRR_REC_LOTE, R.pendIzq.length);
+      if (!tantos) return;
+      const posIzq = R.pendIzq.splice(0, tantos);
+      const posDer = R.pendDer.splice(0, tantos);
+      for (let k = 0; k < tantos; k++) {
+        const id = irrSacarDeCola(R, R.izq.concat(R.der));
+        if (id == null) continue; // no hay más para cargar: se queda vacía
+        R.izq[posIzq[k]] = id; R.der[posDer[k]] = id;
+      }
+      guardar();
+      [["izq", posIzq], ["der", posDer]].forEach(([l, pos]) => pos.forEach((k) => {
+        const viejo = celdaDe(l, k);
+        if (!viejo) return;
+        const id = l === "izq" ? R.izq[k] : R.der[k];
+        const tmp = document.createElement("div");
+        tmp.innerHTML = irrCelda(l, k, id, !!id);
+        const nueva = tmp.firstElementChild;
+        irrEnganchar(nueva);
+        viejo.replaceWith(nueva);
+        if (id) setTimeout(() => nueva.classList.remove("irr-aparece"), 1000);
+      }));
+    };
     const tocar = (b) => {
       if (ocupado || b.classList.contains("irr-aparece") || b.classList.contains("irr-vacia")) return;
       const lado = b.dataset.lado, i = parseInt(b.dataset.i, 10);
+      const fTocada = irrForma(lado === "izq" ? R.izq[i] : R.der[i]);
+      if (fTocada) irrHablar(fTocada.en);
       if (sel && sel.lado === lado) {
         celdaDe(sel.lado, sel.i)?.classList.remove("irr-sel");
         if (sel.i === i) { sel = null; return; }
@@ -370,8 +406,8 @@
         R.hechos += 1;
         bIz.classList.remove("irr-sel"); bDe.classList.remove("irr-sel");
         irrExplotar(bIz); irrExplotar(bDe);
-        const nuevo = irrSacarDeCola(R, R.izq.concat(R.der));
-        R.izq[iz] = nuevo; R.der[de] = nuevo;
+        R.izq[iz] = null; R.der[de] = null;
+        R.pendIzq.push(iz); R.pendDer.push(de);
         guardar();
         actualizarPie();
         setTimeout(() => {
@@ -381,12 +417,14 @@
             const viejo = celdaDe(l, k);
             if (!viejo) return;
             const tmp = document.createElement("div");
-            tmp.innerHTML = irrCelda(l, k, l === "izq" ? R.izq[k] : R.der[k], true);
+            tmp.innerHTML = irrCelda(l, k, null);
             const nueva = tmp.firstElementChild;
-            nueva.addEventListener("click", () => tocar(nueva));
+            irrEnganchar(nueva);
             viejo.replaceWith(nueva);
-            if (!nueva.classList.contains("irr-vacia")) setTimeout(() => nueva.classList.remove("irr-aparece"), 1000);
           });
+          // Recién al juntar 4 parejas vacías (o si ya no queda nada en la
+          // cola) se cargan nuevas palabras, siempre en los mismos huecos.
+          if (R.pendIzq.length >= IRR_REC_LOTE || !R.cola.length) recargarLote();
           if (R.izq.every((x) => !x) && !R.cola.length) {
             setTimeout(() => irrRecTerminado(root, R, terminar, ctx), 450);
           }
@@ -500,7 +538,7 @@
       const n = S.idx - desde + 1;
       const enHTML = irrEsc(it.en).replace(/\[([^\[\]]+)\]/, `<span class="irr-hueco">&nbsp;</span>`);
       root.innerHTML = irrCabecera("Seleccionar", "Paquete " + pkg + " · " + (ses.tanda + 1) + "/" + IRR_SEL_TANDAS, ((n - 1) / (hasta - desde)) * 100) + `
-        <div class="irr-sel">
+        <div class="irr-sel-wrap">
           <div class="irr-paper">
             <span class="irr-step">${n} de ${hasta - desde}</span>
             <p class="irr-es-frase">${irrNegritas(it.es)}</p>

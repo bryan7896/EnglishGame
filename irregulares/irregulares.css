@@ -153,6 +153,7 @@ body.irr-open { overflow: hidden; }
   display: flex; align-items: center; justify-content: center; text-align: center;
   transition: transform .12s ease, box-shadow .12s ease, background .25s ease, opacity 1s ease, filter 1s ease;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation; user-select: none; -webkit-user-select: none;
 }
 .irr-tile:active { transform: translateY(2px); box-shadow: 0 2px 0 #c9b98f; }
 .irr-en { font: 700 1.2rem/1.1 var(--irr-sans); letter-spacing: -.01em; }
@@ -187,7 +188,7 @@ body.irr-open { overflow: hidden; }
 .irr-en-frase { margin: 0; font: italic 600 1.3rem/1.5 var(--irr-serif); color: var(--irr-ink); }
 
 /* ---------- Seleccionar ---------- */
-.irr-sel { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
+.irr-sel-wrap { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; }
 .irr-hueco { display: inline-block; min-width: 4.5ch; padding: 0 8px; border-bottom: 3px solid var(--irr-ink); margin: 0 2px; font-style: normal; font-family: var(--irr-sans); font-weight: 700; text-align: center; }
 .irr-hueco-ok { color: #138f6c; border-color: var(--irr-mint); background: rgba(52, 214, 168, .15); border-radius: 6px 6px 0 0; }
 .irr-hueco-mal { color: #d9432c; border-color: var(--irr-coral); background: rgba(255, 111, 89, .14); border-radius: 6px 6px 0 0; }
