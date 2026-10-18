@@ -1,4 +1,4 @@
-  // ==================== REELS (núcleo) ====================
+// ==================== REELS (núcleo) ====================
   // Secuencia infinita de ejercicios a pantalla completa. Reemplaza al mapa:
   // - Banco de estudio de RL_BANCO ejercicios (se rellena con la sorpresa
   //   "elige reglas", nunca solo).
@@ -16,6 +16,7 @@
   const RL_REPASO_MIN = 3, RL_REPASO_MAX = 8; // "Repasar luego": vuelve N tarjetas después
   const RL_MAX_USADOS = 6000;
   const RL_YT_MIN = 3, RL_YT_MAX = 6;          // YouGlish va aparte: cada 3-6 ejercicios
+  const RL_ORD_CADA = 3;                       // ordenamiento: 1 de cada N traducciones lo trae consigo
 
   let RL = null;           // estado persistido
   let RLV = { abierto: false, enPantallaCompleta: false, limpiar: null, sync: null, syncListo: false };
@@ -31,7 +32,7 @@
       cur: null,          // tarjeta en pantalla (para retomar)
       reserva: [],        // ejercicios manuales en espera
       usados: [],         // ids del banco del sistema ya usados (no repetir)
-      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0 },
+      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0, ord: 0 },
       ultSorpresa: null,
       reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
       historias: { usadas: [], activa: null },
@@ -122,8 +123,9 @@
     return pos;
   }
 
-  // "Juego de ordenamiento": cada ejercicio de traducción trae consigo 3
-  // tarjetas de ordenamiento con la misma frase (mismo español/inglés).
+  // "Juego de ordenamiento": 1 de cada RL_ORD_CADA ejercicios de traducción
+  // (los otros RL_ORD_CADA-1 no) trae consigo 3 tarjetas de ordenamiento
+  // con la misma frase (mismo español/inglés).
   // A propósito NO viajan pegadas ni en bloque: cada una se mezcla por su
   // cuenta en cualquier parte del banco (se pueden intercalar con
   // completar, corregir, con las de OTRA traducción, etc.) — lo único que
@@ -163,13 +165,17 @@
     shuffleArray(nuevas).forEach((it) => {
       if (it.k === "ex" && it.ex && it.ex.type === "traduccion") {
         rlInsertarAlAzar(banco, it);
-        const base = buildOrdenamientoFromTraduccion(it.ex);
-        if (base) {
-          for (let n = 0; n < 3; n++) {
-            const limite = banco.indexOf(it); // se va corriendo +1 con cada inserción previa
-            const ordItem = { k: "ex", uid: rlUid(), ex: Object.assign({}, base, { origenUid: it.uid }), src: it.src, retry: false };
-            const pos = Math.floor(Math.random() * (limite + 1));
-            banco.splice(pos, 0, ordItem);
+        RL.cont.ord = (RL.cont.ord || 0) + 1;
+        if (RL.cont.ord >= RL_ORD_CADA) {
+          RL.cont.ord = 0;
+          const base = buildOrdenamientoFromTraduccion(it.ex);
+          if (base) {
+            for (let n = 0; n < 3; n++) {
+              const limite = banco.indexOf(it); // se va corriendo +1 con cada inserción previa
+              const ordItem = { k: "ex", uid: rlUid(), ex: Object.assign({}, base, { origenUid: it.uid }), src: it.src, retry: false };
+              const pos = Math.floor(Math.random() * (limite + 1));
+              banco.splice(pos, 0, ordItem);
+            }
           }
         }
       } else {
