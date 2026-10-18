@@ -971,7 +971,7 @@ textarea:focus-visible,
 .comparison-text-block {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 2px;
   text-align: left;
   margin: 16px 0;
 }
@@ -2001,12 +2001,13 @@ textarea:focus-visible,
 .rule-card.tier-warn::before { background: var(--warn); }
 .rule-card.tier-bad::before { background: var(--bad); }
 
-/* ---- Fila de selección (checkbox) ---- */
+/* ---- Fila de selección (3 casillas por regla, tipo "nivel") ---- */
 .rule-select-row {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  cursor: pointer;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  cursor: default;
 }
 .rule-select-row:hover { border-color: var(--line-strong); }
 .rule-select-row.rule-row-checked {
@@ -2016,10 +2017,20 @@ textarea:focus-visible,
 .rule-select-row.rule-row-empty { opacity: 0.4; cursor: not-allowed; }
 .rule-select-row.rule-row-empty:hover { border-color: var(--line); box-shadow: var(--shadow-sm); }
 
-/* El checkbox real queda invisible pero accesible (foco de teclado); el
-   círculo visible es .rule-check, dibujado a mano para que combine con el
-   resto de la UI en vez del checkbox nativo del navegador. */
-.rule-select-row input.rule-select-checkbox {
+/* Cada regla tiene 3 casillas: marcar la 1ª/2ª/3ª equivale a pedir 1x/2x/3x
+   más ejercicios de esa regla al repartir item.sistema. El checkbox real
+   queda invisible pero accesible (foco de teclado); el cuadro visible es
+   .rule-check, dibujado a mano para que combine con el resto de la UI. */
+.rule-check-group {
+  display: flex;
+  gap: 8px;
+}
+.rule-check-item {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+}
+.rule-check-item input.rule-select-checkbox {
   position: absolute;
   width: 1px; height: 1px;
   opacity: 0;
@@ -2027,34 +2038,25 @@ textarea:focus-visible,
 }
 .rule-check {
   flex-shrink: 0;
-  width: 22px;
-  height: 22px;
-  margin-top: 2px;
+  width: 30px;
+  height: 30px;
   border-radius: var(--radius-xs);
   border: 2px solid var(--line-strong);
   background: var(--surface-3);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s var(--ease), border-color 0.15s var(--ease);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--ink-faint);
+  transition: background 0.15s var(--ease), border-color 0.15s var(--ease), color 0.15s var(--ease);
 }
-.rule-check::after {
-  content: "";
-  width: 11px;
-  height: 6px;
-  border-left: 2.5px solid #fff;
-  border-bottom: 2.5px solid #fff;
-  transform: rotate(-45deg) translateY(-1px);
-  opacity: 0;
-  transition: opacity 0.12s var(--ease);
-}
-.rule-select-row.rule-row-checked .rule-check {
+.rule-check-item input.rule-select-checkbox:checked + .rule-check {
   background: var(--brand);
   border-color: var(--brand);
+  color: #fff;
 }
-.rule-select-row.rule-row-checked .rule-check::after { opacity: 1; }
-.rule-select-row input.rule-select-checkbox:focus-visible ~ .rule-card-body,
-.rule-select-row input.rule-select-checkbox:focus-visible + .rule-check {
+.rule-check-item input.rule-select-checkbox:focus-visible + .rule-check {
   outline: 2px solid var(--brand-light);
   outline-offset: 2px;
 }
@@ -2349,7 +2351,6 @@ textarea:focus-visible,
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.28);
   transition: background 0.35s ease, box-shadow 0.35s ease;
 }
-
 
 /* ============================================================
    Reels — secuencia infinita a pantalla completa
@@ -4737,14 +4738,13 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>${isCorrect ? '🎉 ¡Perfecto!' : passed ? '✅ ¡Aceptado!' : '📊 Comparación'}</h3>
       ${passed ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
       <div class="comparison-text-block">
-        <p><strong>🇪🇸 Español:</strong><br>${window._escHTML(exercise.spanishWord || exercise.spanishWords)}</p>
-        <div class="compare-line"><strong>✅ Correcto:</strong> ${correctHtml}</div>
+        <p><strong>🇪🇸 Español:</strong><br>🎯 ${window._escHTML(exercise.spanishWord || exercise.spanishWords)}</p>
+        <div class="compare-line"><strong>✅ Esperado:</strong> ${correctHtml}</div>
         <div class="compare-line"><strong>✏️ Tu respuesta:</strong> ${userHtml}</div>
         <div class="comparison-row">
-          <span class="comparison-row-label">🎯 Precisión (mínimo 80% para aprobar)</span>
+          <span class="comparison-row-label"></span>
           <div class="word-diff-wrap">
             <span class="word-pill ${passed ? 'word-correct' : 'word-error'}">${accuracyPct}%</span>
           </div>
@@ -5132,13 +5132,12 @@ export function showCompletarModal(exercise, results, onContinue) {
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>${allCorrect ? '🎉 ¡Perfecto!' : passed ? '✅ ¡Aceptado!' : '📝 Resultados'}</h3>
       <div class="comparison-text-block">
         <p><strong>🇪🇸 Español:</strong><br>${window._escHTML(spanishWord)}</p>
         <p><strong>${getTargetLangMeta().flag} Frase:</strong><br>${window._escHTML(englishSentence)}</p>
         <p><strong>📊 Resultados:</strong></p>${resultsHtml}
         <div class="comparison-row">
-          <span class="comparison-row-label">🎯 Precisión (mínimo 80% para aprobar)</span>
+          <span class="comparison-row-label"></span>
           <div class="word-diff-wrap">
             <span class="word-pill ${passed ? 'word-correct' : 'word-error'}">${accuracyPct}% · ${okCount}/${results.length} espacios</span>
           </div>
@@ -5828,7 +5827,7 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
           <div class="comparison-row-text ${isCorrect ? 'correct-highlight' : ''}" style="${isCorrect ? '' : 'color:#fbbf24;'}">${window._escHTML(userAnswer) || '(vacío)'}</div>
         </div>
         <div class="comparison-row">
-          <span class="comparison-row-label">🎯 Precisión (mínimo 80% para aprobar)</span>
+          <span class="comparison-row-label"></span>
           <div class="word-diff-wrap">
             <span class="word-pill ${passed ? 'word-correct' : 'word-error'}">${accuracyPct}% · ${matchedWords}/${totalWords} palabras</span>
           </div>
@@ -9927,6 +9926,7 @@ function n1ReelsTerminar() {
   const RL_MAX_USADOS = 6000;
   const RL_YT_MIN = 3, RL_YT_MAX = 6;          // YouGlish va aparte: cada 3-6 ejercicios
   const RL_ORD_CADA = 3;                       // ordenamiento: 1 de cada N traducciones lo trae consigo
+  const RL_ORD_MAX_ANTES = 8;                  // "organizar": como mucho esta cantidad de tarjetas antes de su traducción
 
   let RL = null;           // estado persistido
   let RLV = { abierto: false, enPantallaCompleta: false, limpiar: null, sync: null, syncListo: false };
@@ -9942,7 +9942,7 @@ function n1ReelsTerminar() {
       cur: null,          // tarjeta en pantalla (para retomar)
       reserva: [],        // ejercicios manuales en espera
       usados: [],         // ids del banco del sistema ya usados (no repetir)
-      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0, ordPend: [] },
+      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0 },
       ultSorpresa: null,
       reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
       historias: { usadas: [], activa: null },
@@ -9965,7 +9965,7 @@ function n1ReelsTerminar() {
     const def = rlNuevo().cont;
     RL.cont = Object.assign({}, def, d.cont || {});
     Object.keys(def).forEach((k) => { if (typeof def[k] === "number" && !Number.isFinite(RL.cont[k])) RL.cont[k] = def[k]; });
-    if (!Array.isArray(RL.cont.ordPend)) RL.cont.ordPend = [];
+    delete RL.cont.ordPend; // ya no se persiste: ordPend ahora es local a cada rlMezclarEnBanco
     RL.reporte = Object.assign(rlNuevo().reporte, d.reporte || {});
     RL.historias = Object.assign(rlNuevo().historias, d.historias || {});
     RL.yt = Object.assign(rlNuevo().yt, d.yt || {});
@@ -10034,6 +10034,13 @@ function n1ReelsTerminar() {
     return pos;
   }
 
+  // Posición al azar, pero como mucho RL_ORD_MAX_ANTES tarjetas antes de
+  // `posTrad` (nunca en cualquier punto entre 0 y posTrad).
+  function rlPosAntesDeTraduccion(posTrad) {
+    const min = Math.max(0, posTrad - RL_ORD_MAX_ANTES);
+    return min + Math.floor(Math.random() * (posTrad - min + 1));
+  }
+
   // "Juego de ordenamiento": 1 de cada RL_ORD_CADA ejercicios de traducción
   // (los otros RL_ORD_CADA-1 no) trae consigo 3 tarjetas de ordenamiento
   // con la misma frase (mismo español/inglés).
@@ -10058,10 +10065,13 @@ function n1ReelsTerminar() {
         const it = banco[i];
         if (!(it.k === "ex" && it.ex && it.ex.type === "ordenamiento" && it.ex.origenUid)) continue;
         const posTrad = hallarTrad(it.ex.origenUid);
-        if (posTrad === -1 || i < posTrad) continue;
+        if (posTrad === -1) continue;
+        // Ya está bien ubicada: antes de su traducción y a lo sumo
+        // RL_ORD_MAX_ANTES tarjetas de distancia.
+        if (i < posTrad && i >= posTrad - RL_ORD_MAX_ANTES) continue;
         banco.splice(i, 1);
         const posTradTrasQuitar = hallarTrad(it.ex.origenUid);
-        const pos = Math.floor(Math.random() * (posTradTrasQuitar + 1));
+        const pos = rlPosAntesDeTraduccion(posTradTrasQuitar);
         banco.splice(pos, 0, it);
         corregido = true;
         break;
@@ -10073,18 +10083,23 @@ function n1ReelsTerminar() {
 
   function rlMezclarEnBanco(nuevas, alFrente) {
     const banco = RL.banco.slice();
+    // Local a este lote: ya no se acumula entre llamadas ni entre sesiones,
+    // así que un remanente de 1-2 traducciones nunca se arrastra y dispara
+    // un "organizar" casi inmediato en el próximo lote.
+    const ordPend = [];
     shuffleArray(nuevas).forEach((it) => {
       if (it.k === "ex" && it.ex && it.ex.type === "traduccion") {
         rlInsertarAlAzar(banco, it);
-        RL.cont.ordPend = RL.cont.ordPend || [];
-        RL.cont.ordPend.push({ uid: it.uid, ex: it.ex });
-        if (RL.cont.ordPend.length >= RL_ORD_CADA) {
-          const elegido = RL.cont.ordPend[Math.floor(Math.random() * RL.cont.ordPend.length)];
-          RL.cont.ordPend = [];
+        ordPend.push({ uid: it.uid, ex: it.ex });
+        if (ordPend.length >= RL_ORD_CADA) {
+          const elegido = ordPend[Math.floor(Math.random() * ordPend.length)];
+          ordPend.length = 0;
           const base = buildOrdenamientoFromTraduccion(elegido.ex);
           if (base) {
             const ordItem = { k: "ex", uid: rlUid(), ex: Object.assign({}, base, { origenUid: elegido.uid }), src: it.src, retry: false };
-            rlInsertarAlAzar(banco, ordItem);
+            const posTrad = banco.findIndex((x) => x.k === "ex" && x.ex && x.ex.type === "traduccion" && x.uid === elegido.uid);
+            if (posTrad === -1) rlInsertarAlAzar(banco, ordItem);
+            else banco.splice(rlPosAntesDeTraduccion(posTrad), 0, ordItem);
           }
         }
       } else {
@@ -10472,12 +10487,7 @@ function n1ReelsTerminar() {
 
   function rlRenderEjercicio(item, body, isRetryLocal) {
     const ex = item.ex;
-    body.innerHTML = rlCabecera([
-      getExerciseTypeIcon(ex.type) + " " + getExerciseTypeName(ex.type),
-      item.retry ? "🧠 Repaso" : "",
-      item.src === "man" ? "📥 Tuyo" : "",
-      ex.irr ? "🔁 Irregulares · paquete " + (ex.irr.p || "") : "",
-    ]) + `<div class="rl-ex exercise-area"><div class="rl-ex-container"></div></div>`;
+    body.innerHTML = `<div class="rl-ex exercise-area"><div class="rl-ex-container"></div></div>`;
     const c = body.querySelector(".rl-ex-container");
 
     switch (ex.type) {
@@ -10747,7 +10757,7 @@ function n1ReelsTerminar() {
     });
     window.addEventListener("popstate", () => { if (RLV.abierto) closeReels("popstate"); });
   }
-    // ==================== REELS (sorpresas) ====================
+  // ==================== REELS (sorpresas) ====================
   // 1 yt       → clip real de YouGlish (va aparte: cada 3-6 ejercicios, ver rlDecidirSiguiente)
   // Las demás salen cada 2-15 tarjetas. "Elige reglas" es obligatoria solo con
   // el banco por debajo de RL_MIN_OBLIGATORIO; si no, compite con peso bajo.
@@ -10761,6 +10771,7 @@ function n1ReelsTerminar() {
   const RL_PESOS = { listening: 35, historia: 30, pct: 20, reglas: 10 };
   const RL_LISTENING_N = 3;
   const RL_APORTE = { bad: 10, warn: 7, good: 5 };
+  const RL_MAX_VOTOS_REGLA = 3; // tope de casillas marcables por regla en "Elige qué estudiar"
 
   function rlElegirSorpresa() {
     // El informe manda: si ya toca (o quedó pendiente) y hay algo listo.
@@ -10916,7 +10927,7 @@ function n1ReelsTerminar() {
       item.irr = typeof irrCupoRecarga === "function" ? Math.min(item.sistema, irrCupoRecarga(item.manual + item.sistema)) : 0;
       const xDeseado = item.sistema > 0 ? Math.max(1, Math.round(item.sistema / 8)) : 0;
       item.reglas = rlReglasParaElegir().map((r) => r.id);
-      item.x = xDeseado ? Math.min(item.reglas.length, xDeseado) : 0;
+      item.x = xDeseado ? Math.min(item.reglas.length * RL_MAX_VOTOS_REGLA, xDeseado) : 0;
       if (item.reglas.length) {
         const dia = rlReglasDia();
         dia.veces += 1;
@@ -10930,7 +10941,8 @@ function n1ReelsTerminar() {
       }
       rlGuardar();
     }
-    const sel = new Set();
+    const sel = new Map(); // reglaId -> casillas marcadas (1..RL_MAX_VOTOS_REGLA)
+    const totalSel = () => { let t = 0; sel.forEach((n) => (t += n)); return t; };
     const reglas = item.reglas.map((id) => findRegla(id)).filter(Boolean);
     const vacio = !item.manual && !item.sistema;
 
@@ -10940,6 +10952,7 @@ function n1ReelsTerminar() {
     const subt = [
       item.sistema ? `El sistema cargará <b>${item.sistema}</b> ejercicio${item.sistema === 1 ? "" : "s"} repartidos entre las que elijas${item.irr ? ` (<b>${item.irr}</b> con verbos irregulares del paquete ${irrEstado().paquete})` : ""}.` : "",
       item.manual ? `<b>${item.manual}</b> ejercicio${item.manual === 1 ? "" : "s"} de tu reserva manual entran también.` : "",
+      item.x ? `Marca hasta ${RL_MAX_VOTOS_REGLA} casillas en una misma regla para que reciba más de esos ejercicios.` : "",
       vacio ? (rlReglasDisponibles().length ? "No hace falta cargar nada por ahora." : "No hay ejercicios disponibles en el banco del sistema para este idioma. Agrega ejercicios desde el menú (📥).") : "",
     ].filter(Boolean).join(" ");
 
@@ -10950,11 +10963,12 @@ function n1ReelsTerminar() {
         ${item.x ? `<div class="rules-select-list">
           ${reglas.map((r) => {
             const tier = r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad";
-            return `<label class="rule-card rule-select-row tier-${tier}">
-              <input type="checkbox" class="rule-select-checkbox" data-id="${r.id}">
-              <span class="rule-check" aria-hidden="true"></span>
+            return `<div class="rule-card rule-select-row tier-${tier}" data-id="${r.id}">
+              <div class="rule-check-group" role="group" aria-label="Cantidad de ejercicios para ${rlEsc(r.regla)}">
+                ${[1, 2, 3].map((n) => `<label class="rule-check-item"><input type="checkbox" class="rule-select-checkbox" data-id="${r.id}" data-n="${n}"><span class="rule-check" aria-hidden="true">${n}</span></label>`).join("")}
+              </div>
               ${rlFilaRegla(r, `<span class="rule-card-bottom"><span class="rule-select-count">${r.porcentaje > 0 ? "" : "💡 Incluye lección de información · "}${rlEjerciciosDeRegla(r.id).length} ejercicios</span></span>`)}
-            </label>`;
+            </div>`;
           }).join("")}
         </div>` : ""}
         <div class="rl-reglas-foot">
@@ -10964,31 +10978,50 @@ function n1ReelsTerminar() {
       </div>`;
 
     const btn = body.querySelector(".rl-cargar");
+    const actualizarUI = () => {
+      body.querySelectorAll(".rule-select-row").forEach((row) => {
+        const id = parseInt(row.dataset.id, 10);
+        row.classList.toggle("rule-row-checked", (sel.get(id) || 0) > 0);
+      });
+      const t = totalSel();
+      body.querySelector(".rl-sel-n").textContent = t;
+      btn.disabled = t !== item.x;
+    };
     body.querySelectorAll(".rule-select-checkbox").forEach((cb) => {
       cb.addEventListener("change", () => {
         const id = parseInt(cb.dataset.id, 10);
-        if (cb.checked) {
-          if (sel.size >= item.x) { cb.checked = false; toast("Solo " + item.x + " regla" + (item.x === 1 ? "" : "s")); return; }
-          sel.add(id);
-        } else sel.delete(id);
-        cb.closest(".rule-select-row")?.classList.toggle("rule-row-checked", cb.checked);
-        body.querySelector(".rl-sel-n").textContent = sel.size;
-        btn.disabled = sel.size !== item.x;
+        const n = parseInt(cb.dataset.n, 10);
+        const actual = sel.get(id) || 0;
+        // Checkboxes tipo "rating": marcar la casilla N sube el nivel de esa regla a
+        // N; desmarcarla lo baja a N-1. Siempre se sincronizan las 3 casillas de la fila.
+        const nuevo = cb.checked ? n : n - 1;
+        const delta = nuevo - actual;
+        if (delta > 0 && totalSel() + delta > item.x) {
+          cb.checked = actual >= n;
+          toast("Solo " + item.x + " regla" + (item.x === 1 ? "" : "s") + " en total");
+          return;
+        }
+        if (nuevo > 0) sel.set(id, nuevo); else sel.delete(id);
+        body.querySelectorAll(`.rule-select-checkbox[data-id="${id}"]`).forEach((otra) => {
+          otra.checked = parseInt(otra.dataset.n, 10) <= nuevo;
+        });
+        actualizarUI();
       });
     });
     btn.onclick = () => {
-      if (item.x && sel.size !== item.x) return;
+      if (item.x && totalSel() !== item.x) return;
       const dia = rlReglasDia();
       RL.reglasEstudio = RL.reglasEstudio || {};
-      sel.forEach((id) => { if (!dia.elegidas.includes(id)) dia.elegidas.push(id); RL.reglasEstudio[id] = rlReglasDia().fecha; });
-      const n = rlCargarBanco(item, Array.from(sel));
+      sel.forEach((n, id) => { if (!dia.elegidas.includes(id)) dia.elegidas.push(id); RL.reglasEstudio[id] = rlReglasDia().fecha; });
+      const n = rlCargarBanco(item, Array.from(sel, ([id, n]) => ({ id, n })));
       if (n) { burstConfetti(); toast("➕ " + n + " ejercicios nuevos en tu banco"); }
       rlSorpresaHecha(item);
     };
   }
 
-  // Reparte item.sistema entre las reglas elegidas según su color (mínimo 5 c/u).
-  function rlCargarBanco(item, ids) {
+  // Reparte item.sistema entre las reglas elegidas según su color y la cantidad de
+  // casillas marcadas en cada una (1-3: más casillas = más peso), mínimo 5 c/u.
+  function rlCargarBanco(item, selecciones) {
     let total = 0;
     const nuevas = [];
     const frente = [];
@@ -10996,6 +11029,7 @@ function n1ReelsTerminar() {
       RL.reserva.splice(0, item.manual).forEach((e) => nuevas.push(rlItemEx(e, "man")));
       total += item.manual;
     }
+    const ids = selecciones.map((s) => s.id);
     let irrN = 0;
     if (item.irr && typeof irrTomarParaRecarga === "function") {
       const irrEjs = irrTomarParaRecarga(item.irr, ids);
@@ -11004,16 +11038,17 @@ function n1ReelsTerminar() {
       total += irrN;
     }
     const sistema = Math.max(0, (item.sistema || 0) - irrN);
-    if (ids.length && sistema) {
-      const reglas = ids.map((id) => findRegla(id)).filter(Boolean);
-      const suma = reglas.reduce((s, r) => s + rlAporte(r), 0) || 1;
+    if (selecciones.length && sistema) {
+      const entradas = selecciones.map(({ id, n }) => ({ r: findRegla(id), n: Math.max(1, n || 1) })).filter((e) => e.r);
+      const suma = entradas.reduce((s, e) => s + rlAporte(e.r) * e.n, 0) || 1;
       const elegidos = new Set();
-      reglas.forEach((r) => {
-        const n = Math.max(RL_MIN_POR_REGLA, Math.round(sistema * rlAporte(r) / suma));
-        const ejs = rlTomarDeRegla(r.id, n, elegidos);
+      const infoHecha = new Set();
+      entradas.forEach(({ r, n }) => {
+        const cant = Math.max(RL_MIN_POR_REGLA, Math.round(sistema * rlAporte(r) * n / suma));
+        const ejs = rlTomarDeRegla(r.id, cant, elegidos);
         ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys")));
         total += ejs.length;
-        if (r.porcentaje <= 0) rlLeccionesDe(r.id).forEach((_, idx) => frente.push({ k: "info", uid: rlUid(), reglaId: r.id, idx }));
+        if (r.porcentaje <= 0 && !infoHecha.has(r.id)) { infoHecha.add(r.id); rlLeccionesDe(r.id).forEach((_, idx) => frente.push({ k: "info", uid: rlUid(), reglaId: r.id, idx })); }
       });
     }
     rlMezclarEnBanco(nuevas, frente);
@@ -11215,7 +11250,6 @@ function n1ReelsTerminar() {
     };
     RLV.limpiar = () => { RLV.azHandler = null; };
   }
-
     // ==================== REELS (sorpresa 1: Mundo real con YouGlish) ====================
   // Busca una palabra (>3 letras) de lo último que estudiaste, reproduce SOLO
   // la frase donde aparece (se corta al terminar), la repite hasta 5 veces a
@@ -13110,7 +13144,7 @@ function n1ReelsTerminar() {
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">19.0 (16-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">20.0 (18-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           ${getTargetLanguage() === "en" ? `<button class="fun-btn" id="menuIrregularesBtn">🔁 Irregulares</button>` : ""}

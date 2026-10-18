@@ -1,4 +1,4 @@
-  // ==================== REELS (sorpresas) ====================
+// ==================== REELS (sorpresas) ====================
   // 1 yt       → clip real de YouGlish (va aparte: cada 3-6 ejercicios, ver rlDecidirSiguiente)
   // Las demás salen cada 2-15 tarjetas. "Elige reglas" es obligatoria solo con
   // el banco por debajo de RL_MIN_OBLIGATORIO; si no, compite con peso bajo.
@@ -12,6 +12,7 @@
   const RL_PESOS = { listening: 35, historia: 30, pct: 20, reglas: 10 };
   const RL_LISTENING_N = 3;
   const RL_APORTE = { bad: 10, warn: 7, good: 5 };
+  const RL_MAX_VOTOS_REGLA = 3; // tope de casillas marcables por regla en "Elige qué estudiar"
 
   function rlElegirSorpresa() {
     // El informe manda: si ya toca (o quedó pendiente) y hay algo listo.
@@ -167,7 +168,7 @@
       item.irr = typeof irrCupoRecarga === "function" ? Math.min(item.sistema, irrCupoRecarga(item.manual + item.sistema)) : 0;
       const xDeseado = item.sistema > 0 ? Math.max(1, Math.round(item.sistema / 8)) : 0;
       item.reglas = rlReglasParaElegir().map((r) => r.id);
-      item.x = xDeseado ? Math.min(item.reglas.length, xDeseado) : 0;
+      item.x = xDeseado ? Math.min(item.reglas.length * RL_MAX_VOTOS_REGLA, xDeseado) : 0;
       if (item.reglas.length) {
         const dia = rlReglasDia();
         dia.veces += 1;
@@ -181,7 +182,8 @@
       }
       rlGuardar();
     }
-    const sel = new Set();
+    const sel = new Map(); // reglaId -> casillas marcadas (1..RL_MAX_VOTOS_REGLA)
+    const totalSel = () => { let t = 0; sel.forEach((n) => (t += n)); return t; };
     const reglas = item.reglas.map((id) => findRegla(id)).filter(Boolean);
     const vacio = !item.manual && !item.sistema;
 
@@ -191,6 +193,7 @@
     const subt = [
       item.sistema ? `El sistema cargará <b>${item.sistema}</b> ejercicio${item.sistema === 1 ? "" : "s"} repartidos entre las que elijas${item.irr ? ` (<b>${item.irr}</b> con verbos irregulares del paquete ${irrEstado().paquete})` : ""}.` : "",
       item.manual ? `<b>${item.manual}</b> ejercicio${item.manual === 1 ? "" : "s"} de tu reserva manual entran también.` : "",
+      item.x ? `Marca hasta ${RL_MAX_VOTOS_REGLA} casillas en una misma regla para que reciba más de esos ejercicios.` : "",
       vacio ? (rlReglasDisponibles().length ? "No hace falta cargar nada por ahora." : "No hay ejercicios disponibles en el banco del sistema para este idioma. Agrega ejercicios desde el menú (📥).") : "",
     ].filter(Boolean).join(" ");
 
@@ -201,11 +204,12 @@
         ${item.x ? `<div class="rules-select-list">
           ${reglas.map((r) => {
             const tier = r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad";
-            return `<label class="rule-card rule-select-row tier-${tier}">
-              <input type="checkbox" class="rule-select-checkbox" data-id="${r.id}">
-              <span class="rule-check" aria-hidden="true"></span>
+            return `<div class="rule-card rule-select-row tier-${tier}" data-id="${r.id}">
+              <div class="rule-check-group" role="group" aria-label="Cantidad de ejercicios para ${rlEsc(r.regla)}">
+                ${[1, 2, 3].map((n) => `<label class="rule-check-item"><input type="checkbox" class="rule-select-checkbox" data-id="${r.id}" data-n="${n}"><span class="rule-check" aria-hidden="true">${n}</span></label>`).join("")}
+              </div>
               ${rlFilaRegla(r, `<span class="rule-card-bottom"><span class="rule-select-count">${r.porcentaje > 0 ? "" : "💡 Incluye lección de información · "}${rlEjerciciosDeRegla(r.id).length} ejercicios</span></span>`)}
-            </label>`;
+            </div>`;
           }).join("")}
         </div>` : ""}
         <div class="rl-reglas-foot">
@@ -215,31 +219,50 @@
       </div>`;
 
     const btn = body.querySelector(".rl-cargar");
+    const actualizarUI = () => {
+      body.querySelectorAll(".rule-select-row").forEach((row) => {
+        const id = parseInt(row.dataset.id, 10);
+        row.classList.toggle("rule-row-checked", (sel.get(id) || 0) > 0);
+      });
+      const t = totalSel();
+      body.querySelector(".rl-sel-n").textContent = t;
+      btn.disabled = t !== item.x;
+    };
     body.querySelectorAll(".rule-select-checkbox").forEach((cb) => {
       cb.addEventListener("change", () => {
         const id = parseInt(cb.dataset.id, 10);
-        if (cb.checked) {
-          if (sel.size >= item.x) { cb.checked = false; toast("Solo " + item.x + " regla" + (item.x === 1 ? "" : "s")); return; }
-          sel.add(id);
-        } else sel.delete(id);
-        cb.closest(".rule-select-row")?.classList.toggle("rule-row-checked", cb.checked);
-        body.querySelector(".rl-sel-n").textContent = sel.size;
-        btn.disabled = sel.size !== item.x;
+        const n = parseInt(cb.dataset.n, 10);
+        const actual = sel.get(id) || 0;
+        // Checkboxes tipo "rating": marcar la casilla N sube el nivel de esa regla a
+        // N; desmarcarla lo baja a N-1. Siempre se sincronizan las 3 casillas de la fila.
+        const nuevo = cb.checked ? n : n - 1;
+        const delta = nuevo - actual;
+        if (delta > 0 && totalSel() + delta > item.x) {
+          cb.checked = actual >= n;
+          toast("Solo " + item.x + " regla" + (item.x === 1 ? "" : "s") + " en total");
+          return;
+        }
+        if (nuevo > 0) sel.set(id, nuevo); else sel.delete(id);
+        body.querySelectorAll(`.rule-select-checkbox[data-id="${id}"]`).forEach((otra) => {
+          otra.checked = parseInt(otra.dataset.n, 10) <= nuevo;
+        });
+        actualizarUI();
       });
     });
     btn.onclick = () => {
-      if (item.x && sel.size !== item.x) return;
+      if (item.x && totalSel() !== item.x) return;
       const dia = rlReglasDia();
       RL.reglasEstudio = RL.reglasEstudio || {};
-      sel.forEach((id) => { if (!dia.elegidas.includes(id)) dia.elegidas.push(id); RL.reglasEstudio[id] = rlReglasDia().fecha; });
-      const n = rlCargarBanco(item, Array.from(sel));
+      sel.forEach((n, id) => { if (!dia.elegidas.includes(id)) dia.elegidas.push(id); RL.reglasEstudio[id] = rlReglasDia().fecha; });
+      const n = rlCargarBanco(item, Array.from(sel, ([id, n]) => ({ id, n })));
       if (n) { burstConfetti(); toast("➕ " + n + " ejercicios nuevos en tu banco"); }
       rlSorpresaHecha(item);
     };
   }
 
-  // Reparte item.sistema entre las reglas elegidas según su color (mínimo 5 c/u).
-  function rlCargarBanco(item, ids) {
+  // Reparte item.sistema entre las reglas elegidas según su color y la cantidad de
+  // casillas marcadas en cada una (1-3: más casillas = más peso), mínimo 5 c/u.
+  function rlCargarBanco(item, selecciones) {
     let total = 0;
     const nuevas = [];
     const frente = [];
@@ -247,6 +270,7 @@
       RL.reserva.splice(0, item.manual).forEach((e) => nuevas.push(rlItemEx(e, "man")));
       total += item.manual;
     }
+    const ids = selecciones.map((s) => s.id);
     let irrN = 0;
     if (item.irr && typeof irrTomarParaRecarga === "function") {
       const irrEjs = irrTomarParaRecarga(item.irr, ids);
@@ -255,16 +279,17 @@
       total += irrN;
     }
     const sistema = Math.max(0, (item.sistema || 0) - irrN);
-    if (ids.length && sistema) {
-      const reglas = ids.map((id) => findRegla(id)).filter(Boolean);
-      const suma = reglas.reduce((s, r) => s + rlAporte(r), 0) || 1;
+    if (selecciones.length && sistema) {
+      const entradas = selecciones.map(({ id, n }) => ({ r: findRegla(id), n: Math.max(1, n || 1) })).filter((e) => e.r);
+      const suma = entradas.reduce((s, e) => s + rlAporte(e.r) * e.n, 0) || 1;
       const elegidos = new Set();
-      reglas.forEach((r) => {
-        const n = Math.max(RL_MIN_POR_REGLA, Math.round(sistema * rlAporte(r) / suma));
-        const ejs = rlTomarDeRegla(r.id, n, elegidos);
+      const infoHecha = new Set();
+      entradas.forEach(({ r, n }) => {
+        const cant = Math.max(RL_MIN_POR_REGLA, Math.round(sistema * rlAporte(r) * n / suma));
+        const ejs = rlTomarDeRegla(r.id, cant, elegidos);
         ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys")));
         total += ejs.length;
-        if (r.porcentaje <= 0) rlLeccionesDe(r.id).forEach((_, idx) => frente.push({ k: "info", uid: rlUid(), reglaId: r.id, idx }));
+        if (r.porcentaje <= 0 && !infoHecha.has(r.id)) { infoHecha.add(r.id); rlLeccionesDe(r.id).forEach((_, idx) => frente.push({ k: "info", uid: rlUid(), reglaId: r.id, idx })); }
       });
     }
     rlMezclarEnBanco(nuevas, frente);

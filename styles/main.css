@@ -956,7 +956,7 @@ textarea:focus-visible,
 .comparison-text-block {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 2px;
   text-align: left;
   margin: 16px 0;
 }
@@ -1986,12 +1986,13 @@ textarea:focus-visible,
 .rule-card.tier-warn::before { background: var(--warn); }
 .rule-card.tier-bad::before { background: var(--bad); }
 
-/* ---- Fila de selección (checkbox) ---- */
+/* ---- Fila de selección (3 casillas por regla, tipo "nivel") ---- */
 .rule-select-row {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  cursor: pointer;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  cursor: default;
 }
 .rule-select-row:hover { border-color: var(--line-strong); }
 .rule-select-row.rule-row-checked {
@@ -2001,10 +2002,20 @@ textarea:focus-visible,
 .rule-select-row.rule-row-empty { opacity: 0.4; cursor: not-allowed; }
 .rule-select-row.rule-row-empty:hover { border-color: var(--line); box-shadow: var(--shadow-sm); }
 
-/* El checkbox real queda invisible pero accesible (foco de teclado); el
-   círculo visible es .rule-check, dibujado a mano para que combine con el
-   resto de la UI en vez del checkbox nativo del navegador. */
-.rule-select-row input.rule-select-checkbox {
+/* Cada regla tiene 3 casillas: marcar la 1ª/2ª/3ª equivale a pedir 1x/2x/3x
+   más ejercicios de esa regla al repartir item.sistema. El checkbox real
+   queda invisible pero accesible (foco de teclado); el cuadro visible es
+   .rule-check, dibujado a mano para que combine con el resto de la UI. */
+.rule-check-group {
+  display: flex;
+  gap: 8px;
+}
+.rule-check-item {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+}
+.rule-check-item input.rule-select-checkbox {
   position: absolute;
   width: 1px; height: 1px;
   opacity: 0;
@@ -2012,34 +2023,25 @@ textarea:focus-visible,
 }
 .rule-check {
   flex-shrink: 0;
-  width: 22px;
-  height: 22px;
-  margin-top: 2px;
+  width: 30px;
+  height: 30px;
   border-radius: var(--radius-xs);
   border: 2px solid var(--line-strong);
   background: var(--surface-3);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s var(--ease), border-color 0.15s var(--ease);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--ink-faint);
+  transition: background 0.15s var(--ease), border-color 0.15s var(--ease), color 0.15s var(--ease);
 }
-.rule-check::after {
-  content: "";
-  width: 11px;
-  height: 6px;
-  border-left: 2.5px solid #fff;
-  border-bottom: 2.5px solid #fff;
-  transform: rotate(-45deg) translateY(-1px);
-  opacity: 0;
-  transition: opacity 0.12s var(--ease);
-}
-.rule-select-row.rule-row-checked .rule-check {
+.rule-check-item input.rule-select-checkbox:checked + .rule-check {
   background: var(--brand);
   border-color: var(--brand);
+  color: #fff;
 }
-.rule-select-row.rule-row-checked .rule-check::after { opacity: 1; }
-.rule-select-row input.rule-select-checkbox:focus-visible ~ .rule-card-body,
-.rule-select-row input.rule-select-checkbox:focus-visible + .rule-check {
+.rule-check-item input.rule-select-checkbox:focus-visible + .rule-check {
   outline: 2px solid var(--brand-light);
   outline-offset: 2px;
 }

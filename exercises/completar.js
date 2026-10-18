@@ -108,13 +108,12 @@ export function showCompletarModal(exercise, results, onContinue) {
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>${allCorrect ? '🎉 ¡Perfecto!' : passed ? '✅ ¡Aceptado!' : '📝 Resultados'}</h3>
       <div class="comparison-text-block">
         <p><strong>🇪🇸 Español:</strong><br>${window._escHTML(spanishWord)}</p>
         <p><strong>${getTargetLangMeta().flag} Frase:</strong><br>${window._escHTML(englishSentence)}</p>
         <p><strong>📊 Resultados:</strong></p>${resultsHtml}
         <div class="comparison-row">
-          <span class="comparison-row-label">🎯 Precisión (mínimo 80% para aprobar)</span>
+          <span class="comparison-row-label"></span>
           <div class="word-diff-wrap">
             <span class="word-pill ${passed ? 'word-correct' : 'word-error'}">${accuracyPct}% · ${okCount}/${results.length} espacios</span>
           </div>

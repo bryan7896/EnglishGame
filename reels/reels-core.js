@@ -17,6 +17,7 @@
   const RL_MAX_USADOS = 6000;
   const RL_YT_MIN = 3, RL_YT_MAX = 6;          // YouGlish va aparte: cada 3-6 ejercicios
   const RL_ORD_CADA = 3;                       // ordenamiento: 1 de cada N traducciones lo trae consigo
+  const RL_ORD_MAX_ANTES = 8;                  // "organizar": como mucho esta cantidad de tarjetas antes de su traducción
 
   let RL = null;           // estado persistido
   let RLV = { abierto: false, enPantallaCompleta: false, limpiar: null, sync: null, syncListo: false };
@@ -32,7 +33,7 @@
       cur: null,          // tarjeta en pantalla (para retomar)
       reserva: [],        // ejercicios manuales en espera
       usados: [],         // ids del banco del sistema ya usados (no repetir)
-      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0, ordPend: [] },
+      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0 },
       ultSorpresa: null,
       reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
       historias: { usadas: [], activa: null },
@@ -55,7 +56,7 @@
     const def = rlNuevo().cont;
     RL.cont = Object.assign({}, def, d.cont || {});
     Object.keys(def).forEach((k) => { if (typeof def[k] === "number" && !Number.isFinite(RL.cont[k])) RL.cont[k] = def[k]; });
-    if (!Array.isArray(RL.cont.ordPend)) RL.cont.ordPend = [];
+    delete RL.cont.ordPend; // ya no se persiste: ordPend ahora es local a cada rlMezclarEnBanco
     RL.reporte = Object.assign(rlNuevo().reporte, d.reporte || {});
     RL.historias = Object.assign(rlNuevo().historias, d.historias || {});
     RL.yt = Object.assign(rlNuevo().yt, d.yt || {});
@@ -124,6 +125,13 @@
     return pos;
   }
 
+  // Posición al azar, pero como mucho RL_ORD_MAX_ANTES tarjetas antes de
+  // `posTrad` (nunca en cualquier punto entre 0 y posTrad).
+  function rlPosAntesDeTraduccion(posTrad) {
+    const min = Math.max(0, posTrad - RL_ORD_MAX_ANTES);
+    return min + Math.floor(Math.random() * (posTrad - min + 1));
+  }
+
   // "Juego de ordenamiento": 1 de cada RL_ORD_CADA ejercicios de traducción
   // (los otros RL_ORD_CADA-1 no) trae consigo 3 tarjetas de ordenamiento
   // con la misma frase (mismo español/inglés).
@@ -148,10 +156,13 @@
         const it = banco[i];
         if (!(it.k === "ex" && it.ex && it.ex.type === "ordenamiento" && it.ex.origenUid)) continue;
         const posTrad = hallarTrad(it.ex.origenUid);
-        if (posTrad === -1 || i < posTrad) continue;
+        if (posTrad === -1) continue;
+        // Ya está bien ubicada: antes de su traducción y a lo sumo
+        // RL_ORD_MAX_ANTES tarjetas de distancia.
+        if (i < posTrad && i >= posTrad - RL_ORD_MAX_ANTES) continue;
         banco.splice(i, 1);
         const posTradTrasQuitar = hallarTrad(it.ex.origenUid);
-        const pos = Math.floor(Math.random() * (posTradTrasQuitar + 1));
+        const pos = rlPosAntesDeTraduccion(posTradTrasQuitar);
         banco.splice(pos, 0, it);
         corregido = true;
         break;
@@ -163,18 +174,23 @@
 
   function rlMezclarEnBanco(nuevas, alFrente) {
     const banco = RL.banco.slice();
+    // Local a este lote: ya no se acumula entre llamadas ni entre sesiones,
+    // así que un remanente de 1-2 traducciones nunca se arrastra y dispara
+    // un "organizar" casi inmediato en el próximo lote.
+    const ordPend = [];
     shuffleArray(nuevas).forEach((it) => {
       if (it.k === "ex" && it.ex && it.ex.type === "traduccion") {
         rlInsertarAlAzar(banco, it);
-        RL.cont.ordPend = RL.cont.ordPend || [];
-        RL.cont.ordPend.push({ uid: it.uid, ex: it.ex });
-        if (RL.cont.ordPend.length >= RL_ORD_CADA) {
-          const elegido = RL.cont.ordPend[Math.floor(Math.random() * RL.cont.ordPend.length)];
-          RL.cont.ordPend = [];
+        ordPend.push({ uid: it.uid, ex: it.ex });
+        if (ordPend.length >= RL_ORD_CADA) {
+          const elegido = ordPend[Math.floor(Math.random() * ordPend.length)];
+          ordPend.length = 0;
           const base = buildOrdenamientoFromTraduccion(elegido.ex);
           if (base) {
             const ordItem = { k: "ex", uid: rlUid(), ex: Object.assign({}, base, { origenUid: elegido.uid }), src: it.src, retry: false };
-            rlInsertarAlAzar(banco, ordItem);
+            const posTrad = banco.findIndex((x) => x.k === "ex" && x.ex && x.ex.type === "traduccion" && x.uid === elegido.uid);
+            if (posTrad === -1) rlInsertarAlAzar(banco, ordItem);
+            else banco.splice(rlPosAntesDeTraduccion(posTrad), 0, ordItem);
           }
         }
       } else {
@@ -562,12 +578,7 @@
 
   function rlRenderEjercicio(item, body, isRetryLocal) {
     const ex = item.ex;
-    body.innerHTML = rlCabecera([
-      getExerciseTypeIcon(ex.type) + " " + getExerciseTypeName(ex.type),
-      item.retry ? "🧠 Repaso" : "",
-      item.src === "man" ? "📥 Tuyo" : "",
-      ex.irr ? "🔁 Irregulares · paquete " + (ex.irr.p || "") : "",
-    ]) + `<div class="rl-ex exercise-area"><div class="rl-ex-container"></div></div>`;
+    body.innerHTML = `<div class="rl-ex exercise-area"><div class="rl-ex-container"></div></div>`;
     const c = body.querySelector(".rl-ex-container");
 
     switch (ex.type) {

@@ -215,7 +215,7 @@ export function showCorregirModal(exercise, result, userAnswer, onContinue, onRe
           <div class="comparison-row-text ${isCorrect ? 'correct-highlight' : ''}" style="${isCorrect ? '' : 'color:#fbbf24;'}">${window._escHTML(userAnswer) || '(vacío)'}</div>
         </div>
         <div class="comparison-row">
-          <span class="comparison-row-label">🎯 Precisión (mínimo 80% para aprobar)</span>
+          <span class="comparison-row-label"></span>
           <div class="word-diff-wrap">
             <span class="word-pill ${passed ? 'word-correct' : 'word-error'}">${accuracyPct}% · ${matchedWords}/${totalWords} palabras</span>
           </div>

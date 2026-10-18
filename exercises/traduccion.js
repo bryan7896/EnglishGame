@@ -193,14 +193,13 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   modal.className = "modal-overlay modal-active";
   modal.innerHTML = `
     <div class="modal-friend">
-      <h3>${isCorrect ? '🎉 ¡Perfecto!' : passed ? '✅ ¡Aceptado!' : '📊 Comparación'}</h3>
       ${passed ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
       <div class="comparison-text-block">
-        <p><strong>🇪🇸 Español:</strong><br>${window._escHTML(exercise.spanishWord || exercise.spanishWords)}</p>
-        <div class="compare-line"><strong>✅ Correcto:</strong> ${correctHtml}</div>
+        <p><strong>🇪🇸 Español:</strong><br>🎯 ${window._escHTML(exercise.spanishWord || exercise.spanishWords)}</p>
+        <div class="compare-line"><strong>✅ Esperado:</strong> ${correctHtml}</div>
         <div class="compare-line"><strong>✏️ Tu respuesta:</strong> ${userHtml}</div>
         <div class="comparison-row">
-          <span class="comparison-row-label">🎯 Precisión (mínimo 80% para aprobar)</span>
+          <span class="comparison-row-label"></span>
           <div class="word-diff-wrap">
             <span class="word-pill ${passed ? 'word-correct' : 'word-error'}">${accuracyPct}%</span>
           </div>
