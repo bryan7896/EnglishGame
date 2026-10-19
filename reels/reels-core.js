@@ -16,7 +16,7 @@
   const RL_REPASO_MIN = 3, RL_REPASO_MAX = 8; // "Repasar luego": vuelve N tarjetas después
   const RL_MAX_USADOS = 6000;
   const RL_YT_MIN = 3, RL_YT_MAX = 6;          // YouGlish va aparte: cada 3-6 ejercicios (ciclo viejo, ver nota Feature 4 abajo)
-  const RL_ESPACIO_MIN = 2, RL_ESPACIO_MAX = 5; // "espacio" (Feature 4): cada 2-5 ejercicios principales se sortea un tipo
+  const RL_ESPACIO_MIN = 2, RL_ESPACIO_MAX = 3; // "espacio" (Feature 4): cada 2-3 ejercicios principales se sortea un tipo
 
   let RL = null;           // estado persistido
   let RLV = { abierto: false, enPantallaCompleta: false, limpiar: null, sync: null, syncListo: false };
