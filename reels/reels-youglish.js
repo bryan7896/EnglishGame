@@ -1,11 +1,13 @@
   // ==================== REELS (sorpresa 1: Mundo real con YouGlish) ====================
   // Busca una palabra (>3 letras) de lo último que estudiaste, reproduce SOLO
-  // la frase donde aparece (se corta al terminar), la repite hasta 5 veces a
-  // 0.8x, y pregunta cuál de 3 palabras se dice en esa frase. La correcta es
-  // otra palabra de la misma frase (no la buscada); las otras 2 no están en
-  // la frase y se parecen en largo y sonido. Sin subtítulos.
-  const RL_YT_REPS = 5;
-  const RL_YT_PAUSA = 1000;
+  // la frase donde aparece (se corta al terminar) a 0.8x UNA sola vez, y
+  // pregunta cuál de 3 palabras se dice en esa frase. La correcta es otra
+  // palabra de la misma frase (no la buscada); las otras 2 no están en la
+  // frase y se parecen en largo y sonido. Sin subtítulos.
+  // (Antes se repetía el mismo clip hasta 5 veces automáticamente: eso
+  // gastaba la cuota de YouGlish muy rápido. Ahora el clip suena una sola
+  // vez solo y, si se quiere oír otra vez, hay un botón "🔁 Escuchar otra
+  // vez" para repetirlo manualmente cuantas veces se quiera.)
   const RL_YT_VEL = 0.75;      // velocidad que YouTube sí soporta
   const RL_YT_MARGEN = 300;
   const RL_YT_TOPE_CLIP = 14000;
@@ -94,6 +96,7 @@
         <p class="rl-sub rl-yt-estado">Buscando un clip real…</p>
         <span class="rl-yt-vel" title="Velocidad que reporta el reproductor"></span>
         <div class="rl-yt-host"><div id="${hostId}"></div></div>
+        <button type="button" class="fun-btn rl-yt-repeat">🔁 Escuchar otra vez</button>
         <div class="rl-yt-ops"></div>
         <div class="rl-yt-frase" hidden></div>
         <div class="rl-hist-foot">
@@ -104,11 +107,11 @@
       </div>`;
     const estado = body.querySelector(".rl-yt-estado");
     const opsEl = body.querySelector(".rl-yt-ops");
-    const S = { widget: null, palabra: null, intentos: 0, hit: null, reto: null, reps: 0, terminado: false, respondida: false, cutT: null, maxT: null, repT: null, buscarT: null, vivo: true };
+    const S = { widget: null, palabra: null, intentos: 0, hit: null, reto: null, terminado: false, respondida: false, cutT: null, maxT: null, buscarT: null, vivo: true };
 
     const limpiar = () => {
       S.vivo = false;
-      [S.cutT, S.maxT, S.repT, S.buscarT].forEach((t) => clearTimeout(t));
+      [S.cutT, S.maxT, S.buscarT].forEach((t) => clearTimeout(t));
       try { S.widget && S.widget.pause && S.widget.pause(); } catch (e) { /* nada */ }
       try { S.widget && S.widget.close && S.widget.close(); } catch (e) { /* nada */ }
       S.widget = null;
@@ -147,19 +150,21 @@
         try { S.widget.next(); armarTope(); } catch (e) { buscar(); }
         return;
       }
-      S.reps++;
-      if (S.reps < RL_YT_REPS) {
-        estado.textContent = S.respondida ? "Repitiendo la frase…" : "Escucha otra vez (" + (S.reps + 1) + "/" + RL_YT_REPS + ")";
-        S.repT = setTimeout(() => {
-          if (!S.vivo) return;
-          S.hit = null; S.terminado = false;
-          try { S.widget.replay(); } catch (e) { /* nada */ }
-          armarTope();
-        }, RL_YT_PAUSA);
-      } else {
-        estado.textContent = S.respondida ? "" : "Elige la palabra que escuchaste.";
-      }
+      // El clip ya se escuchó una vez: ya no se repite solo (eso gastaba la
+      // cuota de YouGlish muy rápido). Si quiere oírlo otra vez, está el
+      // botón "🔁 Escuchar otra vez".
+      estado.textContent = S.respondida ? "" : "Elige la palabra que escuchaste.";
     };
+
+    const repetirClip = () => {
+      if (!S.vivo || !S.widget) return;
+      S.hit = null;
+      S.terminado = false;
+      estado.textContent = "Repitiendo la frase…";
+      try { S.widget.replay(); } catch (e) { /* nada */ }
+      armarTope();
+    };
+    body.querySelector(".rl-yt-repeat").onclick = repetirClip;
 
     // Muestra en pequeño la velocidad REAL que reporta el reproductor.
     const mostrarVel = (v) => {
@@ -174,7 +179,7 @@
 
     const mostrarOpciones = () => {
       if (!S.reto || opsEl.childElementCount) return;
-      estado.textContent = "Escucha (" + (S.reps + 1) + "/" + RL_YT_REPS + ") y elige la palabra que se dice.";
+      estado.textContent = "Elige la palabra que se dice.";
       opsEl.innerHTML = S.reto.opciones.map((w) => `<button class="rl-op rl-yt-op" data-w="${rlEsc(w)}">${rlEsc(w)}</button>`).join("");
       opsEl.querySelectorAll(".rl-yt-op").forEach((b) => {
         b.onclick = () => {
@@ -210,7 +215,7 @@
       RL.yt.usadas.push(S.palabra);
       if (RL.yt.usadas.length > 400) RL.yt.usadas = RL.yt.usadas.slice(-400);
       rlGuardar();
-      S.hit = null; S.reto = null; S.reps = 0; S.terminado = false; S.track = null; S.clipIntentos = 0;
+      S.hit = null; S.reto = null; S.terminado = false; S.track = null; S.clipIntentos = 0;
       opsEl.innerHTML = "";
       estado.textContent = "Buscando un clip real…";
       try { S.widget.fetch(S.palabra, getTargetLanguage() === "it" ? "italian" : "english"); }
@@ -236,7 +241,7 @@
             if (tr != null && tr === S.track) return;   // replay del mismo clip
             S.track = tr;
             if (S.respondida) return;                    // ya respondió: no se cambia nada
-            S.hit = null; S.reto = null; S.reps = 0; S.terminado = false; opsEl.innerHTML = "";
+            S.hit = null; S.reto = null; S.terminado = false; opsEl.innerHTML = "";
             S.respondida = false;
             body.querySelector(".rl-yt-frase").hidden = true;
             armarTope();
@@ -255,7 +260,7 @@
               clearTimeout(S.buscarT);
               mostrarOpciones();
             } else if (!S.respondida) {
-              estado.textContent = "Escucha (" + (S.reps + 1) + "/" + RL_YT_REPS + ") y elige la palabra que se dice.";
+              estado.textContent = "Elige la palabra que se dice.";
             }
           },
           onCaptionConsumed: (e) => {

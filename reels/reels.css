@@ -87,6 +87,7 @@ body.rl-open { overflow: hidden; }
 
 /* YouGlish */
 .rl-yt-host { min-height: 210px; border-radius: 12px; overflow: hidden; background: #000; display: flex; justify-content: center; }
+.rl-yt-repeat { align-self: center; }
 .rl-yt-ops { flex-direction: row; flex-wrap: wrap; }
 .rl-yt-op { flex: 1 1 28%; text-align: center; font-weight: 800; font-size: 1.05rem; }
 .rl-yt-frase { background: var(--surface); border-left: 4px solid var(--info); padding: 10px 12px; border-radius: 8px; color: var(--ink-dim); font-style: italic; }
