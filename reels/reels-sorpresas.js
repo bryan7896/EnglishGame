@@ -104,29 +104,22 @@
     }
   }
 
-  // Diagnóstico en consola (F12) de cada sorteo de "espacio": por qué
-  // entró o se excluyó cada tipo, y quién ganó. Útil para ver si alguno
-  // está perdiendo el sorteo siempre por una comprobación de "disponible
-  // ahora" (irregulares/listening/azure/tatoeba) en vez de por mala suerte.
-  function rlEspacioCandidatos(nivel, debugOut) {
+  function rlEspacioCandidatos(nivel) {
     const cfg = rlConfigLeer();
     const out = [];
     RL_ESPACIO_TIPOS.forEach((t) => {
       const c = cfg[t];
-      let motivo = null;
-      if (!c || !c.enabled) motivo = "apagado";
-      else if (!c.levels.includes(nivel)) motivo = "nivel " + nivel + " no marcado (tiene: " + (c.levels.join(",") || "ninguno") + ")";
-      else if (rlEspacioLimiteHoy(t)) motivo = "límite diario alcanzado hoy";
-      else if (!rlEspacioDisponibleAhora(t)) motivo = "sin contenido disponible en este instante";
-      if (motivo) { if (debugOut) debugOut.push({ tipo: t, resultado: "excluido", motivo }); return; }
+      if (!c || !c.enabled) return;
+      if (!c.levels.includes(nivel)) return;
+      if (rlEspacioLimiteHoy(t)) return;
+      if (!rlEspacioDisponibleAhora(t)) return;
       out.push(t);
-      if (debugOut) debugOut.push({ tipo: t, resultado: "candidato", motivo: "-" });
     });
     return out;
   }
 
-  function rlEspacioElegirTipo(nivel, debugOut) {
-    const cands = rlEspacioCandidatos(nivel, debugOut);
+  function rlEspacioElegirTipo(nivel) {
+    const cands = rlEspacioCandidatos(nivel);
     if (!cands.length) return null;
     return cands[Math.floor(Math.random() * cands.length)];
   }
@@ -141,14 +134,7 @@
     RL.cont.espacioCont = 0;
     RL.cont.espacioNivel = nivel >= 4 ? 1 : nivel + 1;
     RL.cont.espacioN = rlRand(RL_ESPACIO_MIN, RL_ESPACIO_MAX);
-    const debugOut = [];
-    const ganador = rlEspacioElegirTipo(nivel, debugOut);
-    try {
-      console.groupCollapsed("🎲 Espacio (nivel " + nivel + ") → ganador: " + (ganador || "ninguno"));
-      console.table(debugOut);
-      console.groupEnd();
-    } catch (e) { /* nada */ }
-    if (typeof rlEspacioLogAgregar === "function") rlEspacioLogAgregar({ ts: Date.now(), nivel, ganador, detalle: debugOut });
+    const ganador = rlEspacioElegirTipo(nivel);
     if (!ganador) return null;
     if (ganador === "ordenamiento") { rlConvertirTraduccionAOrdenamiento(); return null; }
     if (ganador === "irregulares") return irrDecidirSorpresa();

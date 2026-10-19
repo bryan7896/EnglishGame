@@ -10449,34 +10449,6 @@ function n1ReelsTerminar() {
     return Object.assign(rlDiaDefault(), d[fechaStr] || {});
   }
 
-  // ---------- Diagnóstico del sorteo de "espacio" (ver reels-sorpresas.js) ----------
-  // Guarda las últimas aperturas de "espacio" (qué tipo entró a competir,
-  // cuál quedó excluido y por qué, y quién ganó) para poder verlas desde el
-  // celular en el modal de Historial, sin depender de la consola del navegador.
-  const RL_ESPACIO_LOG_KEY = "english_trainer_espacio_log_v1";
-  const RL_ESPACIO_LOG_MAX = 25;
-  function rlEspacioLogLeer() {
-    try { return JSON.parse(localStorage.getItem(RL_ESPACIO_LOG_KEY) || "[]") || []; } catch (e) { return []; }
-  }
-  function rlEspacioLogAgregar(entrada) {
-    try {
-      const log = rlEspacioLogLeer();
-      log.push(entrada);
-      while (log.length > RL_ESPACIO_LOG_MAX) log.shift();
-      localStorage.setItem(RL_ESPACIO_LOG_KEY, JSON.stringify(log));
-    } catch (e) { /* nada */ }
-  }
-  function rlEspacioLogTexto() {
-    const log = rlEspacioLogLeer();
-    if (!log.length) return "Todavía no se ha abierto ningún espacio en esta sesión/idioma.";
-    return log.slice().reverse().map((e) => {
-      const hora = new Date(e.ts || Date.now()).toLocaleTimeString("es-CO", { hour12: false });
-      const cab = hora + "  nivel " + e.nivel + "  →  ganador: " + (e.ganador || "ninguno");
-      const filas = (e.detalle || []).map((d) => "     " + d.tipo + ": " + (d.resultado === "candidato" ? "candidato" : "excluido (" + d.motivo + ")"));
-      return [cab].concat(filas).join("\n");
-    }).join("\n\n");
-  }
-
   // ---------- Modal "Historial" (reemplaza el antiguo botón de copiar) ----------
   const RL_MES_ES = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   function rlFechaLabel(fechaStr) {
@@ -10527,9 +10499,6 @@ function n1ReelsTerminar() {
         <pre class="rl-historial-bloque">${rlEsc(txtHoy)}</pre>
         <pre class="rl-historial-bloque">${rlEsc(txtAyer)}</pre>
         <pre class="rl-historial-bloque rl-historial-live">${rlEsc("Banco de reels: " + rlContarBanco() + " ejercicios\nFaltan " + faltan + " para el reporte")}</pre>
-        <h3 style="margin:14px 0 6px;">🎲 Diagnóstico del sorteo de "espacio"</h3>
-        <p class="sub-fun" style="text-align:left;margin-bottom:6px;">Últimas aperturas (la más reciente arriba): qué tipo entró a competir, cuál quedó fuera y por qué, y quién ganó.</p>
-        <pre class="rl-historial-bloque rl-historial-espacio">${rlEsc(rlEspacioLogTexto())}</pre>
       </div>`;
     document.body.appendChild(modal);
     const close = () => modal.remove();
@@ -10942,29 +10911,22 @@ function n1ReelsTerminar() {
     }
   }
 
-  // Diagnóstico en consola (F12) de cada sorteo de "espacio": por qué
-  // entró o se excluyó cada tipo, y quién ganó. Útil para ver si alguno
-  // está perdiendo el sorteo siempre por una comprobación de "disponible
-  // ahora" (irregulares/listening/azure/tatoeba) en vez de por mala suerte.
-  function rlEspacioCandidatos(nivel, debugOut) {
+  function rlEspacioCandidatos(nivel) {
     const cfg = rlConfigLeer();
     const out = [];
     RL_ESPACIO_TIPOS.forEach((t) => {
       const c = cfg[t];
-      let motivo = null;
-      if (!c || !c.enabled) motivo = "apagado";
-      else if (!c.levels.includes(nivel)) motivo = "nivel " + nivel + " no marcado (tiene: " + (c.levels.join(",") || "ninguno") + ")";
-      else if (rlEspacioLimiteHoy(t)) motivo = "límite diario alcanzado hoy";
-      else if (!rlEspacioDisponibleAhora(t)) motivo = "sin contenido disponible en este instante";
-      if (motivo) { if (debugOut) debugOut.push({ tipo: t, resultado: "excluido", motivo }); return; }
+      if (!c || !c.enabled) return;
+      if (!c.levels.includes(nivel)) return;
+      if (rlEspacioLimiteHoy(t)) return;
+      if (!rlEspacioDisponibleAhora(t)) return;
       out.push(t);
-      if (debugOut) debugOut.push({ tipo: t, resultado: "candidato", motivo: "-" });
     });
     return out;
   }
 
-  function rlEspacioElegirTipo(nivel, debugOut) {
-    const cands = rlEspacioCandidatos(nivel, debugOut);
+  function rlEspacioElegirTipo(nivel) {
+    const cands = rlEspacioCandidatos(nivel);
     if (!cands.length) return null;
     return cands[Math.floor(Math.random() * cands.length)];
   }
@@ -10979,14 +10941,7 @@ function n1ReelsTerminar() {
     RL.cont.espacioCont = 0;
     RL.cont.espacioNivel = nivel >= 4 ? 1 : nivel + 1;
     RL.cont.espacioN = rlRand(RL_ESPACIO_MIN, RL_ESPACIO_MAX);
-    const debugOut = [];
-    const ganador = rlEspacioElegirTipo(nivel, debugOut);
-    try {
-      console.groupCollapsed("🎲 Espacio (nivel " + nivel + ") → ganador: " + (ganador || "ninguno"));
-      console.table(debugOut);
-      console.groupEnd();
-    } catch (e) { /* nada */ }
-    if (typeof rlEspacioLogAgregar === "function") rlEspacioLogAgregar({ ts: Date.now(), nivel, ganador, detalle: debugOut });
+    const ganador = rlEspacioElegirTipo(nivel);
     if (!ganador) return null;
     if (ganador === "ordenamiento") { rlConvertirTraduccionAOrdenamiento(); return null; }
     if (ganador === "irregulares") return irrDecidirSorpresa();
@@ -13703,7 +13658,7 @@ function rlRenderTatoeba(item, body) {
           <span class="user-name">${window._escHTML(currentUser || '')}</span>
           <button id="menuLogoutBtn" class="logout-btn">Salir</button>
         </div>
-        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">20.7 (19-10-2026)</div>
+        <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">20.8 (19-10-2026)</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
