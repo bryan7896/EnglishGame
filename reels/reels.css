@@ -61,7 +61,7 @@ body.rl-open { overflow: hidden; }
 .rl-rep-btns { display: flex; gap: 10px; }
 .rl-rep-btns > * { flex: 1; }
 .rl-rep-btns [disabled] { opacity: .45; }
-.rl-report-text { width: 100%; font: 12px/1.35 ui-monospace, Menlo, monospace; }
+.rl-report-text { width: 100%; height: 50vh; font: 12px/1.35 ui-monospace, Menlo, monospace; }
 .rl-json-details summary { cursor: pointer; color: var(--info); font-weight: 800; padding: 6px 0; }
 .rl-json-wrap { display: flex; flex-direction: column; gap: 8px; }
 .rl-json-input { width: 100%; font-size: .8rem; }

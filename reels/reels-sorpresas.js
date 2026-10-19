@@ -303,7 +303,6 @@
     const pend = rlReporteListo().pendientes;
     body.innerHTML = rlCabecera(["📋 Informe"]) + `
       <div class="rl-sorpresa rl-reporte">
-        <h2 class="rl-title">Hora de tu informe</h2>
         <p class="rl-sub"><b>${rep.total}</b> ejercicios en <b>${rep.grupos}</b> regla${rep.grupos === 1 ? "" : "s"} (mínimo ${RL_MIN_POR_REGLA} por regla). ${pend.length ? pend.length + " regla(s) con menos de " + RL_MIN_POR_REGLA + " quedan para el próximo." : ""}</p>
         <textarea class="report rl-report-text" rows="9" readonly></textarea>
         <div class="rl-rep-btns">

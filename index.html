@@ -2415,7 +2415,7 @@ body.rl-open { overflow: hidden; }
 .rl-rep-btns { display: flex; gap: 10px; }
 .rl-rep-btns > * { flex: 1; }
 .rl-rep-btns [disabled] { opacity: .45; }
-.rl-report-text { width: 100%; font: 12px/1.35 ui-monospace, Menlo, monospace; }
+.rl-report-text { width: 100%; height: 50vh; font: 12px/1.35 ui-monospace, Menlo, monospace; }
 .rl-json-details summary { cursor: pointer; color: var(--info); font-weight: 800; padding: 6px 0; }
 .rl-json-wrap { display: flex; flex-direction: column; gap: 8px; }
 .rl-json-input { width: 100%; font-size: .8rem; }
@@ -11053,7 +11053,6 @@ function n1ReelsTerminar() {
     const pend = rlReporteListo().pendientes;
     body.innerHTML = rlCabecera(["📋 Informe"]) + `
       <div class="rl-sorpresa rl-reporte">
-        <h2 class="rl-title">Hora de tu informe</h2>
         <p class="rl-sub"><b>${rep.total}</b> ejercicios en <b>${rep.grupos}</b> regla${rep.grupos === 1 ? "" : "s"} (mínimo ${RL_MIN_POR_REGLA} por regla). ${pend.length ? pend.length + " regla(s) con menos de " + RL_MIN_POR_REGLA + " quedan para el próximo." : ""}</p>
         <textarea class="report rl-report-text" rows="9" readonly></textarea>
         <div class="rl-rep-btns">
