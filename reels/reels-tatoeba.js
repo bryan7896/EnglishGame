@@ -20,7 +20,7 @@
 // que usamos este último para ambos idiomas.
 const RL_TATOEBA_API = "https://api.tatoeba.org/unstable";
 const RL_TATOEBA_API_V1 = "https://api.tatoeba.org/v1";
-const RL_TATOEBA_KEY = "english_trainer_tatoeba_v2";
+const RL_TATOEBA_KEY = "english_trainer_tatoeba_v3";
 
 function rlTatoebaHoyStr() { return new Date().toLocaleDateString("en-CA"); }
 function rlTatoebaLang() { return (typeof getTargetLanguage === "function" && getTargetLanguage() === "it") ? "it" : "en"; }
