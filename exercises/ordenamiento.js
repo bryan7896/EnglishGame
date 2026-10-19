@@ -58,10 +58,16 @@ export function renderOrdenamientoExercise(exercise, container) {
   const tokens = tokenizeOrdenamiento(exercise.englishWord || exercise.englishWords || "");
   const idsCorrectos = tokens.map((_, i) => i);
 
+  // Dos palabras repetidas (p.ej. "the" y "the") son intercambiables entre
+  // sí: lo que importa es que LA PALABRA quede en cada puesto, no el id
+  // (posición original) exacto. Comparar por id obligaba a adivinar cuál
+  // "the" específico iba en cada hueco aunque fueran la misma palabra.
+  const ordenEsCorrecto = (arr) => arr.length === idsCorrectos.length && arr.every((id, i) => tokens[id] === tokens[idsCorrectos[i]]);
+
   let order = shuffleArray(idsCorrectos.slice());
   if (idsCorrectos.length > 1) {
     let intentos = 0;
-    while (order.every((v, i) => v === idsCorrectos[i]) && intentos < 10) {
+    while (ordenEsCorrecto(order) && intentos < 10) {
       order = shuffleArray(idsCorrectos.slice());
       intentos++;
     }
@@ -160,7 +166,7 @@ export function renderOrdenamientoExercise(exercise, container) {
       setTimeout(() => fadeClone.remove(), 1050);
     }
 
-    if (order.length === idsCorrectos.length && order.every((v, i) => v === idsCorrectos[i])) resolver(true);
+    if (ordenEsCorrecto(order)) resolver(true);
   }
 
   function terminarDrag() {

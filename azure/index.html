@@ -3973,7 +3973,9 @@ function reelsMostrarItemConcepto() {
   if (!actual) { reelsSiguienteConcepto(); return; }
   const concepto = (AppState.conceptosCatalogo || []).find((c) => c.id === id);
   const repaso = getConceptoState(id).repasoActual;
-  reelsTag(`☁️ Concepto ${REELS.hechos + 1}/${REELS.objetivo} · ${concepto ? concepto.termino : id} · ${actual.posicion + 1}/${repaso.cola.length}${actual.esRepaso ? " · repaso" : ""}`);
+  // Ya no se muestra el término del concepto (concepto.termino) aquí: era
+  // la respuesta del ejercicio, así que esa pista se quita del encabezado.
+  reelsTag(`☁️ Concepto ${REELS.hechos + 1}/${REELS.objetivo} · ${actual.posicion + 1}/${repaso.cola.length}${actual.esRepaso ? " · repaso" : ""}`);
   const esPrimeraVez = getConceptoState(id).historial.length === 0 && actual.posicion === 0 && !actual.esRepaso;
   const defEl = document.getElementById("ejercicioDefinicion");
   if (defEl) {
