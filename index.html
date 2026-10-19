@@ -11920,7 +11920,7 @@ async function rlTatoebaBuscarLote() {
   const params = new URLSearchParams();
   params.set("lang", lang);
   params.set("sort", "random");
-  params.set("word_count", "4-6");
+  params.set("word_count", "2-4");
   params.set("has_audio", "yes");
   params.set("limit", "30");
   params.set("include", "audios");
@@ -11934,10 +11934,12 @@ async function rlTatoebaBuscarLote() {
 }
 
 function rlTatoebaAudioUrl(audio) {
-  // Preferimos la URL que la propia API ya trae en cada audio (más
-  // confiable que construirla a mano); si no viene, caemos a la ruta
-  // conocida del servicio v1 por id.
-  return audio.download_url || (RL_TATOEBA_API_V1 + "/audios/" + audio.id + "/file");
+  // El download_url que trae /unstable/sentences (p.ej.
+  // https://api.tatoeba.org/unstable/audio/{id}/file) no sirve el audio
+  // (da NotSupportedError en el <audio>) — es la misma ruta "unstable"
+  // rota que ya documentaba la prueba de concepto original. El audio real
+  // se trae por id desde el servicio v1, que sí funciona.
+  return RL_TATOEBA_API_V1 + "/audios/" + audio.id + "/file";
 }
 
 function rlTatoebaTraduccion(sentence) {
@@ -11951,6 +11953,11 @@ async function rlTatoebaSiguiente() {
   let reg = rlTatoebaEstadoHoy();
   if (!reg) {
     const items = await rlTatoebaBuscarLote();
+    // Si la API devolvió 0 frases (p.ej. un corte momentáneo, o un idioma
+    // que ese día no tiene resultados), NO lo guardamos como "ya se
+    // consultó hoy": así el próximo intento vuelve a buscar en vez de
+    // quedar bloqueado el resto del día con el límite diario falso.
+    if (!items.length) return null;
     reg = { fecha: rlTatoebaHoyStr(), items, idx: 0 };
   }
   if ((reg.idx || 0) >= (reg.items || []).length) {
@@ -12023,10 +12030,18 @@ function rlRenderTatoeba(item, body) {
     const playAudio = () => {
       const audios = pick.audios || [];
       if (!audios.length) { toast("🔇 Esta frase no tiene audio"); return; }
-      try {
-        const audio = new Audio(rlTatoebaAudioUrl(audios[0]));
-        audio.play().catch((err) => console.warn("Tatoeba: no se pudo reproducir el audio", err));
-      } catch (e) { console.warn("Tatoeba: error creando el audio", e); }
+      const intentar = (url, siFalla) => {
+        try {
+          const audio = new Audio(url);
+          audio.addEventListener("error", () => { if (siFalla) siFalla(); }, { once: true });
+          audio.play().catch((err) => { console.warn("Tatoeba: no se pudo reproducir el audio", err); if (siFalla) siFalla(); });
+        } catch (e) { console.warn("Tatoeba: error creando el audio", e); if (siFalla) siFalla(); }
+      };
+      const url1 = rlTatoebaAudioUrl(audios[0]);
+      const url2 = audios[0].download_url;
+      // Si la ruta /v1 falla y hay un download_url distinto, lo probamos
+      // como respaldo antes de rendirnos.
+      intentar(url1, url2 && url2 !== url1 ? () => intentar(url2, null) : null);
     };
 
     // Al acertar (orden exacto de las palabras originales): suena la frase
