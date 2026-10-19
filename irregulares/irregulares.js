@@ -200,6 +200,7 @@
     }
     lista.forEach((it) => s.usados[pkg].push(it[0]));
     irrGuardar();
+    if (lista.length && typeof rlSumarDia === "function") rlSumarDia("irregularesCargados", lista.length);
     return lista.map(irrAEjercicio);
   }
 

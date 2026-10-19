@@ -133,6 +133,20 @@
       S.terminado = true;
       clearTimeout(S.maxT); clearTimeout(S.cutT);
       try { S.widget.pause(); } catch (e) { /* nada */ }
+      if (!S.reto) {
+        // Este clip se acabó (tope de tiempo) sin lograr armar un reto
+        // usable (p.ej. la frase no tenía suficientes palabras distintas
+        // para los distractores). Antes esto repetía el MISMO clip hasta
+        // agotar los 5 intentos y dejaba al usuario sin ninguna opción
+        // para elegir. Ahora probamos otro clip de la misma palabra
+        // (hasta 2 veces) y, si tampoco funciona, buscamos una palabra
+        // nueva en vez de quedarnos atascados.
+        S.clipIntentos = (S.clipIntentos || 0) + 1;
+        if (S.clipIntentos > 2) { S.clipIntentos = 0; buscar(); return; }
+        S.terminado = false;
+        try { S.widget.next(); armarTope(); } catch (e) { buscar(); }
+        return;
+      }
       S.reps++;
       if (S.reps < RL_YT_REPS) {
         estado.textContent = S.respondida ? "Repitiendo la frase…" : "Escucha otra vez (" + (S.reps + 1) + "/" + RL_YT_REPS + ")";
@@ -196,7 +210,7 @@
       RL.yt.usadas.push(S.palabra);
       if (RL.yt.usadas.length > 400) RL.yt.usadas = RL.yt.usadas.slice(-400);
       rlGuardar();
-      S.hit = null; S.reto = null; S.reps = 0; S.terminado = false; S.track = null;
+      S.hit = null; S.reto = null; S.reps = 0; S.terminado = false; S.track = null; S.clipIntentos = 0;
       opsEl.innerHTML = "";
       estado.textContent = "Buscando un clip real…";
       try { S.widget.fetch(S.palabra, getTargetLanguage() === "it" ? "italian" : "english"); }

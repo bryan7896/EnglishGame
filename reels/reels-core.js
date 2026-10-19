@@ -15,9 +15,8 @@
   const RL_PARTE_MANUAL = 0.6;               // 30 de cada 50
   const RL_REPASO_MIN = 3, RL_REPASO_MAX = 8; // "Repasar luego": vuelve N tarjetas después
   const RL_MAX_USADOS = 6000;
-  const RL_YT_MIN = 3, RL_YT_MAX = 6;          // YouGlish va aparte: cada 3-6 ejercicios
-  const RL_ORD_CADA = 3;                       // ordenamiento: 1 de cada N traducciones lo trae consigo
-  const RL_ORD_MAX_ANTES = 8;                  // "organizar": como mucho esta cantidad de tarjetas antes de su traducción
+  const RL_YT_MIN = 3, RL_YT_MAX = 6;          // YouGlish va aparte: cada 3-6 ejercicios (ciclo viejo, ver nota Feature 4 abajo)
+  const RL_ESPACIO_MIN = 2, RL_ESPACIO_MAX = 5; // "espacio" (Feature 4): cada 2-5 ejercicios principales se sortea un tipo
 
   let RL = null;           // estado persistido
   let RLV = { abierto: false, enPantallaCompleta: false, limpiar: null, sync: null, syncListo: false };
@@ -33,7 +32,14 @@
       cur: null,          // tarjeta en pantalla (para retomar)
       reserva: [],        // ejercicios manuales en espera
       usados: [],         // ids del banco del sistema ya usados (no repetir)
-      cont: { sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX), reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX), yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0 },
+      cont: {
+        sorpresa: 0, proxSorpresa: rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX),
+        reporte: 0, proxReporte: rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX),
+        yt: 0, proxYt: rlRand(RL_YT_MIN, RL_YT_MAX), az: 0,
+        // Feature 4: contador/objetivo/nivel del sorteo unificado de "espacio"
+        // (listening/azure/irregulares/ordenamiento/youglish/tatoeba).
+        espacioCont: 0, espacioN: rlRand(RL_ESPACIO_MIN, RL_ESPACIO_MAX), espacioNivel: 1,
+      },
       ultSorpresa: null,
       reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
       historias: { usadas: [], activa: null },
@@ -125,83 +131,49 @@
     return pos;
   }
 
-  // Posición al azar, pero como mucho RL_ORD_MAX_ANTES tarjetas antes de
-  // `posTrad` (nunca en cualquier punto entre 0 y posTrad).
-  function rlPosAntesDeTraduccion(posTrad) {
-    const min = Math.max(0, posTrad - RL_ORD_MAX_ANTES);
-    return min + Math.floor(Math.random() * (posTrad - min + 1));
-  }
-
-  // "Juego de ordenamiento": 1 de cada RL_ORD_CADA ejercicios de traducción
-  // (los otros RL_ORD_CADA-1 no) trae consigo 3 tarjetas de ordenamiento
-  // con la misma frase (mismo español/inglés).
-  // A propósito NO viajan pegadas ni en bloque: cada una se mezcla por su
-  // cuenta en cualquier parte del banco (se pueden intercalar con
-  // completar, corregir, con las de OTRA traducción, etc.) — lo único que
-  // se garantiza es que las 3 queden en alguna posición ANTERIOR a su
-  // traducción, nunca después ni pegadas entre sí a la fuerza.
-  // Por si rlCorregirRachas (al evitar 3 iguales seguidas) llegó a
-  // intercambiar una tarjeta de ordenamiento con algo que estaba después
-  // de su traducción: la vuelve a poner en una posición al azar ANTES de
-  // ella. No debería pasar seguido, pero así la regla "siempre antes"
-  // queda garantizada pase lo que pase con la corrección de rachas.
-  function rlOrdenAntesDeSuTraduccion(banco) {
-    const hallarTrad = (uid) => banco.findIndex((x) => x.k === "ex" && x.ex && x.ex.type === "traduccion" && x.uid === uid);
-    // Cada corrección cambia los índices de todo lo demás, así que se
-    // reinicia el barrido desde el principio después de cada una (son
-    // pocas tarjetas, esto termina rápido).
-    for (let guard = 0; guard < 50; guard++) {
-      let corregido = false;
-      for (let i = 0; i < banco.length; i++) {
-        const it = banco[i];
-        if (!(it.k === "ex" && it.ex && it.ex.type === "ordenamiento" && it.ex.origenUid)) continue;
-        const posTrad = hallarTrad(it.ex.origenUid);
-        if (posTrad === -1) continue;
-        // Ya está bien ubicada: antes de su traducción y a lo sumo
-        // RL_ORD_MAX_ANTES tarjetas de distancia.
-        if (i < posTrad && i >= posTrad - RL_ORD_MAX_ANTES) continue;
-        banco.splice(i, 1);
-        const posTradTrasQuitar = hallarTrad(it.ex.origenUid);
-        const pos = rlPosAntesDeTraduccion(posTradTrasQuitar);
-        banco.splice(pos, 0, it);
-        corregido = true;
-        break;
-      }
-      if (!corregido) break;
-    }
-    return banco;
-  }
-
+  // Ordenamiento ya NO se autogenera aquí (Feature 3): solo aparece cuando
+  // el sorteo de "espacio" de Feature 4 lo escoge, convirtiendo en el
+  // momento una traducción pendiente más adelante en el banco (ver
+  // rlConvertirTraduccionAOrdenamiento en reels-sorpresas.js).
   function rlMezclarEnBanco(nuevas, alFrente) {
     const banco = RL.banco.slice();
-    // Local a este lote: ya no se acumula entre llamadas ni entre sesiones,
-    // así que un remanente de 1-2 traducciones nunca se arrastra y dispara
-    // un "organizar" casi inmediato en el próximo lote.
-    const ordPend = [];
-    shuffleArray(nuevas).forEach((it) => {
-      if (it.k === "ex" && it.ex && it.ex.type === "traduccion") {
-        rlInsertarAlAzar(banco, it);
-        ordPend.push({ uid: it.uid, ex: it.ex });
-        if (ordPend.length >= RL_ORD_CADA) {
-          const elegido = ordPend[Math.floor(Math.random() * ordPend.length)];
-          ordPend.length = 0;
-          const base = buildOrdenamientoFromTraduccion(elegido.ex);
-          if (base) {
-            const ordItem = { k: "ex", uid: rlUid(), ex: Object.assign({}, base, { origenUid: elegido.uid }), src: it.src, retry: false };
-            const posTrad = banco.findIndex((x) => x.k === "ex" && x.ex && x.ex.type === "traduccion" && x.uid === elegido.uid);
-            if (posTrad === -1) rlInsertarAlAzar(banco, ordItem);
-            else banco.splice(rlPosAntesDeTraduccion(posTrad), 0, ordItem);
-          }
-        }
-      } else {
-        rlInsertarAlAzar(banco, it);
-      }
-    });
-    RL.banco = rlOrdenAntesDeSuTraduccion(rlCorregirRachas(banco));
+    shuffleArray(nuevas).forEach((it) => rlInsertarAlAzar(banco, it));
+    RL.banco = rlCorregirRachas(banco);
     if (alFrente && alFrente.length) RL.banco = alFrente.concat(RL.banco);
   }
 
   function rlItemEx(ex, src) { return { k: "ex", uid: rlUid(), ex, src: src || "sys", retry: false }; }
+
+  // ---------- Ordenamiento (Feature 4: "espacio" lo activa, ver reels-sorpresas.js) ----------
+  // Candidatas: cualquier tarjeta de traducción TODAVÍA en el banco (no
+  // mostrada aún — RL.banco es justo la cola pendiente) cuya frase tenga
+  // al menos 3 palabras (si no, buildOrdenamientoFromTraduccion no la
+  // puede convertir). Las ya convertidas quedan con type "ordenamiento" y
+  // quedan fuera del filtro por su cuenta.
+  function rlOrdenamientoCandidatosEnBanco() {
+    const out = [];
+    RL.banco.forEach((it, idx) => {
+      if (it.k !== "ex" || !it.ex || it.ex.type !== "traduccion") return;
+      if (tokenizeOrdenamiento(it.ex.englishWord || it.ex.englishWords || "").length >= 3) out.push(idx);
+    });
+    return out;
+  }
+
+  // Convierte EN SU LUGAR (mismo índice del banco) una traducción pendiente
+  // elegida al azar a ordenamiento. No inserta ni borra nada: es un efecto
+  // de programación invisible (no se muestra nada en el espacio que lo activó).
+  // Devuelve true si se pudo convertir, false si no había ninguna candidata.
+  function rlConvertirTraduccionAOrdenamiento() {
+    const idxs = rlOrdenamientoCandidatosEnBanco();
+    if (!idxs.length) return false;
+    const idx = idxs[Math.floor(Math.random() * idxs.length)];
+    const item = RL.banco[idx];
+    const base = buildOrdenamientoFromTraduccion(item.ex);
+    if (!base) return false;
+    const nuevoEx = Object.assign({}, base, { id: item.ex.id });
+    RL.banco[idx] = Object.assign({}, item, { ex: nuevoEx });
+    return true;
+  }
 
   // ---------- Toma de ejercicios del banco del sistema ----------
   function rlEjerciciosDeRegla(reglaId) {
@@ -245,6 +217,7 @@
       ok.push(e);
     });
     rlEstado();
+    if (ok.length) rlSumarDia("cargadosManual", ok.length);
     RL.reserva = RL.reserva.concat(shuffleArray(ok));
     // Si el banco está vacío, se usa ya la parte manual (30 de 50).
     if (!rlContarBanco() && RL.reserva.length) {
@@ -368,43 +341,27 @@
   }
 
   // ---------- Siguiente tarjeta ----------
+  // Feature 4 (rewrite): se quitó de aquí la prioridad incondicional de
+  // irregulares, el umbral fijo de YouGlish y la cadencia fija de Azure —
+  // esos 4 tipos (+ ordenamiento y tatoeba) ahora compiten entre sí en el
+  // sorteo de "espacio" (rlEspacioSiToca, reels-sorpresas.js), configurable
+  // desde ⚙️ Configurar reels. El ciclo general de abajo (reglas/historia/
+  // pct/reporte) es ORTOGONAL a Feature 4 y se deja exactamente como
+  // estaba (solo "listening" salió de su lista de candidatos, ver
+  // rlElegirSorpresa en reels-sorpresas.js) — en particular la cadencia
+  // del informe (RL_REPORTE_MIN/MAX, RL.cont.reporte) sigue intacta.
   function rlDecidirSiguiente() {
     if (!rlContarBanco() && !RL.banco.length) {
       return { k: "sorpresa", tipo: "reglas", uid: rlUid(), forzada: true };
     }
-    // Irregulares (solo inglés): reconocimiento, seleccionar y completar del paquete del día,
-    // por contadores de ejercicios. Mientras no se termine esa parte no se sigue con Reels.
-    if (typeof irrDecidirSorpresa === "function") {
-      const irr = irrDecidirSorpresa();
-      if (irr) return irr;
-    }
-    if (RL.cont.yt >= RL.cont.proxYt) {
-      RL.cont.yt = 0;
-      RL.cont.proxYt = rlRand(RL_YT_MIN, RL_YT_MAX);
-      if (rlPalabraParaYT()) return { k: "sorpresa", tipo: "yt", uid: rlUid() };
-    }
-    // El ciclo general (listening/historia/pct/reglas) va ANTES que Azure: ambos
-    // contadores crecen al mismo ritmo (un ejercicio normal suma a los dos) y el
-    // de Azure es un umbral fijo (cada 8) mientras el general es aleatorio (2-15).
-    // Si Azure se revisara primero, cuando los dos coinciden Azure siempre ganaría
-    // la carrera y listening/historia/etc. quedarían sin salir casi nunca. Así, si
-    // ambos están listos a la vez, el ciclo general tiene prioridad y Azure solo
-    // se retrasa una tarjeta (su contador no se reinicia, así que sale en la
-    // siguiente decisión).
     if (RL.cont.sorpresa >= RL.cont.proxSorpresa) {
       RL.cont.sorpresa = 0;
       RL.cont.proxSorpresa = rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX);
       const tipo = rlElegirSorpresa();
       if (tipo) return { k: "sorpresa", tipo, uid: rlUid() };
     }
-    // Azure (curso AI-901): cada N ejercicios, máximo M tandas por día (se configura en el curso).
-    if (getTargetLanguage() === "en") {
-      const az = rlAzureCfg();
-      if ((az.conceptos || az.secciones) && RL.cont.az >= az.cada && rlAzureDia().n < az.maxDia && !((RL.azVacioHasta || 0) > Date.now())) {
-        RL.cont.az = 0;
-        return { k: "sorpresa", tipo: "azure", uid: rlUid(), restantes: az.porTanda };
-      }
-    }
+    const espacio = rlEspacioSiToca();
+    if (espacio) return espacio;
     return RL.banco.shift();
   }
 
@@ -426,11 +383,20 @@
   function rlEjercicioTerminado(item, passed, decision, entrada, respuesta) {
     rlRegistrar(item, entrada, passed);
     if (getTargetLanguage() === "en") rlSumarDia("ingles");
+    // Historial (menú ⚙️): desglose por tipo FINAL del ejercicio (si una
+    // traducción terminó convertida en ordenamiento por Feature 4, cuenta
+    // como "Ordenar", no como "traduccion").
+    if (item && item.ex) {
+      const tipoHist = { corregir: "corregir", traduccion: "traduccion", completar: "completar", ordenamiento: "ordenar" }[item.ex.type];
+      if (tipoHist) rlSumarDia(tipoHist);
+    }
     if (typeof irrContarEjercicio === "function") irrContarEjercicio(item);
     RL.cont.sorpresa++;
     RL.cont.reporte++;
-    RL.cont.yt++;
-    RL.cont.az = (RL.cont.az || 0) + 1;
+    // Feature 4: cuenta para el próximo sorteo de "espacio" cualquier
+    // tarjeta principal (todo lo que sale de RL.banco.shift(), incluida
+    // una ordenamiento ya convertida — ver rlEspacioSiToca).
+    RL.cont.espacioCont = (RL.cont.espacioCont || 0) + 1;
     const txt = rlTextoObjetivo(item.ex);
     if (txt) { RL.recientes.push(txt); if (RL.recientes.length > 40) RL.recientes = RL.recientes.slice(-40); }
     if (decision === "luego") rlReencolar(item, respuesta);
@@ -488,7 +454,7 @@
   }
 
   // ---------- Historia de estudio ----------
-  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening", irr: "irregulares" };
+  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening", irr: "irregulares", tatoeba: "tatoeba" };
   function rlAnotar(item, nota) {
     if (!RL) return;
     let tipo = "—";
@@ -504,44 +470,97 @@
   // Cuántos ejercicios se hicieron HOY dentro de Reels, por tipo. Es global
   // (no por idioma) y guarda solo los últimos días.
   const RL_DIA_KEY = "english_trainer_reels_dia_v1";
+  // Campos por día. "ingles" se conserva por compatibilidad con datos viejos
+  // (ya no se usa para el informe: la cifra de "estudio de inglés" del
+  // modal de Historial sale de sumar corregir+traduccion+completar+informacion).
+  function rlDiaDefault() {
+    return {
+      ingles: 0, listening: 0, azure: 0, youglish: 0,
+      corregir: 0, traduccion: 0, completar: 0, informacion: 0, ordenar: 0, tatoeba: 0,
+      irregularesCargados: 0, cargadosManual: 0, cargadosSistema: 0,
+    };
+  }
   function rlHoyStr() { return new Date().toLocaleDateString("en-CA"); }
+  function rlAyerStr() {
+    const d = new Date();
+    d.setDate(d.getDate() - 1);
+    return d.toLocaleDateString("en-CA");
+  }
   function rlSumarDia(campo, n) {
     let d = {};
     try { d = JSON.parse(localStorage.getItem(RL_DIA_KEY) || "{}") || {}; } catch (e) { d = {}; }
     const hoy = rlHoyStr();
-    const reg = d[hoy] || { ingles: 0, listening: 0, azure: 0, youglish: 0 };
+    const reg = Object.assign(rlDiaDefault(), d[hoy] || {});
     reg[campo] = (reg[campo] || 0) + (n || 1);
     d[hoy] = reg;
     Object.keys(d).sort().slice(0, -30).forEach((k) => delete d[k]);
     try { localStorage.setItem(RL_DIA_KEY, JSON.stringify(d)); } catch (e) { /* nada */ }
   }
-
-  function rlCopiarHistoria() {
+  function rlDiaLeer(fechaStr) {
     let d = {};
     try { d = JSON.parse(localStorage.getItem(RL_DIA_KEY) || "{}") || {}; } catch (e) { d = {}; }
-    const r = Object.assign({ ingles: 0, listening: 0, azure: 0, youglish: 0 }, d[rlHoyStr()] || {});
-    const total = r.ingles + r.listening + r.azure + r.youglish;
-    rlEstado();
-    const faltan = Math.max(0, RL.cont.proxReporte - RL.cont.reporte);
-    const txt = [
-      r.ingles + " de estudio de inglés",
+    return Object.assign(rlDiaDefault(), d[fechaStr] || {});
+  }
+
+  // ---------- Modal "Historial" (reemplaza el antiguo botón de copiar) ----------
+  const RL_MES_ES = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  function rlFechaLabel(fechaStr) {
+    // fechaStr viene en formato en-CA: "YYYY-MM-DD".
+    const partes = String(fechaStr || "").split("-");
+    const dia = parseInt(partes[2], 10);
+    const mes = RL_MES_ES[parseInt(partes[1], 10) - 1] || "";
+    return (Number.isFinite(dia) ? dia : "?") + " - " + mes;
+  }
+  function rlBloqueReporteDia(fechaStr) {
+    const r = rlDiaLeer(fechaStr);
+    const ingles = r.corregir + r.traduccion + r.completar + r.informacion;
+    const total = ingles + r.ordenar + r.listening + r.azure + r.youglish + r.tatoeba;
+    return [
+      "Reporte del día " + rlFechaLabel(fechaStr) + ":",
+      ingles + " de estudio de inglés",
+      "     " + r.corregir + " corregir",
+      "     " + r.traduccion + " traduccion",
+      "     " + r.completar + " completar",
+      "     " + r.informacion + " informacion",
+      r.ordenar + " Ordenar",
       r.listening + " de listening",
       r.azure + " de azure",
       r.youglish + " de YouGlish",
+      r.tatoeba + " de Tatoeba",
       "---",
       "total: " + total,
-      "",
-      "Banco de reels: " + rlContarBanco() + " ejercicios",
-      "Faltan " + faltan + " para el reporte",
+      "Cargados irregulares: " + r.irregularesCargados,
+      "Cargados por json manual: " + r.cargadosManual,
+      "Cargados del sistema: " + r.cargadosSistema,
     ].join("\n");
-    const ok = () => toast("📜 Resumen de hoy copiado (" + total + ")");
-    const manual = () => {
-      const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select();
-      try { document.execCommand("copy"); ok(); } catch (e) { toast("No se pudo copiar"); }
-      ta.remove();
-    };
-    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(txt).then(ok).catch(manual); else manual();
   }
+
+  function rlMostrarHistorialModal() {
+    document.querySelectorAll(".modal-overlay").forEach((m) => m.remove());
+    rlEstado();
+    const faltan = Math.max(0, RL.cont.proxReporte - RL.cont.reporte);
+    const txtHoy = rlBloqueReporteDia(rlHoyStr());
+    const txtAyer = rlBloqueReporteDia(rlAyerStr());
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>📜 Historial</h3>
+          <button class="menu-modal-close" aria-label="Cerrar">✕</button>
+        </div>
+        <pre class="rl-historial-bloque">${rlEsc(txtHoy)}</pre>
+        <pre class="rl-historial-bloque">${rlEsc(txtAyer)}</pre>
+        <pre class="rl-historial-bloque rl-historial-live">${rlEsc("Banco de reels: " + rlContarBanco() + " ejercicios\nFaltan " + faltan + " para el reporte")}</pre>
+      </div>`;
+    document.body.appendChild(modal);
+    const close = () => modal.remove();
+    modal.querySelector(".menu-modal-close").onclick = close;
+    modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+  }
+
+  // Alias por compatibilidad con llamadas antiguas al botón de "Copiar historia".
+  function rlCopiarHistoria() { rlMostrarHistorialModal(); }
 
   // ---------- Borradores: lo escrito sobrevive a segundo plano / cierre ----------
   const RL_CAMPOS = "textarea, input[type=text], input:not([type])";
@@ -665,7 +684,7 @@
          <button class="fun-btn rl-skip-info">⏭ Saltar lección</button></div>`;
       const c = body.querySelector(".rl-info-container");
       c.innerHTML = renderLeccion(leccion, st);
-      wireLeccion(leccion, c, st, pintar, () => { burstConfetti(); rlSiguiente(); });
+      wireLeccion(leccion, c, st, pintar, () => { rlSumarDia("informacion"); RL.cont.espacioCont = (RL.cont.espacioCont || 0) + 1; rlGuardar(); burstConfetti(); rlSiguiente(); });
       body.querySelector(".rl-skip-info").onclick = () => rlSiguiente();
     };
     pintar();

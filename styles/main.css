@@ -872,6 +872,104 @@ textarea:focus-visible,
   width: 100%;
 }
 
+/* --- tarjeta volteable genérica (traducción / ordenamiento) ---
+   Misma técnica que .corregir-flipcard, generalizada para dos caras con
+   contenido interactivo real en la cara de atrás: SOLO la cara de
+   adelante tiene el listener que voltea (ver traduccion.js/ordenamiento.js),
+   así no hace falta stopPropagation en nada de la cara de atrás. */
+.flip2-card {
+  perspective: 1200px;
+}
+
+.flip2-card-inner {
+  position: relative;
+  min-height: 90px;
+  transform-style: preserve-3d;
+  transition: transform 0.55s var(--ease);
+}
+
+.flip2-card.is-flipped .flip2-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip2-face {
+  border-radius: var(--radius-md);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip2-face-front {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  cursor: pointer;
+  user-select: none;
+  background: var(--surface-2);
+  border: 1px dashed var(--line-strong);
+  border-left: 3px solid var(--brand);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  padding: 18px 16px;
+}
+
+.flip2-face-front:active { transform: scale(0.99); }
+
+.flip2-face-front .flip2-front-hint {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Dentro de la tarjeta rotativa, la burbuja de pregunta pierde su propio
+   fondo/borde (ya lo trae la cara de la tarjeta) y el texto queda en
+   blanco sobre esa cara. El borde de acento ahora vive en .flip2-face-front
+   / .flip2-face-back, no en la burbuja. */
+.flip2-face-front .question-bubble,
+.flip2-face-back .question-bubble {
+  background: none;
+  border: none;
+  color: #fff;
+}
+
+.flip2-face-back {
+  position: relative;
+  transform: rotateY(180deg);
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brand);
+  padding: 14px 44px 14px 14px;
+}
+
+.flip2-back-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: var(--surface-3);
+  color: var(--ink-dim);
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s var(--ease), transform 0.15s var(--ease);
+}
+
+.flip2-back-btn:hover { background: var(--line-strong); }
+.flip2-back-btn:active { transform: scale(0.92); }
+
 /* --- tarjeta rotativa de intentos fallidos (nodo 6) --- */
 .corregir-flipcard-carousel {
   flex-direction: column;
@@ -1823,6 +1921,24 @@ textarea:focus-visible,
 
 .menu-modal-close:hover { background: var(--bad-wash); color: var(--bad); }
 
+/* ============ MODAL "HISTORIAL" ============ */
+.rl-historial-bloque {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin: 0 0 12px;
+  font: 0.82rem/1.5 ui-monospace, Menlo, Consolas, monospace;
+  color: var(--ink-dim);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.rl-historial-live {
+  color: var(--brand-light);
+  margin-bottom: 0;
+}
+
 .menu-modal-user {
   display: flex;
   align-items: center;
@@ -1920,6 +2036,7 @@ textarea:focus-visible,
     transition-duration: 0.001ms !important;
   }
   .corregir-flipcard-inner { transition: none; }
+  .flip2-card-inner { transition: none; }
 }
 /* ============ 22. SELECCIÓN DE REGLAS GRAMATICALES ============ */
 .rules-card > p { margin-bottom: 14px; }

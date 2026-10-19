@@ -118,3 +118,10 @@ body.rl-open { overflow: hidden; }
 .rl-timer-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--info); box-shadow: 0 0 8px var(--info); animation: rlBlink 1s ease-in-out infinite; }
 .rl-timer-pausa .rl-timer-dot { animation: none; opacity: .35; box-shadow: none; }
 @keyframes rlBlink { 0%, 100% { opacity: 1; } 50% { opacity: .15; } }
+
+/* Tatoeba (Feature 5): reutiliza .ord-row/.ord-pill de ordenamiento.js */
+.rl-tatoeba h3 { font-family: var(--font-display); font-size: .92rem; color: var(--ink-dim); margin: 0; }
+.rl-tatoeba-bank { background: var(--surface-2); border: 1px dashed var(--line-strong); border-radius: var(--radius-sm); min-height: 54px; }
+.rl-tatoeba-answer { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-sm); min-height: 54px; }
+.rl-tatoeba-translation { background: var(--info-wash); border: 1px solid var(--info); border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 10px; color: var(--ink-dim); }
+.rl-tatoeba-translation b { color: var(--info); }

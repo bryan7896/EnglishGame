@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "20.1 (18-10-2026)"
+VERSION = "20.2 (19-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -72,6 +72,7 @@ REELS_FILES = {
     "reels/reels-core.js": "__REELS_CORE_JS__",
     "reels/reels-sorpresas.js": "__REELS_SORPRESAS_JS__",
     "reels/reels-youglish.js": "__REELS_YOUGLISH_JS__",
+    "reels/reels-tatoeba.js": "__REELS_TATOEBA_JS__",
 }
 REELS_STYLES_FILE = os.path.join("reels", "reels.css")
 
@@ -745,6 +746,7 @@ def get_html_template():
   __REELS_CORE_JS__
   __REELS_SORPRESAS_JS__
   __REELS_YOUGLISH_JS__
+  __REELS_TATOEBA_JS__
   const IRREGULARES_DATA = __IRREGULARES_JSON__;
   __IRREGULARES_JS__
   __MAIN_LOGIC__
@@ -1579,10 +1581,10 @@ def get_main_logic():
         <div class="sub-fun" style="text-align:center;margin:8px 0 14px;">__VERSION__</div>
         <div class="sidebar-menu-list">
           <button class="fun-btn" id="menuToggleLangBtn">${getTargetLangMeta().flag} Idioma: ${getTargetLangMeta().label}</button>
-          ${getTargetLanguage() === "en" ? `<button class="fun-btn" id="menuIrregularesBtn">🔁 Irregulares</button>` : ""}
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
           <button class="fun-btn" id="menuAddJsonBtn">📥 Agregar ejercicios (JSON)</button>
-          <button class="fun-btn" id="menuHistoriaBtn">📜 Copiar historia</button>
+          <button class="fun-btn" id="menuHistoriaBtn">📜 Historial</button>
+          <button class="fun-btn" id="menuConfigReelsBtn">⚙️ Configurar reels</button>
           <button class="fun-btn" id="menuTimerBtn">⏱️ Temporizador: ${rlTimerMin()} min</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
         </div>
@@ -1602,9 +1604,9 @@ def get_main_logic():
       toast(getTargetLangMeta().flag + " Ahora practicando " + getTargetLangMeta().labelLower);
     });
     modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
-    modal.querySelector('#menuIrregularesBtn')?.addEventListener('click', () => { close(); openIrregulares(); });
     modal.querySelector('#menuAddJsonBtn').addEventListener('click', () => { close(); rlModalAgregarJSON(); });
-    modal.querySelector('#menuHistoriaBtn').addEventListener('click', () => { close(); rlCopiarHistoria(); });
+    modal.querySelector('#menuHistoriaBtn').addEventListener('click', () => { close(); rlMostrarHistorialModal(); });
+    modal.querySelector('#menuConfigReelsBtn').addEventListener('click', () => { close(); rlModalConfigurarReels(); });
     modal.querySelector('#menuTimerBtn').addEventListener('click', () => { close(); rlModalTimer(); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });
   }

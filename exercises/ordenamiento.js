@@ -68,10 +68,21 @@ export function renderOrdenamientoExercise(exercise, container) {
   }
 
   container.innerHTML = `
-    <div class="question-bubble">Organiza la traducción de:<br><strong>${window._escHTML(spanish)}</strong></div>
-    <div class="ord-row"></div>
-    <div class="button-group"><button type="button" class="btn-action btn-check ord-giveup">Me rindo</button></div>
+    <div class="flip2-card">
+      <div class="flip2-card-inner">
+        <button type="button" class="flip2-face flip2-face-front">
+          <div class="question-bubble">Organiza la traducción de:<br><strong>${window._escHTML(spanish)}</strong></div>
+          <span class="flip2-front-hint">Toca para organizar</span>
+        </button>
+        <div class="flip2-face flip2-face-back">
+          <button type="button" class="flip2-back-btn" title="Ver la frase en español" aria-label="Ver la frase en español">↺</button>
+          <div class="ord-row"></div>
+          <div class="button-group"><button type="button" class="btn-action btn-check ord-giveup">Me rindo</button></div>
+        </div>
+      </div>
+    </div>
   `;
+  wireFlip2Card(container);
   const rowEl = container.querySelector(".ord-row");
   const giveupBtn = container.querySelector(".ord-giveup");
 
