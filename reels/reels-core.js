@@ -502,6 +502,34 @@
     return Object.assign(rlDiaDefault(), d[fechaStr] || {});
   }
 
+  // ---------- Diagnóstico del sorteo de "espacio" (ver reels-sorpresas.js) ----------
+  // Guarda las últimas aperturas de "espacio" (qué tipo entró a competir,
+  // cuál quedó excluido y por qué, y quién ganó) para poder verlas desde el
+  // celular en el modal de Historial, sin depender de la consola del navegador.
+  const RL_ESPACIO_LOG_KEY = "english_trainer_espacio_log_v1";
+  const RL_ESPACIO_LOG_MAX = 25;
+  function rlEspacioLogLeer() {
+    try { return JSON.parse(localStorage.getItem(RL_ESPACIO_LOG_KEY) || "[]") || []; } catch (e) { return []; }
+  }
+  function rlEspacioLogAgregar(entrada) {
+    try {
+      const log = rlEspacioLogLeer();
+      log.push(entrada);
+      while (log.length > RL_ESPACIO_LOG_MAX) log.shift();
+      localStorage.setItem(RL_ESPACIO_LOG_KEY, JSON.stringify(log));
+    } catch (e) { /* nada */ }
+  }
+  function rlEspacioLogTexto() {
+    const log = rlEspacioLogLeer();
+    if (!log.length) return "Todavía no se ha abierto ningún espacio en esta sesión/idioma.";
+    return log.slice().reverse().map((e) => {
+      const hora = new Date(e.ts || Date.now()).toLocaleTimeString("es-CO", { hour12: false });
+      const cab = hora + "  nivel " + e.nivel + "  →  ganador: " + (e.ganador || "ninguno");
+      const filas = (e.detalle || []).map((d) => "     " + d.tipo + ": " + (d.resultado === "candidato" ? "candidato" : "excluido (" + d.motivo + ")"));
+      return [cab].concat(filas).join("\n");
+    }).join("\n\n");
+  }
+
   // ---------- Modal "Historial" (reemplaza el antiguo botón de copiar) ----------
   const RL_MES_ES = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   function rlFechaLabel(fechaStr) {
@@ -552,6 +580,9 @@
         <pre class="rl-historial-bloque">${rlEsc(txtHoy)}</pre>
         <pre class="rl-historial-bloque">${rlEsc(txtAyer)}</pre>
         <pre class="rl-historial-bloque rl-historial-live">${rlEsc("Banco de reels: " + rlContarBanco() + " ejercicios\nFaltan " + faltan + " para el reporte")}</pre>
+        <h3 style="margin:14px 0 6px;">🎲 Diagnóstico del sorteo de "espacio"</h3>
+        <p class="sub-fun" style="text-align:left;margin-bottom:6px;">Últimas aperturas (la más reciente arriba): qué tipo entró a competir, cuál quedó fuera y por qué, y quién ganó.</p>
+        <pre class="rl-historial-bloque rl-historial-espacio">${rlEsc(rlEspacioLogTexto())}</pre>
       </div>`;
     document.body.appendChild(modal);
     const close = () => modal.remove();

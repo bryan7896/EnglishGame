@@ -148,6 +148,7 @@
       console.table(debugOut);
       console.groupEnd();
     } catch (e) { /* nada */ }
+    if (typeof rlEspacioLogAgregar === "function") rlEspacioLogAgregar({ ts: Date.now(), nivel, ganador, detalle: debugOut });
     if (!ganador) return null;
     if (ganador === "ordenamiento") { rlConvertirTraduccionAOrdenamiento(); return null; }
     if (ganador === "irregulares") return irrDecidirSorpresa();
