@@ -273,14 +273,14 @@
   // Grupos (por regla) que ya tienen al menos RL_MIN_POR_REGLA ejercicios
   // propios (sin contar los errores corregidos).
   function rlReporteListo() {
-    const grupos = {};
-    (RL.reporte.entradas || []).forEach((e) => {
-      const k = rlGrupoKey(e);
-      (grupos[k] = grupos[k] || { key: k, reglaIds: e.reglaIds || [], ej: [], err: [] });
-      (e.retry ? grupos[k].err : grupos[k].ej).push(e);
-    });
-    const listos = Object.values(grupos).filter((g) => g.ej.length >= RL_MIN_POR_REGLA);
-    return { listos, pendientes: Object.values(grupos).filter((g) => g.ej.length < RL_MIN_POR_REGLA) };
+      const grupos = {};
+      (RL.reporte.entradas || []).filter((e) => e.type !== "ordenamiento").forEach((e) => {
+        const k = rlGrupoKey(e);
+        (grupos[k] = grupos[k] || { key: k, reglaIds: e.reglaIds || [], ej: [], err: [] });
+        (e.retry ? grupos[k].err : grupos[k].ej).push(e);
+      });
+      const listos = Object.values(grupos).filter((g) => g.ej.length >= RL_MIN_POR_REGLA);
+      return { listos, pendientes: Object.values(grupos).filter((g) => g.ej.length < RL_MIN_POR_REGLA) };
   }
 
   function rlConstruirReporte() {
