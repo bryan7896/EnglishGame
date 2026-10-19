@@ -90,43 +90,19 @@ export function alignWordsContracciones(correct, user) {
 }
 
 // ---------------------------------------------------------------------
-// Tarjeta volteable genérica (usada por traducción Y ordenamiento, ver
-// ordenamiento.js). Cara A (frente): solo la frase en español, toda la
-// cara es un botón que voltea a la cara B. Cara B: la zona de respuesta
-// + botones de siempre, sin voltear al tocar nada de ahí dentro (el
-// listener de voltear vive SOLO en la cara de adelante, nunca en la de
-// atrás ni en el contenedor completo) — un botón fijo arriba a la
-// derecha (↺) vuelve a la cara A por si se quiere repasar el español.
+// Tarjeta simple (usada por traducción Y ordenamiento, ver ordenamiento.js):
+// la frase en español arriba y, justo debajo, la actividad. Sin volteo ni
+// textos de ayuda — el usuario ya sabe cómo funciona.
 // ---------------------------------------------------------------------
-export function wireFlip2Card(container) {
-  const card = container.querySelector('.flip2-card');
-  if (!card) return;
-  const front = card.querySelector('.flip2-face-front');
-  const backBtn = card.querySelector('.flip2-back-btn');
-  if (front) front.addEventListener('click', () => { card.classList.add('is-flipped'); });
-  if (backBtn) backBtn.addEventListener('click', (e) => { e.stopPropagation(); card.classList.remove('is-flipped'); });
-}
-
 export function renderTraduccionExercise(exercise, container) {
   const spanish = exercise.spanishWord || exercise.spanishWords || "";
   container.innerHTML = `
-    <div class="flip2-card">
-      <div class="flip2-card-inner">
-        <button type="button" class="flip2-face flip2-face-front">
-          <div class="question-bubble">${window._escHTML(spanish)}</div>
-          <span class="flip2-front-hint">Toca para responder</span>
-        </button>
-        <div class="flip2-face flip2-face-back">
-          <button type="button" class="flip2-back-btn" title="Ver la frase en español" aria-label="Ver la frase en español">↺</button>
-          <textarea class="answer-input traduccion-answer" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
-          <div class="button-group">
-            <button class="btn-action btn-check traduccion-check">Comprobar</button>
-          </div>
-        </div>
-      </div>
+    <div class="question-bubble">${window._escHTML(spanish)}</div>
+    <textarea class="answer-input traduccion-answer" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
+    <div class="button-group">
+      <button class="btn-action btn-check traduccion-check">Comprobar</button>
     </div>
   `;
-  wireFlip2Card(container);
 }
 
 function normalizeFullAnswer(str) {

@@ -887,104 +887,6 @@ textarea:focus-visible,
   width: 100%;
 }
 
-/* --- tarjeta volteable genérica (traducción / ordenamiento) ---
-   Misma técnica que .corregir-flipcard, generalizada para dos caras con
-   contenido interactivo real en la cara de atrás: SOLO la cara de
-   adelante tiene el listener que voltea (ver traduccion.js/ordenamiento.js),
-   así no hace falta stopPropagation en nada de la cara de atrás. */
-.flip2-card {
-  perspective: 1200px;
-}
-
-.flip2-card-inner {
-  position: relative;
-  min-height: 90px;
-  transform-style: preserve-3d;
-  transition: transform 0.55s var(--ease);
-}
-
-.flip2-card.is-flipped .flip2-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip2-face {
-  border-radius: var(--radius-md);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.flip2-face-front {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  cursor: pointer;
-  user-select: none;
-  background: var(--surface-2);
-  border: 1px dashed var(--line-strong);
-  border-left: 3px solid var(--brand);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-align: center;
-  padding: 18px 16px;
-}
-
-.flip2-face-front:active { transform: scale(0.99); }
-
-.flip2-face-front .flip2-front-hint {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--ink-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-/* Dentro de la tarjeta rotativa, la burbuja de pregunta pierde su propio
-   fondo/borde (ya lo trae la cara de la tarjeta) y el texto queda en
-   blanco sobre esa cara. El borde de acento ahora vive en .flip2-face-front
-   / .flip2-face-back, no en la burbuja. */
-.flip2-face-front .question-bubble,
-.flip2-face-back .question-bubble {
-  background: none;
-  border: none;
-  color: #fff;
-}
-
-.flip2-face-back {
-  position: relative;
-  transform: rotateY(180deg);
-  width: 100%;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--brand);
-  padding: 14px 44px 14px 14px;
-}
-
-.flip2-back-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 2;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid var(--line-strong);
-  background: var(--surface-3);
-  color: var(--ink-dim);
-  font-size: 1rem;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.2s var(--ease), transform 0.15s var(--ease);
-}
-
-.flip2-back-btn:hover { background: var(--line-strong); }
-.flip2-back-btn:active { transform: scale(0.92); }
-
 /* --- tarjeta rotativa de intentos fallidos (nodo 6) --- */
 .corregir-flipcard-carousel {
   flex-direction: column;
@@ -2051,7 +1953,6 @@ textarea:focus-visible,
     transition-duration: 0.001ms !important;
   }
   .corregir-flipcard-inner { transition: none; }
-  .flip2-card-inner { transition: none; }
 }
 /* ============ 22. SELECCIÓN DE REGLAS GRAMATICALES ============ */
 .rules-card > p { margin-bottom: 14px; }
@@ -4759,43 +4660,19 @@ export function alignWordsContracciones(correct, user) {
 }
 
 // ---------------------------------------------------------------------
-// Tarjeta volteable genérica (usada por traducción Y ordenamiento, ver
-// ordenamiento.js). Cara A (frente): solo la frase en español, toda la
-// cara es un botón que voltea a la cara B. Cara B: la zona de respuesta
-// + botones de siempre, sin voltear al tocar nada de ahí dentro (el
-// listener de voltear vive SOLO en la cara de adelante, nunca en la de
-// atrás ni en el contenedor completo) — un botón fijo arriba a la
-// derecha (↺) vuelve a la cara A por si se quiere repasar el español.
+// Tarjeta simple (usada por traducción Y ordenamiento, ver ordenamiento.js):
+// la frase en español arriba y, justo debajo, la actividad. Sin volteo ni
+// textos de ayuda — el usuario ya sabe cómo funciona.
 // ---------------------------------------------------------------------
-export function wireFlip2Card(container) {
-  const card = container.querySelector('.flip2-card');
-  if (!card) return;
-  const front = card.querySelector('.flip2-face-front');
-  const backBtn = card.querySelector('.flip2-back-btn');
-  if (front) front.addEventListener('click', () => { card.classList.add('is-flipped'); });
-  if (backBtn) backBtn.addEventListener('click', (e) => { e.stopPropagation(); card.classList.remove('is-flipped'); });
-}
-
 export function renderTraduccionExercise(exercise, container) {
   const spanish = exercise.spanishWord || exercise.spanishWords || "";
   container.innerHTML = `
-    <div class="flip2-card">
-      <div class="flip2-card-inner">
-        <button type="button" class="flip2-face flip2-face-front">
-          <div class="question-bubble">${window._escHTML(spanish)}</div>
-          <span class="flip2-front-hint">Toca para responder</span>
-        </button>
-        <div class="flip2-face flip2-face-back">
-          <button type="button" class="flip2-back-btn" title="Ver la frase en español" aria-label="Ver la frase en español">↺</button>
-          <textarea class="answer-input traduccion-answer" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
-          <div class="button-group">
-            <button class="btn-action btn-check traduccion-check">Comprobar</button>
-          </div>
-        </div>
-      </div>
+    <div class="question-bubble">${window._escHTML(spanish)}</div>
+    <textarea class="answer-input traduccion-answer" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
+    <div class="button-group">
+      <button class="btn-action btn-check traduccion-check">Comprobar</button>
     </div>
   `;
-  wireFlip2Card(container);
 }
 
 function normalizeFullAnswer(str) {
@@ -5013,20 +4890,10 @@ export function renderOrdenamientoExercise(exercise, container) {
   }
 
   container.innerHTML = `
-    <div class="flip2-card">
-      <div class="flip2-card-inner">
-        <button type="button" class="flip2-face flip2-face-front">
-          <div class="question-bubble"><strong>${window._escHTML(spanish)}</strong></div>
-        </button>
-        <div class="flip2-face flip2-face-back">
-          <button type="button" class="flip2-back-btn" title="Ver la frase en español" aria-label="Ver la frase en español">↺</button>
-          <div class="ord-row"></div>
-          <div class="button-group"><button type="button" class="btn-action btn-check ord-giveup">Me rindo</button></div>
-        </div>
-      </div>
-    </div>
+    <div class="question-bubble">Organiza la traducción de:<br><strong>${window._escHTML(spanish)}</strong></div>
+    <div class="ord-row"></div>
+    <div class="button-group"><button type="button" class="btn-action btn-check ord-giveup">Me rindo</button></div>
   `;
-  wireFlip2Card(container);
   const rowEl = container.querySelector(".ord-row");
   const giveupBtn = container.querySelector(".ord-giveup");
 
