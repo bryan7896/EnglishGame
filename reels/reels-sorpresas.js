@@ -104,19 +104,29 @@
     }
   }
 
-  function rlEspacioCandidatos(nivel) {
+  // Diagnóstico en consola (F12) de cada sorteo de "espacio": por qué
+  // entró o se excluyó cada tipo, y quién ganó. Útil para ver si alguno
+  // está perdiendo el sorteo siempre por una comprobación de "disponible
+  // ahora" (irregulares/listening/azure/tatoeba) en vez de por mala suerte.
+  function rlEspacioCandidatos(nivel, debugOut) {
     const cfg = rlConfigLeer();
-    return RL_ESPACIO_TIPOS.filter((t) => {
+    const out = [];
+    RL_ESPACIO_TIPOS.forEach((t) => {
       const c = cfg[t];
-      if (!c || !c.enabled || !c.levels.includes(nivel)) return false;
-      if (rlEspacioLimiteHoy(t)) return false;
-      if (!rlEspacioDisponibleAhora(t)) return false;
-      return true;
+      let motivo = null;
+      if (!c || !c.enabled) motivo = "apagado";
+      else if (!c.levels.includes(nivel)) motivo = "nivel " + nivel + " no marcado (tiene: " + (c.levels.join(",") || "ninguno") + ")";
+      else if (rlEspacioLimiteHoy(t)) motivo = "límite diario alcanzado hoy";
+      else if (!rlEspacioDisponibleAhora(t)) motivo = "sin contenido disponible en este instante";
+      if (motivo) { if (debugOut) debugOut.push({ tipo: t, resultado: "excluido", motivo }); return; }
+      out.push(t);
+      if (debugOut) debugOut.push({ tipo: t, resultado: "candidato", motivo: "-" });
     });
+    return out;
   }
 
-  function rlEspacioElegirTipo(nivel) {
-    const cands = rlEspacioCandidatos(nivel);
+  function rlEspacioElegirTipo(nivel, debugOut) {
+    const cands = rlEspacioCandidatos(nivel, debugOut);
     if (!cands.length) return null;
     return cands[Math.floor(Math.random() * cands.length)];
   }
@@ -131,7 +141,13 @@
     RL.cont.espacioCont = 0;
     RL.cont.espacioNivel = nivel >= 4 ? 1 : nivel + 1;
     RL.cont.espacioN = rlRand(RL_ESPACIO_MIN, RL_ESPACIO_MAX);
-    const ganador = rlEspacioElegirTipo(nivel);
+    const debugOut = [];
+    const ganador = rlEspacioElegirTipo(nivel, debugOut);
+    try {
+      console.groupCollapsed("🎲 Espacio (nivel " + nivel + ") → ganador: " + (ganador || "ninguno"));
+      console.table(debugOut);
+      console.groupEnd();
+    } catch (e) { /* nada */ }
     if (!ganador) return null;
     if (ganador === "ordenamiento") { rlConvertirTraduccionAOrdenamiento(); return null; }
     if (ganador === "irregulares") return irrDecidirSorpresa();
