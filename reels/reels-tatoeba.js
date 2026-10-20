@@ -20,7 +20,7 @@
 // que usamos este último para ambos idiomas.
 const RL_TATOEBA_API = "https://api.tatoeba.org/unstable";
 const RL_TATOEBA_API_V1 = "https://api.tatoeba.org/v1";
-const RL_TATOEBA_KEY = "english_trainer_tatoeba_v4";
+const RL_TATOEBA_KEY = "english_trainer_tatoeba_v1";
 
 function rlTatoebaHoyStr() { return new Date().toLocaleDateString("en-CA"); }
 function rlTatoebaLang() { return (typeof getTargetLanguage === "function" && getTargetLanguage() === "it") ? "it" : "en"; }
@@ -59,7 +59,7 @@ async function rlTatoebaBuscarLote() {
   const params = new URLSearchParams();
   params.set("lang", lang);
   params.set("sort", "random");
-  params.set("word_count", "5-6");
+  params.set("word_count", "7-9");
   params.set("has_audio", "yes");
   params.set("limit", "30");
   params.set("include", "audios");
@@ -86,6 +86,20 @@ function rlTatoebaTraduccion(sentence) {
   return t ? t.text : "";
 }
 
+// Adelanta la descarga (sin reproducir) del audio de una frase, para que
+// cuando le toque al usuario ya esté en la caché HTTP del navegador y
+// suene al instante en vez de demorarse en el primer "Escuchar".
+function rlTatoebaPrecargarAudio(sentence) {
+  try {
+    const audios = (sentence && sentence.audios) || [];
+    if (!audios.length) return;
+    const audio = new Audio();
+    audio.preload = "auto";
+    audio.src = rlTatoebaAudioUrl(audios[0]);
+    audio.load();
+  } catch (e) { /* nada */ }
+}
+
 // Trae (cacheando si hace falta) y consume la siguiente frase del día.
 // Devuelve null si hoy ya no quedan.
 async function rlTatoebaSiguiente() {
@@ -110,6 +124,9 @@ async function rlTatoebaSiguiente() {
   const d = rlTatoebaLeerTodo();
   d[rlTatoebaLang()] = reg;
   rlTatoebaGuardarTodo(d);
+  // Mientras el usuario resuelve esta frase, el navegador ya va bajando en
+  // segundo plano el audio de la que viene después.
+  if (reg.items[reg.idx]) rlTatoebaPrecargarAudio(reg.items[reg.idx]);
   return pick;
 }
 
