@@ -45,11 +45,11 @@
   // espacio no produce nada y se sigue de largo (como con cualquier banco
   // vacío) — exactamente igual que el caso "ordenamiento sin candidatas"
   // de Feature 3.
-  const RL_ESPACIO_TIPOS = ["listening", "azure", "irregulares", "ordenamiento", "youglish", "tatoeba"];
-  const RL_ESPACIO_TIPO_LABEL = { listening: "🎧 Listening", azure: "☁️ Azure", irregulares: "🔁 Irregulares", ordenamiento: "🔤 Ordenamiento", youglish: "🌎 YouGlish", tatoeba: "🐢 Tatoeba" };
+  const RL_ESPACIO_TIPOS = ["listening", "azure", "irregulares", "ordenamiento", "youglish", "tatoeba", "banco"];
+  const RL_ESPACIO_TIPO_LABEL = { listening: "🎧 Listening", azure: "☁️ Azure", irregulares: "🔁 Irregulares", ordenamiento: "🔤 Ordenamiento", youglish: "🌎 YouGlish", tatoeba: "🐢 Tatoeba", banco: "📚 Banco de palabras" };
   // tipo de config -> item.tipo que entiende rlRenderSorpresa (ordenamiento e
   // irregulares no usan esta tabla: se resuelven aparte, ver rlEspacioSiToca).
-  const RL_ESPACIO_TIPO_RENDER = { listening: "listening", azure: "azure", youglish: "yt", tatoeba: "tatoeba" };
+  const RL_ESPACIO_TIPO_RENDER = { listening: "listening", azure: "azure", youglish: "yt", tatoeba: "tatoeba", banco: "banco" };
 
   const RL_CONFIG_KEY = "english_trainer_reels_config_v1";
   function rlConfigDefault() {
@@ -100,6 +100,7 @@
       case "ordenamiento": return rlOrdenamientoCandidatosEnBanco().length > 0;
       case "youglish": return !!rlPalabraParaYT();
       case "tatoeba": return typeof rlTatoebaDisponible === "function" ? rlTatoebaDisponible() : true;
+      case "banco": return typeof BancoPalabrasData !== "undefined" && getTargetLanguage() === "en" && BancoPalabrasData.activas().length > 0;
       default: return false;
     }
   }
@@ -215,6 +216,7 @@
       case "azure": return rlRenderAzure(item, body);
       case "irr": return irrRenderSorpresaReels(item, body);
       case "tatoeba": return rlRenderTatoeba(item, body);
+      case "banco": return rlRenderBanco(item, body);
       default: setTimeout(rlSiguiente, 0);
     }
   }
@@ -655,4 +657,76 @@
       }
     };
     RLV.limpiar = () => { RLV.azHandler = null; };
+  }
+
+  // ---------- 8. Banco de palabras ----------
+  // Cada vez que toca este espacio se hacen 4 ejercicios (completar,
+  // traducir, completar, traducir — ese orden fijo). Cada uno sortea una
+  // palabra activa al azar (si solo hay una palabra en el banco, las 4
+  // caen en esa misma, que es justo lo que se pidió) y una de sus
+  // oraciones guardadas. Se reusan renderCompletarExercise/
+  // renderTraduccionExercise (y sus modales de resultado) tal cual las usa
+  // el resto del juego — lo único que cambia es la capa de color rosa
+  // (.bp-reels-exercise, en banco-palabras.css).
+  const RL_BANCO_PATRON = ["completar", "traducir", "completar", "traducir"];
+
+  function rlBancoPalabraAleatoria() {
+    const activas = (typeof BancoPalabrasData !== "undefined" ? BancoPalabrasData.activas() : []);
+    if (!activas.length) return null;
+    return activas[Math.floor(Math.random() * activas.length)];
+  }
+
+  function rlBancoGenerarPaso(tipo) {
+    const palabra = rlBancoPalabraAleatoria();
+    if (!palabra || !palabra.oraciones.length) return null;
+    const oracion = palabra.oraciones[Math.floor(Math.random() * palabra.oraciones.length)];
+    if (tipo === "completar") {
+      const re = new RegExp("\\b" + String(oracion.forma || palabra.palabra).replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i");
+      if (!re.test(oracion.en)) return null; // no debería pasar: se guarda junto con la forma que calza
+      return { tipo: "completar", palabra: palabra.id, exercise: { spanishWord: oracion.es, englishSentence: oracion.en.replace(re, "___"), options: [oracion.forma || palabra.palabra] } };
+    }
+    return { tipo: "traducir", palabra: palabra.id, exercise: { spanishWord: oracion.es, englishWord: oracion.en } };
+  }
+
+  function rlBancoElegirPlan() {
+    return RL_BANCO_PATRON.map(rlBancoGenerarPaso).filter(Boolean);
+  }
+
+  function rlRenderBanco(item, body) {
+    if (!item.plan) {
+      item.plan = rlBancoElegirPlan();
+      item.paso = 0;
+      rlGuardar();
+    }
+    if (!item.plan.length || item.paso >= item.plan.length) { rlSorpresaHecha(item); return; }
+
+    const paso = item.plan[item.paso];
+    body.innerHTML = rlCabecera(["📚 Banco de palabras", (item.paso + 1) + "/" + item.plan.length]) +
+      `<div class="rl-sorpresa bp-reels-exercise"><div class="rl-banco-host"></div></div>`;
+    const host = body.querySelector(".rl-banco-host");
+
+    // decision: null (Continuar) | "luego" (🧠 Repasar luego → se repite
+    // más adelante EN ESTE MISMO espacio, como un 5to/6to ejercicio, no en
+    // la cola principal de Reels — así lo pidió el usuario).
+    const avanzar = (duda, passed, decision) => {
+      if (decision === "luego") item.plan.push(paso);
+      if (typeof BancoPalabrasData !== "undefined") BancoPalabrasData.registrarPractica(paso.palabra, 1);
+      item.paso += 1;
+      rlGuardar();
+      rlRenderBanco(item, body);
+    };
+
+    if (paso.tipo === "completar") {
+      renderCompletarExercise(paso.exercise, host);
+      host.querySelector(".completar-check").addEventListener("click", () => {
+        const { results } = checkCompletarAnswers(paso.exercise, host);
+        showCompletarModal(paso.exercise, results, avanzar);
+      });
+    } else {
+      renderTraduccionExercise(paso.exercise, host);
+      host.querySelector(".traduccion-check").addEventListener("click", () => {
+        const userAnswer = host.querySelector(".traduccion-answer").value;
+        showComparativeModal(paso.exercise, userAnswer, avanzar);
+      });
+    }
   }

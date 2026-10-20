@@ -2796,6 +2796,215 @@ body.irr-open { overflow: hidden; }
   .irr-theme *, .irr-chispa { animation: none !important; transition: none !important; }
 }
 
+/* banco-palabras/banco-palabras.css
+   Usa las mismas variables de styles/main.css (--surface, --ink, --brand,
+   --line, --radius-*, --shadow-md...) para que no se note que es nuevo.
+   Pensado para pegarse al final de main.css (o cargarse aparte, el
+   build.py lo decide). */
+
+/* Palabra clickeable dentro del texto en español: SIN apariencia de botón,
+   igual a texto normal, solo cursor de mano. El resaltado azul (paso 3 del
+   pedido) aparece mientras su modal está abierto. */
+.bp-word {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.bp-word-active {
+  color: var(--info);
+  transition: color 0.15s var(--ease);
+}
+
+.bp-modal-overlay { z-index: 140; } /* por encima del modal del ejercicio */
+.bp-sub-overlay { z-index: 150; }   /* el de edición, por encima del de Aprender */
+
+.bp-confirm-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 16px;
+}
+.bp-confirm-text { font-size: 1.05rem; font-weight: 700; }
+.bp-nav {
+  background: var(--surface-2);
+  border: 2px solid var(--line);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.bp-nav:disabled { opacity: 0.35; }
+
+.bp-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--ink-faint);
+  font-size: 1.1rem;
+  padding: 6px;
+}
+
+.bp-dim { color: var(--ink-faint); font-size: 0.82rem; }
+
+.bp-sense-group { text-align: left; margin-bottom: 14px; }
+.bp-sense-group h4 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  margin: 0 0 6px;
+}
+.bp-sense-group ol { margin: 0; padding-left: 20px; }
+.bp-sense-group li { margin-bottom: 6px; }
+
+.bp-aprender-scroll { text-align: left; max-height: 50vh; overflow-y: auto; }
+
+.bp-ejemplos-list { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 10px; }
+.bp-ejemplo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 6px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.bp-ejemplo-texto { flex: 1; font-size: 0.9rem; }
+.bp-ejemplo-sel { background: var(--brand-wash); }
+.bp-pencil {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  padding: 2px 6px;
+  flex-shrink: 0;
+}
+
+.bp-contadores {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  margin: 12px 0;
+}
+
+.bp-editar-card label {
+  display: block;
+  text-align: left;
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  margin-top: 10px;
+}
+.bp-editar-card textarea {
+  width: 100%;
+  min-height: 56px;
+  margin-top: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font: inherit;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.bp-guardado-ok { font-size: 1.05rem; font-weight: 700; color: var(--good); padding: 30px 0; }
+
+/* ---------- overlay de pantalla completa (mismo patrón que #irrOverlay) ---------- */
+.bp-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--bg);
+  overflow-y: auto;
+}
+.bp-overlay-cerrar {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 91;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  width: 36px;
+  height: 36px;
+}
+.bp-overlay-scroll { max-width: 720px; margin: 0 auto; padding-top: 50px; }
+
+/* ---------- pantalla de la tabla ---------- */
+.bp-screen { padding: 14px 16px 30px; }
+.bp-screen-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.bp-screen-head h2 { margin: 0; font-size: 1.2rem; }
+.bp-key-btn { padding: 8px 14px; }
+
+.bp-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.bp-tabla th, .bp-tabla td {
+  padding: 8px 6px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.bp-tabla th {
+  color: var(--ink-faint);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.bp-tabla-fila { cursor: pointer; }
+.bp-tabla-fila:hover, .bp-tabla-fila:focus-visible { background: var(--surface-2); }
+.bp-tabla-palabra { text-align: left; font-weight: 700; }
+.bp-tabla-num { color: var(--ink-dim); }
+.bp-tabla-borrar {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  padding: 4px;
+}
+.bp-tabla-activa { width: 18px; height: 18px; accent-color: var(--brand); }
+.bp-tabla-fecha { color: var(--ink-faint); font-size: 0.78rem; }
+
+.bp-key-card { max-width: 340px; }
+.bp-key-card h3 { margin: 4px 0 2px; }
+.bp-key-input {
+  width: 100%;
+  margin: 12px 0;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font: inherit;
+  padding: 10px 12px;
+}
+
+.home-tile-banco { border-color: #8a5cf6; background: linear-gradient(135deg, #2c1f52, var(--surface) 72%); }
+.home-tile-banco .home-tile-ico { background: #1c1338; }
+
+/* ---------- ejercicios de Banco de palabras dentro de Reels ---------- */
+/* Misma tarjeta de siempre (completar.js/traduccion.js), solo con este
+   acento rosa para que se note que es un ejercicio del Banco de palabras,
+   tal como se pidió. */
+.bp-reels-exercise .question-bubble {
+  border-left: 3px solid #ff4a9b;
+}
+.bp-reels-exercise .btn-check,
+.bp-reels-exercise .btn-continue {
+  background: #ff4a9b;
+  box-shadow: 0 var(--press-depth) 0 0 #bc2669;
+}
+
+
 /* ============================================================
    listening.css -- Nivel 0 (Listening Trainer)
    ------------------------------------------------------------
@@ -3599,6 +3808,10 @@ body.irr-open { overflow: hidden; }
         <button class="home-tile home-tile-irr" id="homeIrregularesBtn">
           <span class="home-tile-ico"><span class="irr-logo" aria-hidden="true"><i></i><i></i><i></i></span></span>
           <span><b>Irregulares</b><small>100 verbos · un paquete de 10 por día</small></span>
+        </button>
+        <button class="home-tile home-tile-banco" id="homeBancoPalabrasBtn">
+          <span class="home-tile-ico">📚</span>
+          <span><b>Banco de palabras</b><small>Guarda y repasa tus propias palabras</small></span>
         </button>
         <button class="home-tile" id="homeJuegoBtn">
           <span class="home-tile-ico">🎮</span>
@@ -4569,6 +4782,1254 @@ export function contractionAwareEquals(a, b) {
   return norm(a) === norm(b);
 }
 
+  // banco-palabras/banco-palabras-data.js
+//
+// Capa de datos del "Banco de palabras". SOLO para inglés (no aplica a
+// italiano) — sigue el mismo criterio de módulo independiente que el
+// Listening Trainer: su propia llave de localStorage, su propio esquema,
+// sin tocar currentStorageKey()/BASE_STORAGE_KEY de los ejercicios
+// normales ni el progreso de reglas gramaticales.
+//
+// Esquema de una entrada (una palabra guardada):
+// {
+//   id: "change",                 // = palabra en minúsculas, sin acentos raros; clave única
+//   palabra: "change",            // palabra tal como la devolvió el diccionario (headword en inglés)
+//   formas: ["change","changed","changing"], // "Formas" que trajo el API (incluye siempre la propia palabra)
+//   fechaAgregado: "2026-10-20",  // ISO (solo fecha), cuándo se guardó por primera vez
+//   fecha: "2026-10-20",          // ISO (solo fecha), última vez que se practicó (ordena la tabla: más vieja primero)
+//   vp: 0,                        // "Veces practicado": ejercicios de esta palabra ya resueltos en Reels
+//   pausado: false,               // checkbox ⏸️: si está en true, no entra a la rotación de Reels
+//   oraciones: [
+//     {
+//       id: "o1",
+//       en: "he changed the subject",
+//       es: "cambió de tema",
+//       forma: "changed",         // cuál de "formas" aparece en esta oración (decide qué palabra se tapa en completar.js)
+//       origen: "mw",             // "mw" = seleccionada a mano del diccionario | "sistema" = encontrada en data-en
+//       editado: false,           // true si el usuario la modificó con el lápiz ✏️
+//       fuenteId: null            // id del ejercicio original en data-en (solo origen:"sistema"), para no duplicar si se vuelve a buscar
+//     }
+//   ]
+// }
+//
+// "#Data" (columna de la tabla) = oraciones.length de esa entrada.
+//
+// Regla de borrado automático: cualquier entrada con vp > 50 se elimina
+// sola (ver purgarPracticadas()). Index.js/reels deben llamar esa función
+// cada vez que suman un vp, justo después de guardar.
+
+(function (global) {
+  "use strict";
+
+  const LS_KEY = "englishTrainerBancoPalabras_v1";
+  const LS_API_KEY = "englishTrainerBancoPalabras_mwKey_v1";
+  // Tope total de oraciones por palabra (seleccionadas a mano + "sistema").
+  // banco-palabras-ui.js ya recorta "en sistema" antes de llegar aquí —
+  // esto es una segunda red de seguridad por si una palabra ya tenía
+  // oraciones guardadas de una búsqueda anterior y la suma se pasa.
+  const MAX_ORACIONES_POR_PALABRA = 50;
+
+  function todayISO() {
+    return new Date().toISOString().slice(0, 10);
+  }
+
+  function slugify(palabra) {
+    return String(palabra || "").trim().toLowerCase();
+  }
+
+  function loadAll() {
+    try {
+      const raw = localStorage.getItem(LS_KEY);
+      const data = raw ? JSON.parse(raw) : {};
+      return data && typeof data === "object" ? data : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function saveAll(map) {
+    try {
+      localStorage.setItem(LS_KEY, JSON.stringify(map));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function listar() {
+    const map = loadAll();
+    // Orden por defecto: fecha de última práctica más antigua primero
+    // (las nunca practicadas, sin "fecha" de práctica real, usan
+    // fechaAgregado como si fuera su "última práctica" para no saltar
+    // siempre al frente ni siempre al final de forma arbitraria).
+    return Object.values(map).sort((a, b) => {
+      const fa = a.fecha || a.fechaAgregado || "0000-00-00";
+      const fb = b.fecha || b.fechaAgregado || "0000-00-00";
+      return fa < fb ? -1 : fa > fb ? 1 : 0;
+    });
+  }
+
+  function obtener(palabra) {
+    const map = loadAll();
+    return map[slugify(palabra)] || null;
+  }
+
+  function activas() {
+    return listar().filter((e) => !e.pausado && (e.oraciones || []).length > 0);
+  }
+
+  let _oracionSeq = 0;
+  function nuevoIdOracion() {
+    _oracionSeq += 1;
+    return "o" + Date.now().toString(36) + _oracionSeq;
+  }
+
+  // oracionesNuevas: [{en, es, forma, origen, fuenteId}]
+  function guardarPalabra(palabra, formas, oracionesNuevas) {
+    const id = slugify(palabra);
+    if (!id) return null;
+    const map = loadAll();
+    const existente = map[id];
+    const oraciones = existente ? existente.oraciones.slice() : [];
+
+    (oracionesNuevas || []).forEach((o) => {
+      if (oraciones.length >= MAX_ORACIONES_POR_PALABRA) return;
+      // Evita duplicar una oración "de sistema" que ya se había traído antes.
+      const yaExiste = o.fuenteId
+        ? oraciones.some((x) => x.fuenteId === o.fuenteId)
+        : oraciones.some((x) => x.en === o.en && x.es === o.es);
+      if (yaExiste) return;
+      oraciones.push({
+        id: nuevoIdOracion(),
+        en: o.en,
+        es: o.es,
+        forma: o.forma || palabra,
+        origen: o.origen || "mw",
+        editado: false,
+        fuenteId: o.fuenteId || null,
+      });
+    });
+
+    map[id] = {
+      id,
+      palabra: existente ? existente.palabra : palabra,
+      formas: Array.from(new Set((formas && formas.length ? formas : [palabra]).map((f) => String(f).toLowerCase()))),
+      fechaAgregado: existente ? existente.fechaAgregado : todayISO(),
+      fecha: existente ? existente.fecha : todayISO(),
+      vp: existente ? existente.vp : 0,
+      pausado: existente ? existente.pausado : false,
+      oraciones,
+    };
+    saveAll(map);
+    return map[id];
+  }
+
+  function editarOracion(palabra, oracionId, nuevoEn, nuevoEs) {
+    const map = loadAll();
+    const entrada = map[slugify(palabra)];
+    if (!entrada) return false;
+    const o = entrada.oraciones.find((x) => x.id === oracionId);
+    if (!o) return false;
+    o.en = nuevoEn;
+    o.es = nuevoEs;
+    o.editado = true;
+    saveAll(map);
+    return true;
+  }
+
+  function borrarOracion(palabra, oracionId) {
+    const map = loadAll();
+    const entrada = map[slugify(palabra)];
+    if (!entrada) return false;
+    entrada.oraciones = entrada.oraciones.filter((x) => x.id !== oracionId);
+    saveAll(map);
+    return true;
+  }
+
+  function setPausado(palabra, pausado) {
+    const map = loadAll();
+    const entrada = map[slugify(palabra)];
+    if (!entrada) return false;
+    entrada.pausado = !!pausado;
+    saveAll(map);
+    return true;
+  }
+
+  function borrarPalabra(palabra) {
+    const map = loadAll();
+    delete map[slugify(palabra)];
+    saveAll(map);
+  }
+
+  // Llamar cada vez que una tanda de ejercicios de Banco de palabras
+  // (de esta palabra) se completa en Reels. Si al sumar supera 50, la
+  // palabra se elimina automáticamente (regla pedida por el usuario).
+  function registrarPractica(palabra, cuantos) {
+    const map = loadAll();
+    const entrada = map[slugify(palabra)];
+    if (!entrada) return;
+    entrada.vp = (entrada.vp || 0) + (cuantos || 1);
+    entrada.fecha = todayISO();
+    if (entrada.vp > 50) {
+      delete map[slugify(palabra)];
+    } else {
+      map[slugify(palabra)] = entrada;
+    }
+    saveAll(map);
+  }
+
+  // ---------- key del API (botón "key" de la sección) ----------
+  function getApiKey() {
+    try { return (localStorage.getItem(LS_API_KEY) || "").trim(); } catch (e) { return ""; }
+  }
+  function setApiKey(key) {
+    try { localStorage.setItem(LS_API_KEY, String(key || "").trim()); return true; } catch (e) { return false; }
+  }
+
+  global.BancoPalabrasData = {
+    listar,
+    obtener,
+    activas,
+    guardarPalabra,
+    editarOracion,
+    borrarOracion,
+    setPausado,
+    borrarPalabra,
+    registrarPractica,
+    getApiKey,
+    setApiKey,
+    slugify,
+  };
+})(typeof window !== "undefined" ? window : globalThis);
+
+  // banco-palabras/banco-palabras-tokenize.js
+//
+// Parte el texto en español de un ejercicio en "tokens": letras seguidas
+// (una palabra) o lo que haya entre medio (espacios, signos, ¿¡, etc.).
+// Un token de letras es "clickeable" si tiene 3 letras o más — ÚNICO
+// filtro, confirmado con el usuario (no se excluye nada de
+// contracciones.json: ese archivo es solo de inglés y no aplica al texto
+// en español).
+//
+// Se usa tanto para pintar el HTML (cada palabra clickeable envuelta en
+// un <span>, SIN cambiar su apariencia — el estilo lo da el CSS, que la
+// deja igual a texto normal) como para la navegación "palabra siguiente/
+// anterior" dentro del modal (se mueve por los tokens clickeables, en el
+// orden en que aparecen en ese mismo texto).
+
+(function (global) {
+  "use strict";
+
+  const LETRA_RE = /[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+/g;
+
+  function escapeHTML(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+    }[c]));
+  }
+
+  // Devuelve la lista de segmentos del texto, en orden:
+  // { text, clickable, idx } — idx solo se asigna a los clickeables
+  // (0, 1, 2… en el orden en que aparecen), para poder navegar entre ellos.
+  function tokenizar(texto) {
+    const segmentos = [];
+    let last = 0;
+    let idx = 0;
+    const s = String(texto || "");
+    let m;
+    LETRA_RE.lastIndex = 0;
+    while ((m = LETRA_RE.exec(s))) {
+      if (m.index > last) segmentos.push({ text: s.slice(last, m.index), clickable: false });
+      const palabra = m[0];
+      const clickable = palabra.length >= 3;
+      segmentos.push({ text: palabra, clickable, idx: clickable ? idx : undefined });
+      if (clickable) idx++;
+      last = m.index + palabra.length;
+    }
+    if (last < s.length) segmentos.push({ text: s.slice(last), clickable: false });
+    return segmentos;
+  }
+
+  // HTML listo para insertar: palabras clickeables envueltas en
+  // <span class="bp-word" data-bp-idx="N" data-bp-word="palabra">palabra</span>,
+  // todo lo demás tal cual (escapado). data-bp-idx permite resaltar en
+  // azul exactamente ese <span> mientras el modal está abierto.
+  function renderHTML(texto) {
+    return tokenizar(texto).map((seg) => {
+      if (!seg.clickable) return escapeHTML(seg.text);
+      return '<span class="bp-word" data-bp-idx="' + seg.idx + '" data-bp-word="' + escapeHTML(seg.text.toLowerCase()) + '">' + escapeHTML(seg.text) + "</span>";
+    }).join("");
+  }
+
+  // Lista ordenada de las palabras clickeables (para la navegación
+  // ‹ anterior / siguiente › dentro del modal de un mismo texto).
+  function listaClickeables(texto) {
+    return tokenizar(texto).filter((s) => s.clickable).map((s) => s.text);
+  }
+
+  global.BancoPalabrasTokenize = { tokenizar, renderHTML, listaClickeables, escapeHTML };
+})(typeof window !== "undefined" ? window : globalThis);
+
+  // banco-palabras/banco-palabras-api.js
+//
+// Cliente del Spanish-English Dictionary API de Merriam-Webster, pero en
+// la DIRECCIÓN INVERSA a la prueba de concepto (dictionaryapi.html): ahí
+// se consultaba una palabra en INGLÉS y se devolvía su traducción al
+// español; acá se hace click sobre una palabra en ESPAÑOL (dentro de los
+// ejercicios de Traducción/Corrección/Completar) y se consulta tal cual
+// ese texto en español, directo contra el mismo endpoint.
+//
+// normalizeReverse() ya está verificado contra una respuesta REAL del API
+// (consulta "cambiar", devuelta por el usuario) — no es un supuesto. De esa
+// respuesta real salieron 2 ajustes importantes frente al primer borrador:
+//   1. "shortdef" (p.ej. ["to change", "to exchange, to trade"]) es la
+//      fuente más limpia para resolver la palabra en inglés, mejor que
+//      armarla desde dt/text — pero hay que quitarle el "to " de
+//      infinitivo y cualquier paréntesis ("to change (money)" → "change").
+//   2. En "vis" (ejemplos), en esta dirección "t" es la frase en ESPAÑOL y
+//      "tr" es su traducción al INGLÉS (al revés que en la consulta en
+//      inglés, donde "t" es la frase en inglés). readDt() ya guarda ambos
+//      sin asumir cuál es cuál, así que normalizeReverse() es el único que
+//      sabe que debe leer "tr" como inglés.
+// Si alguna palabra sale rara igual, usa
+// BancoPalabrasAPI.debugRaw(palabra) para ver el JSON crudo y lo ajusto.
+//
+// Límite del plan gratis: 1000 consultas/día. Cachea igual que la POC
+// (cada palabra se consulta una sola vez por navegador).
+
+(function (global) {
+  "use strict";
+
+  const MW_DIRECT = "https://www.dictionaryapi.com/api/v3/references/spanish/json/";
+  const LS_CACHE = "englishTrainerBancoPalabras_cache_v1";
+
+  function lsGet(k, d) {
+    try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; }
+  }
+  function lsSet(k, v) {
+    try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* noop */ }
+  }
+  const cache = lsGet(LS_CACHE, {});
+  function saveCache() { lsSet(LS_CACHE, cache); }
+
+  function fetchWithTimeout(url, ms) {
+    const ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+    const t = ctrl ? setTimeout(() => ctrl.abort(), ms) : null;
+    return fetch(url, ctrl ? { signal: ctrl.signal } : {}).finally(() => { if (t) clearTimeout(t); });
+  }
+
+  // ---------- mismas utilidades de parseo que la prueba de concepto ----------
+  function mwClean(s) {
+    return String(s || "")
+      .replace(/\{bc\}/g, " ")
+      .replace(/\{(?:a_link|d_link|i_link|et_link|mat|dxt|sx)\|([^|}]*)[^}]*\}/g, "$1")
+      .replace(/\{[^}]*\}/g, "")
+      .replace(/\s+/g, " ")
+      .replace(/\s+([,;.:)!?])/g, "$1")
+      .replace(/\(\s+/g, "(")
+      .trim()
+      .replace(/^[,;:\s]+|[,;:\s]+$/g, "");
+  }
+  function splitText(raw) {
+    const hints = [];
+    String(raw || "").replace(/\{sx\|([^|}]*)/g, (m, w) => { hints.push(w); return m; });
+    const main = mwClean(String(raw || "").replace(/\{sx\|[^}]*\}/g, ""));
+    return { main, hints };
+  }
+  const headOf = (e) => String((e.hwi && e.hwi.hw) || (e.meta && e.meta.id) || "").split(":")[0].replace(/\*/g, "").toLowerCase().trim();
+  function walkSseq(sseq, cb) {
+    const visit = (item) => {
+      if (!Array.isArray(item)) return;
+      const tag = item[0], val = item[1];
+      if (tag === "sense" || tag === "sdsense") cb(val || {});
+      else if (tag === "bs" && val && val.sense) cb(val.sense);
+      else if (tag === "pseq" && Array.isArray(val)) val.forEach(visit);
+    };
+    (sseq || []).forEach((group) => (group || []).forEach(visit));
+  }
+  function readDt(dt, out) {
+    (dt || []).forEach((part) => {
+      if (!Array.isArray(part)) return;
+      const tag = part[0], val = part[1];
+      if (tag === "text") out.texts.push(val);
+      else if (tag === "vis") (val || []).forEach((v) => { if (v && v.t) out.vis.push({ t: mwClean(v.t), tr: mwClean(v.tr || "") }); });
+      else if (tag === "uns") (val || []).forEach((u) => readDt(u, out));
+    });
+  }
+  const uniq = (a) => Array.from(new Set(a));
+
+  // "to change (money)" → "change" · "to exchange, to trade" → "exchange"
+  function toEnglishHeadword(s) {
+    return String(s || "")
+      .split(/[,;]/)[0]
+      .replace(/\([^)]*\)/g, "")
+      .replace(/^\s*to\s+/i, "")
+      .trim()
+      .toLowerCase();
+  }
+
+  // Consulta normal (palabra en INGLÉS → traducción en español). Es la
+  // misma lógica de la prueba de concepto; se deja disponible porque la
+  // usamos como SEGUNDO paso para traer el detalle completo ("Aprender")
+  // del headword en inglés que resulte de la búsqueda en español.
+  function normalizeForward(word, raw) {
+    const base = { word, found: false, suggestions: [], ipa: "", audio: "", pos: [], senses: [], examples: [], phrases: [], forms: [], short: [] };
+    if (!Array.isArray(raw) || !raw.length) return base;
+    if (raw.every((x) => typeof x === "string")) { base.suggestions = raw.slice(0, 12); return base; }
+
+    let entries = raw.filter((e) => e && typeof e === "object" && e.meta && e.meta.lang === "en");
+    let head = entries.filter((e) => headOf(e) === word && Array.isArray(e.def));
+    if (!head.length) {
+      const xref = entries.find((e) => headOf(e) === word && e.xrs);
+      const target = xref ? JSON.stringify(xref.xrs).match(/"xref":"([^":]+)/) : null;
+      const via = target ? target[1].toLowerCase() : null;
+      head = entries.filter((e) => Array.isArray(e.def) && (via ? headOf(e) === via : (e.meta.stems || []).map((s) => s.toLowerCase()).includes(word)));
+      if (head.length) base.seeAlso = headOf(head[0]);
+    }
+    if (!head.length) return base;
+    base.found = true;
+
+    head.forEach((e) => {
+      const fl = e.fl || "";
+      if (fl) base.pos.push(fl);
+      (e.hwi.prs || []).forEach((p) => {
+        if (!base.ipa && p.mw) base.ipa = p.mw;
+        if (!base.audio && p.sound && p.sound.audio) base.audio = p.sound.audio;
+      });
+      (e.ins || []).forEach((inf) => {
+        const form = String(inf.if || "").replace(/\*/g, "");
+        if (!form) return;
+        const p = (inf.prs || [])[0] || {};
+        base.forms.push({ form, label: inf.il || "", pron: p.mw || "", audio: (p.sound && p.sound.audio) || "" });
+      });
+      (e.shortdef || []).forEach((s) => base.short.push(s));
+      (e.def || []).forEach((block) => {
+        walkSseq(block.sseq, (sense) => {
+          const out = { texts: [], vis: [] };
+          readDt(sense.dt, out);
+          const joined = splitText(out.texts.join(" "));
+          const phrase = sense.vrs && sense.vrs[0] && sense.vrs[0].va ? mwClean(sense.vrs[0].va) : "";
+          const s = { pos: fl, vd: block.vd || "", es: joined.main, hints: joined.hints, phrase, vis: out.vis.map((v) => ({ en: v.t, es: v.tr })) };
+          base.senses.push(s);
+          s.vis.forEach((v) => base.examples.push(Object.assign({ phrase }, v)));
+          if (phrase && joined.main) base.phrases.push({ en: phrase, es: joined.main });
+        });
+      });
+    });
+    base.pos = uniq(base.pos);
+    base.mainSenses = base.senses.filter((s) => !s.phrase && s.es);
+    return base;
+  }
+
+  // Consulta en ESPAÑOL. headOf(e) debe calzar con la palabra en español
+  // tecleada; se toman las entradas marcadas como lang "es" (ver nota al
+  // inicio del archivo sobre la incertidumbre de este supuesto).
+  // El resultado trae, además de lo propio, "englishHeadword": el
+  // headword en inglés que la entrada en español apunta/traduce, que es
+  // lo que luego se usa para pedir el detalle rico con normalizeForward().
+  function normalizeReverse(wordEs, raw) {
+    const base = { wordEs, found: false, suggestions: [], englishHeadword: "", englishForms: [], mainTranslation: "", short: [] };
+    if (!Array.isArray(raw) || !raw.length) return base;
+    if (raw.every((x) => typeof x === "string")) { base.suggestions = raw.slice(0, 12); return base; }
+
+    const entries = raw.filter((e) => e && typeof e === "object" && e.meta && e.meta.lang === "es");
+    const head = entries.filter((e) => headOf(e) === wordEs && Array.isArray(e.def));
+    if (!head.length) return base;
+    base.found = true;
+
+    const candidatosEN = [];
+    head.forEach((e) => {
+      // "ins" casi nunca trae nada en las entradas en español (ahí viven
+      // las conjugaciones en "suppl.cjts", que son en español y no sirven
+      // para armar "Formas" en inglés) — se deja por si alguna entrada sí
+      // lo trae, pero la lista real de formas la completa normalizeForward().
+      (e.ins || []).forEach((inf) => {
+        const form = String(inf.if || "").replace(/\*/g, "");
+        if (form) base.englishForms.push(form);
+      });
+      (e.shortdef || []).forEach((s) => base.short.push(s));
+      (e.def || []).forEach((block) => {
+        walkSseq(block.sseq, (sense) => {
+          const out = { texts: [], vis: [] };
+          readDt(sense.dt, out);
+          const joined = splitText(out.texts.join(" "));
+          // "text" en esta dirección ya es el inglés (lo confirma la
+          // respuesta real de "cambiar": "{bc}to {a_link|change} " →
+          // "to change"), y "vis.tr" también es inglés (ver nota arriba).
+          if (joined.main) candidatosEN.push(toEnglishHeadword(joined.main));
+          out.vis.forEach((v) => { if (v.tr) candidatosEN.push(toEnglishHeadword(v.tr)); });
+        });
+      });
+    });
+    // shortdef es la fuente más limpia (pensada por MW como resumen),
+    // así que manda; el resto queda de respaldo si no hay shortdef.
+    const desdeShort = base.short.map(toEnglishHeadword).filter(Boolean);
+    base.mainTranslation = desdeShort[0] || candidatosEN[0] || "";
+    base.englishHeadword = (base.englishForms[0] || desdeShort[0] || candidatosEN[0] || "").toLowerCase();
+    return base;
+  }
+
+  async function fetchRaw(word, key) {
+    const url = MW_DIRECT + encodeURIComponent(word) + "?key=" + encodeURIComponent(key);
+    const r = await fetchWithTimeout(url, 12000);
+    const text = await r.text();
+    if (!r.ok) {
+      const err = new Error("HTTP " + r.status);
+      err.status = r.status;
+      err.body = text.slice(0, 200);
+      throw err;
+    }
+    return JSON.parse(text);
+  }
+
+  // ---------- API pública ----------
+
+  // Devuelve el JSON crudo de la consulta, sin parsear. Útil para que el
+  // usuario lo revise/comparta si normalizeReverse() no acierta.
+  async function debugRaw(wordEs) {
+    const key = global.BancoPalabrasData.getApiKey();
+    if (!key) throw new Error("Falta configurar la key del diccionario (botón 'key').");
+    return fetchRaw(String(wordEs || "").trim().toLowerCase(), key);
+  }
+
+  // Flujo completo al hacer click + confirmar en una palabra en español:
+  // 1) consulta la palabra en español → resuelve el headword en inglés
+  // 2) si lo encuentra, pide el detalle normal (inglés→español) de ESE
+  //    headword, que es el que alimenta el modal "Aprender" con sentidos,
+  //    ejemplos y expresiones (igual que en la prueba de concepto).
+  async function buscarDesdeEspanol(wordEs) {
+    wordEs = String(wordEs || "").trim().toLowerCase();
+    if (!wordEs) return { found: false };
+    if (cache[wordEs]) return cache[wordEs];
+
+    const key = global.BancoPalabrasData.getApiKey();
+    if (!key) {
+      const err = new Error("Falta configurar la key del diccionario (botón 'key').");
+      err.code = "NO_KEY";
+      throw err;
+    }
+
+    const raw = await fetchRaw(wordEs, key);
+    const reverso = normalizeReverse(wordEs, raw);
+    let detalle = null;
+    if (reverso.found && reverso.englishHeadword) {
+      // Si la misma respuesta ya trae entradas en inglés (raw puede venir
+      // mixto), se intenta parsear directo antes de gastar otra consulta.
+      detalle = normalizeForward(reverso.englishHeadword, raw);
+      if (!detalle.found) {
+        const rawEn = await fetchRaw(reverso.englishHeadword, key);
+        detalle = normalizeForward(reverso.englishHeadword, rawEn);
+      }
+    }
+
+    const resultado = {
+      found: !!(reverso.found && detalle && detalle.found),
+      wordEs,
+      suggestions: reverso.suggestions,
+      englishWord: detalle ? detalle.word : reverso.englishHeadword,
+      forms: detalle && detalle.forms.length ? uniq([detalle.word].concat(detalle.forms.map((f) => f.form.toLowerCase()))) : (reverso.englishForms.length ? uniq([reverso.englishHeadword].concat(reverso.englishForms.map((f) => f.toLowerCase()))) : [reverso.englishHeadword]),
+      mainTranslation: reverso.mainTranslation,
+      detalle, // objeto completo de normalizeForward(): pos, senses, examples, phrases, forms, audio, ipa...
+    };
+    cache[wordEs] = resultado;
+    saveCache();
+    return resultado;
+  }
+
+  global.BancoPalabrasAPI = {
+    buscarDesdeEspanol,
+    debugRaw,
+    _normalizeForward: normalizeForward,
+    _normalizeReverse: normalizeReverse,
+  };
+})(typeof window !== "undefined" ? window : globalThis);
+
+  // banco-palabras/banco-palabras-buscar-sistema.js
+//
+// "Oraciones en sistema": busca, entre los ejercicios YA EMBEBIDOS en el
+// build (currentStudyExercises(), ver build.py → __STUDY_EXERCISES_JSON__),
+// todas las oraciones de tipo "traduccion" y "completar" (así lo pidió el
+// usuario explícitamente: no corregir ni dictado) que contengan alguna de
+// las "Formas" de la palabra (change, changed, changing...).
+//
+// No hace falta ningún índice/archivo aparte ni fetch extra: todo el
+// banco de ejercicios de inglés ya vive en memoria una vez cargado
+// index.html, así que esto es una sola pasada en JS puro sobre ese array.
+//
+// También busca en IRREGULARES_DATA.banco (data-en/irregulares/banco/
+// paquete-NN.txt, ya parseado por irregulares/compilar.py y embebido como
+// const IRREGULARES_DATA en el mismo script). Cada item es
+// [id, reglaId, "t"|"c", es, en-con-[formas]-marcadas, [verbIdA, verbIdB]]
+// — el inglés trae las 2 formas que se evalúan ahí marcadas entre
+// corchetes, p. ej. "...finally [got] on the bus and [went] home.". Para
+// "Oraciones en sistema" no hace falta diferenciar "t" de "c": en ambos
+// casos mostramos la frase completa (quitando los corchetes), igual que
+// reconstruirCompletar() ya hace para los "completar" normales.
+
+(function (global) {
+  "use strict";
+
+  function escapeRegExp(s) {
+    return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function wordRegexFor(forma) {
+    return new RegExp("\\b" + escapeRegExp(forma) + "\\b", "i");
+  }
+
+  const BRACKET_RE = /\[([^\]]+)\]/g;
+
+  // Quita los corchetes del banco de irregulares, dejando la frase llana:
+  // "...finally [got] on the bus" -> "...finally got on the bus".
+  function irrPlanoText(en) {
+    return String(en || "").replace(BRACKET_RE, (m, w) => w);
+  }
+
+  // Busca, en IRREGULARES_DATA.banco (todos los paquetes), oraciones cuyas
+  // palabras marcadas entre [corchetes] calcen con alguna forma. Devuelve
+  // resultados con la misma forma que buscarEnSistema().
+  function buscarEnIrregularesBanco(formasOrdenadas, formaQueCalza) {
+    const resultados = [];
+    // IRREGULARES_DATA es un "const" de nivel superior del MISMO
+    // <script type="module"> (no una propiedad de window) — se referencia
+    // a pelo, no como "global.IRREGULARES_DATA" (eso siempre da undefined,
+    // aunque el const exista y funcione bien referenciado así desde código
+    // que vive en ese mismo script). Fuera del build real no existe, así
+    // que el ReferenceError cae al catch sin romper.
+    let datos;
+    try { datos = IRREGULARES_DATA; } catch (e) { datos = undefined; }
+    const banco = datos && datos.banco;
+    if (!banco) return resultados;
+
+    Object.keys(banco).forEach((pkg) => {
+      (banco[pkg] || []).forEach((item) => {
+        // item: [id, reglaId, "t"|"c", es, en, [verbIdA, verbIdB]]
+        const id = item[0];
+        const tipo = item[2];
+        const es = item[3];
+        const en = item[4];
+        if (!en) return;
+        const marcas = en.match(BRACKET_RE);
+        if (!marcas) return;
+        let forma = null;
+        for (const m of marcas) {
+          const palabra = m.slice(1, -1);
+          const calzo = formaQueCalza(palabra);
+          if (calzo) { forma = calzo; break; }
+        }
+        if (!forma) return;
+        resultados.push({
+          en: irrPlanoText(en),
+          es: es || "",
+          forma,
+          origen: "sistema",
+          fuenteId: id,
+          tipoOriginal: tipo === "c" ? "completar" : "traduccion",
+        });
+      });
+    });
+
+    return resultados;
+  }
+
+  // Reconstruye el englishSentence de un ejercicio "completar" (que trae
+  // huecos "___") usando sus "options" en orden, para poder buscar la
+  // forma dentro de la frase completa.
+  function reconstruirCompletar(ex) {
+    const opts = Array.isArray(ex.options) ? ex.options.slice() : [];
+    let i = 0;
+    return String(ex.englishSentence || "").replace(/_{2,}/g, () => {
+      const v = opts[i] != null ? opts[i] : "___";
+      i++;
+      return v;
+    });
+  }
+
+  // formas: ["change","changed","changing"]
+  // exercises: array de currentStudyExercises() (type "traduccion"/"completar"/...)
+  // Devuelve: [{ en, es, forma, origen:"sistema", fuenteId, tipoOriginal }]
+  function buscarEnSistema(exercises, formas) {
+    const resultados = [];
+    const vistos = new Set();
+    const formasOrdenadas = (formas || []).slice().sort((a, b) => b.length - a.length);
+
+    function formaQueCalza(texto) {
+      for (const f of formasOrdenadas) {
+        if (wordRegexFor(f).test(texto)) return f;
+      }
+      return null;
+    }
+
+    (exercises || []).forEach((ex) => {
+      if (ex.type === "traduccion") {
+        const en = ex.englishWord || "";
+        const forma = formaQueCalza(en);
+        if (forma && !vistos.has(ex.id)) {
+          vistos.add(ex.id);
+          resultados.push({ en, es: ex.spanishWord || "", forma, origen: "sistema", fuenteId: ex.id, tipoOriginal: "traduccion" });
+        }
+      } else if (ex.type === "completar") {
+        const en = reconstruirCompletar(ex);
+        const forma = formaQueCalza(en);
+        if (forma && !vistos.has(ex.id)) {
+          vistos.add(ex.id);
+          resultados.push({ en, es: ex.spanishWord || "", forma, origen: "sistema", fuenteId: ex.id, tipoOriginal: "completar" });
+        }
+      }
+    });
+
+    // + IRREGULARES_DATA.banco (paquete-NN.txt): mismo criterio de "forma
+    // que calza", dedupe por fuenteId junto con lo anterior.
+    buscarEnIrregularesBanco(formasOrdenadas, formaQueCalza).forEach((r) => {
+      if (!vistos.has(r.fuenteId)) {
+        vistos.add(r.fuenteId);
+        resultados.push(r);
+      }
+    });
+
+    return resultados;
+  }
+
+  // Helper de diagnóstico: igual que buscarEnSistema(), pero toma
+  // currentStudyExercises() él mismo (referenciada "a pelo" — por eso esto
+  // SÍ funciona pegado directo en la consola del navegador, a diferencia
+  // de escribir "currentStudyExercises()" ahí: esta función ya quedó
+  // "cerrada" sobre el scope real del módulo al cargarse, así que
+  // encuentra la variable sin problema aunque la LLAMES desde la consola).
+  // Uso en consola: BancoPalabrasBuscarSistema.probar(["get","got"])
+  function probar(formas) {
+    let exercises = [];
+    try { exercises = currentStudyExercises(); } catch (e) { /* noop */ }
+    const resultados = buscarEnSistema(exercises, formas);
+    console.log(`[banco-palabras] "${(formas || []).join("/")}" -> ${resultados.length} oración(es) en sistema`);
+    console.table(resultados.map((r) => ({ forma: r.forma, en: r.en, es: r.es, origen: r.tipoOriginal, fuenteId: r.fuenteId })));
+    return resultados;
+  }
+
+  global.BancoPalabrasBuscarSistema = { buscarEnSistema, probar };
+})(typeof window !== "undefined" ? window : globalThis);
+
+  // banco-palabras/banco-palabras-ui.js
+//
+// Capa visual: palabras clickeables dentro del texto en español + el
+// flujo completo de modales (confirmar → resultado → Aprender → guardar).
+// Depende de (deben cargarse antes): banco-palabras-tokenize.js,
+// banco-palabras-data.js, banco-palabras-api.js, banco-palabras-buscar-
+// sistema.js. Una vez integrado al build, también usa getTargetLangMeta()
+// (idioma.js) y currentStudyExercises() (definidas en index.html) — si no
+// existen (como en esta entrega suelta, antes de integrarlo), se degrada
+// sin romper: trata el idioma como "no inglés" y "0 oraciones en sistema".
+//
+// Integración en traduccion.js / completar.js / corregir.js (3 archivos,
+// 1 línea cada uno):
+//   ANTES:  `${window._escHTML(spanish)}`               (traduccion.js)
+//   AHORA:  `${BancoPalabrasUI.html(spanish)}`
+//   ... e inmediatamente después de container.innerHTML = `...`:
+//   BancoPalabrasUI.activar(container);
+// (completar.js no escapaba spanishWord — igual aplica BancoPalabrasUI.html,
+// que sí escapa.)
+
+(function (global) {
+  "use strict";
+
+  // IMPORTANTE: currentStudyExercises()/getTargetLangMeta() son
+  // declaraciones de nivel superior dentro del MISMO <script type="module">
+  // (no propiedades de window) — hay que referenciarlas "a pelo" (tal
+  // cual, sin "global." ni "window." delante) para que el motor las
+  // resuelva por scope del módulo. "global.currentStudyExercises" siempre
+  // da undefined aunque la función exista y funcione bien llamada así.
+  // Fuera del build real (pruebas sueltas, sin esas funciones declaradas)
+  // el ReferenceError cae al catch y se degrada sin romper.
+  function targetIsEnglish() {
+    try {
+      return getTargetLangMeta().code === "en";
+    } catch (e) { /* noop */ }
+    return true; // fuera del build real (pruebas sueltas) se asume inglés
+  }
+
+  function studyExercisesSafe() {
+    try {
+      return currentStudyExercises();
+    } catch (e) { /* noop */ }
+    return [];
+  }
+
+  // ---------- HTML de entrada (reemplaza a window._escHTML en los 3 render) ----------
+  function html(texto) {
+    const T = global.BancoPalabrasTokenize;
+    if (!targetIsEnglish()) return T.escapeHTML(texto);
+    return T.renderHTML(texto);
+  }
+
+  // ---------- activación de los clicks dentro de un contenedor ----------
+  function activar(container) {
+    if (!container || container._bpActivado) return;
+    container._bpActivado = true;
+    container.addEventListener("click", (e) => {
+      const span = e.target.closest(".bp-word");
+      if (!span || !container.contains(span)) return;
+      e.stopPropagation();
+      abrirModalPalabra(container, Number(span.dataset.bpIdx));
+    });
+  }
+
+  // ---------- estado del modal activo (uno a la vez) ----------
+  let estado = null; // { container, spans, idx, modal }
+
+  function limpiarResalte() {
+    if (estado && estado.spans[estado.idx]) estado.spans[estado.idx].classList.remove("bp-word-active");
+  }
+  function ponerResalte() {
+    if (estado && estado.spans[estado.idx]) estado.spans[estado.idx].classList.add("bp-word-active");
+  }
+
+  function cerrarModal() {
+    if (!estado) return;
+    limpiarResalte();
+    if (estado.modal) estado.modal.remove();
+    estado = null;
+  }
+
+  function abrirModalPalabra(container, idx) {
+    cerrarModal();
+    const spans = Array.from(container.querySelectorAll(".bp-word")).sort(
+      (a, b) => Number(a.dataset.bpIdx) - Number(b.dataset.bpIdx)
+    );
+    estado = { container, spans, idx, modal: null };
+    ponerResalte();
+    renderConfirmacion();
+  }
+
+  function palabraActual() {
+    return estado.spans[estado.idx].dataset.bpWord;
+  }
+
+  function montarModal(innerHTML) {
+    if (estado.modal) estado.modal.remove();
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active bp-modal-overlay";
+    modal.innerHTML = innerHTML;
+    document.body.appendChild(modal);
+    modal.addEventListener("click", (e) => { if (e.target === modal) cerrarModal(); });
+    const x = modal.querySelector("[data-bp-close]");
+    if (x) x.addEventListener("click", () => cerrarModal());
+    estado.modal = modal;
+    return modal;
+  }
+
+  // ---------- paso 1: confirmación ----------
+  function renderConfirmacion() {
+    const T = global.BancoPalabrasTokenize;
+    const palabra = palabraActual();
+    const modal = montarModal(`
+      <div class="modal-friend bp-confirm">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        <div class="bp-confirm-row">
+          <button class="bp-nav" data-bp-prev aria-label="Palabra anterior">‹</button>
+          <div class="bp-confirm-text">Buscar: <b>${T.escapeHTML(palabra)}</b>?</div>
+          <button class="bp-nav" data-bp-next aria-label="Palabra siguiente">›</button>
+        </div>
+        <button class="fun-btn primary-btn bp-buscar-si">Sí</button>
+      </div>
+    `);
+    const prevBtn = modal.querySelector("[data-bp-prev]");
+    const nextBtn = modal.querySelector("[data-bp-next]");
+    prevBtn.disabled = estado.idx <= 0;
+    nextBtn.disabled = estado.idx >= estado.spans.length - 1;
+    prevBtn.addEventListener("click", () => moverPalabra(-1));
+    nextBtn.addEventListener("click", () => moverPalabra(1));
+    modal.querySelector(".bp-buscar-si").addEventListener("click", buscar);
+  }
+
+  function moverPalabra(delta) {
+    const nuevo = estado.idx + delta;
+    if (nuevo < 0 || nuevo >= estado.spans.length) return;
+    limpiarResalte();
+    estado.idx = nuevo;
+    ponerResalte();
+    renderConfirmacion();
+  }
+
+  // ---------- paso 2: buscar + resultado ----------
+  async function buscar() {
+    const palabra = palabraActual();
+    montarModalMantenerNav(`<div class="modal-friend bp-loading">Buscando «${global.BancoPalabrasTokenize.escapeHTML(palabra)}»…</div>`);
+    try {
+      const r = await global.BancoPalabrasAPI.buscarDesdeEspanol(palabra);
+      if (!estado) return; // se cerró mientras buscaba
+      if (!r.found) {
+        renderNoEncontrado(r);
+        return;
+      }
+      renderResultado(r);
+    } catch (err) {
+      if (!estado) return;
+      renderError(err);
+    }
+  }
+
+  function montarModalMantenerNav(innerHTML) {
+    // igual que montarModal, pero sin volver a montar los botones de
+    // navegación (se usa para los pasos intermedios de carga/resultado).
+    montarModal(innerHTML);
+  }
+
+  function renderError(err) {
+    const esSinKey = err && err.code === "NO_KEY";
+    montarModal(`
+      <div class="modal-friend bp-error">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        <p>${esSinKey ? "Falta configurar la key del diccionario. Ábrela desde el botón <b>key</b> en Banco de palabras." : "No se pudo consultar el diccionario: " + global.BancoPalabrasTokenize.escapeHTML(err.message || String(err))}</p>
+      </div>
+    `);
+  }
+
+  function renderNoEncontrado(r) {
+    const T = global.BancoPalabrasTokenize;
+    montarModal(`
+      <div class="modal-friend bp-error">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        <p>«${T.escapeHTML(r.wordEs)}» no está en el diccionario.</p>
+        ${r.suggestions && r.suggestions.length ? `<p class="bp-dim">¿Quisiste decir: ${r.suggestions.slice(0, 5).map((s) => T.escapeHTML(s)).join(", ")}?</p>` : ""}
+      </div>
+    `);
+  }
+
+  function renderResultado(r) {
+    const T = global.BancoPalabrasTokenize;
+    const modal = montarModal(`
+      <div class="modal-friend bp-resultado">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        <p>Texto en inglés: <b>${T.escapeHTML(r.englishWord)}</b></p>
+        <p>Formas: ${r.forms.map((f) => T.escapeHTML(f)).join(", ")}</p>
+        <p>Traducción principal: ${T.escapeHTML(r.mainTranslation || "—")}</p>
+        <button class="fun-btn primary-btn bp-aprender">Aprender</button>
+      </div>
+    `);
+    modal.querySelector(".bp-aprender").addEventListener("click", () => renderAprender(r));
+  }
+
+  // ---------- paso 3: "Aprender" (detalle + selección de oraciones) ----------
+  const POS_ES = { noun: "sustantivo", verb: "verbo", adjective: "adjetivo", adverb: "adverbio", preposition: "preposición", conjunction: "conjunción", pronoun: "pronombre", interjection: "interjección" };
+
+  // Tope total de oraciones por palabra en el Banco (seleccionadas a mano +
+  // encontradas en el sistema). Si "en sistema" trae de sobra (puede
+  // devolver cientos), solo se ofrecen/guardan las necesarias para no
+  // pasar de este tope — nunca se recorta lo que el usuario seleccionó
+  // a mano, solo el relleno automático de "sistema".
+  const MAX_ORACIONES_POR_PALABRA = 50;
+
+  function agruparSenses(senses) {
+    // [{ pos, vd, items:[sense,...] }], en el orden en que aparecen
+    const grupos = [];
+    (senses || []).forEach((s) => {
+      let g = grupos.find((x) => x.pos === s.pos && x.vd === s.vd);
+      if (!g) { g = { pos: s.pos, vd: s.vd, items: [] }; grupos.push(g); }
+      g.items.push(s);
+    });
+    return grupos;
+  }
+
+  function renderAprender(r) {
+    const T = global.BancoPalabrasTokenize;
+    const detalle = r.detalle || { senses: [], examples: [], phrases: [] };
+    const enSistemaTotal = global.BancoPalabrasBuscarSistema
+      ? global.BancoPalabrasBuscarSistema.buscarEnSistema(studyExercisesSafe(), r.forms)
+      : [];
+    // Cuántas de "en sistema" entran según lo ya seleccionado a mano, sin
+    // pasar el tope total de la palabra.
+    function enSistemaIncluidas() {
+      const cupo = Math.max(0, MAX_ORACIONES_POR_PALABRA - seleccion.size);
+      return enSistemaTotal.slice(0, cupo);
+    }
+    const seleccion = new Set();
+    const ediciones = {}; // idx -> {en, es}
+    const examples = detalle.examples || [];
+
+    const gruposHTML = agruparSenses(detalle.senses).map((g) => {
+      const header = g.vd ? `${g.pos} · ${g.vd}` : g.pos;
+      const items = g.items.map((s, i) => `
+        <li>
+          ${i + 1} ${T.escapeHTML(s.es)}${s.hints && s.hints.length ? ` <span class="bp-dim">(en el sentido de: ${s.hints.map((h) => T.escapeHTML(h)).join(", ")})</span>` : ""}
+        </li>`).join("");
+      return `<div class="bp-sense-group"><h4>${T.escapeHTML(header)}</h4><ol>${items}</ol></div>`;
+    }).join("");
+
+    function filaEjemplo(ex, idx) {
+      const en = (ediciones[idx] && ediciones[idx].en) || ex.en;
+      const es = (ediciones[idx] && ediciones[idx].es) || ex.es;
+      return `
+        <div class="bp-ejemplo${seleccion.has(idx) ? " bp-ejemplo-sel" : ""}" data-bp-ex="${idx}">
+          <span class="bp-ejemplo-texto">“${T.escapeHTML(en)}” → ${T.escapeHTML(es)}</span>
+          <button class="bp-pencil" data-bp-editar="${idx}" aria-label="Editar">✏️</button>
+        </div>`;
+    }
+
+    const ejemplosHTML = examples.map((ex, idx) => filaEjemplo(ex, idx)).join("");
+
+    const modal = montarModal(`
+      <div class="modal-friend bp-aprender-card">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        <div class="bp-aprender-scroll">
+          ${gruposHTML}
+          <div class="bp-ejemplos-list">${ejemplosHTML}</div>
+        </div>
+        <div class="bp-contadores">
+          <span>Oraciones seleccionadas [<b data-bp-count-sel>0</b>]</span>
+          <span>Oraciones en sistema [<b data-bp-count-sistema>${enSistemaIncluidas().length}</b>]${enSistemaTotal.length > MAX_ORACIONES_POR_PALABRA ? ` <span class="bp-dim">(de ${enSistemaTotal.length} encontradas)</span>` : ""}</span>
+        </div>
+        <button class="fun-btn primary-btn bp-guardar">Almacenar en Banco de palabras</button>
+      </div>
+    `);
+
+    function refrescarContador() {
+      modal.querySelector("[data-bp-count-sel]").textContent = String(seleccion.size);
+      const spanSistema = modal.querySelector("[data-bp-count-sistema]");
+      if (spanSistema) spanSistema.textContent = String(enSistemaIncluidas().length);
+    }
+
+    function refrescarFila(idx) {
+      const el = modal.querySelector(`[data-bp-ex="${idx}"]`);
+      if (el) el.outerHTML = filaEjemplo(examples[idx], idx);
+      wireFila(idx);
+    }
+
+    function wireFila(idx) {
+      const el = modal.querySelector(`[data-bp-ex="${idx}"]`);
+      if (!el) return;
+      el.querySelector(".bp-ejemplo-texto").addEventListener("click", () => {
+        if (seleccion.has(idx)) seleccion.delete(idx); else seleccion.add(idx);
+        refrescarFila(idx);
+        refrescarContador();
+      });
+      el.querySelector(".bp-pencil").addEventListener("click", (e) => {
+        e.stopPropagation();
+        abrirEdicion(idx);
+      });
+    }
+
+    examples.forEach((_, idx) => wireFila(idx));
+
+    function abrirEdicion(idx) {
+      const en = (ediciones[idx] && ediciones[idx].en) || examples[idx].en;
+      const es = (ediciones[idx] && ediciones[idx].es) || examples[idx].es;
+      const sub = document.createElement("div");
+      sub.className = "modal-overlay modal-active bp-modal-overlay bp-sub-overlay";
+      sub.innerHTML = `
+        <div class="modal-friend bp-editar-card">
+          <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+          <label>Inglés<textarea class="bp-edit-en">${T.escapeHTML(en)}</textarea></label>
+          <label>Español<textarea class="bp-edit-es">${T.escapeHTML(es)}</textarea></label>
+          <button class="fun-btn primary-btn bp-guardar-edicion">Guardar</button>
+        </div>`;
+      document.body.appendChild(sub);
+      sub.addEventListener("click", (e) => { if (e.target === sub) sub.remove(); });
+      sub.querySelector("[data-bp-close]").addEventListener("click", () => sub.remove());
+      sub.querySelector(".bp-guardar-edicion").addEventListener("click", () => {
+        ediciones[idx] = {
+          en: sub.querySelector(".bp-edit-en").value.trim(),
+          es: sub.querySelector(".bp-edit-es").value.trim(),
+        };
+        seleccion.add(idx); // editar implica que la quiere usar
+        refrescarFila(idx);
+        refrescarContador();
+        sub.remove();
+      });
+    }
+
+    modal.querySelector(".bp-guardar").addEventListener("click", () => {
+      const seleccionadas = Array.from(seleccion).map((idx) => {
+        const base = examples[idx];
+        const edit = ediciones[idx];
+        return {
+          en: edit ? edit.en : base.en,
+          es: edit ? edit.es : base.es,
+          forma: r.englishWord,
+          origen: "mw",
+        };
+      });
+      const todas = seleccionadas.concat(enSistemaIncluidas());
+      global.BancoPalabrasData.guardarPalabra(r.englishWord, r.forms, todas);
+      modal.querySelector(".bp-aprender-card").innerHTML = `<p class="bp-guardado-ok">✅ Guardado en Banco de palabras</p>`;
+      setTimeout(cerrarModal, 1200);
+    });
+  }
+
+  global.BancoPalabrasUI = { html, activar };
+})(typeof window !== "undefined" ? window : globalThis);
+
+  // banco-palabras/banco-palabras-screen.js
+//
+// Pantalla "Banco de palabras": la tabla con el listado de palabras
+// guardadas (Palabra | #Data | VP | 🗑️ | ⏸️ | fecha) y el botón "key".
+// Sigue EXACTAMENTE el mismo patrón que Irregulares (ver
+// irregulares/irregulares.js → openIrregulares/closeIrregulares): un
+// overlay propio (#bpOverlay) que se crea la primera vez y se
+// muestra/oculta, en vez de un <div class="screen"> más del sistema de
+// pantallas — así no hay que tocar ese sistema para nada.
+
+(function (global) {
+  "use strict";
+
+  function fmtFecha(iso) {
+    try {
+      const d = new Date(iso + "T00:00:00");
+      if (isNaN(d.getTime())) return iso || "—";
+      return d.toLocaleDateString("es-CO", { day: "2-digit", month: "2-digit" });
+    } catch (e) { return iso || "—"; }
+  }
+
+  function esc(s) {
+    return global.BancoPalabrasTokenize ? global.BancoPalabrasTokenize.escapeHTML(s) : String(s == null ? "" : s);
+  }
+
+  function filaHTML(entrada) {
+    return `
+      <tr data-bp-row="${esc(entrada.id)}" class="bp-tabla-fila" tabindex="0">
+        <td class="bp-tabla-palabra">${esc(entrada.palabra)}</td>
+        <td class="bp-tabla-num">${entrada.oraciones.length}</td>
+        <td class="bp-tabla-num">${entrada.vp}</td>
+        <td><button class="bp-tabla-borrar" data-bp-borrar="${esc(entrada.id)}" aria-label="Borrar ${esc(entrada.palabra)}">🗑️</button></td>
+        <td><input type="checkbox" class="bp-tabla-activa" data-bp-pausar="${esc(entrada.id)}" ${entrada.pausado ? "" : "checked"} aria-label="Activa"></td>
+        <td class="bp-tabla-fecha">${fmtFecha(entrada.fecha)}</td>
+      </tr>`;
+  }
+
+  function filaOracionHTML(o) {
+    return `
+      <div class="bp-ejemplo" data-bp-oracion="${esc(o.id)}">
+        <span class="bp-ejemplo-texto">“${esc(o.en)}” → ${esc(o.es)} <span class="bp-dim">(${esc(o.forma)} · ${o.origen === "mw" ? "diccionario" : "sistema"})</span></span>
+        <button class="bp-tabla-borrar" data-bp-borrar-oracion="${esc(o.id)}" aria-label="Borrar oración">🗑️</button>
+      </div>`;
+  }
+
+  // Modal "ver oraciones" de una palabra: se abre al tocar su fila en la
+  // tabla (en cualquier parte que no sea 🗑️/⏸️, que ya tienen su propia
+  // acción). Permite borrar oraciones sueltas y refresca la tabla de atrás
+  // (el "#Data" cambia si se borra alguna).
+  function abrirOracionesModal(id, containerTabla) {
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active bp-modal-overlay";
+    document.body.appendChild(modal);
+    modal.addEventListener("click", (e) => { if (e.target === modal) modal.remove(); });
+
+    function pintar() {
+      const entrada = global.BancoPalabrasData.obtener(id);
+      if (!entrada) { modal.remove(); return; }
+      const oraciones = entrada.oraciones || [];
+      modal.innerHTML = `
+        <div class="modal-friend bp-aprender-card">
+          <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+          <h3>${esc(entrada.palabra)}</h3>
+          <p class="bp-dim">${oraciones.length} oración(es) guardada(s)</p>
+          <div class="bp-aprender-scroll">
+            <div class="bp-ejemplos-list">
+              ${oraciones.length ? oraciones.map(filaOracionHTML).join("") : `<p class="bp-dim">Todavía no tiene oraciones guardadas.</p>`}
+            </div>
+          </div>
+        </div>`;
+      modal.querySelector("[data-bp-close]").addEventListener("click", () => modal.remove());
+      modal.querySelectorAll("[data-bp-borrar-oracion]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          global.BancoPalabrasData.borrarOracion(id, btn.dataset.bpBorrarOracion);
+          pintar();
+          render(containerTabla); // refresca el #Data de la tabla de atrás
+        });
+      });
+    }
+
+    pintar();
+  }
+
+  function render(container) {
+    const key = global.BancoPalabrasData.getApiKey();
+    const entradas = global.BancoPalabrasData.listar();
+
+    container.innerHTML = `
+      <div class="bp-screen">
+        <div class="bp-screen-head">
+          <h2>Banco de palabras</h2>
+          <button class="fun-btn bp-key-btn" data-bp-key>key${key ? " ✓" : ""}</button>
+        </div>
+        ${entradas.length ? `
+          <table class="bp-tabla">
+            <thead>
+              <tr><th>Palabra</th><th>#Data</th><th>VP</th><th>🗑️</th><th>⏸️</th><th>fecha</th></tr>
+            </thead>
+            <tbody>${entradas.map(filaHTML).join("")}</tbody>
+          </table>
+        ` : `<p class="bp-dim">Todavía no has guardado palabras. Toca cualquier palabra en español (de 3+ letras) en un ejercicio de traducción, corrección o completar para empezar.</p>`}
+      </div>
+    `;
+
+    container.querySelector("[data-bp-key]").addEventListener("click", () => abrirModalKey(container));
+    container.querySelectorAll("[data-bp-borrar]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        global.BancoPalabrasData.borrarPalabra(btn.dataset.bpBorrar);
+        render(container);
+      });
+    });
+    container.querySelectorAll("[data-bp-pausar]").forEach((chk) => {
+      chk.addEventListener("change", () => {
+        global.BancoPalabrasData.setPausado(chk.dataset.bpPausar, !chk.checked);
+      });
+    });
+    container.querySelectorAll("[data-bp-row]").forEach((tr) => {
+      tr.addEventListener("click", (e) => {
+        // 🗑️ y ⏸️ ya tienen su propia acción — no abrir el modal con esos clics.
+        if (e.target.closest("[data-bp-borrar], [data-bp-pausar]")) return;
+        abrirOracionesModal(tr.dataset.bpRow, container);
+      });
+    });
+  }
+
+  function abrirModalKey(container) {
+    const actual = global.BancoPalabrasData.getApiKey();
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active bp-modal-overlay";
+    modal.innerHTML = `
+      <div class="modal-friend bp-key-card">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        <h3>Key del diccionario</h3>
+        <p class="bp-dim">Merriam-Webster Spanish-English Dictionary API. Plan gratis: 1000 consultas/día.</p>
+        <input type="password" class="bp-key-input" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" value="${esc(actual)}" autocomplete="off">
+        <button class="fun-btn primary-btn bp-key-guardar">Guardar</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    modal.addEventListener("click", (e) => { if (e.target === modal) modal.remove(); });
+    modal.querySelector("[data-bp-close]").addEventListener("click", () => modal.remove());
+    modal.querySelector(".bp-key-guardar").addEventListener("click", () => {
+      global.BancoPalabrasData.setApiKey(modal.querySelector(".bp-key-input").value);
+      modal.remove();
+      render(container);
+    });
+  }
+
+  // ---------- overlay (igual patrón que #irrOverlay) ----------
+  function abrir() {
+    let ov = document.getElementById("bpOverlay");
+    if (!ov) {
+      ov = document.createElement("div");
+      ov.id = "bpOverlay";
+      ov.className = "bp-overlay";
+      document.body.appendChild(ov);
+    }
+    ov.hidden = false;
+    ov.innerHTML = `<button type="button" class="bp-overlay-cerrar" aria-label="Cerrar Banco de palabras">✕</button><div class="bp-overlay-scroll"></div>`;
+    ov.querySelector(".bp-overlay-cerrar").onclick = cerrar;
+    render(ov.querySelector(".bp-overlay-scroll"));
+  }
+
+  function cerrar() {
+    const ov = document.getElementById("bpOverlay");
+    if (ov) { ov.hidden = true; ov.innerHTML = ""; }
+  }
+
+  global.BancoPalabrasScreen = { render, abrir, cerrar };
+})(typeof window !== "undefined" ? window : globalThis);
+
   // exercises/traduccion.js
 
 export function normalizeWord(w) {
@@ -4667,13 +6128,18 @@ export function alignWordsContracciones(correct, user) {
 // ---------------------------------------------------------------------
 export function renderTraduccionExercise(exercise, container) {
   const spanish = exercise.spanishWord || exercise.spanishWords || "";
+  // Banco de palabras: en inglés, las palabras de 3+ letras del texto en
+  // español quedan clickeables (sin cambiar su apariencia); en italiano
+  // (o si el módulo no está cargado) se comporta como antes.
+  const spanishHtml = (typeof BancoPalabrasUI !== "undefined") ? BancoPalabrasUI.html(spanish) : window._escHTML(spanish);
   container.innerHTML = `
-    <div class="question-bubble">${window._escHTML(spanish)}</div>
+    <div class="question-bubble">${spanishHtml}</div>
     <textarea class="answer-input traduccion-answer" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
     <div class="button-group">
       <button class="btn-action btn-check traduccion-check">Comprobar</button>
     </div>
   `;
+  if (typeof BancoPalabrasUI !== "undefined") BancoPalabrasUI.activar(container.querySelector(".question-bubble"));
 }
 
 function normalizeFullAnswer(str) {
@@ -5074,9 +6540,14 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
     return input;
   });
   
+  // Banco de palabras: igual que en traducción/corrección, el texto en
+  // español queda clickeable en inglés (y de paso se escapa correctamente,
+  // cosa que antes no se hacía acá).
+  const spanishHtml = (typeof BancoPalabrasUI !== "undefined") ? BancoPalabrasUI.html(spanishWord) : window._escHTML(spanishWord);
+
   container.innerHTML = `
     ${isRetry ? '<div class="correction-notice">⚠️ Corrección: intenta de nuevo</div>' : ''}
-    <div class="question-bubble">${spanishWord}</div>
+    <div class="question-bubble">${spanishHtml}</div>
     <div class="input-area">
       <p style="color:#94a3b8;margin-bottom:12px;">Completa la frase:</p>
       <div class="completar-sentence">${html}</div>
@@ -5085,7 +6556,8 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
       <button class="btn-action btn-check completar-check">Comprobar</button>
     </div>
   `;
-  
+  if (typeof BancoPalabrasUI !== "undefined") BancoPalabrasUI.activar(container.querySelector(".question-bubble"));
+
   const inputs = container.querySelectorAll('.completar-input');
   inputs.forEach((input, idx) => {
     input.addEventListener('keydown', (e) => {
@@ -5728,14 +7200,16 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
 
   const backFace = buildCorregirBackFace(exercise);
   const hasHistory = backFace.attempts.length > 1;
+  // Banco de palabras: mismo criterio que en traducción/completar.
+  const spanishPhraseHtml = (typeof BancoPalabrasUI !== "undefined") ? BancoPalabrasUI.html(spanishPhrase) : window._escHTML(spanishPhrase);
 
   container.innerHTML = `
     <div class="corregir-card">
       ${isRetry ? '<div class="corregir-correction-notice">⚠️ Corrección: intenta de nuevo</div>' : ''}
-      
+
       ${spanishPhrase ? `
         <div class="corregir-spanish-section">
-          <div class="corregir-spanish-text">${window._escHTML(spanishPhrase)}</div>
+          <div class="corregir-spanish-text">${spanishPhraseHtml}</div>
         </div>
       ` : ''}
       
@@ -5774,6 +7248,10 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
   }
 
   wireCorregirCarousel(container, backFace.attempts.length);
+
+  if (spanishPhrase && typeof BancoPalabrasUI !== "undefined") {
+    BancoPalabrasUI.activar(container.querySelector(".corregir-spanish-text"));
+  }
 }
 
 export function checkCorregirAnswer(exercise, userAnswer) {
@@ -10852,11 +12330,11 @@ function n1ReelsTerminar() {
   // espacio no produce nada y se sigue de largo (como con cualquier banco
   // vacío) — exactamente igual que el caso "ordenamiento sin candidatas"
   // de Feature 3.
-  const RL_ESPACIO_TIPOS = ["listening", "azure", "irregulares", "ordenamiento", "youglish", "tatoeba"];
-  const RL_ESPACIO_TIPO_LABEL = { listening: "🎧 Listening", azure: "☁️ Azure", irregulares: "🔁 Irregulares", ordenamiento: "🔤 Ordenamiento", youglish: "🌎 YouGlish", tatoeba: "🐢 Tatoeba" };
+  const RL_ESPACIO_TIPOS = ["listening", "azure", "irregulares", "ordenamiento", "youglish", "tatoeba", "banco"];
+  const RL_ESPACIO_TIPO_LABEL = { listening: "🎧 Listening", azure: "☁️ Azure", irregulares: "🔁 Irregulares", ordenamiento: "🔤 Ordenamiento", youglish: "🌎 YouGlish", tatoeba: "🐢 Tatoeba", banco: "📚 Banco de palabras" };
   // tipo de config -> item.tipo que entiende rlRenderSorpresa (ordenamiento e
   // irregulares no usan esta tabla: se resuelven aparte, ver rlEspacioSiToca).
-  const RL_ESPACIO_TIPO_RENDER = { listening: "listening", azure: "azure", youglish: "yt", tatoeba: "tatoeba" };
+  const RL_ESPACIO_TIPO_RENDER = { listening: "listening", azure: "azure", youglish: "yt", tatoeba: "tatoeba", banco: "banco" };
 
   const RL_CONFIG_KEY = "english_trainer_reels_config_v1";
   function rlConfigDefault() {
@@ -10907,6 +12385,7 @@ function n1ReelsTerminar() {
       case "ordenamiento": return rlOrdenamientoCandidatosEnBanco().length > 0;
       case "youglish": return !!rlPalabraParaYT();
       case "tatoeba": return typeof rlTatoebaDisponible === "function" ? rlTatoebaDisponible() : true;
+      case "banco": return typeof BancoPalabrasData !== "undefined" && getTargetLanguage() === "en" && BancoPalabrasData.activas().length > 0;
       default: return false;
     }
   }
@@ -11022,6 +12501,7 @@ function n1ReelsTerminar() {
       case "azure": return rlRenderAzure(item, body);
       case "irr": return irrRenderSorpresaReels(item, body);
       case "tatoeba": return rlRenderTatoeba(item, body);
+      case "banco": return rlRenderBanco(item, body);
       default: setTimeout(rlSiguiente, 0);
     }
   }
@@ -11462,6 +12942,78 @@ function n1ReelsTerminar() {
       }
     };
     RLV.limpiar = () => { RLV.azHandler = null; };
+  }
+
+  // ---------- 8. Banco de palabras ----------
+  // Cada vez que toca este espacio se hacen 4 ejercicios (completar,
+  // traducir, completar, traducir — ese orden fijo). Cada uno sortea una
+  // palabra activa al azar (si solo hay una palabra en el banco, las 4
+  // caen en esa misma, que es justo lo que se pidió) y una de sus
+  // oraciones guardadas. Se reusan renderCompletarExercise/
+  // renderTraduccionExercise (y sus modales de resultado) tal cual las usa
+  // el resto del juego — lo único que cambia es la capa de color rosa
+  // (.bp-reels-exercise, en banco-palabras.css).
+  const RL_BANCO_PATRON = ["completar", "traducir", "completar", "traducir"];
+
+  function rlBancoPalabraAleatoria() {
+    const activas = (typeof BancoPalabrasData !== "undefined" ? BancoPalabrasData.activas() : []);
+    if (!activas.length) return null;
+    return activas[Math.floor(Math.random() * activas.length)];
+  }
+
+  function rlBancoGenerarPaso(tipo) {
+    const palabra = rlBancoPalabraAleatoria();
+    if (!palabra || !palabra.oraciones.length) return null;
+    const oracion = palabra.oraciones[Math.floor(Math.random() * palabra.oraciones.length)];
+    if (tipo === "completar") {
+      const re = new RegExp("\\b" + String(oracion.forma || palabra.palabra).replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i");
+      if (!re.test(oracion.en)) return null; // no debería pasar: se guarda junto con la forma que calza
+      return { tipo: "completar", palabra: palabra.id, exercise: { spanishWord: oracion.es, englishSentence: oracion.en.replace(re, "___"), options: [oracion.forma || palabra.palabra] } };
+    }
+    return { tipo: "traducir", palabra: palabra.id, exercise: { spanishWord: oracion.es, englishWord: oracion.en } };
+  }
+
+  function rlBancoElegirPlan() {
+    return RL_BANCO_PATRON.map(rlBancoGenerarPaso).filter(Boolean);
+  }
+
+  function rlRenderBanco(item, body) {
+    if (!item.plan) {
+      item.plan = rlBancoElegirPlan();
+      item.paso = 0;
+      rlGuardar();
+    }
+    if (!item.plan.length || item.paso >= item.plan.length) { rlSorpresaHecha(item); return; }
+
+    const paso = item.plan[item.paso];
+    body.innerHTML = rlCabecera(["📚 Banco de palabras", (item.paso + 1) + "/" + item.plan.length]) +
+      `<div class="rl-sorpresa bp-reels-exercise"><div class="rl-banco-host"></div></div>`;
+    const host = body.querySelector(".rl-banco-host");
+
+    // decision: null (Continuar) | "luego" (🧠 Repasar luego → se repite
+    // más adelante EN ESTE MISMO espacio, como un 5to/6to ejercicio, no en
+    // la cola principal de Reels — así lo pidió el usuario).
+    const avanzar = (duda, passed, decision) => {
+      if (decision === "luego") item.plan.push(paso);
+      if (typeof BancoPalabrasData !== "undefined") BancoPalabrasData.registrarPractica(paso.palabra, 1);
+      item.paso += 1;
+      rlGuardar();
+      rlRenderBanco(item, body);
+    };
+
+    if (paso.tipo === "completar") {
+      renderCompletarExercise(paso.exercise, host);
+      host.querySelector(".completar-check").addEventListener("click", () => {
+        const { results } = checkCompletarAnswers(paso.exercise, host);
+        showCompletarModal(paso.exercise, results, avanzar);
+      });
+    } else {
+      renderTraduccionExercise(paso.exercise, host);
+      host.querySelector(".traduccion-check").addEventListener("click", () => {
+        const userAnswer = host.querySelector(".traduccion-answer").value;
+        showComparativeModal(paso.exercise, userAnswer, avanzar);
+      });
+    }
   }
     // ==================== REELS (sorpresa 1: Mundo real con YouGlish) ====================
   // Busca una palabra (>3 letras) de lo último que estudiaste, reproduce SOLO
@@ -13176,7 +14728,7 @@ function rlRenderTatoeba(item, body) {
   // dentro de Reels (botón flotante, solo inglés).
   function updateHelpBtnVisibility() {
     const isEnglish = getTargetLanguage() === "en";
-    ["homeJuegoBtn", "homeListeningBtn", "homeAzureBtn", "homeIrregularesBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
+    ["homeJuegoBtn", "homeListeningBtn", "homeAzureBtn", "homeIrregularesBtn", "homeBancoPalabrasBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
     const tag = document.getElementById("homeLangTag");
     if (tag) tag.textContent = getTargetLangMeta().flag + " Practicando " + getTargetLangMeta().labelLower;
   }
@@ -13803,6 +15355,7 @@ function rlRenderTatoeba(item, body) {
     document.getElementById("homeJuegoBtn")?.addEventListener("click", openAventura);
     document.getElementById("homeAzureBtn")?.addEventListener("click", openAzure);
     document.getElementById("homeIrregularesBtn")?.addEventListener("click", openIrregulares);
+    document.getElementById("homeBancoPalabrasBtn")?.addEventListener("click", BancoPalabrasScreen.abrir);
     window.addEventListener("message", onAzureMessage);
     wireReels();
     window.addEventListener("message", onAventuraMessage);

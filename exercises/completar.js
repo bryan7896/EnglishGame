@@ -12,9 +12,14 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
     return input;
   });
   
+  // Banco de palabras: igual que en traducción/corrección, el texto en
+  // español queda clickeable en inglés (y de paso se escapa correctamente,
+  // cosa que antes no se hacía acá).
+  const spanishHtml = (typeof BancoPalabrasUI !== "undefined") ? BancoPalabrasUI.html(spanishWord) : window._escHTML(spanishWord);
+
   container.innerHTML = `
     ${isRetry ? '<div class="correction-notice">⚠️ Corrección: intenta de nuevo</div>' : ''}
-    <div class="question-bubble">${spanishWord}</div>
+    <div class="question-bubble">${spanishHtml}</div>
     <div class="input-area">
       <p style="color:#94a3b8;margin-bottom:12px;">Completa la frase:</p>
       <div class="completar-sentence">${html}</div>
@@ -23,7 +28,8 @@ export function renderCompletarExercise(exercise, container, isRetry = false) {
       <button class="btn-action btn-check completar-check">Comprobar</button>
     </div>
   `;
-  
+  if (typeof BancoPalabrasUI !== "undefined") BancoPalabrasUI.activar(container.querySelector(".question-bubble"));
+
   const inputs = container.querySelectorAll('.completar-input');
   inputs.forEach((input, idx) => {
     input.addEventListener('keydown', (e) => {

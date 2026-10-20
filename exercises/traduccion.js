@@ -96,13 +96,18 @@ export function alignWordsContracciones(correct, user) {
 // ---------------------------------------------------------------------
 export function renderTraduccionExercise(exercise, container) {
   const spanish = exercise.spanishWord || exercise.spanishWords || "";
+  // Banco de palabras: en inglés, las palabras de 3+ letras del texto en
+  // español quedan clickeables (sin cambiar su apariencia); en italiano
+  // (o si el módulo no está cargado) se comporta como antes.
+  const spanishHtml = (typeof BancoPalabrasUI !== "undefined") ? BancoPalabrasUI.html(spanish) : window._escHTML(spanish);
   container.innerHTML = `
-    <div class="question-bubble">${window._escHTML(spanish)}</div>
+    <div class="question-bubble">${spanishHtml}</div>
     <textarea class="answer-input traduccion-answer" rows="2" placeholder="Escribe tu traducción aquí..."></textarea>
     <div class="button-group">
       <button class="btn-action btn-check traduccion-check">Comprobar</button>
     </div>
   `;
+  if (typeof BancoPalabrasUI !== "undefined") BancoPalabrasUI.activar(container.querySelector(".question-bubble"));
 }
 
 function normalizeFullAnswer(str) {

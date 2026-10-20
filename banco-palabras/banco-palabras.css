@@ -1,0 +1,207 @@
+/* banco-palabras/banco-palabras.css
+   Usa las mismas variables de styles/main.css (--surface, --ink, --brand,
+   --line, --radius-*, --shadow-md...) para que no se note que es nuevo.
+   Pensado para pegarse al final de main.css (o cargarse aparte, el
+   build.py lo decide). */
+
+/* Palabra clickeable dentro del texto en español: SIN apariencia de botón,
+   igual a texto normal, solo cursor de mano. El resaltado azul (paso 3 del
+   pedido) aparece mientras su modal está abierto. */
+.bp-word {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.bp-word-active {
+  color: var(--info);
+  transition: color 0.15s var(--ease);
+}
+
+.bp-modal-overlay { z-index: 140; } /* por encima del modal del ejercicio */
+.bp-sub-overlay { z-index: 150; }   /* el de edición, por encima del de Aprender */
+
+.bp-confirm-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 16px;
+}
+.bp-confirm-text { font-size: 1.05rem; font-weight: 700; }
+.bp-nav {
+  background: var(--surface-2);
+  border: 2px solid var(--line);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.bp-nav:disabled { opacity: 0.35; }
+
+.bp-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--ink-faint);
+  font-size: 1.1rem;
+  padding: 6px;
+}
+
+.bp-dim { color: var(--ink-faint); font-size: 0.82rem; }
+
+.bp-sense-group { text-align: left; margin-bottom: 14px; }
+.bp-sense-group h4 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  margin: 0 0 6px;
+}
+.bp-sense-group ol { margin: 0; padding-left: 20px; }
+.bp-sense-group li { margin-bottom: 6px; }
+
+.bp-aprender-scroll { text-align: left; max-height: 50vh; overflow-y: auto; }
+
+.bp-ejemplos-list { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 10px; }
+.bp-ejemplo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 6px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.bp-ejemplo-texto { flex: 1; font-size: 0.9rem; }
+.bp-ejemplo-sel { background: var(--brand-wash); }
+.bp-pencil {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  padding: 2px 6px;
+  flex-shrink: 0;
+}
+
+.bp-contadores {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  margin: 12px 0;
+}
+
+.bp-editar-card label {
+  display: block;
+  text-align: left;
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  margin-top: 10px;
+}
+.bp-editar-card textarea {
+  width: 100%;
+  min-height: 56px;
+  margin-top: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font: inherit;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.bp-guardado-ok { font-size: 1.05rem; font-weight: 700; color: var(--good); padding: 30px 0; }
+
+/* ---------- overlay de pantalla completa (mismo patrón que #irrOverlay) ---------- */
+.bp-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--bg);
+  overflow-y: auto;
+}
+.bp-overlay-cerrar {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 91;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  width: 36px;
+  height: 36px;
+}
+.bp-overlay-scroll { max-width: 720px; margin: 0 auto; padding-top: 50px; }
+
+/* ---------- pantalla de la tabla ---------- */
+.bp-screen { padding: 14px 16px 30px; }
+.bp-screen-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.bp-screen-head h2 { margin: 0; font-size: 1.2rem; }
+.bp-key-btn { padding: 8px 14px; }
+
+.bp-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.bp-tabla th, .bp-tabla td {
+  padding: 8px 6px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.bp-tabla th {
+  color: var(--ink-faint);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.bp-tabla-fila { cursor: pointer; }
+.bp-tabla-fila:hover, .bp-tabla-fila:focus-visible { background: var(--surface-2); }
+.bp-tabla-palabra { text-align: left; font-weight: 700; }
+.bp-tabla-num { color: var(--ink-dim); }
+.bp-tabla-borrar {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  padding: 4px;
+}
+.bp-tabla-activa { width: 18px; height: 18px; accent-color: var(--brand); }
+.bp-tabla-fecha { color: var(--ink-faint); font-size: 0.78rem; }
+
+.bp-key-card { max-width: 340px; }
+.bp-key-card h3 { margin: 4px 0 2px; }
+.bp-key-input {
+  width: 100%;
+  margin: 12px 0;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font: inherit;
+  padding: 10px 12px;
+}
+
+.home-tile-banco { border-color: #8a5cf6; background: linear-gradient(135deg, #2c1f52, var(--surface) 72%); }
+.home-tile-banco .home-tile-ico { background: #1c1338; }
+
+/* ---------- ejercicios de Banco de palabras dentro de Reels ---------- */
+/* Misma tarjeta de siempre (completar.js/traduccion.js), solo con este
+   acento rosa para que se note que es un ejercicio del Banco de palabras,
+   tal como se pidió. */
+.bp-reels-exercise .question-bubble {
+  border-left: 3px solid #ff4a9b;
+}
+.bp-reels-exercise .btn-check,
+.bp-reels-exercise .btn-continue {
+  background: #ff4a9b;
+  box-shadow: 0 var(--press-depth) 0 0 #bc2669;
+}

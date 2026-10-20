@@ -51,6 +51,24 @@ EXERCISE_FILES = {
     "exercises/informacion.js": "__INFORMACION_JS__",
 }
 
+# Banco de palabras (solo inglés): click en una palabra del texto en
+# español (traducción/corrección/completar) → consulta el Spanish-English
+# Dictionary API de Merriam-Webster → guarda oraciones de ejemplo propias +
+# las que ya existen en data-en/ejercicios ("oraciones en sistema") → se
+# repasan como sorpresa nueva en Reels (ver reels/reels-sorpresas.js).
+# Van ANTES de traduccion/completar/corregir (que llaman BancoPalabrasUI.html/
+# .activar) y antes de reels-sorpresas.js (que llama BancoPalabrasData), por
+# eso el placeholder se ubica justo después de __CONTRACCIONES_JS__.
+BANCO_PALABRAS_FILES = {
+    "banco-palabras/banco-palabras-data.js": "__BANCO_DATA_JS__",
+    "banco-palabras/banco-palabras-tokenize.js": "__BANCO_TOKENIZE_JS__",
+    "banco-palabras/banco-palabras-api.js": "__BANCO_API_JS__",
+    "banco-palabras/banco-palabras-buscar-sistema.js": "__BANCO_BUSCAR_SISTEMA_JS__",
+    "banco-palabras/banco-palabras-ui.js": "__BANCO_UI_JS__",
+    "banco-palabras/banco-palabras-screen.js": "__BANCO_SCREEN_JS__",
+}
+BANCO_PALABRAS_STYLES_FILE = os.path.join("banco-palabras", "banco-palabras.css")
+
 # Módulos del Listening Trainer (Nivel 0) — carpeta aparte, propia llave de
 # localStorage, propio dataset (listening/data/nivel0.json). No comparten
 # nada con EXERCISE_FILES/data-en/data-it a propósito: es otra sección de
@@ -580,6 +598,10 @@ def get_html_template():
           <span class="home-tile-ico"><span class="irr-logo" aria-hidden="true"><i></i><i></i><i></i></span></span>
           <span><b>Irregulares</b><small>100 verbos · un paquete de 10 por día</small></span>
         </button>
+        <button class="home-tile home-tile-banco" id="homeBancoPalabrasBtn">
+          <span class="home-tile-ico">📚</span>
+          <span><b>Banco de palabras</b><small>Guarda y repasa tus propias palabras</small></span>
+        </button>
         <button class="home-tile" id="homeJuegoBtn">
           <span class="home-tile-ico">🎮</span>
           <span><b>Juego</b><small>Aventura de conversaciones por audio</small></span>
@@ -728,6 +750,12 @@ def get_html_template():
   __MAP_JS__
   __IDIOMA_JS__
   __CONTRACCIONES_JS__
+  __BANCO_DATA_JS__
+  __BANCO_TOKENIZE_JS__
+  __BANCO_API_JS__
+  __BANCO_BUSCAR_SISTEMA_JS__
+  __BANCO_UI_JS__
+  __BANCO_SCREEN_JS__
   __TRADUCCION_JS__
   __ORDENAMIENTO_JS__
   __COMPLETAR_JS__
@@ -1079,7 +1107,7 @@ def get_main_logic():
   // dentro de Reels (botón flotante, solo inglés).
   function updateHelpBtnVisibility() {
     const isEnglish = getTargetLanguage() === "en";
-    ["homeJuegoBtn", "homeListeningBtn", "homeAzureBtn", "homeIrregularesBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
+    ["homeJuegoBtn", "homeListeningBtn", "homeAzureBtn", "homeIrregularesBtn", "homeBancoPalabrasBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
     const tag = document.getElementById("homeLangTag");
     if (tag) tag.textContent = getTargetLangMeta().flag + " Practicando " + getTargetLangMeta().labelLower;
   }
@@ -1706,6 +1734,7 @@ def get_main_logic():
     document.getElementById("homeJuegoBtn")?.addEventListener("click", openAventura);
     document.getElementById("homeAzureBtn")?.addEventListener("click", openAzure);
     document.getElementById("homeIrregularesBtn")?.addEventListener("click", openIrregulares);
+    document.getElementById("homeBancoPalabrasBtn")?.addEventListener("click", BancoPalabrasScreen.abrir);
     window.addEventListener("message", onAzureMessage);
     wireReels();
     window.addEventListener("message", onAventuraMessage);
@@ -1769,6 +1798,7 @@ def build_html():
     styles = read_file('styles/main.css')
     styles += "\n\n" + read_file(REELS_STYLES_FILE)
     styles += "\n\n" + read_file(IRREGULARES_STYLES_FILE)
+    styles += "\n\n" + read_file(BANCO_PALABRAS_STYLES_FILE)
     if os.path.exists(LISTENING_STYLES_FILE):
         styles += "\n\n" + read_file(LISTENING_STYLES_FILE)
     else:
@@ -1803,7 +1833,12 @@ def build_html():
         content = read_file(filepath)
         exercise_modules[marker] = content
         print(f"  ✅ {filepath} -> {marker} ({len(content):,} bytes)")
-    
+
+    for filepath, marker in BANCO_PALABRAS_FILES.items():
+        content = read_file(filepath)
+        exercise_modules[marker] = content
+        print(f"  ✅ {filepath} -> {marker} ({len(content):,} bytes)")
+
     template = get_html_template()
     html = template.replace('__STYLES__', styles)
     html = html.replace('__VERSION__', VERSION)
@@ -1858,7 +1893,7 @@ def main():
     print(f"📦 Version: {VERSION}")
     print("=" * 60)
     
-    required_files = ['styles/main.css', 'mapa/map.js', REELS_STYLES_FILE, IRREGULARES_STYLES_FILE] + list(EXERCISE_FILES.keys()) + list(REELS_FILES.keys()) + list(IRREGULARES_FILES.keys())
+    required_files = ['styles/main.css', 'mapa/map.js', REELS_STYLES_FILE, IRREGULARES_STYLES_FILE, BANCO_PALABRAS_STYLES_FILE] + list(EXERCISE_FILES.keys()) + list(REELS_FILES.keys()) + list(IRREGULARES_FILES.keys()) + list(BANCO_PALABRAS_FILES.keys())
     missing = [f for f in required_files if not os.path.exists(f)]
     if missing:
         print("❌ Faltan archivos:")

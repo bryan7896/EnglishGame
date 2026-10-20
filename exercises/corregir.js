@@ -78,14 +78,16 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
 
   const backFace = buildCorregirBackFace(exercise);
   const hasHistory = backFace.attempts.length > 1;
+  // Banco de palabras: mismo criterio que en traducción/completar.
+  const spanishPhraseHtml = (typeof BancoPalabrasUI !== "undefined") ? BancoPalabrasUI.html(spanishPhrase) : window._escHTML(spanishPhrase);
 
   container.innerHTML = `
     <div class="corregir-card">
       ${isRetry ? '<div class="corregir-correction-notice">⚠️ Corrección: intenta de nuevo</div>' : ''}
-      
+
       ${spanishPhrase ? `
         <div class="corregir-spanish-section">
-          <div class="corregir-spanish-text">${window._escHTML(spanishPhrase)}</div>
+          <div class="corregir-spanish-text">${spanishPhraseHtml}</div>
         </div>
       ` : ''}
       
@@ -124,6 +126,10 @@ export function renderCorregirExercise(exercise, container, isRetry = false) {
   }
 
   wireCorregirCarousel(container, backFace.attempts.length);
+
+  if (spanishPhrase && typeof BancoPalabrasUI !== "undefined") {
+    BancoPalabrasUI.activar(container.querySelector(".corregir-spanish-text"));
+  }
 }
 
 export function checkCorregirAnswer(exercise, userAnswer) {
