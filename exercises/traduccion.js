@@ -170,6 +170,19 @@ export function wireReviewButtons(modal, done) {
   });
 }
 
+// Palabra de la frase "Esperado" (inglés o italiano, según el idioma
+// activo) lista para precargarla en el mini-modal de Tatoeba. Se recorta la
+// puntuación de los extremos (el diff la deja pegada, p.ej. "taxi." o
+// "day.") y solo se hace clickeable si queda con 3+ letras — mismo criterio
+// que el Banco de palabras usa del lado español.
+function targetWordSpan(word, cls) {
+  const escaped = window._escHTML(word);
+  if (typeof BancoPalabrasUI === "undefined") return `<span class="${cls}">${escaped}</span>`;
+  const limpio = String(word || "").replace(/^[^A-Za-zÀ-ÿ]+|[^A-Za-zÀ-ÿ]+$/g, "");
+  if (limpio.length < 3) return `<span class="${cls}">${escaped}</span>`;
+  return `<span class="${cls} bp-target-word" data-bp-word="${window._escHTML(limpio.toLowerCase())}">${escaped}</span>`;
+}
+
 export function showComparativeModal(exercise, userAnswer, onContinue) {
   const existingModal = document.querySelector('.modal-overlay');
   if (existingModal) existingModal.remove();
@@ -192,7 +205,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   
   let correctHtml = alignedCorrect.map(item => {
     if (item.placeholder) return `<span class="word-placeholder">-</span>`;
-    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${window._escHTML(item.word)}</span>`;
+    return targetWordSpan(item.word, item.match ? 'word-correct' : 'word-error');
   }).join(' ');
   
   let userHtml = alignedUser.map(item => {
@@ -207,7 +220,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
       ${passed ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
       <div class="comparison-text-block">
         <p><strong>🇪🇸 Español:</strong><br>🎯 ${window._escHTML(exercise.spanishWord || exercise.spanishWords)}</p>
-        <div class="compare-line"><strong>✅ Esperado:</strong> ${correctHtml}</div>
+        <div class="compare-line compare-line-esperado"><strong>✅ Esperado:</strong> ${correctHtml}</div>
         <div class="compare-line"><strong>✏️ Tu respuesta:</strong> ${userHtml}</div>
         <div class="comparison-row">
           <span class="comparison-row-label"></span>
@@ -228,7 +241,8 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   `;
   
   document.body.appendChild(modal);
-  
+  if (typeof BancoPalabrasUI !== "undefined") BancoPalabrasUI.activarEsperado(modal.querySelector(".compare-line-esperado"));
+
   if (passed) {
     speakTraduccionText(correctText);
   }

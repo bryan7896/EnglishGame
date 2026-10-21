@@ -16,6 +16,14 @@
   transition: color 0.15s var(--ease);
 }
 
+/* Palabra clickeable dentro de "✅ Esperado" (resultado del ejercicio de
+   traducción): mismo criterio, sin cambiar su color de acierto/error
+   (word-correct/word-error ya definidos en main.css), solo cursor de mano. */
+.bp-target-word {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
 .bp-modal-overlay { z-index: 140; } /* por encima del modal del ejercicio */
 .bp-sub-overlay { z-index: 150; }   /* el de edición, por encima del de Aprender */
 

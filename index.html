@@ -2832,6 +2832,14 @@ body.irr-open { overflow: hidden; }
   transition: color 0.15s var(--ease);
 }
 
+/* Palabra clickeable dentro de "✅ Esperado" (resultado del ejercicio de
+   traducción): mismo criterio, sin cambiar su color de acierto/error
+   (word-correct/word-error ya definidos en main.css), solo cursor de mano. */
+.bp-target-word {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
 .bp-modal-overlay { z-index: 140; } /* por encima del modal del ejercicio */
 .bp-sub-overlay { z-index: 150; }   /* el de edición, por encima del de Aprender */
 
@@ -5999,7 +6007,14 @@ export function contractionAwareEquals(a, b) {
   // Lista de oraciones de Tatoeba, seleccionables + editables (✏️), igual
   // en espíritu a la lista de ejemplos de "Aprender" pero sin grupos de
   // sentido/Formas y SIN mezclar oraciones del sistema (pedido explícito).
-  function renderTatoebaResultado(palabra, r) {
+  // Separado en dos partes: "pintarTatoebaResultado" hace todo el trabajo
+  // (pintar, seleccionar, editar, guardar) sobre un <div> de modal YA
+  // creado, sin asumir cómo se creó ni cómo se cierra — así lo reutiliza
+  // tanto el flujo de arriba (palabra del español, usa el modal/estado
+  // compartido de este archivo) como el mini-flujo de abajo (palabra de la
+  // frase "Esperado" en el modal de resultado del ejercicio, que vive en su
+  // propio overlay independiente).
+  function pintarTatoebaResultado(modal, palabra, r, cerrar) {
     const T = global.BancoPalabrasTokenize;
     const examples = r.examples;
     const seleccion = new Set();
@@ -6017,7 +6032,7 @@ export function contractionAwareEquals(a, b) {
 
     const ejemplosHTML = examples.map((ex, idx) => filaEjemplo(ex, idx)).join("");
 
-    const modal = montarModal(`
+    modal.innerHTML = `
       <div class="modal-friend bp-aprender-card">
         <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
         <p>Resultados de Tatoeba para «${T.escapeHTML(palabra)}»</p>
@@ -6029,7 +6044,8 @@ export function contractionAwareEquals(a, b) {
         </div>
         <button class="fun-btn primary-btn bp-guardar">Almacenar en Banco de palabras</button>
       </div>
-    `);
+    `;
+    modal.querySelector("[data-bp-close]").addEventListener("click", cerrar);
 
     function refrescarContador() {
       modal.querySelector("[data-bp-count-sel]").textContent = String(seleccion.size);
@@ -6098,7 +6114,120 @@ export function contractionAwareEquals(a, b) {
       });
       global.BancoPalabrasData.guardarPalabra(palabraId, [palabraId], seleccionadas);
       modal.querySelector(".bp-aprender-card").innerHTML = `<p class="bp-guardado-ok">✅ Guardado en Banco de palabras</p>`;
-      setTimeout(cerrarModal, 1200);
+      setTimeout(cerrar, 1200);
+    });
+  }
+
+  function renderTatoebaResultado(palabra, r) {
+    pintarTatoebaResultado(estado.modal, palabra, r, cerrarModal);
+  }
+
+  // ---------- mini-flujo: palabra clickeada en "✅ Esperado" ----------
+  // Después de responder un ejercicio de traducción, la frase esperada (en
+  // inglés o italiano, según el idioma activo) también queda con sus
+  // palabras clickeables — pero acá NO hay paso de confirmación con 2
+  // botones: la palabra ya está en el idioma de estudio (no en español),
+  // así que no tiene sentido ofrecer el diccionario (que es español→
+  // inglés). Se abre directo un mini-modal con la palabra YA precargada y
+  // un solo botón para buscarla en Tatoeba. Vive en su propio overlay,
+  // totalmente independiente del "estado" de arriba (que es para navegar
+  // las palabras del texto en español).
+  function montarMiniModal(innerHTML) {
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active bp-modal-overlay bp-sub-overlay";
+    modal.innerHTML = innerHTML;
+    document.body.appendChild(modal);
+    const cerrar = () => modal.remove();
+    modal.addEventListener("click", (e) => { if (e.target === modal) cerrar(); });
+    const x = modal.querySelector("[data-bp-close]");
+    if (x) x.addEventListener("click", cerrar);
+    return modal;
+  }
+
+  function wireMiniBuscar(modal, inputSelector) {
+    const input = modal.querySelector(inputSelector);
+    const btn = modal.querySelector(".bp-mini-buscar");
+    const buscar = () => buscarMiniTatoeba(modal, input.value.trim());
+    if (btn) btn.addEventListener("click", buscar);
+    if (input) input.addEventListener("keypress", (e) => { if (e.key === "Enter") buscar(); });
+    return input;
+  }
+
+  function abrirMiniTatoeba(palabraInicial) {
+    const T = global.BancoPalabrasTokenize;
+    const modal = montarMiniModal(`
+      <div class="modal-friend bp-confirm">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        <div class="bp-confirm-row">
+          <input type="text" class="bp-confirm-input bp-mini-input" value="${T.escapeHTML(palabraInicial)}" autocomplete="off">
+        </div>
+        <div class="bp-confirm-botones">
+          <button class="fun-btn primary-btn bp-mini-buscar full-width">Con Tatoeba</button>
+        </div>
+      </div>
+    `);
+    const input = wireMiniBuscar(modal, ".bp-mini-input");
+    input.focus();
+    input.select();
+  }
+
+  async function buscarMiniTatoeba(modal, palabra) {
+    const p = String(palabra || "").trim();
+    if (!p) return;
+    modal.innerHTML = `<div class="modal-friend bp-loading">Buscando «${global.BancoPalabrasTokenize.escapeHTML(p)}» en Tatoeba…</div>`;
+    try {
+      const r = await global.BancoPalabrasTatoeba.buscar(p);
+      if (!modal.isConnected) return; // se cerró mientras buscaba
+      if (!r.found) { renderMiniNoEncontrado(modal, p); return; }
+      pintarTatoebaResultado(modal, p, r, () => modal.remove());
+    } catch (err) {
+      if (!modal.isConnected) return;
+      renderMiniError(modal, err, p);
+    }
+  }
+
+  function renderMiniShellConReintento(modal, palabra, mensajeHTML) {
+    const T = global.BancoPalabrasTokenize;
+    modal.innerHTML = `
+      <div class="modal-friend bp-error">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        ${mensajeHTML}
+        <label class="bp-reintentar-label">Buscar otra palabra
+          <input type="text" class="bp-reintentar-input" value="${T.escapeHTML(palabra)}" autocomplete="off">
+        </label>
+        <div class="bp-confirm-botones">
+          <button class="fun-btn primary-btn bp-mini-buscar full-width">Con Tatoeba</button>
+        </div>
+      </div>
+    `;
+    modal.querySelector("[data-bp-close]").addEventListener("click", () => modal.remove());
+    const input = wireMiniBuscar(modal, ".bp-reintentar-input");
+    input.focus();
+    input.select();
+  }
+
+  function renderMiniNoEncontrado(modal, palabra) {
+    const T = global.BancoPalabrasTokenize;
+    renderMiniShellConReintento(modal, palabra, `<p>Tatoeba no encontró oraciones con «${T.escapeHTML(palabra)}».</p>`);
+  }
+
+  function renderMiniError(modal, err, palabra) {
+    const T = global.BancoPalabrasTokenize;
+    renderMiniShellConReintento(modal, palabra, `<p>No se pudo consultar Tatoeba: ${T.escapeHTML(err && err.message ? err.message : String(err))}</p>`);
+  }
+
+  // HTML de la frase "Esperado"/"objetivo" con sus palabras (3+ letras)
+  // envueltas en <span class="bp-target-word">, igual en espíritu al
+  // tokenizador del español pero sin tocar mayúsculas/acentos propios del
+  // inglés/italiano ni la puntuación visible.
+  function activarEsperado(container) {
+    if (!container || container._bpEsperadoActivado) return;
+    container._bpEsperadoActivado = true;
+    container.addEventListener("click", (e) => {
+      const span = e.target.closest(".bp-target-word");
+      if (!span || !container.contains(span)) return;
+      e.stopPropagation();
+      abrirMiniTatoeba(span.dataset.bpWord || span.textContent);
     });
   }
 
@@ -6248,7 +6377,7 @@ export function contractionAwareEquals(a, b) {
     });
   }
 
-  global.BancoPalabrasUI = { html, activar };
+  global.BancoPalabrasUI = { html, activar, activarEsperado };
 })(typeof window !== "undefined" ? window : globalThis);
 
   // banco-palabras/banco-palabras-screen.js
@@ -6595,6 +6724,19 @@ export function wireReviewButtons(modal, done) {
   });
 }
 
+// Palabra de la frase "Esperado" (inglés o italiano, según el idioma
+// activo) lista para precargarla en el mini-modal de Tatoeba. Se recorta la
+// puntuación de los extremos (el diff la deja pegada, p.ej. "taxi." o
+// "day.") y solo se hace clickeable si queda con 3+ letras — mismo criterio
+// que el Banco de palabras usa del lado español.
+function targetWordSpan(word, cls) {
+  const escaped = window._escHTML(word);
+  if (typeof BancoPalabrasUI === "undefined") return `<span class="${cls}">${escaped}</span>`;
+  const limpio = String(word || "").replace(/^[^A-Za-zÀ-ÿ]+|[^A-Za-zÀ-ÿ]+$/g, "");
+  if (limpio.length < 3) return `<span class="${cls}">${escaped}</span>`;
+  return `<span class="${cls} bp-target-word" data-bp-word="${window._escHTML(limpio.toLowerCase())}">${escaped}</span>`;
+}
+
 export function showComparativeModal(exercise, userAnswer, onContinue) {
   const existingModal = document.querySelector('.modal-overlay');
   if (existingModal) existingModal.remove();
@@ -6617,7 +6759,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   
   let correctHtml = alignedCorrect.map(item => {
     if (item.placeholder) return `<span class="word-placeholder">-</span>`;
-    return `<span class="${item.match ? 'word-correct' : 'word-error'}">${window._escHTML(item.word)}</span>`;
+    return targetWordSpan(item.word, item.match ? 'word-correct' : 'word-error');
   }).join(' ');
   
   let userHtml = alignedUser.map(item => {
@@ -6632,7 +6774,7 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
       ${passed ? '<span class="tts-live-badge"><span class="tts-dot"></span>Escuchando la pronunciación</span>' : ''}
       <div class="comparison-text-block">
         <p><strong>🇪🇸 Español:</strong><br>🎯 ${window._escHTML(exercise.spanishWord || exercise.spanishWords)}</p>
-        <div class="compare-line"><strong>✅ Esperado:</strong> ${correctHtml}</div>
+        <div class="compare-line compare-line-esperado"><strong>✅ Esperado:</strong> ${correctHtml}</div>
         <div class="compare-line"><strong>✏️ Tu respuesta:</strong> ${userHtml}</div>
         <div class="comparison-row">
           <span class="comparison-row-label"></span>
@@ -6653,7 +6795,8 @@ export function showComparativeModal(exercise, userAnswer, onContinue) {
   `;
   
   document.body.appendChild(modal);
-  
+  if (typeof BancoPalabrasUI !== "undefined") BancoPalabrasUI.activarEsperado(modal.querySelector(".compare-line-esperado"));
+
   if (passed) {
     speakTraduccionText(correctText);
   }
@@ -12859,7 +13002,7 @@ function n1ReelsTerminar() {
       case "ordenamiento": return rlOrdenamientoCandidatosEnBanco().length > 0;
       case "youglish": return !!rlPalabraParaYT();
       case "tatoeba": return typeof rlTatoebaDisponible === "function" ? rlTatoebaDisponible() : true;
-      case "banco": return typeof BancoPalabrasData !== "undefined" && getTargetLanguage() === "en" && BancoPalabrasData.activas().length > 0;
+      case "banco": return typeof BancoPalabrasData !== "undefined" && BancoPalabrasData.activas().length > 0;
       default: return false;
     }
   }

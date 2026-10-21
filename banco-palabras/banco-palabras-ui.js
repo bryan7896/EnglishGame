@@ -326,7 +326,14 @@
   // Lista de oraciones de Tatoeba, seleccionables + editables (✏️), igual
   // en espíritu a la lista de ejemplos de "Aprender" pero sin grupos de
   // sentido/Formas y SIN mezclar oraciones del sistema (pedido explícito).
-  function renderTatoebaResultado(palabra, r) {
+  // Separado en dos partes: "pintarTatoebaResultado" hace todo el trabajo
+  // (pintar, seleccionar, editar, guardar) sobre un <div> de modal YA
+  // creado, sin asumir cómo se creó ni cómo se cierra — así lo reutiliza
+  // tanto el flujo de arriba (palabra del español, usa el modal/estado
+  // compartido de este archivo) como el mini-flujo de abajo (palabra de la
+  // frase "Esperado" en el modal de resultado del ejercicio, que vive en su
+  // propio overlay independiente).
+  function pintarTatoebaResultado(modal, palabra, r, cerrar) {
     const T = global.BancoPalabrasTokenize;
     const examples = r.examples;
     const seleccion = new Set();
@@ -344,7 +351,7 @@
 
     const ejemplosHTML = examples.map((ex, idx) => filaEjemplo(ex, idx)).join("");
 
-    const modal = montarModal(`
+    modal.innerHTML = `
       <div class="modal-friend bp-aprender-card">
         <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
         <p>Resultados de Tatoeba para «${T.escapeHTML(palabra)}»</p>
@@ -356,7 +363,8 @@
         </div>
         <button class="fun-btn primary-btn bp-guardar">Almacenar en Banco de palabras</button>
       </div>
-    `);
+    `;
+    modal.querySelector("[data-bp-close]").addEventListener("click", cerrar);
 
     function refrescarContador() {
       modal.querySelector("[data-bp-count-sel]").textContent = String(seleccion.size);
@@ -425,7 +433,120 @@
       });
       global.BancoPalabrasData.guardarPalabra(palabraId, [palabraId], seleccionadas);
       modal.querySelector(".bp-aprender-card").innerHTML = `<p class="bp-guardado-ok">✅ Guardado en Banco de palabras</p>`;
-      setTimeout(cerrarModal, 1200);
+      setTimeout(cerrar, 1200);
+    });
+  }
+
+  function renderTatoebaResultado(palabra, r) {
+    pintarTatoebaResultado(estado.modal, palabra, r, cerrarModal);
+  }
+
+  // ---------- mini-flujo: palabra clickeada en "✅ Esperado" ----------
+  // Después de responder un ejercicio de traducción, la frase esperada (en
+  // inglés o italiano, según el idioma activo) también queda con sus
+  // palabras clickeables — pero acá NO hay paso de confirmación con 2
+  // botones: la palabra ya está en el idioma de estudio (no en español),
+  // así que no tiene sentido ofrecer el diccionario (que es español→
+  // inglés). Se abre directo un mini-modal con la palabra YA precargada y
+  // un solo botón para buscarla en Tatoeba. Vive en su propio overlay,
+  // totalmente independiente del "estado" de arriba (que es para navegar
+  // las palabras del texto en español).
+  function montarMiniModal(innerHTML) {
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active bp-modal-overlay bp-sub-overlay";
+    modal.innerHTML = innerHTML;
+    document.body.appendChild(modal);
+    const cerrar = () => modal.remove();
+    modal.addEventListener("click", (e) => { if (e.target === modal) cerrar(); });
+    const x = modal.querySelector("[data-bp-close]");
+    if (x) x.addEventListener("click", cerrar);
+    return modal;
+  }
+
+  function wireMiniBuscar(modal, inputSelector) {
+    const input = modal.querySelector(inputSelector);
+    const btn = modal.querySelector(".bp-mini-buscar");
+    const buscar = () => buscarMiniTatoeba(modal, input.value.trim());
+    if (btn) btn.addEventListener("click", buscar);
+    if (input) input.addEventListener("keypress", (e) => { if (e.key === "Enter") buscar(); });
+    return input;
+  }
+
+  function abrirMiniTatoeba(palabraInicial) {
+    const T = global.BancoPalabrasTokenize;
+    const modal = montarMiniModal(`
+      <div class="modal-friend bp-confirm">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        <div class="bp-confirm-row">
+          <input type="text" class="bp-confirm-input bp-mini-input" value="${T.escapeHTML(palabraInicial)}" autocomplete="off">
+        </div>
+        <div class="bp-confirm-botones">
+          <button class="fun-btn primary-btn bp-mini-buscar full-width">Con Tatoeba</button>
+        </div>
+      </div>
+    `);
+    const input = wireMiniBuscar(modal, ".bp-mini-input");
+    input.focus();
+    input.select();
+  }
+
+  async function buscarMiniTatoeba(modal, palabra) {
+    const p = String(palabra || "").trim();
+    if (!p) return;
+    modal.innerHTML = `<div class="modal-friend bp-loading">Buscando «${global.BancoPalabrasTokenize.escapeHTML(p)}» en Tatoeba…</div>`;
+    try {
+      const r = await global.BancoPalabrasTatoeba.buscar(p);
+      if (!modal.isConnected) return; // se cerró mientras buscaba
+      if (!r.found) { renderMiniNoEncontrado(modal, p); return; }
+      pintarTatoebaResultado(modal, p, r, () => modal.remove());
+    } catch (err) {
+      if (!modal.isConnected) return;
+      renderMiniError(modal, err, p);
+    }
+  }
+
+  function renderMiniShellConReintento(modal, palabra, mensajeHTML) {
+    const T = global.BancoPalabrasTokenize;
+    modal.innerHTML = `
+      <div class="modal-friend bp-error">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        ${mensajeHTML}
+        <label class="bp-reintentar-label">Buscar otra palabra
+          <input type="text" class="bp-reintentar-input" value="${T.escapeHTML(palabra)}" autocomplete="off">
+        </label>
+        <div class="bp-confirm-botones">
+          <button class="fun-btn primary-btn bp-mini-buscar full-width">Con Tatoeba</button>
+        </div>
+      </div>
+    `;
+    modal.querySelector("[data-bp-close]").addEventListener("click", () => modal.remove());
+    const input = wireMiniBuscar(modal, ".bp-reintentar-input");
+    input.focus();
+    input.select();
+  }
+
+  function renderMiniNoEncontrado(modal, palabra) {
+    const T = global.BancoPalabrasTokenize;
+    renderMiniShellConReintento(modal, palabra, `<p>Tatoeba no encontró oraciones con «${T.escapeHTML(palabra)}».</p>`);
+  }
+
+  function renderMiniError(modal, err, palabra) {
+    const T = global.BancoPalabrasTokenize;
+    renderMiniShellConReintento(modal, palabra, `<p>No se pudo consultar Tatoeba: ${T.escapeHTML(err && err.message ? err.message : String(err))}</p>`);
+  }
+
+  // HTML de la frase "Esperado"/"objetivo" con sus palabras (3+ letras)
+  // envueltas en <span class="bp-target-word">, igual en espíritu al
+  // tokenizador del español pero sin tocar mayúsculas/acentos propios del
+  // inglés/italiano ni la puntuación visible.
+  function activarEsperado(container) {
+    if (!container || container._bpEsperadoActivado) return;
+    container._bpEsperadoActivado = true;
+    container.addEventListener("click", (e) => {
+      const span = e.target.closest(".bp-target-word");
+      if (!span || !container.contains(span)) return;
+      e.stopPropagation();
+      abrirMiniTatoeba(span.dataset.bpWord || span.textContent);
     });
   }
 
@@ -575,5 +696,5 @@
     });
   }
 
-  global.BancoPalabrasUI = { html, activar };
+  global.BancoPalabrasUI = { html, activar, activarEsperado };
 })(typeof window !== "undefined" ? window : globalThis);

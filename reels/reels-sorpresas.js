@@ -100,7 +100,7 @@
       case "ordenamiento": return rlOrdenamientoCandidatosEnBanco().length > 0;
       case "youglish": return !!rlPalabraParaYT();
       case "tatoeba": return typeof rlTatoebaDisponible === "function" ? rlTatoebaDisponible() : true;
-      case "banco": return typeof BancoPalabrasData !== "undefined" && getTargetLanguage() === "en" && BancoPalabrasData.activas().length > 0;
+      case "banco": return typeof BancoPalabrasData !== "undefined" && BancoPalabrasData.activas().length > 0;
       default: return false;
     }
   }
