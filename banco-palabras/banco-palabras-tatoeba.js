@@ -22,11 +22,25 @@
 
   const BASE = "https://api.dev.tatoeba.org/v1/sentences";
 
+  // Idioma/word_count según el idioma de estudio activo. getTargetLanguage()
+  // es una declaración de nivel superior del MISMO módulo (ver nota de
+  // scope en banco-palabras-ui.js) — se referencia "a pelo" y con
+  // try/catch por si se usa este archivo suelto (fuera del build real).
+  function bpTatoebaLang() {
+    try { return getTargetLanguage() === "it" ? "ita" : "eng"; } catch (e) { /* noop */ }
+    return "eng";
+  }
+
+  function bpTatoebaWordCount() {
+    try { return getTargetLanguage() === "it" ? "3-4" : "4-6"; } catch (e) { /* noop */ }
+    return "4-6";
+  }
+
   function buildUrl(palabra) {
     return (
       BASE +
-      "?lang=eng&q=" + encodeURIComponent(palabra) +
-      "&word_count=4-6&origin=original&trans%3Alang=spa&sort=random&limit=30"
+      "?lang=" + bpTatoebaLang() + "&q=" + encodeURIComponent(palabra) +
+      "&word_count=" + bpTatoebaWordCount() + "&origin=original&trans%3Alang=spa&sort=random&limit=30"
     );
   }
 

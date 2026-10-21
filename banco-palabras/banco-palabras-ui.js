@@ -36,6 +36,15 @@
     return true; // fuera del build real (pruebas sueltas) se asume inglés
   }
 
+  // Para italiano no hay diccionario (Merriam-Webster es inglés-español),
+  // así que solo se ofrece la búsqueda con Tatoeba.
+  function targetIsItalian() {
+    try {
+      return getTargetLangMeta().code === "it";
+    } catch (e) { /* noop */ }
+    return false;
+  }
+
   function studyExercisesSafe() {
     try {
       return currentStudyExercises();
@@ -44,10 +53,13 @@
   }
 
   // ---------- HTML de entrada (reemplaza a window._escHTML en los 3 render) ----------
+  // Palabras clickeables tanto en inglés (diccionario + Tatoeba) como en
+  // italiano (solo Tatoeba, ver botonesBuscarHTML). Para cualquier otro
+  // caso (pruebas sueltas sin idioma definido) se deja el texto plano.
   function html(texto) {
     const T = global.BancoPalabrasTokenize;
-    if (!targetIsEnglish()) return T.escapeHTML(texto);
-    return T.renderHTML(texto);
+    if (targetIsEnglish() || targetIsItalian()) return T.renderHTML(texto);
+    return T.escapeHTML(texto);
   }
 
   // ---------- activación de los clicks dentro de un contenedor ----------
@@ -117,26 +129,45 @@
     const tatoebaBtn = modal.querySelector(".bp-buscar-tatoeba");
     if (dicBtn) dicBtn.addEventListener("click", () => buscarPalabra(input.value.trim()));
     if (tatoebaBtn) tatoebaBtn.addEventListener("click", () => buscarTatoeba(input.value.trim()));
-    if (input) input.addEventListener("keypress", (e) => { if (e.key === "Enter") buscarPalabra(input.value.trim()); });
+    if (input) input.addEventListener("keypress", (e) => {
+      if (e.key !== "Enter") return;
+      // En italiano no hay botón de diccionario: Enter busca con Tatoeba.
+      if (dicBtn) buscarPalabra(input.value.trim());
+      else buscarTatoeba(input.value.trim());
+    });
     return input;
+  }
+
+  // Botones de búsqueda: en italiano solo "Con Tatoeba" (no hay
+  // diccionario inglés-español disponible para italiano).
+  function botonesBuscarHTML() {
+    if (targetIsItalian()) {
+      return `
+        <div class="bp-confirm-botones">
+          <button class="fun-btn primary-btn bp-buscar-tatoeba full-width">Con Tatoeba</button>
+        </div>`;
+    }
+    return `
+      <div class="bp-confirm-botones">
+        <button class="fun-btn bp-buscar-tatoeba">Con Tatoeba</button>
+        <button class="fun-btn primary-btn bp-buscar-dic">En diccionario</button>
+      </div>`;
   }
 
   // ---------- paso 1: confirmación ----------
   function renderConfirmacion() {
     const T = global.BancoPalabrasTokenize;
     const palabra = palabraActual();
+    const esItaliano = targetIsItalian();
     const modal = montarModal(`
       <div class="modal-friend bp-confirm">
         <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
         <div class="bp-confirm-row">
           <button class="bp-nav" data-bp-prev aria-label="Palabra anterior">‹</button>
-          <input type="text" class="bp-confirm-input" value="${T.escapeHTML(palabra)}" autocomplete="off">
+          <input type="text" class="bp-confirm-input" value="${esItaliano ? "" : T.escapeHTML(palabra)}" placeholder="${esItaliano ? "Escribe la palabra en italiano" : ""}" autocomplete="off">
           <button class="bp-nav" data-bp-next aria-label="Palabra siguiente">›</button>
         </div>
-        <div class="bp-confirm-botones">
-          <button class="fun-btn bp-buscar-tatoeba">Con Tatoeba</button>
-          <button class="fun-btn primary-btn bp-buscar-dic">En diccionario</button>
-        </div>
+        ${botonesBuscarHTML()}
       </div>
     `);
     const prevBtn = modal.querySelector("[data-bp-prev]");
@@ -205,10 +236,7 @@
         <label class="bp-reintentar-label">Buscar otra palabra
           <input type="text" class="bp-reintentar-input" value="${T.escapeHTML(r.wordEs)}" autocomplete="off">
         </label>
-        <div class="bp-confirm-botones">
-          <button class="fun-btn bp-buscar-tatoeba">Con Tatoeba</button>
-          <button class="fun-btn primary-btn bp-buscar-dic">En diccionario</button>
-        </div>
+        ${botonesBuscarHTML()}
       </div>
     `);
 
@@ -272,10 +300,7 @@
         <label class="bp-reintentar-label">Buscar otra palabra
           <input type="text" class="bp-reintentar-input" value="${T.escapeHTML(palabra)}" autocomplete="off">
         </label>
-        <div class="bp-confirm-botones">
-          <button class="fun-btn bp-buscar-tatoeba">Con Tatoeba</button>
-          <button class="fun-btn primary-btn bp-buscar-dic">En diccionario</button>
-        </div>
+        ${botonesBuscarHTML()}
       </div>
     `);
     const input = wireBotonesBuscar(modal, ".bp-reintentar-input");
@@ -292,10 +317,7 @@
         <label class="bp-reintentar-label">Buscar otra palabra
           <input type="text" class="bp-reintentar-input" value="${T.escapeHTML(palabra)}" autocomplete="off">
         </label>
-        <div class="bp-confirm-botones">
-          <button class="fun-btn bp-buscar-tatoeba">Con Tatoeba</button>
-          <button class="fun-btn primary-btn bp-buscar-dic">En diccionario</button>
-        </div>
+        ${botonesBuscarHTML()}
       </div>
     `);
     wireBotonesBuscar(modal, ".bp-reintentar-input");

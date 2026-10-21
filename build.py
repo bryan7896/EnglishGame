@@ -1106,10 +1106,11 @@ def get_main_logic():
   }
 
   // Inicio: Juego (🎮) y Listening (🎧) solo existen en inglés. El ❓ vive
-  // dentro de Reels (botón flotante, solo inglés).
+  // dentro de Reels (botón flotante, solo inglés). Banco de palabras (📖)
+  // ya funciona también en italiano (con Tatoeba), así que no se oculta.
   function updateHelpBtnVisibility() {
     const isEnglish = getTargetLanguage() === "en";
-    ["homeJuegoBtn", "homeListeningBtn", "homeAzureBtn", "homeIrregularesBtn", "homeBancoPalabrasBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
+    ["homeJuegoBtn", "homeListeningBtn", "homeAzureBtn", "homeIrregularesBtn"].forEach((id) => { const b = document.getElementById(id); if (b) b.hidden = !isEnglish; });
     const tag = document.getElementById("homeLangTag");
     if (tag) tag.textContent = getTargetLangMeta().flag + " Practicando " + getTargetLangMeta().labelLower;
   }
