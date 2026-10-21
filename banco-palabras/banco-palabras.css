@@ -52,6 +52,36 @@
 
 .bp-dim { color: var(--ink-faint); font-size: 0.82rem; }
 
+/* ---------- "no encontrado": sugerencias clickeables + reintentar ---------- */
+.bp-sugerencia {
+  background: transparent;
+  border: none;
+  color: var(--info);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  padding: 0 2px;
+  cursor: pointer;
+}
+.bp-reintentar-label {
+  display: block;
+  text-align: left;
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  margin-top: 14px;
+}
+.bp-reintentar-input {
+  width: 100%;
+  margin-top: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font: inherit;
+  padding: 10px 12px;
+}
+.bp-error .bp-reintentar-buscar { margin-top: 12px; }
+
 .bp-sense-group { text-align: left; margin-bottom: 14px; }
 .bp-sense-group h4 {
   font-size: 0.78rem;

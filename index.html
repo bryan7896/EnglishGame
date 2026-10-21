@@ -2850,6 +2850,36 @@ body.irr-open { overflow: hidden; }
 
 .bp-dim { color: var(--ink-faint); font-size: 0.82rem; }
 
+/* ---------- "no encontrado": sugerencias clickeables + reintentar ---------- */
+.bp-sugerencia {
+  background: transparent;
+  border: none;
+  color: var(--info);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  padding: 0 2px;
+  cursor: pointer;
+}
+.bp-reintentar-label {
+  display: block;
+  text-align: left;
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  margin-top: 14px;
+}
+.bp-reintentar-input {
+  width: 100%;
+  margin-top: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font: inherit;
+  padding: 10px 12px;
+}
+.bp-error .bp-reintentar-buscar { margin-top: 12px; }
+
 .bp-sense-group { text-align: left; margin-bottom: 14px; }
 .bp-sense-group h4 {
   font-size: 0.78rem;
@@ -5651,8 +5681,15 @@ export function contractionAwareEquals(a, b) {
   }
 
   // ---------- paso 2: buscar + resultado ----------
-  async function buscar() {
-    const palabra = palabraActual();
+  function buscar() {
+    return buscarPalabra(palabraActual());
+  }
+
+  // Igual que buscar(), pero con una palabra explícita — la usa tanto el
+  // flujo normal (palabra tocada en el texto) como "no encontrado" (el
+  // usuario escribe otra palabra o toca una sugerencia) y ya no depende
+  // de qué palabra se tocó originalmente en el texto.
+  async function buscarPalabra(palabra) {
     montarModalMantenerNav(`<div class="modal-friend bp-loading">Buscando «${global.BancoPalabrasTokenize.escapeHTML(palabra)}»…</div>`);
     try {
       const r = await global.BancoPalabrasAPI.buscarDesdeEspanol(palabra);
@@ -5686,13 +5723,36 @@ export function contractionAwareEquals(a, b) {
 
   function renderNoEncontrado(r) {
     const T = global.BancoPalabrasTokenize;
-    montarModal(`
+    const sugerencias = (r.suggestions || []).slice(0, 5);
+    const modal = montarModal(`
       <div class="modal-friend bp-error">
         <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
         <p>«${T.escapeHTML(r.wordEs)}» no está en el diccionario.</p>
-        ${r.suggestions && r.suggestions.length ? `<p class="bp-dim">¿Quisiste decir: ${r.suggestions.slice(0, 5).map((s) => T.escapeHTML(s)).join(", ")}?</p>` : ""}
+        ${sugerencias.length ? `
+          <p class="bp-dim">¿Quisiste decir: ${sugerencias.map((s) => `<button type="button" class="bp-sugerencia" data-bp-sugerencia="${T.escapeHTML(s)}">${T.escapeHTML(s)}</button>`).join(", ")}?</p>
+        ` : ""}
+        <label class="bp-reintentar-label">Buscar otra palabra
+          <input type="text" class="bp-reintentar-input" value="${T.escapeHTML(r.wordEs)}" autocomplete="off">
+        </label>
+        <button class="fun-btn primary-btn bp-reintentar-buscar">Buscar</button>
       </div>
     `);
+
+    const input = modal.querySelector(".bp-reintentar-input");
+    input.focus();
+    input.select();
+
+    function reintentar(palabra) {
+      const p = String(palabra || "").trim();
+      if (!p) return;
+      buscarPalabra(p);
+    }
+
+    modal.querySelector(".bp-reintentar-buscar").addEventListener("click", () => reintentar(input.value));
+    input.addEventListener("keypress", (e) => { if (e.key === "Enter") reintentar(input.value); });
+    modal.querySelectorAll("[data-bp-sugerencia]").forEach((btn) => {
+      btn.addEventListener("click", () => reintentar(btn.dataset.bpSugerencia));
+    });
   }
 
   function renderResultado(r) {

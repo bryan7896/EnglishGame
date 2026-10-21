@@ -140,8 +140,15 @@
   }
 
   // ---------- paso 2: buscar + resultado ----------
-  async function buscar() {
-    const palabra = palabraActual();
+  function buscar() {
+    return buscarPalabra(palabraActual());
+  }
+
+  // Igual que buscar(), pero con una palabra explícita — la usa tanto el
+  // flujo normal (palabra tocada en el texto) como "no encontrado" (el
+  // usuario escribe otra palabra o toca una sugerencia) y ya no depende
+  // de qué palabra se tocó originalmente en el texto.
+  async function buscarPalabra(palabra) {
     montarModalMantenerNav(`<div class="modal-friend bp-loading">Buscando «${global.BancoPalabrasTokenize.escapeHTML(palabra)}»…</div>`);
     try {
       const r = await global.BancoPalabrasAPI.buscarDesdeEspanol(palabra);
@@ -175,13 +182,36 @@
 
   function renderNoEncontrado(r) {
     const T = global.BancoPalabrasTokenize;
-    montarModal(`
+    const sugerencias = (r.suggestions || []).slice(0, 5);
+    const modal = montarModal(`
       <div class="modal-friend bp-error">
         <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
         <p>«${T.escapeHTML(r.wordEs)}» no está en el diccionario.</p>
-        ${r.suggestions && r.suggestions.length ? `<p class="bp-dim">¿Quisiste decir: ${r.suggestions.slice(0, 5).map((s) => T.escapeHTML(s)).join(", ")}?</p>` : ""}
+        ${sugerencias.length ? `
+          <p class="bp-dim">¿Quisiste decir: ${sugerencias.map((s) => `<button type="button" class="bp-sugerencia" data-bp-sugerencia="${T.escapeHTML(s)}">${T.escapeHTML(s)}</button>`).join(", ")}?</p>
+        ` : ""}
+        <label class="bp-reintentar-label">Buscar otra palabra
+          <input type="text" class="bp-reintentar-input" value="${T.escapeHTML(r.wordEs)}" autocomplete="off">
+        </label>
+        <button class="fun-btn primary-btn bp-reintentar-buscar">Buscar</button>
       </div>
     `);
+
+    const input = modal.querySelector(".bp-reintentar-input");
+    input.focus();
+    input.select();
+
+    function reintentar(palabra) {
+      const p = String(palabra || "").trim();
+      if (!p) return;
+      buscarPalabra(p);
+    }
+
+    modal.querySelector(".bp-reintentar-buscar").addEventListener("click", () => reintentar(input.value));
+    input.addEventListener("keypress", (e) => { if (e.key === "Enter") reintentar(input.value); });
+    modal.querySelectorAll("[data-bp-sugerencia]").forEach((btn) => {
+      btn.addEventListener("click", () => reintentar(btn.dataset.bpSugerencia));
+    });
   }
 
   function renderResultado(r) {
