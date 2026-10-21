@@ -32,7 +32,7 @@
   }
 
   function bpTatoebaWordCount() {
-    try { return getTargetLanguage() === "it" ? "3-4" : "4-6"; } catch (e) { /* noop */ }
+    try { return getTargetLanguage() === "it" ? "3-4" : "3-6"; } catch (e) { /* noop */ }
     return "4-6";
   }
 
