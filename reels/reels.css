@@ -66,6 +66,24 @@ body.rl-open { overflow: hidden; }
 .rl-json-wrap { display: flex; flex-direction: column; gap: 8px; }
 .rl-json-input { width: 100%; font-size: .8rem; }
 
+/* Agregar ejercicios manualmente (menú): tandas guardadas con título */
+.rl-lote-label { display: block; text-align: left; font-size: .78rem; color: var(--ink-dim); margin: 10px 0 4px; }
+.rl-lote-titulo-input { width: 100%; margin-bottom: 8px; }
+.rl-lote-list-titulo { margin: 16px 0 6px; font-size: .9rem; }
+.rl-lote-list { display: flex; flex-direction: column; gap: 6px; max-height: 32vh; overflow-y: auto; margin-bottom: 10px; }
+.rl-lote-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+.rl-lote-check { width: 18px; height: 18px; accent-color: var(--brand); flex-shrink: 0; }
+.rl-lote-titulo { flex: 1; text-align: left; font-size: .88rem; }
+.rl-lote-borrar { background: transparent; border: none; font-size: 1rem; padding: 2px 4px; flex-shrink: 0; }
+
 /* Historias */
 .rl-hist-texto { background: var(--surface); border: 2px solid var(--line); border-radius: 14px; padding: 14px 16px; line-height: 1.55; color: var(--ink-dim); }
 .rl-hist-texto p { margin: 0 0 10px; }

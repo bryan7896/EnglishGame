@@ -690,29 +690,49 @@
     pintar();
   }
 
-  // ---------- Agregar JSON manual (menú y pantalla de informe) ----------
-  function rlFormAgregarHTML() {
-    return `
-      <textarea class="answer-input rl-json-input" rows="6" placeholder='${rlEsc(IMPORT_EXAMPLE_JSON)}'></textarea>
-      <button class="fun-btn primary-btn full-width rl-json-btn">📥 Agregar a la reserva</button>
-      <p class="rl-mini rl-json-msg"></p>`;
+  // ---------- Agregar JSON manual (menú): tandas guardadas con título ----------
+  // Ya no se agrega directo a la reserva al pegar el JSON (eso vivía
+  // también en la pantalla de Informe — se quitó de ahí por pedido
+  // explícito del usuario). Ahora cada tanda (título + JSON) se guarda
+  // en una lista propia en localStorage para poder reutilizarla más
+  // adelante: se marca su casilla y "Cargar al juego" es lo que
+  // realmente la manda a la reserva (rlAgregarManual), tantas veces como
+  // se quiera. Un 🗑️ por fila la borra de la lista guardada.
+  function rlManualLotesKey() { return "english_trainer_reels_manual_lotes_v1_" + getTargetLanguage(); }
+
+  function rlManualLotesLeer() {
+    try { return JSON.parse(localStorage.getItem(rlManualLotesKey()) || "[]"); } catch (e) { return []; }
   }
 
-  function rlWireAgregar(root, alTerminar) {
-    const btn = root.querySelector(".rl-json-btn");
-    btn.onclick = () => {
-      const raw = root.querySelector(".rl-json-input").value.trim();
-      const msg = root.querySelector(".rl-json-msg");
-      if (!raw) { toast("📝 Pega el JSON primero"); return; }
-      let parsed;
-      try { parsed = JSON.parse(raw); } catch (e) { toast("❌ JSON inválido: " + e.message); return; }
-      const r = rlAgregarManual(parsed);
-      const extra = r.descartados ? " · " + r.descartados + " de dictado descartados (inglés no usa dictado)" : "";
-      msg.textContent = "✅ " + r.agregados + " ejercicio(s) agregados. En reserva: " + r.reserva + extra;
-      root.querySelector(".rl-json-input").value = "";
-      toast("📥 " + r.agregados + " ejercicio(s) a la reserva");
-      if (alTerminar) alTerminar(r);
-    };
+  function rlManualLotesGuardar(lista) {
+    try { localStorage.setItem(rlManualLotesKey(), JSON.stringify(lista)); } catch (e) { /* nada */ }
+  }
+
+  function rlManualLoteAgregar(titulo, json) {
+    const lista = rlManualLotesLeer();
+    lista.push({
+      id: "lote_" + Date.now().toString(36) + "_" + Math.floor(Math.random() * 1000),
+      titulo,
+      json,
+      fecha: new Date().toISOString(),
+    });
+    rlManualLotesGuardar(lista);
+    return lista;
+  }
+
+  function rlManualLoteBorrar(id) {
+    const lista = rlManualLotesLeer().filter((l) => l.id !== id);
+    rlManualLotesGuardar(lista);
+    return lista;
+  }
+
+  function rlFilaLoteHTML(lote) {
+    return `
+      <div class="rl-lote-row" data-rl-lote="${rlEsc(lote.id)}">
+        <input type="checkbox" class="rl-lote-check" data-rl-lote-check="${rlEsc(lote.id)}" aria-label="Seleccionar ${rlEsc(lote.titulo)}">
+        <span class="rl-lote-titulo">${rlEsc(lote.titulo)}</span>
+        <button class="rl-lote-borrar" data-rl-lote-borrar="${rlEsc(lote.id)}" aria-label="Eliminar ${rlEsc(lote.titulo)}">🗑️</button>
+      </div>`;
   }
 
   function rlModalAgregarJSON() {
@@ -726,15 +746,76 @@
           <h3>📥 Agregar ejercicios</h3>
           <button class="menu-modal-close" aria-label="Cerrar">✕</button>
         </div>
-        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Mismo formato de siempre (traducciones, completar, seleccionar, corregir${getTargetLanguage() === "it" ? ", dictado" : ""}) con sus <b>reglaIds</b>. Van a una reserva y entran al banco poco a poco: 30 tuyos por cada 20 del sistema.</p>
-        <p class="rl-mini">En reserva ahora: <b>${RL.reserva.length}</b> · En el banco: <b>${rlContarBanco()}</b></p>
-        <div class="rl-json-wrap">${rlFormAgregarHTML()}</div>
+
+        <label class="rl-lote-label" for="rlLoteTituloInput">Título de la tanda</label>
+        <input type="text" id="rlLoteTituloInput" class="answer-input rl-lote-titulo-input" placeholder="Ej: Verbos modales — tanda 3">
+        <textarea class="answer-input rl-json-input" rows="6" placeholder='${rlEsc(IMPORT_EXAMPLE_JSON)}'></textarea>
+        <button class="fun-btn primary-btn full-width rl-lote-guardar">💾 Guardar tanda</button>
+        <p class="rl-mini rl-json-msg"></p>
+
+        <h4 class="rl-lote-list-titulo">Tandas guardadas</h4>
+        <div class="rl-lote-list"></div>
+        <button class="fun-btn full-width rl-lote-cargar">📥 Cargar al juego</button>
+        <p class="rl-mini">En reserva ahora: <b class="rl-res-n">${RL.reserva.length}</b> · En el banco: <b class="rl-banco-n">${rlContarBanco()}</b></p>
       </div>`;
     document.body.appendChild(modal);
     const close = () => modal.remove();
     modal.querySelector(".menu-modal-close").onclick = close;
     modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
-    rlWireAgregar(modal.querySelector(".rl-json-wrap"));
+
+    function pintarLotes() {
+      const lotes = rlManualLotesLeer();
+      const cont = modal.querySelector(".rl-lote-list");
+      cont.innerHTML = lotes.length
+        ? lotes.map(rlFilaLoteHTML).join("")
+        : `<p class="rl-mini">Todavía no has guardado ninguna tanda.</p>`;
+      cont.querySelectorAll("[data-rl-lote-borrar]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          rlManualLoteBorrar(btn.dataset.rlLoteBorrar);
+          pintarLotes();
+        });
+      });
+    }
+    pintarLotes();
+
+    modal.querySelector(".rl-lote-guardar").addEventListener("click", () => {
+      const tituloInput = modal.querySelector(".rl-lote-titulo-input");
+      const jsonInput = modal.querySelector(".rl-json-input");
+      const msg = modal.querySelector(".rl-json-msg");
+      const titulo = tituloInput.value.trim();
+      const raw = jsonInput.value.trim();
+      if (!titulo) { toast("📝 Ponle un título a la tanda"); return; }
+      if (!raw) { toast("📝 Pega el JSON primero"); return; }
+      try { JSON.parse(raw); } catch (e) { toast("❌ JSON inválido: " + e.message); return; }
+      rlManualLoteAgregar(titulo, raw);
+      tituloInput.value = "";
+      jsonInput.value = "";
+      msg.textContent = "✅ Tanda guardada. Márcala en la lista y toca \"Cargar al juego\" cuando quieras usarla.";
+      toast("💾 Tanda guardada");
+      pintarLotes();
+    });
+
+    modal.querySelector(".rl-lote-cargar").addEventListener("click", () => {
+      const lotes = rlManualLotesLeer();
+      const marcados = Array.from(modal.querySelectorAll("[data-rl-lote-check]:checked")).map((c) => c.dataset.rlLoteCheck);
+      if (!marcados.length) { toast("☑️ Marca al menos una tanda guardada"); return; }
+      let totalAgregados = 0, totalDescartados = 0;
+      marcados.forEach((id) => {
+        const lote = lotes.find((l) => l.id === id);
+        if (!lote) return;
+        let parsed;
+        try { parsed = JSON.parse(lote.json); } catch (e) { return; }
+        const r = rlAgregarManual(parsed);
+        totalAgregados += r.agregados;
+        totalDescartados += r.descartados;
+      });
+      const n = modal.querySelector(".rl-res-n");
+      if (n) n.textContent = String(RL.reserva.length);
+      const nb = modal.querySelector(".rl-banco-n");
+      if (nb) nb.textContent = String(rlContarBanco());
+      const extra = totalDescartados ? " · " + totalDescartados + " de dictado descartados" : "";
+      toast("📥 " + totalAgregados + " ejercicio(s) cargados al juego" + extra);
+    });
   }
 
   function rlBorrarTodo() {

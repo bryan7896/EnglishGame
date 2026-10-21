@@ -479,11 +479,6 @@
         </div>
         <button class="fun-btn full-width rl-luego">⏭ Más tarde</button>
         ${RL.reporte.ultimoTexto ? `<button class="fun-btn full-width rl-ultimo">📄 Copiar el informe anterior</button>` : ""}
-        <details class="rl-json-details">
-          <summary>📥 Agregar ejercicios propios (JSON)</summary>
-          <p class="rl-mini">En reserva: <b class="rl-res-n">${RL.reserva.length}</b>. Entran 30 tuyos por cada 20 del sistema.</p>
-          <div class="rl-json-wrap">${rlFormAgregarHTML()}</div>
-        </details>
       </div>`;
     body.querySelector(".rl-report-text").value = rep.texto;
     const copiar = (txt) => {
@@ -500,7 +495,6 @@
     };
     body.querySelector(".rl-luego").onclick = () => { RL.reporte.pendiente = true; rlSorpresaHecha(item); };
     body.querySelector(".rl-ultimo")?.addEventListener("click", () => copiar(RL.reporte.ultimoTexto));
-    rlWireAgregar(body.querySelector(".rl-json-wrap"), (r) => { const n = body.querySelector(".rl-res-n"); if (n) n.textContent = r.reserva; });
   }
 
   function rlCopiaManual(body, txt) {
