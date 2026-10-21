@@ -64,6 +64,7 @@ BANCO_PALABRAS_FILES = {
     "banco-palabras/banco-palabras-tokenize.js": "__BANCO_TOKENIZE_JS__",
     "banco-palabras/banco-palabras-api.js": "__BANCO_API_JS__",
     "banco-palabras/banco-palabras-buscar-sistema.js": "__BANCO_BUSCAR_SISTEMA_JS__",
+    "banco-palabras/banco-palabras-tatoeba.js": "__BANCO_TATOEBA_JS__",
     "banco-palabras/banco-palabras-ui.js": "__BANCO_UI_JS__",
     "banco-palabras/banco-palabras-screen.js": "__BANCO_SCREEN_JS__",
 }
@@ -754,6 +755,7 @@ def get_html_template():
   __BANCO_TOKENIZE_JS__
   __BANCO_API_JS__
   __BANCO_BUSCAR_SISTEMA_JS__
+  __BANCO_TATOEBA_JS__
   __BANCO_UI_JS__
   __BANCO_SCREEN_JS__
   __TRADUCCION_JS__

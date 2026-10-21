@@ -27,6 +27,25 @@
   margin: 10px 0 16px;
 }
 .bp-confirm-text { font-size: 1.05rem; font-weight: 700; }
+.bp-confirm-input {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font-family: inherit;
+  padding: 8px 10px;
+}
+.bp-confirm-botones {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.bp-confirm-botones .fun-btn { flex: 1; }
 .bp-nav {
   background: var(--surface-2);
   border: 2px solid var(--line);
@@ -81,6 +100,7 @@
   padding: 10px 12px;
 }
 .bp-error .bp-reintentar-buscar { margin-top: 12px; }
+.bp-error .bp-confirm-botones { margin-top: 12px; }
 
 .bp-sense-group { text-align: left; margin-bottom: 14px; }
 .bp-sense-group h4 {

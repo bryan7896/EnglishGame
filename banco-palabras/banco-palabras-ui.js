@@ -4,7 +4,7 @@
 // flujo completo de modales (confirmar → resultado → Aprender → guardar).
 // Depende de (deben cargarse antes): banco-palabras-tokenize.js,
 // banco-palabras-data.js, banco-palabras-api.js, banco-palabras-buscar-
-// sistema.js. Una vez integrado al build, también usa getTargetLangMeta()
+// sistema.js, banco-palabras-tatoeba.js. Una vez integrado al build, también usa getTargetLangMeta()
 // (idioma.js) y currentStudyExercises() (definidas en index.html) — si no
 // existen (como en esta entrega suelta, antes de integrarlo), se degrada
 // sin romper: trata el idioma como "no inglés" y "0 oraciones en sistema".
@@ -106,6 +106,21 @@
     return modal;
   }
 
+  // Conecta los 2 botones de búsqueda ("Con Tatoeba" / "En diccionario")
+  // y el Enter del input a los flujos correspondientes, siempre leyendo
+  // la palabra TAL COMO QUEDÓ EN EL INPUT (puede que el usuario la haya
+  // editado antes de buscar). Se reutiliza en el paso 1 (confirmación) y
+  // en cualquier pantalla de "no encontrado"/error con reintento.
+  function wireBotonesBuscar(modal, inputSelector) {
+    const input = modal.querySelector(inputSelector);
+    const dicBtn = modal.querySelector(".bp-buscar-dic");
+    const tatoebaBtn = modal.querySelector(".bp-buscar-tatoeba");
+    if (dicBtn) dicBtn.addEventListener("click", () => buscarPalabra(input.value.trim()));
+    if (tatoebaBtn) tatoebaBtn.addEventListener("click", () => buscarTatoeba(input.value.trim()));
+    if (input) input.addEventListener("keypress", (e) => { if (e.key === "Enter") buscarPalabra(input.value.trim()); });
+    return input;
+  }
+
   // ---------- paso 1: confirmación ----------
   function renderConfirmacion() {
     const T = global.BancoPalabrasTokenize;
@@ -115,10 +130,13 @@
         <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
         <div class="bp-confirm-row">
           <button class="bp-nav" data-bp-prev aria-label="Palabra anterior">‹</button>
-          <div class="bp-confirm-text">Buscar: <b>${T.escapeHTML(palabra)}</b>?</div>
+          <input type="text" class="bp-confirm-input" value="${T.escapeHTML(palabra)}" autocomplete="off">
           <button class="bp-nav" data-bp-next aria-label="Palabra siguiente">›</button>
         </div>
-        <button class="fun-btn primary-btn bp-buscar-si">Sí</button>
+        <div class="bp-confirm-botones">
+          <button class="fun-btn bp-buscar-tatoeba">Con Tatoeba</button>
+          <button class="fun-btn primary-btn bp-buscar-dic">En diccionario</button>
+        </div>
       </div>
     `);
     const prevBtn = modal.querySelector("[data-bp-prev]");
@@ -127,7 +145,7 @@
     nextBtn.disabled = estado.idx >= estado.spans.length - 1;
     prevBtn.addEventListener("click", () => moverPalabra(-1));
     nextBtn.addEventListener("click", () => moverPalabra(1));
-    modal.querySelector(".bp-buscar-si").addEventListener("click", buscar);
+    wireBotonesBuscar(modal, ".bp-confirm-input");
   }
 
   function moverPalabra(delta) {
@@ -139,15 +157,9 @@
     renderConfirmacion();
   }
 
-  // ---------- paso 2: buscar + resultado ----------
-  function buscar() {
-    return buscarPalabra(palabraActual());
-  }
-
-  // Igual que buscar(), pero con una palabra explícita — la usa tanto el
-  // flujo normal (palabra tocada en el texto) como "no encontrado" (el
-  // usuario escribe otra palabra o toca una sugerencia) y ya no depende
-  // de qué palabra se tocó originalmente en el texto.
+  // ---------- paso 2: buscar + resultado (diccionario) ----------
+  // Recibe una palabra explícita (del input, que puede haber sido editado)
+  // en vez de depender de la palabra originalmente tocada en el texto.
   async function buscarPalabra(palabra) {
     montarModalMantenerNav(`<div class="modal-friend bp-loading">Buscando «${global.BancoPalabrasTokenize.escapeHTML(palabra)}»…</div>`);
     try {
@@ -193,24 +205,22 @@
         <label class="bp-reintentar-label">Buscar otra palabra
           <input type="text" class="bp-reintentar-input" value="${T.escapeHTML(r.wordEs)}" autocomplete="off">
         </label>
-        <button class="fun-btn primary-btn bp-reintentar-buscar">Buscar</button>
+        <div class="bp-confirm-botones">
+          <button class="fun-btn bp-buscar-tatoeba">Con Tatoeba</button>
+          <button class="fun-btn primary-btn bp-buscar-dic">En diccionario</button>
+        </div>
       </div>
     `);
 
-    const input = modal.querySelector(".bp-reintentar-input");
+    const input = wireBotonesBuscar(modal, ".bp-reintentar-input");
     input.focus();
     input.select();
 
-    function reintentar(palabra) {
-      const p = String(palabra || "").trim();
-      if (!p) return;
-      buscarPalabra(p);
-    }
-
-    modal.querySelector(".bp-reintentar-buscar").addEventListener("click", () => reintentar(input.value));
-    input.addEventListener("keypress", (e) => { if (e.key === "Enter") reintentar(input.value); });
     modal.querySelectorAll("[data-bp-sugerencia]").forEach((btn) => {
-      btn.addEventListener("click", () => reintentar(btn.dataset.bpSugerencia));
+      btn.addEventListener("click", () => {
+        input.value = btn.dataset.bpSugerencia;
+        buscarPalabra(input.value.trim());
+      });
     });
   }
 
@@ -226,6 +236,175 @@
       </div>
     `);
     modal.querySelector(".bp-aprender").addEventListener("click", () => renderAprender(r));
+  }
+
+  // ---------- paso 2b: buscar + resultado (Tatoeba) ----------
+  // Ruta alterna al diccionario: busca oraciones en inglés que contengan
+  // la palabra (tal cual se escribió/editó en el input — con Tatoeba
+  // normalmente se busca la palabra en INGLÉS, a diferencia del
+  // diccionario que recibe la palabra en español) y sus traducciones al
+  // español. No trae "Formas" (no hay dato de diccionario) y por pedido
+  // explícito del usuario NO se cargan "oraciones en sistema" aquí.
+  async function buscarTatoeba(palabra) {
+    const p = String(palabra || "").trim();
+    if (!p) return;
+    montarModalMantenerNav(`<div class="modal-friend bp-loading">Buscando «${global.BancoPalabrasTokenize.escapeHTML(p)}» en Tatoeba…</div>`);
+    try {
+      const r = await global.BancoPalabrasTatoeba.buscar(p);
+      if (!estado) return; // se cerró mientras buscaba
+      if (!r.found) {
+        renderTatoebaNoEncontrado(p);
+        return;
+      }
+      renderTatoebaResultado(p, r);
+    } catch (err) {
+      if (!estado) return;
+      renderTatoebaError(err, p);
+    }
+  }
+
+  function renderTatoebaNoEncontrado(palabra) {
+    const T = global.BancoPalabrasTokenize;
+    const modal = montarModal(`
+      <div class="modal-friend bp-error">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        <p>Tatoeba no encontró oraciones con «${T.escapeHTML(palabra)}».</p>
+        <label class="bp-reintentar-label">Buscar otra palabra
+          <input type="text" class="bp-reintentar-input" value="${T.escapeHTML(palabra)}" autocomplete="off">
+        </label>
+        <div class="bp-confirm-botones">
+          <button class="fun-btn bp-buscar-tatoeba">Con Tatoeba</button>
+          <button class="fun-btn primary-btn bp-buscar-dic">En diccionario</button>
+        </div>
+      </div>
+    `);
+    const input = wireBotonesBuscar(modal, ".bp-reintentar-input");
+    input.focus();
+    input.select();
+  }
+
+  function renderTatoebaError(err, palabra) {
+    const T = global.BancoPalabrasTokenize;
+    const modal = montarModal(`
+      <div class="modal-friend bp-error">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        <p>No se pudo consultar Tatoeba: ${T.escapeHTML(err && err.message ? err.message : String(err))}</p>
+        <label class="bp-reintentar-label">Buscar otra palabra
+          <input type="text" class="bp-reintentar-input" value="${T.escapeHTML(palabra)}" autocomplete="off">
+        </label>
+        <div class="bp-confirm-botones">
+          <button class="fun-btn bp-buscar-tatoeba">Con Tatoeba</button>
+          <button class="fun-btn primary-btn bp-buscar-dic">En diccionario</button>
+        </div>
+      </div>
+    `);
+    wireBotonesBuscar(modal, ".bp-reintentar-input");
+  }
+
+  // Lista de oraciones de Tatoeba, seleccionables + editables (✏️), igual
+  // en espíritu a la lista de ejemplos de "Aprender" pero sin grupos de
+  // sentido/Formas y SIN mezclar oraciones del sistema (pedido explícito).
+  function renderTatoebaResultado(palabra, r) {
+    const T = global.BancoPalabrasTokenize;
+    const examples = r.examples;
+    const seleccion = new Set();
+    const ediciones = {}; // idx -> {en, es}
+
+    function filaEjemplo(ex, idx) {
+      const en = (ediciones[idx] && ediciones[idx].en) || ex.en;
+      const es = (ediciones[idx] && ediciones[idx].es) || ex.es;
+      return `
+        <div class="bp-ejemplo${seleccion.has(idx) ? " bp-ejemplo-sel" : ""}" data-bp-ex="${idx}">
+          <span class="bp-ejemplo-texto">“${T.escapeHTML(en)}” → ${T.escapeHTML(es)}</span>
+          <button class="bp-pencil" data-bp-editar="${idx}" aria-label="Editar">✏️</button>
+        </div>`;
+    }
+
+    const ejemplosHTML = examples.map((ex, idx) => filaEjemplo(ex, idx)).join("");
+
+    const modal = montarModal(`
+      <div class="modal-friend bp-aprender-card">
+        <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+        <p>Resultados de Tatoeba para «${T.escapeHTML(palabra)}»</p>
+        <div class="bp-aprender-scroll">
+          <div class="bp-ejemplos-list">${ejemplosHTML || `<p class="bp-dim">Sin oraciones.</p>`}</div>
+        </div>
+        <div class="bp-contadores">
+          <span>Oraciones seleccionadas [<b data-bp-count-sel>0</b>]</span>
+        </div>
+        <button class="fun-btn primary-btn bp-guardar">Almacenar en Banco de palabras</button>
+      </div>
+    `);
+
+    function refrescarContador() {
+      modal.querySelector("[data-bp-count-sel]").textContent = String(seleccion.size);
+    }
+
+    function refrescarFila(idx) {
+      const el = modal.querySelector(`[data-bp-ex="${idx}"]`);
+      if (el) el.outerHTML = filaEjemplo(examples[idx], idx);
+      wireFila(idx);
+    }
+
+    function wireFila(idx) {
+      const el = modal.querySelector(`[data-bp-ex="${idx}"]`);
+      if (!el) return;
+      el.querySelector(".bp-ejemplo-texto").addEventListener("click", () => {
+        if (seleccion.has(idx)) seleccion.delete(idx); else seleccion.add(idx);
+        refrescarFila(idx);
+        refrescarContador();
+      });
+      el.querySelector(".bp-pencil").addEventListener("click", (e) => {
+        e.stopPropagation();
+        abrirEdicion(idx);
+      });
+    }
+
+    examples.forEach((_, idx) => wireFila(idx));
+
+    function abrirEdicion(idx) {
+      const en = (ediciones[idx] && ediciones[idx].en) || examples[idx].en;
+      const es = (ediciones[idx] && ediciones[idx].es) || examples[idx].es;
+      const sub = document.createElement("div");
+      sub.className = "modal-overlay modal-active bp-modal-overlay bp-sub-overlay";
+      sub.innerHTML = `
+        <div class="modal-friend bp-editar-card">
+          <button class="bp-close" data-bp-close aria-label="Cerrar">✕</button>
+          <label>Inglés<textarea class="bp-edit-en">${T.escapeHTML(en)}</textarea></label>
+          <label>Español<textarea class="bp-edit-es">${T.escapeHTML(es)}</textarea></label>
+          <button class="fun-btn primary-btn bp-guardar-edicion">Guardar</button>
+        </div>`;
+      document.body.appendChild(sub);
+      sub.addEventListener("click", (e) => { if (e.target === sub) sub.remove(); });
+      sub.querySelector("[data-bp-close]").addEventListener("click", () => sub.remove());
+      sub.querySelector(".bp-guardar-edicion").addEventListener("click", () => {
+        ediciones[idx] = {
+          en: sub.querySelector(".bp-edit-en").value.trim(),
+          es: sub.querySelector(".bp-edit-es").value.trim(),
+        };
+        seleccion.add(idx); // editar implica que la quiere usar
+        refrescarFila(idx);
+        refrescarContador();
+        sub.remove();
+      });
+    }
+
+    modal.querySelector(".bp-guardar").addEventListener("click", () => {
+      const palabraId = palabra.toLowerCase();
+      const seleccionadas = Array.from(seleccion).map((idx) => {
+        const base = examples[idx];
+        const edit = ediciones[idx];
+        return {
+          en: edit ? edit.en : base.en,
+          es: edit ? edit.es : base.es,
+          forma: palabraId,
+          origen: "tatoeba",
+        };
+      });
+      global.BancoPalabrasData.guardarPalabra(palabraId, [palabraId], seleccionadas);
+      modal.querySelector(".bp-aprender-card").innerHTML = `<p class="bp-guardado-ok">✅ Guardado en Banco de palabras</p>`;
+      setTimeout(cerrarModal, 1200);
+    });
   }
 
   // ---------- paso 3: "Aprender" (detalle + selección de oraciones) ----------

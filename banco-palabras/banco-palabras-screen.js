@@ -38,7 +38,7 @@
   function filaOracionHTML(o) {
     return `
       <div class="bp-ejemplo" data-bp-oracion="${esc(o.id)}">
-        <span class="bp-ejemplo-texto">“${esc(o.en)}” → ${esc(o.es)} <span class="bp-dim">(${esc(o.forma)} · ${o.origen === "mw" ? "diccionario" : "sistema"})</span></span>
+        <span class="bp-ejemplo-texto">“${esc(o.en)}” → ${esc(o.es)} <span class="bp-dim">(${esc(o.forma)} · ${o.origen === "mw" ? "diccionario" : o.origen === "tatoeba" ? "tatoeba" : "sistema"})</span></span>
         <button class="bp-tabla-borrar" data-bp-borrar-oracion="${esc(o.id)}" aria-label="Borrar oración">🗑️</button>
       </div>`;
   }
