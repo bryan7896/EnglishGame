@@ -246,13 +246,50 @@
     return AppRules.slice().sort((a, b) => (b.porcentaje || 0) - (a.porcentaje || 0) || a.id - b.id);
   }
 
+  // Mini-gráfica de barras (del historial de %, ya cacheado — ver
+  // historialReglaCache) que reemplaza al botón "📊 Ver estadísticas" +
+  // modal de antes: ahora el historial se ve directo en la fila de cada
+  // regla, sin tocar nada. Columnas delgadas, valor diminuto encima de
+  // cada una, coloreada según el % de ESA columna puntual (no el % total
+  // de la regla, que sigue siendo el de la insignia de la derecha).
+  function rlMiniGrafica(reglaId) {
+    const puntos = historialReglaCache(reglaId);
+    if (!puntos.length) return "";
+    return `
+      <div class="rule-avance-chart">
+        ${puntos.map((h) => {
+          const pct = Math.max(0, Math.min(100, Number(h.porcentaje) || 0));
+          return `
+            <div class="rule-avance-col">
+              <span class="rule-avance-val">${Math.round(pct)}</span>
+              <div class="rule-avance-bar tier-${pctTier(pct)}" style="height:${Math.max(4, pct)}%"></div>
+            </div>`;
+        }).join("")}
+      </div>`;
+  }
+
   function rlRenderPct(item, body) {
     const pintar = () => {
       const reglas = rlTodasConOrden();
       const cuenta = { good: 0, warn: 0, bad: 0, nueva: 0 };
       reglas.forEach((r) => { if (r.porcentaje > 0) cuenta[pctTier(r.porcentaje)]++; else cuenta.nueva++; });
-      const fila = (r) => `<div class="rule-card tier-${r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad"} percentages-row">${rlFilaRegla(r)}
-              <button type="button" class="rule-stats-btn" data-id="${r.id}" title="Ver estadísticas">📊</button></div>`;
+      const fila = (r) => {
+        const tier = r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad";
+        const puntos = historialReglaCache(r.id);
+        return `
+          <div class="rule-card tier-${tier} percentages-row">
+            <div class="rule-card-body">
+              <span class="rule-card-top">
+                <span class="rule-select-text">${rlEsc(r.regla)}</span>
+                <span class="rule-avance-badges">
+                  <span class="rule-pct-badge tier-${tier}">${r.porcentaje > 0 ? r.porcentaje + "%" : "Nueva"}</span>
+                  <span class="rule-avance-n" title="Cantidad de registros">n ${puntos.length}</span>
+                </span>
+              </span>
+              ${rlMiniGrafica(r.id)}
+            </div>
+          </div>`;
+      };
       const conPct = reglas.filter((r) => r.porcentaje > 0);
       const sinPct = reglas.filter((r) => !(r.porcentaje > 0));
       body.innerHTML = rlCabecera(["📊 Tu avance", reglas.length + " reglas"]) + `
@@ -271,11 +308,12 @@
           ${typeof irrDisponible === "function" && irrDisponible() ? irrTablaHTML() : ""}
           <button class="fun-btn primary-btn full-width rl-continuar">Continuar ⬆</button>
         </div>`;
-      body.querySelectorAll(".rule-stats-btn").forEach((b) => b.onclick = () => showRuleStatsModal(parseInt(b.dataset.id, 10)));
       body.querySelector(".rl-continuar").onclick = () => rlSorpresaHecha(item);
     };
     pintar();
-    // Si los % todavía se están consultando, se repinta cuando lleguen.
+    // Si los % (y el historial) todavía se están consultando, se repinta
+    // cuando lleguen, para que la mini-gráfica aparezca sin tener que
+    // salir y volver a entrar a esta pantalla.
     if (!RLV.syncListo && RLV.sync) RLV.sync.then(() => { if (RL.cur === item && body.isConnected) pintar(); });
   }
 

@@ -912,6 +912,20 @@ def get_main_logic():
       .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
   }
 
+  // Versión SÍNCRONA (sin pedirle nada al backend) de fetchPercentageHistory:
+  // solo lee lo que ya haya en cachedPercentageHistory (lo llena
+  // syncLatestPercentagesFromBackend al abrir Reels, con hasta 4s de
+  // espera — ver RLV.sync en openReels()). La usa la mini-gráfica de cada
+  // regla en "Tu avance" para no volver a consultar el backend por cada
+  // una; si el cache todavía no está listo (o es de otro idioma), esa
+  // regla simplemente se pinta sin gráfica esta vez.
+  function historialReglaCache(reglaId) {
+    if (cachedPercentageHistoryLang !== getTargetLanguage() || !cachedPercentageHistory) return [];
+    return cachedPercentageHistory
+      .filter((it) => Number(it.reglaId) === Number(reglaId))
+      .sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+  }
+
   const PCT_BONUS_THRESHOLD = 80;
   const PCT_BONUS = 10;
 

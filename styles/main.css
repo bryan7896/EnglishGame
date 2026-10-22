@@ -1753,6 +1753,63 @@ textarea:focus-visible,
 .rule-stats-btn:hover { border-color: var(--info); }
 .rule-stats-btn:active { transform: translateY(3px); box-shadow: 0 0 0 0 var(--line); }
 
+/* "Tu avance" (pantalla de % de todas las reglas): ya no hay botón "📊 Ver
+   estadísticas" ni modal — el historial se ve directo en la fila, como una
+   mini-gráfica de barras debajo del nombre. Padding superior de la tarjeta
+   recortado (14px → 6px, ~60% menos) porque ya no hace falta tanto aire
+   arriba del nombre, e inferior casi nulo para que la tarjeta no quede más
+   alta de lo necesario pese a la gráfica nueva. */
+.rule-card.percentages-row {
+  padding-top: 6px;
+  padding-bottom: 4px;
+}
+.rule-avance-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.rule-avance-n {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
+.rule-avance-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 3px;
+  width: 90%;
+  height: 60px;
+  margin-top: 6px;
+  padding-bottom: 2px;
+  overflow-x: auto;
+}
+.rule-avance-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 8px;
+  height: 100%;
+}
+.rule-avance-val {
+  font-size: 5px;
+  line-height: 1.2;
+  color: var(--ink-faint);
+  margin-bottom: 1px;
+  white-space: nowrap;
+}
+.rule-avance-bar {
+  width: 8px;
+  min-height: 3px;
+  border-radius: 2px 2px 0 0;
+}
+.rule-avance-bar.tier-good { background: var(--good); }
+.rule-avance-bar.tier-warn { background: var(--warn); }
+.rule-avance-bar.tier-bad { background: var(--bad); }
+
 /* ============ GRÁFICA DE BARRAS (historial de %) ============ */
 .stats-chart-container { min-height: 120px; }
 
