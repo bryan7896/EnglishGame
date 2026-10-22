@@ -41,7 +41,10 @@
         espacioCont: 0, espacioN: rlRand(RL_ESPACIO_MIN, RL_ESPACIO_MAX), espacioNivel: 1,
       },
       ultSorpresa: null,
-      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
+      // refuerzoHecho: ya se intentó (en este ciclo de informe) reforzar con
+      // ejercicios del sistema las reglas por debajo del mínimo, para no
+      // insistir sin fin si ya no hay más disponibles para alguna.
+      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false, refuerzoHecho: false },
       historias: { usadas: [], activa: null },
       yt: { usadas: [] },
       recientes: [],      // textos en el idioma objetivo de lo último que se hizo (para YouGlish)
@@ -235,6 +238,7 @@
       RL.reporte.entradas.push(Object.assign({}, entrada, {
         rid: rlUid(),
         reglaIds: (item.ex && item.ex.reglaIds) || [],
+        src: item.src || "sys",
         retry: !!item.retry,
         passed: !!passed,
         fecha: new Date().toISOString(),
@@ -244,16 +248,63 @@
   function rlGrupoKey(e) { return (e.reglaIds || []).slice().sort((a, b) => a - b).join(",") || "none"; }
 
   // Grupos (por regla) que ya tienen al menos RL_MIN_POR_REGLA ejercicios
-  // propios (sin contar los errores corregidos).
+  // propios (sin contar los errores corregidos). Los cargados a mano (src
+  // "man") NO entran aquí: tienen su propio informe aparte (ver más abajo).
   function rlReporteListo() {
       const grupos = {};
-      (RL.reporte.entradas || []).filter((e) => e.type !== "ordenamiento").forEach((e) => {
+      (RL.reporte.entradas || []).filter((e) => e.type !== "ordenamiento" && e.src !== "man").forEach((e) => {
         const k = rlGrupoKey(e);
         (grupos[k] = grupos[k] || { key: k, reglaIds: e.reglaIds || [], ej: [], err: [] });
         (e.retry ? grupos[k].err : grupos[k].ej).push(e);
       });
       const listos = Object.values(grupos).filter((g) => g.ej.length >= RL_MIN_POR_REGLA);
       return { listos, pendientes: Object.values(grupos).filter((g) => g.ej.length < RL_MIN_POR_REGLA) };
+  }
+
+  // ---------- Informe manual (ejercicios cargados a mano) ----------
+  // Aparte del informe por reglas gramaticales: junta TODO lo cargado desde
+  // la reserva manual (src "man"), sin exigir ningún mínimo por regla, y se
+  // entrega de una sola vez cuando ya no queda nada cargado a mano (ni en la
+  // reserva ni todavía en el banco esperando turno). Al confirmar la
+  // entrega se borra ese registro por completo (no ocupa espacio después).
+  function rlManualPendiente() {
+      if (RL.reserva.length) return true;
+      return RL.banco.some((it) => it.k === "ex" && it.src === "man");
+  }
+
+  function rlEntradasManual() {
+      return (RL.reporte.entradas || []).filter((e) => e.type !== "ordenamiento" && e.src === "man");
+  }
+
+  function rlReporteManualListo() {
+      return rlEntradasManual().length > 0 && !rlManualPendiente();
+  }
+
+  function rlConstruirReporteManual() {
+      const entradas = rlEntradasManual();
+      const lines = [];
+      const hoy = new Date().toLocaleDateString("es-CO", { year: "numeric", month: "2-digit", day: "2-digit" });
+      lines.push("📘 INFORME DE EJERCICIOS MANUALES (" + getTargetLangMeta().label + ")");
+      lines.push("📅 " + hoy);
+      lines.push("=".repeat(40));
+      lines.push("");
+      const counter = { n: 0 };
+      const ej = entradas.filter((e) => !e.retry);
+      const err = entradas.filter((e) => e.retry);
+      lines.push("📝 Ejercicios realizados (" + ej.length + ")");
+      ej.forEach((e) => { counter.n++; formatReportEntryLines(counter.n, e).forEach((l) => lines.push(l)); });
+      if (err.length) {
+        lines.push("");
+        lines.push("🔧 Errores corregidos (" + err.length + ")");
+        err.forEach((e) => { counter.n++; formatReportEntryLines(counter.n, e).forEach((l) => lines.push(l)); });
+      }
+      const rids = new Set(entradas.map((e) => e.rid));
+      return { texto: lines.join("\n"), rids, total: rids.size };
+  }
+
+  function rlReporteManualConfirmado(rids) {
+      RL.reporte.entradas = RL.reporte.entradas.filter((e) => !rids.has(e.rid));
+      rlGuardar();
   }
 
   function rlConstruirReporte() {
@@ -292,6 +343,7 @@
     RL.reporte.mundo = [];
     RL.reporte.ultimoTexto = texto;
     RL.reporte.pendiente = false;
+    RL.reporte.refuerzoHecho = false;
     RL.cont.reporte = 0;
     RL.cont.proxReporte = rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX);
     rlGuardar();
@@ -454,7 +506,7 @@
   }
 
   // ---------- Historia de estudio ----------
-  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening", irr: "irregulares", tatoeba: "tatoeba" };
+  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", reporteManual: "reporte manual", listening: "listening", irr: "irregulares", tatoeba: "tatoeba" };
   function rlAnotar(item, nota) {
     if (!RL) return;
     let tipo = "—";
@@ -746,6 +798,7 @@
           <h3>📥 Agregar ejercicios</h3>
           <button class="menu-modal-close" aria-label="Cerrar">✕</button>
         </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Mismo formato de siempre (traducciones, completar, seleccionar, corregir${getTargetLanguage() === "it" ? ", dictado" : ""}) con sus <b>reglaIds</b>. Guarda tandas con un título para reutilizarlas cuando quieras — solo entran a la reserva (30 tuyos por cada 20 del sistema) cuando las marcas y le das "Cargar al juego".</p>
 
         <label class="rl-lote-label" for="rlLoteTituloInput">Título de la tanda</label>
         <input type="text" id="rlLoteTituloInput" class="answer-input rl-lote-titulo-input" placeholder="Ej: Verbos modales — tanda 3">

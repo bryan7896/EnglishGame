@@ -12085,7 +12085,10 @@ function n1ReelsTerminar() {
         espacioCont: 0, espacioN: rlRand(RL_ESPACIO_MIN, RL_ESPACIO_MAX), espacioNivel: 1,
       },
       ultSorpresa: null,
-      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
+      // refuerzoHecho: ya se intentó (en este ciclo de informe) reforzar con
+      // ejercicios del sistema las reglas por debajo del mínimo, para no
+      // insistir sin fin si ya no hay más disponibles para alguna.
+      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false, refuerzoHecho: false },
       historias: { usadas: [], activa: null },
       yt: { usadas: [] },
       recientes: [],      // textos en el idioma objetivo de lo último que se hizo (para YouGlish)
@@ -12279,6 +12282,7 @@ function n1ReelsTerminar() {
       RL.reporte.entradas.push(Object.assign({}, entrada, {
         rid: rlUid(),
         reglaIds: (item.ex && item.ex.reglaIds) || [],
+        src: item.src || "sys",
         retry: !!item.retry,
         passed: !!passed,
         fecha: new Date().toISOString(),
@@ -12288,16 +12292,63 @@ function n1ReelsTerminar() {
   function rlGrupoKey(e) { return (e.reglaIds || []).slice().sort((a, b) => a - b).join(",") || "none"; }
 
   // Grupos (por regla) que ya tienen al menos RL_MIN_POR_REGLA ejercicios
-  // propios (sin contar los errores corregidos).
+  // propios (sin contar los errores corregidos). Los cargados a mano (src
+  // "man") NO entran aquí: tienen su propio informe aparte (ver más abajo).
   function rlReporteListo() {
       const grupos = {};
-      (RL.reporte.entradas || []).filter((e) => e.type !== "ordenamiento").forEach((e) => {
+      (RL.reporte.entradas || []).filter((e) => e.type !== "ordenamiento" && e.src !== "man").forEach((e) => {
         const k = rlGrupoKey(e);
         (grupos[k] = grupos[k] || { key: k, reglaIds: e.reglaIds || [], ej: [], err: [] });
         (e.retry ? grupos[k].err : grupos[k].ej).push(e);
       });
       const listos = Object.values(grupos).filter((g) => g.ej.length >= RL_MIN_POR_REGLA);
       return { listos, pendientes: Object.values(grupos).filter((g) => g.ej.length < RL_MIN_POR_REGLA) };
+  }
+
+  // ---------- Informe manual (ejercicios cargados a mano) ----------
+  // Aparte del informe por reglas gramaticales: junta TODO lo cargado desde
+  // la reserva manual (src "man"), sin exigir ningún mínimo por regla, y se
+  // entrega de una sola vez cuando ya no queda nada cargado a mano (ni en la
+  // reserva ni todavía en el banco esperando turno). Al confirmar la
+  // entrega se borra ese registro por completo (no ocupa espacio después).
+  function rlManualPendiente() {
+      if (RL.reserva.length) return true;
+      return RL.banco.some((it) => it.k === "ex" && it.src === "man");
+  }
+
+  function rlEntradasManual() {
+      return (RL.reporte.entradas || []).filter((e) => e.type !== "ordenamiento" && e.src === "man");
+  }
+
+  function rlReporteManualListo() {
+      return rlEntradasManual().length > 0 && !rlManualPendiente();
+  }
+
+  function rlConstruirReporteManual() {
+      const entradas = rlEntradasManual();
+      const lines = [];
+      const hoy = new Date().toLocaleDateString("es-CO", { year: "numeric", month: "2-digit", day: "2-digit" });
+      lines.push("📘 INFORME DE EJERCICIOS MANUALES (" + getTargetLangMeta().label + ")");
+      lines.push("📅 " + hoy);
+      lines.push("=".repeat(40));
+      lines.push("");
+      const counter = { n: 0 };
+      const ej = entradas.filter((e) => !e.retry);
+      const err = entradas.filter((e) => e.retry);
+      lines.push("📝 Ejercicios realizados (" + ej.length + ")");
+      ej.forEach((e) => { counter.n++; formatReportEntryLines(counter.n, e).forEach((l) => lines.push(l)); });
+      if (err.length) {
+        lines.push("");
+        lines.push("🔧 Errores corregidos (" + err.length + ")");
+        err.forEach((e) => { counter.n++; formatReportEntryLines(counter.n, e).forEach((l) => lines.push(l)); });
+      }
+      const rids = new Set(entradas.map((e) => e.rid));
+      return { texto: lines.join("\n"), rids, total: rids.size };
+  }
+
+  function rlReporteManualConfirmado(rids) {
+      RL.reporte.entradas = RL.reporte.entradas.filter((e) => !rids.has(e.rid));
+      rlGuardar();
   }
 
   function rlConstruirReporte() {
@@ -12336,6 +12387,7 @@ function n1ReelsTerminar() {
     RL.reporte.mundo = [];
     RL.reporte.ultimoTexto = texto;
     RL.reporte.pendiente = false;
+    RL.reporte.refuerzoHecho = false;
     RL.cont.reporte = 0;
     RL.cont.proxReporte = rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX);
     rlGuardar();
@@ -12498,7 +12550,7 @@ function n1ReelsTerminar() {
   }
 
   // ---------- Historia de estudio ----------
-  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", listening: "listening", irr: "irregulares", tatoeba: "tatoeba" };
+  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", reporteManual: "reporte manual", listening: "listening", irr: "irregulares", tatoeba: "tatoeba" };
   function rlAnotar(item, nota) {
     if (!RL) return;
     let tipo = "—";
@@ -12790,6 +12842,7 @@ function n1ReelsTerminar() {
           <h3>📥 Agregar ejercicios</h3>
           <button class="menu-modal-close" aria-label="Cerrar">✕</button>
         </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Mismo formato de siempre (traducciones, completar, seleccionar, corregir${getTargetLanguage() === "it" ? ", dictado" : ""}) con sus <b>reglaIds</b>. Guarda tandas con un título para reutilizarlas cuando quieras — solo entran a la reserva (30 tuyos por cada 20 del sistema) cuando las marcas y le das "Cargar al juego".</p>
 
         <label class="rl-lote-label" for="rlLoteTituloInput">Título de la tanda</label>
         <input type="text" id="rlLoteTituloInput" class="answer-input rl-lote-titulo-input" placeholder="Ej: Verbos modales — tanda 3">
@@ -13000,10 +13053,27 @@ function n1ReelsTerminar() {
   const RL_MAX_VOTOS_REGLA = 3; // tope de casillas marcables por regla en "Elige qué estudiar"
 
   function rlElegirSorpresa() {
-    // El informe manda: si ya toca (o quedó pendiente) y hay algo listo.
-    const listo = rlReporteListo().listos.length > 0;
-    if (listo && (RL.reporte.pendiente || RL.cont.reporte >= RL.cont.proxReporte)) return "reporte";
-    if (!listo && RL.cont.reporte >= RL.cont.proxReporte) RL.cont.proxReporte = RL.cont.reporte + 10;
+    // El informe de ejercicios manuales manda primero: entrega única (todo
+    // junto, sin mínimo por regla) en cuanto ya no queda nada cargado a
+    // mano pendiente (ver rlReporteManualListo en reels-core.js).
+    if (rlReporteManualListo()) return "reporteManual";
+
+    // El informe de reglas gramaticales manda después: si ya toca (o quedó
+    // pendiente), se intenta entregar COMPLETO. Antes de disparar, si hay
+    // reglas por debajo del mínimo pero con más ejercicios disponibles en
+    // el banco del sistema, se refuerzan en silencio (sin mostrar nada esta
+    // vuelta) para que, al momento de la entrega, no quede nada pendiente.
+    const tocaInforme = RL.reporte.pendiente || RL.cont.reporte >= RL.cont.proxReporte;
+    if (tocaInforme) {
+      const { listos, pendientes } = rlReporteListo();
+      if (pendientes.length && !RL.reporte.refuerzoHecho && rlReforzarReglasDeficitarias(pendientes)) {
+        RL.cont.proxReporte = RL.cont.reporte + 10; // dar tiempo a que se resuelvan antes de volver a intentar
+      } else if (listos.length) {
+        return "reporte";
+      } else {
+        RL.cont.proxReporte = RL.cont.reporte + 10;
+      }
+    }
 
     if (rlContarBanco() < RL_MIN_OBLIGATORIO && (rlReglasDisponibles().length || RL.reserva.length)) return "reglas";
 
@@ -13018,6 +13088,33 @@ function n1ReelsTerminar() {
     let r = Math.random() * total;
     for (const t of lista) { r -= RL_PESOS[t]; if (r <= 0) return t; }
     return lista[lista.length - 1];
+  }
+
+  // Intenta completar (con ejercicios del sistema) las reglas que todavía
+  // están por debajo de RL_MIN_POR_REGLA para que el informe se pueda
+  // entregar completo. Solo cuenta como reforzable una regla si de verdad
+  // hay más ejercicios suyos disponibles (si no, se deja pendiente para el
+  // próximo informe, como antes). No se repite más de una vez por ciclo de
+  // informe (RL.reporte.refuerzoHecho) para no insistir sin fin cuando una
+  // regla ya se quedó sin más contenido.
+  function rlReforzarReglasDeficitarias(pendientes) {
+    const candidatas = pendientes.filter((g) => g.reglaIds.length && g.reglaIds.some((id) => rlEjerciciosDeRegla(id).length > 0));
+    if (!candidatas.length) return false;
+    const elegidos = new Set();
+    const nuevas = [];
+    candidatas.forEach((g) => {
+      const faltan = Math.max(0, RL_MIN_POR_REGLA - g.ej.length);
+      if (!faltan) return;
+      g.reglaIds.forEach((id) => {
+        rlTomarDeRegla(id, faltan, elegidos).forEach((e) => nuevas.push(rlItemEx(e, "sys")));
+      });
+    });
+    if (!nuevas.length) return false;
+    rlSumarDia("cargadosSistema", nuevas.length);
+    rlMezclarEnBanco(nuevas);
+    RL.reporte.refuerzoHecho = true;
+    rlGuardar();
+    return true;
   }
 
   // ==================== FEATURE 4: "espacio" (scheduler unificado) ====================
@@ -13195,6 +13292,7 @@ function n1ReelsTerminar() {
       case "reglas": return rlRenderReglas(item, body);
       case "pct": return rlRenderPct(item, body);
       case "reporte": return rlRenderReporte(item, body);
+      case "reporteManual": return rlRenderReporteManual(item, body);
       case "historia": return rlRenderHistoria(item, body);
       case "yt": return rlRenderYT(item, body);
       case "listening": return rlRenderListening(item, body);
@@ -13556,6 +13654,35 @@ function n1ReelsTerminar() {
     };
     body.querySelector(".rl-luego").onclick = () => { RL.reporte.pendiente = true; rlSorpresaHecha(item); };
     body.querySelector(".rl-ultimo")?.addEventListener("click", () => copiar(RL.reporte.ultimoTexto));
+  }
+
+  // ---------- 4b. Informe manual (entrega única, sin mínimo por regla) ----------
+  function rlRenderReporteManual(item, body) {
+    const rep = rlConstruirReporteManual();
+    body.innerHTML = rlCabecera(["📋 Informe (manual)"]) + `
+      <div class="rl-sorpresa rl-reporte">
+        <p class="rl-sub">Ya resolviste todos tus <b>${rep.total}</b> ejercicios cargados a mano. Aquí va el informe completo, de una sola entrega.</p>
+        <textarea class="report rl-report-text" rows="9" readonly></textarea>
+        <div class="rl-rep-btns">
+          <button class="fun-btn primary-btn rl-copiar">📋 Copiar reporte</button>
+          <button class="fun-btn rl-pegado" disabled>✅ Ya lo pegué</button>
+        </div>
+        <button class="fun-btn full-width rl-luego">⏭ Más tarde</button>
+      </div>`;
+    body.querySelector(".rl-report-text").value = rep.texto;
+    const copiar = (txt) => {
+      const ok = () => toast("📋 Informe copiado");
+      if (navigator.clipboard?.writeText) navigator.clipboard.writeText(txt).then(ok).catch(() => { rlCopiaManual(body, txt); });
+      else rlCopiaManual(body, txt);
+    };
+    body.querySelector(".rl-copiar").onclick = () => { copiar(rep.texto); body.querySelector(".rl-pegado").disabled = false; };
+    body.querySelector(".rl-pegado").onclick = () => {
+      rlReporteManualConfirmado(rep.rids);
+      burstConfetti();
+      toast("🧹 Informe manual entregado y borrado. ¡A seguir!");
+      rlSorpresaHecha(item);
+    };
+    body.querySelector(".rl-luego").onclick = () => rlSorpresaHecha(item);
   }
 
   function rlCopiaManual(body, txt) {
