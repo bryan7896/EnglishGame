@@ -590,9 +590,14 @@
   function rlRenderReporte(item, body) {
     const rep = rlConstruirReporte();
     const pend = rlReporteListo().pendientes;
+    // Cantidad de ejercicios (no de reglas) que quedan guardados en el
+    // informe sin poder entregarse todavía (reglas que, aun después de
+    // intentar reforzarlas, siguen con menos de RL_MIN_POR_REGLA).
+    const pendEj = pend.reduce((s, g) => s + g.ej.length + g.err.length, 0);
     body.innerHTML = rlCabecera(["📋 Informe"]) + `
       <div class="rl-sorpresa rl-reporte">
         <p class="rl-sub"><b>${rep.total}</b> ejercicios en <b>${rep.grupos}</b> regla${rep.grupos === 1 ? "" : "s"} (mínimo ${RL_MIN_POR_REGLA} por regla). ${pend.length ? pend.length + " regla(s) con menos de " + RL_MIN_POR_REGLA + " quedan para el próximo." : ""}</p>
+        ${pendEj ? `<p class="rl-sub rl-pend-ej">📦 ${pendEj} ejercicio${pendEj === 1 ? "" : "s"} guardado${pendEj === 1 ? "" : "s"} sin entregar todavía.</p>` : ""}
         <textarea class="report rl-report-text" rows="9" readonly></textarea>
         <div class="rl-rep-btns">
           <button class="fun-btn primary-btn rl-copiar">📋 Copiar reporte</button>
