@@ -302,11 +302,16 @@
   // sin restricción — no hace falta comprimirla para que "quepa".
   const RL_EMA_ALPHA = 0.30;
 
-  // E_0 = 0; E_t = α·X_t + (1-α)·E_(t-1). Devuelve un array paralelo a
-  // "puntos" con el valor de la EMA en cada posición.
+  // E_1 = X_1 (la EMA arranca igual al primer valor real, no en 0 — si no,
+  // con un primer registro alto, p. ej. 70%, la línea de tendencia
+  // arrancaría falseada cerca de 0 en vez de cerca de ese 70%); desde ahí
+  // en adelante, la fórmula recursiva normal: E_t = α·X_t + (1-α)·E_(t-1).
+  // Devuelve un array paralelo a "puntos" con el valor de la EMA en cada
+  // posición.
   function rlCalcularEMA(puntosPct) {
-    let ema = 0;
-    return puntosPct.map((pct) => {
+    let ema = puntosPct.length ? puntosPct[0] : 0;
+    return puntosPct.map((pct, i) => {
+      if (i === 0) return ema;
       ema = RL_EMA_ALPHA * pct + (1 - RL_EMA_ALPHA) * ema;
       return ema;
     });
@@ -351,9 +356,22 @@
       </div>`;
   }
 
+  // Última EMA calculada para una regla (para poder ordenar "Tu avance" por
+  // tendencia en vez de por el % actual). -1 si no tiene historial, para
+  // que esas queden siempre al final al ordenar descendente.
+  function rlUltimaEMA(reglaId) {
+    const historial = historialReglaCache(reglaId);
+    if (!historial.length) return -1;
+    const puntosPct = historial.map((h) => Math.max(0, Math.min(100, Number(h.porcentaje) || 0)));
+    const emaSerie = rlCalcularEMA(puntosPct);
+    return emaSerie[emaSerie.length - 1];
+  }
+
   function rlRenderPct(item, body) {
+    let orden = "pct"; // "pct" (% actual, el de siempre) o "ema" (tendencia EMA)
     const pintar = () => {
       const reglas = rlTodasConOrden();
+      if (orden === "ema") reglas.sort((a, b) => rlUltimaEMA(b.id) - rlUltimaEMA(a.id) || a.id - b.id);
       const cuenta = { good: 0, warn: 0, bad: 0, nueva: 0 };
       reglas.forEach((r) => { if (r.porcentaje > 0) cuenta[pctTier(r.porcentaje)]++; else cuenta.nueva++; });
       const fila = (r) => {
@@ -378,6 +396,10 @@
       body.innerHTML = rlCabecera(["📊 Tu avance", reglas.length + " reglas"]) + `
         <div class="rl-sorpresa rl-pct rl-pct-todas">
           <h2 class="rl-title">Así vas en tus reglas</h2>
+          <div class="rl-pct-orden" role="group" aria-label="Ordenar por">
+            <button class="fun-btn rl-orden-btn${orden === "pct" ? " active" : ""}" data-orden="pct">📊 % actual</button>
+            <button class="fun-btn rl-orden-btn${orden === "ema" ? " active" : ""}" data-orden="ema">📈 Tendencia EMA</button>
+          </div>
           <div class="rl-pct-resumen">
             <span class="tier-good">● ${cuenta.good} verdes</span>
             <span class="tier-warn">● ${cuenta.warn} naranjas</span>
@@ -392,6 +414,9 @@
           <button class="fun-btn primary-btn full-width rl-continuar">Continuar ⬆</button>
         </div>`;
       body.querySelector(".rl-continuar").onclick = () => rlSorpresaHecha(item);
+      body.querySelectorAll(".rl-orden-btn").forEach((b) => {
+        b.onclick = () => { orden = b.dataset.orden; pintar(); };
+      });
     };
     pintar();
     // Si los % (y el historial) todavía se están consultando, se repinta

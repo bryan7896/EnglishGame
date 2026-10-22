@@ -1836,6 +1836,25 @@ textarea:focus-visible,
 .rl-ema-label.tier-warn { fill: var(--warn); }
 .rl-ema-label.tier-bad { fill: var(--bad); }
 
+/* "Tu avance": par de botones para elegir cómo se ordena el listado de
+   reglas — por % actual (de siempre) o por tendencia EMA. */
+.rl-pct-orden {
+  display: flex;
+  gap: 8px;
+  margin: 2px 0 10px;
+}
+.rl-orden-btn {
+  flex: 1;
+  padding: 7px 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.rl-orden-btn.active {
+  background: var(--brand-light);
+  color: #fff;
+  box-shadow: inset 0 0 0 2px var(--brand-dark);
+}
+
 /* ============ GRÁFICA DE BARRAS (historial de %) ============ */
 .stats-chart-container { min-height: 120px; }
 
