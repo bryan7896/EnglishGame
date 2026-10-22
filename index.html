@@ -1768,12 +1768,13 @@ textarea:focus-visible,
 .rule-stats-btn:hover { border-color: var(--info); }
 .rule-stats-btn:active { transform: translateY(3px); box-shadow: 0 0 0 0 var(--line); }
 
-/* "Tu avance" (pantalla de % de todas las reglas): ya no hay botón "📊 Ver
-   estadísticas" ni modal — el historial se ve directo en la fila, como una
-   mini-gráfica de barras debajo del nombre. Padding superior de la tarjeta
-   recortado (14px → 6px, ~60% menos) porque ya no hace falta tanto aire
-   arriba del nombre, e inferior casi nulo para que la tarjeta no quede más
-   alta de lo necesario pese a la gráfica nueva. */
+/* "Tu avance" (pantalla de % de todas las reglas) y, ahora también, la
+   pantalla "Elige qué estudiar" (los 3 checkbox): el historial se ve
+   directo en la fila, como una mini-gráfica de LÍNEAS (real + tendencia
+   EMA) debajo del nombre. Padding superior de la tarjeta recortado
+   (14px → 6px, ~60% menos) porque ya no hace falta tanto aire arriba del
+   nombre, e inferior casi nulo para que la tarjeta no quede más alta de
+   lo necesario pese a la gráfica nueva. */
 .rule-card.percentages-row {
   padding-top: 6px;
   padding-bottom: 4px;
@@ -1790,40 +1791,65 @@ textarea:focus-visible,
   color: var(--ink-faint);
   white-space: nowrap;
 }
-.rule-avance-chart {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap: 3px;
-  width: 90%;
-  height: 60px;
+.rule-avance-wrap {
   margin-top: 6px;
-  padding-bottom: 2px;
-  overflow-x: auto;
+  width: 100%;
 }
-.rule-avance-col {
+.rule-avance-leyenda {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  flex: 0 0 8px;
-  height: 100%;
+  gap: 10px;
+  margin-bottom: 2px;
 }
-.rule-avance-val {
-  font-size: 5px;
-  line-height: 1.2;
-  color: var(--ink-faint);
-  margin-bottom: 1px;
+.rl-ema-leg {
+  font-size: 0.62rem;
+  font-weight: 700;
   white-space: nowrap;
 }
-.rule-avance-bar {
-  width: 8px;
-  min-height: 3px;
-  border-radius: 2px 2px 0 0;
+.rl-ema-leg-real { color: var(--ink-faint); }
+.rl-ema-leg-ema { color: #7c5cff; }
+.rule-avance-chart {
+  width: 90%;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  -webkit-overflow-scrolling: touch;
 }
-.rule-avance-bar.tier-good { background: var(--good); }
-.rule-avance-bar.tier-warn { background: var(--warn); }
-.rule-avance-bar.tier-bad { background: var(--bad); }
+.rl-ema-svg {
+  display: block;
+}
+.rl-ema-line-real {
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+.rl-ema-line-ema {
+  fill: none;
+  stroke: #7c5cff;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.rl-ema-dot {
+  stroke: none;
+}
+.rl-ema-dot.tier-good { fill: var(--good); }
+.rl-ema-dot.tier-warn { fill: var(--warn); }
+.rl-ema-dot.tier-bad { fill: var(--bad); }
+.rl-ema-dot-ema {
+  fill: #7c5cff;
+  stroke: #fff;
+  stroke-width: 0.6;
+}
+.rl-ema-label {
+  font-size: 5px;
+  font-weight: 700;
+}
+.rl-ema-label.tier-good { fill: var(--good); }
+.rl-ema-label.tier-warn { fill: var(--warn); }
+.rl-ema-label.tier-bad { fill: var(--bad); }
 
 /* ============ GRÁFICA DE BARRAS (historial de %) ============ */
 .stats-chart-container { min-height: 120px; }
@@ -13205,25 +13231,63 @@ function n1ReelsTerminar() {
     return AppRules.slice().sort((a, b) => (b.porcentaje || 0) - (a.porcentaje || 0) || a.id - b.id);
   }
 
-  // Mini-gráfica de barras (del historial de %, ya cacheado — ver
+  // Mini-gráfica de LÍNEAS (del historial de %, ya cacheado — ver
   // historialReglaCache) que reemplaza al botón "📊 Ver estadísticas" +
   // modal de antes: ahora el historial se ve directo en la fila de cada
-  // regla, sin tocar nada. Columnas delgadas, valor diminuto encima de
-  // cada una, coloreada según el % de ESA columna puntual (no el % total
-  // de la regla, que sigue siendo el de la insignia de la derecha).
+  // regla, sin tocar nada. Muestra 2 series — el resultado real de cada
+  // registro y su tendencia EMA (media móvil exponencial, α=0.30), que
+  // suaviza el ruido y refleja mejor "para dónde va" el dominio de la
+  // regla que el promedio plano de toda la historia. Puntos bien
+  // espaciados (40px c/u) porque la gráfica es scrolleable horizontalmente
+  // sin restricción — no hace falta comprimirla para que "quepa".
+  const RL_EMA_ALPHA = 0.30;
+
+  // E_0 = 0; E_t = α·X_t + (1-α)·E_(t-1). Devuelve un array paralelo a
+  // "puntos" con el valor de la EMA en cada posición.
+  function rlCalcularEMA(puntosPct) {
+    let ema = 0;
+    return puntosPct.map((pct) => {
+      ema = RL_EMA_ALPHA * pct + (1 - RL_EMA_ALPHA) * ema;
+      return ema;
+    });
+  }
+
   function rlMiniGrafica(reglaId) {
-    const puntos = historialReglaCache(reglaId);
-    if (!puntos.length) return "";
+    const historial = historialReglaCache(reglaId);
+    if (!historial.length) return "";
+    const puntosPct = historial.map((h) => Math.max(0, Math.min(100, Number(h.porcentaje) || 0)));
+    const emaSerie = rlCalcularEMA(puntosPct);
+    const emaFinal = Math.round(emaSerie[emaSerie.length - 1]);
+
+    const STEP = 40;   // espacio horizontal entre puntos (antes ~11px de barra+gap)
+    const ALTO = 72;
+    const PAD_TOP = 13; // aire arriba para que el valor no se corte
+    const PAD_BOT = 6;
+    const w = Math.max(STEP, puntosPct.length * STEP);
+    const x = (i) => Math.round(i * STEP + STEP / 2);
+    const y = (pct) => Math.round(PAD_TOP + (ALTO - PAD_TOP - PAD_BOT) * (1 - pct / 100));
+
+    const lineaReal = puntosPct.map((pct, i) => x(i) + "," + y(pct)).join(" ");
+    const lineaEma = emaSerie.map((v, i) => x(i) + "," + y(v)).join(" ");
+    const puntosReal = puntosPct.map((pct, i) => `<circle cx="${x(i)}" cy="${y(pct)}" r="2.2" class="rl-ema-dot tier-${pctTier(pct)}"></circle>`).join("");
+    const puntosEma = emaSerie.map((v, i) => `<circle cx="${x(i)}" cy="${y(v)}" r="2" class="rl-ema-dot-ema"></circle>`).join("");
+    const etiquetasReal = puntosPct.map((pct, i) => `<text x="${x(i)}" y="${y(pct) - 4}" text-anchor="middle" class="rl-ema-label tier-${pctTier(pct)}">${Math.round(pct)}</text>`).join("");
+
     return `
-      <div class="rule-avance-chart">
-        ${puntos.map((h) => {
-          const pct = Math.max(0, Math.min(100, Number(h.porcentaje) || 0));
-          return `
-            <div class="rule-avance-col">
-              <span class="rule-avance-val">${Math.round(pct)}</span>
-              <div class="rule-avance-bar tier-${pctTier(pct)}" style="height:${Math.max(4, pct)}%"></div>
-            </div>`;
-        }).join("")}
+      <div class="rule-avance-wrap">
+        <div class="rule-avance-leyenda">
+          <span class="rl-ema-leg rl-ema-leg-real">● Real</span>
+          <span class="rl-ema-leg rl-ema-leg-ema">— Tendencia EMA · ${emaFinal}%</span>
+        </div>
+        <div class="rule-avance-chart">
+          <svg class="rl-ema-svg" width="${w}" height="${ALTO}" viewBox="0 0 ${w} ${ALTO}" preserveAspectRatio="xMinYMid meet">
+            <polyline points="${lineaEma}" class="rl-ema-line-ema"></polyline>
+            <polyline points="${lineaReal}" class="rl-ema-line-real"></polyline>
+            ${puntosEma}
+            ${puntosReal}
+            ${etiquetasReal}
+          </svg>
+        </div>
       </div>`;
   }
 
@@ -13370,7 +13434,7 @@ function n1ReelsTerminar() {
               <div class="rule-check-group" role="group" aria-label="Cantidad de ejercicios para ${rlEsc(r.regla)}">
                 ${[1, 2, 3].map((n) => `<label class="rule-check-item"><input type="checkbox" class="rule-select-checkbox" data-id="${r.id}" data-n="${n}"><span class="rule-check" aria-hidden="true">${n}</span></label>`).join("")}
               </div>
-              ${rlFilaRegla(r, `<span class="rule-card-bottom"><span class="rule-select-count">${r.porcentaje > 0 ? "" : "💡 Incluye lección de información · "}${rlEjerciciosDeRegla(r.id).length} ejercicios</span></span>`)}
+              ${rlFilaRegla(r, `<span class="rule-card-bottom"><span class="rule-select-count">${r.porcentaje > 0 ? "" : "💡 Incluye lección de información · "}${rlEjerciciosDeRegla(r.id).length} ejercicios</span></span>${rlMiniGrafica(r.id)}`)}
             </div>`;
           }).join("")}
         </div>` : ""}

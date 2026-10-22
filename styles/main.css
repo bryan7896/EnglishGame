@@ -1753,12 +1753,13 @@ textarea:focus-visible,
 .rule-stats-btn:hover { border-color: var(--info); }
 .rule-stats-btn:active { transform: translateY(3px); box-shadow: 0 0 0 0 var(--line); }
 
-/* "Tu avance" (pantalla de % de todas las reglas): ya no hay botón "📊 Ver
-   estadísticas" ni modal — el historial se ve directo en la fila, como una
-   mini-gráfica de barras debajo del nombre. Padding superior de la tarjeta
-   recortado (14px → 6px, ~60% menos) porque ya no hace falta tanto aire
-   arriba del nombre, e inferior casi nulo para que la tarjeta no quede más
-   alta de lo necesario pese a la gráfica nueva. */
+/* "Tu avance" (pantalla de % de todas las reglas) y, ahora también, la
+   pantalla "Elige qué estudiar" (los 3 checkbox): el historial se ve
+   directo en la fila, como una mini-gráfica de LÍNEAS (real + tendencia
+   EMA) debajo del nombre. Padding superior de la tarjeta recortado
+   (14px → 6px, ~60% menos) porque ya no hace falta tanto aire arriba del
+   nombre, e inferior casi nulo para que la tarjeta no quede más alta de
+   lo necesario pese a la gráfica nueva. */
 .rule-card.percentages-row {
   padding-top: 6px;
   padding-bottom: 4px;
@@ -1775,40 +1776,65 @@ textarea:focus-visible,
   color: var(--ink-faint);
   white-space: nowrap;
 }
-.rule-avance-chart {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap: 3px;
-  width: 90%;
-  height: 60px;
+.rule-avance-wrap {
   margin-top: 6px;
-  padding-bottom: 2px;
-  overflow-x: auto;
+  width: 100%;
 }
-.rule-avance-col {
+.rule-avance-leyenda {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  flex: 0 0 8px;
-  height: 100%;
+  gap: 10px;
+  margin-bottom: 2px;
 }
-.rule-avance-val {
-  font-size: 5px;
-  line-height: 1.2;
-  color: var(--ink-faint);
-  margin-bottom: 1px;
+.rl-ema-leg {
+  font-size: 0.62rem;
+  font-weight: 700;
   white-space: nowrap;
 }
-.rule-avance-bar {
-  width: 8px;
-  min-height: 3px;
-  border-radius: 2px 2px 0 0;
+.rl-ema-leg-real { color: var(--ink-faint); }
+.rl-ema-leg-ema { color: #7c5cff; }
+.rule-avance-chart {
+  width: 90%;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  -webkit-overflow-scrolling: touch;
 }
-.rule-avance-bar.tier-good { background: var(--good); }
-.rule-avance-bar.tier-warn { background: var(--warn); }
-.rule-avance-bar.tier-bad { background: var(--bad); }
+.rl-ema-svg {
+  display: block;
+}
+.rl-ema-line-real {
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+.rl-ema-line-ema {
+  fill: none;
+  stroke: #7c5cff;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.rl-ema-dot {
+  stroke: none;
+}
+.rl-ema-dot.tier-good { fill: var(--good); }
+.rl-ema-dot.tier-warn { fill: var(--warn); }
+.rl-ema-dot.tier-bad { fill: var(--bad); }
+.rl-ema-dot-ema {
+  fill: #7c5cff;
+  stroke: #fff;
+  stroke-width: 0.6;
+}
+.rl-ema-label {
+  font-size: 5px;
+  font-weight: 700;
+}
+.rl-ema-label.tier-good { fill: var(--good); }
+.rl-ema-label.tier-warn { fill: var(--warn); }
+.rl-ema-label.tier-bad { fill: var(--bad); }
 
 /* ============ GRÁFICA DE BARRAS (historial de %) ============ */
 .stats-chart-container { min-height: 120px; }

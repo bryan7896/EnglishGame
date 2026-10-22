@@ -246,25 +246,63 @@
     return AppRules.slice().sort((a, b) => (b.porcentaje || 0) - (a.porcentaje || 0) || a.id - b.id);
   }
 
-  // Mini-gráfica de barras (del historial de %, ya cacheado — ver
+  // Mini-gráfica de LÍNEAS (del historial de %, ya cacheado — ver
   // historialReglaCache) que reemplaza al botón "📊 Ver estadísticas" +
   // modal de antes: ahora el historial se ve directo en la fila de cada
-  // regla, sin tocar nada. Columnas delgadas, valor diminuto encima de
-  // cada una, coloreada según el % de ESA columna puntual (no el % total
-  // de la regla, que sigue siendo el de la insignia de la derecha).
+  // regla, sin tocar nada. Muestra 2 series — el resultado real de cada
+  // registro y su tendencia EMA (media móvil exponencial, α=0.30), que
+  // suaviza el ruido y refleja mejor "para dónde va" el dominio de la
+  // regla que el promedio plano de toda la historia. Puntos bien
+  // espaciados (40px c/u) porque la gráfica es scrolleable horizontalmente
+  // sin restricción — no hace falta comprimirla para que "quepa".
+  const RL_EMA_ALPHA = 0.30;
+
+  // E_0 = 0; E_t = α·X_t + (1-α)·E_(t-1). Devuelve un array paralelo a
+  // "puntos" con el valor de la EMA en cada posición.
+  function rlCalcularEMA(puntosPct) {
+    let ema = 0;
+    return puntosPct.map((pct) => {
+      ema = RL_EMA_ALPHA * pct + (1 - RL_EMA_ALPHA) * ema;
+      return ema;
+    });
+  }
+
   function rlMiniGrafica(reglaId) {
-    const puntos = historialReglaCache(reglaId);
-    if (!puntos.length) return "";
+    const historial = historialReglaCache(reglaId);
+    if (!historial.length) return "";
+    const puntosPct = historial.map((h) => Math.max(0, Math.min(100, Number(h.porcentaje) || 0)));
+    const emaSerie = rlCalcularEMA(puntosPct);
+    const emaFinal = Math.round(emaSerie[emaSerie.length - 1]);
+
+    const STEP = 40;   // espacio horizontal entre puntos (antes ~11px de barra+gap)
+    const ALTO = 72;
+    const PAD_TOP = 13; // aire arriba para que el valor no se corte
+    const PAD_BOT = 6;
+    const w = Math.max(STEP, puntosPct.length * STEP);
+    const x = (i) => Math.round(i * STEP + STEP / 2);
+    const y = (pct) => Math.round(PAD_TOP + (ALTO - PAD_TOP - PAD_BOT) * (1 - pct / 100));
+
+    const lineaReal = puntosPct.map((pct, i) => x(i) + "," + y(pct)).join(" ");
+    const lineaEma = emaSerie.map((v, i) => x(i) + "," + y(v)).join(" ");
+    const puntosReal = puntosPct.map((pct, i) => `<circle cx="${x(i)}" cy="${y(pct)}" r="2.2" class="rl-ema-dot tier-${pctTier(pct)}"></circle>`).join("");
+    const puntosEma = emaSerie.map((v, i) => `<circle cx="${x(i)}" cy="${y(v)}" r="2" class="rl-ema-dot-ema"></circle>`).join("");
+    const etiquetasReal = puntosPct.map((pct, i) => `<text x="${x(i)}" y="${y(pct) - 4}" text-anchor="middle" class="rl-ema-label tier-${pctTier(pct)}">${Math.round(pct)}</text>`).join("");
+
     return `
-      <div class="rule-avance-chart">
-        ${puntos.map((h) => {
-          const pct = Math.max(0, Math.min(100, Number(h.porcentaje) || 0));
-          return `
-            <div class="rule-avance-col">
-              <span class="rule-avance-val">${Math.round(pct)}</span>
-              <div class="rule-avance-bar tier-${pctTier(pct)}" style="height:${Math.max(4, pct)}%"></div>
-            </div>`;
-        }).join("")}
+      <div class="rule-avance-wrap">
+        <div class="rule-avance-leyenda">
+          <span class="rl-ema-leg rl-ema-leg-real">● Real</span>
+          <span class="rl-ema-leg rl-ema-leg-ema">— Tendencia EMA · ${emaFinal}%</span>
+        </div>
+        <div class="rule-avance-chart">
+          <svg class="rl-ema-svg" width="${w}" height="${ALTO}" viewBox="0 0 ${w} ${ALTO}" preserveAspectRatio="xMinYMid meet">
+            <polyline points="${lineaEma}" class="rl-ema-line-ema"></polyline>
+            <polyline points="${lineaReal}" class="rl-ema-line-real"></polyline>
+            ${puntosEma}
+            ${puntosReal}
+            ${etiquetasReal}
+          </svg>
+        </div>
       </div>`;
   }
 
@@ -411,7 +449,7 @@
               <div class="rule-check-group" role="group" aria-label="Cantidad de ejercicios para ${rlEsc(r.regla)}">
                 ${[1, 2, 3].map((n) => `<label class="rule-check-item"><input type="checkbox" class="rule-select-checkbox" data-id="${r.id}" data-n="${n}"><span class="rule-check" aria-hidden="true">${n}</span></label>`).join("")}
               </div>
-              ${rlFilaRegla(r, `<span class="rule-card-bottom"><span class="rule-select-count">${r.porcentaje > 0 ? "" : "💡 Incluye lección de información · "}${rlEjerciciosDeRegla(r.id).length} ejercicios</span></span>`)}
+              ${rlFilaRegla(r, `<span class="rule-card-bottom"><span class="rule-select-count">${r.porcentaje > 0 ? "" : "💡 Incluye lección de información · "}${rlEjerciciosDeRegla(r.id).length} ejercicios</span></span>${rlMiniGrafica(r.id)}`)}
             </div>`;
           }).join("")}
         </div>` : ""}
