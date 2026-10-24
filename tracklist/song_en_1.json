@@ -1,0 +1,3817 @@
+{
+  "songTitle": "All Too Well",
+  "artist": "Taylor Swift",
+  "segments": [
+    {
+      "text": "I walked through the door with you\nThe air was cold\nBut something about it felt like home somehow\nAnd I, left my scarf there at your sister's house\nAnd you've still got it in your drawer even now",
+      "translation": "Caminé por la puerta contigo. El aire estaba frío. Pero algo en ello se sentía como en casa de alguna manera. Y yo, dejé mi bufanda allí en la casa de tu hermana. Y tú aún la tienes en tu cajón incluso ahora.",
+      "content": [
+        {
+          "originalPhrase": "I walked through the door with you",
+          "translation": "Caminé por la puerta contigo",
+          "phrases": [
+            "walked through",
+            "the door",
+            "with you"
+          ],
+          "distractors": [
+            "Camino por la puerta contigo",
+            "Caminé por la ventana contigo",
+            "Caminé por la puerta conmigo"
+          ],
+          "learn": [
+            {
+              "phrase": "walked through",
+              "translation": "caminé a través de / entré por",
+              "exercises": [
+                {
+                  "sentence": "She walked through the park every morning.",
+                  "translation": "Ella caminaba por el parque cada mañana.",
+                  "distractors": [
+                    "Ella camina por el parque cada mañana.",
+                    "Ella había caminado por el parque cada mañana.",
+                    "Ella caminará por el parque cada mañana."
+                  ]
+                },
+                {
+                  "sentence": "We walked through the old town.",
+                  "translation": "Caminamos por el pueblo viejo.",
+                  "distractors": [
+                    "Caminábamos por el pueblo viejo.",
+                    "Caminaremos por el pueblo viejo.",
+                    "Hemos caminado por el pueblo viejo."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "the door",
+              "translation": "la puerta",
+              "exercises": [
+                {
+                  "sentence": "He closed the door softly.",
+                  "translation": "Él cerró la puerta suavemente.",
+                  "distractors": [
+                    "Él cierra la puerta suavemente.",
+                    "Él cerraba la puerta suavemente.",
+                    "Él había cerrado la puerta suavemente."
+                  ]
+                },
+                {
+                  "sentence": "Someone knocked on the door.",
+                  "translation": "Alguien tocó la puerta.",
+                  "distractors": [
+                    "Alguien toca la puerta.",
+                    "Alguien tocaba la puerta.",
+                    "Alguien había tocado la puerta."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "with you",
+              "translation": "contigo",
+              "exercises": [
+                {
+                  "sentence": "I want to stay with you.",
+                  "translation": "Quiero quedarme contigo.",
+                  "distractors": [
+                    "Quiero quedarme sin ti.",
+                    "Quería quedarme contigo.",
+                    "Quiero quedarme con ella."
+                  ]
+                },
+                {
+                  "sentence": "She laughed with you.",
+                  "translation": "Ella se rió contigo.",
+                  "distractors": [
+                    "Ella se rió de ti.",
+                    "Ella se ríe contigo.",
+                    "Ella se había reído contigo."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "The air was cold",
+          "translation": "El aire estaba frío",
+          "phrases": [
+            "the air",
+            "was cold"
+          ],
+          "distractors": [
+            "El aire está frío",
+            "El aire era frío",
+            "El viento estaba frío"
+          ],
+          "learn": [
+            {
+              "phrase": "the air",
+              "translation": "el aire",
+              "exercises": [
+                {
+                  "sentence": "The air smelled like rain.",
+                  "translation": "El aire olía a lluvia.",
+                  "distractors": [
+                    "El aire huele a lluvia.",
+                    "El aire olía a humo.",
+                    "El aire había olido a lluvia."
+                  ]
+                },
+                {
+                  "sentence": "The air was heavy with smoke.",
+                  "translation": "El aire estaba cargado de humo.",
+                  "distractors": [
+                    "El aire está cargado de humo.",
+                    "El aire era cargado de humo.",
+                    "El viento estaba cargado de humo."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "was cold",
+              "translation": "estaba frío/a",
+              "exercises": [
+                {
+                  "sentence": "The coffee was cold by the time I drank it.",
+                  "translation": "El café estaba frío cuando lo bebí.",
+                  "distractors": [
+                    "El café está frío cuando lo bebí.",
+                    "El café era frío cuando lo bebí.",
+                    "El café estuvo frío cuando lo bebí."
+                  ]
+                },
+                {
+                  "sentence": "The water was cold in the lake.",
+                  "translation": "El agua estaba fría en el lago.",
+                  "distractors": [
+                    "El agua está fría en el lago.",
+                    "El agua era fría en el lago.",
+                    "El agua estaba caliente en el lago."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "But something about it felt like home somehow",
+          "translation": "Pero algo en ello se sentía como en casa de alguna manera",
+          "phrases": [
+            "something about it",
+            "felt like home",
+            "somehow"
+          ],
+          "distractors": [
+            "Pero algo en ello se sintió como en casa de alguna manera",
+            "Pero nada en ello se sentía como en casa de alguna manera",
+            "Pero algo en ello se sentía como un hogar de alguna manera"
+          ],
+          "learn": [
+            {
+              "phrase": "something about it",
+              "translation": "algo en ello / algo al respecto",
+              "exercises": [
+                {
+                  "sentence": "There's something about it that I can't explain.",
+                  "translation": "Hay algo en ello que no puedo explicar.",
+                  "distractors": [
+                    "No hay algo en ello que no pueda explicar.",
+                    "Hubo algo en ello que no pude explicar.",
+                    "Hay nada en ello que no pueda explicar."
+                  ]
+                },
+                {
+                  "sentence": "Something about her smile felt familiar.",
+                  "translation": "Algo en su sonrisa se sentía familiar.",
+                  "distractors": [
+                    "Algo en su sonrisa se siente familiar.",
+                    "Nada en su sonrisa se sentía familiar.",
+                    "Algo en su voz se sentía familiar."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "felt like home",
+              "translation": "se sentía como en casa",
+              "exercises": [
+                {
+                  "sentence": "This small town felt like home.",
+                  "translation": "Este pueblito se sentía como en casa.",
+                  "distractors": [
+                    "Este pueblito se siente como en casa.",
+                    "Este pueblito se sintió como un hotel.",
+                    "Este pueblito no se sentía como en casa."
+                  ]
+                },
+                {
+                  "sentence": "Her voice felt like home to me.",
+                  "translation": "Su voz se sentía como en casa para mí.",
+                  "distractors": [
+                    "Su voz se siente como en casa para mí.",
+                    "Su voz se sentía extraña para mí.",
+                    "Su voz había sentido como en casa para mí."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "somehow",
+              "translation": "de alguna manera",
+              "exercises": [
+                {
+                  "sentence": "Somehow, everything worked out.",
+                  "translation": "De alguna manera, todo salió bien.",
+                  "distractors": [
+                    "De ninguna manera, todo salió bien.",
+                    "De alguna manera, nada salió bien.",
+                    "De alguna manera, todo saldrá bien."
+                  ]
+                },
+                {
+                  "sentence": "I knew somehow that you'd call.",
+                  "translation": "Sabía de alguna manera que llamarías.",
+                  "distractors": [
+                    "No sabía de alguna manera que llamarías.",
+                    "Sabía de alguna manera que llamaste.",
+                    "Sé de alguna manera que llamarías."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "And I, left my scarf there at your sister's house",
+          "translation": "Y yo, dejé mi bufanda allí en la casa de tu hermana",
+          "phrases": [
+            "left my scarf",
+            "at your sister's house"
+          ],
+          "distractors": [
+            "Y yo, dejo mi bufanda allí en la casa de tu hermana",
+            "Y yo, dejé mi abrigo allí en la casa de tu hermana",
+            "Y yo, dejé mi bufanda allí en la casa de tu hermano"
+          ],
+          "learn": [
+            {
+              "phrase": "left my scarf",
+              "translation": "dejé mi bufanda",
+              "exercises": [
+                {
+                  "sentence": "I left my keys at the office.",
+                  "translation": "Dejé mis llaves en la oficina.",
+                  "distractors": [
+                    "Dejo mis llaves en la oficina.",
+                    "Había dejado mis llaves en la oficina.",
+                    "Dejaré mis llaves en la oficina."
+                  ]
+                },
+                {
+                  "sentence": "She left her jacket on the bus.",
+                  "translation": "Ella dejó su chaqueta en el autobús.",
+                  "distractors": [
+                    "Ella deja su chaqueta en el autobús.",
+                    "Ella había dejado su chaqueta en el autobús.",
+                    "Ella dejará su chaqueta en el autobús."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "at your sister's house",
+              "translation": "en la casa de tu hermana",
+              "exercises": [
+                {
+                  "sentence": "We had dinner at your sister's house.",
+                  "translation": "Cenamos en la casa de tu hermana.",
+                  "distractors": [
+                    "Cenamos en la casa de tu hermano.",
+                    "Cenaremos en la casa de tu hermana.",
+                    "Cenábamos en la casa de tu hermana."
+                  ]
+                },
+                {
+                  "sentence": "I left my umbrella at your brother's house.",
+                  "translation": "Dejé mi paraguas en la casa de tu hermano.",
+                  "distractors": [
+                    "Dejé mi paraguas en la casa de tu hermana.",
+                    "Dejo mi paraguas en la casa de tu hermano.",
+                    "Dejaré mi paraguas en la casa de tu hermano."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "And you've still got it in your drawer even now",
+          "translation": "Y tú aún la tienes en tu cajón incluso ahora",
+          "phrases": [
+            "still got it",
+            "in your drawer",
+            "even now"
+          ],
+          "distractors": [
+            "Y tú no la tienes en tu cajón incluso ahora",
+            "Y tú aún lo tienes en tu cajón incluso ahora",
+            "Y tú aún la tienes en tu armario incluso ahora"
+          ],
+          "learn": [
+            {
+              "phrase": "still got it",
+              "translation": "todavía lo tienes / aún lo tienes",
+              "exercises": [
+                {
+                  "sentence": "I still got it, that old photo.",
+                  "translation": "Todavía la tengo, esa vieja foto.",
+                  "distractors": [
+                    "Ya no la tengo, esa vieja foto.",
+                    "Todavía la tenía, esa vieja foto.",
+                    "Todavía la tendré, esa vieja foto."
+                  ]
+                },
+                {
+                  "sentence": "He still got the letter I wrote him.",
+                  "translation": "Él todavía tiene la carta que le escribí.",
+                  "distractors": [
+                    "Él ya no tiene la carta que le escribí.",
+                    "Él todavía tenía la carta que le escribí.",
+                    "Él todavía tendrá la carta que le escribí."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "in your drawer",
+              "translation": "en tu cajón",
+              "exercises": [
+                {
+                  "sentence": "The keys are in your drawer.",
+                  "translation": "Las llaves están en tu cajón.",
+                  "distractors": [
+                    "Las llaves están en tu armario.",
+                    "Las llaves estaban en tu cajón.",
+                    "Las llaves estarán en tu cajón."
+                  ]
+                },
+                {
+                  "sentence": "I found an old photo in your drawer.",
+                  "translation": "Encontré una foto vieja en tu cajón.",
+                  "distractors": [
+                    "Encontré una foto vieja en tu armario.",
+                    "Encontraba una foto vieja en tu cajón.",
+                    "Encontraré una foto vieja en tu cajón."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "even now",
+              "translation": "incluso ahora",
+              "exercises": [
+                {
+                  "sentence": "I think about it even now.",
+                  "translation": "Pienso en ello incluso ahora.",
+                  "distractors": [
+                    "Pensaba en ello incluso ahora.",
+                    "No pienso en ello incluso ahora.",
+                    "Pensaré en ello incluso ahora."
+                  ]
+                },
+                {
+                  "sentence": "Even now, she remembers his name.",
+                  "translation": "Incluso ahora, ella recuerda su nombre.",
+                  "distractors": [
+                    "Incluso antes, ella recuerda su nombre.",
+                    "Incluso ahora, ella recordaba su nombre.",
+                    "Incluso ahora, ella olvida su nombre."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Oh, your sweet disposition\nAnd my wide-eyed gaze\nWe're singing in the car, getting lost upstate\nAutumn leaves falling down like pieces into place\nAnd I can picture it after all these days",
+      "translation": "Oh, tu dulce carácter. Y mi mirada de ojos abiertos. Estamos cantando en el coche, perdiéndonos hacia el norte del estado. Hojas de otoño cayendo como piezas en su lugar. Y puedo imaginarlo después de todos estos días.",
+      "content": [
+        {
+          "originalPhrase": "Oh, your sweet disposition",
+          "translation": "Oh, tu dulce carácter",
+          "phrases": [
+            "your sweet",
+            "disposition"
+          ],
+          "distractors": [
+            "Oh, tu dulce posición",
+            "Oh, tu amargo carácter",
+            "Oh, su dulce carácter"
+          ],
+          "learn": [
+            {
+              "phrase": "your sweet",
+              "translation": "tu dulce",
+              "exercises": [
+                {
+                  "sentence": "I miss your sweet voice.",
+                  "translation": "Extraño tu dulce voz.",
+                  "distractors": [
+                    "Extraño mi dulce voz.",
+                    "Extrañaba tu dulce voz.",
+                    "Extraño tu amarga voz."
+                  ]
+                },
+                {
+                  "sentence": "Your sweet smile made my day.",
+                  "translation": "Tu dulce sonrisa alegró mi día.",
+                  "distractors": [
+                    "Mi dulce sonrisa alegró mi día.",
+                    "Tu dulce sonrisa alegraba mi día.",
+                    "Tu amarga sonrisa alegró mi día."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "disposition",
+              "translation": "carácter / temperamento",
+              "exercises": [
+                {
+                  "sentence": "She has a cheerful disposition.",
+                  "translation": "Ella tiene un carácter alegre.",
+                  "distractors": [
+                    "Ella tenía un carácter alegre.",
+                    "Ella tiene un carácter triste.",
+                    "Él tiene un carácter alegre."
+                  ]
+                },
+                {
+                  "sentence": "His calm disposition helped everyone relax.",
+                  "translation": "Su carácter tranquilo ayudó a todos a relajarse.",
+                  "distractors": [
+                    "Su carácter nervioso ayudó a todos a relajarse.",
+                    "Su carácter tranquilo ayudaba a todos a relajarse.",
+                    "Su carácter tranquilo ayudará a todos a relajarse."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "And my wide-eyed gaze",
+          "translation": "Y mi mirada de ojos abiertos",
+          "phrases": [
+            "my wide-eyed",
+            "gaze"
+          ],
+          "distractors": [
+            "Y mi mirada de ojos cerrados",
+            "Y tu mirada de ojos abiertos",
+            "Y mi mirada de ojos grandes"
+          ],
+          "learn": [
+            {
+              "phrase": "my wide-eyed",
+              "translation": "mi mirada de ojos abiertos / mi (actitud) ingenua",
+              "exercises": [
+                {
+                  "sentence": "My wide-eyed wonder faded with time.",
+                  "translation": "Mi mirada de ojos abiertos se desvaneció con el tiempo.",
+                  "distractors": [
+                    "Mi mirada de ojos cerrados se desvaneció con el tiempo.",
+                    "Mi mirada de ojos abiertos se desvanece con el tiempo.",
+                    "Su mirada de ojos abiertos se desvaneció con el tiempo."
+                  ]
+                },
+                {
+                  "sentence": "She looked at the city with wide-eyed excitement.",
+                  "translation": "Ella miró la ciudad con una mirada de ojos abiertos y emoción.",
+                  "distractors": [
+                    "Ella miró la ciudad con una mirada aburrida.",
+                    "Ella mira la ciudad con una mirada de ojos abiertos y emoción.",
+                    "Él miró la ciudad con una mirada de ojos abiertos y emoción."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "gaze",
+              "translation": "mirada",
+              "exercises": [
+                {
+                  "sentence": "Her gaze met mine across the room.",
+                  "translation": "Su mirada se encontró con la mía al otro lado de la sala.",
+                  "distractors": [
+                    "Su mirada se encuentra con la mía al otro lado de la sala.",
+                    "Su mirada evitó la mía al otro lado de la sala.",
+                    "Mi mirada se encontró con la suya al otro lado de la sala."
+                  ]
+                },
+                {
+                  "sentence": "He held her gaze for a long moment.",
+                  "translation": "Él sostuvo su mirada por un largo momento.",
+                  "distractors": [
+                    "Él sostiene su mirada por un largo momento.",
+                    "Él evitó su mirada por un largo momento.",
+                    "Ella sostuvo su mirada por un largo momento."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "We're singing in the car, getting lost upstate",
+          "translation": "Estamos cantando en el coche, perdiéndonos hacia el norte del estado",
+          "phrases": [
+            "singing in the car",
+            "getting lost",
+            "upstate"
+          ],
+          "distractors": [
+            "Cantamos en el coche, perdiéndonos hacia el norte del estado",
+            "Estamos cantando en el coche, encontrándonos hacia el norte del estado",
+            "Estamos cantando en el coche, perdiéndonos hacia el sur del estado"
+          ],
+          "learn": [
+            {
+              "phrase": "singing in the car",
+              "translation": "cantando en el coche",
+              "exercises": [
+                {
+                  "sentence": "We spent the afternoon singing in the car.",
+                  "translation": "Pasamos la tarde cantando en el coche.",
+                  "distractors": [
+                    "Pasamos la tarde cantando en el autobús.",
+                    "Pasábamos la tarde cantando en el coche.",
+                    "Pasaremos la tarde cantando en el coche."
+                  ]
+                },
+                {
+                  "sentence": "They were singing in the car all the way home.",
+                  "translation": "Estaban cantando en el coche todo el camino a casa.",
+                  "distractors": [
+                    "Estaban cantando en el coche todo el camino al trabajo.",
+                    "Están cantando en el coche todo el camino a casa.",
+                    "Estuvieron cantando en el coche todo el camino a casa."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "getting lost",
+              "translation": "perdiéndose",
+              "exercises": [
+                {
+                  "sentence": "We kept getting lost in the city.",
+                  "translation": "Seguíamos perdiéndonos en la ciudad.",
+                  "distractors": [
+                    "Seguimos perdiéndonos en la ciudad.",
+                    "Seguíamos encontrándonos en la ciudad.",
+                    "Seguiremos perdiéndonos en la ciudad."
+                  ]
+                },
+                {
+                  "sentence": "I love getting lost in a good book.",
+                  "translation": "Me encanta perderme en un buen libro.",
+                  "distractors": [
+                    "Me encanta encontrarme en un buen libro.",
+                    "Me encantaba perderme en un buen libro.",
+                    "Odio perderme en un buen libro."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "upstate",
+              "translation": "hacia el norte del estado / tierra adentro",
+              "exercises": [
+                {
+                  "sentence": "We drove upstate for the weekend.",
+                  "translation": "Manejamos hacia el norte del estado para el fin de semana.",
+                  "distractors": [
+                    "Manejamos hacia el sur del estado para el fin de semana.",
+                    "Manejábamos hacia el norte del estado para el fin de semana.",
+                    "Manejaremos hacia el norte del estado para el fin de semana."
+                  ]
+                },
+                {
+                  "sentence": "She lives upstate, far from the city.",
+                  "translation": "Ella vive hacia el norte del estado, lejos de la ciudad.",
+                  "distractors": [
+                    "Ella vivía hacia el norte del estado, lejos de la ciudad.",
+                    "Ella vive hacia el sur del estado, lejos de la ciudad.",
+                    "Ella vive en la ciudad."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Autumn leaves falling down like pieces into place",
+          "translation": "Hojas de otoño cayendo como piezas en su lugar",
+          "phrases": [
+            "autumn leaves",
+            "falling down",
+            "like pieces into place"
+          ],
+          "distractors": [
+            "Hojas de verano cayendo como piezas en su lugar",
+            "Hojas de otoño subiendo como piezas en su lugar",
+            "Hojas de otoño cayendo como piezas fuera de lugar"
+          ],
+          "learn": [
+            {
+              "phrase": "autumn leaves",
+              "translation": "hojas de otoño",
+              "exercises": [
+                {
+                  "sentence": "Autumn leaves covered the sidewalk.",
+                  "translation": "Las hojas de otoño cubrían la acera.",
+                  "distractors": [
+                    "Las hojas de otoño cubren la acera.",
+                    "Las hojas de verano cubrían la acera.",
+                    "Las hojas de otoño cubrirán la acera."
+                  ]
+                },
+                {
+                  "sentence": "We raked the autumn leaves in the yard.",
+                  "translation": "Rastrillamos las hojas de otoño en el jardín.",
+                  "distractors": [
+                    "Rastrillábamos las hojas de otoño en el jardín.",
+                    "Rastrillamos las hojas de primavera en el jardín.",
+                    "Rastrillaremos las hojas de otoño en el jardín."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "falling down",
+              "translation": "cayendo",
+              "exercises": [
+                {
+                  "sentence": "Snow was falling down outside.",
+                  "translation": "La nieve estaba cayendo afuera.",
+                  "distractors": [
+                    "La nieve está cayendo afuera.",
+                    "La nieve cayó afuera.",
+                    "La nieve estaba subiendo afuera."
+                  ]
+                },
+                {
+                  "sentence": "The old sign kept falling down.",
+                  "translation": "El letrero viejo seguía cayéndose.",
+                  "distractors": [
+                    "El letrero viejo sigue cayéndose.",
+                    "El letrero viejo seguía subiendo.",
+                    "El letrero viejo seguirá cayéndose."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "like pieces into place",
+              "translation": "como piezas en su lugar",
+              "exercises": [
+                {
+                  "sentence": "Everything clicked like pieces into place.",
+                  "translation": "Todo encajó como piezas en su lugar.",
+                  "distractors": [
+                    "Todo encaja como piezas en su lugar.",
+                    "Todo encajó fuera de lugar.",
+                    "Nada encajó como piezas en su lugar."
+                  ]
+                },
+                {
+                  "sentence": "The plan fell like pieces into place.",
+                  "translation": "El plan cayó como piezas en su lugar.",
+                  "distractors": [
+                    "El plan caía como piezas en su lugar.",
+                    "El plan cae como piezas en su lugar.",
+                    "El plan no cayó como piezas en su lugar."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "And I can picture it after all these days",
+          "translation": "Y puedo imaginarlo después de todos estos días",
+          "phrases": [
+            "can picture it",
+            "after all these days"
+          ],
+          "distractors": [
+            "Y no puedo imaginarlo después de todos estos días",
+            "Y puedo imaginarlo antes de todos estos días",
+            "Y podía imaginarlo después de todos estos días"
+          ],
+          "learn": [
+            {
+              "phrase": "can picture it",
+              "translation": "puedo imaginarlo",
+              "exercises": [
+                {
+                  "sentence": "I can picture it perfectly in my mind.",
+                  "translation": "Puedo imaginarlo perfectamente en mi mente.",
+                  "distractors": [
+                    "No puedo imaginarlo perfectamente en mi mente.",
+                    "Podía imaginarlo perfectamente en mi mente.",
+                    "Pude imaginarlo perfectamente en mi mente."
+                  ]
+                },
+                {
+                  "sentence": "Can you picture it, the whole scene?",
+                  "translation": "¿Puedes imaginarlo, toda la escena?",
+                  "distractors": [
+                    "¿Podías imaginarlo, toda la escena?",
+                    "¿Pudiste imaginarlo, toda la escena?",
+                    "¿No puedes imaginarlo, toda la escena?"
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "after all these days",
+              "translation": "después de todos estos días",
+              "exercises": [
+                {
+                  "sentence": "After all these days, I still miss her.",
+                  "translation": "Después de todos estos días, todavía la extraño.",
+                  "distractors": [
+                    "Después de todos estos años, todavía la extraño.",
+                    "Antes de todos estos días, todavía la extraño.",
+                    "Después de todos estos días, ya no la extraño."
+                  ]
+                },
+                {
+                  "sentence": "After all these days, nothing has changed.",
+                  "translation": "Después de todos estos días, nada ha cambiado.",
+                  "distractors": [
+                    "Después de todos estos días, todo ha cambiado.",
+                    "Antes de todos estos días, nada ha cambiado.",
+                    "Después de todos estos días, nada había cambiado."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "And I know it's long gone and that magic's not here no more\nAnd I might be okay but I'm not fine at all",
+      "translation": "Y sé que se fue hace mucho y que esa magia ya no está aquí. Y puede que esté bien, pero no estoy nada bien.",
+      "content": [
+        {
+          "originalPhrase": "And I know it's long gone and that magic's not here no more",
+          "translation": "Y sé que se fue hace mucho y que esa magia ya no está aquí",
+          "phrases": [
+            "it's long gone",
+            "that magic",
+            "not here no more"
+          ],
+          "distractors": [
+            "Y sé que se fue hace poco y que esa magia ya no está aquí",
+            "Y sé que se fue hace mucho y que esa magia todavía está aquí",
+            "Y no sé que se fue hace mucho y que esa magia ya no está aquí"
+          ],
+          "learn": [
+            {
+              "phrase": "it's long gone",
+              "translation": "se fue hace mucho / ya desapareció",
+              "exercises": [
+                {
+                  "sentence": "That old house is long gone now.",
+                  "translation": "Esa casa vieja se fue hace mucho ahora.",
+                  "distractors": [
+                    "Esa casa vieja sigue aquí ahora.",
+                    "Esa casa vieja se fue hace poco ahora.",
+                    "Esa casa vieja se irá pronto."
+                  ]
+                },
+                {
+                  "sentence": "The pain is long gone.",
+                  "translation": "El dolor se fue hace mucho.",
+                  "distractors": [
+                    "El dolor sigue aquí.",
+                    "El dolor se fue hace poco.",
+                    "El dolor se irá pronto."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "that magic",
+              "translation": "esa magia",
+              "exercises": [
+                {
+                  "sentence": "That magic we had is hard to describe.",
+                  "translation": "Esa magia que tuvimos es difícil de describir.",
+                  "distractors": [
+                    "Esa magia que tenemos es difícil de describir.",
+                    "Esa magia que tuvimos fue fácil de describir.",
+                    "Esta magia que tuvimos es difícil de describir."
+                  ]
+                },
+                {
+                  "sentence": "I still feel that magic sometimes.",
+                  "translation": "Todavía siento esa magia a veces.",
+                  "distractors": [
+                    "Ya no siento esa magia a veces.",
+                    "Sentía esa magia a veces.",
+                    "Todavía siento esta magia a veces."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "not here no more",
+              "translation": "ya no está aquí",
+              "exercises": [
+                {
+                  "sentence": "That feeling is not here no more.",
+                  "translation": "Ese sentimiento ya no está aquí.",
+                  "distractors": [
+                    "Ese sentimiento todavía está aquí.",
+                    "Ese sentimiento no estaba aquí.",
+                    "Ese sentimiento ya no estará aquí."
+                  ]
+                },
+                {
+                  "sentence": "The old shop is not here no more.",
+                  "translation": "La tienda vieja ya no está aquí.",
+                  "distractors": [
+                    "La tienda vieja todavía está aquí.",
+                    "La tienda vieja no estaba aquí.",
+                    "La tienda vieja ya no estará aquí."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "And I might be okay but I'm not fine at all",
+          "translation": "Y puede que esté bien, pero no estoy nada bien",
+          "phrases": [
+            "might be okay",
+            "not fine at all"
+          ],
+          "distractors": [
+            "Y puede que esté bien, pero estoy muy bien",
+            "Y no puedo estar bien, pero no estoy nada bien",
+            "Y puede que esté mal, pero no estoy nada bien"
+          ],
+          "learn": [
+            {
+              "phrase": "might be okay",
+              "translation": "puede que esté bien",
+              "exercises": [
+                {
+                  "sentence": "I might be okay tomorrow.",
+                  "translation": "Puede que esté bien mañana.",
+                  "distractors": [
+                    "Puede que estuviera bien mañana.",
+                    "Estoy bien mañana.",
+                    "Puede que esté mal mañana."
+                  ]
+                },
+                {
+                  "sentence": "She might be okay with the plan.",
+                  "translation": "Puede que ella esté bien con el plan.",
+                  "distractors": [
+                    "Puede que ella estuviera bien con el plan.",
+                    "Ella está bien con el plan.",
+                    "Puede que ella no esté bien con el plan."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "not fine at all",
+              "translation": "no estoy nada bien",
+              "exercises": [
+                {
+                  "sentence": "Honestly, I'm not fine at all.",
+                  "translation": "Honestamente, no estoy nada bien.",
+                  "distractors": [
+                    "Honestamente, estoy muy bien.",
+                    "Honestamente, no estaba nada bien.",
+                    "Honestamente, no estoy nada mal."
+                  ]
+                },
+                {
+                  "sentence": "He said he was not fine at all.",
+                  "translation": "Él dijo que no estaba nada bien.",
+                  "distractors": [
+                    "Él dijo que estaba muy bien.",
+                    "Él dice que no está nada bien.",
+                    "Él dijo que no estaba nada mal."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "'Cause there we are again on that little town street\nYou almost ran the red 'cause you were lookin' over at me\nWind in my hair, I was there\nI remember it all too well",
+      "translation": "Porque allí estamos otra vez en esa calle del pueblito. Casi te saltaste el semáforo en rojo porque me estabas mirando. Viento en mi cabello, yo estaba allí. Lo recuerdo todo demasiado bien.",
+      "content": [
+        {
+          "originalPhrase": "'Cause there we are again on that little town street",
+          "translation": "Porque allí estamos otra vez en esa calle del pueblito",
+          "phrases": [
+            "there we are again",
+            "on that little town street"
+          ],
+          "distractors": [
+            "Porque allí estamos otra vez en esa calle de la ciudad",
+            "Porque allí estábamos otra vez en esa calle del pueblito",
+            "Porque allí no estamos otra vez en esa calle del pueblito"
+          ],
+          "learn": [
+            {
+              "phrase": "there we are again",
+              "translation": "allí estamos otra vez",
+              "exercises": [
+                {
+                  "sentence": "There we are again, standing in the rain.",
+                  "translation": "Allí estamos otra vez, parados bajo la lluvia.",
+                  "distractors": [
+                    "Allí estábamos otra vez, parados bajo la lluvia.",
+                    "Allí estamos otra vez, parados bajo el sol.",
+                    "Allí no estamos otra vez, parados bajo la lluvia."
+                  ]
+                },
+                {
+                  "sentence": "There we are again, back at the start.",
+                  "translation": "Allí estamos otra vez, de vuelta al principio.",
+                  "distractors": [
+                    "Allí estábamos otra vez, de vuelta al principio.",
+                    "Allí estamos otra vez, de vuelta al final.",
+                    "Allí no estamos otra vez, de vuelta al principio."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "on that little town street",
+              "translation": "en esa calle del pueblito",
+              "exercises": [
+                {
+                  "sentence": "We used to walk on that little town street.",
+                  "translation": "Solíamos caminar en esa calle del pueblito.",
+                  "distractors": [
+                    "Solíamos caminar en esa calle de la ciudad.",
+                    "Solemos caminar en esa calle del pueblito.",
+                    "Solíamos correr en esa calle del pueblito."
+                  ]
+                },
+                {
+                  "sentence": "Nothing ever changes on that little town street.",
+                  "translation": "Nada cambia nunca en esa calle del pueblito.",
+                  "distractors": [
+                    "Todo cambia nunca en esa calle del pueblito.",
+                    "Nada cambiaba nunca en esa calle del pueblito.",
+                    "Nada cambia nunca en esa calle de la ciudad."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "You almost ran the red 'cause you were lookin' over at me",
+          "translation": "Casi te saltaste el semáforo en rojo porque me estabas mirando",
+          "phrases": [
+            "almost ran the red",
+            "lookin' over at me"
+          ],
+          "distractors": [
+            "Casi te saltaste el semáforo en verde porque me estabas mirando",
+            "Casi te saltaste el semáforo en rojo porque me estabas ignorando",
+            "Te saltaste el semáforo en rojo porque me estabas mirando"
+          ],
+          "learn": [
+            {
+              "phrase": "almost ran the red",
+              "translation": "casi te saltaste el semáforo en rojo",
+              "exercises": [
+                {
+                  "sentence": "He almost ran the red light at the corner.",
+                  "translation": "Casi se saltó el semáforo en rojo en la esquina.",
+                  "distractors": [
+                    "Se saltó el semáforo en rojo en la esquina.",
+                    "Casi se saltó el semáforo en verde en la esquina.",
+                    "Casi se saltaba el semáforo en rojo en la esquina."
+                  ]
+                },
+                {
+                  "sentence": "I almost ran the red because I was texting.",
+                  "translation": "Casi me salté el semáforo en rojo porque estaba enviando mensajes.",
+                  "distractors": [
+                    "Me salté el semáforo en rojo porque estaba enviando mensajes.",
+                    "Casi me salté el semáforo en verde porque estaba enviando mensajes.",
+                    "Casi me saltaba el semáforo en rojo porque estaba enviando mensajes."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "lookin' over at me",
+              "translation": "mirándome",
+              "exercises": [
+                {
+                  "sentence": "She kept lookin' over at me during class.",
+                  "translation": "Ella seguía mirándome durante la clase.",
+                  "distractors": [
+                    "Ella seguía mirándote durante la clase.",
+                    "Ella sigue mirándome durante la clase.",
+                    "Ella dejó de mirarme durante la clase."
+                  ]
+                },
+                {
+                  "sentence": "He was lookin' over at me from across the street.",
+                  "translation": "Él estaba mirándome desde el otro lado de la calle.",
+                  "distractors": [
+                    "Él está mirándome desde el otro lado de la calle.",
+                    "Él estaba mirándote desde el otro lado de la calle.",
+                    "Él no estaba mirándome desde el otro lado de la calle."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Wind in my hair, I was there",
+          "translation": "Viento en mi cabello, yo estaba allí",
+          "phrases": [
+            "wind in my hair",
+            "I was there"
+          ],
+          "distractors": [
+            "Viento en mi cabello, yo no estaba allí",
+            "Viento en mi cabello, tú estabas allí",
+            "Viento en tu cabello, yo estaba allí"
+          ],
+          "learn": [
+            {
+              "phrase": "wind in my hair",
+              "translation": "viento en mi cabello",
+              "exercises": [
+                {
+                  "sentence": "I love the feeling of wind in my hair.",
+                  "translation": "Me encanta la sensación de viento en mi cabello.",
+                  "distractors": [
+                    "Me encanta la sensación de viento en tu cabello.",
+                    "Me encantaba la sensación de viento en mi cabello.",
+                    "Odio la sensación de viento en mi cabello."
+                  ]
+                },
+                {
+                  "sentence": "She rode with the wind in her hair.",
+                  "translation": "Ella condujo con el viento en el cabello.",
+                  "distractors": [
+                    "Ella conduce con el viento en el cabello.",
+                    "Él condujo con el viento en el cabello.",
+                    "Ella condujo sin viento en el cabello."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "I was there",
+              "translation": "yo estaba allí",
+              "exercises": [
+                {
+                  "sentence": "I was there when it happened.",
+                  "translation": "Yo estaba allí cuando sucedió.",
+                  "distractors": [
+                    "Yo estoy allí cuando sucedió.",
+                    "Yo no estaba allí cuando sucedió.",
+                    "Yo estaba allí cuando sucederá."
+                  ]
+                },
+                {
+                  "sentence": "I was there for every moment.",
+                  "translation": "Yo estaba allí en cada momento.",
+                  "distractors": [
+                    "Yo estoy allí en cada momento.",
+                    "Yo no estaba allí en cada momento.",
+                    "Yo estaré allí en cada momento."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "I remember it all too well",
+          "translation": "Lo recuerdo todo demasiado bien",
+          "phrases": [
+            "remember it all",
+            "too well"
+          ],
+          "distractors": [
+            "No lo recuerdo todo demasiado bien",
+            "Lo recuerdo todo demasiado mal",
+            "Lo olvidé todo demasiado bien"
+          ],
+          "learn": [
+            {
+              "phrase": "remember it all",
+              "translation": "lo recuerdo todo",
+              "exercises": [
+                {
+                  "sentence": "I remember it all, every little detail.",
+                  "translation": "Lo recuerdo todo, cada pequeño detalle.",
+                  "distractors": [
+                    "No lo recuerdo todo, cada pequeño detalle.",
+                    "Lo recordaba todo, cada pequeño detalle.",
+                    "Lo olvidé todo, cada pequeño detalle."
+                  ]
+                },
+                {
+                  "sentence": "She said she'd remember it all forever.",
+                  "translation": "Ella dijo que lo recordaría todo para siempre.",
+                  "distractors": [
+                    "Ella dijo que lo olvidaría todo para siempre.",
+                    "Ella dice que lo recordaría todo para siempre.",
+                    "Ella dijo que no lo recordaría todo para siempre."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "too well",
+              "translation": "demasiado bien",
+              "exercises": [
+                {
+                  "sentence": "I know this road too well.",
+                  "translation": "Conozco este camino demasiado bien.",
+                  "distractors": [
+                    "No conozco este camino demasiado bien.",
+                    "Conocía este camino demasiado bien.",
+                    "Conozco este camino demasiado mal."
+                  ]
+                },
+                {
+                  "sentence": "He understands the situation too well.",
+                  "translation": "Él entiende la situación demasiado bien.",
+                  "distractors": [
+                    "Él no entiende la situación demasiado bien.",
+                    "Él entendía la situación demasiado bien.",
+                    "Él entiende la situación demasiado mal."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Photo album on the counter\nYour cheeks were turning red\nYou used to be a little kid with glasses in a twin-sized bed\nAnd your mother's telling stories 'bout you on the tee-ball team\nYou told me 'bout your past thinking your future was me",
+      "translation": "Álbum de fotos en el mostrador. Tus mejillas se ponían rojas. Solías ser un niño pequeño con gafas en una cama individual. Y tu madre contando historias sobre ti en el equipo de béisbol infantil. Me contaste sobre tu pasado pensando que tu futuro era yo.",
+      "content": [
+        {
+          "originalPhrase": "Photo album on the counter",
+          "translation": "Álbum de fotos en el mostrador",
+          "phrases": [
+            "photo album",
+            "on the counter"
+          ],
+          "distractors": [
+            "Álbum de fotos en la mesa",
+            "Álbum de fotos en el sofá",
+            "Foto suelta en el mostrador"
+          ],
+          "learn": [
+            {
+              "phrase": "photo album",
+              "translation": "álbum de fotos",
+              "exercises": [
+                {
+                  "sentence": "We looked through the old photo album.",
+                  "translation": "Revisamos el viejo álbum de fotos.",
+                  "distractors": [
+                    "Revisamos el nuevo álbum de fotos.",
+                    "Revisábamos el viejo álbum de fotos.",
+                    "Revisaremos el viejo álbum de fotos."
+                  ]
+                },
+                {
+                  "sentence": "She keeps a photo album of her travels.",
+                  "translation": "Ella guarda un álbum de fotos de sus viajes.",
+                  "distractors": [
+                    "Ella guardaba un álbum de fotos de sus viajes.",
+                    "Ella guarda un video de sus viajes.",
+                    "Él guarda un álbum de fotos de sus viajes."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "on the counter",
+              "translation": "en el mostrador",
+              "exercises": [
+                {
+                  "sentence": "I left the keys on the counter.",
+                  "translation": "Dejé las llaves en el mostrador.",
+                  "distractors": [
+                    "Dejé las llaves en la mesa.",
+                    "Dejo las llaves en el mostrador.",
+                    "Había dejado las llaves en el mostrador."
+                  ]
+                },
+                {
+                  "sentence": "There's a note on the counter for you.",
+                  "translation": "Hay una nota en el mostrador para ti.",
+                  "distractors": [
+                    "Hay una nota en la mesa para ti.",
+                    "Había una nota en el mostrador para ti.",
+                    "Hay una nota en el mostrador para mí."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Your cheeks were turning red",
+          "translation": "Tus mejillas se ponían rojas",
+          "phrases": [
+            "your cheeks",
+            "turning red"
+          ],
+          "distractors": [
+            "Tus mejillas se ponen rojas",
+            "Tus mejillas se ponían azules",
+            "Mis mejillas se ponían rojas"
+          ],
+          "learn": [
+            {
+              "phrase": "your cheeks",
+              "translation": "tus mejillas",
+              "exercises": [
+                {
+                  "sentence": "Your cheeks are turning pink from the cold.",
+                  "translation": "Tus mejillas se ponen rosadas por el frío.",
+                  "distractors": [
+                    "Mis mejillas se ponen rosadas por el frío.",
+                    "Tus mejillas se pusieron rosadas por el frío.",
+                    "Tus mejillas se ponen pálidas por el frío."
+                  ]
+                },
+                {
+                  "sentence": "I could see your cheeks blushing.",
+                  "translation": "Pude ver tus mejillas sonrojarse.",
+                  "distractors": [
+                    "Pude ver mis mejillas sonrojarse.",
+                    "Puedo ver tus mejillas sonrojarse.",
+                    "Pude ver tus mejillas palidecer."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "turning red",
+              "translation": "poniéndose rojas",
+              "exercises": [
+                {
+                  "sentence": "His face was turning red from embarrassment.",
+                  "translation": "Su cara se ponía roja por la vergüenza.",
+                  "distractors": [
+                    "Su cara se pone roja por la vergüenza.",
+                    "Su cara se ponía pálida por la vergüenza.",
+                    "Su cara se puso roja por la vergüenza."
+                  ]
+                },
+                {
+                  "sentence": "The leaves are turning red this time of year.",
+                  "translation": "Las hojas se ponen rojas en esta época del año.",
+                  "distractors": [
+                    "Las hojas se ponían rojas en esta época del año.",
+                    "Las hojas se ponen verdes en esta época del año.",
+                    "Las hojas se pusieron rojas en esta época del año."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "You used to be a little kid with glasses in a twin-sized bed",
+          "translation": "Solías ser un niño pequeño con gafas en una cama individual",
+          "phrases": [
+            "used to be",
+            "a little kid with glasses",
+            "twin-sized bed"
+          ],
+          "distractors": [
+            "Solías ser un niño pequeño sin gafas en una cama individual",
+            "Solías ser un niño pequeño con gafas en una cama doble",
+            "Nunca fuiste un niño pequeño con gafas en una cama individual"
+          ],
+          "learn": [
+            {
+              "phrase": "used to be",
+              "translation": "solía ser",
+              "exercises": [
+                {
+                  "sentence": "This place used to be a bakery.",
+                  "translation": "Este lugar solía ser una panadería.",
+                  "distractors": [
+                    "Este lugar solía ser una farmacia.",
+                    "Este lugar es una panadería.",
+                    "Este lugar solía ser una panadería, pero ya no lo es."
+                  ]
+                },
+                {
+                  "sentence": "He used to be very shy.",
+                  "translation": "Él solía ser muy tímido.",
+                  "distractors": [
+                    "Él es muy tímido.",
+                    "Él solía ser muy extrovertido.",
+                    "Ella solía ser muy tímida."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "a little kid with glasses",
+              "translation": "un niño pequeño con gafas",
+              "exercises": [
+                {
+                  "sentence": "I remember him as a little kid with glasses.",
+                  "translation": "Lo recuerdo como un niño pequeño con gafas.",
+                  "distractors": [
+                    "Lo recuerdo como un niño pequeño sin gafas.",
+                    "La recuerdo como una niña pequeña con gafas.",
+                    "No lo recuerdo como un niño pequeño con gafas."
+                  ]
+                },
+                {
+                  "sentence": "There's a photo of me as a little kid with glasses.",
+                  "translation": "Hay una foto mía como un niño pequeño con gafas.",
+                  "distractors": [
+                    "Hay una foto mía como un niño pequeño sin gafas.",
+                    "Había una foto mía como un niño pequeño con gafas.",
+                    "Hay una foto tuya como un niño pequeño con gafas."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "twin-sized bed",
+              "translation": "cama individual",
+              "exercises": [
+                {
+                  "sentence": "I slept in a twin-sized bed as a kid.",
+                  "translation": "Dormía en una cama individual de niño.",
+                  "distractors": [
+                    "Dormía en una cama doble de niño.",
+                    "Duermo en una cama individual de niño.",
+                    "Dormía en un sofá de niño."
+                  ]
+                },
+                {
+                  "sentence": "The room only fits a twin-sized bed.",
+                  "translation": "La habitación solo tiene espacio para una cama individual.",
+                  "distractors": [
+                    "La habitación solo tiene espacio para una cama doble.",
+                    "La habitación tenía espacio para una cama individual.",
+                    "La habitación no tiene espacio para una cama individual."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "And your mother's telling stories 'bout you on the tee-ball team",
+          "translation": "Y tu madre contando historias sobre ti en el equipo de béisbol infantil",
+          "phrases": [
+            "telling stories",
+            "on the tee-ball team"
+          ],
+          "distractors": [
+            "Y tu madre contando historias sobre ti en el equipo de fútbol",
+            "Y mi madre contando historias sobre ti en el equipo de béisbol infantil",
+            "Y tu madre inventando historias sobre ti en el equipo de béisbol infantil"
+          ],
+          "learn": [
+            {
+              "phrase": "telling stories",
+              "translation": "contando historias",
+              "exercises": [
+                {
+                  "sentence": "My grandmother loved telling stories about her youth.",
+                  "translation": "A mi abuela le encantaba contar historias sobre su juventud.",
+                  "distractors": [
+                    "A mi abuela le encanta contar historias sobre su juventud.",
+                    "A mi abuela le encantaba escuchar historias sobre su juventud.",
+                    "A mi abuelo le encantaba contar historias sobre su juventud."
+                  ]
+                },
+                {
+                  "sentence": "They sat by the fire telling stories.",
+                  "translation": "Se sentaron junto al fuego contando historias.",
+                  "distractors": [
+                    "Se sientan junto al fuego contando historias.",
+                    "Se sentaron junto al fuego escuchando historias.",
+                    "Se sentarán junto al fuego contando historias."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "on the tee-ball team",
+              "translation": "en el equipo de béisbol infantil",
+              "exercises": [
+                {
+                  "sentence": "He played on the tee-ball team as a kid.",
+                  "translation": "Él jugó en el equipo de béisbol infantil de niño.",
+                  "distractors": [
+                    "Él jugó en el equipo de fútbol de niño.",
+                    "Él juega en el equipo de béisbol infantil de niño.",
+                    "Ella jugó en el equipo de béisbol infantil de niña."
+                  ]
+                },
+                {
+                  "sentence": "My son just joined the tee-ball team.",
+                  "translation": "Mi hijo acaba de unirse al equipo de béisbol infantil.",
+                  "distractors": [
+                    "Mi hijo acaba de unirse al equipo de fútbol.",
+                    "Mi hijo se unió al equipo de béisbol infantil hace años.",
+                    "Mi hija acaba de unirse al equipo de béisbol infantil."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "You told me 'bout your past thinking your future was me",
+          "translation": "Me contaste sobre tu pasado pensando que tu futuro era yo",
+          "phrases": [
+            "told me 'bout your past",
+            "thinking your future was me"
+          ],
+          "distractors": [
+            "Me contaste sobre tu futuro pensando que tu pasado era yo",
+            "Me contaste sobre tu pasado pensando que tu futuro no era yo",
+            "No me contaste sobre tu pasado pensando que tu futuro era yo"
+          ],
+          "learn": [
+            {
+              "phrase": "told me 'bout your past",
+              "translation": "me contaste sobre tu pasado",
+              "exercises": [
+                {
+                  "sentence": "You told me 'bout your past on our first date.",
+                  "translation": "Me contaste sobre tu pasado en nuestra primera cita.",
+                  "distractors": [
+                    "Me contaste sobre tu futuro en nuestra primera cita.",
+                    "Me cuentas sobre tu pasado en nuestra primera cita.",
+                    "No me contaste sobre tu pasado en nuestra primera cita."
+                  ]
+                },
+                {
+                  "sentence": "She told me 'bout her past late one night.",
+                  "translation": "Ella me contó sobre su pasado una noche tarde.",
+                  "distractors": [
+                    "Ella me cuenta sobre su pasado una noche tarde.",
+                    "Ella me contó sobre su futuro una noche tarde.",
+                    "Él me contó sobre su pasado una noche tarde."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "thinking your future was me",
+              "translation": "pensando que tu futuro era yo",
+              "exercises": [
+                {
+                  "sentence": "He spoke thinking his future was with her.",
+                  "translation": "Él hablaba pensando que su futuro era con ella.",
+                  "distractors": [
+                    "Él hablaba pensando que su pasado era con ella.",
+                    "Él habla pensando que su futuro era con ella.",
+                    "Ella hablaba pensando que su futuro era con él."
+                  ]
+                },
+                {
+                  "sentence": "I smiled, thinking my future was bright.",
+                  "translation": "Sonreí, pensando que mi futuro era brillante.",
+                  "distractors": [
+                    "Sonreí, pensando que mi pasado era brillante.",
+                    "Sonrío, pensando que mi futuro era brillante.",
+                    "Sonreí, pensando que mi futuro era oscuro."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "And I know it's long gone and there was nothing else I could do\nAnd I forget about you long enough to forget why I needed to",
+      "translation": "Y sé que se fue hace mucho y no había nada más que pudiera hacer. Y me olvido de ti el tiempo suficiente para olvidar por qué necesitaba hacerlo.",
+      "content": [
+        {
+          "originalPhrase": "And I know it's long gone and there was nothing else I could do",
+          "translation": "Y sé que se fue hace mucho y no había nada más que pudiera hacer",
+          "phrases": [
+            "it's long gone",
+            "nothing else I could do"
+          ],
+          "distractors": [
+            "Y sé que se fue hace poco y no había nada más que pudiera hacer",
+            "Y sé que se fue hace mucho y había algo más que pudiera hacer",
+            "Y no sé que se fue hace mucho y no había nada más que pudiera hacer"
+          ],
+          "learn": [
+            {
+              "phrase": "it's long gone",
+              "translation": "se fue hace mucho / ya desapareció",
+              "exercises": [
+                {
+                  "sentence": "That old house is long gone now.",
+                  "translation": "Esa casa vieja se fue hace mucho ahora.",
+                  "distractors": [
+                    "Esa casa vieja sigue aquí ahora.",
+                    "Esa casa vieja se fue hace poco ahora.",
+                    "Esa casa vieja se irá pronto."
+                  ]
+                },
+                {
+                  "sentence": "The pain is long gone.",
+                  "translation": "El dolor se fue hace mucho.",
+                  "distractors": [
+                    "El dolor sigue aquí.",
+                    "El dolor se fue hace poco.",
+                    "El dolor se irá pronto."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "nothing else I could do",
+              "translation": "no había nada más que pudiera hacer",
+              "exercises": [
+                {
+                  "sentence": "There was nothing else I could do to help.",
+                  "translation": "No había nada más que pudiera hacer para ayudar.",
+                  "distractors": [
+                    "Había algo más que pudiera hacer para ayudar.",
+                    "No hay nada más que pueda hacer para ayudar.",
+                    "No había nada más que pudiera hacer para ayudarte."
+                  ]
+                },
+                {
+                  "sentence": "I tried everything; there was nothing else I could do.",
+                  "translation": "Lo intenté todo; no había nada más que pudiera hacer.",
+                  "distractors": [
+                    "Lo intenté todo; había algo más que pudiera hacer.",
+                    "Lo intento todo; no hay nada más que pueda hacer.",
+                    "No lo intenté todo; no había nada más que pudiera hacer."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "And I forget about you long enough to forget why I needed to",
+          "translation": "Y me olvido de ti el tiempo suficiente para olvidar por qué necesitaba hacerlo",
+          "phrases": [
+            "forget about you",
+            "long enough",
+            "why I needed to"
+          ],
+          "distractors": [
+            "Y me olvido de ti el tiempo suficiente para recordar por qué necesitaba hacerlo",
+            "Y me acuerdo de ti el tiempo suficiente para olvidar por qué necesitaba hacerlo",
+            "Y me olvido de ti poco tiempo para olvidar por qué necesitaba hacerlo"
+          ],
+          "learn": [
+            {
+              "phrase": "forget about you",
+              "translation": "olvidarme de ti",
+              "exercises": [
+                {
+                  "sentence": "I'm trying to forget about you.",
+                  "translation": "Estoy tratando de olvidarme de ti.",
+                  "distractors": [
+                    "Estoy tratando de recordarte.",
+                    "Estaba tratando de olvidarme de ti.",
+                    "No estoy tratando de olvidarme de ti."
+                  ]
+                },
+                {
+                  "sentence": "It's hard to forget about you completely.",
+                  "translation": "Es difícil olvidarme de ti por completo.",
+                  "distractors": [
+                    "Es fácil olvidarme de ti por completo.",
+                    "Era difícil olvidarme de ti por completo.",
+                    "Es difícil recordarte por completo."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "long enough",
+              "translation": "el tiempo suficiente",
+              "exercises": [
+                {
+                  "sentence": "I waited long enough for an answer.",
+                  "translation": "Esperé el tiempo suficiente para una respuesta.",
+                  "distractors": [
+                    "Esperé poco tiempo para una respuesta.",
+                    "Espero el tiempo suficiente para una respuesta.",
+                    "Esperaré el tiempo suficiente para una respuesta."
+                  ]
+                },
+                {
+                  "sentence": "Stay long enough to say goodbye.",
+                  "translation": "Quédate el tiempo suficiente para despedirte.",
+                  "distractors": [
+                    "Quédate poco tiempo para despedirte.",
+                    "Quedaste el tiempo suficiente para despedirte.",
+                    "No te quedes el tiempo suficiente para despedirte."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "why I needed to",
+              "translation": "por qué necesitaba hacerlo",
+              "exercises": [
+                {
+                  "sentence": "I don't remember why I needed to leave so fast.",
+                  "translation": "No recuerdo por qué necesitaba irme tan rápido.",
+                  "distractors": [
+                    "Recuerdo por qué necesitaba irme tan rápido.",
+                    "No recuerdo por qué necesito irme tan rápido.",
+                    "No recordaba por qué necesitaba irme tan rápido."
+                  ]
+                },
+                {
+                  "sentence": "She explained why she needed to go.",
+                  "translation": "Ella explicó por qué necesitaba irse.",
+                  "distractors": [
+                    "Ella explica por qué necesitaba irse.",
+                    "Ella explicó por qué necesita irse.",
+                    "Él explicó por qué necesitaba irse."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "'Cause there we are again in the middle of the night\nWe're dancing 'round the kitchen in the refrigerator light\nDown the stairs, I was there\nI remember it all too well, yeah",
+      "translation": "Porque allí estamos otra vez en medio de la noche. Estamos bailando por la cocina a la luz del refrigerador. Bajando las escaleras, yo estaba allí. Lo recuerdo todo demasiado bien, sí.",
+      "content": [
+        {
+          "originalPhrase": "'Cause there we are again in the middle of the night",
+          "translation": "Porque allí estamos otra vez en medio de la noche",
+          "phrases": [
+            "there we are again",
+            "in the middle of the night"
+          ],
+          "distractors": [
+            "Porque allí estamos otra vez en medio del día",
+            "Porque allí estábamos otra vez en medio de la noche",
+            "Porque allí no estamos otra vez en medio de la noche"
+          ],
+          "learn": [
+            {
+              "phrase": "there we are again",
+              "translation": "allí estamos otra vez",
+              "exercises": [
+                {
+                  "sentence": "There we are again, standing in the rain.",
+                  "translation": "Allí estamos otra vez, parados bajo la lluvia.",
+                  "distractors": [
+                    "Allí estábamos otra vez, parados bajo la lluvia.",
+                    "Allí estamos otra vez, parados bajo el sol.",
+                    "Allí no estamos otra vez, parados bajo la lluvia."
+                  ]
+                },
+                {
+                  "sentence": "There we are again, back at the start.",
+                  "translation": "Allí estamos otra vez, de vuelta al principio.",
+                  "distractors": [
+                    "Allí estábamos otra vez, de vuelta al principio.",
+                    "Allí estamos otra vez, de vuelta al final.",
+                    "Allí no estamos otra vez, de vuelta al principio."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "in the middle of the night",
+              "translation": "en medio de la noche",
+              "exercises": [
+                {
+                  "sentence": "The phone rang in the middle of the night.",
+                  "translation": "El teléfono sonó en medio de la noche.",
+                  "distractors": [
+                    "El teléfono suena en medio de la noche.",
+                    "El teléfono sonó en medio del día.",
+                    "El teléfono sonaba en medio de la noche."
+                  ]
+                },
+                {
+                  "sentence": "I woke up in the middle of the night.",
+                  "translation": "Me desperté en medio de la noche.",
+                  "distractors": [
+                    "Me despierto en medio de la noche.",
+                    "Me desperté en medio del día.",
+                    "Me despertaba en medio de la noche."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "We're dancing 'round the kitchen in the refrigerator light",
+          "translation": "Estamos bailando por la cocina a la luz del refrigerador",
+          "phrases": [
+            "dancing 'round the kitchen",
+            "refrigerator light"
+          ],
+          "distractors": [
+            "Estamos bailando por la sala a la luz del refrigerador",
+            "Estamos bailando por la cocina a la luz del sol",
+            "No estamos bailando por la cocina a la luz del refrigerador"
+          ],
+          "learn": [
+            {
+              "phrase": "dancing 'round the kitchen",
+              "translation": "bailando por la cocina",
+              "exercises": [
+                {
+                  "sentence": "We spent the evening dancing 'round the kitchen.",
+                  "translation": "Pasamos la noche bailando por la cocina.",
+                  "distractors": [
+                    "Pasamos la noche bailando por la sala.",
+                    "Pasábamos la noche bailando por la cocina.",
+                    "Pasaremos la noche bailando por la cocina."
+                  ]
+                },
+                {
+                  "sentence": "They were dancing 'round the kitchen to old songs.",
+                  "translation": "Estaban bailando por la cocina con canciones viejas.",
+                  "distractors": [
+                    "Están bailando por la cocina con canciones viejas.",
+                    "Estaban bailando por la sala con canciones viejas.",
+                    "Estuvieron bailando por la cocina con canciones viejas."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "refrigerator light",
+              "translation": "luz del refrigerador",
+              "exercises": [
+                {
+                  "sentence": "We talked by the refrigerator light at midnight.",
+                  "translation": "Hablamos a la luz del refrigerador a medianoche.",
+                  "distractors": [
+                    "Hablamos a la luz de la luna a medianoche.",
+                    "Hablábamos a la luz del refrigerador a medianoche.",
+                    "Hablaremos a la luz del refrigerador a medianoche."
+                  ]
+                },
+                {
+                  "sentence": "The refrigerator light was the only light on.",
+                  "translation": "La luz del refrigerador era la única luz encendida.",
+                  "distractors": [
+                    "La luz de la cocina era la única luz encendida.",
+                    "La luz del refrigerador es la única luz encendida.",
+                    "La luz del refrigerador era la única luz apagada."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Down the stairs, I was there",
+          "translation": "Bajando las escaleras, yo estaba allí",
+          "phrases": [
+            "down the stairs",
+            "I was there"
+          ],
+          "distractors": [
+            "Subiendo las escaleras, yo estaba allí",
+            "Bajando las escaleras, tú estabas allí",
+            "Bajando las escaleras, yo no estaba allí"
+          ],
+          "learn": [
+            {
+              "phrase": "down the stairs",
+              "translation": "bajando las escaleras",
+              "exercises": [
+                {
+                  "sentence": "She ran down the stairs to answer the door.",
+                  "translation": "Ella bajó corriendo las escaleras para abrir la puerta.",
+                  "distractors": [
+                    "Ella subió corriendo las escaleras para abrir la puerta.",
+                    "Ella baja corriendo las escaleras para abrir la puerta.",
+                    "Él bajó corriendo las escaleras para abrir la puerta."
+                  ]
+                },
+                {
+                  "sentence": "I heard footsteps down the stairs.",
+                  "translation": "Escuché pasos bajando las escaleras.",
+                  "distractors": [
+                    "Escuché pasos subiendo las escaleras.",
+                    "Escucho pasos bajando las escaleras.",
+                    "Escuché pasos en las escaleras, subiendo."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "I was there",
+              "translation": "yo estaba allí",
+              "exercises": [
+                {
+                  "sentence": "I was there when it happened.",
+                  "translation": "Yo estaba allí cuando sucedió.",
+                  "distractors": [
+                    "Yo estoy allí cuando sucedió.",
+                    "Yo no estaba allí cuando sucedió.",
+                    "Yo estaba allí cuando sucederá."
+                  ]
+                },
+                {
+                  "sentence": "I was there for every moment.",
+                  "translation": "Yo estaba allí en cada momento.",
+                  "distractors": [
+                    "Yo estoy allí en cada momento.",
+                    "Yo no estaba allí en cada momento.",
+                    "Yo estaré allí en cada momento."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "I remember it all too well, yeah",
+          "translation": "Lo recuerdo todo demasiado bien, sí",
+          "phrases": [
+            "remember it all",
+            "too well",
+            "yeah"
+          ],
+          "distractors": [
+            "No lo recuerdo todo demasiado bien, sí",
+            "Lo recuerdo todo demasiado mal, sí",
+            "Lo olvidé todo demasiado bien, sí"
+          ],
+          "learn": [
+            {
+              "phrase": "remember it all",
+              "translation": "lo recuerdo todo",
+              "exercises": [
+                {
+                  "sentence": "I remember it all, every little detail.",
+                  "translation": "Lo recuerdo todo, cada pequeño detalle.",
+                  "distractors": [
+                    "No lo recuerdo todo, cada pequeño detalle.",
+                    "Lo recordaba todo, cada pequeño detalle.",
+                    "Lo olvidé todo, cada pequeño detalle."
+                  ]
+                },
+                {
+                  "sentence": "She said she'd remember it all forever.",
+                  "translation": "Ella dijo que lo recordaría todo para siempre.",
+                  "distractors": [
+                    "Ella dijo que lo olvidaría todo para siempre.",
+                    "Ella dice que lo recordaría todo para siempre.",
+                    "Ella dijo que no lo recordaría todo para siempre."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "too well",
+              "translation": "demasiado bien",
+              "exercises": [
+                {
+                  "sentence": "I know this road too well.",
+                  "translation": "Conozco este camino demasiado bien.",
+                  "distractors": [
+                    "No conozco este camino demasiado bien.",
+                    "Conocía este camino demasiado bien.",
+                    "Conozco este camino demasiado mal."
+                  ]
+                },
+                {
+                  "sentence": "He understands the situation too well.",
+                  "translation": "Él entiende la situación demasiado bien.",
+                  "distractors": [
+                    "Él no entiende la situación demasiado bien.",
+                    "Él entendía la situación demasiado bien.",
+                    "Él entiende la situación demasiado mal."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "yeah",
+              "translation": "sí",
+              "exercises": [
+                {
+                  "sentence": "Yeah, I remember that night.",
+                  "translation": "Sí, recuerdo esa noche.",
+                  "distractors": [
+                    "No, recuerdo esa noche.",
+                    "Sí, recordaba esa noche.",
+                    "Sí, olvido esa noche."
+                  ]
+                },
+                {
+                  "sentence": "Yeah, we should go together.",
+                  "translation": "Sí, deberíamos ir juntos.",
+                  "distractors": [
+                    "No, deberíamos ir juntos.",
+                    "Sí, deberíamos ir separados.",
+                    "Sí, debíamos ir juntos."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "And maybe we got lost in translation\nMaybe I asked for too much\nBut maybe this thing was a masterpiece 'til you tore it all up\nRunning scared, I was there\nI remember it all too well",
+      "translation": "Y quizás nos perdimos en la traducción. Quizás pedí demasiado. Pero quizás esto era una obra maestra hasta que lo rompiste todo. Corriendo asustada, yo estaba allí. Lo recuerdo todo demasiado bien.",
+      "content": [
+        {
+          "originalPhrase": "And maybe we got lost in translation",
+          "translation": "Y quizás nos perdimos en la traducción",
+          "phrases": [
+            "maybe",
+            "got lost",
+            "in translation"
+          ],
+          "distractors": [
+            "Y quizás nos encontramos en la traducción",
+            "Y quizás se perdió en la traducción",
+            "Y seguro nos perdimos en la traducción"
+          ],
+          "learn": [
+            {
+              "phrase": "maybe",
+              "translation": "quizás",
+              "exercises": [
+                {
+                  "sentence": "Maybe we should talk about it.",
+                  "translation": "Quizás deberíamos hablar de ello.",
+                  "distractors": [
+                    "Seguro deberíamos hablar de ello.",
+                    "Quizás debíamos hablar de ello.",
+                    "Quizás no deberíamos hablar de ello."
+                  ]
+                },
+                {
+                  "sentence": "Maybe it's for the best.",
+                  "translation": "Quizás sea lo mejor.",
+                  "distractors": [
+                    "Seguro sea lo mejor.",
+                    "Quizás era lo mejor.",
+                    "Quizás no sea lo mejor."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "got lost",
+              "translation": "nos perdimos / se perdió",
+              "exercises": [
+                {
+                  "sentence": "We got lost on the way to the airport.",
+                  "translation": "Nos perdimos de camino al aeropuerto.",
+                  "distractors": [
+                    "Nos encontramos de camino al aeropuerto.",
+                    "Nos perdemos de camino al aeropuerto.",
+                    "Nos perderemos de camino al aeropuerto."
+                  ]
+                },
+                {
+                  "sentence": "He got lost in his own thoughts.",
+                  "translation": "Él se perdió en sus propios pensamientos.",
+                  "distractors": [
+                    "Él se encontró en sus propios pensamientos.",
+                    "Él se pierde en sus propios pensamientos.",
+                    "Ella se perdió en sus propios pensamientos."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "in translation",
+              "translation": "en la traducción",
+              "exercises": [
+                {
+                  "sentence": "Some jokes get lost in translation.",
+                  "translation": "Algunos chistes se pierden en la traducción.",
+                  "distractors": [
+                    "Algunos chistes se ganan en la traducción.",
+                    "Algunos chistes se pierden en el idioma.",
+                    "Algún chiste se pierde en la traducción."
+                  ]
+                },
+                {
+                  "sentence": "The poem's beauty was lost in translation.",
+                  "translation": "La belleza del poema se perdió en la traducción.",
+                  "distractors": [
+                    "La belleza del poema se encontró en la traducción.",
+                    "La belleza del poema se pierde en la traducción.",
+                    "La belleza del poema se perdió en el idioma."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Maybe I asked for too much",
+          "translation": "Quizás pedí demasiado",
+          "phrases": [
+            "asked for",
+            "too much"
+          ],
+          "distractors": [
+            "Quizás pedí muy poco",
+            "Quizás no pedí demasiado",
+            "Quizás pedía demasiado"
+          ],
+          "learn": [
+            {
+              "phrase": "asked for",
+              "translation": "pedí / pedido",
+              "exercises": [
+                {
+                  "sentence": "I asked for a glass of water.",
+                  "translation": "Pedí un vaso de agua.",
+                  "distractors": [
+                    "Pido un vaso de agua.",
+                    "Pedía un vaso de agua.",
+                    "Pediré un vaso de agua."
+                  ]
+                },
+                {
+                  "sentence": "She asked for more time to decide.",
+                  "translation": "Ella pidió más tiempo para decidir.",
+                  "distractors": [
+                    "Ella pide más tiempo para decidir.",
+                    "Ella pedía más tiempo para decidir.",
+                    "Él pidió más tiempo para decidir."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "too much",
+              "translation": "demasiado",
+              "exercises": [
+                {
+                  "sentence": "You're asking too much of me.",
+                  "translation": "Me estás pidiendo demasiado.",
+                  "distractors": [
+                    "Me estás pidiendo muy poco.",
+                    "Me pediste demasiado.",
+                    "Me estás pidiendo algo."
+                  ]
+                },
+                {
+                  "sentence": "I ate too much at dinner.",
+                  "translation": "Comí demasiado en la cena.",
+                  "distractors": [
+                    "Comí muy poco en la cena.",
+                    "Como demasiado en la cena.",
+                    "Comía demasiado en la cena."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "But maybe this thing was a masterpiece 'til you tore it all up",
+          "translation": "Pero quizás esto era una obra maestra hasta que lo rompiste todo",
+          "phrases": [
+            "this thing was",
+            "a masterpiece",
+            "'til you tore it all up"
+          ],
+          "distractors": [
+            "Pero quizás esto era una obra maestra hasta que lo arreglaste todo",
+            "Pero quizás esto era un desastre hasta que lo rompiste todo",
+            "Pero quizás esto no era una obra maestra hasta que lo rompiste todo"
+          ],
+          "learn": [
+            {
+              "phrase": "this thing was",
+              "translation": "esto era",
+              "exercises": [
+                {
+                  "sentence": "This thing was supposed to be simple.",
+                  "translation": "Esto se suponía que era simple.",
+                  "distractors": [
+                    "Esto se supone que es simple.",
+                    "Esto se suponía que fuera complicado.",
+                    "Esto no se suponía que fuera simple."
+                  ]
+                },
+                {
+                  "sentence": "This thing was more complicated than I thought.",
+                  "translation": "Esto era más complicado de lo que pensaba.",
+                  "distractors": [
+                    "Esto es más complicado de lo que pensaba.",
+                    "Esto era más simple de lo que pensaba.",
+                    "Esto era menos complicado de lo que pensaba."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "a masterpiece",
+              "translation": "una obra maestra",
+              "exercises": [
+                {
+                  "sentence": "The film is considered a masterpiece.",
+                  "translation": "La película es considerada una obra maestra.",
+                  "distractors": [
+                    "La película fue considerada una obra maestra.",
+                    "La película es considerada un fracaso.",
+                    "El libro es considerado una obra maestra."
+                  ]
+                },
+                {
+                  "sentence": "Her last novel was a true masterpiece.",
+                  "translation": "Su última novela fue una verdadera obra maestra.",
+                  "distractors": [
+                    "Su última novela es una verdadera obra maestra.",
+                    "Su primera novela fue una verdadera obra maestra.",
+                    "Su última novela fue un verdadero fracaso."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "'til you tore it all up",
+              "translation": "hasta que lo rompiste todo",
+              "exercises": [
+                {
+                  "sentence": "Everything was fine 'til you tore it all up.",
+                  "translation": "Todo estaba bien hasta que lo rompiste todo.",
+                  "distractors": [
+                    "Todo estaba bien hasta que lo arreglaste todo.",
+                    "Todo está bien hasta que lo rompiste todo.",
+                    "Todo estaba mal hasta que lo rompiste todo."
+                  ]
+                },
+                {
+                  "sentence": "He built it carefully 'til she tore it all up.",
+                  "translation": "Él lo construyó cuidadosamente hasta que ella lo rompió todo.",
+                  "distractors": [
+                    "Él lo construyó cuidadosamente hasta que ella lo arregló todo.",
+                    "Él lo construye cuidadosamente hasta que ella lo rompió todo.",
+                    "Ella lo construyó cuidadosamente hasta que él lo rompió todo."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Running scared, I was there",
+          "translation": "Corriendo asustada, yo estaba allí",
+          "phrases": [
+            "running scared",
+            "I was there"
+          ],
+          "distractors": [
+            "Corriendo valiente, yo estaba allí",
+            "Corriendo asustada, tú estabas allí",
+            "Corriendo asustada, yo no estaba allí"
+          ],
+          "learn": [
+            {
+              "phrase": "running scared",
+              "translation": "corriendo asustada/o",
+              "exercises": [
+                {
+                  "sentence": "I left running scared, not looking back.",
+                  "translation": "Me fui corriendo asustada, sin mirar atrás.",
+                  "distractors": [
+                    "Me fui corriendo valiente, sin mirar atrás.",
+                    "Me fui caminando asustada, sin mirar atrás.",
+                    "Me fui corriendo asustada, mirando atrás."
+                  ]
+                },
+                {
+                  "sentence": "He was running scared after the accident.",
+                  "translation": "Él estaba corriendo asustado después del accidente.",
+                  "distractors": [
+                    "Él estaba corriendo valiente después del accidente.",
+                    "Él está corriendo asustado después del accidente.",
+                    "Ella estaba corriendo asustada después del accidente."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "I was there",
+              "translation": "yo estaba allí",
+              "exercises": [
+                {
+                  "sentence": "I was there when it happened.",
+                  "translation": "Yo estaba allí cuando sucedió.",
+                  "distractors": [
+                    "Yo estoy allí cuando sucedió.",
+                    "Yo no estaba allí cuando sucedió.",
+                    "Yo estaba allí cuando sucederá."
+                  ]
+                },
+                {
+                  "sentence": "I was there for every moment.",
+                  "translation": "Yo estaba allí en cada momento.",
+                  "distractors": [
+                    "Yo estoy allí en cada momento.",
+                    "Yo no estaba allí en cada momento.",
+                    "Yo estaré allí en cada momento."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "I remember it all too well",
+          "translation": "Lo recuerdo todo demasiado bien",
+          "phrases": [
+            "remember it all",
+            "too well"
+          ],
+          "distractors": [
+            "No lo recuerdo todo demasiado bien",
+            "Lo recuerdo todo demasiado mal",
+            "Lo olvidé todo demasiado bien"
+          ],
+          "learn": [
+            {
+              "phrase": "remember it all",
+              "translation": "lo recuerdo todo",
+              "exercises": [
+                {
+                  "sentence": "I remember it all, every little detail.",
+                  "translation": "Lo recuerdo todo, cada pequeño detalle.",
+                  "distractors": [
+                    "No lo recuerdo todo, cada pequeño detalle.",
+                    "Lo recordaba todo, cada pequeño detalle.",
+                    "Lo olvidé todo, cada pequeño detalle."
+                  ]
+                },
+                {
+                  "sentence": "She said she'd remember it all forever.",
+                  "translation": "Ella dijo que lo recordaría todo para siempre.",
+                  "distractors": [
+                    "Ella dijo que lo olvidaría todo para siempre.",
+                    "Ella dice que lo recordaría todo para siempre.",
+                    "Ella dijo que no lo recordaría todo para siempre."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "too well",
+              "translation": "demasiado bien",
+              "exercises": [
+                {
+                  "sentence": "I know this road too well.",
+                  "translation": "Conozco este camino demasiado bien.",
+                  "distractors": [
+                    "No conozco este camino demasiado bien.",
+                    "Conocía este camino demasiado bien.",
+                    "Conozco este camino demasiado mal."
+                  ]
+                },
+                {
+                  "sentence": "He understands the situation too well.",
+                  "translation": "Él entiende la situación demasiado bien.",
+                  "distractors": [
+                    "Él no entiende la situación demasiado bien.",
+                    "Él entendía la situación demasiado bien.",
+                    "Él entiende la situación demasiado mal."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "And you call me up again just to break me like a promise\nSo casually cruel in the name of being honest\nI'm a crumpled up piece of paper lying here\n'Cause I remember it all, all, all\nToo well",
+      "translation": "Y me llamas otra vez solo para romperme como una promesa. Tan casualmente cruel en nombre de ser honesto. Soy un trozo de papel arrugado tirado aquí. Porque lo recuerdo todo, todo, todo. Demasiado bien.",
+      "content": [
+        {
+          "originalPhrase": "And you call me up again just to break me like a promise",
+          "translation": "Y me llamas otra vez solo para romperme como una promesa",
+          "phrases": [
+            "call me up again",
+            "just to break me",
+            "like a promise"
+          ],
+          "distractors": [
+            "Y me llamas otra vez solo para arreglarme como una promesa",
+            "Y no me llamas otra vez solo para romperme como una promesa",
+            "Y me llamas otra vez solo para romperme como un contrato"
+          ],
+          "learn": [
+            {
+              "phrase": "call me up again",
+              "translation": "me llamas otra vez",
+              "exercises": [
+                {
+                  "sentence": "Don't call me up again at midnight.",
+                  "translation": "No me llames otra vez a medianoche.",
+                  "distractors": [
+                    "Llámame otra vez a medianoche.",
+                    "No me llamaste otra vez a medianoche.",
+                    "No me llames otra vez al mediodía."
+                  ]
+                },
+                {
+                  "sentence": "He called me up again to apologize.",
+                  "translation": "Él me llamó otra vez para disculparse.",
+                  "distractors": [
+                    "Él me llama otra vez para disculparse.",
+                    "Él me llamó otra vez para pelear.",
+                    "Ella me llamó otra vez para disculparse."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "just to break me",
+              "translation": "solo para romperme",
+              "exercises": [
+                {
+                  "sentence": "He lied just to break me.",
+                  "translation": "Él mintió solo para romperme.",
+                  "distractors": [
+                    "Él mintió solo para ayudarme.",
+                    "Él miente solo para romperme.",
+                    "Ella mintió solo para romperme."
+                  ]
+                },
+                {
+                  "sentence": "She said it just to break me down.",
+                  "translation": "Ella lo dijo solo para destrozarme.",
+                  "distractors": [
+                    "Ella lo dijo solo para animarme.",
+                    "Ella dice eso solo para destrozarme.",
+                    "Él lo dijo solo para destrozarme."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "like a promise",
+              "translation": "como una promesa",
+              "exercises": [
+                {
+                  "sentence": "He broke it like a promise he never meant.",
+                  "translation": "Lo rompió como una promesa que nunca quiso cumplir.",
+                  "distractors": [
+                    "Lo cumplió como una promesa que nunca quiso cumplir.",
+                    "Lo rompe como una promesa que nunca quiso cumplir.",
+                    "Ella lo rompió como una promesa que nunca quiso cumplir."
+                  ]
+                },
+                {
+                  "sentence": "She held onto it like a promise.",
+                  "translation": "Ella se aferró a ello como a una promesa.",
+                  "distractors": [
+                    "Ella se aferraba a ello como a una promesa.",
+                    "Ella se aferró a ello como a un recuerdo.",
+                    "Él se aferró a ello como a una promesa."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "So casually cruel in the name of being honest",
+          "translation": "Tan casualmente cruel en nombre de ser honesto",
+          "phrases": [
+            "casually cruel",
+            "in the name of",
+            "being honest"
+          ],
+          "distractors": [
+            "Tan casualmente amable en nombre de ser honesto",
+            "Tan casualmente cruel en nombre de ser mentiroso",
+            "Tan intencionalmente cruel en nombre de ser honesto"
+          ],
+          "learn": [
+            {
+              "phrase": "casually cruel",
+              "translation": "casualmente cruel",
+              "exercises": [
+                {
+                  "sentence": "His words were casually cruel.",
+                  "translation": "Sus palabras fueron casualmente crueles.",
+                  "distractors": [
+                    "Sus palabras fueron casualmente amables.",
+                    "Sus palabras son casualmente crueles.",
+                    "Sus palabras eran casualmente crueles."
+                  ]
+                },
+                {
+                  "sentence": "She can be casually cruel without noticing.",
+                  "translation": "Ella puede ser casualmente cruel sin darse cuenta.",
+                  "distractors": [
+                    "Ella puede ser casualmente amable sin darse cuenta.",
+                    "Ella podía ser casualmente cruel sin darse cuenta.",
+                    "Él puede ser casualmente cruel sin darse cuenta."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "in the name of",
+              "translation": "en nombre de",
+              "exercises": [
+                {
+                  "sentence": "They did it all in the name of love.",
+                  "translation": "Hicieron todo en nombre del amor.",
+                  "distractors": [
+                    "Hacen todo en nombre del amor.",
+                    "Hicieron todo en nombre del odio.",
+                    "Hicieron todo a pesar del amor."
+                  ]
+                },
+                {
+                  "sentence": "She sacrificed everything in the name of family.",
+                  "translation": "Ella sacrificó todo en nombre de la familia.",
+                  "distractors": [
+                    "Ella sacrifica todo en nombre de la familia.",
+                    "Ella sacrificó todo en nombre del trabajo.",
+                    "Él sacrificó todo en nombre de la familia."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "being honest",
+              "translation": "ser honesto",
+              "exercises": [
+                {
+                  "sentence": "Being honest, I didn't like the movie.",
+                  "translation": "Siendo honesto, no me gustó la película.",
+                  "distractors": [
+                    "Siendo deshonesto, no me gustó la película.",
+                    "Siendo honesto, me gustó la película.",
+                    "Siendo honesto, no me gustaba la película."
+                  ]
+                },
+                {
+                  "sentence": "He values being honest above everything.",
+                  "translation": "Él valora ser honesto por encima de todo.",
+                  "distractors": [
+                    "Él valora ser popular por encima de todo.",
+                    "Él valoraba ser honesto por encima de todo.",
+                    "Ella valora ser honesta por encima de todo."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "I'm a crumpled up piece of paper lying here",
+          "translation": "Soy un trozo de papel arrugado tirado aquí",
+          "phrases": [
+            "crumpled up piece of paper",
+            "lying here"
+          ],
+          "distractors": [
+            "Soy un trozo de papel alisado tirado aquí",
+            "Soy un trozo de papel arrugado flotando aquí",
+            "No soy un trozo de papel arrugado tirado aquí"
+          ],
+          "learn": [
+            {
+              "phrase": "crumpled up piece of paper",
+              "translation": "trozo de papel arrugado",
+              "exercises": [
+                {
+                  "sentence": "I found a crumpled up piece of paper in his pocket.",
+                  "translation": "Encontré un trozo de papel arrugado en su bolsillo.",
+                  "distractors": [
+                    "Encontré un trozo de papel liso en su bolsillo.",
+                    "Encontré una bolsa arrugada en su bolsillo.",
+                    "Encontraba un trozo de papel arrugado en su bolsillo."
+                  ]
+                },
+                {
+                  "sentence": "She threw the crumpled up piece of paper in the trash.",
+                  "translation": "Ella tiró el trozo de papel arrugado a la basura.",
+                  "distractors": [
+                    "Ella tiró el trozo de papel liso a la basura.",
+                    "Ella guardó el trozo de papel arrugado.",
+                    "Él tiró el trozo de papel arrugado a la basura."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "lying here",
+              "translation": "tirado/a aquí",
+              "exercises": [
+                {
+                  "sentence": "I've been lying here for hours, thinking.",
+                  "translation": "He estado tirado aquí por horas, pensando.",
+                  "distractors": [
+                    "He estado parado aquí por horas, pensando.",
+                    "Estuve tirado aquí por horas, pensando.",
+                    "He estado tirado allá por horas, pensando."
+                  ]
+                },
+                {
+                  "sentence": "There's a letter lying here on the table.",
+                  "translation": "Hay una carta tirada aquí en la mesa.",
+                  "distractors": [
+                    "Hay una carta tirada allá en la mesa.",
+                    "Había una carta tirada aquí en la mesa.",
+                    "Hay una carta parada aquí en la mesa."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "'Cause I remember it all, all, all",
+          "translation": "Porque lo recuerdo todo, todo, todo",
+          "phrases": [
+            "remember it all",
+            "all, all"
+          ],
+          "distractors": [
+            "Porque no lo recuerdo todo, todo, todo",
+            "Porque lo olvidé todo, todo, todo",
+            "Porque lo recuerdo poco, poco, poco"
+          ],
+          "learn": [
+            {
+              "phrase": "remember it all",
+              "translation": "lo recuerdo todo",
+              "exercises": [
+                {
+                  "sentence": "I remember it all, every little detail.",
+                  "translation": "Lo recuerdo todo, cada pequeño detalle.",
+                  "distractors": [
+                    "No lo recuerdo todo, cada pequeño detalle.",
+                    "Lo recordaba todo, cada pequeño detalle.",
+                    "Lo olvidé todo, cada pequeño detalle."
+                  ]
+                },
+                {
+                  "sentence": "She said she'd remember it all forever.",
+                  "translation": "Ella dijo que lo recordaría todo para siempre.",
+                  "distractors": [
+                    "Ella dijo que lo olvidaría todo para siempre.",
+                    "Ella dice que lo recordaría todo para siempre.",
+                    "Ella dijo que no lo recordaría todo para siempre."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "all, all",
+              "translation": "todo, todo",
+              "exercises": [
+                {
+                  "sentence": "I remember it all, all, every single word.",
+                  "translation": "Lo recuerdo todo, todo, cada palabra.",
+                  "distractors": [
+                    "No lo recuerdo todo, todo, cada palabra.",
+                    "Lo recordaba todo, todo, cada palabra.",
+                    "Lo olvidé todo, todo, cada palabra."
+                  ]
+                },
+                {
+                  "sentence": "She gave it her all, all she had.",
+                  "translation": "Ella dio todo, todo lo que tenía.",
+                  "distractors": [
+                    "Ella no dio nada, todo lo que tenía.",
+                    "Ella daba todo, todo lo que tenía.",
+                    "Él dio todo, todo lo que tenía."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Too well",
+          "translation": "Demasiado bien",
+          "phrases": [
+            "too well"
+          ],
+          "distractors": [
+            "Demasiado mal",
+            "Muy poco",
+            "Bastante bien"
+          ],
+          "learn": [
+            {
+              "phrase": "too well",
+              "translation": "demasiado bien",
+              "exercises": [
+                {
+                  "sentence": "I know this road too well.",
+                  "translation": "Conozco este camino demasiado bien.",
+                  "distractors": [
+                    "No conozco este camino demasiado bien.",
+                    "Conocía este camino demasiado bien.",
+                    "Conozco este camino demasiado mal."
+                  ]
+                },
+                {
+                  "sentence": "He understands the situation too well.",
+                  "translation": "Él entiende la situación demasiado bien.",
+                  "distractors": [
+                    "Él no entiende la situación demasiado bien.",
+                    "Él entendía la situación demasiado bien.",
+                    "Él entiende la situación demasiado mal."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Time won't fly, it's like I'm paralyzed by it\nI'd like to be my old self again\nBut I'm still trying to find it\nAfter plaid shirt days and nights when you made me your own\nNow you mail back my things and I walk home alone\nBut you keep my old scarf from that very first week\n'Cause it reminds you of innocence\nAnd it smells like me\nYou can't get rid of it\n'Cause you remember it all too well, yeah",
+      "translation": "El tiempo no vuela, es como si estuviera paralizada por él. Me gustaría volver a ser mi viejo yo. Pero todavía estoy tratando de encontrarlo. Después de días de camisa a cuadros y noches en que me hiciste tuya. Ahora me devuelves mis cosas por correo y camino a casa sola. Pero guardas mi vieja bufanda de esa primera semana. Porque te recuerda la inocencia. Y huele a mí. No puedes deshacerte de ella. Porque lo recuerdas todo demasiado bien, sí.",
+      "content": [
+        {
+          "originalPhrase": "Time won't fly, it's like I'm paralyzed by it",
+          "translation": "El tiempo no vuela, es como si estuviera paralizada por él",
+          "phrases": [
+            "time won't fly",
+            "paralyzed by it"
+          ],
+          "distractors": [
+            "El tiempo vuela, es como si estuviera paralizada por él",
+            "El tiempo no vuela, es como si estuviera liberada por él",
+            "El tiempo no vuela, es como si estuviera paralizado por él"
+          ],
+          "learn": [
+            {
+              "phrase": "time won't fly",
+              "translation": "el tiempo no vuela",
+              "exercises": [
+                {
+                  "sentence": "When you wait, time won't fly.",
+                  "translation": "Cuando esperas, el tiempo no vuela.",
+                  "distractors": [
+                    "Cuando esperas, el tiempo vuela.",
+                    "Cuando esperabas, el tiempo no vuela.",
+                    "Cuando esperas, el tiempo no corre."
+                  ]
+                },
+                {
+                  "sentence": "Time won't fly fast enough until the weekend.",
+                  "translation": "El tiempo no vuela lo suficientemente rápido hasta el fin de semana.",
+                  "distractors": [
+                    "El tiempo vuela lo suficientemente rápido hasta el fin de semana.",
+                    "El tiempo no volaba lo suficientemente rápido hasta el fin de semana.",
+                    "El tiempo no vuela lo suficientemente lento hasta el fin de semana."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "paralyzed by it",
+              "translation": "paralizada/o por ello",
+              "exercises": [
+                {
+                  "sentence": "She was paralyzed by fear.",
+                  "translation": "Ella estaba paralizada por el miedo.",
+                  "distractors": [
+                    "Ella está paralizada por el miedo.",
+                    "Ella estaba liberada por el miedo.",
+                    "Él estaba paralizado por el miedo."
+                  ]
+                },
+                {
+                  "sentence": "He felt paralyzed by the decision.",
+                  "translation": "Él se sintió paralizado por la decisión.",
+                  "distractors": [
+                    "Él se siente paralizado por la decisión.",
+                    "Él se sintió liberado por la decisión.",
+                    "Ella se sintió paralizada por la decisión."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "I'd like to be my old self again",
+          "translation": "Me gustaría volver a ser mi viejo yo",
+          "phrases": [
+            "I'd like to be",
+            "my old self again"
+          ],
+          "distractors": [
+            "No me gustaría volver a ser mi viejo yo",
+            "Me gustaría volver a ser mi nuevo yo",
+            "Me gustaría ser otra persona"
+          ],
+          "learn": [
+            {
+              "phrase": "I'd like to be",
+              "translation": "me gustaría ser/volver a ser",
+              "exercises": [
+                {
+                  "sentence": "I'd like to be braver.",
+                  "translation": "Me gustaría ser más valiente.",
+                  "distractors": [
+                    "No me gustaría ser más valiente.",
+                    "Me gustaría ser menos valiente.",
+                    "Me gustaba ser más valiente."
+                  ]
+                },
+                {
+                  "sentence": "I'd like to be somewhere else right now.",
+                  "translation": "Me gustaría estar en otro lugar ahora mismo.",
+                  "distractors": [
+                    "No me gustaría estar en otro lugar ahora mismo.",
+                    "Me gustaría estar aquí ahora mismo.",
+                    "Me gustaba estar en otro lugar ahora mismo."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "my old self again",
+              "translation": "mi viejo yo otra vez",
+              "exercises": [
+                {
+                  "sentence": "After the trip, I finally felt like my old self again.",
+                  "translation": "Después del viaje, finalmente me sentí como mi viejo yo otra vez.",
+                  "distractors": [
+                    "Después del viaje, finalmente me siento como mi viejo yo otra vez.",
+                    "Después del viaje, finalmente me sentí como mi nuevo yo otra vez.",
+                    "Antes del viaje, finalmente me sentí como mi viejo yo otra vez."
+                  ]
+                },
+                {
+                  "sentence": "It took months to become my old self again.",
+                  "translation": "Tomó meses volver a ser mi viejo yo otra vez.",
+                  "distractors": [
+                    "Toma meses volver a ser mi viejo yo otra vez.",
+                    "Tomó meses volver a ser mi nuevo yo otra vez.",
+                    "Tomó días volver a ser mi viejo yo otra vez."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "But I'm still trying to find it",
+          "translation": "Pero todavía estoy tratando de encontrarlo",
+          "phrases": [
+            "still trying",
+            "to find it"
+          ],
+          "distractors": [
+            "Pero todavía estoy tratando de perderlo",
+            "Pero ya dejé de tratar de encontrarlo",
+            "Pero todavía estoy tratando de encontrarla"
+          ],
+          "learn": [
+            {
+              "phrase": "still trying",
+              "translation": "todavía tratando",
+              "exercises": [
+                {
+                  "sentence": "I'm still trying to understand what happened.",
+                  "translation": "Todavía estoy tratando de entender lo que pasó.",
+                  "distractors": [
+                    "Ya dejé de tratar de entender lo que pasó.",
+                    "Estoy tratando de entender lo que pasó.",
+                    "Todavía estaba tratando de entender lo que pasó."
+                  ]
+                },
+                {
+                  "sentence": "She's still trying to fix the car.",
+                  "translation": "Ella todavía está tratando de arreglar el coche.",
+                  "distractors": [
+                    "Ella ya arregló el coche.",
+                    "Ella está tratando de arreglar el coche.",
+                    "Él todavía está tratando de arreglar el coche."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "to find it",
+              "translation": "encontrarlo",
+              "exercises": [
+                {
+                  "sentence": "I searched everywhere to find it.",
+                  "translation": "Busqué por todas partes para encontrarlo.",
+                  "distractors": [
+                    "Busco por todas partes para encontrarlo.",
+                    "Busqué por todas partes para perderlo.",
+                    "Buscaré por todas partes para encontrarlo."
+                  ]
+                },
+                {
+                  "sentence": "We need more time to find it.",
+                  "translation": "Necesitamos más tiempo para encontrarlo.",
+                  "distractors": [
+                    "Necesitamos menos tiempo para encontrarlo.",
+                    "Necesitábamos más tiempo para encontrarlo.",
+                    "Necesitamos más tiempo para perderlo."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "After plaid shirt days and nights when you made me your own",
+          "translation": "Después de días de camisa a cuadros y noches en que me hiciste tuya",
+          "phrases": [
+            "plaid shirt days",
+            "nights when you made me your own"
+          ],
+          "distractors": [
+            "Antes de días de camisa a cuadros y noches en que me hiciste tuya",
+            "Después de días de camisa a rayas y noches en que me hiciste tuya",
+            "Después de días de camisa a cuadros y noches en que me hiciste tuyo"
+          ],
+          "learn": [
+            {
+              "phrase": "plaid shirt days",
+              "translation": "días de camisa a cuadros",
+              "exercises": [
+                {
+                  "sentence": "I miss those plaid shirt days in the mountains.",
+                  "translation": "Extraño esos días de camisa a cuadros en las montañas.",
+                  "distractors": [
+                    "Extraño esos días de camisa a rayas en las montañas.",
+                    "Extrañaba esos días de camisa a cuadros en las montañas.",
+                    "No extraño esos días de camisa a cuadros en las montañas."
+                  ]
+                },
+                {
+                  "sentence": "Those plaid shirt days feel so far away now.",
+                  "translation": "Esos días de camisa a cuadros se sienten tan lejanos ahora.",
+                  "distractors": [
+                    "Esos días de camisa a cuadros se sentían tan lejanos ahora.",
+                    "Esos días de camisa a rayas se sienten tan lejanos ahora.",
+                    "Esos días de camisa a cuadros se sienten tan cercanos ahora."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "nights when you made me your own",
+              "translation": "noches en que me hiciste tuya",
+              "exercises": [
+                {
+                  "sentence": "I still think about nights when you made me your own.",
+                  "translation": "Todavía pienso en las noches en que me hiciste tuya.",
+                  "distractors": [
+                    "Ya no pienso en las noches en que me hiciste tuya.",
+                    "Todavía pienso en los días en que me hiciste tuya.",
+                    "Todavía pensaba en las noches en que me hiciste tuya."
+                  ]
+                },
+                {
+                  "sentence": "Those were the nights when you made me your own.",
+                  "translation": "Esas fueron las noches en que me hiciste tuya.",
+                  "distractors": [
+                    "Esos fueron los días en que me hiciste tuya.",
+                    "Esas son las noches en que me hiciste tuya.",
+                    "Esas fueron las noches en que me hiciste tuyo."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Now you mail back my things and I walk home alone",
+          "translation": "Ahora me devuelves mis cosas por correo y camino a casa sola",
+          "phrases": [
+            "mail back my things",
+            "walk home alone"
+          ],
+          "distractors": [
+            "Ahora me devuelves mis cosas por correo y camino a casa acompañada",
+            "Ahora me envías mis cosas por correo y camino a casa sola",
+            "Antes me devolvías mis cosas por correo y caminaba a casa sola"
+          ],
+          "learn": [
+            {
+              "phrase": "mail back my things",
+              "translation": "devuelves mis cosas por correo",
+              "exercises": [
+                {
+                  "sentence": "Please mail back my things when you can.",
+                  "translation": "Por favor devuélveme mis cosas por correo cuando puedas.",
+                  "distractors": [
+                    "Por favor guarda mis cosas por correo cuando puedas.",
+                    "Por favor devuélveme tus cosas por correo cuando puedas.",
+                    "Por favor devuélveme mis cosas por correo cuando quieras."
+                  ]
+                },
+                {
+                  "sentence": "He mailed back my things without a note.",
+                  "translation": "Él me devolvió mis cosas por correo sin una nota.",
+                  "distractors": [
+                    "Él me devuelve mis cosas por correo sin una nota.",
+                    "Él me devolvió mis cosas por correo con una nota.",
+                    "Ella me devolvió mis cosas por correo sin una nota."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "walk home alone",
+              "translation": "caminar a casa sola",
+              "exercises": [
+                {
+                  "sentence": "I had to walk home alone in the rain.",
+                  "translation": "Tuve que caminar a casa sola bajo la lluvia.",
+                  "distractors": [
+                    "Tuve que caminar a casa acompañada bajo la lluvia.",
+                    "Tengo que caminar a casa sola bajo la lluvia.",
+                    "Tuve que caminar a casa sola bajo el sol."
+                  ]
+                },
+                {
+                  "sentence": "She doesn't like to walk home alone at night.",
+                  "translation": "A ella no le gusta caminar a casa sola de noche.",
+                  "distractors": [
+                    "A ella le gusta caminar a casa sola de noche.",
+                    "A ella no le gustaba caminar a casa sola de noche.",
+                    "A él no le gusta caminar a casa solo de noche."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "But you keep my old scarf from that very first week",
+          "translation": "Pero guardas mi vieja bufanda de esa primera semana",
+          "phrases": [
+            "keep my old scarf",
+            "from that very first week"
+          ],
+          "distractors": [
+            "Pero tiras mi vieja bufanda de esa primera semana",
+            "Pero guardas mi vieja bufanda de esa última semana",
+            "Pero guardas tu vieja bufanda de esa primera semana"
+          ],
+          "learn": [
+            {
+              "phrase": "keep my old scarf",
+              "translation": "guardas mi vieja bufanda",
+              "exercises": [
+                {
+                  "sentence": "He still keeps my old scarf in his closet.",
+                  "translation": "Él todavía guarda mi vieja bufanda en su armario.",
+                  "distractors": [
+                    "Él ya no guarda mi vieja bufanda en su armario.",
+                    "Él todavía guarda tu vieja bufanda en su armario.",
+                    "Él todavía guardaba mi vieja bufanda en su armario."
+                  ]
+                },
+                {
+                  "sentence": "Why do you keep my old scarf?",
+                  "translation": "¿Por qué guardas mi vieja bufanda?",
+                  "distractors": [
+                    "¿Por qué guardabas mi vieja bufanda?",
+                    "¿Por qué tiras mi vieja bufanda?",
+                    "¿Por qué guardas tu vieja bufanda?"
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "from that very first week",
+              "translation": "de esa primera semana",
+              "exercises": [
+                {
+                  "sentence": "I still have the ticket from that very first week.",
+                  "translation": "Todavía tengo el boleto de esa primera semana.",
+                  "distractors": [
+                    "Ya no tengo el boleto de esa primera semana.",
+                    "Todavía tengo el boleto de esa última semana.",
+                    "Todavía tenía el boleto de esa primera semana."
+                  ]
+                },
+                {
+                  "sentence": "We've been friends from that very first week of school.",
+                  "translation": "Hemos sido amigos desde esa primera semana de clases.",
+                  "distractors": [
+                    "Hemos sido amigos desde esa última semana de clases.",
+                    "Fuimos amigos desde esa primera semana de clases.",
+                    "Somos amigos desde esa primera semana de clases."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "'Cause it reminds you of innocence",
+          "translation": "Porque te recuerda la inocencia",
+          "phrases": [
+            "it reminds you",
+            "of innocence"
+          ],
+          "distractors": [
+            "Porque te recuerda la culpa",
+            "Porque me recuerda la inocencia",
+            "Porque no te recuerda la inocencia"
+          ],
+          "learn": [
+            {
+              "phrase": "it reminds you",
+              "translation": "te recuerda",
+              "exercises": [
+                {
+                  "sentence": "This song reminds you of summer, doesn't it?",
+                  "translation": "Esta canción te recuerda el verano, ¿no?",
+                  "distractors": [
+                    "Esta canción te recordaba el verano, ¿no?",
+                    "Esta canción me recuerda el verano, ¿no?",
+                    "Esta canción no te recuerda el verano, ¿no?"
+                  ]
+                },
+                {
+                  "sentence": "The smell of rain always reminds you of home.",
+                  "translation": "El olor de la lluvia siempre te recuerda tu casa.",
+                  "distractors": [
+                    "El olor de la lluvia siempre te recordaba tu casa.",
+                    "El olor de la lluvia nunca te recuerda tu casa.",
+                    "El olor de la lluvia siempre me recuerda tu casa."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "of innocence",
+              "translation": "de la inocencia",
+              "exercises": [
+                {
+                  "sentence": "The photo captures a sense of innocence.",
+                  "translation": "La foto captura un sentido de inocencia.",
+                  "distractors": [
+                    "La foto captura un sentido de culpa.",
+                    "La foto capturaba un sentido de inocencia.",
+                    "El video captura un sentido de inocencia."
+                  ]
+                },
+                {
+                  "sentence": "She spoke with a kind of innocence.",
+                  "translation": "Ella hablaba con una especie de inocencia.",
+                  "distractors": [
+                    "Ella hablaba con una especie de astucia.",
+                    "Ella habla con una especie de inocencia.",
+                    "Él hablaba con una especie de inocencia."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "And it smells like me",
+          "translation": "Y huele a mí",
+          "phrases": [
+            "smells like me"
+          ],
+          "distractors": [
+            "Y huele a ti",
+            "Y no huele a mí",
+            "Y sabe a mí"
+          ],
+          "learn": [
+            {
+              "phrase": "smells like me",
+              "translation": "huele a mí",
+              "exercises": [
+                {
+                  "sentence": "This sweater still smells like me.",
+                  "translation": "Este suéter todavía huele a mí.",
+                  "distractors": [
+                    "Este suéter ya no huele a mí.",
+                    "Este suéter todavía huele a ti.",
+                    "Este suéter todavía sabe a mí."
+                  ]
+                },
+                {
+                  "sentence": "The pillow smells like you.",
+                  "translation": "La almohada huele a ti.",
+                  "distractors": [
+                    "La almohada huele a mí.",
+                    "La almohada olía a ti.",
+                    "La almohada no huele a ti."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "You can't get rid of it",
+          "translation": "No puedes deshacerte de ella",
+          "phrases": [
+            "can't get rid of it"
+          ],
+          "distractors": [
+            "Puedes deshacerte de ella",
+            "No puedes deshacerte de él",
+            "No quieres deshacerte de ella"
+          ],
+          "learn": [
+            {
+              "phrase": "can't get rid of it",
+              "translation": "no puedes deshacerte de ella",
+              "exercises": [
+                {
+                  "sentence": "I can't get rid of this old habit.",
+                  "translation": "No puedo deshacerme de este viejo hábito.",
+                  "distractors": [
+                    "Puedo deshacerme de este viejo hábito.",
+                    "No podía deshacerme de este viejo hábito.",
+                    "No puedo deshacerme de este nuevo hábito."
+                  ]
+                },
+                {
+                  "sentence": "He can't get rid of the smell in his car.",
+                  "translation": "Él no puede deshacerse del olor en su coche.",
+                  "distractors": [
+                    "Él puede deshacerse del olor en su coche.",
+                    "Él no podía deshacerse del olor en su coche.",
+                    "Ella no puede deshacerse del olor en su coche."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "'Cause you remember it all too well, yeah",
+          "translation": "Porque lo recuerdas todo demasiado bien, sí",
+          "phrases": [
+            "remember it all",
+            "too well",
+            "yeah"
+          ],
+          "distractors": [
+            "Porque no lo recuerdas todo demasiado bien, sí",
+            "Porque lo olvidaste todo demasiado bien, sí",
+            "Porque lo recuerdas todo demasiado mal, sí"
+          ],
+          "learn": [
+            {
+              "phrase": "remember it all",
+              "translation": "lo recuerdo todo",
+              "exercises": [
+                {
+                  "sentence": "I remember it all, every little detail.",
+                  "translation": "Lo recuerdo todo, cada pequeño detalle.",
+                  "distractors": [
+                    "No lo recuerdo todo, cada pequeño detalle.",
+                    "Lo recordaba todo, cada pequeño detalle.",
+                    "Lo olvidé todo, cada pequeño detalle."
+                  ]
+                },
+                {
+                  "sentence": "She said she'd remember it all forever.",
+                  "translation": "Ella dijo que lo recordaría todo para siempre.",
+                  "distractors": [
+                    "Ella dijo que lo olvidaría todo para siempre.",
+                    "Ella dice que lo recordaría todo para siempre.",
+                    "Ella dijo que no lo recordaría todo para siempre."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "too well",
+              "translation": "demasiado bien",
+              "exercises": [
+                {
+                  "sentence": "I know this road too well.",
+                  "translation": "Conozco este camino demasiado bien.",
+                  "distractors": [
+                    "No conozco este camino demasiado bien.",
+                    "Conocía este camino demasiado bien.",
+                    "Conozco este camino demasiado mal."
+                  ]
+                },
+                {
+                  "sentence": "He understands the situation too well.",
+                  "translation": "Él entiende la situación demasiado bien.",
+                  "distractors": [
+                    "Él no entiende la situación demasiado bien.",
+                    "Él entendía la situación demasiado bien.",
+                    "Él entiende la situación demasiado mal."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "yeah",
+              "translation": "sí",
+              "exercises": [
+                {
+                  "sentence": "Yeah, I remember that night.",
+                  "translation": "Sí, recuerdo esa noche.",
+                  "distractors": [
+                    "No, recuerdo esa noche.",
+                    "Sí, recordaba esa noche.",
+                    "Sí, olvido esa noche."
+                  ]
+                },
+                {
+                  "sentence": "Yeah, we should go together.",
+                  "translation": "Sí, deberíamos ir juntos.",
+                  "distractors": [
+                    "No, deberíamos ir juntos.",
+                    "Sí, deberíamos ir separados.",
+                    "Sí, debíamos ir juntos."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "'Cause there we are again when I loved you so\nBack before you lost the one real thing you've ever known\nIt was rare, I was there, I remember it all too well",
+      "translation": "Porque allí estamos otra vez cuando te amaba tanto. Antes de que perdieras la única cosa real que jamás hayas conocido. Era raro, yo estaba allí, lo recuerdo todo demasiado bien.",
+      "content": [
+        {
+          "originalPhrase": "'Cause there we are again when I loved you so",
+          "translation": "Porque allí estamos otra vez cuando te amaba tanto",
+          "phrases": [
+            "there we are again",
+            "when I loved you so"
+          ],
+          "distractors": [
+            "Porque allí estamos otra vez cuando te odiaba tanto",
+            "Porque allí estamos otra vez cuando no te amaba tanto",
+            "Porque allí estábamos otra vez cuando te amaba tanto"
+          ],
+          "learn": [
+            {
+              "phrase": "there we are again",
+              "translation": "allí estamos otra vez",
+              "exercises": [
+                {
+                  "sentence": "There we are again, standing in the rain.",
+                  "translation": "Allí estamos otra vez, parados bajo la lluvia.",
+                  "distractors": [
+                    "Allí estábamos otra vez, parados bajo la lluvia.",
+                    "Allí estamos otra vez, parados bajo el sol.",
+                    "Allí no estamos otra vez, parados bajo la lluvia."
+                  ]
+                },
+                {
+                  "sentence": "There we are again, back at the start.",
+                  "translation": "Allí estamos otra vez, de vuelta al principio.",
+                  "distractors": [
+                    "Allí estábamos otra vez, de vuelta al principio.",
+                    "Allí estamos otra vez, de vuelta al final.",
+                    "Allí no estamos otra vez, de vuelta al principio."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "when I loved you so",
+              "translation": "cuando te amaba tanto",
+              "exercises": [
+                {
+                  "sentence": "I think back to when I loved you so.",
+                  "translation": "Pienso en cuando te amaba tanto.",
+                  "distractors": [
+                    "Pensaba en cuando te amaba tanto.",
+                    "Pienso en cuando te amo tanto.",
+                    "Pienso en cuando te odiaba tanto."
+                  ]
+                },
+                {
+                  "sentence": "Those were the days when I loved you so.",
+                  "translation": "Esos fueron los días cuando te amaba tanto.",
+                  "distractors": [
+                    "Esos son los días cuando te amaba tanto.",
+                    "Esos fueron los días cuando te amaba poco.",
+                    "Esas fueron las noches cuando te amaba tanto."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Back before you lost the one real thing you've ever known",
+          "translation": "Antes de que perdieras la única cosa real que jamás hayas conocido",
+          "phrases": [
+            "back before you lost",
+            "the one real thing",
+            "you've ever known"
+          ],
+          "distractors": [
+            "Después de que perdieras la única cosa real que jamás hayas conocido",
+            "Antes de que encontraras la única cosa real que jamás hayas conocido",
+            "Antes de que perdieras la única cosa falsa que jamás hayas conocido"
+          ],
+          "learn": [
+            {
+              "phrase": "back before you lost",
+              "translation": "antes de que perdieras",
+              "exercises": [
+                {
+                  "sentence": "Back before you lost your job, we were happier.",
+                  "translation": "Antes de que perdieras tu trabajo, éramos más felices.",
+                  "distractors": [
+                    "Después de que perdieras tu trabajo, éramos más felices.",
+                    "Antes de que perdieras tu trabajo, somos más felices.",
+                    "Antes de que ganaras tu trabajo, éramos más felices."
+                  ]
+                },
+                {
+                  "sentence": "Back before you lost touch with your friends, you smiled more.",
+                  "translation": "Antes de que perdieras contacto con tus amigos, sonreías más.",
+                  "distractors": [
+                    "Después de que perdieras contacto con tus amigos, sonreías más.",
+                    "Antes de que perdieras contacto con tus amigos, sonríes más.",
+                    "Antes de que ganaras contacto con tus amigos, sonreías más."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "the one real thing",
+              "translation": "la única cosa real",
+              "exercises": [
+                {
+                  "sentence": "Our friendship was the one real thing in my life.",
+                  "translation": "Nuestra amistad era la única cosa real en mi vida.",
+                  "distractors": [
+                    "Nuestra amistad es la única cosa real en mi vida.",
+                    "Nuestra amistad era la única cosa falsa en mi vida.",
+                    "Nuestra amistad era la única cosa real en tu vida."
+                  ]
+                },
+                {
+                  "sentence": "That memory is the one real thing I have left.",
+                  "translation": "Ese recuerdo es la única cosa real que me queda.",
+                  "distractors": [
+                    "Ese recuerdo era la única cosa real que me queda.",
+                    "Ese recuerdo es la única cosa falsa que me queda.",
+                    "Ese recuerdo es la única cosa real que te queda."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "you've ever known",
+              "translation": "que jamás hayas conocido",
+              "exercises": [
+                {
+                  "sentence": "She's the kindest person you've ever known.",
+                  "translation": "Ella es la persona más amable que jamás hayas conocido.",
+                  "distractors": [
+                    "Ella es la persona más amable que jamás has conocido.",
+                    "Ella es la persona más cruel que jamás hayas conocido.",
+                    "Él es la persona más amable que jamás hayas conocido."
+                  ]
+                },
+                {
+                  "sentence": "This is the hardest challenge you've ever known.",
+                  "translation": "Este es el desafío más difícil que jamás hayas conocido.",
+                  "distractors": [
+                    "Este es el desafío más fácil que jamás hayas conocido.",
+                    "Este fue el desafío más difícil que jamás hayas conocido.",
+                    "Este es el desafío más difícil que jamás has conocido."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "It was rare, I was there, I remember it all too well",
+          "translation": "Era raro, yo estaba allí, lo recuerdo todo demasiado bien",
+          "phrases": [
+            "it was rare",
+            "I was there",
+            "remember it all too well"
+          ],
+          "distractors": [
+            "Era común, yo estaba allí, lo recuerdo todo demasiado bien",
+            "Era raro, tú estabas allí, lo recuerdo todo demasiado bien",
+            "Era raro, yo no estaba allí, lo recuerdo todo demasiado bien"
+          ],
+          "learn": [
+            {
+              "phrase": "it was rare",
+              "translation": "era raro",
+              "exercises": [
+                {
+                  "sentence": "It was rare to see him smile like that.",
+                  "translation": "Era raro verlo sonreír así.",
+                  "distractors": [
+                    "Es raro verlo sonreír así.",
+                    "Era común verlo sonreír así.",
+                    "Era raro verla sonreír así."
+                  ]
+                },
+                {
+                  "sentence": "It was rare for her to speak about her past.",
+                  "translation": "Era raro que ella hablara sobre su pasado.",
+                  "distractors": [
+                    "Es raro que ella hablara sobre su pasado.",
+                    "Era común que ella hablara sobre su pasado.",
+                    "Era raro que él hablara sobre su pasado."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "I was there",
+              "translation": "yo estaba allí",
+              "exercises": [
+                {
+                  "sentence": "I was there when it happened.",
+                  "translation": "Yo estaba allí cuando sucedió.",
+                  "distractors": [
+                    "Yo estoy allí cuando sucedió.",
+                    "Yo no estaba allí cuando sucedió.",
+                    "Yo estaba allí cuando sucederá."
+                  ]
+                },
+                {
+                  "sentence": "I was there for every moment.",
+                  "translation": "Yo estaba allí en cada momento.",
+                  "distractors": [
+                    "Yo estoy allí en cada momento.",
+                    "Yo no estaba allí en cada momento.",
+                    "Yo estaré allí en cada momento."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "remember it all too well",
+              "translation": "lo recuerdo todo demasiado bien",
+              "exercises": [
+                {
+                  "sentence": "I remember it all too well, even now.",
+                  "translation": "Lo recuerdo todo demasiado bien, incluso ahora.",
+                  "distractors": [
+                    "No lo recuerdo todo demasiado bien, incluso ahora.",
+                    "Lo recordaba todo demasiado bien, incluso ahora.",
+                    "Lo olvidé todo demasiado bien, incluso ahora."
+                  ]
+                },
+                {
+                  "sentence": "She said she'd remember it all too well.",
+                  "translation": "Ella dijo que lo recordaría todo demasiado bien.",
+                  "distractors": [
+                    "Ella dijo que lo olvidaría todo demasiado bien.",
+                    "Ella dice que lo recordaría todo demasiado bien.",
+                    "Él dijo que lo recordaría todo demasiado bien."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Wind in my hair, you were there, you remember it all\nDown the stairs, you were there, you remember it all\nIt was rare, I was there, I remember it all too well",
+      "translation": "Viento en mi cabello, tú estabas allí, lo recuerdas todo. Bajando las escaleras, tú estabas allí, lo recuerdas todo. Era raro, yo estaba allí, lo recuerdo todo demasiado bien.",
+      "content": [
+        {
+          "originalPhrase": "Wind in my hair, you were there, you remember it all",
+          "translation": "Viento en mi cabello, tú estabas allí, lo recuerdas todo",
+          "phrases": [
+            "wind in my hair",
+            "you were there",
+            "you remember it all"
+          ],
+          "distractors": [
+            "Viento en mi cabello, tú no estabas allí, lo recuerdas todo",
+            "Viento en mi cabello, yo estaba allí, lo recuerdas todo",
+            "Viento en tu cabello, tú estabas allí, lo recuerdas todo"
+          ],
+          "learn": [
+            {
+              "phrase": "wind in my hair",
+              "translation": "viento en mi cabello",
+              "exercises": [
+                {
+                  "sentence": "I love the feeling of wind in my hair.",
+                  "translation": "Me encanta la sensación de viento en mi cabello.",
+                  "distractors": [
+                    "Me encanta la sensación de viento en tu cabello.",
+                    "Me encantaba la sensación de viento en mi cabello.",
+                    "Odio la sensación de viento en mi cabello."
+                  ]
+                },
+                {
+                  "sentence": "She rode with the wind in her hair.",
+                  "translation": "Ella condujo con el viento en el cabello.",
+                  "distractors": [
+                    "Ella conduce con el viento en el cabello.",
+                    "Él condujo con el viento en el cabello.",
+                    "Ella condujo sin viento en el cabello."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "you were there",
+              "translation": "tú estabas allí",
+              "exercises": [
+                {
+                  "sentence": "You were there for me when no one else was.",
+                  "translation": "Tú estabas allí para mí cuando nadie más lo estaba.",
+                  "distractors": [
+                    "Tú estás allí para mí cuando nadie más lo estaba.",
+                    "Tú no estabas allí para mí cuando nadie más lo estaba.",
+                    "Yo estaba allí para ti cuando nadie más lo estaba."
+                  ]
+                },
+                {
+                  "sentence": "You were there the whole time, weren't you?",
+                  "translation": "Tú estabas allí todo el tiempo, ¿no?",
+                  "distractors": [
+                    "Tú estás allí todo el tiempo, ¿no?",
+                    "Tú no estabas allí todo el tiempo, ¿no?",
+                    "Yo estaba allí todo el tiempo, ¿no?"
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "you remember it all",
+              "translation": "lo recuerdas todo",
+              "exercises": [
+                {
+                  "sentence": "You remember it all, don't you?",
+                  "translation": "Lo recuerdas todo, ¿no?",
+                  "distractors": [
+                    "No lo recuerdas todo, ¿no?",
+                    "Lo recordabas todo, ¿no?",
+                    "Lo olvidas todo, ¿no?"
+                  ]
+                },
+                {
+                  "sentence": "Even after all these years, you remember it all.",
+                  "translation": "Incluso después de todos estos años, lo recuerdas todo.",
+                  "distractors": [
+                    "Incluso después de todos estos años, no lo recuerdas todo.",
+                    "Incluso después de todos estos años, lo recordabas todo.",
+                    "Incluso después de todos estos años, lo olvidas todo."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Down the stairs, you were there, you remember it all",
+          "translation": "Bajando las escaleras, tú estabas allí, lo recuerdas todo",
+          "phrases": [
+            "down the stairs",
+            "you were there",
+            "you remember it all"
+          ],
+          "distractors": [
+            "Subiendo las escaleras, tú estabas allí, lo recuerdas todo",
+            "Bajando las escaleras, yo estaba allí, lo recuerdas todo",
+            "Bajando las escaleras, tú no estabas allí, lo recuerdas todo"
+          ],
+          "learn": [
+            {
+              "phrase": "down the stairs",
+              "translation": "bajando las escaleras",
+              "exercises": [
+                {
+                  "sentence": "She ran down the stairs to answer the door.",
+                  "translation": "Ella bajó corriendo las escaleras para abrir la puerta.",
+                  "distractors": [
+                    "Ella subió corriendo las escaleras para abrir la puerta.",
+                    "Ella baja corriendo las escaleras para abrir la puerta.",
+                    "Él bajó corriendo las escaleras para abrir la puerta."
+                  ]
+                },
+                {
+                  "sentence": "I heard footsteps down the stairs.",
+                  "translation": "Escuché pasos bajando las escaleras.",
+                  "distractors": [
+                    "Escuché pasos subiendo las escaleras.",
+                    "Escucho pasos bajando las escaleras.",
+                    "Escuché pasos en las escaleras, subiendo."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "you were there",
+              "translation": "tú estabas allí",
+              "exercises": [
+                {
+                  "sentence": "You were there for me when no one else was.",
+                  "translation": "Tú estabas allí para mí cuando nadie más lo estaba.",
+                  "distractors": [
+                    "Tú estás allí para mí cuando nadie más lo estaba.",
+                    "Tú no estabas allí para mí cuando nadie más lo estaba.",
+                    "Yo estaba allí para ti cuando nadie más lo estaba."
+                  ]
+                },
+                {
+                  "sentence": "You were there the whole time, weren't you?",
+                  "translation": "Tú estabas allí todo el tiempo, ¿no?",
+                  "distractors": [
+                    "Tú estás allí todo el tiempo, ¿no?",
+                    "Tú no estabas allí todo el tiempo, ¿no?",
+                    "Yo estaba allí todo el tiempo, ¿no?"
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "you remember it all",
+              "translation": "lo recuerdas todo",
+              "exercises": [
+                {
+                  "sentence": "You remember it all, don't you?",
+                  "translation": "Lo recuerdas todo, ¿no?",
+                  "distractors": [
+                    "No lo recuerdas todo, ¿no?",
+                    "Lo recordabas todo, ¿no?",
+                    "Lo olvidas todo, ¿no?"
+                  ]
+                },
+                {
+                  "sentence": "Even after all these years, you remember it all.",
+                  "translation": "Incluso después de todos estos años, lo recuerdas todo.",
+                  "distractors": [
+                    "Incluso después de todos estos años, no lo recuerdas todo.",
+                    "Incluso después de todos estos años, lo recordabas todo.",
+                    "Incluso después de todos estos años, lo olvidas todo."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "It was rare, I was there, I remember it all too well",
+          "translation": "Era raro, yo estaba allí, lo recuerdo todo demasiado bien",
+          "phrases": [
+            "it was rare",
+            "I was there",
+            "remember it all too well"
+          ],
+          "distractors": [
+            "Era común, yo estaba allí, lo recuerdo todo demasiado bien",
+            "Era raro, tú estabas allí, lo recuerdo todo demasiado bien",
+            "Era raro, yo no estaba allí, lo recuerdo todo demasiado bien"
+          ],
+          "learn": [
+            {
+              "phrase": "it was rare",
+              "translation": "era raro",
+              "exercises": [
+                {
+                  "sentence": "It was rare to see him smile like that.",
+                  "translation": "Era raro verlo sonreír así.",
+                  "distractors": [
+                    "Es raro verlo sonreír así.",
+                    "Era común verlo sonreír así.",
+                    "Era raro verla sonreír así."
+                  ]
+                },
+                {
+                  "sentence": "It was rare for her to speak about her past.",
+                  "translation": "Era raro que ella hablara sobre su pasado.",
+                  "distractors": [
+                    "Es raro que ella hablara sobre su pasado.",
+                    "Era común que ella hablara sobre su pasado.",
+                    "Era raro que él hablara sobre su pasado."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "I was there",
+              "translation": "yo estaba allí",
+              "exercises": [
+                {
+                  "sentence": "I was there when it happened.",
+                  "translation": "Yo estaba allí cuando sucedió.",
+                  "distractors": [
+                    "Yo estoy allí cuando sucedió.",
+                    "Yo no estaba allí cuando sucedió.",
+                    "Yo estaba allí cuando sucederá."
+                  ]
+                },
+                {
+                  "sentence": "I was there for every moment.",
+                  "translation": "Yo estaba allí en cada momento.",
+                  "distractors": [
+                    "Yo estoy allí en cada momento.",
+                    "Yo no estaba allí en cada momento.",
+                    "Yo estaré allí en cada momento."
+                  ]
+                }
+              ]
+            },
+            {
+              "phrase": "remember it all too well",
+              "translation": "lo recuerdo todo demasiado bien",
+              "exercises": [
+                {
+                  "sentence": "I remember it all too well, even now.",
+                  "translation": "Lo recuerdo todo demasiado bien, incluso ahora.",
+                  "distractors": [
+                    "No lo recuerdo todo demasiado bien, incluso ahora.",
+                    "Lo recordaba todo demasiado bien, incluso ahora.",
+                    "Lo olvidé todo demasiado bien, incluso ahora."
+                  ]
+                },
+                {
+                  "sentence": "She said she'd remember it all too well.",
+                  "translation": "Ella dijo que lo recordaría todo demasiado bien.",
+                  "distractors": [
+                    "Ella dijo que lo olvidaría todo demasiado bien.",
+                    "Ella dice que lo recordaría todo demasiado bien.",
+                    "Él dijo que lo recordaría todo demasiado bien."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

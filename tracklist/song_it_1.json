@@ -1,0 +1,2910 @@
+{
+  "songTitle": "Zitti E Buoni",
+  "artist": "Måneskin",
+  "segments": [
+    {
+      "text": "Loro non sanno di che parlo\nVestiti sporchi, fra', di fango\nGiallo di siga fra le dita\nIo con la siga camminando\nScusami ma ci credo tanto\nChe posso fare questo salto\nE anche se la strada è in salita\nPer questo ora mi sto allenando",
+      "translation": "Ellos no saben de qué hablo. Tío, tu ropa está llena de barro. Colilla amarilla entre los dedos. Yo con el cigarro caminando. Perdóname pero creo tanto en esto. Que puedo dar este salto. Y aunque el camino esté cuesta arriba. Ya estoy entrenando para esto.",
+      "content": [
+        {
+          "originalPhrase": "Loro non sanno di che parlo",
+          "translation": "Ellos no saben de qué hablo",
+          "phrases": ["loro", "non sanno", "di che parlo"],
+          "distractors": [
+            "Ellos no sabían de qué hablo",
+            "Ellos no saben de qué habla",
+            "Ellos no supieron de qué hablé"
+          ],
+          "learn": [
+            {
+              "phrase": "loro",
+              "translation": "ellos / ellas",
+              "exercises": [
+                {
+                  "sentence": "Loro vivono a Roma.",
+                  "translation": "Ellos viven en Roma.",
+                  "distractors": ["Ellos vivían en Roma.", "Ellos han vivido en Roma.", "Ellos vivirán en Roma."]
+                },
+                {
+                  "sentence": "Loro non capiscono.",
+                  "translation": "Ellos no entienden.",
+                  "distractors": ["Ellos no entendían.", "Ellos no han entendido.", "Ellos no entenderán."]
+                }
+              ]
+            },
+            {
+              "phrase": "non sanno",
+              "translation": "no saben",
+              "exercises": [
+                {
+                  "sentence": "Non sanno cosa fare.",
+                  "translation": "No saben qué hacer.",
+                  "distractors": ["No sabían qué hacer.", "No han sabido qué hacer.", "No sabrán qué hacer."]
+                },
+                {
+                  "sentence": "Non sanno ancora la verità.",
+                  "translation": "Todavía no saben la verdad.",
+                  "distractors": ["Todavía no sabían la verdad.", "Todavía no han sabido la verdad.", "Todavía no sabrán la verdad."]
+                }
+              ]
+            },
+            {
+              "phrase": "di che parlo",
+              "translation": "de qué hablo",
+              "exercises": [
+                {
+                  "sentence": "Capisci di che parlo?",
+                  "translation": "¿Entiendes de qué hablo?",
+                  "distractors": ["¿Entendiste de qué hablo?", "¿Entiendes de qué hablaba?", "¿Entenderás de qué hablo?"]
+                },
+                {
+                  "sentence": "Sai bene di che parlo.",
+                  "translation": "Sabes bien de qué hablo.",
+                  "distractors": ["Sabías bien de qué hablo.", "Sabes bien de qué hablaba.", "Sabrás bien de qué hablo."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Vestiti sporchi, fra', di fango",
+          "translation": "Tío, tu ropa está llena de barro",
+          "phrases": ["vestiti sporchi", "fra'", "di fango"],
+          "distractors": [
+            "Tío, tu ropa está llena de polvo",
+            "Tío, tu ropa estaba llena de barro",
+            "Hermano, tu ropa está llena de barro"
+          ],
+          "learn": [
+            {
+              "phrase": "vestiti sporchi",
+              "translation": "ropa sucia",
+              "exercises": [
+                {
+                  "sentence": "Ha i vestiti sporchi di terra.",
+                  "translation": "Tiene la ropa sucia de tierra.",
+                  "distractors": ["Tenía la ropa sucia de tierra.", "Tiene la ropa limpia de tierra.", "Tendrá la ropa sucia de tierra."]
+                },
+                {
+                  "sentence": "Lava i vestiti sporchi, per favore.",
+                  "translation": "Lava la ropa sucia, por favor.",
+                  "distractors": ["Lavó la ropa sucia, por favor.", "Lavaba la ropa sucia, por favor.", "Lavará la ropa sucia, por favor."]
+                }
+              ]
+            },
+            {
+              "phrase": "fra'",
+              "translation": "tío / hermano (coloquial)",
+              "exercises": [
+                {
+                  "sentence": "Fra', tutto bene?",
+                  "translation": "Tío, ¿todo bien?",
+                  "distractors": ["Tío, ¿todo mal?", "Tío, ¿estuvo bien?", "Tío, ¿estará bien?"]
+                },
+                {
+                  "sentence": "Dai fra', andiamo.",
+                  "translation": "Vamos tío, vámonos.",
+                  "distractors": ["Fuimos tío, vámonos.", "Vamos tío, nos fuimos.", "Iremos tío, vámonos."]
+                }
+              ]
+            },
+            {
+              "phrase": "di fango",
+              "translation": "de barro",
+              "exercises": [
+                {
+                  "sentence": "Le scarpe sono piene di fango.",
+                  "translation": "Los zapatos están llenos de barro.",
+                  "distractors": ["Los zapatos estaban llenos de barro.", "Los zapatos están llenos de agua.", "Los zapatos estarán llenos de barro."]
+                },
+                {
+                  "sentence": "È caduto in una pozza di fango.",
+                  "translation": "Se cayó en un charco de barro.",
+                  "distractors": ["Se caía en un charco de barro.", "Se cae en un charco de barro.", "Se caerá en un charco de barro."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Giallo di siga fra le dita",
+          "translation": "Colilla amarilla entre los dedos",
+          "phrases": ["giallo di siga", "fra le dita"],
+          "distractors": [
+            "Humo amarillo entre los dedos",
+            "Colilla amarilla entre las manos",
+            "Colilla negra entre los dedos"
+          ],
+          "learn": [
+            {
+              "phrase": "giallo di siga",
+              "translation": "amarillo de cigarro (mancha de nicotina)",
+              "exercises": [
+                {
+                  "sentence": "Ha le dita gialle di siga.",
+                  "translation": "Tiene los dedos amarillos de cigarro.",
+                  "distractors": ["Tenía los dedos amarillos de cigarro.", "Tiene los dedos blancos de cigarro.", "Tendrá los dedos amarillos de cigarro."]
+                },
+                {
+                  "sentence": "Il colore giallo di siga non va via facilmente.",
+                  "translation": "El color amarillo de cigarro no se va fácilmente.",
+                  "distractors": ["El color amarillo de cigarro no se iba fácilmente.", "El color amarillo de cigarro se va fácilmente.", "El color amarillo de cigarro no se irá fácilmente."]
+                }
+              ]
+            },
+            {
+              "phrase": "fra le dita",
+              "translation": "entre los dedos",
+              "exercises": [
+                {
+                  "sentence": "Tiene la penna fra le dita.",
+                  "translation": "Tiene el bolígrafo entre los dedos.",
+                  "distractors": ["Tenía el bolígrafo entre los dedos.", "Tiene el bolígrafo en la mano.", "Tendrá el bolígrafo entre los dedos."]
+                },
+                {
+                  "sentence": "La sabbia scivola fra le dita.",
+                  "translation": "La arena se escurre entre los dedos.",
+                  "distractors": ["La arena se escurría entre los dedos.", "La arena se escurre entre las manos.", "La arena se escurrirá entre los dedos."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Io con la siga camminando",
+          "translation": "Yo con el cigarro caminando",
+          "phrases": ["con la siga", "camminando"],
+          "distractors": [
+            "Yo con el cigarro corriendo",
+            "Yo con el cigarro caminaba",
+            "Tú con el cigarro caminando"
+          ],
+          "learn": [
+            {
+              "phrase": "con la siga",
+              "translation": "con el cigarro",
+              "exercises": [
+                {
+                  "sentence": "Cammina sempre con la siga in mano.",
+                  "translation": "Siempre camina con el cigarro en la mano.",
+                  "distractors": ["Siempre caminaba con el cigarro en la mano.", "Siempre camina con el cigarro en el bolsillo.", "Siempre caminará con el cigarro en la mano."]
+                },
+                {
+                  "sentence": "L'ho visto con la siga fuori dal bar.",
+                  "translation": "Lo vi con el cigarro fuera del bar.",
+                  "distractors": ["Lo veo con el cigarro fuera del bar.", "Lo vi con el cigarro dentro del bar.", "Lo veré con el cigarro fuera del bar."]
+                }
+              ]
+            },
+            {
+              "phrase": "camminando",
+              "translation": "caminando",
+              "exercises": [
+                {
+                  "sentence": "Camminando per la città, ho visto tante cose.",
+                  "translation": "Caminando por la ciudad, vi muchas cosas.",
+                  "distractors": ["Caminaba por la ciudad, vi muchas cosas.", "Camminando por la ciudad, veo muchas cosas.", "Caminando por la ciudad, veré muchas cosas."]
+                },
+                {
+                  "sentence": "Pensa meglio camminando.",
+                  "translation": "Piensa mejor caminando.",
+                  "distractors": ["Pensaba mejor caminando.", "Piensa mejor corriendo.", "Pensará mejor caminando."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Scusami ma ci credo tanto",
+          "translation": "Perdóname pero creo tanto en esto",
+          "phrases": ["scusami", "ci credo", "tanto"],
+          "distractors": [
+            "Perdóname pero no creo en esto",
+            "Perdóname pero creía tanto en esto",
+            "Discúlpame pero creo poco en esto"
+          ],
+          "learn": [
+            {
+              "phrase": "scusami",
+              "translation": "perdóname / discúlpame",
+              "exercises": [
+                {
+                  "sentence": "Scusami per il ritardo.",
+                  "translation": "Perdóname por el retraso.",
+                  "distractors": ["Perdóname por el adelanto.", "Perdonaste por el retraso.", "Perdonarás por el retraso."]
+                },
+                {
+                  "sentence": "Scusami, non volevo offenderti.",
+                  "translation": "Perdóname, no quería ofenderte.",
+                  "distractors": ["Perdóname, no quiero ofenderte.", "Perdóname, no quería ofenderme.", "Perdóname, no querré ofenderte."]
+                }
+              ]
+            },
+            {
+              "phrase": "ci credo",
+              "translation": "creo en esto",
+              "exercises": [
+                {
+                  "sentence": "Ci credo fino in fondo.",
+                  "translation": "Creo en esto hasta el final.",
+                  "distractors": ["Creía en esto hasta el final.", "No creo en esto hasta el final.", "Creeré en esto hasta el final."]
+                },
+                {
+                  "sentence": "Non ci credo più.",
+                  "translation": "Ya no creo en esto.",
+                  "distractors": ["Ya no creía en esto.", "Ya no he creído en esto.", "Ya no creeré en esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "tanto",
+              "translation": "tanto / mucho",
+              "exercises": [
+                {
+                  "sentence": "Ti voglio tanto bene.",
+                  "translation": "Te quiero mucho.",
+                  "distractors": ["Te quería mucho.", "Te quiero poco.", "Te querré mucho."]
+                },
+                {
+                  "sentence": "Ho studiato tanto per l'esame.",
+                  "translation": "Estudié mucho para el examen.",
+                  "distractors": ["Estudiaba mucho para el examen.", "He estudiado poco para el examen.", "Estudiaré mucho para el examen."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Che posso fare questo salto",
+          "translation": "Que puedo dar este salto",
+          "phrases": ["posso fare", "questo salto"],
+          "distractors": [
+            "Que podía dar este salto",
+            "Que puedo dar este paso",
+            "Que no puedo dar este salto"
+          ],
+          "learn": [
+            {
+              "phrase": "posso fare",
+              "translation": "puedo hacer / puedo dar",
+              "exercises": [
+                {
+                  "sentence": "Posso fare qualcosa per te?",
+                  "translation": "¿Puedo hacer algo por ti?",
+                  "distractors": ["¿Podía hacer algo por ti?", "¿Pude hacer algo por ti?", "¿Podré hacer algo por ti?"]
+                },
+                {
+                  "sentence": "Posso fare un salto più grande.",
+                  "translation": "Puedo dar un salto más grande.",
+                  "distractors": ["Podía dar un salto más grande.", "Puedo dar un salto más pequeño.", "Podré dar un salto más grande."]
+                }
+              ]
+            },
+            {
+              "phrase": "questo salto",
+              "translation": "este salto",
+              "exercises": [
+                {
+                  "sentence": "Questo salto è rischioso.",
+                  "translation": "Este salto es arriesgado.",
+                  "distractors": ["Este salto era arriesgado.", "Este salto es seguro.", "Este salto será arriesgado."]
+                },
+                {
+                  "sentence": "Ho paura di questo salto.",
+                  "translation": "Tengo miedo de este salto.",
+                  "distractors": ["Tenía miedo de este salto.", "No tengo miedo de este salto.", "Tendré miedo de este salto."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "E anche se la strada è in salita",
+          "translation": "Y aunque el camino esté cuesta arriba",
+          "phrases": ["anche se", "la strada", "in salita"],
+          "distractors": [
+            "Y aunque el camino esté cuesta abajo",
+            "Y porque el camino está cuesta arriba",
+            "Y aunque la calle esté cuesta arriba"
+          ],
+          "learn": [
+            {
+              "phrase": "anche se",
+              "translation": "aunque",
+              "exercises": [
+                {
+                  "sentence": "Vengo anche se piove.",
+                  "translation": "Vengo aunque llueva.",
+                  "distractors": ["Venía aunque llueve.", "Vengo aunque no llueva.", "Vendré aunque llovía."]
+                },
+                {
+                  "sentence": "Anche se è difficile, ce la farò.",
+                  "translation": "Aunque sea difícil, lo lograré.",
+                  "distractors": ["Aunque era difícil, lo lograré.", "Aunque sea fácil, lo lograré.", "Aunque sea difícil, lo logré."]
+                }
+              ]
+            },
+            {
+              "phrase": "la strada",
+              "translation": "el camino / la calle",
+              "exercises": [
+                {
+                  "sentence": "La strada è lunga.",
+                  "translation": "El camino es largo.",
+                  "distractors": ["El camino era largo.", "El camino es corto.", "El camino será largo."]
+                },
+                {
+                  "sentence": "Attraversiamo la strada.",
+                  "translation": "Crucemos la calle.",
+                  "distractors": ["Cruzamos la calle.", "Cruzaremos la calle.", "Cruzábamos la calle."]
+                }
+              ]
+            },
+            {
+              "phrase": "in salita",
+              "translation": "cuesta arriba",
+              "exercises": [
+                {
+                  "sentence": "La via è in salita.",
+                  "translation": "La calle está cuesta arriba.",
+                  "distractors": ["La calle estaba cuesta arriba.", "La calle está cuesta abajo.", "La calle estará cuesta arriba."]
+                },
+                {
+                  "sentence": "Correre in salita è faticoso.",
+                  "translation": "Correr cuesta arriba es agotador.",
+                  "distractors": ["Correr cuesta arriba era agotador.", "Correr cuesta abajo es agotador.", "Correr cuesta arriba será agotador."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Per questo ora mi sto allenando",
+          "translation": "Ya estoy entrenando para esto",
+          "phrases": ["per questo", "ora", "mi sto allenando"],
+          "distractors": [
+            "Todavía estoy entrenando para esto",
+            "Ya estaba entrenando para esto",
+            "Ya estoy entrenando para eso"
+          ],
+          "learn": [
+            {
+              "phrase": "per questo",
+              "translation": "por esto / por eso",
+              "exercises": [
+                {
+                  "sentence": "Per questo ho deciso di studiare medicina.",
+                  "translation": "Por eso decidí estudiar medicina.",
+                  "distractors": ["Por eso decidía estudiar medicina.", "Por eso decido estudiar medicina.", "Por eso decidiré estudiar medicina."]
+                },
+                {
+                  "sentence": "Per questo ti chiamo ogni giorno.",
+                  "translation": "Por eso te llamo todos los días.",
+                  "distractors": ["Por eso te llamaba todos los días.", "Por eso te he llamado todos los días.", "Por eso te llamaré todos los días."]
+                }
+              ]
+            },
+            {
+              "phrase": "ora",
+              "translation": "ahora",
+              "exercises": [
+                {
+                  "sentence": "Ora devo andare.",
+                  "translation": "Ahora tengo que irme.",
+                  "distractors": ["Ahora tenía que irme.", "Ahora he tenido que irme.", "Ahora tendré que irme."]
+                },
+                {
+                  "sentence": "Ora capisco tutto.",
+                  "translation": "Ahora entiendo todo.",
+                  "distractors": ["Ahora entendía todo.", "Ahora he entendido todo.", "Ahora entenderé todo."]
+                }
+              ]
+            },
+            {
+              "phrase": "mi sto allenando",
+              "translation": "estoy entrenando",
+              "exercises": [
+                {
+                  "sentence": "Mi sto allenando per la maratona.",
+                  "translation": "Estoy entrenando para la maratón.",
+                  "distractors": ["Estaba entrenando para la maratón.", "He entrenado para la maratón.", "Entrenaré para la maratón."]
+                },
+                {
+                  "sentence": "Mi sto allenando ogni giorno in palestra.",
+                  "translation": "Estoy entrenando todos los días en el gimnasio.",
+                  "distractors": ["Entrenaba todos los días en el gimnasio.", "He entrenado todos los días en el gimnasio.", "Entrenaré todos los días en el gimnasio."]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "E buonasera signore e signori\nFuori gli attori\nVi conviene toccarvi i coglioni\nVi conviene stare zitti e buoni\nQui la gente è strana, tipo spacciatori\nTroppe notti stavo chiuso fuori\nMo li prendo a calci 'sti portoni\nSguardo in alto tipo scalatori\nQuindi scusa mamma se sto sempre fuori ma",
+      "translation": "Y buenas noches señoras y señores. Fuera los actores. Les conviene tocarse los huevos. Les conviene estar calladitos y buenos. Aquí la gente es rara, tipo traficantes. Demasiadas noches estaba encerrado afuera. Ahora les doy patadas a estos portones. Mirada arriba tipo escaladores. Así que perdón mamá si estoy siempre afuera pero",
+      "content": [
+        {
+          "originalPhrase": "E buonasera signore e signori",
+          "translation": "Y buenas noches señoras y señores",
+          "phrases": ["buonasera", "signore e signori"],
+          "distractors": [
+            "Y buenos días señoras y señores",
+            "Y buenas tardes señoras y señores",
+            "Y buenas noches señor y señora"
+          ],
+          "learn": [
+            {
+              "phrase": "buonasera",
+              "translation": "buenas noches / buenas tardes",
+              "exercises": [
+                {
+                  "sentence": "Buonasera a tutti.",
+                  "translation": "Buenas noches a todos.",
+                  "distractors": ["Buenos días a todos.", "Buenas tardes a todos.", "Buena noche a todos."]
+                },
+                {
+                  "sentence": "Le do la buonasera.",
+                  "translation": "Le doy las buenas noches.",
+                  "distractors": ["Le di las buenas noches.", "Le daba las buenas noches.", "Le daré las buenas noches."]
+                }
+              ]
+            },
+            {
+              "phrase": "signore e signori",
+              "translation": "señoras y señores",
+              "exercises": [
+                {
+                  "sentence": "Signore e signori, benvenuti allo spettacolo.",
+                  "translation": "Señoras y señores, bienvenidos al espectáculo.",
+                  "distractors": ["Señoras y señores, bienvenidas al espectáculo.", "Señores y señoras, despedida del espectáculo.", "Señoras y señores, bienvenidos a la fiesta."]
+                },
+                {
+                  "sentence": "Un applauso, signore e signori!",
+                  "translation": "¡Un aplauso, señoras y señores!",
+                  "distractors": ["¡Un aplauso, señores!", "¡Un aplauso, señoritas!", "¡Aplaudieron, señoras y señores!"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Fuori gli attori",
+          "translation": "Fuera los actores",
+          "phrases": ["fuori", "gli attori"],
+          "distractors": [
+            "Dentro los actores",
+            "Fuera los cantantes",
+            "Fuera el actor"
+          ],
+          "learn": [
+            {
+              "phrase": "fuori",
+              "translation": "fuera",
+              "exercises": [
+                {
+                  "sentence": "Vai fuori a giocare.",
+                  "translation": "Ve a jugar fuera.",
+                  "distractors": ["Vas a jugar fuera.", "Ve a jugar dentro.", "Fuiste a jugar fuera."]
+                },
+                {
+                  "sentence": "Fuori piove forte.",
+                  "translation": "Fuera llueve fuerte.",
+                  "distractors": ["Fuera llovía fuerte.", "Dentro llueve fuerte.", "Fuera lloverá fuerte."]
+                }
+              ]
+            },
+            {
+              "phrase": "gli attori",
+              "translation": "los actores",
+              "exercises": [
+                {
+                  "sentence": "Gli attori sono pronti per la scena.",
+                  "translation": "Los actores están listos para la escena.",
+                  "distractors": ["Los actores estaban listos para la escena.", "Las actrices están listas para la escena.", "Los actores estarán listos para la escena."]
+                },
+                {
+                  "sentence": "Applaudiamo gli attori.",
+                  "translation": "Aplaudamos a los actores.",
+                  "distractors": ["Aplaudimos a los actores.", "Aplaudiremos a los actores.", "Aplaudíamos a los actores."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Vi conviene toccarvi i coglioni",
+          "translation": "Les conviene tocarse los huevos",
+          "phrases": ["vi conviene", "toccarvi i coglioni"],
+          "distractors": [
+            "No les conviene tocarse los huevos",
+            "Les convenía tocarse los huevos",
+            "Nos conviene tocarnos los huevos"
+          ],
+          "learn": [
+            {
+              "phrase": "vi conviene",
+              "translation": "les conviene",
+              "exercises": [
+                {
+                  "sentence": "Vi conviene partire presto.",
+                  "translation": "Les conviene salir temprano.",
+                  "distractors": ["Les convenía salir temprano.", "Les convino salir temprano.", "Les convendrá salir temprano."]
+                },
+                {
+                  "sentence": "Non vi conviene discutere con lui.",
+                  "translation": "No les conviene discutir con él.",
+                  "distractors": ["No les convenía discutir con él.", "Sí les conviene discutir con él.", "No les convendrá discutir con él."]
+                }
+              ]
+            },
+            {
+              "phrase": "toccarvi i coglioni",
+              "translation": "tocarse los huevos (expresión coloquial de suerte)",
+              "exercises": [
+                {
+                  "sentence": "In italiano si dice 'toccarsi i coglioni' per scaramanzia.",
+                  "translation": "En italiano se dice 'tocarse los huevos' por superstición.",
+                  "distractors": ["En italiano se decía 'tocarse los huevos' por superstición.", "En italiano se dice 'tocarse la cabeza' por superstición.", "En italiano se dirá 'tocarse los huevos' por superstición."]
+                },
+                {
+                  "sentence": "Meglio toccarvi i coglioni prima dell'esame.",
+                  "translation": "Mejor tocarse los huevos antes del examen.",
+                  "distractors": ["Mejor se tocaba los huevos antes del examen.", "Mejor no tocarse los huevos antes del examen.", "Mejor tocarse la cabeza antes del examen."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Vi conviene stare zitti e buoni",
+          "translation": "Les conviene estar calladitos y buenos",
+          "phrases": ["vi conviene", "stare", "zitti e buoni"],
+          "distractors": [
+            "Les conviene estar callados y malos",
+            "Les conviene estar hablando y buenos",
+            "Les convenía estar calladitos y buenos"
+          ],
+          "learn": [
+            {
+              "phrase": "vi conviene",
+              "translation": "les conviene",
+              "exercises": [
+                {
+                  "sentence": "Vi conviene partire presto.",
+                  "translation": "Les conviene salir temprano.",
+                  "distractors": ["Les convenía salir temprano.", "Les convino salir temprano.", "Les convendrá salir temprano."]
+                },
+                {
+                  "sentence": "Non vi conviene discutere con lui.",
+                  "translation": "No les conviene discutir con él.",
+                  "distractors": ["No les convenía discutir con él.", "Sí les conviene discutir con él.", "No les convendrá discutir con él."]
+                }
+              ]
+            },
+            {
+              "phrase": "stare",
+              "translation": "estar / quedarse",
+              "exercises": [
+                {
+                  "sentence": "Devi stare calmo.",
+                  "translation": "Tienes que estar tranquilo.",
+                  "distractors": ["Tenías que estar tranquilo.", "Tienes que estar nervioso.", "Tendrás que estar tranquilo."]
+                },
+                {
+                  "sentence": "Preferisco stare a casa stasera.",
+                  "translation": "Prefiero quedarme en casa esta noche.",
+                  "distractors": ["Preferí quedarme en casa esta noche.", "Prefiero salir esta noche.", "Preferiré quedarme en casa esta noche."]
+                }
+              ]
+            },
+            {
+              "phrase": "zitti e buoni",
+              "translation": "calladitos y quietos",
+              "exercises": [
+                {
+                  "sentence": "I bambini devono stare zitti e buoni in chiesa.",
+                  "translation": "Los niños deben estar calladitos y quietos en la iglesia.",
+                  "distractors": ["Los niños debían estar calladitos y quietos en la iglesia.", "Los niños deben estar ruidosos en la iglesia.", "Los niños deberán estar calladitos y quietos en la iglesia."]
+                },
+                {
+                  "sentence": "Restate zitti e buoni finché non torno.",
+                  "translation": "Quédense calladitos y quietos hasta que vuelva.",
+                  "distractors": ["Quedaron calladitos y quietos hasta que volví.", "Quédense ruidosos hasta que vuelva.", "Se quedarán calladitos y quietos hasta que vuelva."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Qui la gente è strana, tipo spacciatori",
+          "translation": "Aquí la gente es rara, tipo traficantes",
+          "phrases": ["la gente è strana", "tipo", "spacciatori"],
+          "distractors": [
+            "Aquí la gente es normal, tipo traficantes",
+            "Aquí la gente es rara, tipo policías",
+            "Aquí la gente era rara, tipo traficantes"
+          ],
+          "learn": [
+            {
+              "phrase": "la gente è strana",
+              "translation": "la gente es rara",
+              "exercises": [
+                {
+                  "sentence": "In questa città la gente è strana.",
+                  "translation": "En esta ciudad la gente es rara.",
+                  "distractors": ["En esta ciudad la gente era rara.", "En esta ciudad la gente es normal.", "En esta ciudad la gente será rara."]
+                },
+                {
+                  "sentence": "A volte la gente è strana senza motivo.",
+                  "translation": "A veces la gente es rara sin motivo.",
+                  "distractors": ["A veces la gente era rara sin motivo.", "A veces la gente es amable sin motivo.", "A veces la gente será rara sin motivo."]
+                }
+              ]
+            },
+            {
+              "phrase": "tipo",
+              "translation": "tipo / como",
+              "exercises": [
+                {
+                  "sentence": "È un tipo strano.",
+                  "translation": "Es un tipo raro.",
+                  "distractors": ["Era un tipo raro.", "Es un tipo normal.", "Será un tipo raro."]
+                },
+                {
+                  "sentence": "Parla tipo un professore.",
+                  "translation": "Habla como un profesor.",
+                  "distractors": ["Hablaba como un profesor.", "Habla como un estudiante.", "Hablará como un profesor."]
+                }
+              ]
+            },
+            {
+              "phrase": "spacciatori",
+              "translation": "traficantes (de droga)",
+              "exercises": [
+                {
+                  "sentence": "La polizia ha arrestato gli spacciatori.",
+                  "translation": "La policía arrestó a los traficantes.",
+                  "distractors": ["La policía arrestaba a los traficantes.", "La policía arrestó a los ladrones.", "La policía arrestará a los traficantes."]
+                },
+                {
+                  "sentence": "In quella zona ci sono molti spacciatori.",
+                  "translation": "En esa zona hay muchos traficantes.",
+                  "distractors": ["En esa zona había muchos traficantes.", "En esa zona hay pocos traficantes.", "En esa zona habrá muchos traficantes."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Troppe notti stavo chiuso fuori",
+          "translation": "Demasiadas noches estaba encerrado afuera",
+          "phrases": ["troppe notti", "stavo", "chiuso fuori"],
+          "distractors": [
+            "Pocas noches estaba encerrado afuera",
+            "Demasiadas noches estaba encerrado adentro",
+            "Demasiadas noches estoy encerrado afuera"
+          ],
+          "learn": [
+            {
+              "phrase": "troppe notti",
+              "translation": "demasiadas noches",
+              "exercises": [
+                {
+                  "sentence": "Troppe notti senza dormire.",
+                  "translation": "Demasiadas noches sin dormir.",
+                  "distractors": ["Demasiadas noches durmiendo.", "Pocas noches sin dormir.", "Demasiados días sin dormir."]
+                },
+                {
+                  "sentence": "Ho passato troppe notti a lavorare.",
+                  "translation": "Pasé demasiadas noches trabajando.",
+                  "distractors": ["Pasaba demasiadas noches trabajando.", "He pasado pocas noches trabajando.", "Pasaré demasiadas noches trabajando."]
+                }
+              ]
+            },
+            {
+              "phrase": "stavo",
+              "translation": "estaba",
+              "exercises": [
+                {
+                  "sentence": "Stavo dormendo quando hai chiamato.",
+                  "translation": "Estaba durmiendo cuando llamaste.",
+                  "distractors": ["Estoy durmiendo cuando llamaste.", "Estaba durmiendo cuando llamarás.", "Estaré durmiendo cuando llamaste."]
+                },
+                {
+                  "sentence": "Stavo per uscire.",
+                  "translation": "Estaba a punto de salir.",
+                  "distractors": ["Estoy a punto de salir.", "Estaré a punto de salir.", "Estuve a punto de salir."]
+                }
+              ]
+            },
+            {
+              "phrase": "chiuso fuori",
+              "translation": "encerrado afuera",
+              "exercises": [
+                {
+                  "sentence": "Sono rimasto chiuso fuori casa.",
+                  "translation": "Me quedé encerrado afuera de casa.",
+                  "distractors": ["Me quedaba encerrado afuera de casa.", "Me quedé encerrado adentro de casa.", "Me quedaré encerrado afuera de casa."]
+                },
+                {
+                  "sentence": "Ha dimenticato le chiavi ed è rimasto chiuso fuori.",
+                  "translation": "Olvidó las llaves y se quedó encerrado afuera.",
+                  "distractors": ["Olvidaba las llaves y se quedó encerrado afuera.", "Olvidó las llaves y se quedó encerrado adentro.", "Olvidó las llaves y se quedará encerrado afuera."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Mo li prendo a calci 'sti portoni",
+          "translation": "Ahora les doy patadas a estos portones",
+          "phrases": ["mo", "prendo a calci", "'sti portoni"],
+          "distractors": [
+            "Ahora les doy besos a estos portones",
+            "Antes les daba patadas a estos portones",
+            "Ahora les doy patadas a estas puertas"
+          ],
+          "learn": [
+            {
+              "phrase": "mo",
+              "translation": "ahora (coloquial, romano)",
+              "exercises": [
+                {
+                  "sentence": "Mo vengo.",
+                  "translation": "Ahora vengo.",
+                  "distractors": ["Antes venía.", "Ahora venía.", "Ahora vendré."]
+                },
+                {
+                  "sentence": "Mo ti faccio vedere.",
+                  "translation": "Ahora te voy a enseñar.",
+                  "distractors": ["Antes te iba a enseñar.", "Ahora te enseñaba.", "Ahora te enseñaré luego."]
+                }
+              ]
+            },
+            {
+              "phrase": "prendo a calci",
+              "translation": "le doy patadas",
+              "exercises": [
+                {
+                  "sentence": "Prendo a calci il pallone.",
+                  "translation": "Le doy patadas al balón.",
+                  "distractors": ["Le daba patadas al balón.", "Le doy puñetazos al balón.", "Le daré patadas al balón."]
+                },
+                {
+                  "sentence": "Non prendere a calci la porta!",
+                  "translation": "¡No le des patadas a la puerta!",
+                  "distractors": ["¡No le dabas patadas a la puerta!", "¡Sí le des patadas a la puerta!", "¡No le darás patadas a la puerta!"]
+                }
+              ]
+            },
+            {
+              "phrase": "'sti portoni",
+              "translation": "estos portones",
+              "exercises": [
+                {
+                  "sentence": "'Sti portoni sono sempre chiusi.",
+                  "translation": "Estos portones siempre están cerrados.",
+                  "distractors": ["Estos portones siempre estaban cerrados.", "Estos portones siempre están abiertos.", "Estos portones siempre estarán cerrados."]
+                },
+                {
+                  "sentence": "Apri 'sti portoni, dai!",
+                  "translation": "¡Abre estos portones, vamos!",
+                  "distractors": ["¡Abrías estos portones, vamos!", "¡Cierra estos portones, vamos!", "¡Abrirás estos portones, vamos!"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Sguardo in alto tipo scalatori",
+          "translation": "Mirada arriba tipo escaladores",
+          "phrases": ["sguardo in alto", "tipo scalatori"],
+          "distractors": [
+            "Mirada abajo tipo escaladores",
+            "Mirada arriba tipo astronautas",
+            "Mirada al frente tipo escaladores"
+          ],
+          "learn": [
+            {
+              "phrase": "sguardo in alto",
+              "translation": "mirada hacia arriba",
+              "exercises": [
+                {
+                  "sentence": "Cammina con lo sguardo in alto.",
+                  "translation": "Camina con la mirada hacia arriba.",
+                  "distractors": ["Caminaba con la mirada hacia arriba.", "Camina con la mirada hacia abajo.", "Caminará con la mirada hacia arriba."]
+                },
+                {
+                  "sentence": "Tenere lo sguardo in alto dà fiducia.",
+                  "translation": "Mantener la mirada hacia arriba da confianza.",
+                  "distractors": ["Mantener la mirada hacia arriba daba confianza.", "Mantener la mirada hacia abajo da confianza.", "Mantener la mirada hacia arriba dará confianza."]
+                }
+              ]
+            },
+            {
+              "phrase": "tipo scalatori",
+              "translation": "como escaladores",
+              "exercises": [
+                {
+                  "sentence": "Si arrampicano tipo scalatori esperti.",
+                  "translation": "Trepan como escaladores expertos.",
+                  "distractors": ["Trepaban como escaladores expertos.", "Trepan como escaladores novatos.", "Treparán como escaladores expertos."]
+                },
+                {
+                  "sentence": "Guardano la montagna tipo scalatori.",
+                  "translation": "Miran la montaña como escaladores.",
+                  "distractors": ["Miraban la montaña como escaladores.", "Miran el mar como escaladores.", "Mirarán la montaña como escaladores."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Quindi scusa mamma se sto sempre fuori ma",
+          "translation": "Así que perdón mamá si estoy siempre afuera pero",
+          "phrases": ["quindi", "scusa mamma", "sto sempre fuori"],
+          "distractors": [
+            "Así que perdón papá si estoy siempre afuera pero",
+            "Así que perdón mamá si estoy siempre adentro pero",
+            "Así que perdón mamá si estaba siempre afuera pero"
+          ],
+          "learn": [
+            {
+              "phrase": "quindi",
+              "translation": "así que / por lo tanto",
+              "exercises": [
+                {
+                  "sentence": "Piove, quindi resto a casa.",
+                  "translation": "Llueve, así que me quedo en casa.",
+                  "distractors": ["Llovía, así que me quedo en casa.", "Llueve, así que salgo de casa.", "Lloverá, así que me quedo en casa."]
+                },
+                {
+                  "sentence": "Non ho tempo, quindi devo andare.",
+                  "translation": "No tengo tiempo, así que debo irme.",
+                  "distractors": ["No tenía tiempo, así que debo irme.", "No tengo tiempo, así que me quedo.", "No tendré tiempo, así que debo irme."]
+                }
+              ]
+            },
+            {
+              "phrase": "scusa mamma",
+              "translation": "perdón mamá",
+              "exercises": [
+                {
+                  "sentence": "Scusa mamma, ho fatto tardi.",
+                  "translation": "Perdón mamá, llegué tarde.",
+                  "distractors": ["Perdón mamá, llegaba tarde.", "Perdón papá, llegué tarde.", "Perdón mamá, llegaré tarde."]
+                },
+                {
+                  "sentence": "Scusa mamma se non ti ho chiamato.",
+                  "translation": "Perdón mamá si no te llamé.",
+                  "distractors": ["Perdón mamá si no te llamaba.", "Perdón mamá si no te llamo.", "Perdón mamá si no te llamaré."]
+                }
+              ]
+            },
+            {
+              "phrase": "sto sempre fuori",
+              "translation": "estoy siempre afuera",
+              "exercises": [
+                {
+                  "sentence": "Sto sempre fuori con gli amici.",
+                  "translation": "Estoy siempre afuera con los amigos.",
+                  "distractors": ["Estaba siempre afuera con los amigos.", "Estoy siempre adentro con los amigos.", "Estaré siempre afuera con los amigos."]
+                },
+                {
+                  "sentence": "D'estate sto sempre fuori fino a tardi.",
+                  "translation": "En verano estoy siempre afuera hasta tarde.",
+                  "distractors": ["En verano estaba siempre afuera hasta tarde.", "En verano estoy siempre adentro hasta tarde.", "En verano estaré siempre afuera hasta tarde."]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Sono fuori di testa, ma diverso da loro\nE tu sei fuori di testa, ma diversa da loro\nSiamo fuori di testa, ma diversi da loro\nSiamo fuori di testa, ma diversi da loro, no",
+      "translation": "Estoy loco, pero distinto a ellos. Y tú estás loca, pero distinta a ellos. Estamos locos, pero distintos a ellos. Estamos locos, pero distintos a ellos, no",
+      "content": [
+        {
+          "originalPhrase": "Sono fuori di testa, ma diverso da loro",
+          "translation": "Estoy loco, pero distinto a ellos",
+          "phrases": ["sono", "fuori di testa", "diverso da loro"],
+          "distractors": [
+            "Estoy loco, pero igual a ellos",
+            "Estoy cuerdo, pero distinto a ellos",
+            "Estaba loco, pero distinto a ellos"
+          ],
+          "learn": [
+            {
+              "phrase": "sono",
+              "translation": "soy / estoy",
+              "exercises": [
+                {
+                  "sentence": "Sono stanco oggi.",
+                  "translation": "Estoy cansado hoy.",
+                  "distractors": ["Estaba cansado hoy.", "He estado cansado hoy.", "Estarás cansado hoy."]
+                },
+                {
+                  "sentence": "Sono un cantante.",
+                  "translation": "Soy un cantante.",
+                  "distractors": ["Era un cantante.", "He sido un cantante.", "Seré un cantante."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diverso da loro",
+              "translation": "distinto a ellos",
+              "exercises": [
+                {
+                  "sentence": "Il mio stile è diverso da loro.",
+                  "translation": "Mi estilo es distinto al de ellos.",
+                  "distractors": ["Mi estilo era distinto al de ellos.", "Mi estilo es igual al de ellos.", "Mi estilo fue distinto al de ellos."]
+                },
+                {
+                  "sentence": "Penso in modo diverso da loro.",
+                  "translation": "Pienso de manera distinta a ellos.",
+                  "distractors": ["Pensaba de manera distinta a ellos.", "Pienso de manera igual a ellos.", "He pensado de manera distinta a ellos."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "E tu sei fuori di testa, ma diversa da loro",
+          "translation": "Y tú estás loca, pero distinta a ellos",
+          "phrases": ["tu sei", "fuori di testa", "diversa da loro"],
+          "distractors": [
+            "Y tú estás loco, pero distinto a ellos",
+            "Y tú estás loca, pero igual a ellos",
+            "Y él está loco, pero distinto a ellos"
+          ],
+          "learn": [
+            {
+              "phrase": "tu sei",
+              "translation": "tú eres / tú estás",
+              "exercises": [
+                {
+                  "sentence": "Tu sei il migliore.",
+                  "translation": "Tú eres el mejor.",
+                  "distractors": ["Tú eras el mejor.", "Tú has sido el mejor.", "Tú serás el mejor."]
+                },
+                {
+                  "sentence": "Tu sei sempre in ritardo.",
+                  "translation": "Tú siempre llegas tarde.",
+                  "distractors": ["Tú siempre llegabas tarde.", "Tú siempre has llegado tarde.", "Tú siempre llegarás tarde."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diversa da loro",
+              "translation": "distinta a ellos",
+              "exercises": [
+                {
+                  "sentence": "La sua voce è diversa da loro.",
+                  "translation": "Su voz es distinta a la de ellos.",
+                  "distractors": ["Su voz era distinta a la de ellos.", "Su voz es igual a la de ellos.", "Su voz fue distinta a la de ellos."]
+                },
+                {
+                  "sentence": "La ragazza è diversa da loro.",
+                  "translation": "La chica es distinta a ellos.",
+                  "distractors": ["La chica era distinta a ellos.", "La chica es igual a ellos.", "La chica fue distinta a ellos."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Siamo fuori di testa, ma diversi da loro",
+          "translation": "Estamos locos, pero distintos a ellos",
+          "phrases": ["siamo", "fuori di testa", "diversi da loro"],
+          "distractors": [
+            "Estamos cuerdos, pero distintos a ellos",
+            "Estamos locos, pero iguales a ellos",
+            "Estábamos locos, pero distintos a ellos"
+          ],
+          "learn": [
+            {
+              "phrase": "siamo",
+              "translation": "somos / estamos",
+              "exercises": [
+                {
+                  "sentence": "Siamo pronti per partire.",
+                  "translation": "Estamos listos para partir.",
+                  "distractors": ["Estábamos listos para partir.", "Hemos estado listos para partir.", "Estaremos listos para partir."]
+                },
+                {
+                  "sentence": "Siamo amici da anni.",
+                  "translation": "Somos amigos desde hace años.",
+                  "distractors": ["Éramos amigos desde hace años.", "Hemos sido amigos desde hace años.", "Seremos amigos desde hace años."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diversi da loro",
+              "translation": "distintos a ellos",
+              "exercises": [
+                {
+                  "sentence": "I nostri gusti sono diversi da loro.",
+                  "translation": "Nuestros gustos son distintos a los de ellos.",
+                  "distractors": ["Nuestros gustos eran distintos a los de ellos.", "Nuestros gustos son iguales a los de ellos.", "Nuestros gustos fueron distintos a los de ellos."]
+                },
+                {
+                  "sentence": "I ragazzi sono diversi da loro.",
+                  "translation": "Los chicos son distintos a ellos.",
+                  "distractors": ["Los chicos eran distintos a ellos.", "Los chicos son iguales a ellos.", "Los chicos fueron distintos a ellos."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Siamo fuori di testa, ma diversi da loro, no",
+          "translation": "Estamos locos, pero distintos a ellos, no",
+          "phrases": ["siamo", "fuori di testa", "diversi da loro", "no"],
+          "distractors": [
+            "Estamos locos, pero distintos a ellos, sí",
+            "Estamos cuerdos, pero distintos a ellos, no",
+            "Estamos locos, pero iguales a ellos, no"
+          ],
+          "learn": [
+            {
+              "phrase": "siamo",
+              "translation": "somos / estamos",
+              "exercises": [
+                {
+                  "sentence": "Siamo pronti per partire.",
+                  "translation": "Estamos listos para partir.",
+                  "distractors": ["Estábamos listos para partir.", "Hemos estado listos para partir.", "Estaremos listos para partir."]
+                },
+                {
+                  "sentence": "Siamo amici da anni.",
+                  "translation": "Somos amigos desde hace años.",
+                  "distractors": ["Éramos amigos desde hace años.", "Hemos sido amigos desde hace años.", "Seremos amigos desde hace años."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diversi da loro",
+              "translation": "distintos a ellos",
+              "exercises": [
+                {
+                  "sentence": "I nostri gusti sono diversi da loro.",
+                  "translation": "Nuestros gustos son distintos a los de ellos.",
+                  "distractors": ["Nuestros gustos eran distintos a los de ellos.", "Nuestros gustos son iguales a los de ellos.", "Nuestros gustos fueron distintos a los de ellos."]
+                },
+                {
+                  "sentence": "I ragazzi sono diversi da loro.",
+                  "translation": "Los chicos son distintos a ellos.",
+                  "distractors": ["Los chicos eran distintos a ellos.", "Los chicos son iguales a ellos.", "Los chicos fueron distintos a ellos."]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Io ho scritto pagine e pagine, ho visto sale poi lacrime\nQuesti uomini in macchina e non scalare le rapide\nHo scritto sopra una lapide, in casa mia non c'è Dio\nMa se trovi il senso del tempo, risalirai dal tuo oblio\nE non c'è vento che fermi la naturale potenza\nDal punto giusto di vista, del vento senti l'ebrezza\nCon ali in cera alla schiena ricercherò quell'altezza\nSe vuoi fermarmi ritenta, prova a tagliarmi la testa perché",
+      "translation": "He escrito páginas y páginas, he visto sal y luego lágrimas. Estos hombres en coche y no escalar los rápidos. He escrito sobre una lápida, en mi casa no hay Dios. Pero si encuentras el sentido del tiempo, resurgirás de tu olvido. Y no hay viento que detenga la potencia natural. Desde el punto de vista justo, del viento sientes la ebriedad. Con alas de cera en la espalda buscaré esa altura. Si quieres detenerme inténtalo de nuevo, intenta cortarme la cabeza porque",
+      "content": [
+        {
+          "originalPhrase": "Io ho scritto pagine e pagine, ho visto sale poi lacrime",
+          "translation": "He escrito páginas y páginas, he visto sal y luego lágrimas",
+          "phrases": ["ho scritto", "pagine e pagine", "ho visto", "sale poi lacrime"],
+          "distractors": [
+            "He escrito páginas y páginas, he visto sal y luego risas",
+            "Escribí páginas y páginas, vi sal y luego lágrimas",
+            "He escrito páginas y páginas, he visto azúcar y luego lágrimas"
+          ],
+          "learn": [
+            {
+              "phrase": "ho scritto",
+              "translation": "he escrito / escribí",
+              "exercises": [
+                {
+                  "sentence": "Ho scritto una lettera a mia madre.",
+                  "translation": "Escribí una carta a mi madre.",
+                  "distractors": ["Escribía una carta a mi madre.", "He escrito una carta para mi madre.", "Escribiré una carta a mi madre."]
+                },
+                {
+                  "sentence": "Ho scritto il mio nome sul muro.",
+                  "translation": "Escribí mi nombre en la pared.",
+                  "distractors": ["Escribía mi nombre en la pared.", "Escribiré mi nombre en la pared.", "He escrito mi nombre bajo la pared."]
+                }
+              ]
+            },
+            {
+              "phrase": "pagine e pagine",
+              "translation": "páginas y páginas",
+              "exercises": [
+                {
+                  "sentence": "Ho letto pagine e pagine di quel libro.",
+                  "translation": "Leí páginas y páginas de ese libro.",
+                  "distractors": ["Leía páginas y páginas de ese libro.", "He leído una página de ese libro.", "Leeré páginas y páginas de ese libro."]
+                },
+                {
+                  "sentence": "Riempie pagine e pagine di appunti.",
+                  "translation": "Llena páginas y páginas de apuntes.",
+                  "distractors": ["Llenaba páginas y páginas de apuntes.", "Llena una página de apuntes.", "Llenará páginas y páginas de apuntes."]
+                }
+              ]
+            },
+            {
+              "phrase": "ho visto",
+              "translation": "he visto / vi",
+              "exercises": [
+                {
+                  "sentence": "Ho visto un bel film ieri.",
+                  "translation": "Vi una buena película ayer.",
+                  "distractors": ["Veía una buena película ayer.", "He visto una mala película ayer.", "Veré una buena película ayer."]
+                },
+                {
+                  "sentence": "Non ho mai visto niente di simile.",
+                  "translation": "Nunca he visto algo parecido.",
+                  "distractors": ["Nunca vi algo parecido.", "Nunca he visto algo diferente.", "Nunca veré algo parecido."]
+                }
+              ]
+            },
+            {
+              "phrase": "sale poi lacrime",
+              "translation": "sal y luego lágrimas",
+              "exercises": [
+                {
+                  "sentence": "Sentivo il sapore del sale e poi le lacrime.",
+                  "translation": "Sentía el sabor de la sal y luego las lágrimas.",
+                  "distractors": ["Sentí el sabor de la sal y luego las lágrimas.", "Sentía el sabor del azúcar y luego las lágrimas.", "Sentiré el sabor de la sal y luego las lágrimas."]
+                },
+                {
+                  "sentence": "Prima il sale, poi le lacrime sono arrivate.",
+                  "translation": "Primero la sal, luego llegaron las lágrimas.",
+                  "distractors": ["Primero la sal, luego llegan las lágrimas.", "Primero las lágrimas, luego llegó la sal.", "Primero la sal, luego llegarán las lágrimas."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Questi uomini in macchina e non scalare le rapide",
+          "translation": "Estos hombres en coche y no escalar los rápidos",
+          "phrases": ["questi uomini", "in macchina", "scalare le rapide"],
+          "distractors": [
+            "Estos hombres en coche y sí escalar los rápidos",
+            "Estos hombres a pie y no escalar los rápidos",
+            "Esos hombres en coche y no escalar los rápidos"
+          ],
+          "learn": [
+            {
+              "phrase": "questi uomini",
+              "translation": "estos hombres",
+              "exercises": [
+                {
+                  "sentence": "Questi uomini lavorano duro.",
+                  "translation": "Estos hombres trabajan duro.",
+                  "distractors": ["Estos hombres trabajaban duro.", "Estos hombres trabajan poco.", "Estos hombres trabajarán duro."]
+                },
+                {
+                  "sentence": "Conosco questi uomini da anni.",
+                  "translation": "Conozco a estos hombres desde hace años.",
+                  "distractors": ["Conocía a estos hombres desde hace años.", "Conozco a estas mujeres desde hace años.", "Conoceré a estos hombres desde hace años."]
+                }
+              ]
+            },
+            {
+              "phrase": "in macchina",
+              "translation": "en coche",
+              "exercises": [
+                {
+                  "sentence": "Andiamo in macchina al mare.",
+                  "translation": "Vamos en coche al mar.",
+                  "distractors": ["Íbamos en coche al mar.", "Vamos a pie al mar.", "Iremos en coche al mar."]
+                },
+                {
+                  "sentence": "Ho lasciato le chiavi in macchina.",
+                  "translation": "Dejé las llaves en el coche.",
+                  "distractors": ["Dejaba las llaves en el coche.", "Dejé las llaves fuera del coche.", "Dejaré las llaves en el coche."]
+                }
+              ]
+            },
+            {
+              "phrase": "scalare le rapide",
+              "translation": "escalar los rápidos",
+              "exercises": [
+                {
+                  "sentence": "È pericoloso scalare le rapide senza esperienza.",
+                  "translation": "Es peligroso escalar los rápidos sin experiencia.",
+                  "distractors": ["Era peligroso escalar los rápidos sin experiencia.", "Es peligroso escalar los rápidos con experiencia.", "Será peligroso escalar los rápidos sin experiencia."]
+                },
+                {
+                  "sentence": "Sognano di scalare le rapide del fiume.",
+                  "translation": "Sueñan con escalar los rápidos del río.",
+                  "distractors": ["Soñaban con escalar los rápidos del río.", "Sueñan con escalar las montañas del río.", "Soñarán con escalar los rápidos del río."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Ho scritto sopra una lapide, in casa mia non c'è Dio",
+          "translation": "He escrito sobre una lápida, en mi casa no hay Dios",
+          "phrases": ["sopra una lapide", "in casa mia", "non c'è Dio"],
+          "distractors": [
+            "He escrito sobre una lápida, en mi casa hay Dios",
+            "He escrito sobre un muro, en mi casa no hay Dios",
+            "Escribí sobre una lápida, en mi casa no había Dios"
+          ],
+          "learn": [
+            {
+              "phrase": "sopra una lapide",
+              "translation": "sobre una lápida",
+              "exercises": [
+                {
+                  "sentence": "Il suo nome è inciso sopra una lapide.",
+                  "translation": "Su nombre está grabado sobre una lápida.",
+                  "distractors": ["Su nombre estaba grabado sobre una lápida.", "Su nombre está grabado bajo una lápida.", "Su nombre estará grabado sobre una lápida."]
+                },
+                {
+                  "sentence": "Hanno scritto una frase sopra una lapide.",
+                  "translation": "Escribieron una frase sobre una lápida.",
+                  "distractors": ["Escribían una frase sobre una lápida.", "Han escrito una frase bajo una lápida.", "Escribirán una frase sobre una lápida."]
+                }
+              ]
+            },
+            {
+              "phrase": "in casa mia",
+              "translation": "en mi casa",
+              "exercises": [
+                {
+                  "sentence": "In casa mia si mangia sempre insieme.",
+                  "translation": "En mi casa siempre se come junto.",
+                  "distractors": ["En mi casa siempre se comía junto.", "En mi casa nunca se come junto.", "En mi casa siempre se comerá junto."]
+                },
+                {
+                  "sentence": "Vieni in casa mia stasera.",
+                  "translation": "Ven a mi casa esta noche.",
+                  "distractors": ["Vienes a mi casa esta noche.", "Viniste a mi casa esta noche.", "Vendrás a mi casa esta noche."]
+                }
+              ]
+            },
+            {
+              "phrase": "non c'è Dio",
+              "translation": "no hay Dios",
+              "exercises": [
+                {
+                  "sentence": "In quel posto sembra che non ci sia Dio.",
+                  "translation": "En ese lugar parece que no hay Dios.",
+                  "distractors": ["En ese lugar parecía que no hay Dios.", "En ese lugar parece que hay Dios.", "En ese lugar parecerá que no hay Dios."]
+                },
+                {
+                  "sentence": "Dice sempre che non c'è Dio.",
+                  "translation": "Siempre dice que no hay Dios.",
+                  "distractors": ["Siempre decía que no hay Dios.", "Siempre dice que sí hay Dios.", "Siempre dirá que no hay Dios."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Ma se trovi il senso del tempo, risalirai dal tuo oblio",
+          "translation": "Pero si encuentras el sentido del tiempo, resurgirás de tu olvido",
+          "phrases": ["se trovi", "il senso del tempo", "risalirai", "dal tuo oblio"],
+          "distractors": [
+            "Pero si encuentras el sentido del tiempo, caerás en tu olvido",
+            "Pero si pierdes el sentido del tiempo, resurgirás de tu olvido",
+            "Pero si encuentras el sentido de la vida, resurgirás de tu olvido"
+          ],
+          "learn": [
+            {
+              "phrase": "se trovi",
+              "translation": "si encuentras",
+              "exercises": [
+                {
+                  "sentence": "Se trovi le chiavi, chiamami.",
+                  "translation": "Si encuentras las llaves, llámame.",
+                  "distractors": ["Si encontraste las llaves, llámame.", "Si encuentras las llaves, no me llames.", "Si encontrarás las llaves, llámame."]
+                },
+                {
+                  "sentence": "Se trovi un lavoro migliore, prendilo.",
+                  "translation": "Si encuentras un trabajo mejor, tómalo.",
+                  "distractors": ["Si encontrabas un trabajo mejor, tómalo.", "Si encuentras un trabajo peor, tómalo.", "Si encontrarás un trabajo mejor, tómalo."]
+                }
+              ]
+            },
+            {
+              "phrase": "il senso del tempo",
+              "translation": "el sentido del tiempo",
+              "exercises": [
+                {
+                  "sentence": "Ho perso il senso del tempo.",
+                  "translation": "Perdí el sentido del tiempo.",
+                  "distractors": ["Perdía el sentido del tiempo.", "He perdido el sentido del espacio.", "Perderé el sentido del tiempo."]
+                },
+                {
+                  "sentence": "Con la meditazione ritrovi il senso del tempo.",
+                  "translation": "Con la meditación recuperas el sentido del tiempo.",
+                  "distractors": ["Con la meditación recuperabas el sentido del tiempo.", "Con la meditación pierdes el sentido del tiempo.", "Con la meditación recuperarás el sentido del tiempo."]
+                }
+              ]
+            },
+            {
+              "phrase": "risalirai",
+              "translation": "resurgirás / volverás a subir",
+              "exercises": [
+                {
+                  "sentence": "Risalirai dalle tue difficoltà.",
+                  "translation": "Resurgirás de tus dificultades.",
+                  "distractors": ["Resurgías de tus dificultades.", "Resurgiste de tus dificultades.", "Has resurgido de tus dificultades."]
+                },
+                {
+                  "sentence": "Se insisti, risalirai in classifica.",
+                  "translation": "Si insistes, subirás en la clasificación.",
+                  "distractors": ["Si insistías, subirás en la clasificación.", "Si insistes, bajarás en la clasificación.", "Si insistes, subiste en la clasificación."]
+                }
+              ]
+            },
+            {
+              "phrase": "dal tuo oblio",
+              "translation": "de tu olvido",
+              "exercises": [
+                {
+                  "sentence": "Vorrei uscire dal tuo oblio.",
+                  "translation": "Quisiera salir de tu olvido.",
+                  "distractors": ["Quería salir de tu olvido.", "Quisiera entrar en tu olvido.", "Querré salir de tu olvido."]
+                },
+                {
+                  "sentence": "È rimasto intrappolato nel suo oblio.",
+                  "translation": "Quedó atrapado en su olvido.",
+                  "distractors": ["Quedaba atrapado en su olvido.", "Quedó atrapado en su memoria.", "Quedará atrapado en su olvido."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "E non c'è vento che fermi la naturale potenza",
+          "translation": "Y no hay viento que detenga la potencia natural",
+          "phrases": ["non c'è vento", "che fermi", "la naturale potenza"],
+          "distractors": [
+            "Y sí hay viento que detenga la potencia natural",
+            "Y no hay viento que detenga la fuerza natural",
+            "Y no hay viento que detenga la potencia artificial"
+          ],
+          "learn": [
+            {
+              "phrase": "non c'è vento",
+              "translation": "no hay viento",
+              "exercises": [
+                {
+                  "sentence": "Oggi non c'è vento al mare.",
+                  "translation": "Hoy no hay viento en el mar.",
+                  "distractors": ["Hoy no había viento en el mar.", "Hoy sí hay viento en el mar.", "Hoy no habrá viento en el mar."]
+                },
+                {
+                  "sentence": "Senza vento le vele non si muovono.",
+                  "translation": "Sin viento las velas no se mueven.",
+                  "distractors": ["Sin viento las velas no se movían.", "Con viento las velas no se mueven.", "Sin viento las velas no se moverán."]
+                }
+              ]
+            },
+            {
+              "phrase": "che fermi",
+              "translation": "que detenga",
+              "exercises": [
+                {
+                  "sentence": "Non c'è nulla che fermi la sua volontà.",
+                  "translation": "No hay nada que detenga su voluntad.",
+                  "distractors": ["No había nada que detenga su voluntad.", "No hay nada que detuviera su voluntad.", "No habrá nada que detenga su voluntad."]
+                },
+                {
+                  "sentence": "Serve qualcosa che fermi il rumore.",
+                  "translation": "Hace falta algo que detenga el ruido.",
+                  "distractors": ["Hacía falta algo que detenga el ruido.", "Hace falta algo que detuvo el ruido.", "Hará falta algo que detenga el ruido."]
+                }
+              ]
+            },
+            {
+              "phrase": "la naturale potenza",
+              "translation": "la potencia natural",
+              "exercises": [
+                {
+                  "sentence": "Ammiro la naturale potenza del mare.",
+                  "translation": "Admiro la potencia natural del mar.",
+                  "distractors": ["Admiraba la potencia natural del mar.", "Admiro la potencia artificial del mar.", "Admiraré la potencia natural del mar."]
+                },
+                {
+                  "sentence": "Niente supera la naturale potenza di un uragano.",
+                  "translation": "Nada supera la potencia natural de un huracán.",
+                  "distractors": ["Nada superaba la potencia natural de un huracán.", "Algo supera la potencia natural de un huracán.", "Nada superará la potencia natural de un huracán."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Dal punto giusto di vista, del vento senti l'ebrezza",
+          "translation": "Desde el punto de vista justo, del viento sientes la ebriedad",
+          "phrases": ["punto di vista", "del vento", "senti l'ebrezza"],
+          "distractors": [
+            "Desde el punto de vista justo, del viento sientes el frío",
+            "Desde el punto de vista equivocado, del viento sientes la ebriedad",
+            "Desde el punto de vista justo, del mar sientes la ebriedad"
+          ],
+          "learn": [
+            {
+              "phrase": "punto di vista",
+              "translation": "punto de vista",
+              "exercises": [
+                {
+                  "sentence": "Dal mio punto di vista, hai ragione.",
+                  "translation": "Desde mi punto de vista, tienes razón.",
+                  "distractors": ["Desde mi punto de vista, tenías razón.", "Desde mi punto de vista, no tienes razón.", "Desde mi punto de vista, tendrás razón."]
+                },
+                {
+                  "sentence": "Cambia il tuo punto di vista.",
+                  "translation": "Cambia tu punto de vista.",
+                  "distractors": ["Cambiaba tu punto de vista.", "Cambia tu punto de partida.", "Cambiará tu punto de vista."]
+                }
+              ]
+            },
+            {
+              "phrase": "del vento",
+              "translation": "del viento",
+              "exercises": [
+                {
+                  "sentence": "Sento il rumore del vento.",
+                  "translation": "Oigo el ruido del viento.",
+                  "distractors": ["Oía el ruido del viento.", "Oigo el ruido de la lluvia.", "Oiré el ruido del viento."]
+                },
+                {
+                  "sentence": "La forza del vento ha rotto l'albero.",
+                  "translation": "La fuerza del viento rompió el árbol.",
+                  "distractors": ["La fuerza del viento rompía el árbol.", "La fuerza del agua rompió el árbol.", "La fuerza del viento romperá el árbol."]
+                }
+              ]
+            },
+            {
+              "phrase": "senti l'ebrezza",
+              "translation": "sientes la ebriedad",
+              "exercises": [
+                {
+                  "sentence": "In cima alla montagna senti l'ebrezza della libertà.",
+                  "translation": "En la cima de la montaña sientes la ebriedad de la libertad.",
+                  "distractors": ["En la cima de la montaña sentías la ebriedad de la libertad.", "En la cima de la montaña sientes el miedo de la libertad.", "En la cima de la montaña sentirás la ebriedad de la libertad."]
+                },
+                {
+                  "sentence": "Guidando veloce, senti l'ebrezza della velocità.",
+                  "translation": "Conduciendo rápido, sientes la ebriedad de la velocidad.",
+                  "distractors": ["Conduciendo rápido, sentías la ebriedad de la velocidad.", "Conduciendo lento, sientes la ebriedad de la velocidad.", "Conduciendo rápido, sentirás la ebriedad de la velocidad."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Con ali in cera alla schiena ricercherò quell'altezza",
+          "translation": "Con alas de cera en la espalda buscaré esa altura",
+          "phrases": ["ali in cera", "alla schiena", "ricercherò", "quell'altezza"],
+          "distractors": [
+            "Con alas de cera en la espalda buscaré esa profundidad",
+            "Con alas de plumas en la espalda buscaré esa altura",
+            "Con alas de cera en el pecho buscaré esa altura"
+          ],
+          "learn": [
+            {
+              "phrase": "ali in cera",
+              "translation": "alas de cera",
+              "exercises": [
+                {
+                  "sentence": "Icaro aveva ali in cera.",
+                  "translation": "Ícaro tenía alas de cera.",
+                  "distractors": ["Ícaro tiene alas de cera.", "Ícaro tenía alas de pluma.", "Ícaro tendrá alas de cera."]
+                },
+                {
+                  "sentence": "Le ali in cera si sciolsero al sole.",
+                  "translation": "Las alas de cera se derritieron al sol.",
+                  "distractors": ["Las alas de cera se derretían al sol.", "Las alas de cera se derritieron a la sombra.", "Las alas de cera se derretirán al sol."]
+                }
+              ]
+            },
+            {
+              "phrase": "alla schiena",
+              "translation": "en la espalda",
+              "exercises": [
+                {
+                  "sentence": "Ho un dolore alla schiena.",
+                  "translation": "Tengo un dolor en la espalda.",
+                  "distractors": ["Tenía un dolor en la espalda.", "Tengo un dolor en el pecho.", "Tendré un dolor en la espalda."]
+                },
+                {
+                  "sentence": "Porta lo zaino alla schiena.",
+                  "translation": "Lleva la mochila en la espalda.",
+                  "distractors": ["Llevaba la mochila en la espalda.", "Lleva la mochila en la mano.", "Llevará la mochila en la espalda."]
+                }
+              ]
+            },
+            {
+              "phrase": "ricercherò",
+              "translation": "buscaré",
+              "exercises": [
+                {
+                  "sentence": "Ricercherò la verità ovunque sia.",
+                  "translation": "Buscaré la verdad dondequiera que esté.",
+                  "distractors": ["Buscaba la verdad dondequiera que esté.", "Buscaré la mentira dondequiera que esté.", "He buscado la verdad dondequiera que esté."]
+                },
+                {
+                  "sentence": "Domani ricercherò nuove informazioni.",
+                  "translation": "Mañana buscaré nueva información.",
+                  "distractors": ["Mañana buscaba nueva información.", "Mañana buscaré vieja información.", "Ayer buscaré nueva información."]
+                }
+              ]
+            },
+            {
+              "phrase": "quell'altezza",
+              "translation": "esa altura",
+              "exercises": [
+                {
+                  "sentence": "Non ho mai raggiunto quell'altezza.",
+                  "translation": "Nunca alcancé esa altura.",
+                  "distractors": ["Nunca alcanzaba esa altura.", "Nunca alcanzo esa altura.", "Nunca alcanzaré esa altura."]
+                },
+                {
+                  "sentence": "Il palazzo raggiunge quell'altezza.",
+                  "translation": "El edificio alcanza esa altura.",
+                  "distractors": ["El edificio alcanzaba esa altura.", "El edificio alcanza esa anchura.", "El edificio alcanzará esa altura."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Se vuoi fermarmi ritenta, prova a tagliarmi la testa perché",
+          "translation": "Si quieres detenerme inténtalo de nuevo, intenta cortarme la cabeza porque",
+          "phrases": ["se vuoi fermarmi", "ritenta", "prova a tagliarmi la testa"],
+          "distractors": [
+            "Si quieres detenerme inténtalo de nuevo, intenta cortarme los pies porque",
+            "Si quieres ayudarme inténtalo de nuevo, intenta cortarme la cabeza porque",
+            "Si quieres detenerme inténtalo de nuevo, intenta cortarme la cabeza aunque"
+          ],
+          "learn": [
+            {
+              "phrase": "se vuoi fermarmi",
+              "translation": "si quieres detenerme",
+              "exercises": [
+                {
+                  "sentence": "Se vuoi fermarmi, dovrai provarci meglio.",
+                  "translation": "Si quieres detenerme, tendrás que intentarlo mejor.",
+                  "distractors": ["Si querías detenerme, tendrás que intentarlo mejor.", "Si quieres ayudarme, tendrás que intentarlo mejor.", "Si quieres detenerme, tendrías que intentarlo mejor."]
+                },
+                {
+                  "sentence": "Se vuoi fermarmi, non ce la farai.",
+                  "translation": "Si quieres detenerme, no lo lograrás.",
+                  "distractors": ["Si querías detenerme, no lo lograrás.", "Si quieres detenerme, lo lograrás.", "Si quieres detenerme, no lo logré."]
+                }
+              ]
+            },
+            {
+              "phrase": "ritenta",
+              "translation": "inténtalo de nuevo",
+              "exercises": [
+                {
+                  "sentence": "Se non funziona, ritenta più tardi.",
+                  "translation": "Si no funciona, inténtalo de nuevo más tarde.",
+                  "distractors": ["Si no funcionaba, inténtalo de nuevo más tarde.", "Si funciona, inténtalo de nuevo más tarde.", "Si no funciona, lo intentaste de nuevo más tarde."]
+                },
+                {
+                  "sentence": "Ritenta, sarai più fortunato.",
+                  "translation": "Inténtalo de nuevo, serás más afortunado.",
+                  "distractors": ["Inténtalo de nuevo, eras más afortunado.", "Inténtalo de nuevo, fuiste más afortunado.", "Inténtalo de nuevo, eres más afortunado."]
+                }
+              ]
+            },
+            {
+              "phrase": "prova a tagliarmi la testa",
+              "translation": "intenta cortarme la cabeza",
+              "exercises": [
+                {
+                  "sentence": "Nella leggenda, prova a tagliarmi la testa ma fallisce.",
+                  "translation": "En la leyenda, intenta cortarme la cabeza pero falla.",
+                  "distractors": ["En la leyenda, intentaba cortarme la cabeza pero falla.", "En la leyenda, intenta cortarme los pies pero falla.", "En la leyenda, intenta cortarme la cabeza pero falló."]
+                },
+                {
+                  "sentence": "Nel film, il nemico prova a tagliarmi la testa.",
+                  "translation": "En la película, el enemigo intenta cortarme la cabeza.",
+                  "distractors": ["En la película, el enemigo intentaba cortarme la cabeza.", "En la película, el amigo intenta cortarme la cabeza.", "En la película, el enemigo intentará cortarme la cabeza."]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Sono fuori di testa, ma diverso da loro\nE tu sei fuori di testa, ma diversa da loro\nSiamo fuori di testa, ma diversi da loro\nSiamo fuori di testa, ma diversi da loro, oh",
+      "translation": "Estoy loco, pero distinto a ellos. Y tú estás loca, pero distinta a ellos. Estamos locos, pero distintos a ellos. Estamos locos, pero distintos a ellos, oh",
+      "content": [
+        {
+          "originalPhrase": "Sono fuori di testa, ma diverso da loro",
+          "translation": "Estoy loco, pero distinto a ellos",
+          "phrases": ["sono", "fuori di testa", "diverso da loro"],
+          "distractors": [
+            "Estoy loco, pero igual a ellos",
+            "Estoy cuerdo, pero distinto a ellos",
+            "Estaba loco, pero distinto a ellos"
+          ],
+          "learn": [
+            {
+              "phrase": "sono",
+              "translation": "soy / estoy",
+              "exercises": [
+                {
+                  "sentence": "Sono stanco oggi.",
+                  "translation": "Estoy cansado hoy.",
+                  "distractors": ["Estaba cansado hoy.", "He estado cansado hoy.", "Estarás cansado hoy."]
+                },
+                {
+                  "sentence": "Sono un cantante.",
+                  "translation": "Soy un cantante.",
+                  "distractors": ["Era un cantante.", "He sido un cantante.", "Seré un cantante."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diverso da loro",
+              "translation": "distinto a ellos",
+              "exercises": [
+                {
+                  "sentence": "Il mio stile è diverso da loro.",
+                  "translation": "Mi estilo es distinto al de ellos.",
+                  "distractors": ["Mi estilo era distinto al de ellos.", "Mi estilo es igual al de ellos.", "Mi estilo fue distinto al de ellos."]
+                },
+                {
+                  "sentence": "Penso in modo diverso da loro.",
+                  "translation": "Pienso de manera distinta a ellos.",
+                  "distractors": ["Pensaba de manera distinta a ellos.", "Pienso de manera igual a ellos.", "He pensado de manera distinta a ellos."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "E tu sei fuori di testa, ma diversa da loro",
+          "translation": "Y tú estás loca, pero distinta a ellos",
+          "phrases": ["tu sei", "fuori di testa", "diversa da loro"],
+          "distractors": [
+            "Y tú estás loco, pero distinto a ellos",
+            "Y tú estás loca, pero igual a ellos",
+            "Y él está loco, pero distinto a ellos"
+          ],
+          "learn": [
+            {
+              "phrase": "tu sei",
+              "translation": "tú eres / tú estás",
+              "exercises": [
+                {
+                  "sentence": "Tu sei il migliore.",
+                  "translation": "Tú eres el mejor.",
+                  "distractors": ["Tú eras el mejor.", "Tú has sido el mejor.", "Tú serás el mejor."]
+                },
+                {
+                  "sentence": "Tu sei sempre in ritardo.",
+                  "translation": "Tú siempre llegas tarde.",
+                  "distractors": ["Tú siempre llegabas tarde.", "Tú siempre has llegado tarde.", "Tú siempre llegarás tarde."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diversa da loro",
+              "translation": "distinta a ellos",
+              "exercises": [
+                {
+                  "sentence": "La sua voce è diversa da loro.",
+                  "translation": "Su voz es distinta a la de ellos.",
+                  "distractors": ["Su voz era distinta a la de ellos.", "Su voz es igual a la de ellos.", "Su voz fue distinta a la de ellos."]
+                },
+                {
+                  "sentence": "La ragazza è diversa da loro.",
+                  "translation": "La chica es distinta a ellos.",
+                  "distractors": ["La chica era distinta a ellos.", "La chica es igual a ellos.", "La chica fue distinta a ellos."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Siamo fuori di testa, ma diversi da loro",
+          "translation": "Estamos locos, pero distintos a ellos",
+          "phrases": ["siamo", "fuori di testa", "diversi da loro"],
+          "distractors": [
+            "Estamos cuerdos, pero distintos a ellos",
+            "Estamos locos, pero iguales a ellos",
+            "Estábamos locos, pero distintos a ellos"
+          ],
+          "learn": [
+            {
+              "phrase": "siamo",
+              "translation": "somos / estamos",
+              "exercises": [
+                {
+                  "sentence": "Siamo pronti per partire.",
+                  "translation": "Estamos listos para partir.",
+                  "distractors": ["Estábamos listos para partir.", "Hemos estado listos para partir.", "Estaremos listos para partir."]
+                },
+                {
+                  "sentence": "Siamo amici da anni.",
+                  "translation": "Somos amigos desde hace años.",
+                  "distractors": ["Éramos amigos desde hace años.", "Hemos sido amigos desde hace años.", "Seremos amigos desde hace años."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diversi da loro",
+              "translation": "distintos a ellos",
+              "exercises": [
+                {
+                  "sentence": "I nostri gusti sono diversi da loro.",
+                  "translation": "Nuestros gustos son distintos a los de ellos.",
+                  "distractors": ["Nuestros gustos eran distintos a los de ellos.", "Nuestros gustos son iguales a los de ellos.", "Nuestros gustos fueron distintos a los de ellos."]
+                },
+                {
+                  "sentence": "I ragazzi sono diversi da loro.",
+                  "translation": "Los chicos son distintos a ellos.",
+                  "distractors": ["Los chicos eran distintos a ellos.", "Los chicos son iguales a ellos.", "Los chicos fueron distintos a ellos."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Siamo fuori di testa, ma diversi da loro, oh",
+          "translation": "Estamos locos, pero distintos a ellos, oh",
+          "phrases": ["siamo", "fuori di testa", "diversi da loro", "oh"],
+          "distractors": [
+            "Estamos locos, pero distintos a ellos, ah",
+            "Estamos cuerdos, pero distintos a ellos, oh",
+            "Estamos locos, pero iguales a ellos, oh"
+          ],
+          "learn": [
+            {
+              "phrase": "siamo",
+              "translation": "somos / estamos",
+              "exercises": [
+                {
+                  "sentence": "Siamo pronti per partire.",
+                  "translation": "Estamos listos para partir.",
+                  "distractors": ["Estábamos listos para partir.", "Hemos estado listos para partir.", "Estaremos listos para partir."]
+                },
+                {
+                  "sentence": "Siamo amici da anni.",
+                  "translation": "Somos amigos desde hace años.",
+                  "distractors": ["Éramos amigos desde hace años.", "Hemos sido amigos desde hace años.", "Seremos amigos desde hace años."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diversi da loro",
+              "translation": "distintos a ellos",
+              "exercises": [
+                {
+                  "sentence": "I nostri gusti sono diversi da loro.",
+                  "translation": "Nuestros gustos son distintos a los de ellos.",
+                  "distractors": ["Nuestros gustos eran distintos a los de ellos.", "Nuestros gustos son iguales a los de ellos.", "Nuestros gustos fueron distintos a los de ellos."]
+                },
+                {
+                  "sentence": "I ragazzi sono diversi da loro.",
+                  "translation": "Los chicos son distintos a ellos.",
+                  "distractors": ["Los chicos eran distintos a ellos.", "Los chicos son iguales a ellos.", "Los chicos fueron distintos a ellos."]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Mmm, parla, la gente purtroppo parla\nNon sa di che cosa parla\nTu portami dove sto a galla\nChe qui mi manca l'aria\nParla, la gente purtroppo parla\nNon sa di che cosa parla\nTu portami dove sto a galla\nChe qui mi manca l'aria\nParla, la gente purtroppo parla\nNon sa di che cazzo parla\nTu portami dove sto a galla\nChe qui mi manca l'aria",
+      "translation": "Mmm, habla, la gente por desgracia habla. No sabe de qué habla. Tú llévame donde estoy a flote. Que aquí me falta el aire. Habla, la gente por desgracia habla. No sabe de qué habla. Tú llévame donde estoy a flote. Que aquí me falta el aire. Habla, la gente por desgracia habla. No sabe de qué coño habla. Tú llévame donde estoy a flote. Que aquí me falta el aire",
+      "content": [
+        {
+          "originalPhrase": "Mmm, parla, la gente purtroppo parla",
+          "translation": "Mmm, habla, la gente por desgracia habla",
+          "phrases": ["parla", "la gente", "purtroppo"],
+          "distractors": [
+            "Mmm, habla, la gente por suerte habla",
+            "Mmm, calla, la gente por desgracia habla",
+            "Mmm, habla, la gente por desgracia calla"
+          ],
+          "learn": [
+            {
+              "phrase": "parla",
+              "translation": "habla",
+              "exercises": [
+                {
+                  "sentence": "Lui parla troppo.",
+                  "translation": "Él habla demasiado.",
+                  "distractors": ["Él hablaba demasiado.", "Él ha hablado demasiado.", "Él hablará demasiado."]
+                },
+                {
+                  "sentence": "Non parla mai di sé.",
+                  "translation": "Nunca habla de sí mismo.",
+                  "distractors": ["Nunca hablaba de sí mismo.", "Nunca ha hablado de sí mismo.", "Nunca hablará de sí mismo."]
+                }
+              ]
+            },
+            {
+              "phrase": "la gente",
+              "translation": "la gente",
+              "exercises": [
+                {
+                  "sentence": "La gente guarda sempre.",
+                  "translation": "La gente siempre mira.",
+                  "distractors": ["La gente siempre miraba.", "La gente siempre ha mirado.", "La gente siempre mirará."]
+                },
+                {
+                  "sentence": "La gente non capisce.",
+                  "translation": "La gente no entiende.",
+                  "distractors": ["La gente no entendía.", "La gente no ha entendido.", "La gente no entenderá."]
+                }
+              ]
+            },
+            {
+              "phrase": "purtroppo",
+              "translation": "por desgracia / lamentablemente",
+              "exercises": [
+                {
+                  "sentence": "Purtroppo non posso venire.",
+                  "translation": "Por desgracia no puedo venir.",
+                  "distractors": ["Por desgracia no podía venir.", "Por desgracia no he podido venir.", "Por desgracia no podré venir."]
+                },
+                {
+                  "sentence": "Purtroppo è troppo tardi.",
+                  "translation": "Lamentablemente es demasiado tarde.",
+                  "distractors": ["Lamentablemente era demasiado tarde.", "Lamentablemente ha sido demasiado tarde.", "Lamentablemente será demasiado tarde."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Non sa di che cosa parla",
+          "translation": "No sabe de qué habla",
+          "phrases": ["non sa", "di che cosa parla"],
+          "distractors": [
+            "Sabe de qué habla",
+            "No sabe de qué hablaba",
+            "No sabe con quién habla"
+          ],
+          "learn": [
+            {
+              "phrase": "non sa",
+              "translation": "no sabe",
+              "exercises": [
+                {
+                  "sentence": "Non sa cosa dire.",
+                  "translation": "No sabe qué decir.",
+                  "distractors": ["No sabía qué decir.", "No ha sabido qué decir.", "No sabrá qué decir."]
+                },
+                {
+                  "sentence": "Non sa cucinare.",
+                  "translation": "No sabe cocinar.",
+                  "distractors": ["No sabía cocinar.", "No ha sabido cocinar.", "No sabrá cocinar."]
+                }
+              ]
+            },
+            {
+              "phrase": "di che cosa parla",
+              "translation": "de qué habla",
+              "exercises": [
+                {
+                  "sentence": "Non capisco di che cosa parla il libro.",
+                  "translation": "No entiendo de qué habla el libro.",
+                  "distractors": ["No entendí de qué habla el libro.", "No entiendo de qué hablaba el libro.", "No entiendo de qué hablará el libro."]
+                },
+                {
+                  "sentence": "Sai di che cosa parla il film?",
+                  "translation": "¿Sabes de qué habla la película?",
+                  "distractors": ["¿Sabías de qué habla la película?", "¿Sabes de qué hablaba la película?", "¿Sabrás de qué habla la película?"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Tu portami dove sto a galla",
+          "translation": "Tú llévame donde estoy a flote",
+          "phrases": ["portami", "dove", "sto a galla"],
+          "distractors": [
+            "Tú llévame donde me hundo",
+            "Tú tráeme donde estoy a flote",
+            "Tú llévame donde estaba a flote"
+          ],
+          "learn": [
+            {
+              "phrase": "portami",
+              "translation": "llévame",
+              "exercises": [
+                {
+                  "sentence": "Portami con te.",
+                  "translation": "Llévame contigo.",
+                  "distractors": ["Me llevarás contigo.", "Me llevabas contigo.", "Me has llevado contigo."]
+                },
+                {
+                  "sentence": "Portami a casa, per favore.",
+                  "translation": "Llévame a casa, por favor.",
+                  "distractors": ["Me llevarás a casa, por favor.", "Me llevabas a casa, por favor.", "Me has llevado a casa, por favor."]
+                }
+              ]
+            },
+            {
+              "phrase": "dove",
+              "translation": "dónde / donde",
+              "exercises": [
+                {
+                  "sentence": "Dove sei stato?",
+                  "translation": "¿Dónde has estado?",
+                  "distractors": ["¿Dónde estuviste?", "¿Dónde estabas?", "¿Dónde estarás?"]
+                },
+                {
+                  "sentence": "Vado dove mi porta il cuore.",
+                  "translation": "Voy donde me lleva el corazón.",
+                  "distractors": ["Iba donde me lleva el corazón.", "Fui donde me lleva el corazón.", "Iré donde me lleva el corazón."]
+                }
+              ]
+            },
+            {
+              "phrase": "sto a galla",
+              "translation": "estoy a flote",
+              "exercises": [
+                {
+                  "sentence": "Cerco di stare a galla.",
+                  "translation": "Intento mantenerme a flote.",
+                  "distractors": ["Intenté mantenerme a flote.", "Intentaba mantenerme a flote.", "Intentaré mantenerme a flote."]
+                },
+                {
+                  "sentence": "Nonostante tutto, sto a galla.",
+                  "translation": "A pesar de todo, estoy a flote.",
+                  "distractors": ["A pesar de todo, estaba a flote.", "A pesar de todo, he estado a flote.", "A pesar de todo, estaré a flote."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Che qui mi manca l'aria",
+          "translation": "Que aquí me falta el aire",
+          "phrases": ["qui", "mi manca l'aria"],
+          "distractors": [
+            "Que aquí me sobra el aire",
+            "Que allí me falta el aire",
+            "Que aquí me faltaba el aire"
+          ],
+          "learn": [
+            {
+              "phrase": "qui",
+              "translation": "aquí",
+              "exercises": [
+                {
+                  "sentence": "Vieni qui, per favore.",
+                  "translation": "Ven aquí, por favor.",
+                  "distractors": ["Vienes aquí, por favor.", "Venías aquí, por favor.", "Vendrás aquí, por favor."]
+                },
+                {
+                  "sentence": "Qui fa molto freddo.",
+                  "translation": "Aquí hace mucho frío.",
+                  "distractors": ["Aquí hacía mucho frío.", "Aquí ha hecho mucho frío.", "Aquí hará mucho frío."]
+                }
+              ]
+            },
+            {
+              "phrase": "mi manca l'aria",
+              "translation": "me falta el aire",
+              "exercises": [
+                {
+                  "sentence": "In questa stanza mi manca l'aria.",
+                  "translation": "En esta habitación me falta el aire.",
+                  "distractors": ["En esta habitación me faltaba el aire.", "En esta habitación me ha faltado el aire.", "En esta habitación me faltará el aire."]
+                },
+                {
+                  "sentence": "Quando corro, mi manca l'aria.",
+                  "translation": "Cuando corro, me falta el aire.",
+                  "distractors": ["Cuando corría, me faltaba el aire.", "Cuando corro, me ha faltado el aire.", "Cuando corra, me faltará el aire."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Parla, la gente purtroppo parla",
+          "translation": "Habla, la gente por desgracia habla",
+          "phrases": ["parla", "la gente", "purtroppo"],
+          "distractors": [
+            "Habla, la gente por suerte habla",
+            "Calla, la gente por desgracia habla",
+            "Habla, la gente por desgracia calla"
+          ],
+          "learn": [
+            {
+              "phrase": "parla",
+              "translation": "habla",
+              "exercises": [
+                {
+                  "sentence": "Lui parla troppo.",
+                  "translation": "Él habla demasiado.",
+                  "distractors": ["Él hablaba demasiado.", "Él ha hablado demasiado.", "Él hablará demasiado."]
+                },
+                {
+                  "sentence": "Non parla mai di sé.",
+                  "translation": "Nunca habla de sí mismo.",
+                  "distractors": ["Nunca hablaba de sí mismo.", "Nunca ha hablado de sí mismo.", "Nunca hablará de sí mismo."]
+                }
+              ]
+            },
+            {
+              "phrase": "la gente",
+              "translation": "la gente",
+              "exercises": [
+                {
+                  "sentence": "La gente guarda sempre.",
+                  "translation": "La gente siempre mira.",
+                  "distractors": ["La gente siempre miraba.", "La gente siempre ha mirado.", "La gente siempre mirará."]
+                },
+                {
+                  "sentence": "La gente non capisce.",
+                  "translation": "La gente no entiende.",
+                  "distractors": ["La gente no entendía.", "La gente no ha entendido.", "La gente no entenderá."]
+                }
+              ]
+            },
+            {
+              "phrase": "purtroppo",
+              "translation": "por desgracia / lamentablemente",
+              "exercises": [
+                {
+                  "sentence": "Purtroppo non posso venire.",
+                  "translation": "Por desgracia no puedo venir.",
+                  "distractors": ["Por desgracia no podía venir.", "Por desgracia no he podido venir.", "Por desgracia no podré venir."]
+                },
+                {
+                  "sentence": "Purtroppo è troppo tardi.",
+                  "translation": "Lamentablemente es demasiado tarde.",
+                  "distractors": ["Lamentablemente era demasiado tarde.", "Lamentablemente ha sido demasiado tarde.", "Lamentablemente será demasiado tarde."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Non sa di che cosa parla",
+          "translation": "No sabe de qué habla",
+          "phrases": ["non sa", "di che cosa parla"],
+          "distractors": [
+            "Sabe de qué habla",
+            "No sabe de qué hablaba",
+            "No sabe con quién habla"
+          ],
+          "learn": [
+            {
+              "phrase": "non sa",
+              "translation": "no sabe",
+              "exercises": [
+                {
+                  "sentence": "Non sa cosa dire.",
+                  "translation": "No sabe qué decir.",
+                  "distractors": ["No sabía qué decir.", "No ha sabido qué decir.", "No sabrá qué decir."]
+                },
+                {
+                  "sentence": "Non sa cucinare.",
+                  "translation": "No sabe cocinar.",
+                  "distractors": ["No sabía cocinar.", "No ha sabido cocinar.", "No sabrá cocinar."]
+                }
+              ]
+            },
+            {
+              "phrase": "di che cosa parla",
+              "translation": "de qué habla",
+              "exercises": [
+                {
+                  "sentence": "Non capisco di che cosa parla il libro.",
+                  "translation": "No entiendo de qué habla el libro.",
+                  "distractors": ["No entendí de qué habla el libro.", "No entiendo de qué hablaba el libro.", "No entiendo de qué hablará el libro."]
+                },
+                {
+                  "sentence": "Sai di che cosa parla il film?",
+                  "translation": "¿Sabes de qué habla la película?",
+                  "distractors": ["¿Sabías de qué habla la película?", "¿Sabes de qué hablaba la película?", "¿Sabrás de qué habla la película?"]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Tu portami dove sto a galla",
+          "translation": "Tú llévame donde estoy a flote",
+          "phrases": ["portami", "dove", "sto a galla"],
+          "distractors": [
+            "Tú llévame donde me hundo",
+            "Tú tráeme donde estoy a flote",
+            "Tú llévame donde estaba a flote"
+          ],
+          "learn": [
+            {
+              "phrase": "portami",
+              "translation": "llévame",
+              "exercises": [
+                {
+                  "sentence": "Portami con te.",
+                  "translation": "Llévame contigo.",
+                  "distractors": ["Me llevarás contigo.", "Me llevabas contigo.", "Me has llevado contigo."]
+                },
+                {
+                  "sentence": "Portami a casa, per favore.",
+                  "translation": "Llévame a casa, por favor.",
+                  "distractors": ["Me llevarás a casa, por favor.", "Me llevabas a casa, por favor.", "Me has llevado a casa, por favor."]
+                }
+              ]
+            },
+            {
+              "phrase": "dove",
+              "translation": "dónde / donde",
+              "exercises": [
+                {
+                  "sentence": "Dove sei stato?",
+                  "translation": "¿Dónde has estado?",
+                  "distractors": ["¿Dónde estuviste?", "¿Dónde estabas?", "¿Dónde estarás?"]
+                },
+                {
+                  "sentence": "Vado dove mi porta il cuore.",
+                  "translation": "Voy donde me lleva el corazón.",
+                  "distractors": ["Iba donde me lleva el corazón.", "Fui donde me lleva el corazón.", "Iré donde me lleva el corazón."]
+                }
+              ]
+            },
+            {
+              "phrase": "sto a galla",
+              "translation": "estoy a flote",
+              "exercises": [
+                {
+                  "sentence": "Cerco di stare a galla.",
+                  "translation": "Intento mantenerme a flote.",
+                  "distractors": ["Intenté mantenerme a flote.", "Intentaba mantenerme a flote.", "Intentaré mantenerme a flote."]
+                },
+                {
+                  "sentence": "Nonostante tutto, sto a galla.",
+                  "translation": "A pesar de todo, estoy a flote.",
+                  "distractors": ["A pesar de todo, estaba a flote.", "A pesar de todo, he estado a flote.", "A pesar de todo, estaré a flote."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Che qui mi manca l'aria",
+          "translation": "Que aquí me falta el aire",
+          "phrases": ["qui", "mi manca l'aria"],
+          "distractors": [
+            "Que aquí me sobra el aire",
+            "Que allí me falta el aire",
+            "Que aquí me faltaba el aire"
+          ],
+          "learn": [
+            {
+              "phrase": "qui",
+              "translation": "aquí",
+              "exercises": [
+                {
+                  "sentence": "Vieni qui, per favore.",
+                  "translation": "Ven aquí, por favor.",
+                  "distractors": ["Vienes aquí, por favor.", "Venías aquí, por favor.", "Vendrás aquí, por favor."]
+                },
+                {
+                  "sentence": "Qui fa molto freddo.",
+                  "translation": "Aquí hace mucho frío.",
+                  "distractors": ["Aquí hacía mucho frío.", "Aquí ha hecho mucho frío.", "Aquí hará mucho frío."]
+                }
+              ]
+            },
+            {
+              "phrase": "mi manca l'aria",
+              "translation": "me falta el aire",
+              "exercises": [
+                {
+                  "sentence": "In questa stanza mi manca l'aria.",
+                  "translation": "En esta habitación me falta el aire.",
+                  "distractors": ["En esta habitación me faltaba el aire.", "En esta habitación me ha faltado el aire.", "En esta habitación me faltará el aire."]
+                },
+                {
+                  "sentence": "Quando corro, mi manca l'aria.",
+                  "translation": "Cuando corro, me falta el aire.",
+                  "distractors": ["Cuando corría, me faltaba el aire.", "Cuando corro, me ha faltado el aire.", "Cuando corra, me faltará el aire."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Parla, la gente purtroppo parla",
+          "translation": "Habla, la gente por desgracia habla",
+          "phrases": ["parla", "la gente", "purtroppo"],
+          "distractors": [
+            "Habla, la gente por suerte habla",
+            "Calla, la gente por desgracia habla",
+            "Habla, la gente por desgracia calla"
+          ],
+          "learn": [
+            {
+              "phrase": "parla",
+              "translation": "habla",
+              "exercises": [
+                {
+                  "sentence": "Lui parla troppo.",
+                  "translation": "Él habla demasiado.",
+                  "distractors": ["Él hablaba demasiado.", "Él ha hablado demasiado.", "Él hablará demasiado."]
+                },
+                {
+                  "sentence": "Non parla mai di sé.",
+                  "translation": "Nunca habla de sí mismo.",
+                  "distractors": ["Nunca hablaba de sí mismo.", "Nunca ha hablado de sí mismo.", "Nunca hablará de sí mismo."]
+                }
+              ]
+            },
+            {
+              "phrase": "la gente",
+              "translation": "la gente",
+              "exercises": [
+                {
+                  "sentence": "La gente guarda sempre.",
+                  "translation": "La gente siempre mira.",
+                  "distractors": ["La gente siempre miraba.", "La gente siempre ha mirado.", "La gente siempre mirará."]
+                },
+                {
+                  "sentence": "La gente non capisce.",
+                  "translation": "La gente no entiende.",
+                  "distractors": ["La gente no entendía.", "La gente no ha entendido.", "La gente no entenderá."]
+                }
+              ]
+            },
+            {
+              "phrase": "purtroppo",
+              "translation": "por desgracia / lamentablemente",
+              "exercises": [
+                {
+                  "sentence": "Purtroppo non posso venire.",
+                  "translation": "Por desgracia no puedo venir.",
+                  "distractors": ["Por desgracia no podía venir.", "Por desgracia no he podido venir.", "Por desgracia no podré venir."]
+                },
+                {
+                  "sentence": "Purtroppo è troppo tardi.",
+                  "translation": "Lamentablemente es demasiado tarde.",
+                  "distractors": ["Lamentablemente era demasiado tarde.", "Lamentablemente ha sido demasiado tarde.", "Lamentablemente será demasiado tarde."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Non sa di che cazzo parla",
+          "translation": "No sabe de qué coño habla",
+          "phrases": ["non sa", "di che cazzo parla"],
+          "distractors": [
+            "Sabe de qué coño habla",
+            "No sabe de qué diablos habla",
+            "No sabe con quién coño habla"
+          ],
+          "learn": [
+            {
+              "phrase": "non sa",
+              "translation": "no sabe",
+              "exercises": [
+                {
+                  "sentence": "Non sa cosa dire.",
+                  "translation": "No sabe qué decir.",
+                  "distractors": ["No sabía qué decir.", "No ha sabido qué decir.", "No sabrá qué decir."]
+                },
+                {
+                  "sentence": "Non sa cucinare.",
+                  "translation": "No sabe cocinar.",
+                  "distractors": ["No sabía cocinar.", "No ha sabido cocinar.", "No sabrá cocinar."]
+                }
+              ]
+            },
+            {
+              "phrase": "di che cazzo parla",
+              "translation": "de qué coño habla",
+              "exercises": [
+                {
+                  "sentence": "Non ho idea di che cazzo parla.",
+                  "translation": "No tengo idea de qué coño habla.",
+                  "distractors": ["No tenía idea de qué coño habla.", "No tengo idea de qué coño hablaba.", "No tendré idea de qué coño habla."]
+                },
+                {
+                  "sentence": "Nessuno sa di che cazzo parla quel tipo.",
+                  "translation": "Nadie sabe de qué coño habla ese tipo.",
+                  "distractors": ["Nadie sabía de qué coño habla ese tipo.", "Nadie sabe de qué coño hablaba ese tipo.", "Nadie sabrá de qué coño habla ese tipo."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Tu portami dove sto a galla",
+          "translation": "Tú llévame donde estoy a flote",
+          "phrases": ["portami", "dove", "sto a galla"],
+          "distractors": [
+            "Tú llévame donde me hundo",
+            "Tú tráeme donde estoy a flote",
+            "Tú llévame donde estaba a flote"
+          ],
+          "learn": [
+            {
+              "phrase": "portami",
+              "translation": "llévame",
+              "exercises": [
+                {
+                  "sentence": "Portami con te.",
+                  "translation": "Llévame contigo.",
+                  "distractors": ["Me llevarás contigo.", "Me llevabas contigo.", "Me has llevado contigo."]
+                },
+                {
+                  "sentence": "Portami a casa, per favore.",
+                  "translation": "Llévame a casa, por favor.",
+                  "distractors": ["Me llevarás a casa, por favor.", "Me llevabas a casa, por favor.", "Me has llevado a casa, por favor."]
+                }
+              ]
+            },
+            {
+              "phrase": "dove",
+              "translation": "dónde / donde",
+              "exercises": [
+                {
+                  "sentence": "Dove sei stato?",
+                  "translation": "¿Dónde has estado?",
+                  "distractors": ["¿Dónde estuviste?", "¿Dónde estabas?", "¿Dónde estarás?"]
+                },
+                {
+                  "sentence": "Vado dove mi porta il cuore.",
+                  "translation": "Voy donde me lleva el corazón.",
+                  "distractors": ["Iba donde me lleva el corazón.", "Fui donde me lleva el corazón.", "Iré donde me lleva el corazón."]
+                }
+              ]
+            },
+            {
+              "phrase": "sto a galla",
+              "translation": "estoy a flote",
+              "exercises": [
+                {
+                  "sentence": "Cerco di stare a galla.",
+                  "translation": "Intento mantenerme a flote.",
+                  "distractors": ["Intenté mantenerme a flote.", "Intentaba mantenerme a flote.", "Intentaré mantenerme a flote."]
+                },
+                {
+                  "sentence": "Nonostante tutto, sto a galla.",
+                  "translation": "A pesar de todo, estoy a flote.",
+                  "distractors": ["A pesar de todo, estaba a flote.", "A pesar de todo, he estado a flote.", "A pesar de todo, estaré a flote."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Che qui mi manca l'aria",
+          "translation": "Que aquí me falta el aire",
+          "phrases": ["qui", "mi manca l'aria"],
+          "distractors": [
+            "Que aquí me sobra el aire",
+            "Que allí me falta el aire",
+            "Que aquí me faltaba el aire"
+          ],
+          "learn": [
+            {
+              "phrase": "qui",
+              "translation": "aquí",
+              "exercises": [
+                {
+                  "sentence": "Vieni qui, per favore.",
+                  "translation": "Ven aquí, por favor.",
+                  "distractors": ["Vienes aquí, por favor.", "Venías aquí, por favor.", "Vendrás aquí, por favor."]
+                },
+                {
+                  "sentence": "Qui fa molto freddo.",
+                  "translation": "Aquí hace mucho frío.",
+                  "distractors": ["Aquí hacía mucho frío.", "Aquí ha hecho mucho frío.", "Aquí hará mucho frío."]
+                }
+              ]
+            },
+            {
+              "phrase": "mi manca l'aria",
+              "translation": "me falta el aire",
+              "exercises": [
+                {
+                  "sentence": "In questa stanza mi manca l'aria.",
+                  "translation": "En esta habitación me falta el aire.",
+                  "distractors": ["En esta habitación me faltaba el aire.", "En esta habitación me ha faltado el aire.", "En esta habitación me faltará el aire."]
+                },
+                {
+                  "sentence": "Quando corro, mi manca l'aria.",
+                  "translation": "Cuando corro, me falta el aire.",
+                  "distractors": ["Cuando corría, me faltaba el aire.", "Cuando corro, me ha faltado el aire.", "Cuando corra, me faltará el aire."]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Ma sono fuori di testa, ma diverso da loro\nE tu sei fuori di testa, ma diversa da loro\nSiamo fuori di testa, ma diversi da loro\nE siamo fuori di testa, ma diversi da loro, ah",
+      "translation": "Pero estoy loco, pero distinto a ellos. Y tú estás loca, pero distinta a ellos. Estamos locos, pero distintos a ellos. Y estamos locos, pero distintos a ellos, ah",
+      "content": [
+        {
+          "originalPhrase": "Ma sono fuori di testa, ma diverso da loro",
+          "translation": "Pero estoy loco, pero distinto a ellos",
+          "phrases": ["ma", "sono", "fuori di testa", "diverso da loro"],
+          "distractors": [
+            "Pero estoy cuerdo, pero distinto a ellos",
+            "Pero estoy loco, pero igual a ellos",
+            "Pero estaba loco, pero distinto a ellos"
+          ],
+          "learn": [
+            {
+              "phrase": "ma",
+              "translation": "pero",
+              "exercises": [
+                {
+                  "sentence": "Volevo uscire, ma pioveva.",
+                  "translation": "Quería salir, pero llovía.",
+                  "distractors": ["Quiero salir, pero llovía.", "Quería salir, pero llueve.", "Quería salir, pero lloverá."]
+                },
+                {
+                  "sentence": "È difficile, ma non impossibile.",
+                  "translation": "Es difícil, pero no imposible.",
+                  "distractors": ["Era difícil, pero no imposible.", "Es difícil, pero sí imposible.", "Será difícil, pero no imposible."]
+                }
+              ]
+            },
+            {
+              "phrase": "sono",
+              "translation": "soy / estoy",
+              "exercises": [
+                {
+                  "sentence": "Sono stanco oggi.",
+                  "translation": "Estoy cansado hoy.",
+                  "distractors": ["Estaba cansado hoy.", "He estado cansado hoy.", "Estarás cansado hoy."]
+                },
+                {
+                  "sentence": "Sono un cantante.",
+                  "translation": "Soy un cantante.",
+                  "distractors": ["Era un cantante.", "He sido un cantante.", "Seré un cantante."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diverso da loro",
+              "translation": "distinto a ellos",
+              "exercises": [
+                {
+                  "sentence": "Il mio stile è diverso da loro.",
+                  "translation": "Mi estilo es distinto al de ellos.",
+                  "distractors": ["Mi estilo era distinto al de ellos.", "Mi estilo es igual al de ellos.", "Mi estilo fue distinto al de ellos."]
+                },
+                {
+                  "sentence": "Penso in modo diverso da loro.",
+                  "translation": "Pienso de manera distinta a ellos.",
+                  "distractors": ["Pensaba de manera distinta a ellos.", "Pienso de manera igual a ellos.", "He pensado de manera distinta a ellos."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "E tu sei fuori di testa, ma diversa da loro",
+          "translation": "Y tú estás loca, pero distinta a ellos",
+          "phrases": ["tu sei", "fuori di testa", "diversa da loro"],
+          "distractors": [
+            "Y tú estás loco, pero distinto a ellos",
+            "Y tú estás loca, pero igual a ellos",
+            "Y él está loco, pero distinto a ellos"
+          ],
+          "learn": [
+            {
+              "phrase": "tu sei",
+              "translation": "tú eres / tú estás",
+              "exercises": [
+                {
+                  "sentence": "Tu sei il migliore.",
+                  "translation": "Tú eres el mejor.",
+                  "distractors": ["Tú eras el mejor.", "Tú has sido el mejor.", "Tú serás el mejor."]
+                },
+                {
+                  "sentence": "Tu sei sempre in ritardo.",
+                  "translation": "Tú siempre llegas tarde.",
+                  "distractors": ["Tú siempre llegabas tarde.", "Tú siempre has llegado tarde.", "Tú siempre llegarás tarde."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diversa da loro",
+              "translation": "distinta a ellos",
+              "exercises": [
+                {
+                  "sentence": "La sua voce è diversa da loro.",
+                  "translation": "Su voz es distinta a la de ellos.",
+                  "distractors": ["Su voz era distinta a la de ellos.", "Su voz es igual a la de ellos.", "Su voz fue distinta a la de ellos."]
+                },
+                {
+                  "sentence": "La ragazza è diversa da loro.",
+                  "translation": "La chica es distinta a ellos.",
+                  "distractors": ["La chica era distinta a ellos.", "La chica es igual a ellos.", "La chica fue distinta a ellos."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "Siamo fuori di testa, ma diversi da loro",
+          "translation": "Estamos locos, pero distintos a ellos",
+          "phrases": ["siamo", "fuori di testa", "diversi da loro"],
+          "distractors": [
+            "Estamos cuerdos, pero distintos a ellos",
+            "Estamos locos, pero iguales a ellos",
+            "Estábamos locos, pero distintos a ellos"
+          ],
+          "learn": [
+            {
+              "phrase": "siamo",
+              "translation": "somos / estamos",
+              "exercises": [
+                {
+                  "sentence": "Siamo pronti per partire.",
+                  "translation": "Estamos listos para partir.",
+                  "distractors": ["Estábamos listos para partir.", "Hemos estado listos para partir.", "Estaremos listos para partir."]
+                },
+                {
+                  "sentence": "Siamo amici da anni.",
+                  "translation": "Somos amigos desde hace años.",
+                  "distractors": ["Éramos amigos desde hace años.", "Hemos sido amigos desde hace años.", "Seremos amigos desde hace años."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diversi da loro",
+              "translation": "distintos a ellos",
+              "exercises": [
+                {
+                  "sentence": "I nostri gusti sono diversi da loro.",
+                  "translation": "Nuestros gustos son distintos a los de ellos.",
+                  "distractors": ["Nuestros gustos eran distintos a los de ellos.", "Nuestros gustos son iguales a los de ellos.", "Nuestros gustos fueron distintos a los de ellos."]
+                },
+                {
+                  "sentence": "I ragazzi sono diversi da loro.",
+                  "translation": "Los chicos son distintos a ellos.",
+                  "distractors": ["Los chicos eran distintos a ellos.", "Los chicos son iguales a ellos.", "Los chicos fueron distintos a ellos."]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "originalPhrase": "E siamo fuori di testa, ma diversi da loro, ah",
+          "translation": "Y estamos locos, pero distintos a ellos, ah",
+          "phrases": ["e", "siamo", "fuori di testa", "diversi da loro"],
+          "distractors": [
+            "Y estamos locos, pero distintos a ellos, oh",
+            "Y estamos cuerdos, pero distintos a ellos, ah",
+            "Y estamos locos, pero iguales a ellos, ah"
+          ],
+          "learn": [
+            {
+              "phrase": "e",
+              "translation": "y",
+              "exercises": [
+                {
+                  "sentence": "Io e te.",
+                  "translation": "Tú y yo.",
+                  "distractors": ["Tú o yo.", "Tú con yo.", "Tú para yo."]
+                },
+                {
+                  "sentence": "Mangio e bevo.",
+                  "translation": "Como y bebo.",
+                  "distractors": ["Como o bebo.", "Comí y bebo.", "Como y bebí."]
+                }
+              ]
+            },
+            {
+              "phrase": "siamo",
+              "translation": "somos / estamos",
+              "exercises": [
+                {
+                  "sentence": "Siamo pronti per partire.",
+                  "translation": "Estamos listos para partir.",
+                  "distractors": ["Estábamos listos para partir.", "Hemos estado listos para partir.", "Estaremos listos para partir."]
+                },
+                {
+                  "sentence": "Siamo amici da anni.",
+                  "translation": "Somos amigos desde hace años.",
+                  "distractors": ["Éramos amigos desde hace años.", "Hemos sido amigos desde hace años.", "Seremos amigos desde hace años."]
+                }
+              ]
+            },
+            {
+              "phrase": "fuori di testa",
+              "translation": "loco/a, fuera de sí",
+              "exercises": [
+                {
+                  "sentence": "Lei è fuori di testa per lui.",
+                  "translation": "Ella está loca por él.",
+                  "distractors": ["Ella estaba loca por él.", "Ella es tonta por él.", "Ella está triste por él."]
+                },
+                {
+                  "sentence": "Siete fuori di testa se pensate questo.",
+                  "translation": "Están locos si piensan esto.",
+                  "distractors": ["Estaban locos si pensaban esto.", "Están tristes si piensan esto.", "Estarán locos si piensan esto."]
+                }
+              ]
+            },
+            {
+              "phrase": "diversi da loro",
+              "translation": "distintos a ellos",
+              "exercises": [
+                {
+                  "sentence": "I nostri gusti sono diversi da loro.",
+                  "translation": "Nuestros gustos son distintos a los de ellos.",
+                  "distractors": ["Nuestros gustos eran distintos a los de ellos.", "Nuestros gustos son iguales a los de ellos.", "Nuestros gustos fueron distintos a los de ellos."]
+                },
+                {
+                  "sentence": "I ragazzi sono diversi da loro.",
+                  "translation": "Los chicos son distintos a ellos.",
+                  "distractors": ["Los chicos eran distintos a ellos.", "Los chicos son iguales a ellos.", "Los chicos fueron distintos a ellos."]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Noi siamo diversi da loro",
+      "translation": "Nosotros somos distintos a ellos",
+      "content": [
+        {
+          "originalPhrase": "Noi siamo diversi da loro",
+          "translation": "Nosotros somos distintos a ellos",
+          "phrases": ["noi siamo", "diversi da loro"],
+          "distractors": [
+            "Nosotros somos iguales a ellos",
+            "Nosotros somos distintos a ustedes",
+            "Nosotros éramos distintos a ellos"
+          ],
+          "learn": [
+            {
+              "phrase": "noi siamo",
+              "translation": "nosotros somos",
+              "exercises": [
+                {
+                  "sentence": "Noi siamo una squadra.",
+                  "translation": "Nosotros somos un equipo.",
+                  "distractors": ["Nosotros éramos un equipo.", "Nosotros hemos sido un equipo.", "Nosotros seremos un equipo."]
+                },
+                {
+                  "sentence": "Noi siamo pronti.",
+                  "translation": "Nosotros estamos listos.",
+                  "distractors": ["Nosotros estábamos listos.", "Nosotros hemos estado listos.", "Nosotros estaremos listos."]
+                }
+              ]
+            },
+            {
+              "phrase": "diversi da loro",
+              "translation": "distintos a ellos",
+              "exercises": [
+                {
+                  "sentence": "I nostri gusti sono diversi da loro.",
+                  "translation": "Nuestros gustos son distintos a los de ellos.",
+                  "distractors": ["Nuestros gustos eran distintos a los de ellos.", "Nuestros gustos son iguales a los de ellos.", "Nuestros gustos fueron distintos a los de ellos."]
+                },
+                {
+                  "sentence": "I ragazzi sono diversi da loro.",
+                  "translation": "Los chicos son distintos a ellos.",
+                  "distractors": ["Los chicos eran distintos a ellos.", "Los chicos son iguales a ellos.", "Los chicos fueron distintos a ellos."]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

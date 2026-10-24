@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "20.10 (22-10-2026)"
+VERSION = "20.11 (23-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -92,8 +92,34 @@ REELS_FILES = {
     "reels/reels-sorpresas.js": "__REELS_SORPRESAS_JS__",
     "reels/reels-youglish.js": "__REELS_YOUGLISH_JS__",
     "reels/reels-tatoeba.js": "__REELS_TATOEBA_JS__",
+    # Parte 2 de "Aprender canción": duplicado enfocado de reels-core.js,
+    # sin reglas gramaticales ni sorpresas, con banco propio por canción.
+    "reels/reels2.js": "__REELS2_JS__",
 }
 REELS_STYLES_FILE = os.path.join("reels", "reels.css")
+
+# "Aprender canción": sección aparte, reutiliza reels (ver reels2.js arriba,
+# agregado en la Parte 2) pero con su propia pantalla de lista (este
+# archivo). Las canciones mismas (JSON/mp3/lrc) NO pasan por build.py: viven
+# en tracklist/ y la app las pide con fetch() en tiempo real (ver
+# canciones/canciones-core.js y tracklist/NOTAS.md).
+CANCIONES_FILES = {
+    # El generador (Parte 2/3/4) va antes del core solo por orden de lectura
+    # — todos quedan en el mismo <script type="module">, así que el orden no
+    # afecta a las funciones (quedan "hoisted" en el mismo scope).
+    "canciones/canciones-generador.js": "__CANCIONES_GENERADOR_JS__",
+    # Ejercicio nuevo de la Parte 3 ("audio + selección", ver NOTAS.md).
+    "canciones/canciones-audio-seleccion.js": "__CANCIONES_AUDIO_SEL_JS__",
+    # Parte 4: audio real del mp3 + karaoke (parseo de .lrc, reproducción de
+    # tramos, resaltado de la línea activa — ver NOTAS.md).
+    "canciones/canciones-lrc.js": "__CANCIONES_LRC_JS__",
+    # Parte 4: ejercicios nuevos "completar" multilínea (Niveles 6 y 8) y
+    # "dictado" (Nivel 7), ambos con audio real en vez de voz del dispositivo.
+    "canciones/canciones-completar-audio.js": "__CANCIONES_COMPLETAR_AUDIO_JS__",
+    "canciones/canciones-dictado-audio.js": "__CANCIONES_DICTADO_AUDIO_JS__",
+    "canciones/canciones-core.js": "__CANCIONES_JS__",
+}
+CANCIONES_STYLES_FILE = os.path.join("canciones", "canciones.css")
 
 # Irregulares (solo inglés): 100 verbos en 10 paquetes, sección propia con su
 # diseño (irregulares.css) y un banco aparte que entra como el 25 % de cada
@@ -603,6 +629,10 @@ def get_html_template():
           <span class="home-tile-ico">📚</span>
           <span><b>Banco de palabras</b><small>Guarda y repasa tus propias palabras</small></span>
         </button>
+        <button class="home-tile home-tile-cancion" id="homeCancionBtn">
+          <span class="home-tile-ico">🎵</span>
+          <span><b>Aprender canción</b><small>Domínala en español antes de descubrir cuál es</small></span>
+        </button>
         <button class="home-tile" id="homeJuegoBtn">
           <span class="home-tile-ico">🎮</span>
           <span><b>Juego</b><small>Aventura de conversaciones por audio</small></span>
@@ -615,6 +645,17 @@ def get_html_template():
           <span class="home-tile-ico">☁️</span>
           <span><b>Azure</b><small>Curso AI-901 (Azure AI Fundamentals)</small></span>
         </button>
+      </div>
+    </div>
+
+    <div id="cancionHomeScreen" class="screen">
+      <div class="magic-card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+          <h2 style="margin:0;font-family:var(--font-display);color:var(--ink);font-size:1.05rem;">🎵 Aprender canción</h2>
+        </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:12px;">Domina todo el contenido en español antes de descubrir qué canción es. Tu avance se guarda por canción.</p>
+        <div id="cancionCandadoBanner"></div>
+        <div id="cancionListaContainer" class="cancion-list"></div>
       </div>
     </div>
 
@@ -735,6 +776,14 @@ def get_html_template():
   <button class="rl-float rl-help" id="rlHelpBtn" aria-label="Ayuda de gramática" title="Ayuda">❓</button>
 </div>
 
+<!-- "Aprender canción" (Parte 2): reutiliza el mismo CSS de Reels
+     (.rl-overlay/.rl-stage/.rl-card), pero con su propio overlay — así los
+     dos motores (reels-core.js y reels2.js) nunca pisan el mismo DOM. -->
+<div id="reels2Overlay" class="rl-overlay" hidden>
+  <div id="rl2Stage" class="rl-stage"></div>
+  <button class="rl-float rl-close" id="rl2CloseBtn" aria-label="Salir de Aprender canción" title="Salir">✕</button>
+</div>
+
 <div id="irrOverlay" class="irr-overlay irr-theme" hidden></div>
 
 <div id="toastFun" class="toast-fun"></div>
@@ -773,10 +822,17 @@ def get_html_template():
   __LISTENING_MAP_JS__
   __LISTENING_PLAY_JS__
   __LISTENING_N1_PLAY_JS__
+  __CANCIONES_GENERADOR_JS__
+  __CANCIONES_AUDIO_SEL_JS__
+  __CANCIONES_LRC_JS__
+  __CANCIONES_COMPLETAR_AUDIO_JS__
+  __CANCIONES_DICTADO_AUDIO_JS__
+  __CANCIONES_JS__
   __REELS_CORE_JS__
   __REELS_SORPRESAS_JS__
   __REELS_YOUGLISH_JS__
   __REELS_TATOEBA_JS__
+  __REELS2_JS__
   const IRREGULARES_DATA = __IRREGULARES_JSON__;
   __IRREGULARES_JS__
   __MAIN_LOGIC__
@@ -1044,6 +1100,7 @@ def get_main_logic():
   
   const mainScreens = {
     home: document.getElementById("homeScreen"),
+    cancionHome: document.getElementById("cancionHomeScreen"),
     listeningHome: document.getElementById("listeningHomeScreen"),
     listeningN1Hub: document.getElementById("listeningN1HubScreen"),
     listeningN1Play: document.getElementById("listeningN1PlayScreen"),
@@ -1562,7 +1619,7 @@ def get_main_logic():
     showMainView("home");
     updateHelpBtnVisibility();
     // Al entrar a la app se va directo a Reels, con el ejercicio que toca.
-    setTimeout(() => { if (currentUser && typeof openReels === "function") openReels(); }, 50);
+    setTimeout(() => { if (currentUser && typeof abrirReelsConCandado === "function") abrirReelsConCandado(); }, 50);
     return true;
   }
 
@@ -1747,13 +1804,15 @@ def get_main_logic():
     document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { if(e.key === "Enter") login(document.getElementById("usernameInput").value); });
     document.getElementById("toggleMenuBtn")?.addEventListener("click", showMenuModal);
     document.getElementById("toggleHomeBtn")?.addEventListener("click", () => showMainView("home"));
-    document.getElementById("homeReelsBtn")?.addEventListener("click", openReels);
+    document.getElementById("homeReelsBtn")?.addEventListener("click", abrirReelsConCandado);
     document.getElementById("homeJuegoBtn")?.addEventListener("click", openAventura);
     document.getElementById("homeAzureBtn")?.addEventListener("click", openAzure);
     document.getElementById("homeIrregularesBtn")?.addEventListener("click", openIrregulares);
     document.getElementById("homeBancoPalabrasBtn")?.addEventListener("click", BancoPalabrasScreen.abrir);
     window.addEventListener("message", onAzureMessage);
     wireReels();
+    wireCanciones();
+    wireReels2();
     window.addEventListener("message", onAventuraMessage);
     document.addEventListener("fullscreenchange", () => {
       // si el usuario sale de pantalla completa con el gesto del sistema, se cierra el juego
@@ -1816,6 +1875,7 @@ def build_html():
     styles += "\n\n" + read_file(REELS_STYLES_FILE)
     styles += "\n\n" + read_file(IRREGULARES_STYLES_FILE)
     styles += "\n\n" + read_file(BANCO_PALABRAS_STYLES_FILE)
+    styles += "\n\n" + read_file(CANCIONES_STYLES_FILE)
     if os.path.exists(LISTENING_STYLES_FILE):
         styles += "\n\n" + read_file(LISTENING_STYLES_FILE)
     else:
@@ -1868,6 +1928,11 @@ def build_html():
     for marker, content in listening_modules.items():
         html = html.replace(marker, content)
 
+    for filepath, marker in CANCIONES_FILES.items():
+        content = read_file(filepath)
+        html = html.replace(marker, content)
+        print(f"  ✅ {filepath} -> {marker} ({len(content):,} bytes)")
+
     for filepath, marker in REELS_FILES.items():
         content = read_file(filepath)
         html = html.replace(marker, content)
@@ -1910,7 +1975,7 @@ def main():
     print(f"📦 Version: {VERSION}")
     print("=" * 60)
     
-    required_files = ['styles/main.css', 'mapa/map.js', REELS_STYLES_FILE, IRREGULARES_STYLES_FILE, BANCO_PALABRAS_STYLES_FILE] + list(EXERCISE_FILES.keys()) + list(REELS_FILES.keys()) + list(IRREGULARES_FILES.keys()) + list(BANCO_PALABRAS_FILES.keys())
+    required_files = ['styles/main.css', 'mapa/map.js', REELS_STYLES_FILE, IRREGULARES_STYLES_FILE, BANCO_PALABRAS_STYLES_FILE, CANCIONES_STYLES_FILE] + list(EXERCISE_FILES.keys()) + list(REELS_FILES.keys()) + list(IRREGULARES_FILES.keys()) + list(BANCO_PALABRAS_FILES.keys()) + list(CANCIONES_FILES.keys())
     missing = [f for f in required_files if not os.path.exists(f)]
     if missing:
         print("❌ Faltan archivos:")
