@@ -530,6 +530,7 @@
       ingles: 0, listening: 0, azure: 0, youglish: 0,
       corregir: 0, traduccion: 0, completar: 0, informacion: 0, ordenar: 0, tatoeba: 0,
       irregularesCargados: 0, cargadosManual: 0, cargadosSistema: 0,
+      cancionEjercicios: 0, // "Aprender canción": cuenta cada ejercicio resuelto (ver rl2RegistrarCandado en reels2.js)
     };
   }
   function rlHoyStr() { return new Date().toLocaleDateString("en-CA"); }
@@ -581,10 +582,79 @@
       r.tatoeba + " de Tatoeba",
       "---",
       "total: " + total,
+      "Aprender canción: " + r.cancionEjercicios,
       "Cargados irregulares: " + r.irregularesCargados,
       "Cargados por json manual: " + r.cargadosManual,
       "Cargados del sistema: " + r.cargadosSistema,
     ].join("\n");
+  }
+
+  // ---------- Detalle de "Cargados del sistema" por regla (botón 👁 Ver) ----------
+  // No es un conteo diario (como RL_DIA_KEY): es acumulado por idioma, porque
+  // el objetivo es informativo — entender de un vistazo por qué el sistema ha
+  // ido agregando ejercicios de cada regla gramatical, no solo lo de hoy.
+  // Dos motivos posibles:
+  //  - "reparto": el usuario eligió esa regla en "Elige qué estudiar" y el
+  //    sistema repartió item.sistema entre las reglas elegidas (ver
+  //    rlCargarBanco en reels-sorpresas.js).
+  //  - "refuerzo": la regla quedó por debajo de RL_MIN_POR_REGLA y el sistema
+  //    la completó en silencio para poder entregar el informe completo (ver
+  //    rlReforzarReglasDeficitarias en reels-sorpresas.js).
+  function rlSistemaKey() { return "english_trainer_reels_sistema_regla_v1_" + getTargetLanguage(); }
+  const RL_SISTEMA_MOTIVO_LABEL = { reparto: "elegida en \"Elige qué estudiar\"", refuerzo: "refuerzo para completar el informe" };
+  function rlSistemaLeer() {
+    try { return JSON.parse(localStorage.getItem(rlSistemaKey()) || "{}") || {}; }
+    catch (e) { return {}; }
+  }
+  function rlSistemaGuardar(d) {
+    try { localStorage.setItem(rlSistemaKey(), JSON.stringify(d)); } catch (e) { /* nada */ }
+  }
+  // La llaman rlCargarBanco y rlReforzarReglasDeficitarias (reels-sorpresas.js)
+  // cada vez que el sistema agrega ejercicios de una regla al banco.
+  function rlSistemaRegistrar(reglaId, motivo, n) {
+    if (!reglaId || !n) return;
+    const d = rlSistemaLeer();
+    d[reglaId] = d[reglaId] || {};
+    d[reglaId][motivo] = (d[reglaId][motivo] || 0) + n;
+    rlSistemaGuardar(d);
+  }
+  function rlSistemaResumenHTML() {
+    const d = rlSistemaLeer();
+    const filas = Object.keys(d).map((id) => {
+      const motivos = d[id];
+      const total = Object.values(motivos).reduce((s, n) => s + n, 0);
+      // localStorage solo guarda claves de objeto como texto: reglaId vuelve
+      // como string aquí aunque se haya guardado como número (ver AppRules).
+      const regla = (typeof findRegla === "function" && findRegla(Number(id))) || null;
+      const nombre = regla ? regla.regla : "Regla #" + id + " (ya no existe)";
+      const porMotivo = Object.keys(motivos)
+        .map((m) => (RL_SISTEMA_MOTIVO_LABEL[m] || m) + ": " + motivos[m])
+        .join(" · ");
+      return { id, total, nombre, porMotivo };
+    }).sort((a, b) => b.total - a.total);
+    if (!filas.length) return `<p class="rl-sub" style="text-align:center;">Todavía no hay ejercicios cargados por el sistema para este idioma.</p>`;
+    return `<ul class="rl-sistema-lista">` + filas.map((f) => `
+      <li class="rl-sistema-fila">
+        <div class="rl-sistema-fila-top"><b>${rlEsc(f.nombre)}</b><span>${f.total} ejercicio${f.total === 1 ? "" : "s"}</span></div>
+        <div class="rl-sistema-fila-sub">${rlEsc(f.porMotivo)}</div>
+      </li>`).join("") + `</ul>`;
+  }
+  function rlMostrarSistemaDetalleModal() {
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>⚙️ Cargados del sistema, por regla</h3>
+          <button class="menu-modal-close" aria-label="Cerrar">✕</button>
+        </div>
+        <p class="rl-sub" style="text-align:center;">Cuántos ejercicios ha agregado el sistema de cada regla gramatical, y por qué (acumulado, no solo de hoy).</p>
+        ${rlSistemaResumenHTML()}
+      </div>`;
+    document.body.appendChild(modal);
+    const close = () => modal.remove();
+    modal.querySelector(".menu-modal-close").onclick = close;
+    modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
   }
 
   function rlMostrarHistorialModal() {
@@ -604,11 +674,13 @@
         <pre class="rl-historial-bloque">${rlEsc(txtHoy)}</pre>
         <pre class="rl-historial-bloque">${rlEsc(txtAyer)}</pre>
         <pre class="rl-historial-bloque rl-historial-live">${rlEsc("Banco de reels: " + rlContarBanco() + " ejercicios\nFaltan " + faltan + " para el reporte")}</pre>
+        <button class="fun-btn full-width rl-ver-sistema">👁 Ver cargados del sistema por regla</button>
       </div>`;
     document.body.appendChild(modal);
     const close = () => modal.remove();
     modal.querySelector(".menu-modal-close").onclick = close;
     modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+    modal.querySelector(".rl-ver-sistema").onclick = () => rlMostrarSistemaDetalleModal();
   }
 
   // Alias por compatibilidad con llamadas antiguas al botón de "Copiar historia".

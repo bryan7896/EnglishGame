@@ -204,6 +204,10 @@ function rl2Peso(item) {
 
 function rl2RegistrarCandado(item) {
   cancionesCandadoRegistrar(RL2V.cancion.id, rl2Peso(item));
+  // Cuenta este ejercicio para el Historial general (ver rlBloqueReporteDia
+  // en reels-core.js) — mismo criterio que el candado: "hecho" = resuelto,
+  // acertado o no, lo que importa es el intento.
+  if (typeof rlSumarDia === "function") rlSumarDia("cancionEjercicios", 1);
   rl2PintarCandadoBadge();
 }
 

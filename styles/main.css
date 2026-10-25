@@ -1943,6 +1943,19 @@ textarea:focus-visible,
   margin-bottom: 0;
 }
 
+/* "👁 Ver cargados del sistema por regla" (ver rlMostrarSistemaDetalleModal en reels-core.js) */
+.rl-sistema-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.rl-sistema-fila {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+.rl-sistema-fila-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.rl-sistema-fila-top b { color: var(--ink); font-size: .92rem; }
+.rl-sistema-fila-top span { color: var(--ink-faint); font-size: .85rem; white-space: nowrap; }
+.rl-sistema-fila-sub { color: var(--ink-dim); font-size: .8rem; margin-top: 2px; }
+
 .menu-modal-user {
   display: flex;
   align-items: center;

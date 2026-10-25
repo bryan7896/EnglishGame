@@ -68,7 +68,9 @@
       const faltan = Math.max(0, RL_MIN_POR_REGLA - g.ej.length);
       if (!faltan) return;
       g.reglaIds.forEach((id) => {
-        rlTomarDeRegla(id, faltan, elegidos).forEach((e) => nuevas.push(rlItemEx(e, "sys")));
+        const ejs = rlTomarDeRegla(id, faltan, elegidos);
+        ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys")));
+        if (ejs.length && typeof rlSistemaRegistrar === "function") rlSistemaRegistrar(id, "refuerzo", ejs.length);
       });
     });
     if (!nuevas.length) return false;
@@ -602,6 +604,7 @@
         ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys")));
         total += ejs.length;
         sysN += ejs.length;
+        if (ejs.length && typeof rlSistemaRegistrar === "function") rlSistemaRegistrar(r.id, "reparto", ejs.length);
         if (r.porcentaje <= 0 && !infoHecha.has(r.id)) { infoHecha.add(r.id); rlLeccionesDe(r.id).forEach((_, idx) => frente.push({ k: "info", uid: rlUid(), reglaId: r.id, idx })); }
       });
     }
