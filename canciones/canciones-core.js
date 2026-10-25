@@ -175,7 +175,7 @@ export function cancionDesbloqueada(progreso) {
 // CANCIONES_CANDADO_META puntos, es decir que por sí solo ya desbloquea el
 // día, tal como pidió Bryan ("los ejercicios muy largos haz que cuenten
 // como 15").
-const CANCIONES_CANDADO_META = 15;
+export const CANCIONES_CANDADO_META = 15;
 
 function cancionesCandadoKey() { return "english_trainer_canciones_candado_v1_" + getTargetLanguage(); }
 function cancionesHoyStr() { return new Date().toLocaleDateString("en-CA"); } // YYYY-MM-DD local, igual que rlHoyStr()

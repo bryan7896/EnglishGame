@@ -165,7 +165,7 @@ function renderListeningPractice(practicePairs, container, onDone) {
         `).join('')}
       </div>
       <div class="mini-listen-footer">
-        <button class="fun-btn primary-btn mini-listen-continue" type="button" disabled>Continuar</button>
+        <button class="fun-btn primary-btn mini-listen-continue" type="button">Continuar</button>
       </div>
     </div>
   `;
@@ -173,9 +173,11 @@ function renderListeningPractice(practicePairs, container, onDone) {
   const items = container.querySelectorAll('.mini-listen-item');
   const continueBtn = container.querySelector('.mini-listen-continue');
 
-  function updateContinueState() {
-    if (continueBtn) continueBtn.disabled = !state.every(s => s.done);
-  }
+  // Escribir en esta fase es opcional (pedido de Bryan): el botón
+  // Continuar queda siempre disponible, sin esperar a que se completen
+  // todas las palabras. Se deja la función (sin deshabilitar nada) para
+  // no romper las llamadas a updateContinueState() que quedan más abajo.
+  function updateContinueState() {}
 
   function playWord(idx) {
     speakSeleccionarWord(practicePairs[idx].englishWord);
@@ -189,13 +191,26 @@ function renderListeningPractice(practicePairs, container, onDone) {
 
     const lockItem = (correct) => {
       input.readOnly = true;
-      playBtn.disabled = true;
+      // El audio queda disponible aunque el campo de escritura se bloquee
+      // (pedido de Bryan): solo se deshabilitan input y submit, nunca el
+      // botón de reproducir.
       submitBtn.disabled = true;
       item.classList.add(correct ? 'mini-listen-correct' : 'mini-listen-revealed');
     };
 
+    // Guarda contra doble disparo: en algunos teclados móviles, tocar el
+    // botón ➤ y la tecla "Enter/Ir" del teclado casi al mismo tiempo
+    // dispara el evento 'click' del botón Y el 'keydown' del input para
+    // el MISMO intento real, así que submit() se ejecutaba dos veces
+    // seguidas y consumía de un solo golpe los 2 intentos permitidos
+    // (el usuario sentía que solo tenía uno). Este candado de 300ms hace
+    // que, si ya se procesó un envío para esta palabra, el segundo disparo
+    // casi inmediato se ignore.
+    let procesando = false;
     const submit = () => {
-      if (state[idx].done) return;
+      if (state[idx].done || procesando) return;
+      procesando = true;
+      setTimeout(() => { procesando = false; }, 300);
       const userVal = input.value.trim();
       const correctVal = practicePairs[idx].englishWord;
       const isCorrect = contractionAwareEquals(userVal, correctVal);
@@ -233,7 +248,6 @@ function renderListeningPractice(practicePairs, container, onDone) {
 
   if (continueBtn) {
     continueBtn.addEventListener('click', () => {
-      if (continueBtn.disabled) return;
       window.speechSynthesis?.cancel();
       onDone();
     });
@@ -352,7 +366,17 @@ function checkPair(englishEl, spanishEl, pairs, matchedPairs, container, feedbac
     spanishEl.classList.add('matched');
     englishEl.classList.remove('selected');
     spanishEl.classList.remove('selected');
-    
+
+    // Las palabras "audio-only" (practicadas por oído antes del juego)
+    // mostraban solo el ícono 🔊 sin texto. Al emparejarlas bien, el
+    // usuario ya demostró que la reconoce por sonido, así que se revela
+    // el texto (el click sigue reproduciendo el audio igual que antes:
+    // el botón de reproducir nunca se deshabilita, ni antes ni después
+    // de emparejar).
+    if (englishEl.classList.contains('audio-only-item')) {
+      englishEl.textContent = englishWord;
+    }
+
     matchedPairs.add(englishWord + '|||' + spanishWord);
     
     if (feedbackEl) {

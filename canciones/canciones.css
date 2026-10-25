@@ -70,6 +70,68 @@
 }
 .cancion-candado-banner b { color: #ec4899; }
 
+/* Envoltorio de las insignias flotantes DENTRO de "Aprender canción" (candado
+   + barra de "Seleccionar"): antes solo existía el candado y se posicionaba
+   solo; ahora que puede haber dos insignias a la vez, el posicionamiento
+   absoluto vive acá y cada insignia queda apilada en columna. */
+.rl2-top-badges {
+  position: absolute;
+  top: calc(env(safe-area-inset-top, 0px) + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Insignia del candado DENTRO de "Aprender canción" (ver rl2PintarCandadoBadge
+   en reels2.js) — antes el avance de los 15 ejercicios/día solo se veía en
+   la pantalla de lista, no mientras se jugaba. */
+.rl2-candado-badge {
+  background: linear-gradient(135deg, #2a1a3d, var(--surface-2) 80%);
+  border: 2px solid #a855f7;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: .78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+}
+.rl2-candado-badge.rl2-candado-badge-ok { border-color: var(--good, #4ade80); }
+
+/* Barra de avance del Nivel 1 "Seleccionar" (ver rl2PintarSeleccionarProgress
+   en reels2.js) — pidió Bryan que, mientras se están resolviendo los
+   bloques de "seleccionar", se vea cuánto falta para terminarlos todos (antes
+   eso solo se sabía al volver a la lista, por el % general de la canción). */
+.rl2-seleccionar-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #2a1a3d, var(--surface-2) 80%);
+  border: 2px solid #a855f7;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: .78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+}
+.rl2-seleccionar-progress-track {
+  width: 70px;
+  flex-shrink: 0;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+.rl2-seleccionar-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+  border-radius: inherit;
+  transition: width .3s ease;
+}
+
 /* ---------- Parte 3: ejercicio "audio + selección" (canciones-audio-seleccion.js) ---------- */
 .cas-wrap { display: flex; flex-direction: column; gap: 14px; }
 .cas-audio-row { display: flex; justify-content: center; }

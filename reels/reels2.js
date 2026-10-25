@@ -121,6 +121,7 @@ function rl2Nuevo(cancion) {
     nivel1: {
       banco: rl2PrepararBanco(n1.ejercicios, false),
       cur: null,
+      total: n1.ejercicios.length, // para la barra de avance (ver rl2PintarSeleccionarProgress)
       totalPorFrase: n1.totalPorFrase,
       aprobadasPorFrase: {},
     },
@@ -203,6 +204,59 @@ function rl2Peso(item) {
 
 function rl2RegistrarCandado(item) {
   cancionesCandadoRegistrar(RL2V.cancion.id, rl2Peso(item));
+  rl2PintarCandadoBadge();
+}
+
+// Insignia visible DENTRO de "Aprender canción" con el avance del candado
+// diario (ver Parte 5 en canciones-core.js). Antes esto solo se mostraba
+// en la pantalla de lista (cancionCandadoBannerHTML), así que mientras se
+// jugaba no había forma de saber cuántos puntos llevaba el día ni cuántos
+// faltaban — esta insignia resuelve eso, actualizándose después de cada
+// ejercicio (ver rl2RegistrarCandado) y al abrir la canción.
+function rl2PintarCandadoBadge() {
+  const badge = document.getElementById("rl2CandadoBadge");
+  if (!badge) return;
+  const estado = cancionesCandadoLeer();
+  const faltan = cancionesCandadoFaltan(estado);
+  const puntos = Math.min(estado.puntos || 0, CANCIONES_CANDADO_META);
+  if (faltan <= 0) {
+    badge.textContent = "🔓 Reels desbloqueado por hoy";
+    badge.classList.add("rl2-candado-badge-ok");
+  } else {
+    badge.textContent = `🔒 ${puntos}/${CANCIONES_CANDADO_META} ejercicios de hoy (te faltan ${faltan})`;
+    badge.classList.remove("rl2-candado-badge-ok");
+  }
+  badge.hidden = false;
+}
+
+// Barra de avance del Nivel 1 "Seleccionar" (pedido de Bryan: mientras se
+// están resolviendo los bloques de "seleccionar", ver cuánto falta para
+// terminarlos todos — antes eso solo se sabía al volver a la lista, por el
+// % general de la canción). El Nivel 1 es homogéneo (solo bloques de
+// "seleccionar"), así que basta con su propia cola: lo que resta es
+// banco.length + 1 si hay una tarjeta en curso, y lo hecho es total - resta
+// (los bloques que fallan vuelven a la cola, así que no se "pierden" del
+// conteo; solo se restan los que ya se aprobaron de verdad).
+function rl2PintarSeleccionarProgress() {
+  const cont = document.getElementById("rl2SeleccionarProgress");
+  if (!cont) return;
+  const n1 = RL2 && RL2.fase === "nivel1" ? RL2.nivel1 : null;
+  if (!n1) { cont.hidden = true; return; }
+
+  const restante = (n1.banco ? n1.banco.length : 0) + (n1.cur ? 1 : 0);
+  // n1.total se guarda al armar el banco (rl2Nuevo). Progreso guardado ANTES
+  // de este cambio no lo trae: se usa lo que queda ahora mismo como total de
+  // partida (la barra arranca en 0% esa sesión puntual, pero queda bien
+  // calculada desde el siguiente bloque en adelante).
+  const total = n1.total || restante || 1;
+  const hecho = Math.max(0, total - restante);
+  const pct = total ? Math.round((100 * hecho) / total) : 100;
+
+  cont.hidden = false;
+  const fill = document.getElementById("rl2SeleccionarProgressFill");
+  if (fill) fill.style.width = pct + "%";
+  const text = document.getElementById("rl2SeleccionarProgressText");
+  if (text) text.textContent = `🧩 Seleccionar: ${hecho}/${total}`;
 }
 
 // ---------- Apertura / cierre ----------
@@ -218,6 +272,7 @@ export function rl2AbrirCancion(cancion) {
   document.body.classList.add("rl-open");
   try { history.pushState({ reels2: true }, ""); } catch (e) { /* nada */ }
   document.getElementById("rl2Stage").innerHTML = "";
+  rl2PintarCandadoBadge();
   rl2MostrarActual(false);
 }
 
@@ -364,6 +419,7 @@ async function rl2AvanzarColaSimple(nombreNivel, numeroNivel, siguienteFn) {
 }
 
 function rl2MostrarActual(animar) {
+  rl2PintarSeleccionarProgress();
   if (RL2.fase === "nivel1") {
     const n1 = RL2.nivel1;
     if (!n1.cur) {

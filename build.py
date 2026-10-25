@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "20.11 (23-10-2026)"
+VERSION = "21.0 (24-10-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -780,6 +780,13 @@ def get_html_template():
      (.rl-overlay/.rl-stage/.rl-card), pero con su propio overlay — así los
      dos motores (reels-core.js y reels2.js) nunca pisan el mismo DOM. -->
 <div id="reels2Overlay" class="rl-overlay" hidden>
+  <div id="rl2TopBadges" class="rl2-top-badges">
+    <div id="rl2CandadoBadge" class="rl2-candado-badge" hidden></div>
+    <div id="rl2SeleccionarProgress" class="rl2-seleccionar-progress" hidden>
+      <small id="rl2SeleccionarProgressText"></small>
+      <div class="rl2-seleccionar-progress-track"><div id="rl2SeleccionarProgressFill" class="rl2-seleccionar-progress-fill"></div></div>
+    </div>
+  </div>
   <div id="rl2Stage" class="rl-stage"></div>
   <button class="rl-float rl-close" id="rl2CloseBtn" aria-label="Salir de Aprender canción" title="Salir">✕</button>
 </div>
