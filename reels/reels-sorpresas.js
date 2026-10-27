@@ -4,7 +4,12 @@
   // compite con peso bajo.
   // 2 pct      → todas las reglas con su % y botón de estadística, más la tabla de irregulares
   // 3 reglas   → elige X reglas: rellena el banco hasta RL_BANCO
-  // 4 reporte  → copiar informe (cada 60-70 ejercicios) + agregar JSON
+  // 4 reporte  → cada 60-70 ejercicios (o si quedó "para más tarde"), PRIMERO
+  //              una lista con checkbox por regla (con cuántos ejercicios tiene
+  //              guardados cada una) para elegir qué entra al informe de esta
+  //              vez — el sistema ya no decide solo cargar más para completar
+  //              nada; eso es un botón aparte dentro de esa misma lista. Con lo
+  //              marcado se arma el texto a copiar.
   // 5 historia → misma historia 4 veces (3 leyendo, la 4ª solo audio)
   // (Listening/Azure/Irregulares/Ordenamiento/YouGlish/Tatoeba salieron de
   // este ciclo: desde Feature 4 compiten entre sí en el sorteo de "espacio",
@@ -21,20 +26,16 @@
     if (rlReporteManualListo()) return "reporteManual";
 
     // El informe de reglas gramaticales manda después: si ya toca (o quedó
-    // pendiente), se intenta entregar COMPLETO. Antes de disparar, si hay
-    // reglas por debajo del mínimo pero con más ejercicios disponibles en
-    // el banco del sistema, se refuerzan en silencio (sin mostrar nada esta
-    // vuelta) para que, al momento de la entrega, no quede nada pendiente.
+    // pendiente) y hay algo registrado, se muestra la pantalla de selección
+    // (📋 Elige qué entra al informe) para que el usuario decida qué reglas
+    // entran — el sistema YA NO decide por su cuenta cargar más ejercicios
+    // para "completar" nada; eso ahora es un botón explícito dentro de esa
+    // pantalla (➕ Completar a 5, ver rlCompletarAMinimo). Si todavía no hay
+    // nada registrado, simplemente se pospone sin tocar el banco.
     const tocaInforme = RL.reporte.pendiente || RL.cont.reporte >= RL.cont.proxReporte;
     if (tocaInforme) {
-      const { listos, pendientes } = rlReporteListo();
-      if (pendientes.length && !RL.reporte.refuerzoHecho && rlReforzarReglasDeficitarias(pendientes)) {
-        RL.cont.proxReporte = RL.cont.reporte + 10; // dar tiempo a que se resuelvan antes de volver a intentar
-      } else if (listos.length) {
-        return "reporte";
-      } else {
-        RL.cont.proxReporte = RL.cont.reporte + 10;
-      }
+      if (rlGruposConDatos().length) return "reporteSeleccion";
+      RL.cont.proxReporte = RL.cont.reporte + 10;
     }
 
     if (rlContarBanco() < RL_MIN_OBLIGATORIO && (rlReglasDisponibles().length || RL.reserva.length)) return "reglas";
@@ -52,33 +53,27 @@
     return lista[lista.length - 1];
   }
 
-  // Intenta completar (con ejercicios del sistema) las reglas que todavía
-  // están por debajo de RL_MIN_POR_REGLA para que el informe se pueda
-  // entregar completo. Solo cuenta como reforzable una regla si de verdad
-  // hay más ejercicios suyos disponibles (si no, se deja pendiente para el
-  // próximo informe, como antes). No se repite más de una vez por ciclo de
-  // informe (RL.reporte.refuerzoHecho) para no insistir sin fin cuando una
-  // regla ya se quedó sin más contenido.
-  function rlReforzarReglasDeficitarias(pendientes) {
-    const candidatas = pendientes.filter((g) => g.reglaIds.length && g.reglaIds.some((id) => rlEjerciciosDeRegla(id).length > 0));
-    if (!candidatas.length) return false;
+  // Carga (a pedido explícito del usuario, botón "➕ Completar a 5" en la
+  // pantalla de selección del informe) los ejercicios que le faltan a UNA
+  // regla para llegar a RL_MIN_POR_REGLA. Ya no se llama sola en ningún
+  // momento del ciclo normal de Reels — solo la dispara ese botón. Devuelve
+  // cuántos ejercicios nuevos se agregaron al banco (0 si no había más
+  // disponibles o si la regla ya estaba completa).
+  function rlCompletarAMinimo(g) {
+    const faltan = Math.max(0, RL_MIN_POR_REGLA - (g.ej ? g.ej.length : 0));
+    if (!faltan || !g.reglaIds || !g.reglaIds.length) return 0;
     const elegidos = new Set();
     const nuevas = [];
-    candidatas.forEach((g) => {
-      const faltan = Math.max(0, RL_MIN_POR_REGLA - g.ej.length);
-      if (!faltan) return;
-      g.reglaIds.forEach((id) => {
-        const ejs = rlTomarDeRegla(id, faltan, elegidos);
-        ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys")));
-        if (ejs.length && typeof rlSistemaRegistrar === "function") rlSistemaRegistrar(id, "refuerzo", ejs.length);
-      });
+    g.reglaIds.forEach((id) => {
+      const ejs = rlTomarDeRegla(id, faltan, elegidos);
+      ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys")));
+      if (ejs.length && typeof rlSistemaRegistrar === "function") rlSistemaRegistrar(id, "refuerzo", ejs.length);
     });
-    if (!nuevas.length) return false;
+    if (!nuevas.length) return 0;
     rlSumarDia("cargadosSistema", nuevas.length);
     rlMezclarEnBanco(nuevas);
-    RL.reporte.refuerzoHecho = true;
     rlGuardar();
-    return true;
+    return nuevas.length;
   }
 
   // ==================== FEATURE 4: "espacio" (scheduler unificado) ====================
@@ -255,7 +250,11 @@
     switch (item.tipo) {
       case "reglas": return rlRenderReglas(item, body);
       case "pct": return rlRenderPct(item, body);
-      case "reporte": return rlRenderReporte(item, body);
+      case "reporteSeleccion": return rlRenderReporteSeleccion(item, body);
+      // Compatibilidad: si quedó guardada una tarjeta vieja tipo "reporte"
+      // (de antes de este cambio) justo como RL.cur al actualizar la app,
+      // se redirige sola a la pantalla de selección nueva.
+      case "reporte": item.tipo = "reporteSeleccion"; item.fase = "elegir"; return rlRenderReporteSeleccion(item, body);
       case "reporteManual": return rlRenderReporteManual(item, body);
       case "historia": return rlRenderHistoria(item, body);
       case "yt": return rlRenderYT(item, body);
@@ -614,25 +613,100 @@
     return total;
   }
 
-  // ---------- 4. Informe ----------
-  function rlRenderReporte(item, body) {
-    const rep = rlConstruirReporte();
-    const pend = rlReporteListo().pendientes;
-    // Cantidad de ejercicios (no de reglas) que quedan guardados en el
-    // informe sin poder entregarse todavía (reglas que, aun después de
-    // intentar reforzarlas, siguen con menos de RL_MIN_POR_REGLA).
-    const pendEj = pend.reduce((s, g) => s + g.ej.length + g.err.length, 0);
+  // ---------- 4. Informe: 4a) elegir qué entra, 4b) texto final ----------
+  // Antes de armar el texto, se muestra una lista con TODAS las reglas que
+  // ya tienen algún ejercicio registrado (nombre + cantidad), cada una con
+  // su casilla, para que el usuario decida qué entra a este reporte — puede
+  // marcar todas, ninguna, o sacar el reporte de una sola regla suelta. El
+  // sistema ya no carga nada por su cuenta: si una regla tiene menos de
+  // RL_MIN_POR_REGLA, aparece con un botón aparte para completarla a mano.
+  function rlRenderReporteSeleccion(item, body) {
+    if (item.fase === "texto" && item.rep) return rlRenderReporteTexto(item, body);
+    const grupos = rlGruposConDatos();
+    if (!grupos.length) { setTimeout(() => rlSorpresaHecha(item), 0); return; }
+    if (!item.sel) item.sel = {};
+    if (!item.selInit) { grupos.forEach((g) => { item.sel[g.key] = true; }); item.selInit = true; rlGuardar(); }
+
+    const fila = (g) => {
+      const falta = Math.max(0, RL_MIN_POR_REGLA - g.ej.length);
+      return `
+        <div class="rule-card rl-repsel-row tier-${falta ? "warn" : "good"}" data-k="${rlEsc(g.key)}">
+          <label class="rule-card-body" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+            <input type="checkbox" class="rl-repsel-check" data-k="${rlEsc(g.key)}" ${item.sel[g.key] ? "checked" : ""}>
+            <span style="flex:1;">
+              <span class="rule-card-top">
+                <span class="rule-select-text">${rlEsc(reglaGroupLabel(g.reglaIds))}</span>
+                <span class="rule-pct-badge tier-${falta ? "warn" : "good"}">${g.ej.length}${g.err.length ? " + " + g.err.length + " corr." : ""}</span>
+              </span>
+            </span>
+          </label>
+          ${falta ? `<button class="fun-btn rl-repsel-completar" data-k="${rlEsc(g.key)}">➕ Completar a ${RL_MIN_POR_REGLA} (faltan ${falta})</button>` : ""}
+        </div>`;
+    };
+
+    body.innerHTML = rlCabecera(["📋 Elige qué entra al informe", grupos.length + " regla" + (grupos.length === 1 ? "" : "s") + " con datos"]) + `
+      <div class="rl-sorpresa rl-reporte rl-repsel">
+        <p class="rl-sub">Marca las reglas que quieres incluir en este reporte. Lo recomendado es mínimo ${RL_MIN_POR_REGLA} por regla, pero puedes sacar el reporte de una sola, aunque tenga un único ejercicio.</p>
+        <div class="rl-reglas-foot" style="margin-bottom:8px;gap:8px;">
+          <button class="fun-btn rl-repsel-todo">☑️ Seleccionar todo</button>
+          <button class="fun-btn rl-repsel-ninguno">⬜ Ninguno</button>
+        </div>
+        <div class="rules-select-list">${grupos.map(fila).join("")}</div>
+        <div class="rl-reglas-foot">
+          <button class="fun-btn primary-btn rl-repsel-generar">📋 Generar reporte</button>
+        </div>
+        <button class="fun-btn full-width rl-luego">⏭ Más tarde</button>
+        ${RL.reporte.ultimoTexto ? `<button class="fun-btn full-width rl-ultimo">📄 Copiar el informe anterior</button>` : ""}
+      </div>`;
+
+    const actualizar = () => {
+      const n = grupos.filter((g) => item.sel[g.key]).length;
+      const btn = body.querySelector(".rl-repsel-generar");
+      btn.disabled = n === 0;
+      btn.textContent = n ? "📋 Generar reporte (" + n + ")" : "📋 Generar reporte";
+    };
+    body.querySelectorAll(".rl-repsel-check").forEach((cb) => {
+      cb.addEventListener("change", () => { item.sel[cb.dataset.k] = cb.checked; rlGuardar(); actualizar(); });
+    });
+    body.querySelector(".rl-repsel-todo").onclick = () => { grupos.forEach((g) => (item.sel[g.key] = true)); rlGuardar(); rlRenderReporteSeleccion(item, body); };
+    body.querySelector(".rl-repsel-ninguno").onclick = () => { grupos.forEach((g) => (item.sel[g.key] = false)); rlGuardar(); rlRenderReporteSeleccion(item, body); };
+    body.querySelectorAll(".rl-repsel-completar").forEach((btn) => {
+      btn.onclick = () => {
+        const g = grupos.find((x) => x.key === btn.dataset.k);
+        const n = g ? rlCompletarAMinimo(g) : 0;
+        toast(n ? "➕ " + n + " ejercicio(s) agregados — saldrán pronto en tu banco" : "No hay más ejercicios disponibles para esa regla");
+        if (n) { btn.disabled = true; btn.textContent = "✅ Agregados, sigue jugando"; }
+      };
+    });
+    body.querySelector(".rl-repsel-generar").onclick = () => {
+      const seleccionados = grupos.filter((g) => item.sel[g.key]);
+      if (!seleccionados.length) return;
+      item.rep = rlConstruirReporte(seleccionados);
+      item.fase = "texto";
+      rlGuardar();
+      rlRenderReporteSeleccion(item, body);
+    };
+    body.querySelector(".rl-luego").onclick = () => { RL.reporte.pendiente = true; rlSorpresaHecha(item); };
+    const copiarUltimo = (txt) => {
+      const ok = () => toast("📋 Informe copiado");
+      if (navigator.clipboard?.writeText) navigator.clipboard.writeText(txt).then(ok).catch(() => { rlCopiaManual(body, txt); });
+      else rlCopiaManual(body, txt);
+    };
+    body.querySelector(".rl-ultimo")?.addEventListener("click", () => copiarUltimo(RL.reporte.ultimoTexto));
+    actualizar();
+  }
+
+  function rlRenderReporteTexto(item, body) {
+    const rep = item.rep;
     body.innerHTML = rlCabecera(["📋 Informe"]) + `
       <div class="rl-sorpresa rl-reporte">
-        <p class="rl-sub"><b>${rep.total}</b> ejercicios en <b>${rep.grupos}</b> regla${rep.grupos === 1 ? "" : "s"} (mínimo ${RL_MIN_POR_REGLA} por regla). ${pend.length ? pend.length + " regla(s) con menos de " + RL_MIN_POR_REGLA + " quedan para el próximo." : ""}</p>
-        ${pendEj ? `<p class="rl-sub rl-pend-ej">📦 ${pendEj} ejercicio${pendEj === 1 ? "" : "s"} guardado${pendEj === 1 ? "" : "s"} sin entregar todavía.</p>` : ""}
+        <p class="rl-sub"><b>${rep.total}</b> ejercicios en <b>${rep.grupos}</b> regla${rep.grupos === 1 ? "" : "s"} seleccionada${rep.grupos === 1 ? "" : "s"}.</p>
         <textarea class="report rl-report-text" rows="9" readonly></textarea>
         <div class="rl-rep-btns">
           <button class="fun-btn primary-btn rl-copiar">📋 Copiar reporte</button>
           <button class="fun-btn rl-pegado" disabled>✅ Ya lo pegué</button>
         </div>
-        <button class="fun-btn full-width rl-luego">⏭ Más tarde</button>
-        ${RL.reporte.ultimoTexto ? `<button class="fun-btn full-width rl-ultimo">📄 Copiar el informe anterior</button>` : ""}
+        <button class="fun-btn full-width rl-volver">⬅ Volver a elegir</button>
       </div>`;
     body.querySelector(".rl-report-text").value = rep.texto;
     const copiar = (txt) => {
@@ -647,8 +721,7 @@
       toast("🧹 Informe entregado. ¡A seguir!");
       rlSorpresaHecha(item);
     };
-    body.querySelector(".rl-luego").onclick = () => { RL.reporte.pendiente = true; rlSorpresaHecha(item); };
-    body.querySelector(".rl-ultimo")?.addEventListener("click", () => copiar(RL.reporte.ultimoTexto));
+    body.querySelector(".rl-volver").onclick = () => { item.fase = "elegir"; item.rep = null; rlGuardar(); rlRenderReporteSeleccion(item, body); };
   }
 
   // ---------- 4b. Informe manual (entrega única, sin mínimo por regla) ----------

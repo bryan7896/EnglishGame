@@ -41,10 +41,9 @@
         espacioCont: 0, espacioN: rlRand(RL_ESPACIO_MIN, RL_ESPACIO_MAX), espacioNivel: 1,
       },
       ultSorpresa: null,
-      // refuerzoHecho: ya se intentó (en este ciclo de informe) reforzar con
-      // ejercicios del sistema las reglas por debajo del mínimo, para no
-      // insistir sin fin si ya no hay más disponibles para alguna.
-      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false, refuerzoHecho: false },
+      // Ya NO se refuerza nada en automático: el usuario decide qué cargar
+      // desde la pantalla de selección del informe (botón "Completar a 5").
+      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
       historias: { usadas: [], activa: null },
       yt: { usadas: [] },
       recientes: [],      // textos en el idioma objetivo de lo último que se hizo (para YouGlish)
@@ -247,18 +246,20 @@
 
   function rlGrupoKey(e) { return (e.reglaIds || []).slice().sort((a, b) => a - b).join(",") || "none"; }
 
-  // Grupos (por regla) que ya tienen al menos RL_MIN_POR_REGLA ejercicios
-  // propios (sin contar los errores corregidos). Los cargados a mano (src
-  // "man") NO entran aquí: tienen su propio informe aparte (ver más abajo).
-  function rlReporteListo() {
+  // Todos los grupos (por regla) con al menos 1 ejercicio propio registrado
+  // (sin contar los errores corregidos). Los cargados a mano (src "man") NO
+  // entran aquí: tienen su propio informe aparte (ver más abajo). Ya NO se
+  // filtra por un mínimo: la pantalla de selección del informe (📋 Elige qué
+  // entra al informe) es la que decide qué se entrega — el usuario marca lo
+  // que quiere, aunque sea una sola regla con un solo ejercicio.
+  function rlGruposConDatos() {
       const grupos = {};
       (RL.reporte.entradas || []).filter((e) => e.type !== "ordenamiento" && e.src !== "man").forEach((e) => {
         const k = rlGrupoKey(e);
         (grupos[k] = grupos[k] || { key: k, reglaIds: e.reglaIds || [], ej: [], err: [] });
         (e.retry ? grupos[k].err : grupos[k].ej).push(e);
       });
-      const listos = Object.values(grupos).filter((g) => g.ej.length >= RL_MIN_POR_REGLA);
-      return { listos, pendientes: Object.values(grupos).filter((g) => g.ej.length < RL_MIN_POR_REGLA) };
+      return Object.values(grupos).filter((g) => g.ej.length > 0).sort((a, b) => b.ej.length - a.ej.length);
   }
 
   // ---------- Informe manual (ejercicios cargados a mano) ----------
@@ -307,8 +308,11 @@
       rlGuardar();
   }
 
-  function rlConstruirReporte() {
-    const { listos } = rlReporteListo();
+  // `grupos`: los que el usuario marcó en la pantalla de selección (ver
+  // rlRenderReporteSeleccion en reels-sorpresas.js). Ya no se arma solo con
+  // los que llegan a RL_MIN_POR_REGLA: es exactamente lo que se seleccionó.
+  function rlConstruirReporte(grupos) {
+    const seleccionados = grupos || [];
     const lines = [];
     const hoy = new Date().toLocaleDateString("es-CO", { year: "numeric", month: "2-digit", day: "2-digit" });
     lines.push("📘 INFORME DE APRENDIZAJE (" + getTargetLangMeta().label + ")");
@@ -316,7 +320,7 @@
     lines.push("=".repeat(40));
     lines.push("");
     const counter = { n: 0 };
-    listos.forEach((g) => {
+    seleccionados.forEach((g) => {
       lines.push(reglaGroupLabel(g.reglaIds));
       lines.push("-".repeat(30));
       lines.push("  📝 Ejercicios realizados (" + g.ej.length + ")");
@@ -334,8 +338,8 @@
       lines.push(...aventura);
     }
     const rids = new Set();
-    listos.forEach((g) => g.ej.concat(g.err).forEach((e) => rids.add(e.rid)));
-    return { texto: lines.join("\n"), rids, grupos: listos.length, total: rids.size };
+    seleccionados.forEach((g) => g.ej.concat(g.err).forEach((e) => rids.add(e.rid)));
+    return { texto: lines.join("\n"), rids, grupos: seleccionados.length, total: rids.size };
   }
 
   function rlReporteConfirmado(rids, texto) {
@@ -343,7 +347,6 @@
     RL.reporte.mundo = [];
     RL.reporte.ultimoTexto = texto;
     RL.reporte.pendiente = false;
-    RL.reporte.refuerzoHecho = false;
     RL.cont.reporte = 0;
     RL.cont.proxReporte = rlRand(RL_REPORTE_MIN, RL_REPORTE_MAX);
     rlGuardar();
@@ -506,7 +509,7 @@
   }
 
   // ---------- Historia de estudio ----------
-  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", reporteManual: "reporte manual", listening: "listening", irr: "irregulares", tatoeba: "tatoeba" };
+  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", reporteSeleccion: "reporte (elegir)", reporteManual: "reporte manual", listening: "listening", irr: "irregulares", tatoeba: "tatoeba" };
   function rlAnotar(item, nota) {
     if (!RL) return;
     let tipo = "—";
@@ -597,9 +600,9 @@
   //  - "reparto": el usuario eligió esa regla en "Elige qué estudiar" y el
   //    sistema repartió item.sistema entre las reglas elegidas (ver
   //    rlCargarBanco en reels-sorpresas.js).
-  //  - "refuerzo": la regla quedó por debajo de RL_MIN_POR_REGLA y el sistema
-  //    la completó en silencio para poder entregar el informe completo (ver
-  //    rlReforzarReglasDeficitarias en reels-sorpresas.js).
+  //  - "refuerzo": el usuario tocó "➕ Completar a 5" para esa regla en la
+  //    pantalla de selección del informe (ver rlCompletarAMinimo en
+  //    reels-sorpresas.js) — ya NO ocurre en automático/silencio.
   function rlSistemaKey() { return "english_trainer_reels_sistema_regla_v1_" + getTargetLanguage(); }
   const RL_SISTEMA_MOTIVO_LABEL = { reparto: "elegida en \"Elige qué estudiar\"", refuerzo: "refuerzo para completar el informe" };
   function rlSistemaLeer() {
@@ -609,8 +612,9 @@
   function rlSistemaGuardar(d) {
     try { localStorage.setItem(rlSistemaKey(), JSON.stringify(d)); } catch (e) { /* nada */ }
   }
-  // La llaman rlCargarBanco y rlReforzarReglasDeficitarias (reels-sorpresas.js)
-  // cada vez que el sistema agrega ejercicios de una regla al banco.
+  // La llaman rlCargarBanco y rlCompletarAMinimo (reels-sorpresas.js) cada
+  // vez que se agregan ejercicios de una regla al banco (por reparto al
+  // elegir qué estudiar, o porque el usuario tocó "Completar a 5").
   function rlSistemaRegistrar(reglaId, motivo, n) {
     if (!reglaId || !n) return;
     const d = rlSistemaLeer();
