@@ -409,6 +409,15 @@
     if (!rlContarBanco() && !RL.banco.length) {
       return { k: "sorpresa", tipo: "reglas", uid: rlUid(), forzada: true };
     }
+    // El informe (normal o manual) NO espera al sorteo general de sorpresas
+    // de abajo (cada 2-15 ejercicios, RL.cont.sorpresa): en cuanto está listo
+    // para mostrarse, se muestra en la tarjeta siguiente, sin importar en qué
+    // punto va ese sorteo. Antes "Faltan 0 para el reporte" en el Historial
+    // podía quedarse así varios ejercicios (hasta 15) porque la pantalla
+    // solo se evaluaba cuando le tocaba el turno a ese sorteo.
+    if (rlReporteManualListo()) return { k: "sorpresa", tipo: "reporteManual", uid: rlUid() };
+    const tocaInforme = RL.reporte.pendiente || RL.cont.reporte >= RL.cont.proxReporte;
+    if (tocaInforme && rlGruposConDatos().length) return { k: "sorpresa", tipo: "reporteSeleccion", uid: rlUid() };
     if (RL.cont.sorpresa >= RL.cont.proxSorpresa) {
       RL.cont.sorpresa = 0;
       RL.cont.proxSorpresa = rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX);
