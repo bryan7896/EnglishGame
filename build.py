@@ -894,6 +894,25 @@ def get_main_logic():
     return "english_trainer_grammar_rules_v2_" + getTargetLanguage();
   }
 
+  // Reglas que el usuario marcó como "ya dominadas" desde el menú (🙈
+  // Reglas ocultas, ver rlModalReglasOcultas en reels-core.js). Se guardan
+  // por idioma, igual que rulesStorageKey(). loadGrammarRules() las
+  // descarta por completo de AppRules, así que todo lo que consulta
+  // AppRules (Elige qué estudiar, Tu avance/porcentajes, sincronización
+  // con el backend) las trata como si no existieran. Su historial de % en
+  // la tabla de Google NO se borra: si se destildan, vuelven a aparecer y
+  // su % se recalcula solo en el próximo sync.
+  function reglasOcultasKey() {
+    return "english_trainer_reglas_ocultas_v1_" + getTargetLanguage();
+  }
+  function loadReglasOcultas() {
+    try { return JSON.parse(localStorage.getItem(reglasOcultasKey()) || "[]") || []; }
+    catch (e) { return []; }
+  }
+  function saveReglasOcultas(ids) {
+    try { localStorage.setItem(reglasOcultasKey(), JSON.stringify(ids)); } catch (e) { /* noop */ }
+  }
+
   // La semilla (reglas-gramaticales.json) solo aporta id + nombre de la
   // regla. Su "porcentaje" se ignora por completo: arranca en 0 y el valor
   // real llega del historial de la tabla. localStorage solo guarda el
@@ -904,10 +923,13 @@ def get_main_logic():
       const raw = localStorage.getItem(rulesStorageKey());
       if (raw) saved = JSON.parse(raw) || [];
     } catch (e) { /* noop */ }
-    return currentGrammarSeed().map((r) => {
-      const found = saved.find((s) => s.id === r.id);
-      return { ...r, porcentaje: found && typeof found.porcentaje === "number" ? found.porcentaje : 0 };
-    });
+    const ocultas = new Set(loadReglasOcultas());
+    return currentGrammarSeed()
+      .filter((r) => !ocultas.has(r.id))
+      .map((r) => {
+        const found = saved.find((s) => s.id === r.id);
+        return { ...r, porcentaje: found && typeof found.porcentaje === "number" ? found.porcentaje : 0 };
+      });
   }
 
   function saveGrammarRules(rules) {
@@ -1693,6 +1715,7 @@ def get_main_logic():
           <button class="fun-btn" id="menuVoicePickerBtn">🎙️ Elegir voz</button>
           <button class="fun-btn" id="menuAddJsonBtn">📥 Agregar ejercicios (JSON)</button>
           <button class="fun-btn" id="menuHistoriaBtn">📜 Historial</button>
+          <button class="fun-btn" id="menuReglasOcultasBtn">🙈 Reglas ocultas</button>
           <button class="fun-btn" id="menuConfigReelsBtn">⚙️ Configurar reels</button>
           <button class="fun-btn" id="menuTimerBtn">⏱️ Temporizador: ${rlTimerMin()} min</button>
           <button class="fun-btn danger-btn" id="menuResetAllBtn">🗑️ Borrar todo</button>
@@ -1715,6 +1738,7 @@ def get_main_logic():
     modal.querySelector('#menuVoicePickerBtn').addEventListener('click', () => { close(); showVoicePickerModal(); });
     modal.querySelector('#menuAddJsonBtn').addEventListener('click', () => { close(); rlModalAgregarJSON(); });
     modal.querySelector('#menuHistoriaBtn').addEventListener('click', () => { close(); rlMostrarHistorialModal(); });
+    modal.querySelector('#menuReglasOcultasBtn').addEventListener('click', () => { close(); rlModalReglasOcultas(); });
     modal.querySelector('#menuConfigReelsBtn').addEventListener('click', () => { close(); rlModalConfigurarReels(); });
     modal.querySelector('#menuTimerBtn').addEventListener('click', () => { close(); rlModalTimer(); });
     modal.querySelector('#menuResetAllBtn').addEventListener('click', () => { close(); resetAll(); });

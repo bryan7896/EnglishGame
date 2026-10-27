@@ -20,7 +20,8 @@
   const IRR_SEL_TANDAS = 3, IRR_SEL_POR = 5;
   const IRR_COMP_TANDAS = 2, IRR_COMP_POR = 5;
   const IRR_REC_REPS = 2, IRR_REC_FILAS = 5, IRR_REC_LOTE = 3;
-  const IRR_PCT_RECARGA = 0.25;
+  const IRR_PCT_RECARGA_KEY = "english_trainer_irr_pct_recarga_v1";
+  const IRR_PCT_RECARGA_DEFAULT = 0.25;
   const IRR_FORMA_NOMBRE = ["Base", "Pasado", "Participio"];
   const IRR_FORMA_CLASE = ["irr-f-b", "irr-f-p", "irr-f-pp"];
 
@@ -160,10 +161,26 @@
     RLV.limpiar = () => { irrLimpiar(); if (card) card.classList.remove("irr-card"); };
   }
 
+  // % (0-1) del banco que entra en cada recarga como ejercicios de
+  // irregulares (ver irrCupoRecarga). Configurable desde el menú ⚙️
+  // Configurar reels (rlModalConfigurarReels en reels-sorpresas.js);
+  // IRR_PCT_RECARGA_DEFAULT (25 %) se usa mientras no se haya guardado nada.
+  function irrPctRecargaLeer() {
+    try {
+      const raw = localStorage.getItem(IRR_PCT_RECARGA_KEY);
+      const v = raw == null ? NaN : Number(raw);
+      return (Number.isFinite(v) && v >= 0 && v <= 1) ? v : IRR_PCT_RECARGA_DEFAULT;
+    } catch (e) { return IRR_PCT_RECARGA_DEFAULT; }
+  }
+  function irrPctRecargaGuardar(pct) {
+    const v = Math.max(0, Math.min(1, Number(pct) || 0));
+    try { localStorage.setItem(IRR_PCT_RECARGA_KEY, String(v)); } catch (e) { /* noop */ }
+  }
+
   // Cuántos irregulares lleva una recarga de n ejercicios (0 si hoy ya se completó).
   function irrCupoRecarga(n) {
     if (!irrDisponible() || irrHechaHoy() || n <= 0) return 0;
-    return Math.min(n, Math.ceil(n * IRR_PCT_RECARGA));
+    return Math.min(n, Math.ceil(n * irrPctRecargaLeer()));
   }
 
   // Toma n ejercicios del banco de irregulares del paquete que toca, primero de
@@ -715,7 +732,7 @@
             <tbody>${filas}</tbody>
           </table>
         </div>
-        <p class="irr-tabla-nota">Veces = sesiones completadas del paquete · Banco = traducciones/completar del 25 % · Err = fallos en reconocimiento, seleccionar y completar.</p>
+        <p class="irr-tabla-nota">Veces = sesiones completadas del paquete · Banco = traducciones/completar del ${Math.round(irrPctRecargaLeer() * 100)} % · Err = fallos en reconocimiento, seleccionar y completar.</p>
       </section>`;
   }
 

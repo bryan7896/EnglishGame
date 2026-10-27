@@ -211,6 +211,22 @@
           </span>
         </div>`;
     };
+    // Bloque aparte (no es un tipo de "espacio" más): % del banco que entra
+    // en cada recarga como ejercicios de irregulares (ver irrCupoRecarga en
+    // irregulares.js). Solo aplica a inglés.
+    const irrDisp = typeof irrDisponible === "function" && irrDisponible();
+    const irrPctHTML = irrDisp ? `
+      <div class="rule-card tier-good" style="margin-top:14px;">
+        <span class="rule-card-body">
+          <span class="rule-card-top">
+            <span class="rule-select-text">🔁 % de irregulares en la recarga</span>
+            <span class="rule-pct-badge tier-good" id="rlIrrPctValor">${Math.round(irrPctRecargaLeer() * 100)}%</span>
+          </span>
+          <input type="range" id="rlIrrPctRange" min="0" max="100" step="5" value="${Math.round(irrPctRecargaLeer() * 100)}" style="width:100%;margin-top:8px;">
+          <p class="rl-sub" style="margin-top:4px;">De cada recarga de ejercicios al elegir qué estudiar, este % sale del banco de irregulares del paquete del día.</p>
+        </span>
+      </div>` : "";
+
     const modal = document.createElement("div");
     modal.className = "modal-overlay modal-active";
     modal.innerHTML = `
@@ -221,6 +237,7 @@
         </div>
         <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Cada tipo puede prenderse/apagarse y elegir en qué nivel(es) puede salir (los niveles van rotando 1→2→3→4→1… cada 2-5 ejercicios; en cada nivel se sortea 1 tipo al azar entre los que cumplan). Sin niveles marcados, ese tipo nunca sale aunque esté prendido.</p>
         <div class="rules-select-list">${RL_ESPACIO_TIPOS.map(filaTipo).join("")}</div>
+        ${irrPctHTML}
       </div>`;
     document.body.appendChild(modal);
     const close = () => modal.remove();
@@ -238,6 +255,15 @@
         rlConfigGuardar(cfg);
       });
     });
+    const irrRange = modal.querySelector("#rlIrrPctRange");
+    if (irrRange) {
+      irrRange.addEventListener("input", () => {
+        modal.querySelector("#rlIrrPctValor").textContent = irrRange.value + "%";
+      });
+      irrRange.addEventListener("change", () => {
+        irrPctRecargaGuardar(Number(irrRange.value) / 100);
+      });
+    }
   }
 
   function rlSorpresaHecha(item) {

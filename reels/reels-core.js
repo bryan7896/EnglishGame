@@ -579,7 +579,7 @@
   function rlBloqueReporteDia(fechaStr) {
     const r = rlDiaLeer(fechaStr);
     const ingles = r.corregir + r.traduccion + r.completar + r.informacion;
-    const total = ingles + r.ordenar + r.listening + r.azure + r.youglish + r.tatoeba;
+    const total = ingles + r.ordenar + r.listening + r.azure + r.youglish + r.tatoeba + r.cancionEjercicios;
     return [
       "Reporte del día " + rlFechaLabel(fechaStr) + ":",
       ingles + " de estudio de inglés",
@@ -592,9 +592,9 @@
       r.azure + " de azure",
       r.youglish + " de YouGlish",
       r.tatoeba + " de Tatoeba",
+      r.cancionEjercicios + " de Aprender canción",
       "---",
       "total: " + total,
-      "Aprender canción: " + r.cancionEjercicios,
       "Cargados irregulares: " + r.irregularesCargados,
       "Cargados por json manual: " + r.cargadosManual,
       "Cargados del sistema: " + r.cargadosSistema,
@@ -668,6 +668,49 @@
     const close = () => modal.remove();
     modal.querySelector(".menu-modal-close").onclick = close;
     modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+  }
+
+  // ---------- Modal "🙈 Reglas ocultas" ----------
+  // Permite marcar reglas gramaticales como "ya dominadas" para que
+  // loadGrammarRules() (build.py) deje de incluirlas en AppRules: no vuelven
+  // a salir ni en "Elige qué estudiar" (reels-sorpresas.js) ni en "Tu
+  // avance"/porcentajes (rlRenderPct), y la sincronización con el backend
+  // las ignora. Destildar una regla la devuelve a la lista normal.
+  function rlModalReglasOcultas() {
+    document.querySelectorAll(".modal-overlay").forEach((m) => m.remove());
+    const ocultas = new Set(loadReglasOcultas());
+    const filaHTML = (r) => `
+      <label class="rule-config-info-toggle" data-fila-id="${r.id}" style="padding:10px 12px;border-radius:10px;margin-bottom:6px;background:#151515;${ocultas.has(r.id) ? "opacity:.55;" : ""}">
+        <input type="checkbox" class="rl-oculta-checkbox" data-id="${r.id}" ${ocultas.has(r.id) ? "checked" : ""}>
+        <span class="rule-config-switch"></span>
+        <span class="rule-select-text">${rlEsc(r.regla)}</span>
+      </label>`;
+    const reglas = currentGrammarSeed().slice().sort((a, b) => a.id - b.id);
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay modal-active";
+    modal.innerHTML = `
+      <div class="modal-friend menu-modal">
+        <div class="menu-modal-header">
+          <h3>🙈 Reglas ocultas</h3>
+          <button class="menu-modal-close" aria-label="Cerrar">✕</button>
+        </div>
+        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Marca las reglas que ya dominas: dejan de aparecer en "Elige qué estudiar" y en "Tu avance", como si no existieran. Su historial de % no se borra — destíldalas para que vuelvan.</p>
+        <div class="rules-select-list">${reglas.length ? reglas.map(filaHTML).join("") : `<p class="rl-sub" style="text-align:center;">No hay reglas para este idioma todavía.</p>`}</div>
+      </div>`;
+    document.body.appendChild(modal);
+    const close = () => modal.remove();
+    modal.querySelector(".menu-modal-close").onclick = close;
+    modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+    modal.querySelectorAll(".rl-oculta-checkbox").forEach((cb) => {
+      cb.addEventListener("change", () => {
+        const id = parseInt(cb.dataset.id, 10);
+        if (cb.checked) ocultas.add(id); else ocultas.delete(id);
+        saveReglasOcultas(Array.from(ocultas));
+        AppRules = loadGrammarRules();
+        const fila = modal.querySelector(`[data-fila-id="${id}"]`);
+        if (fila) fila.style.opacity = cb.checked ? ".55" : "";
+      });
+    });
   }
 
   function rlMostrarHistorialModal() {
