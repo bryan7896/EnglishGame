@@ -43,7 +43,11 @@
       ultSorpresa: null,
       // Ya NO se refuerza nada en automático: el usuario decide qué cargar
       // desde la pantalla de selección del informe (botón "Completar a 5").
-      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
+      // seleccion/completarPend: lo que el usuario dejó marcado en "📋 Elige
+      // qué entra al informe" la última vez que salió sin generar el reporte
+      // (⏭ Más tarde) — se restaura la próxima vez en vez de reiniciar todo
+      // a "marcado" (ver rlRenderReporteSeleccion). Se borran al usarse.
+      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false, seleccion: null, completarPend: null },
       historias: { usadas: [], activa: null },
       yt: { usadas: [] },
       recientes: [],      // textos en el idioma objetivo de lo último que se hizo (para YouGlish)
@@ -144,7 +148,7 @@
     if (alFrente && alFrente.length) RL.banco = alFrente.concat(RL.banco);
   }
 
-  function rlItemEx(ex, src) { return { k: "ex", uid: rlUid(), ex, src: src || "sys", retry: false }; }
+  function rlItemEx(ex, src, motivo) { return { k: "ex", uid: rlUid(), ex, src: src || "sys", retry: false, motivo: motivo || null }; }
 
   // ---------- Ordenamiento (Feature 4: "espacio" lo activa, ver reels-sorpresas.js) ----------
   // Candidatas: cualquier tarjeta de traducción TODAVÍA en el banco (no
@@ -713,12 +717,51 @@
     });
   }
 
+  // ---------- "Cargados en sistema": cuánto hay AHORA en cola (banco +
+  // reserva) pendiente de jugarse, por cómo llegó ahí. No es un acumulado
+  // histórico (eso ya existe en rlSistemaLeer, por regla): es una foto de lo
+  // que está cargado ahora mismo. "De forma manual" = reserva + lo manual
+  // que ya pasó a la cola; "Por reporte" = lo agregado con "➕ Completar a X"
+  // en la pantalla del informe (motivo "refuerzo"); "Seleccionados por
+  // regla" = lo agregado al elegir qué estudiar (motivo "reparto", incluye
+  // irregulares de esa recarga). Ítems viejos sin "motivo" (de antes de este
+  // cambio) caen aquí también, como seleccionados por regla.
+  function rlCargadosSistemaResumen() {
+    rlEstado();
+    const banco = RL.banco || [];
+    const manualBanco = banco.filter((it) => it.k === "ex" && it.src === "man").length;
+    const manual = (RL.reserva ? RL.reserva.length : 0) + manualBanco;
+    const porReporte = banco.filter((it) => it.k === "ex" && it.motivo === "refuerzo").length;
+    const porRegla = banco.filter((it) => it.k === "ex" && it.src !== "man" && it.motivo !== "refuerzo").length;
+    return { manual, porReporte, porRegla, total: manual + porReporte + porRegla };
+  }
+
+  // Vacía la cola de ejercicios pendientes (banco del sistema + reserva
+  // manual) sin tocar el informe ya registrado ni el historial. Con el
+  // banco vacío, la próxima vez que se entre a Reels se fuerza la pantalla
+  // "Elige qué estudiar" (ver el primer if de rlDecidirSiguiente).
+  function rlBorrarCargados() {
+    rlEstado();
+    RL.banco = [];
+    RL.reserva = [];
+    if (RL.cur && RL.cur.k === "ex") RL.cur = null;
+    rlGuardar();
+  }
+
   function rlMostrarHistorialModal() {
     document.querySelectorAll(".modal-overlay").forEach((m) => m.remove());
     rlEstado();
     const faltan = Math.max(0, RL.cont.proxReporte - RL.cont.reporte);
     const txtHoy = rlBloqueReporteDia(rlHoyStr());
     const txtAyer = rlBloqueReporteDia(rlAyerStr());
+    const cs = rlCargadosSistemaResumen();
+    const txtCargados = [
+      "Cargados en sistema",
+      "  De forma manual: " + cs.manual,
+      "  Por reporte: " + cs.porReporte,
+      "  Seleccionados por regla: " + cs.porRegla,
+      "  Total: " + cs.total,
+    ].join("\n");
     const modal = document.createElement("div");
     modal.className = "modal-overlay modal-active";
     modal.innerHTML = `
@@ -730,13 +773,21 @@
         <pre class="rl-historial-bloque">${rlEsc(txtHoy)}</pre>
         <pre class="rl-historial-bloque">${rlEsc(txtAyer)}</pre>
         <pre class="rl-historial-bloque rl-historial-live">${rlEsc("Banco de reels: " + rlContarBanco() + " ejercicios\nFaltan " + faltan + " para el reporte")}</pre>
+        <pre class="rl-historial-bloque rl-historial-live">${rlEsc(txtCargados)}</pre>
         <button class="fun-btn full-width rl-ver-sistema">👁 Ver cargados del sistema por regla</button>
+        <button class="fun-btn full-width rl-borrar-cargados" style="color:var(--bad);margin-top:8px;">🗑️ Borrar ejercicios del sistema</button>
       </div>`;
     document.body.appendChild(modal);
     const close = () => modal.remove();
     modal.querySelector(".menu-modal-close").onclick = close;
     modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
     modal.querySelector(".rl-ver-sistema").onclick = () => rlMostrarSistemaDetalleModal();
+    modal.querySelector(".rl-borrar-cargados").onclick = () => {
+      if (!confirm("¿Borrar los " + cs.total + " ejercicios cargados en el sistema (banco + reserva manual)? El informe ya registrado no se toca. La próxima vez que entres a Reels verás la pantalla para elegir qué estudiar.")) return;
+      rlBorrarCargados();
+      close();
+      toast("🗑️ Ejercicios cargados borrados");
+    };
   }
 
   // Alias por compatibilidad con llamadas antiguas al botón de "Copiar historia".

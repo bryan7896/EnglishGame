@@ -66,7 +66,7 @@
     const nuevas = [];
     g.reglaIds.forEach((id) => {
       const ejs = rlTomarDeRegla(id, faltan, elegidos);
-      ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys")));
+      ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys", "refuerzo")));
       if (ejs.length && typeof rlSistemaRegistrar === "function") rlSistemaRegistrar(id, "refuerzo", ejs.length);
     });
     if (!nuevas.length) return 0;
@@ -612,7 +612,7 @@
     let irrN = 0;
     if (item.irr && typeof irrTomarParaRecarga === "function") {
       const irrEjs = irrTomarParaRecarga(item.irr, ids);
-      irrEjs.forEach((e) => nuevas.push(rlItemEx(e, "irr")));
+      irrEjs.forEach((e) => nuevas.push(rlItemEx(e, "irr", "reparto")));
       irrN = irrEjs.length;
       total += irrN;
     }
@@ -626,7 +626,7 @@
       entradas.forEach(({ r, n }) => {
         const cant = Math.max(RL_MIN_POR_REGLA, Math.round(sistema * rlAporte(r) * n / suma));
         const ejs = rlTomarDeRegla(r.id, cant, elegidos);
-        ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys")));
+        ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys", "reparto")));
         total += ejs.length;
         sysN += ejs.length;
         if (ejs.length && typeof rlSistemaRegistrar === "function") rlSistemaRegistrar(r.id, "reparto", ejs.length);
@@ -635,6 +635,26 @@
     }
     if (sysN) rlSumarDia("cargadosSistema", sysN);
     rlMezclarEnBanco(nuevas, frente);
+    rlGuardar();
+    return total;
+  }
+
+  // Aplica todas las reglas marcadas con "➕ Completar a X" (item.completarPend)
+  // de una vez: las llamadas a rlCompletarAMinimo quedaban pendientes hasta
+  // este punto para que el usuario pudiera arrepentirse tocando el botón de
+  // nuevo. Se llama al salir de la pantalla de selección del informe, sea
+  // generando y pegando el informe o saltando ("⏭ Más tarde"). Devuelve
+  // cuántos ejercicios nuevos se agregaron en total.
+  function rlAplicarCompletarPend(item, grupos) {
+    if (!item.completarPend) return 0;
+    const claves = Object.keys(item.completarPend);
+    if (!claves.length) return 0;
+    let total = 0;
+    claves.forEach((k) => {
+      const g = grupos.find((x) => x.key === k);
+      if (g) total += rlCompletarAMinimo(g);
+    });
+    item.completarPend = {};
     rlGuardar();
     return total;
   }
@@ -651,13 +671,27 @@
     const grupos = rlGruposConDatos();
     if (!grupos.length) { setTimeout(() => rlSorpresaHecha(item), 0); return; }
     if (!item.sel) item.sel = {};
-    if (!item.selInit) { grupos.forEach((g) => { item.sel[g.key] = true; }); item.selInit = true; rlGuardar(); }
+    if (!item.completarPend) item.completarPend = {};
+    if (!item.selInit) {
+      // Si la última vez se salió con "⏭ Más tarde" sin generar el informe,
+      // se restaura justo lo que había quedado marcado (ver RL.reporte.seleccion
+      // / completarPend) en vez de reiniciar todo a "marcado".
+      if (RL.reporte.seleccion) Object.assign(item.sel, RL.reporte.seleccion);
+      else grupos.forEach((g) => { item.sel[g.key] = true; });
+      if (RL.reporte.completarPend) Object.assign(item.completarPend, RL.reporte.completarPend);
+      grupos.forEach((g) => { if (!(g.key in item.sel)) item.sel[g.key] = true; });
+      RL.reporte.seleccion = null;
+      RL.reporte.completarPend = null;
+      item.selInit = true;
+      rlGuardar();
+    }
 
     const fila = (g) => {
       const falta = Math.max(0, RL_MIN_POR_REGLA - g.ej.length);
+      const pend = !!item.completarPend[g.key];
       return `
         <div class="rule-card rl-repsel-row tier-${falta ? "warn" : "good"}" data-k="${rlEsc(g.key)}">
-          <label class="rule-card-body" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+          <label class="rule-card-body" style="display:flex;flex-direction:row;align-items:center;gap:10px;cursor:pointer;">
             <input type="checkbox" class="rl-repsel-check" data-k="${rlEsc(g.key)}" ${item.sel[g.key] ? "checked" : ""}>
             <span style="flex:1;">
               <span class="rule-card-top">
@@ -666,7 +700,7 @@
               </span>
             </span>
           </label>
-          ${falta ? `<button class="fun-btn rl-repsel-completar" data-k="${rlEsc(g.key)}">➕ Completar a ${RL_MIN_POR_REGLA} (faltan ${falta})</button>` : ""}
+          ${falta ? `<button class="fun-btn rl-repsel-completar${pend ? " primary-btn" : ""}" data-k="${rlEsc(g.key)}">${pend ? "✅ Se agregarán " + falta + " (toca para cancelar)" : "➕ Completar a " + RL_MIN_POR_REGLA + " (faltan " + falta + ")"}</button>` : ""}
         </div>`;
     };
 
@@ -697,11 +731,16 @@
     body.querySelector(".rl-repsel-todo").onclick = () => { grupos.forEach((g) => (item.sel[g.key] = true)); rlGuardar(); rlRenderReporteSeleccion(item, body); };
     body.querySelector(".rl-repsel-ninguno").onclick = () => { grupos.forEach((g) => (item.sel[g.key] = false)); rlGuardar(); rlRenderReporteSeleccion(item, body); };
     body.querySelectorAll(".rl-repsel-completar").forEach((btn) => {
+      // No agrega nada todavía: solo marca/desmarca la regla para completarla
+      // (así da tiempo a arrepentirse). El agregado real ocurre recién al
+      // continuar — "📋 Generar reporte" + "✅ Ya lo pegué", o "⏭ Más tarde"
+      // (ver rlAplicarCompletarPend, llamado desde ambos puntos de salida).
       btn.onclick = () => {
-        const g = grupos.find((x) => x.key === btn.dataset.k);
-        const n = g ? rlCompletarAMinimo(g) : 0;
-        toast(n ? "➕ " + n + " ejercicio(s) agregados — saldrán pronto en tu banco" : "No hay más ejercicios disponibles para esa regla");
-        if (n) { btn.disabled = true; btn.textContent = "✅ Agregados, sigue jugando"; }
+        const k = btn.dataset.k;
+        if (item.completarPend[k]) { delete item.completarPend[k]; toast("Cancelado — no se agregará nada todavía"); }
+        else { item.completarPend[k] = true; toast("Se agregará al continuar (generar y pegar el informe, o saltar)"); }
+        rlGuardar();
+        rlRenderReporteSeleccion(item, body);
       };
     });
     body.querySelector(".rl-repsel-generar").onclick = () => {
@@ -712,7 +751,16 @@
       rlGuardar();
       rlRenderReporteSeleccion(item, body);
     };
-    body.querySelector(".rl-luego").onclick = () => { RL.reporte.pendiente = true; rlSorpresaHecha(item); };
+    body.querySelector(".rl-luego").onclick = () => {
+      const n = rlAplicarCompletarPend(item, grupos);
+      if (n) toast("➕ " + n + " ejercicio(s) agregados a tu banco");
+      // Lo marcado (qué reglas entran, qué quedó pendiente de completar) se
+      // conserva para la próxima vez que toque el informe.
+      RL.reporte.seleccion = Object.assign({}, item.sel);
+      RL.reporte.completarPend = Object.assign({}, item.completarPend);
+      RL.reporte.pendiente = true;
+      rlSorpresaHecha(item);
+    };
     const copiarUltimo = (txt) => {
       const ok = () => toast("📋 Informe copiado");
       if (navigator.clipboard?.writeText) navigator.clipboard.writeText(txt).then(ok).catch(() => { rlCopiaManual(body, txt); });
@@ -742,9 +790,10 @@
     };
     body.querySelector(".rl-copiar").onclick = () => { copiar(rep.texto); body.querySelector(".rl-pegado").disabled = false; };
     body.querySelector(".rl-pegado").onclick = () => {
+      const n = rlAplicarCompletarPend(item, rlGruposConDatos());
       rlReporteConfirmado(rep.rids, rep.texto);
       burstConfetti();
-      toast("🧹 Informe entregado. ¡A seguir!");
+      toast(n ? "🧹 Informe entregado. ➕ " + n + " ejercicio(s) agregados también." : "🧹 Informe entregado. ¡A seguir!");
       rlSorpresaHecha(item);
     };
     body.querySelector(".rl-volver").onclick = () => { item.fase = "elegir"; item.rep = null; rlGuardar(); rlRenderReporteSeleccion(item, body); };

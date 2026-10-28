@@ -13822,7 +13822,11 @@ export async function abrirReelsConCandado() {
       ultSorpresa: null,
       // Ya NO se refuerza nada en automático: el usuario decide qué cargar
       // desde la pantalla de selección del informe (botón "Completar a 5").
-      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false },
+      // seleccion/completarPend: lo que el usuario dejó marcado en "📋 Elige
+      // qué entra al informe" la última vez que salió sin generar el reporte
+      // (⏭ Más tarde) — se restaura la próxima vez en vez de reiniciar todo
+      // a "marcado" (ver rlRenderReporteSeleccion). Se borran al usarse.
+      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false, seleccion: null, completarPend: null },
       historias: { usadas: [], activa: null },
       yt: { usadas: [] },
       recientes: [],      // textos en el idioma objetivo de lo último que se hizo (para YouGlish)
@@ -13923,7 +13927,7 @@ export async function abrirReelsConCandado() {
     if (alFrente && alFrente.length) RL.banco = alFrente.concat(RL.banco);
   }
 
-  function rlItemEx(ex, src) { return { k: "ex", uid: rlUid(), ex, src: src || "sys", retry: false }; }
+  function rlItemEx(ex, src, motivo) { return { k: "ex", uid: rlUid(), ex, src: src || "sys", retry: false, motivo: motivo || null }; }
 
   // ---------- Ordenamiento (Feature 4: "espacio" lo activa, ver reels-sorpresas.js) ----------
   // Candidatas: cualquier tarjeta de traducción TODAVÍA en el banco (no
@@ -14492,12 +14496,51 @@ export async function abrirReelsConCandado() {
     });
   }
 
+  // ---------- "Cargados en sistema": cuánto hay AHORA en cola (banco +
+  // reserva) pendiente de jugarse, por cómo llegó ahí. No es un acumulado
+  // histórico (eso ya existe en rlSistemaLeer, por regla): es una foto de lo
+  // que está cargado ahora mismo. "De forma manual" = reserva + lo manual
+  // que ya pasó a la cola; "Por reporte" = lo agregado con "➕ Completar a X"
+  // en la pantalla del informe (motivo "refuerzo"); "Seleccionados por
+  // regla" = lo agregado al elegir qué estudiar (motivo "reparto", incluye
+  // irregulares de esa recarga). Ítems viejos sin "motivo" (de antes de este
+  // cambio) caen aquí también, como seleccionados por regla.
+  function rlCargadosSistemaResumen() {
+    rlEstado();
+    const banco = RL.banco || [];
+    const manualBanco = banco.filter((it) => it.k === "ex" && it.src === "man").length;
+    const manual = (RL.reserva ? RL.reserva.length : 0) + manualBanco;
+    const porReporte = banco.filter((it) => it.k === "ex" && it.motivo === "refuerzo").length;
+    const porRegla = banco.filter((it) => it.k === "ex" && it.src !== "man" && it.motivo !== "refuerzo").length;
+    return { manual, porReporte, porRegla, total: manual + porReporte + porRegla };
+  }
+
+  // Vacía la cola de ejercicios pendientes (banco del sistema + reserva
+  // manual) sin tocar el informe ya registrado ni el historial. Con el
+  // banco vacío, la próxima vez que se entre a Reels se fuerza la pantalla
+  // "Elige qué estudiar" (ver el primer if de rlDecidirSiguiente).
+  function rlBorrarCargados() {
+    rlEstado();
+    RL.banco = [];
+    RL.reserva = [];
+    if (RL.cur && RL.cur.k === "ex") RL.cur = null;
+    rlGuardar();
+  }
+
   function rlMostrarHistorialModal() {
     document.querySelectorAll(".modal-overlay").forEach((m) => m.remove());
     rlEstado();
     const faltan = Math.max(0, RL.cont.proxReporte - RL.cont.reporte);
     const txtHoy = rlBloqueReporteDia(rlHoyStr());
     const txtAyer = rlBloqueReporteDia(rlAyerStr());
+    const cs = rlCargadosSistemaResumen();
+    const txtCargados = [
+      "Cargados en sistema",
+      "  De forma manual: " + cs.manual,
+      "  Por reporte: " + cs.porReporte,
+      "  Seleccionados por regla: " + cs.porRegla,
+      "  Total: " + cs.total,
+    ].join("\n");
     const modal = document.createElement("div");
     modal.className = "modal-overlay modal-active";
     modal.innerHTML = `
@@ -14509,13 +14552,21 @@ export async function abrirReelsConCandado() {
         <pre class="rl-historial-bloque">${rlEsc(txtHoy)}</pre>
         <pre class="rl-historial-bloque">${rlEsc(txtAyer)}</pre>
         <pre class="rl-historial-bloque rl-historial-live">${rlEsc("Banco de reels: " + rlContarBanco() + " ejercicios\nFaltan " + faltan + " para el reporte")}</pre>
+        <pre class="rl-historial-bloque rl-historial-live">${rlEsc(txtCargados)}</pre>
         <button class="fun-btn full-width rl-ver-sistema">👁 Ver cargados del sistema por regla</button>
+        <button class="fun-btn full-width rl-borrar-cargados" style="color:var(--bad);margin-top:8px;">🗑️ Borrar ejercicios del sistema</button>
       </div>`;
     document.body.appendChild(modal);
     const close = () => modal.remove();
     modal.querySelector(".menu-modal-close").onclick = close;
     modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
     modal.querySelector(".rl-ver-sistema").onclick = () => rlMostrarSistemaDetalleModal();
+    modal.querySelector(".rl-borrar-cargados").onclick = () => {
+      if (!confirm("¿Borrar los " + cs.total + " ejercicios cargados en el sistema (banco + reserva manual)? El informe ya registrado no se toca. La próxima vez que entres a Reels verás la pantalla para elegir qué estudiar.")) return;
+      rlBorrarCargados();
+      close();
+      toast("🗑️ Ejercicios cargados borrados");
+    };
   }
 
   // Alias por compatibilidad con llamadas antiguas al botón de "Copiar historia".
@@ -14967,7 +15018,7 @@ export async function abrirReelsConCandado() {
     const nuevas = [];
     g.reglaIds.forEach((id) => {
       const ejs = rlTomarDeRegla(id, faltan, elegidos);
-      ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys")));
+      ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys", "refuerzo")));
       if (ejs.length && typeof rlSistemaRegistrar === "function") rlSistemaRegistrar(id, "refuerzo", ejs.length);
     });
     if (!nuevas.length) return 0;
@@ -15513,7 +15564,7 @@ export async function abrirReelsConCandado() {
     let irrN = 0;
     if (item.irr && typeof irrTomarParaRecarga === "function") {
       const irrEjs = irrTomarParaRecarga(item.irr, ids);
-      irrEjs.forEach((e) => nuevas.push(rlItemEx(e, "irr")));
+      irrEjs.forEach((e) => nuevas.push(rlItemEx(e, "irr", "reparto")));
       irrN = irrEjs.length;
       total += irrN;
     }
@@ -15527,7 +15578,7 @@ export async function abrirReelsConCandado() {
       entradas.forEach(({ r, n }) => {
         const cant = Math.max(RL_MIN_POR_REGLA, Math.round(sistema * rlAporte(r) * n / suma));
         const ejs = rlTomarDeRegla(r.id, cant, elegidos);
-        ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys")));
+        ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys", "reparto")));
         total += ejs.length;
         sysN += ejs.length;
         if (ejs.length && typeof rlSistemaRegistrar === "function") rlSistemaRegistrar(r.id, "reparto", ejs.length);
@@ -15536,6 +15587,26 @@ export async function abrirReelsConCandado() {
     }
     if (sysN) rlSumarDia("cargadosSistema", sysN);
     rlMezclarEnBanco(nuevas, frente);
+    rlGuardar();
+    return total;
+  }
+
+  // Aplica todas las reglas marcadas con "➕ Completar a X" (item.completarPend)
+  // de una vez: las llamadas a rlCompletarAMinimo quedaban pendientes hasta
+  // este punto para que el usuario pudiera arrepentirse tocando el botón de
+  // nuevo. Se llama al salir de la pantalla de selección del informe, sea
+  // generando y pegando el informe o saltando ("⏭ Más tarde"). Devuelve
+  // cuántos ejercicios nuevos se agregaron en total.
+  function rlAplicarCompletarPend(item, grupos) {
+    if (!item.completarPend) return 0;
+    const claves = Object.keys(item.completarPend);
+    if (!claves.length) return 0;
+    let total = 0;
+    claves.forEach((k) => {
+      const g = grupos.find((x) => x.key === k);
+      if (g) total += rlCompletarAMinimo(g);
+    });
+    item.completarPend = {};
     rlGuardar();
     return total;
   }
@@ -15552,13 +15623,27 @@ export async function abrirReelsConCandado() {
     const grupos = rlGruposConDatos();
     if (!grupos.length) { setTimeout(() => rlSorpresaHecha(item), 0); return; }
     if (!item.sel) item.sel = {};
-    if (!item.selInit) { grupos.forEach((g) => { item.sel[g.key] = true; }); item.selInit = true; rlGuardar(); }
+    if (!item.completarPend) item.completarPend = {};
+    if (!item.selInit) {
+      // Si la última vez se salió con "⏭ Más tarde" sin generar el informe,
+      // se restaura justo lo que había quedado marcado (ver RL.reporte.seleccion
+      // / completarPend) en vez de reiniciar todo a "marcado".
+      if (RL.reporte.seleccion) Object.assign(item.sel, RL.reporte.seleccion);
+      else grupos.forEach((g) => { item.sel[g.key] = true; });
+      if (RL.reporte.completarPend) Object.assign(item.completarPend, RL.reporte.completarPend);
+      grupos.forEach((g) => { if (!(g.key in item.sel)) item.sel[g.key] = true; });
+      RL.reporte.seleccion = null;
+      RL.reporte.completarPend = null;
+      item.selInit = true;
+      rlGuardar();
+    }
 
     const fila = (g) => {
       const falta = Math.max(0, RL_MIN_POR_REGLA - g.ej.length);
+      const pend = !!item.completarPend[g.key];
       return `
         <div class="rule-card rl-repsel-row tier-${falta ? "warn" : "good"}" data-k="${rlEsc(g.key)}">
-          <label class="rule-card-body" style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+          <label class="rule-card-body" style="display:flex;flex-direction:row;align-items:center;gap:10px;cursor:pointer;">
             <input type="checkbox" class="rl-repsel-check" data-k="${rlEsc(g.key)}" ${item.sel[g.key] ? "checked" : ""}>
             <span style="flex:1;">
               <span class="rule-card-top">
@@ -15567,7 +15652,7 @@ export async function abrirReelsConCandado() {
               </span>
             </span>
           </label>
-          ${falta ? `<button class="fun-btn rl-repsel-completar" data-k="${rlEsc(g.key)}">➕ Completar a ${RL_MIN_POR_REGLA} (faltan ${falta})</button>` : ""}
+          ${falta ? `<button class="fun-btn rl-repsel-completar${pend ? " primary-btn" : ""}" data-k="${rlEsc(g.key)}">${pend ? "✅ Se agregarán " + falta + " (toca para cancelar)" : "➕ Completar a " + RL_MIN_POR_REGLA + " (faltan " + falta + ")"}</button>` : ""}
         </div>`;
     };
 
@@ -15598,11 +15683,16 @@ export async function abrirReelsConCandado() {
     body.querySelector(".rl-repsel-todo").onclick = () => { grupos.forEach((g) => (item.sel[g.key] = true)); rlGuardar(); rlRenderReporteSeleccion(item, body); };
     body.querySelector(".rl-repsel-ninguno").onclick = () => { grupos.forEach((g) => (item.sel[g.key] = false)); rlGuardar(); rlRenderReporteSeleccion(item, body); };
     body.querySelectorAll(".rl-repsel-completar").forEach((btn) => {
+      // No agrega nada todavía: solo marca/desmarca la regla para completarla
+      // (así da tiempo a arrepentirse). El agregado real ocurre recién al
+      // continuar — "📋 Generar reporte" + "✅ Ya lo pegué", o "⏭ Más tarde"
+      // (ver rlAplicarCompletarPend, llamado desde ambos puntos de salida).
       btn.onclick = () => {
-        const g = grupos.find((x) => x.key === btn.dataset.k);
-        const n = g ? rlCompletarAMinimo(g) : 0;
-        toast(n ? "➕ " + n + " ejercicio(s) agregados — saldrán pronto en tu banco" : "No hay más ejercicios disponibles para esa regla");
-        if (n) { btn.disabled = true; btn.textContent = "✅ Agregados, sigue jugando"; }
+        const k = btn.dataset.k;
+        if (item.completarPend[k]) { delete item.completarPend[k]; toast("Cancelado — no se agregará nada todavía"); }
+        else { item.completarPend[k] = true; toast("Se agregará al continuar (generar y pegar el informe, o saltar)"); }
+        rlGuardar();
+        rlRenderReporteSeleccion(item, body);
       };
     });
     body.querySelector(".rl-repsel-generar").onclick = () => {
@@ -15613,7 +15703,16 @@ export async function abrirReelsConCandado() {
       rlGuardar();
       rlRenderReporteSeleccion(item, body);
     };
-    body.querySelector(".rl-luego").onclick = () => { RL.reporte.pendiente = true; rlSorpresaHecha(item); };
+    body.querySelector(".rl-luego").onclick = () => {
+      const n = rlAplicarCompletarPend(item, grupos);
+      if (n) toast("➕ " + n + " ejercicio(s) agregados a tu banco");
+      // Lo marcado (qué reglas entran, qué quedó pendiente de completar) se
+      // conserva para la próxima vez que toque el informe.
+      RL.reporte.seleccion = Object.assign({}, item.sel);
+      RL.reporte.completarPend = Object.assign({}, item.completarPend);
+      RL.reporte.pendiente = true;
+      rlSorpresaHecha(item);
+    };
     const copiarUltimo = (txt) => {
       const ok = () => toast("📋 Informe copiado");
       if (navigator.clipboard?.writeText) navigator.clipboard.writeText(txt).then(ok).catch(() => { rlCopiaManual(body, txt); });
@@ -15643,9 +15742,10 @@ export async function abrirReelsConCandado() {
     };
     body.querySelector(".rl-copiar").onclick = () => { copiar(rep.texto); body.querySelector(".rl-pegado").disabled = false; };
     body.querySelector(".rl-pegado").onclick = () => {
+      const n = rlAplicarCompletarPend(item, rlGruposConDatos());
       rlReporteConfirmado(rep.rids, rep.texto);
       burstConfetti();
-      toast("🧹 Informe entregado. ¡A seguir!");
+      toast(n ? "🧹 Informe entregado. ➕ " + n + " ejercicio(s) agregados también." : "🧹 Informe entregado. ¡A seguir!");
       rlSorpresaHecha(item);
     };
     body.querySelector(".rl-volver").onclick = () => { item.fase = "elegir"; item.rep = null; rlGuardar(); rlRenderReporteSeleccion(item, body); };
