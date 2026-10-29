@@ -5,18 +5,18 @@
 1|t|Llevaba una hora esperando cuando oí mi nombre y me puse de pie.|I had been waiting for an hour when I [heard] my name and [stood] up.
 1|c|Llevaban un año saliendo cuando ella conoció a los papás de él y lo mantuvo en secreto.|They had been dating for a year when she [met] his parents and [kept] it a secret.
 1|t|Había estado lloviendo toda la noche cuando comenzó la tormenta y nos dejaron salir temprano.|It had been raining all night when the storm [began], and they [let] us leave early.
-1|c|Llevaba meses escribiendo cuando por fin escribió el último capítulo y fijó una fecha de entrega.|She had been writing for months when she finally [wrote] the last chapter and [set] a deadline.
-1|t|Llevábamos horas caminando, pero mantuvimos el ritmo y nos encontramos con amigos en la cima.|We had been walking for hours, but we [kept] the pace and [met] friends at the top.
+1|c|Llevaba meses escribiendo cuando por fin escribió el último capítulo y fijó una fecha.|She had been writing for months when she finally [wrote] the last chapter and [set] a date.
+1|t|Llevábamos horas caminando, pero mantuvimos la velocidad y nos encontramos con amigos en la cima.|We had been walking for hours, but we [kept] the speed and [met] friends at the top.
 1|c|Llevaba días practicando el discurso cuando por fin se puso de pie y comenzó a hablar.|He had been practicing the speech for days when he finally [stood] up and [began] to speak.
 1|t|Llevaba años trabajando allí antes de que la dejaran tomar vacaciones; nunca había querido irse.|She had been working there for years before they [let] her take a vacation; she had never [meant] to leave.
 1|c|Llevábamos horas hablando cuando oímos la noticia y nos tomamos de las manos.|We had been talking for hours when we [heard] the news and [held] hands.
 1|t|Había estado ahorrando para el viaje y por fin fijó la fecha y le escribió a su familia.|He had been saving for the trip, and he finally [set] the date and [wrote] to his family.
 1|c|Habían estado esperando en la fila cuando un hombre comenzó a gritar y todos oyeron todo.|They had been waiting in line when a man [began] to shout, and everyone [heard] everything.
 1|t|Llevaba años guardando esa carta; la había escrito su abuela y la guardaba en una caja.|She had been saving that letter for years; her grandmother had [written] it, and she [kept] it in a box.
-1|c|Llevaban meses planeando la boda cuando fijaron la fecha y conocieron al cura.|They had been planning the wedding for months when they [set] the date and [met] the priest.
+1|c|Llevaban meses planeando la fiesta cuando fijaron la fecha y se reunieron con la familia.|They had been planning the party for months when they [set] the date and [met] with the family.
 1|t|Había estado estudiando toda la noche, así que dejé que mi hermana manejara y me quedé con el café en la mano.|I had been studying all night, so I [let] my sister drive and [held] my coffee.
-1|c|Llevábamos horas de pie cuando comenzó el concierto; oímos la primera canción y gritamos.|We had been standing for hours when the concert [began]; we [heard] the first song and screamed.
-1|t|Llevaba un año escribiendo su tesis; lo que dijo el profesor significó mucho para ella y siguió adelante.|She had been writing her thesis for a year; what the professor said [meant] a lot to her, and she [kept] going.
+1|c|Llevábamos horas de pie cuando comenzó el concierto; oímos la primera canción y gritamos.|We had been standing for hours when the concert [began]; we [heard] the first song and shouted.
+1|t|Llevaba un año escribiendo su proyecto; lo que dijo el profesor significó mucho para ella y siguió adelante.|She had been writing her project for a year; what the professor said [meant] a lot to her, and she [kept] going.
 
 # --- Regla 2 · Wh Questions ---
 2|t|¿Dónde conociste a tu esposo? ¿Cuándo comenzaron a salir?|Where did you [meet] your husband? When did you [begin] dating?
@@ -24,50 +24,50 @@
 2|t|¿Por qué te pusiste de pie? ¿Oíste algo?|Why did you [stand] up? Did you [hear] something?
 2|c|¿Cuándo comenzó la reunión? ¿Dónde la hicieron?|When did the meeting [begin]? Where did they [hold] it?
 2|t|¿Qué quisiste decir con eso? ¿Por qué no me dejaste terminar?|What did you [mean] by that? Why didn't you [let] me finish?
-2|c|¿A qué hora pusiste la alarma? ¿La oíste?|What time did you [set] the alarm? Did you [hear] it?
+2|c|¿A qué hora pusiste el reloj? ¿Lo oíste?|What time did you [set] the clock? Did you [hear] it?
 2|t|¿Quién escribió esta canción? ¿Cuándo la oíste por primera vez?|Who [wrote] this song? When did you [hear] it first?
-2|c|¿Cómo te mantuviste tan tranquilo? ¿Quién te tomó la mano?|How did you [keep] so calm? Who [held] your hand?
+2|c|¿Cómo te mantuviste tan tranquilo? ¿Quién te tomó la mano?|How did you [keep] so quiet? Who [held] your hand?
 2|t|¿Has oído las noticias? ¿Qué significan para nosotros?|Have you [heard] the news? What does it [mean] for us?
 2|c|¿Dónde se conocieron? ¿Quién organizó la cita?|Where did you [meet]? Who [set] up the date?
 2|t|¿Por qué no me dejaste ir? ¿Qué te escribió ella?|Why didn't you [let] me go? What did she [write] to you?
 2|c|¿Cuánto tiempo llevas de pie ahí? ¿Cuándo comenzó el dolor?|How long have you [stood] there? When did the pain [begin]?
 2|t|¿Quién ha guardado mis fotos? ¿Dónde las dejaste?|Who has [kept] my photos? Where did you [set] them down?
-2|c|¿Qué has escrito hoy? ¿Ya conociste a tu editor?|What have you [written] today? Have you [met] your editor yet?
+2|c|¿Qué has escrito hoy? ¿Ya conociste a tu jefe?|What have you [written] today? Have you [met] your manager yet?
 2|t|¿Cómo sostuviste todo eso? ¿Qué quisiste decir con "imposible"?|How did you [hold] all that? What did you [mean] by "impossible"?
 
 # --- Regla 3 · Orden de sustantivos compuestos ---
 3|t|Conocí a mi novia en la parada del bus; comenzamos a hablar del clima.|I [met] my girlfriend at the bus stop; we [began] talking about the weather.
-3|c|Escribí mi número de teléfono en una servilleta y ella la guardó.|I [wrote] my phone number on a napkin, and she [kept] it.
-3|t|Oímos la alarma de incendio y nos pusimos de pie.|We [heard] the fire alarm and [stood] up.
+3|c|Escribí mi número de teléfono en un papel y ella la guardó.|I [wrote] my phone number on a paper, and she [kept] it.
+3|t|Oímos el timbre de incendio y nos pusimos de pie.|We [heard] the fire bell and [stood] up.
 3|c|El partido de fútbol comenzó a las tres; lo hicieron en el estadio nuevo.|The soccer game [began] at three; they [held] it at the new stadium.
-3|t|Puse el despertador a las cinco, pero no lo oí.|I [set] the alarm clock for five, but I didn't [hear] it.
+3|t|Puse el despertador a las cinco, pero no lo oí.|I [set] the clock for five, but I didn't [hear] it.
 3|c|Mantén cerrada la puerta del carro; no dejes salir al perro.|[Keep] the car door closed; don't [let] the dog out.
 3|t|La reunión de padres se hizo en la sala de profesores; conocí a la profesora de mi hijo.|The parents' meeting was [held] in the teachers' room; I [met] my son's teacher.
 3|c|Escribió una lista de compras y la dejó en la mesa de la cocina.|She [wrote] a shopping list and [set] it on the kitchen table.
 3|t|Esa estación de tren siempre ha significado mucho para mí; allí conocí a mi esposa.|That train station has always [meant] a lot to me; I [met] my wife there.
-3|c|Estuvimos de pie en la fila del banco por una hora; mantuve la calma.|We [stood] in the bank line for an hour; I [kept] calm.
-3|t|Oí el timbre de la puerta y la dejé entrar.|I [heard] the doorbell and [let] her in.
-3|c|Comenzó la temporada de lluvias y hemos guardado las sillas del jardín.|The rainy season has [begun], and we have [kept] the garden chairs inside.
-3|t|Mi jefe fijó la fecha de entrega para el viernes; escribí el informe el jueves.|My boss [set] the deadline for Friday; I [wrote] the report on Thursday.
+3|c|Estuvimos de pie en la fila del banco por una hora; mantuve la calma.|We [stood] in the bank line for an hour; I [kept] quiet.
+3|t|Oí el timbre de la puerta y la dejé entrar.|I [heard] the bell and [let] her in.
+3|c|Comenzó la temporada húmeda y hemos guardado las sillas del jardín.|The wet season has [begun], and we have [kept] the garden chairs inside.
+3|t|Mi jefe fijó la fecha para el viernes; escribí el informe el jueves.|My boss [set] the date for Friday; I [wrote] the report on Thursday.
 3|c|Sostuve la taza de café con las dos manos; quería calentarme.|I [held] the coffee cup with both hands; I [meant] to warm up.
 3|t|Nos conocimos en una fiesta de cumpleaños hace años y seguimos en contacto.|We [met] at a birthday party years ago and have [kept] in touch.
 
 # --- Regla 4 · Segundo condicional ---
 4|t|Si conociera a alguien famoso, levantaría el celular para tomarle una foto.|If I [met] someone famous, I would [hold] up my phone for a photo.
 4|c|Si escribiera un libro, lo mantendría en secreto hasta terminarlo.|If I [wrote] a book, I would [keep] it a secret until it was done.
-4|t|Si oyeras lo que dicen, no te quedarías ahí de pie.|If you [heard] what they say, you wouldn't [stand] there.
+4|t|Si oyeras lo que dicen, no te quedarías ahí de pie.|If you [heard] what they say, you would not [stand] there.
 4|c|Si me dejaras manejar, comenzaríamos el viaje ya.|If you [let] me drive, we would [begin] the trip now.
 4|t|Si te fijaras una meta, seguirías adelante.|If you [set] a goal, you would [keep] going.
 4|c|Si significara tanto para ti, me escribirías una carta.|If it [meant] so much to you, you would [write] me a letter.
-4|t|Si sostuvieras la escalera, yo instalaría las luces.|If you [held] the ladder, I would [set] up the lights.
-4|c|Si comenzáramos más temprano, cumpliríamos con la fecha límite.|If we [began] earlier, we would [meet] the deadline.
+4|t|Si sostuvieras la caja, yo instalaría las luces.|If you [held] the box, I would [set] up the lights.
+4|c|Si comenzáramos más temprano, cumpliríamos con la fecha.|If we [began] earlier, we would [meet] the date.
 4|t|Si no soportaras el ruido, me avisarías.|If you couldn't [stand] the noise, you would [let] me know.
 4|c|Si guardaras el dinero, podrías viajar; oí que Japón es lindo.|If you [kept] the money, you could travel; I [heard] Japan is nice.
 4|t|Si lo oyera cantar, lloraría; significaría mucho para mí.|If I [heard] him sing, I would cry; it would [mean] so much to me.
 4|c|Si conocieras a mi abuela, te tomaría de la mano todo el día.|If you [met] my grandmother, she would [hold] your hand all day.
 4|t|Si escribieras más claro, la profesora te dejaría pasar.|If you [wrote] more clearly, the teacher would [let] you pass.
-4|c|Si pusiéramos algunas reglas, mantendríamos la casa ordenada.|If we [set] some rules, we would [keep] the house tidy.
-4|t|Si la reunión comenzara a tiempo, no estaríamos aquí de pie esperando.|If the meeting [began] on time, we wouldn't [stand] here waiting.
+4|c|Si pusiéramos algunos planes, mantendríamos la casa ordenada.|If we [set] some plans, we would [keep] the house clean.
+4|t|Si la reunión comenzara a tiempo, no estaríamos aquí de pie esperando.|If the meeting [began] on time, we would not [stand] here waiting.
 
 # --- Regla 5 · Cláusulas relativas ---
 5|t|La mujer que conocí ayer ha escrito tres novelas.|The woman who I [met] yesterday has [written] three novels.
@@ -75,7 +75,7 @@
 5|t|El ruido que oí comenzó en la cocina.|The noise that I [heard] [began] in the kitchen.
 5|c|La reunión, que se hizo en Medellín, comenzó tarde.|The meeting, which was [held] in Medellín, [began] late.
 5|t|El hombre que se puso de pie es mi profesor; tenía buenas intenciones.|The man who [stood] up is my teacher; he [meant] well.
-5|c|La regla que fijaron significaba que no podía salir.|The rule that they [set] [meant] that I couldn't leave.
+5|c|El plan que fijaron significaba que no podía salir.|The plan that they [set] [meant] that I couldn't leave.
 5|t|El chico que conociste, que es de Cali, me escribió un mensaje.|The guy you [met], who is from Cali, [wrote] me a message.
 5|c|La canción que oímos anoche siempre ha significado mucho para mí.|The song that we [heard] last night has always [meant] a lot to me.
 5|t|La foto que guardabas en tu billetera es la que puse en la mesa.|The photo that you [kept] in your wallet is the one I [set] on the table.
@@ -88,19 +88,19 @@
 
 # --- Regla 6 · Need to + infinitivo ---
 6|t|Necesito escribir un correo; quería hacerlo ayer.|I need to [write] an email; I [meant] to do it yesterday.
-6|c|Necesitas mantener la calma; oí lo que pasó.|You need to [keep] calm; I [heard] what happened.
+6|c|Necesitas mantener la calma; oí lo que pasó.|You need to [keep] quiet; I [heard] what happened.
 6|t|Necesitamos conocer al nuevo jefe; comenzó el lunes.|We need to [meet] the new boss; he [began] on Monday.
-6|c|Necesitas poner la alarma; ayer no la oíste.|You need to [set] the alarm; you didn't [hear] it yesterday.
+6|c|Necesitas poner el reloj; ayer no lo oíste.|You need to [set] the clock; you didn't [hear] it yesterday.
 6|t|No necesitas pararte; déjame conseguirte una silla.|You don't need to [stand]; [let] me get you a chair.
 6|c|Necesito cargar al bebé un rato; lo oí llorar.|I need to [hold] the baby for a while; I [heard] him crying.
-6|t|Necesita escribir las palabras nuevas; hoy conoció a su tutor.|She needs to [write] down the new words; she [met] her tutor today.
+6|t|Necesita escribir las palabras nuevas; hoy conoció a su tutor.|She needs to [write] down the new words; she [met] her teacher today.
 6|c|Necesitamos comenzar ahora; ya fijaron la fecha.|We need to [begin] now; they have already [set] the date.
 6|t|Necesito que me dejes hablar; guardé silencio demasiado tiempo.|I need you to [let] me speak; I [kept] quiet for too long.
 6|c|Necesitas oír esta canción; la escribió mi hermano.|You need to [hear] this song; my brother [wrote] it.
 6|t|Necesitamos hacer la reunión en otro lugar; oí que la sala está ocupada.|We need to [hold] the meeting somewhere else; I [heard] the room is busy.
-6|c|Necesito guardar este secreto; lo que prometí iba en serio.|I need to [keep] this secret; I [meant] what I promised.
+6|c|Necesito guardar este secreto; lo que dije iba en serio.|I need to [keep] this secret; I [meant] what I said.
 6|t|Necesitas conocer a mi hermana; escribió un libro de viajes.|You need to [meet] my sister; she [wrote] a book about travel.
-6|c|No necesitábamos estar de pie toda la ceremonia; nos dejaron sentarnos.|We didn't need to [stand] for the whole ceremony; they [let] us sit down.
+6|c|No necesitábamos estar de pie toda la fiesta; nos dejaron sentarnos.|We didn't need to [stand] for the whole party; they [let] us sit down.
 6|t|Necesito fijar una meta clara; la última vez comencé sin una.|I need to [set] a clear goal; I [began] without one last time.
 
 # --- Regla 8 · Pronombre objeto tras preposición ---
@@ -115,25 +115,25 @@
 8|t|Siempre ha significado mucho para mí; mi abuelo lo escribió para mí.|It has always [meant] a lot to me; my grandfather [wrote] it for me.
 8|c|Te guardé un asiento; el show comenzó hace cinco minutos.|I [kept] a seat for you; the show [began] five minutes ago.
 8|t|Nunca he oído nada malo de ella; la conocí en el trabajo.|I have never [heard] anything bad about her; I [met] her at work.
-8|c|Me quedé de pie junto a él toda la noche; no lo dejé caer.|I [stood] beside him all night; I didn't [let] him fall.
+8|c|Me quedé de pie junto a él toda la noche; no lo dejé caer.|I [stood] next to him all night; I didn't [let] him fall.
 8|t|Escribieron un artículo sobre nosotros; significó mucho.|They [wrote] an article about us; it [meant] a lot.
 8|c|La reunión con ellos se hizo en línea; yo la organicé.|The meeting with them was [held] online; I [set] it up.
 8|t|Conocimos a sus padres y tuvimos una larga conversación con ellos.|We [met] his parents and [held] a long conversation with them.
 
 # --- Regla 9 · "as" = como ---
-9|t|La conocí como compañera de trabajo; al principio lo mantuvimos profesional.|I [met] her as a coworker; we [kept] it professional at first.
+9|t|La conocí como compañera de trabajo; al principio lo mantuvimos profesional.|I [met] her as a colleague; we [kept] it professional at first.
 9|c|Escribió el libro como regalo para su hija; ella lo sostuvo con amor.|He [wrote] the book as a gift for his daughter; she [held] it with love.
-9|t|Como oíste, la reunión se cancela; fijaron una nueva fecha.|As you [heard], the meeting is canceled; they [set] a new date.
+9|t|Como oíste, la reunión se cancela; fijaron una nueva fecha.|As you [heard], the meeting is stopped; they [set] a new date.
 9|c|Comenzó como mesero y ahora dirige el lugar; nunca dejó de aprender.|He [began] as a waiter and now runs the place; he [kept] learning.
-9|t|Me dejó usar su casa como oficina; allí escribí mi tesis.|She [let] me use her house as an office; I [wrote] my thesis there.
+9|t|Me dejó usar su casa como oficina; allí escribí mi proyecto.|She [let] me use her house as an office; I [wrote] my project there.
 9|c|Como quise decir antes, no es tu culpa; oí toda la historia.|As I [meant] to say before, it's not your fault; I [heard] the whole story.
 9|t|Se paró en la puerta como guardia y no dejó entrar a nadie.|He [stood] at the door as a guard and didn't [let] anyone in.
-9|c|Lo guardé como recuerdo; conocí al artista en París.|I [kept] it as a souvenir; I [met] the artist in Paris.
+9|c|Lo guardé como regalo; conocí al artista en París.|I [kept] it as a gift; I [met] the artist in Paris.
 9|t|La fiesta se hizo como sorpresa; ella comenzó a llorar.|The party was [held] as a surprise; she [began] to cry.
-9|c|Como te escribí, llego el lunes; puse la alarma a las cuatro.|As I [wrote] to you, I arrive on Monday; I [set] my alarm for four.
+9|c|Como te escribí, llego el lunes; puse mi reloj a las cuatro.|As I [wrote] to you, I arrive on Monday; I [set] my clock for four.
 9|t|Trabajó como profesora y conoció a mucha gente que significó mucho para ella.|She worked as a teacher and [met] a lot of people who [meant] a lot to her.
-9|c|Como siempre, se puso de pie para saludar a todos y cargó al bebé.|As always, he [stood] up to greet everyone and [held] the baby.
-9|t|Usó el dinero como garantía y comenzó su negocio; oí que le fue bien.|He used the money as a guarantee and [began] his business; I [heard] it went well.
+9|c|Como siempre, se puso de pie para saludar a todos y cargó al bebé.|As always, he [stood] up to say hello to everyone and [held] the baby.
+9|t|Usó el dinero para comenzar su negocio; oí que le fue bien.|He used the money to [begin] his business; I [heard] it went well.
 9|c|Como habíamos oído, el lugar era increíble; nos dejaron quedarnos hasta la medianoche.|As we had [heard], the place was amazing; they [let] us stay until midnight.
 9|t|Fijó la fecha como yo le pedí y la escribió en el calendario.|She [set] the date as I asked, and she [wrote] it on the calendar.
 
@@ -141,12 +141,12 @@
 10|t|Nunca he conocido a nadie tan amable; ha estado en contacto por años.|I have never [met] anyone so kind; she has [kept] in touch for years.
 10|c|La película ya ha comenzado; ¿no has oído la música?|The movie has already [begun]; haven't you [heard] the music?
 10|t|He escrito tres cartas este mes, pero las he guardado todas.|I have [written] three letters this month, but I have [kept] them all.
-10|c|Han fijado la boda para junio y ya han hecho una pequeña fiesta.|They have [set] the wedding for June, and they have [held] a small party already.
+10|c|Han fijado la fiesta para junio y ya han hecho una pequeña fiesta.|They have [set] the party for June, and they have [held] a small party already.
 10|t|¿Alguna vez has oído hablar de este lugar? Ha estado aquí por dos siglos.|Have you ever [heard] of this place? It has [stood] here for two centuries.
 10|c|Nunca me han dejado decidir; aunque siempre han tenido buenas intenciones.|They have never [let] me decide; they have always [meant] well, though.
 10|t|Ha guardado esa foto por diez años; la conoció en 2015.|He has [kept] that photo for ten years; he [met] her in 2015.
 10|c|Acabo de oír tu mensaje; te escribí enseguida.|I have just [heard] your message; I [wrote] back right away.
-10|t|Se han puesto de pie para aplaudir; nadie ha contenido las lágrimas.|They have [stood] up to clap; nobody has [held] back tears.
+10|t|Se han puesto de pie para gritar; nadie ha ocultado lo que sintió.|They have [stood] up to shout; nobody has [held] back how they felt.
 10|c|Ya comencé mi nuevo trabajo; ya conocí a mi equipo.|I have already [begun] my new job; I have [met] my team.
 10|t|Siempre ha significado mucho para mí; lo escribió mi mamá.|It has always [meant] a lot to me; my mother [wrote] it.
 10|c|Han hecho tres reuniones esta semana; no he oído nada nuevo.|They have [held] three meetings this week; I have [heard] nothing new.
@@ -166,7 +166,7 @@
 11|t|No traje mi teléfono, así que no oí tu llamada; quería devolvértela.|I didn't bring my phone, so I didn't [hear] your call; I [meant] to call you back.
 11|c|Trae lo que necesites; fijamos la hora para las seis y comenzamos temprano.|Bring what you need; we [set] the time for six, and we [began] early.
 11|t|¿Quién trajo este libro? Lo escribió mi profesor; lo conocí el año pasado.|Who brought this book? My teacher [wrote] it; I [met] him last year.
-11|c|Trajo a su hijo y lo cargó toda la ceremonia; se quedó de pie al fondo.|She brought her son and [held] him during the whole ceremony; she [stood] at the back.
+11|c|Trajo a su hijo y lo cargó toda la fiesta; se quedó de pie al fondo.|She brought her son and [held] him during the whole party; she [stood] at the back.
 11|t|Traje comida porque oí que tenías hambre; déjame servirte.|I brought food because I [heard] you were hungry; [let] me serve you.
 11|c|Me trajeron un regalo que significó mucho; lo he guardado desde entonces.|They brought me a gift that [meant] a lot; I have [kept] it ever since.
 11|t|Trae a tu hermano; quiero conocerlo, he oído mucho de él.|Bring your brother; I want to [meet] him; I have [heard] so much about him.
@@ -175,15 +175,15 @@
 12|t|Si conoces a mi jefe, dime qué piensas.|If you [meet] my boss, [let] me know what you think.
 12|c|Si escribes todos los días, seguirás mejorando.|If you [write] every day, you will [keep] improving.
 12|t|Si oyes algo raro, ponte de pie y avísame.|If you [hear] something strange, [stand] up and tell me.
-12|c|Si comenzamos ahora, cumpliremos con la fecha límite.|If we [begin] now, we will [meet] the deadline.
+12|c|Si comenzamos ahora, cumpliremos con la fecha.|If we [begin] now, we will [meet] the date.
 12|t|Si me dejas, cargaré al bebé mientras cocinas.|If you [let] me, I will [hold] the baby while you cook.
-12|c|Si pones la alarma, la oirás a tiempo.|If you [set] the alarm, you will [hear] it in time.
+12|c|Si pones el reloj, lo oirás a tiempo.|If you [set] the clock, you will [hear] it in time.
 12|t|Si guardas el recibo, te dejarán devolverlo.|If you [keep] the receipt, they will [let] you return it.
 12|c|Si lo dices en serio, lo escribiré.|If you [mean] it, I will [write] it down.
 12|t|Si haces la fiesta en tu casa, nos vemos allí.|If you [hold] the party at your house, I will [meet] you there.
 12|c|Si estás de pie todo el día, empezarás a sentirte cansado.|If you [stand] all day, you will [begin] to feel tired.
 12|t|Si escribo el correo, ¿organizas tú la reunión?|If I [write] the email, will you [set] up the meeting?
-12|c|Si mantienes la calma, oirás mejor las instrucciones.|If you [keep] calm, you will [hear] the instructions better.
+12|c|Si mantienes la calma, oirás mejor las instrucciones.|If you [keep] quiet, you will [hear] the instructions better.
 12|t|Si lo conoces, sabrás lo que quiero decir.|If you [meet] him, you will know what I [mean].
 12|c|Si comienzan el juego tarde, dejaremos que los niños se queden despiertos.|If they [begin] the game late, we will [let] the kids stay up.
 12|t|Si fijas una fecha, la escribiré en el calendario.|If you [set] a date, I will [write] it on the calendar.
@@ -191,33 +191,33 @@
 # --- Regla 13 · Past Perfect vs Presente vs Futuro ---
 13|t|La película ya había comenzado cuando nos encontramos en el cine.|The movie had already [begun] when we [met] at the theater.
 13|c|Nunca había oído esa canción; mañana escribiré el nombre.|I had never [heard] that song; tomorrow I will [write] down the name.
-13|t|Ya había conocido a su familia, así que mantuve la calma.|I had already [met] his family, so I [kept] calm.
+13|t|Ya había conocido a su familia, así que mantuve la calma.|I had already [met] his family, so I [kept] quiet.
 13|c|Había guardado el secreto por años, pero ahora dejaré que todos lo sepan.|I had [kept] the secret for years, but now I will [let] everyone know.
 13|t|Ella había escrito el discurso, pero mañana me pondré de pie y lo leeré yo.|She had [written] the speech, but tomorrow I will [stand] up and read it.
 13|c|Habían fijado la fecha antes de que yo los conociera.|They had [set] the date before I [met] them.
-13|t|Me di cuenta de que no había oído la alarma; ahora pondré dos.|I realized I hadn't [heard] the alarm; now I will [set] two.
-13|c|Habían hecho la reunión sin mí; la próxima vez mantendré mi agenda libre.|They had [held] the meeting without me; next time I will [keep] my calendar open.
+13|t|Vi que no había oído el reloj; ahora pondré dos.|I saw I had not [heard] the clock; now I will [set] two.
+13|c|Habían hecho la reunión sin mí; la próxima vez mantendré mi calendario libre.|They had [held] the meeting without me; next time I will [keep] my calendar open.
 13|t|Nunca me habían dejado manejar; mañana comenzaré las clases.|They had never [let] me drive; tomorrow I will [begin] lessons.
 13|c|Lo que dijo había significado mucho; ahora lo escribiré.|What he said had [meant] a lot; now I will [write] it down.
 13|t|Había estado de pie toda la noche, así que me dejé dormir hasta tarde.|I had [stood] all night, so I [let] myself sleep late.
 13|c|Ya había comenzado a llover cuando nos encontramos afuera.|It had already [begun] to rain when we [met] outside.
-13|t|Le había escrito, pero no me había contestado; hoy oiré su voz.|I had [written] to him, but he hadn't answered; today I will [hear] his voice.
-13|c|Había conocido a muchos chefs, pero ninguno como él; guardaré su receta.|I had [met] many chefs, but none like him; I will [keep] his recipe.
+13|t|Le había escrito, pero no me había contestado; hoy oiré su voz.|I had [written] to him, but he had not answered; today I will [hear] his voice.
+13|c|Había conocido a muchos chefs, pero ninguno como él; guardaré su comida.|I had [met] many chefs, but none like him; I will [keep] his food.
 13|t|Habían conservado la casa por años; ahora la dejarán ir.|They had [kept] the house for years; now they will [let] it go.
 
 # --- Regla 14 · Make vs Do ---
 14|t|Hice la tarea y luego escribí un correo; lo mantuve corto.|I did my homework and then [wrote] an email; I [kept] it short.
-14|c|Hizo una promesa y la cumplió; me enteré después.|He made a promise and [kept] it; I [heard] about it later.
+14|c|Dio su palabra y la cumplió; me enteré después.|He gave his word and [kept] it; I [heard] about it later.
 14|t|Hicimos planes para vernos el sábado; fijamos la hora para el mediodía.|We made plans to [meet] on Saturday; we [set] the time for noon.
 14|c|Haz tu mejor esfuerzo y no dejes que nadie te detenga; has comenzado bien.|Do your best, and don't [let] anyone stop you; you have [begun] well.
 14|t|Tomaron una gran decisión en la reunión que hicieron en el hotel; oí que salió bien.|They made a big decision at the meeting they [held] at the hotel; I [heard] it went well.
-14|c|Cometí un error y lo escribí para no repetirlo; mi jefe lo dejó pasar.|I made a mistake, and I [wrote] it down so I wouldn't repeat it; my boss [let] it go.
-14|t|Dio un discurso y todos se pusieron de pie; contuvieron la respiración.|He made a speech, and everyone [stood] up; they [held] their breath.
+14|c|Cometí un error y lo escribí para no repetirlo; mi jefe lo dejó pasar.|I made a mistake, and I [wrote] it down so I would not repeat it; my boss [let] it go.
+14|t|Dio un discurso y todos se pusieron de pie; se quedaron quietos.|He made a speech, and everyone [stood] up; they [held] still.
 14|c|He hecho ejercicio cada mañana desde que comenzó el año; lo he mantenido.|I have done exercise every morning since the year [began]; I have [kept] it up.
 14|t|No hagas ruido; oí al bebé, así que déjalo dormir.|Don't make noise; I [heard] the baby, so [let] him sleep.
 14|c|Tiende la cama y pon la mesa; los invitados empezaron a llegar.|Make the bed and [set] the table; the guests [began] arriving.
 14|t|Hicimos amigos en el viaje y seguimos en contacto; los volví a ver el año pasado.|We made friends on the trip and [kept] in touch; I [met] them again last year.
-14|c|Hizo la tarea y escribió un ensayo; oí que era excelente.|She did her homework and [wrote] an essay; I [heard] it was excellent.
+14|c|Hizo la tarea y escribió un ensayo; oí que era excelente.|She did her homework and [wrote] a report; I [heard] it was excellent.
 14|t|Hacer lo correcto siempre ha significado mucho para mí; mi papá dio el ejemplo.|Doing the right thing has always [meant] a lot to me; my father [set] the example.
 14|c|Hicieron la cena y nos dejaron quedarnos; tuvimos una larga conversación.|They made dinner and [let] us stay; we [held] a long conversation.
 14|t|Ha hecho un gran trabajo desde que comenzó; ha escrito tres informes.|She has done a great job since she [began]; she has [written] three reports.
@@ -229,7 +229,7 @@
 15|c|Salió temprano del trabajo porque comenzó a llover; quería llegar seca a casa.|She left work early because it [began] to rain; she [meant] to get home dry.
 15|t|Se fue a conocer a los papás de su novia; lo mantuvo en secreto.|He has gone to [meet] his girlfriend's parents; he [kept] it a secret.
 15|c|Salimos del concierto cuando oímos la última canción; habíamos estado de pie por horas.|We left the concert when we [heard] the last song; we had [stood] for hours.
-15|t|Todos se habían ido cuando se puso de pie para hablar; sostuvo sus notas en silencio.|Everyone had gone when he [stood] up to speak; he [held] his notes in silence.
+15|t|Todos se habían ido cuando se puso de pie para hablar; sostuvo sus notas en silencio.|Everyone had gone when he [stood] up to speak; he [held] his notes in quiet.
 15|c|Partió hacia Londres y nos escribió desde allá; conoció a mucha gente.|She left for London and [wrote] to us from there; she [met] a lot of people.
 15|t|Se ha ido; fijó la fecha hace meses y cumplió su palabra.|He has gone; he [set] the date months ago and [kept] his word.
 15|c|Salió de la reunión antes de que comenzara; nadie oyó por qué.|He left the meeting before it [began]; nobody [heard] why.
@@ -259,14 +259,14 @@
 # --- Regla 17 · Modales básicos ---
 17|t|Deberías conocer a mi hermana; escribió un libro genial.|You should [meet] my sister; she [wrote] a great book.
 17|c|¿Puedes sostener esto un momento? Quería dejarlo en la mesa.|Can you [hold] this for a moment? I [meant] to put it down.
-17|t|Solía escribir poemas cuando era joven; los he guardado todos.|I used to [write] poems when I was young; I have [kept] them all.
-17|c|Debes mantener la calma; oí que es solo un simulacro.|You must [keep] calm; I [heard] it's just a drill.
+17|t|Solía escribir canciones cuando era joven; las he guardado todas.|I used to [write] songs when I was young; I have [kept] them all.
+17|c|Debes mantener la calma; oí que es solo un simulacro.|You must [keep] quiet; I [heard] it's just an exercise.
 17|t|¿Podrías dejarme pasar? El show ya comenzó.|Could you [let] me pass? The show has [begun].
-17|c|No soporto el frío; puse la calefacción al máximo.|I can't [stand] the cold; I [set] the heater on high.
+17|c|No soporto el frío; puse la calefacción al máximo.|I can't [stand] the cold; I [set] the heat on high.
 17|t|Solíamos oír la radio todas las noches; mi papá la tenía cerca.|We used to [hear] the radio every night; my dad [held] it close.
 17|c|Deberías comenzar temprano; la última vez nos hiciste esperar.|You should [begin] early; last time you [kept] us waiting.
 17|t|¿Me puedes escribir cuando llegues? Hoy conocí a tu mamá.|Can you [write] to me when you arrive? I [met] your mom today.
-17|c|Debes poner la alarma; hoy no la oíste.|You must [set] the alarm; you didn't [hear] it today.
+17|c|Debes poner el reloj; hoy no lo oíste.|You must [set] the clock; you didn't [hear] it today.
 17|t|Él solía significar mucho para mí; nos conocimos en el colegio.|He used to [mean] a lot to me; we [met] in school.
 17|c|¿Podrías mantener la puerta abierta? Oí que alguien viene.|Could you [keep] the door open? I [heard] someone coming.
 17|t|No deberías estar de pie tanto tiempo; déjame traerte una silla.|You shouldn't [stand] so long; [let] me get you a chair.
@@ -274,38 +274,38 @@
 17|t|Solía conocer gente nueva cada semana; llevaba una lista.|I used to [meet] new people every week; I [kept] a list.
 
 # --- Regla 18 · Gerundio vs infinitivo ---
-18|t|Después de conocerla, comencé a escribir poemas.|After meeting her, I [began] to [write] poems.
+18|t|Después de conocerla, comencé a escribir canciones.|After meeting her, I [began] to [write] songs.
 18|c|Decidió guardar el dinero; oyó que los precios iban a subir.|She decided to [keep] the money; she [heard] prices were going up.
-18|t|Antes de salir, puse la alarma y le sostuve la puerta a mi mamá.|Before leaving, I [set] the alarm and [held] the door for my mom.
+18|t|Antes de salir, puse el reloj y le sostuve la puerta a mi mamá.|Before leaving, I [set] the clock and [held] the door for my mom.
 18|c|Quiero conocer a tus amigos; oí que son divertidos.|I want to [meet] your friends; I [heard] they're fun.
 18|t|Disfruto escribir en las mañanas; comencé hace un año y lo he mantenido.|I enjoy writing in the mornings; I [began] a year ago and have [kept] it up.
 18|c|Dejó de esperar y se puso de pie; pensaba irse.|He stopped waiting and [stood] up; he [meant] to leave.
 18|t|Evité ver las noticias ese día; ya había oído suficiente en el trabajo y me quedé callado.|I avoided watching the news that day; I [heard] enough at work and [kept] quiet.
-18|c|Prometió escribirme cada semana y cumplió su promesa.|He promised to [write] to me every week, and he [kept] his promise.
+18|c|Dio su palabra de escribirme cada semana y la cumplió.|He gave his word to [write] to me every week, and he [kept] it.
 18|t|Gracias por dejarme quedar; quería decírtelo ayer, pero la fiesta comenzó.|Thanks for letting me stay; I [meant] to say it yesterday, but the party [began].
-18|c|Planean hacer la boda en la playa; ya fijaron la fecha.|They plan to [hold] the wedding on the beach; they [set] the date.
+18|c|Planean hacer la fiesta en la playa; ya fijaron la fecha.|They plan to [hold] the party on the beach; they [set] the date.
 18|t|Antes de comenzar, oigamos a la directora; escribió un discurso corto.|Before beginning, let's [hear] the director; she [wrote] a short speech.
-18|c|Me encanta conocer gente nueva; ayer conocí a un escritor que dio un taller.|I love meeting new people; yesterday I [met] a writer who [held] a workshop.
-18|t|Siguió hablando aunque nadie lo oía; estaba de pie solo.|He kept talking although nobody [heard] him; he [stood] alone.
-18|c|Se arrepiente de no haberla dejado ir; tenía buenas intenciones.|He regrets not having [let] her go; he [meant] well.
+18|c|Me encanta conocer gente nueva; ayer conocí a un escritor que dio una clase.|I love meeting new people; yesterday I [met] a writer who [held] a class.
+18|t|Siguió hablando aunque nadie lo oía; estaba de pie solo.|He kept talking though nobody [heard] him; he [stood] alone.
+18|c|Se arrepiente de no haberla dejado ir; tenía buenas intenciones.|He is sad he didn't [let] her go; he [meant] well.
 18|t|Antes de fijar la fecha, reunámonos con todos.|Before we [set] the date, let's [meet] everyone.
 
 # --- Regla 19 · Participios irregulares ---
 19|t|He conocido a mucha gente que ha escrito libros.|I have [met] many people who have [written] books.
-19|c|La reunión se ha realizado y ya ha comenzado el debate.|The meeting has been [held], and the debate has [begun].
+19|c|La reunión se ha realizado y ya ha comenzado el debate.|The meeting has been [held], and the discussion has [begun].
 19|t|He oído que te han dejado entrar gratis.|I have [heard] they have [let] you in for free.
 19|c|Hemos guardado todo lo que ha significado algo para nosotros.|We have [kept] everything that has [meant] something to us.
 19|t|Ya han fijado la fecha y han escrito las invitaciones.|They have [set] the date and have [written] the invitations.
 19|c|Ha estado de pie toda la mañana y no ha oído nada.|He has [stood] all morning and hasn't [heard] a thing.
 19|t|¿Has conocido a sus padres? Han guardado tu foto.|Have you [met] her parents? They have [kept] your photo.
-19|c|El curso ha comenzado y ya he escrito dos ensayos.|The course has [begun], and I have already [written] two essays.
+19|c|El curso ha comenzado y ya he escrito dos ensayos.|The course has [begun], and I have already [written] two homework.
 19|t|Esa casa ha resistido cien años; se ha mantenido unida con cuidado.|That house has [stood] for a hundred years; it has been [held] together with care.
 19|c|Nunca me han dejado hablar, pero he mantenido mi posición.|They have never [let] me speak, but I have [held] my ground.
 19|t|Hemos oído la historia y la hemos escrito.|We have [heard] the story and have [written] it down.
-19|c|Han fijado nuevas reglas; nos hemos reunido para discutirlas.|They have [set] new rules; we have [met] to discuss them.
-19|t|Ha guardado silencio desde que comenzó el juicio.|She has [kept] silent since the trial [began].
+19|c|Han fijado nuevos planes; nos hemos reunido para discutirlas.|They have [set] new plans; we have [met] to discuss them.
+19|t|Ha guardado silencio desde que comenzó el juicio.|She has [kept] quiet since the test [began].
 19|c|¿Has oído lo que ha significado para ella?|Have you [heard] what it has [meant] to her?
-19|t|La conferencia se ha realizado y hemos conocido a expertos.|The conference has been [held], and we have [met] experts.
+19|t|La conferencia se ha realizado y hemos conocido a expertos.|The conference has been [held], and we have [met] teachers.
 
 # --- Regla 20 · 3ra persona singular (-s) ---
 20|t|Mi hermana escribe para un periódico; ayer escribió sobre el clima y conoció a un científico.|My sister writes for a newspaper; yesterday she [wrote] about the weather and [met] a scientist.
@@ -313,7 +313,7 @@
 20|t|Mi papá escucha la radio cada mañana; hoy oyó una noticia rara y se puso de pie.|My dad listens to the radio every morning; today he [heard] strange news and [stood] up.
 20|c|Ella empieza a trabajar a las ocho; ayer comenzó a las siete e hizo una reunión.|She starts work at eight; yesterday she [began] at seven and [held] a meeting.
 20|t|Mi jefe nunca nos deja salir temprano, pero ayer nos dejó; lo hizo como un regalo.|My boss never lets us leave early, but yesterday he [let] us go; he [meant] it as a gift.
-20|c|El profesor pone tareas difíciles; ayer puso una imposible y nadie mantuvo la calma.|The teacher gives hard homework; yesterday he [set] an impossible task, and nobody [kept] calm.
+20|c|El profesor pone tareas difíciles; ayer puso una imposible y nadie mantuvo la calma.|The teacher gives hard homework; yesterday he [set] an impossible task, and nobody [kept] quiet.
 20|t|Ana conoce a todo el mundo; ayer conoció al alcalde y le estrechó la mano.|Ana knows everyone; yesterday she [met] the mayor and [held] his hand.
 20|c|Mi abuelo se levanta temprano; ayer se paró en la ventana a las cuatro y oyó los pájaros.|My grandfather gets up early; yesterday he [stood] at the window at four and [heard] the birds.
 20|t|Siempre dice lo que piensa; ayer dijo algo que significó mucho y yo lo escribí.|She always says what she thinks; yesterday she said something that [meant] a lot, and I [wrote] it down.
@@ -321,22 +321,22 @@
 20|t|Mi mamá guarda todo; nunca nos ha dejado botar nada y guardó mis zapatos de bebé.|My mom keeps everything; she has never [let] us throw anything away, and she [kept] my baby shoes.
 20|c|Mi vecino pone música alta; anoche la oí hasta las tres y no la soporté.|My neighbor plays loud music; last night I [heard] it until three; I couldn't [stand] it.
 20|t|El equipo empieza la temporada en marzo; el año pasado comenzó en abril e impuso un récord.|The team starts the season in March; last year it [began] in April and [set] a record.
-20|c|Juan cree que tiene razón; ayer mantuvo su posición y siguió discutiendo.|Juan believes he is right; yesterday he [held] his position and [kept] arguing.
+20|c|Juan cree que tiene razón; ayer mantuvo su posición y siguió hablando.|Juan believes he is right; yesterday he [held] his position and [kept] talking.
 20|t|Mi hermano conoce a mi novia; la conoció en mi cumpleaños y la oyó cantar.|My brother knows my girlfriend; he [met] her at my birthday and [heard] her sing.
 
 # --- Regla 21 · Say vs Tell ---
 21|t|Dijo que había conocido a alguien y me contó todo lo que había oído de él.|She said she had [met] someone, and she told me everything she [heard] from him.
 21|c|Le dije que guardara el secreto, pero dijo que no podía aguantarse.|I told him to [keep] the secret, but he said he couldn't [hold] it in.
-21|t|¿Qué dijo el profesor? Me dijeron que escribiera el ensayo otra vez; quería preguntar por qué.|What did the teacher say? They told me to [write] the essay again; I [meant] to ask why.
+21|t|¿Qué dijo el profesor? Me dijeron que escribiera el ensayo otra vez; quería preguntar por qué.|What did the teacher say? They told me to [write] the homework again; I [meant] to ask why.
 21|c|Dijo "buenos días" y comenzó la clase; al principio nadie lo oyó.|He said "good morning" and [began] the class; nobody [heard] him at first.
 21|t|Me contó lo que quiso decir; dijo que no era nada personal y lo dejé pasar.|He told me what he [meant]; he said it wasn't personal, and I [let] it go.
-21|c|Dijeron que la reunión se haría el lunes y nos dijeron que pusiéramos una alarma.|They said the meeting would be [held] on Monday and told us to [set] an alarm.
-21|t|No me has contado qué escribiste; dijiste que era un poema que guardabas en secreto.|You haven't told me what you [wrote]; you said it was a poem you [kept] secret.
+21|c|Dijeron que la reunión se haría el lunes y nos dijeron que pusiéramos un reloj.|They said the meeting would be [held] on Monday and told us to [set] a clock.
+21|t|No me has contado qué escribiste; dijiste que era una canción que guardabas en secreto.|You haven't told me what you [wrote]; you said it was a song you [kept] secret.
 21|c|Dijo que se había quedado de pie toda la noche y me contó lo que había oído.|She said she had [stood] all night, and she told me what she had [heard].
 21|t|Dime cuándo comienzas; dijiste que sería pronto y quiero conocer a tu equipo.|Tell me when you [begin]; you said it would be soon, and I want to [meet] your team.
 21|c|Dijo que la dejáramos tranquila; nos contó que la noticia había significado mucho para ella.|She said we should [let] her be; she told us the news had [meant] a lot to her.
 21|t|Le conté a mi mamá que había conocido a mi novia y dijo que quería hacerle una cena.|I told my mom I had [met] my girlfriend, and she said she wanted to [hold] a dinner for her.
-21|c|Siempre dice que mantengamos la calma; nos lo dijo cuando comenzó la tormenta.|She always says we should [keep] calm; she told us that when the storm [began].
+21|c|Siempre dice que mantengamos la calma; nos lo dijo cuando comenzó la tormenta.|She always says we should [keep] quiet; she told us that when the storm [began].
 21|t|¿Qué dijo? —Me dijo que pusiera la mesa y que no dejara entrar al perro.|What did she say? —She told me to [set] the table and not to [let] the dog in.
 21|c|Dijo que había oído algo y me pidió que me quedara de pie junto a la puerta.|He said he had [heard] something and told me to [stand] by the door.
 21|t|Me dijo que escribiera mi nombre y dijo "gracias" cuando le di el formulario.|She told me to [write] my name and said "thank you" when I [held] out the form.
@@ -348,22 +348,22 @@
 22|c|Se puso de pie y dio un discurso; significó mucho para la familia.|He [stood] up and gave a speech; it [meant] a lot to the family.
 22|t|La profesora nos dejó usar un diccionario y pusimos las respuestas en la pizarra.|The teacher [let] us use a dictionary, and we [set] the answers on the board.
 22|c|Escribí un correo al gerente y lo conocí al día siguiente.|I [wrote] an email to the manager and [met] him the next day.
-22|t|Sostuvo una vela en la mano y comenzó a cantar.|She [held] a candle in her hand and [began] to sing.
-22|c|Guardamos una botella de vino para la boda; la oímos abrir a medianoche.|We [kept] a bottle of wine for the wedding; we [heard] it open at midnight.
+22|t|Sostuvo una luz en la mano y comenzó a cantar.|She [held] a light in her hand and [began] to sing.
+22|c|Guardamos una botella de vino para la fiesta; la oímos abrir a medianoche.|We [kept] a bottle of wine for the party; we [heard] it open at midnight.
 22|t|Fijamos una fecha para el viaje y escribimos una lista.|We [set] a date for the trip and [wrote] a list.
-22|c|Oí un ruido en el ático y me quedé de pie sin moverme.|I [heard] a noise in the attic and [stood] still.
+22|c|Oí un ruido en el cuarto y me quedé de pie sin moverme.|I [heard] a sound in the room and [stood] still.
 22|t|El sol se puso y comenzó una noche fría.|The sun [set], and a cold night [began].
 22|c|Conocí a una chica que tenía un perro y me dejó acariciarlo.|I [met] a girl who had a dog, and she [let] me pet it.
 22|t|Esa carta significa mucho; la escribió un soldado en la guerra.|That letter has [meant] a lot to us; a soldier [wrote] it during the war.
-22|c|La universidad hizo una ceremonia y nos quedamos de pie una hora.|The university [held] a ceremony, and we [stood] for an hour.
-22|t|Mantuve la calma durante la entrevista y conocí a la directora.|I [kept] calm during the interview and [met] the director.
+22|c|La universidad hizo una fiesta y nos quedamos de pie una hora.|The university [held] a party, and we [stood] for an hour.
+22|t|Mantuve la calma durante la entrevista y conocí a la directora.|I [kept] quiet during the interview and [met] the director.
 
 # --- Regla 23 · Phrasal verbs con "look" ---
 23|t|Busqué la carta que escribiste, pero la había guardado en otro lugar.|I looked for the letter you [wrote], but I had [kept] it somewhere else.
 23|c|Se parece a la mujer que conocí en el tren; oí su voz y la recordé.|She looks like the woman I [met] on the train; I [heard] her voice and remembered.
 23|t|Busca la palabra en el diccionario; la oí en una canción y no sabía qué significaba.|Look up the word in the dictionary; I [heard] it in a song and didn't know what it [meant].
 23|c|Mira lo que escribí para ti; cada palabra la dije en serio.|Look at what I [wrote] for you; I [meant] every word.
-23|t|Estoy buscando al hombre que se paró en la puerta; oí que dejó un paquete.|I'm looking for the man who [stood] at the door; I [heard] he left a package.
+23|t|Estoy buscando al hombre que se paró en la puerta; oí que dejó una caja.|I'm looking for the man who [stood] at the door; I [heard] he left a box.
 23|c|Parece que va a llover; deja que los niños jueguen adentro; la tormenta ya comenzó.|It looks like it's going to rain; [let] the kids play inside; the storm has [begun].
 23|t|Busqué la dirección y nos encontramos en el café; seguimos hablando por horas.|I looked up the address, and we [met] at the café; we [kept] talking for hours.
 23|c|Me miró y comenzó a reír; se agarraba el estómago.|She looked at me and [began] to laugh; she [held] her stomach.
@@ -379,33 +379,33 @@
 25|t|Me dio una carta que había escrito su abuelo; la he guardado desde entonces.|He gave me a letter that his grandfather had [written]; I have [kept] it ever since.
 25|c|Le di mi número cuando nos conocimos; me escribió al día siguiente.|I gave her my number when we [met]; she [wrote] the next day.
 25|t|Nos dieron permiso y nos dejaron entrar al museo de noche; oímos ruidos extraños.|They gave us permission and [let] us into the museum at night; we [heard] strange sounds.
-25|c|El profesor nos dio una tarea y comenzamos de inmediato; seguimos trabajando hasta las cinco.|The teacher gave us an assignment, and we [began] right away; we [kept] working until five.
-25|t|Me han dado una oportunidad que ha significado mucho para mí; contuve las lágrimas.|They have given me a chance that has [meant] a lot to me; I [held] back tears.
-25|c|Le dimos un aplauso y todos nos pusimos de pie; ella sostenía el micrófono.|We gave her a round of applause, and we all [stood] up; she [held] the microphone.
-25|t|Dame la mano y apriétala fuerte; no la sueltes.|Give me your hand and [hold] it tight; don't [let] go.
-25|c|Me dio un consejo que nunca he olvidado; lo oí cuando tenía diez años y lo escribí.|She gave me advice I have never forgotten; I [heard] it when I was ten and [wrote] it down.
-25|t|Nos dieron las llaves y pusimos las maletas en el cuarto; después conocimos al dueño.|They gave us the keys, and we [set] our bags in the room; we [met] the owner later.
-25|c|Le dieron el premio en la ceremonia que hicieron en el teatro; todos nos pusimos de pie para aplaudir.|They gave her the award at the ceremony they [held] at the theater; we all [stood] to clap.
+25|c|El profesor nos dio una tarea y comenzamos de inmediato; seguimos trabajando hasta las cinco.|The teacher gave us homework, and we [began] right away; we [kept] working until five.
+25|t|Me han dado una oportunidad que ha significado mucho para mí; oculté lo que sentí.|They have given me an opportunity that has [meant] a lot to me; I [held] back how I felt.
+25|c|Le gritamos y todos nos pusimos de pie; ella sostenía el teléfono.|We shouted for her, and we all [stood] up; she [held] the phone.
+25|t|Dame la mano y apriétala fuerte; no la sueltes.|Give me your hand and [hold] it close; don't [let] go.
+25|c|Me dio un consejo que nunca he olvidado; lo oí cuando tenía diez años y lo escribí.|She gave me advice I have never forgot; I [heard] it when I was ten and [wrote] it down.
+25|t|Nos dieron las llaves y pusimos las maletas en el cuarto; después conocimos al hombre.|They gave us the keys, and we [set] our bags in the room; we [met] the man later.
+25|c|Le dieron el premio en la fiesta que hicieron en el teatro; todos nos pusimos de pie para gritar.|They gave her the award at the party they [held] at the theater; we all [stood] to shout.
 25|t|¿Qué te dio para tu cumpleaños? ¿Lo has guardado? Oí que fue caro.|What did he give you for your birthday? Have you [kept] it? I [heard] it was expensive.
-25|c|Les di la bienvenida cuando comenzó la reunión; quería ser breve.|I gave them a welcome when the meeting [began]; I [meant] to be brief.
+25|c|Les di la bienvenida cuando comenzó la reunión; quería ser breve.|I gave them a welcome when the meeting [began]; I [meant] to be short.
 25|t|Le di mi asiento a una señora que llevaba una hora de pie; me tomó la mano para darme las gracias.|I gave my seat to a lady who had [stood] for an hour; she [held] my hand to thank me.
-25|c|Me dio la libertad de escribir lo que quisiera; me dejó escoger el tema.|He gave me the freedom to [write] whatever I wanted; he [let] me choose the topic.
+25|c|Me dio la libertad de escribir lo que quisiera; me dejó escoger la materia.|He gave me the freedom to [write] anything I wanted; he [let] me choose the subject.
 25|t|Nos dio una fecha y la fijamos en el calendario; la conocimos ese día.|She gave us a date, and we [set] it on the calendar; we [met] her that day.
 
 # --- Regla 26 · Still + hope ---
-26|t|Todavía espero conocerla algún día; he oído mucho de ella.|I still hope to [meet] her someday; I have [heard] so much about her.
+26|t|Todavía espero conocerla algún día; he oído mucho de ella.|I still hope to [meet] her one day; I have [heard] so much about her.
 26|c|Aún espera que él le escriba; ha guardado todas sus cartas.|She still hopes he will [write] to her; she has [kept] all his letters.
 26|t|Todavía espero que me dejes explicar; nunca quise hacerte daño.|I still hope you will [let] me explain; I never [meant] to hurt you.
 26|c|Todavía esperamos que la reunión comience pronto; llevamos una hora aquí de pie.|We still hope the meeting will [begin] soon; we have [stood] here for an hour.
 26|t|Todavía espero oír tu voz otra vez; he guardado tus mensajes.|I still hope to [hear] your voice again; I have [kept] your messages.
-26|c|Aún espera que fijen una fecha para la boda; se conocieron hace cinco años.|She still hopes they will [set] a date for the wedding; they [met] five years ago.
+26|c|Aún espera que fijen una fecha para la fiesta; se conocieron hace cinco años.|She still hopes they will [set] a date for the party; they [met] five years ago.
 26|t|Todavía espero que hagan el concierto aquí; le escribí a la banda.|I still hope they will [hold] the concert here; I [wrote] to the band.
-26|c|Todavía espero que cumplas tu promesa; lo dijiste en serio, ¿verdad?|I still hope you will [keep] your promise; you [meant] it, right?
+26|c|Todavía espero que cumplas tu palabra; lo dijiste en serio, ¿verdad?|I still hope you will [keep] your word; you [meant] it, right?
 26|t|Todavía tengo la esperanza de escribir un libro; comencé uno el año pasado.|I still hope to [write] a book; I [began] one last year.
 26|c|Aún esperan conocer a su nieto; oyeron que se parece a su papá.|They still hope to [meet] their grandson; they [heard] he looks like his dad.
 26|t|Todavía espero que me dejen trabajar desde casa; ya armé una oficina.|I still hope they will [let] me work from home; I [set] up an office.
-26|c|Todavía espero que lo que dijo haya significado algo; me aferré a esas palabras.|I still hope what he said [meant] something; I [held] onto those words.
-26|t|Aún espero que comience la temporada de lluvias; los campesinos siguen esperando.|I still hope the rainy season will [begin]; the farmers have [kept] waiting.
+26|c|Todavía espero que lo que dijo haya significado algo; me aferré a esas palabras.|I still hope what he said [meant] something; I [held] on those words.
+26|t|Aún espero que comience la temporada de lluvias; los campesinos siguen esperando.|I still hope the wet season will [begin]; the farmers have [kept] waiting.
 26|c|Todavía espero que la gente oiga mi canción; la escribí para mi mamá.|I still hope people will [hear] my song; I [wrote] it for my mother.
 26|t|Todavía espero que te quedes de mi lado; siempre me has tomado de la mano.|I still hope you will [stand] by me; you have always [held] my hand.
 
@@ -416,14 +416,14 @@
 27|c|Oí la música demasiado fuerte y no la soporté.|I [heard] the music too loud, and I couldn't [stand] it.
 27|t|Lo que dijo significó muy poco para mí; me mordí la lengua.|What he said [meant] very little to me; I [held] my tongue.
 27|c|Hacía demasiado frío para quedarnos de pie afuera, así que nos reunimos adentro.|It was too cold to [stand] outside, so we [met] inside.
-27|t|La ceremonia se hizo muy temprano; comenzó a las seis.|The ceremony was [held] very early; it [began] at six.
+27|t|La fiesta se hizo muy temprano; comenzó a las seis.|The party was [held] very early; it [began] at six.
 27|c|Me dejó esperando demasiado tiempo; pensaba irme.|He [let] me wait too long; I [meant] to leave.
-27|t|Puso la alarma demasiado temprano y no la oyó.|He [set] the alarm too early and didn't [hear] it.
+27|t|Puso el reloj demasiado temprano y no lo oyó.|He [set] the clock too early and didn't [hear] it.
 27|c|El bebé es demasiado pesado para cargarlo tanto tiempo; lo bajé.|The baby is too heavy to [hold] for so long; I [set] him down.
 27|t|Escribió el examen muy rápido y mantuvo su nota alta.|She [wrote] the test very fast and [kept] her grade high.
 27|c|Nos conocimos demasiado tarde; ya habíamos comenzado otras vidas.|We [met] too late; we had [begun] other lives.
-27|t|Es muy difícil guardar un secreto tan grande; casi se me escapa.|It's very hard to [keep] such a big secret; I almost [let] it slip.
-27|c|Estaba demasiado nervioso para ponerse de pie; se agarró de la silla.|He was too nervous to [stand] up; he [held] the chair.
+27|t|Es muy difícil guardar un secreto tan grande; casi se me escapa.|It's very hard to [keep] such a big secret; I almost [let] it fall.
+27|c|Estaba demasiado nervioso para ponerse de pie; se agarró de la silla.|He was too worried to [stand] up; he [held] the chair.
 27|t|Oímos una historia muy triste; significó mucho para todos.|We [heard] a very sad story; it [meant] a lot to everyone.
 
 # --- Regla 28 · Preguntas con presente/pasado perfecto ---
@@ -435,46 +435,46 @@
 28|c|¿Ya habían fijado la fecha cuando te invitaron? Los conocí la semana pasada.|Had they [set] the date when they invited you? I [met] them last week.
 28|t|¿Alguna vez has hecho una fiesta en tu casa? La última vez la hice pequeña.|Have you ever [held] a party at your house? I [kept] it small last time.
 28|c|¿Has estado de pie todo el día? Déjame traerte una silla.|Have you [stood] all day? [Let] me get you a chair.
-28|t|¿Habías conocido a su familia antes de la boda? Me escribieron una tarjeta muy linda.|Had you [met] his family before the wedding? They [wrote] me a nice card.
+28|t|¿Habías conocido a su familia antes de la fiesta? Me escribieron una tarjeta muy linda.|Had you [met] his family before the party? They [wrote] me a nice card.
 28|c|¿Alguna vez has querido decir algo y no has podido? Ayer me quedé callado.|Have you ever [meant] to say something and couldn't? I [kept] quiet yesterday.
 28|t|¿Has guardado los recibos? Los puse en tu escritorio.|Have you [kept] the receipts? I [set] them on your desk.
 28|c|¿Ya comenzó la clase? Oí el timbre.|Has the class [begun]? I [heard] the bell.
 28|t|¿Habías oído hablar de ella antes? Escribió tres libros.|Had you [heard] of her before? She [wrote] three books.
-28|c|¿Alguna vez has escrito un poema? Yo tuve en mis manos uno de mi papá.|Have you ever [written] a poem? I [held] one in my hand from my dad.
-28|t|¿Ya fijaron las reglas del juego? Deberíamos comenzar pronto.|Have they [set] the rules of the game? We should [begin] soon.
+28|c|¿Alguna vez has escrito una canción? Yo tuve en mis manos una de mi papá.|Have you ever [written] a song? I [held] one in my hand from my dad.
+28|t|¿Ya fijaron los planes del juego? Deberíamos comenzar pronto.|Have they [set] the plans of the game? We should [begin] soon.
 
 # --- Regla 29 · Tag Questions ---
 29|t|La conociste en la fiesta, ¿verdad? Te tomó de la mano.|You [met] her at the party, didn't you? She [held] your hand.
 29|c|Escribiste ese correo, ¿no? Lo dijiste todo en serio.|You [wrote] that email, didn't you? You [meant] every word.
 29|t|Oíste la noticia, ¿cierto? La huelga comenzó hoy.|You [heard] the news, didn't you? The strike [began] today.
 29|c|No guardaste el recibo, ¿o sí? No te van a dejar devolverlo.|You didn't [keep] the receipt, did you? They won't [let] you return it.
-29|t|Se pusieron de pie para aplaudir, ¿no? Fue el mejor show que han hecho.|They [stood] up to clap, didn't they? It was the best show they have ever [held].
-29|c|Pusiste la alarma, ¿verdad? Mañana comenzamos temprano.|You [set] the alarm, didn't you? We [begin] early tomorrow.
+29|t|Se pusieron de pie para gritar, ¿no? Fue el mejor show que han hecho.|They [stood] up to shout, didn't they? It was the best show they have ever [held].
+29|c|Pusiste el reloj, ¿verdad? Mañana comenzamos temprano.|You [set] the clock, didn't you? We [begin] early tomorrow.
 29|t|Nos dejarán entrar, ¿no? Escribí nuestros nombres en la lista.|They will [let] us in, won't they? I [wrote] our names on the list.
 29|c|Ya conociste a mi jefe, ¿cierto? No paraba de preguntar por ti.|You have already [met] my boss, haven't you? He [kept] asking about you.
 29|t|Lo dijiste en serio, ¿verdad? Lo oí en tu voz.|You [meant] it, didn't you? I [heard] it in your voice.
 29|c|La reunión se hizo ayer, ¿no? Comenzó tarde.|The meeting was [held] yesterday, wasn't it? It [began] late.
 29|t|No has escrito nada todavía, ¿o sí? Déjame ayudarte.|You haven't [written] anything yet, have you? [Let] me help.
-29|c|Cumpliste tu promesa, ¿verdad? Oí que sí.|You [kept] your promise, didn't you? I [heard] you did.
+29|c|Cumpliste tu palabra, ¿verdad? Oí que sí.|You [kept] your word, didn't you? I [heard] you did.
 29|t|Estuviste de pie todo el concierto, ¿no? Comenzó a las ocho.|You [stood] for the whole concert, didn't you? It [began] at eight.
 29|c|Nos conocimos en Cali, ¿cierto? Tenías un letrero en el aeropuerto.|We [met] in Cali, didn't we? You [held] a sign at the airport.
 29|t|Ya fijaron la fecha, ¿no? Oí que es en junio.|They have [set] the date, haven't they? I [heard] it's in June.
 29|c|Has oído esta canción, ¿verdad? La escribió mi primo.|You have [heard] this song, haven't you? My cousin [wrote] it.
 
 # --- Regla 30 · Get + adjetivo ---
-30|t|Me puse nervioso cuando la conocí; contuve la respiración.|I got nervous when I [met] her; I [held] my breath.
+30|t|Me puse nervioso cuando la conocí; me quedé quieto.|I got worried when I [met] her; I [held] still.
 30|c|Se enojó cuando oyó lo que dijiste; se puso de pie y se fue.|She got angry when she [heard] what you said; she [stood] up and left.
 30|t|Nos cansamos de esperar, así que comenzamos sin ellos; les guardamos los puestos.|We got tired of waiting, so we [began] without them; we [kept] their seats.
-30|c|Se puso triste cuando le escribieron que no vendrían; significaba mucho para él.|He got sad when they [wrote] that they wouldn't come; it [meant] a lot to him.
-30|t|Me emocioné cuando me dejaron entrar al estadio; apreté mi boleto con fuerza.|I got excited when they [let] me into the stadium; I [held] my ticket tight.
-30|c|Se preocupó cuando no oyó la alarma; la había puesto para las seis.|She got worried when she didn't [hear] the alarm; she had [set] it for six.
-30|t|Me aburrí en la reunión que hicieron ayer; comenzó a las siete.|I got bored at the meeting they [held] yesterday; it [began] at seven.
+30|c|Se puso triste cuando le escribieron que no vendrían; significaba mucho para él.|He got sad when they [wrote] that they would not come; it [meant] a lot to him.
+30|t|Me emocioné cuando me dejaron entrar al estadio; apreté mi boleto con fuerza.|I got excited when they [let] me into the stadium; I [held] my ticket close.
+30|c|Se preocupó cuando no oyó el reloj; lo había puesto para las seis.|She got worried when she didn't [hear] the clock; she had [set] it for six.
+30|t|Me aburrí en la reunión que hicieron ayer; comenzó a las siete.|I got tired at the meeting they [held] yesterday; it [began] at seven.
 30|c|Se pusieron felices cuando nos conocieron; no pararon de sonreír en toda la noche.|They got happy when they [met] us; they [kept] smiling all night.
-30|t|Se puso rojo cuando leyó lo que había escrito; lo había dicho en broma.|He got red when he read what he had [written]; he [meant] it as a joke.
+30|t|Se puso rojo cuando leyó lo que había escrito; lo había dicho en broma.|He got red when he read what he had [written]; he [meant] it to be funny.
 30|c|Me cansé después de estar dos horas de pie; me dejaron sentarme.|I got tired after I had [stood] for two hours; they [let] me sit down.
-30|t|Se puso celoso cuando oyó que ella conoció a otro.|He got jealous when he [heard] she had [met] someone else.
+30|t|Se puso celoso cuando oyó que ella conoció a otro.|He got angry when he [heard] she had [met] someone else.
 30|c|Nos mojamos cuando comenzó a llover; me puse el bolso sobre la cabeza.|We got wet when it [began] to rain; I [held] my bag over my head.
-30|t|Se puso pálido cuando le dejaron ver los resultados; se quedó callado.|He got pale when they [let] him see the results; he [kept] silent.
+30|t|Se puso pálido cuando le dejaron ver los resultados; se quedó callado.|He got pale when they [let] him see the results; he [kept] quiet.
 30|c|Me alegré cuando escribiste; significó mucho para mí.|I got happy when you [wrote]; it [meant] so much to me.
 30|t|Se hicieron famosos cuando la gente oyó su canción en la radio; dieron un concierto la semana siguiente.|They got famous when people [heard] their song on the radio; they [held] a concert the next week.
 
@@ -482,9 +482,9 @@
 31|t|No conocí a nadie en la fiesta; me quedé de pie en una esquina.|I didn't [meet] anyone at the party; I [stood] in a corner.
 31|c|¿Oíste algo? Me quedé quieto y escuché.|Did you [hear] anything? I [kept] still and listened.
 31|t|Escribí algunas ideas en mi cuaderno y las guardé para después.|I [wrote] some ideas in my notebook and [kept] them for later.
-31|c|No me dejaron llevar ningún equipaje; llevé el bolso sobre las piernas.|They didn't [let] me take any luggage; I [held] my bag on my lap.
+31|c|No me dejaron llevar ningún equipaje; llevé el bolso sobre las piernas.|They didn't [let] me take any luggage; I [held] my bag on my legs.
 31|t|Alguien puso flores en mi escritorio; significó mucho.|Somebody [set] flowers on my desk; it [meant] a lot.
-31|c|No comenzamos ninguna discusión; mantuvimos la calma.|We didn't [begin] any argument; we [kept] calm.
+31|c|No comenzamos ninguna discusión; mantuvimos la calma.|We didn't [begin] any argument; we [kept] quiet.
 31|t|¿Hicieron alguna reunión ayer? No oí nada.|Did they [hold] any meeting yesterday? I [heard] nothing.
 31|c|No guardé ninguna foto de ese viaje; tenía la intención de hacerlo.|I didn't [keep] any photos from that trip; I [meant] to.
 31|t|Alguien escribió algo en la pared; nadie oyó nada.|Somebody [wrote] something on the wall; nobody [heard] a thing.
@@ -492,7 +492,7 @@
 31|t|¿Conociste a alguien interesante en el viaje? Oí que te divertiste.|Did you [meet] anyone interesting on the trip? I [heard] you had fun.
 31|c|Nadie se puso de pie cuando entró; ella mantuvo la cabeza en alto.|Nobody [stood] up when she came in; she [held] her head high.
 31|t|No dejé que nadie viera mi diario; lo guardaba debajo de la cama.|I didn't [let] anyone see my diary; I [kept] it under my bed.
-31|c|Fijamos algunas reglas para la casa; comenzamos con la cocina.|We [set] some rules for the house; we [began] with the kitchen.
+31|c|Fijamos algunos planes para la casa; comenzamos con la cocina.|We [set] some plans for the house; we [began] with the kitchen.
 31|t|No he oído ninguna noticia de él desde que escribió el mes pasado.|I haven't [heard] any news from him since he [wrote] last month.
 
 # --- Regla 32 · Already / Yet / Just ---
@@ -502,52 +502,52 @@
 32|c|Acabo de oír la noticia; quería llamarte enseguida.|I have just [heard] the news; I [meant] to call you right away.
 32|t|Ya hicieron la reunión; acabo de conocer al nuevo jefe.|They have already [held] the meeting; I have just [met] the new boss.
 32|c|Todavía no me han dejado entrar; llevo una hora aquí de pie.|They haven't [let] me in yet; I have [stood] here for an hour.
-32|t|Ya escribí las etiquetas; acabo de poner la última caja.|I have already [written] the labels; I have just [set] down the last box.
-32|c|¿Ya comenzaste el curso? Acabo de escribir mi primer ensayo.|Have you [begun] the course yet? I have just [written] my first essay.
+32|t|Ya escribí los nombres; acabo de poner la última caja.|I have already [written] the names; I have just [set] down the last box.
+32|c|¿Ya comenzaste el curso? Acabo de escribir mi primer ensayo.|Have you [begun] the course yet? I have just [written] my first homework.
 32|t|Todavía no ha explicado lo que quiso decir; me guardé mis preguntas.|She hasn't explained what she [meant] yet; I [held] my questions.
 32|c|Acaba de ponerse de pie para hablar; todos se han quedado callados.|He has just [stood] up to speak; everyone has [kept] quiet.
 32|t|Ya he oído esa historia; ayer me dejaste leerla.|I have already [heard] that story; you [let] me read it yesterday.
 32|c|Todavía no nos conocemos en persona; nos hemos escrito correos por meses.|We haven't [met] in person yet; we have [written] emails for months.
-32|t|Acaban de fijar las nuevas reglas; comenzaron hoy.|They have just [set] the new rules; they [began] today.
-32|c|Ya guardó su lugar en la fila; ha estado ahí de pie desde el amanecer.|She has already [kept] her place in line; she has [stood] there since dawn.
+32|t|Acaban de fijar los nuevos planes; comenzaron hoy.|They have just [set] the new plans; they [began] today.
+32|c|Ya guardó su lugar en la fila; ha estado ahí de pie desde el amanecer.|She has already [kept] her place in line; she has [stood] there since morning.
 32|t|¿Ya hiciste la fiesta? Acabo de oír que fue genial.|Have you [held] the party yet? I have just [heard] it was great.
 
 # --- Regla 33 · Sujeto "it" ---
 33|t|Comenzó a llover cuando nos conocimos.|It [began] to rain when we [met].
 33|c|Fue difícil oír algo con tanto ruido; me acerqué el teléfono.|It was hard to [hear] anything with so much noise; I [held] my phone close.
-33|t|Es importante mantener la calma; quería decírtelo antes.|It's important to [keep] calm; I [meant] to tell you earlier.
+33|t|Es importante mantener la calma; quería decírtelo antes.|It's important to [keep] quiet; I [meant] to tell you earlier.
 33|c|Hacía tanto frío que no soportábamos estar afuera; nos quedamos adentro.|It was so cold that we couldn't [stand] being outside; we [kept] inside.
 33|t|Fue un honor conocerla; escribió mi libro favorito.|It was an honor to [meet] her; she [wrote] my favorite book.
 33|c|Está oscuro; el sol se puso hace una hora y comenzó a hacer frío.|It's dark; the sun [set] an hour ago, and it [began] to get cold.
-33|t|Es fácil escribir cuando estás inspirado; yo comencé a medianoche.|It's easy to [write] when you're inspired; I [began] at midnight.
+33|t|Es fácil escribir cuando estás feliz; yo comencé a medianoche.|It's easy to [write] when you're happy; I [began] at midnight.
 33|c|Fue un error dejarlo ir; oí que le va bien.|It was a mistake to [let] him go; I [heard] he's doing well.
-33|t|Es difícil sostener una conversación con él; no paraba de interrumpir.|It's hard to [hold] a conversation with him; he [kept] interrupting.
+33|t|Es difícil sostener una conversación con él; no paraba de interrumpir.|It's hard to [hold] a conversation with him; he [kept] talking.
 33|c|Son las ocho; la clase ya comenzó; déjame entrar, por favor.|It's eight o'clock; the class has [begun]; [let] me in, please.
 33|t|Significó mucho que vinieras; te guardé un asiento.|It [meant] a lot that you came; I [kept] a seat for you.
 33|c|Es bueno oír tu voz; nos conocimos hace tanto tiempo.|It's good to [hear] your voice; we [met] so long ago.
 33|t|Fue difícil fijar una fecha para todos; hicimos la reunión en línea.|It was hard to [set] a date for everyone; we [held] the meeting online.
-33|c|Hace tiempo que no te escribo; quería hacerlo antes.|It has been a while since I [wrote] to you; I [meant] to do it sooner.
+33|c|Hace tiempo que no te escribo; quería hacerlo antes.|It has been a while since I [wrote] to you; I [meant] to do it earlier.
 33|t|Es imposible estar de pie todo el día; déjame sentarme un momento.|It's impossible to [stand] all day; [let] me sit for a moment.
 
 # --- Regla 34 · Since vs For ---
 34|t|Nos hemos reunido cada año desde 2012 y seguimos en contacto.|We have [met] every year since 2012 and have [kept] in touch.
 34|c|Ha escrito para ese periódico durante diez años; oí que se va.|She has [written] for that newspaper for ten years; I [heard] she's leaving.
-34|t|No he sabido de él desde la boda; él llevó los anillos.|I haven't [heard] from him since the wedding; he [held] the rings.
+34|t|No he sabido de él desde la fiesta; él llevó los anillos.|I haven't [heard] from him since the party; he [held] the rings.
 34|c|Hemos mantenido la tradición durante décadas; comenzó con mis abuelos.|We have [kept] the tradition for decades; it [began] with my grandparents.
 34|t|Han hecho la feria aquí desde 1990; ha significado mucho para el pueblo.|They have [held] the fair here since 1990; it has [meant] a lot to the town.
 34|c|Ese edificio ha estado allí durante un siglo; conocí a mi esposa frente a él.|That building has [stood] there for a century; I [met] my wife in front of it.
 34|t|No me han dejado salir desde el lunes; he escrito mucho.|They haven't [let] me go out since Monday; I have [written] a lot.
-34|c|Las reglas han sido las mismas desde que las fijaron; nadie ha oído quejas.|The rules have been the same since they [set] them; nobody has [heard] complaints.
+34|c|Los planes han sido los mismos desde que los fijaron; nadie ha oído quejas.|The plans have been the same since they [set] them; nobody has [heard] problems.
 34|t|La reunión comenzó hace una hora y desde entonces han seguido.|The meeting [began] an hour ago, and they have [kept] going since.
 34|c|Ha significado mucho para mí desde niño; mi papá me tomó de la mano en ese puente.|It has [meant] a lot to me since I was a kid; my dad [held] my hand on that bridge.
 34|t|Guardo esta carta desde 2005; la escribió mi mamá.|I have [kept] this letter since 2005; my mother [wrote] it.
 34|c|No nos vemos desde la universidad; oí que te mudaste.|We haven't [met] since college; I [heard] you moved.
 34|t|Ha estado de pie durante tres horas; nadie lo dejó sentarse.|He has [stood] for three hours; nobody [let] him sit.
-34|c|He oído esa canción todos los días durante una semana; mi hermana la puso como tono de llamada.|I have [heard] that song every day for a week; my sister [set] it as her ringtone.
-34|t|Comenzó a escribir después de jubilarse y desde entonces ha escrito dos libros.|She [began] to write after she retired and has [written] two books since.
+34|c|He oído esa canción todos los días durante una semana; mi hermana la puso como sonido de llamada.|I have [heard] that song every day for a week; my sister [set] it as her sound.
+34|t|Comenzó a escribir después de dejar de trabajar y desde entonces ha escrito dos libros.|She [began] to write after she stopped working and has [written] two books since.
 
 # --- Regla 35 · When / While ---
-35|t|Cuando la conocí, contuve la respiración.|When I [met] her, I [held] my breath.
+35|t|Cuando la conocí, me quedé quieto.|When I [met] her, I [held] still.
 35|c|Mientras escribía, oí un ruido y me puse de pie.|While I was writing, I [heard] a noise and [stood] up.
 35|t|Cuando comenzó la canción, todos se pusieron de pie.|When the song [began], everyone [stood] up.
 35|c|Mientras esperaba, guardé tu asiento; el show comenzó tarde.|While I was waiting, I [kept] your seat; the show [began] late.
@@ -560,7 +560,7 @@
 35|t|Cuando escribas, cuéntame todo lo que oíste.|When you [write], tell me everything you [heard].
 35|c|Mientras trabajaba allí, conocí a mi mejor amigo; seguimos en contacto.|While I was working there, I [met] my best friend; we [kept] in touch.
 35|t|Cuando era niña, guardaba todo en una caja; mi mamá me dejaba.|When I was a girl, I [kept] everything in a box; my mom [let] me.
-35|c|Mientras hablaba, entendí lo que quería decir; contuve las lágrimas.|While he was talking, I understood what he [meant]; I [held] back tears.
+35|c|Mientras hablaba, entendí lo que quería decir; oculté lo que sentí.|While he was talking, I understood what he [meant]; I [held] back how I felt.
 35|t|Cuando comiences la clase, pon el teléfono en la mesa.|When you [begin] the class, [set] your phone on the table.
 
 # --- Regla 36 · Will vs Going to ---
@@ -568,14 +568,14 @@
 36|c|Tranquilo, yo sostengo la puerta; oí que traes bolsas pesadas.|Don't worry, I'll [hold] the door; I [heard] you have heavy bags.
 36|t|Va a escribir un libro; comenzó a investigar el mes pasado.|She is going to [write] a book; she [began] her research last month.
 36|c|Creo que nos dejarán entrar; guardé nuestros boletos.|I think they will [let] us in; I [kept] our tickets.
-36|t|Mira esas nubes: va a comenzar a llover; oí truenos.|Look at those clouds: it's going to [begin] to rain; I [heard] thunder.
-36|c|Te prometo que guardaré el secreto; lo que dije iba en serio.|I promise I will [keep] the secret; I [meant] what I said.
+36|t|Mira esas nubes: va a comenzar a llover; oí tormenta.|Look at those clouds: it's going to [begin] to rain; I [heard] storm.
+36|c|Te doy mi palabra de que guardaré el secreto; lo que dije iba en serio.|I give you my word I will [keep] the secret; I [meant] what I said.
 36|t|Vamos a hacer la reunión en la sala grande; ya pusimos las sillas.|We're going to [hold] the meeting in the big room; we have already [set] up the chairs.
 36|c|Creo que oirás la noticia mañana; hoy escribieron el informe.|I think you will [hear] the news tomorrow; they [wrote] the report today.
 36|t|Va a ponerse de pie para hablar; lleva semanas practicando.|He is going to [stand] up to speak; he has [kept] practicing for weeks.
 36|c|Ya decidí: voy a dejar que mi hijo maneje; tiene la licencia desde hace un año.|I have decided: I'm going to [let] my son drive; he has [held] his license for a year.
 36|t|Creo que esto significará mucho para ella; te conoció solo una vez.|I think this will [mean] a lot to her; she [met] you only once.
-36|c|Te escribo esta noche, lo prometo; oí que estás preocupado.|I'll [write] to you tonight, I promise; I [heard] you're worried.
+36|c|Te escribo esta noche, te doy mi palabra; oí que estás preocupado.|I'll [write] to you tonight, I give you my word; I [heard] you're worried.
 36|t|Van a fijar la fecha cuando se conozcan las familias.|They are going to [set] the date when the families [meet].
 36|c|No creo que comience a tiempo; oí que el conferencista viene tarde.|I don't think it will [begin] on time; I [heard] the speaker is late.
 36|t|Te veo en el café a las cinco; guardé una mesa para nosotros.|I'll [meet] you at the café at five; I [kept] a table for us.
@@ -586,67 +586,67 @@
 37|t|Escribió menos páginas que el año pasado, pero significaron más.|She [wrote] fewer pages than last year, but it [meant] more.
 37|c|Guardé poca comida para mañana; la fiesta comenzó temprano y todos comieron.|I [kept] little food for tomorrow; the party [began] early and everyone ate.
 37|t|¿Cuántas reuniones han hecho este mes? Oí que tres.|How many meetings have they [held] this month? I [heard] three.
-37|c|Pusieron muchas reglas nuevas; pocos las cumplimos a tiempo.|They [set] many new rules; few of us [met] them in time.
+37|c|Pusieron muchos planes nuevos; pocos las cumplimos a tiempo.|They [set] many new plans; few of us [met] them in time.
 37|t|Me dieron muy poco tiempo para terminar, así que escribí rápido.|They [let] me have very little time to finish, so I [wrote] fast.
 37|c|Comenzaron muchos proyectos, pero pocos duraron; cambiaban de planes todo el tiempo.|They [began] many projects, but few lasted; they [kept] changing plans.
 37|t|Estuve de pie mucho tiempo y cargué muchas bolsas.|I [stood] for a long time and [held] many bags.
 37|c|No significó mucho para él; había oído la historia muchas veces.|It didn't [mean] much to him; he [heard] the story many times.
-37|t|¿Cuánto dinero has guardado? Yo aparté un poco cada mes.|How much money have you [kept]? I [set] aside a little every month.
-37|c|Conocimos a menos gente de la que esperábamos; igual hicimos una pequeña fiesta.|We [met] fewer people than we expected; we [held] a small party anyway.
+37|t|¿Cuánto dinero has guardado? Yo ahorré un poco cada mes.|How much money have you [kept]? I saved a little every month.
+37|c|Conocimos a menos gente de la que esperábamos; igual hicimos una pequeña fiesta.|We [met] fewer people than we thought; we [held] a small party anyway.
 37|t|Hay poca información; nadie ha escrito sobre esto desde que comenzó.|There is little information; nobody has [written] about this since it [began].
 37|c|Oímos muchas historias de ese lugar; pocas significaban algo para nosotros.|We [heard] many stories about that place; few [meant] anything to us.
 37|t|Dejé que mi hermano llevara la mayoría de las bolsas; yo dejé muy pocas cosas en el carro.|I [let] my brother take most of the bags; I [kept] very few things in the car.
 
 # --- Regla 38 · Bad vs Badly ---
 38|t|Escribió muy mal el examen; tenía la intención de estudiar más.|He [wrote] the test badly; he [meant] to study more.
-38|c|Me sentí mal porque no lo dejé hablar; tuve el micrófono todo el tiempo.|I felt bad because I didn't [let] him speak; I [held] the microphone the whole time.
-38|t|La reunión comenzó mal; nadie mantuvo la calma.|The meeting [began] badly; nobody [kept] calm.
+38|c|Me sentí mal porque no lo dejé hablar; tuve el teléfono todo el tiempo.|I felt bad because I didn't [let] him speak; I [held] the phone the whole time.
+38|t|La reunión comenzó mal; nadie mantuvo la calma.|The meeting [began] badly; nobody [kept] quiet.
 38|c|Oí malas noticias esta mañana; me quedé quieto un minuto.|I [heard] bad news this morning; I [stood] still for a minute.
-38|t|Lo conocí en un mal momento; le guardé rencor por años.|I [met] him at a bad time; I [held] a grudge for years.
+38|t|Lo conocí en un mal momento; le guardé rencor por años.|I [met] him at a bad time; I [held] it against him for years.
 38|c|Pusieron mal las sillas; nadie podía oír al conferencista.|They [set] the chairs badly; nobody could [hear] the speaker.
 38|t|Guardó mal la comida y se dañó; oí que tuvo que botarla toda.|She [kept] the food badly, and it went bad; I [heard] she had to throw it all away.
-38|c|Dijo algo malo, pero no quiso decirlo así; me escribió una disculpa.|He said something bad, but he didn't [mean] it like that; he [wrote] me an apology.
-38|t|El equipo comenzó mal la temporada, pero siguió luchando.|The team [began] the season badly but [kept] fighting.
+38|c|Dijo algo malo, pero no quiso decirlo así; me escribió para decir que lo sentía.|He said something bad, but he didn't [mean] it like that; he [wrote] to say he was sorry.
+38|t|El equipo comenzó mal la temporada, pero siguió intentando.|The team [began] the season badly but [kept] trying.
 38|c|Me decepcionaron mucho; yo quería confiar en ellos.|They [let] me down badly; I [meant] to trust them.
 38|t|Estuvo de pie tanto tiempo que le dolía mucho la espalda; lo dejamos descansar.|He [stood] so long that his back hurt badly; we [let] him rest.
-38|c|La conferencia se organizó muy mal; nos reunimos en un salón diminuto.|The conference was [held] badly; we [met] in a tiny room.
+38|c|La conferencia se organizó muy mal; nos reunimos en un salón diminuto.|The conference was [held] badly; we [met] in a small room.
 38|t|Escribe mal, pero ha escrito buenas historias que yo oí de niño.|He writes badly, but he has [written] good stories that I [heard] as a kid.
 38|c|Nos fue mal porque comenzamos tarde; armamos un mal plan.|We did badly because we [began] late; we [set] a bad plan.
-38|t|No me trates mal; solo quería ayudar cuando sostuve la puerta.|Don't treat me badly; I only [meant] to help when I [held] the door.
+38|t|No seas malo conmigo; solo quería ayudar cuando sostuve la puerta.|Don't be bad to me; I only [meant] to help when I [held] the door.
 
 # --- Regla 39 · Preposiciones ---
 39|t|Nos conocimos en una fiesta en diciembre y seguimos en contacto.|We [met] at a party in December and [kept] in touch.
 39|c|Escribió el libro durante el invierno; comenzó en enero.|She [wrote] the book during the winter; she [began] in January.
 39|t|Oí tu voz desde la cocina y me puse de pie.|I [heard] your voice from the kitchen and [stood] up.
-39|c|La boda se hizo en una finca de Cali; fijamos la fecha en mayo.|The wedding was [held] at a farm in Cali; we [set] the date in May.
-39|t|Guardé las fotos en una caja en el ático; mi mamá me dejó.|I [kept] the photos in a box in the attic; my mom [let] me.
-39|c|Me quedé de pie en la puerta durante la ceremonia; oí todo.|I [stood] at the door during the ceremony; I [heard] everything.
+39|c|La fiesta se hizo en una finca de Cali; fijamos la fecha en mayo.|The party was [held] at a farm in Cali; we [set] the date in May.
+39|t|Guardé las fotos en una caja en el cuarto; mi mamá me dejó.|I [kept] the photos in a box in the room; my mom [let] me.
+39|c|Me quedé de pie en la puerta durante la fiesta; oí todo.|I [stood] at the door during the party; I [heard] everything.
 39|t|Comenzó a trabajar en la empresa a los veinte; allí conoció a su esposa.|He [began] to work at the company at twenty; he [met] his wife there.
 39|c|Lo que dijiste en la carta significó mucho para mí; la tengo en mi escritorio.|What you said in the letter [meant] a lot to me; I [kept] it on my desk.
 39|t|Pusimos la mesa en el jardín; cenamos afuera.|We [set] the table in the garden; we [held] dinner outside.
 39|c|Me dejaron entrar a las ocho en punto; el show comenzó a las nueve.|They [let] me in at eight o'clock sharp; the show [began] at nine.
-39|t|Escribí mi nombre en el libro de visitas; conocí al dueño en la entrada.|I [wrote] my name in the guest book; I [met] the owner at the entrance.
+39|t|Escribí mi nombre en el libro de visitas; conocí al hombre en la entrada.|I [wrote] my name in the guest book; I [met] the man at the entrance.
 39|c|Cargué al bebé en mis brazos por una hora; me quedé quieto.|I [held] the baby in my arms for an hour; I [kept] still.
 39|t|Oímos música durante todo el viaje; comenzó a llover al mediodía.|We [heard] music during the whole trip; it [began] to rain at noon.
 39|c|Me puse de pie al final de la clase; quería hacer una pregunta.|I [stood] up at the end of the class; I [meant] to ask a question.
 39|t|Fijaron la reunión para el lunes a las diez; nos reunimos en la sala principal.|They [set] the meeting for Monday at ten; we [met] in the main room.
 
 # --- Regla 40 · For + período / During + evento ---
-40|t|Durante la reunión, nadie oyó la alarma; siguió sonando por minutos.|During the meeting, nobody [heard] the alarm; it [kept] ringing for minutes.
+40|t|Durante la reunión, nadie oyó el reloj; siguió sonando por minutos.|During the meeting, nobody [heard] the clock; it [kept] ringing for minutes.
 40|c|Estuve de pie por tres horas durante el concierto; comenzó a las ocho.|I [stood] for three hours during the concert; it [began] at eight.
 40|t|Escribí por dos horas durante la noche; tenía la intención de dormir.|I [wrote] for two hours during the night; I [meant] to sleep.
-40|c|Durante la boda, sostuve los anillos por una hora; los mantuve seguros.|During the wedding, I [held] the rings for an hour; I [kept] them safe.
+40|c|Durante la fiesta, sostuve los anillos por una hora; los mantuve seguros.|During the party, I [held] the rings for an hour; I [kept] them safe.
 40|t|Conocí a mucha gente durante mi viaje; seguí en contacto con algunos por años.|I [met] a lot of people during my trip; I [kept] in touch with some for years.
 40|c|Durante la tormenta, nos dejaron quedarnos en la escuela esa noche; oímos el viento.|During the storm, they [let] us stay at the school for the night; we [heard] the wind.
 40|t|La conferencia se hizo por tres días; comenzó el lunes.|The conference was [held] for three days; it [began] on Monday.
 40|c|Durante la cena, puso su teléfono en la mesa y no paraba de revisarlo.|During dinner, he [set] his phone on the table and [kept] checking it.
-40|t|Guardé silencio durante toda la película; oí cada palabra.|I [kept] silent during the whole movie; I [heard] every word.
+40|t|Guardé silencio durante toda la película; oí cada palabra.|I [kept] quiet during the whole movie; I [heard] every word.
 40|c|Comenzó a llover durante el partido; estuvimos de pie bajo el techo por una hora.|It [began] to rain during the game; we [stood] under the roof for an hour.
 40|t|Durante la clase, la profesora nos dejó usar el diccionario por diez minutos; escribimos rápido.|During the class, the teacher [let] us use the dictionary for ten minutes; we [wrote] fast.
-40|c|Lo que dijo durante el discurso significó mucho; contuve las lágrimas.|What he said during the speech [meant] a lot; I [held] back tears.
+40|c|Lo que dijo durante el discurso significó mucho; oculté lo que sentí.|What he said during the speech [meant] a lot; I [held] back how I felt.
 40|t|Durante un año, ella escribió una carta cada semana; él las guardó todas.|For a year, she [wrote] a letter every week; he [kept] every one.
 40|c|Durante las vacaciones, conocimos a nuestros vecinos; hicieron un asado.|During the holidays, we [met] our neighbors; they [held] a barbecue.
-40|t|Pusimos la alarma por media hora durante la siesta, pero nadie la oyó.|We [set] the alarm for half an hour during the nap, but nobody [heard] it.
+40|t|Pusimos el reloj por media hora mientras dormíamos, pero nadie lo oyó.|We [set] the clock for half an hour while we slept, but nobody [heard] it.
 
 # --- Regla 41 · Orden natural de la oración ---
 41|t|Ayer conocí a tu hermano en el centro; me sostuvo la puerta.|I [met] your brother downtown yesterday; he [held] the door for me.
@@ -655,46 +655,46 @@
 41|c|La reunión comenzó muy tarde ayer; estuvimos de pie afuera por una hora.|The meeting [began] very late yesterday; we [stood] outside for an hour.
 41|t|Escribí rápidamente una nota y la dejé en la mesa.|I quickly [wrote] a note and [set] it on the table.
 41|c|Mis papás me dejaron salir el sábado por la noche; me vi con mis amigos.|My parents [let] me go out on Saturday night; I [met] my friends.
-41|t|Casi nunca decía lo que quería decir; yo siempre tenía que adivinar.|She hardly ever said what she [meant]; I [kept] guessing.
+41|t|Casi nunca decía lo que quería decir; yo siempre tenía que adivinar.|She only ever said what she [meant]; I [kept] guessing.
 41|c|El año pasado hicieron la feria en otro lugar; oí que fue mejor.|Last year they [held] the fair in another place; I [heard] it was better.
-41|t|De repente se puso de pie y comenzó a cantar.|Suddenly, he [stood] up and [began] to sing.
-41|c|Siempre he guardado tus cartas con cuidado; escribías muy bonito.|I have always [kept] your letters carefully; you [wrote] beautifully.
+41|t|De repente se puso de pie y comenzó a cantar.|Then, he [stood] up and [began] to sing.
+41|c|Siempre he guardado tus cartas con cuidado; escribías muy bonito.|I have always [kept] your letters carefully; you [wrote] well.
 41|t|Esta mañana oí a los pájaros muy temprano; dejé salir al gato.|I [heard] the birds very early this morning; I [let] the cat out.
 41|c|Nos conocimos hace diez años en Bogotá; significó mucho para mí.|We [met] ten years ago in Bogotá; it [meant] a lot to me.
-41|t|Ya fijaron la fecha de la boda; hicieron una pequeña fiesta.|They have already [set] the wedding date; they [held] a small party.
-41|c|Me tomó la mano con fuerza durante el vuelo; tuvo los ojos cerrados.|She firmly [held] my hand during the flight; she [kept] her eyes closed.
+41|t|Ya fijaron la fecha de la fiesta; hicieron una pequeña fiesta.|They have already [set] the party date; they [held] a small party.
+41|c|Me tomó la mano con fuerza durante el vuelo; tuvo los ojos cerrados.|She [held] my hand hard during the flight; she [kept] her eyes closed.
 41|t|Por fin comenzamos el proyecto en marzo; yo escribí el primer informe.|We finally [began] the project in March; I [wrote] the first report.
 
 # --- Regla 42 · Vocabulario específico ---
-42|t|Pedí una cita con el odontólogo y la escribí en mi agenda.|I [set] an appointment with the dentist and [wrote] it in my planner.
+42|t|Pedí una cita con el odontólogo y la escribí en mi calendario.|I [set] an appointment with the dentist and [wrote] it in my calendar.
 42|c|Hicieron la junta directiva en la sala de conferencias; comenzó a las nueve.|They [held] the board meeting in the conference room; it [began] at nine.
-42|t|Guardé el comprobante de pago por si acaso; oí que el banco comete errores.|I [kept] the payment receipt just in case; I [heard] the bank makes mistakes.
-42|c|El arrendador nos dejó pagar el depósito en dos cuotas; nos reunimos con él en el apartamento.|The landlord [let] us pay the deposit in two installments; we [met] him at the apartment.
-42|t|Escribí una carta de recomendación para mi exalumna; significó mucho para ella.|I [wrote] a letter of recommendation for my former student; it [meant] a lot to her.
-42|c|Oí el anuncio de embarque y me puse de pie.|I [heard] the boarding announcement and [stood] up.
+42|t|Guardé el comprobante de pago por si acaso; oí que el banco comete errores.|I [kept] the money receipt just in case; I [heard] the bank makes mistakes.
+42|c|El hombre nos dejó pagar el dinero en dos partes; nos reunimos con él en el apartamento.|The man [let] us pay the money in two parts; we [met] him at the apartment.
+42|t|Escribí una carta de recomendación para mi exalumna; significó mucho para ella.|I [wrote] a nice letter for my old student; it [meant] a lot to her.
+42|c|Oí que llamaban mi vuelo y me puse de pie.|I [heard] them call my flight and [stood] up.
 42|t|La empresa fijó un presupuesto para el proyecto y comenzamos en enero.|The company [set] a budget for the project, and we [began] in January.
-42|c|Conocí al nuevo inquilino en el ascensor; me sostuvo la puerta.|I [met] the new tenant in the elevator; he [held] the door for me.
-42|t|El banco congeló mi cuenta y no me dejaron retirar dinero; estuve llamando todo el día.|The bank froze my account and didn't [let] me withdraw money; I [kept] calling all day.
-42|c|Escribí el acta de la reunión; el jefe fijó un plazo para los comentarios.|I [wrote] the minutes of the meeting; the boss [set] a deadline for comments.
-42|t|Estuvo en la fila de migración por dos horas; tuvo el pasaporte en la mano todo el tiempo.|She [stood] in the immigration line for two hours; she [kept] her passport in her hand.
-42|c|Oí que van a cobrar una tarifa extra por el equipaje; mantuve mi maleta pequeña.|I [heard] they will charge an extra baggage fee; I [kept] my bag small.
+42|c|Conocí al nuevo vecino en el ascensor; me sostuvo la puerta.|I [met] the new neighbor in the elevator; he [held] the door for me.
+42|t|El banco congeló mi cuenta y no me dejaron retirar dinero; estuve llamando todo el día.|The bank stopped my account and didn't [let] me take out money; I [kept] calling all day.
+42|c|Escribí el acta de la reunión; el jefe fijó un plazo para los comentarios.|I [wrote] the minutes of the meeting; the boss [set] a date for comments.
+42|t|Estuvo en la fila del aeropuerto por dos horas; tuvo el pasaporte en la mano todo el tiempo.|She [stood] in the airport line for two hours; she [kept] her passport in her hand.
+42|c|Oí que van a cobrar una tarifa extra por el equipaje; mantuve mi maleta pequeña.|I [heard] they will charge an extra luggage cost; I [kept] my bag small.
 42|t|El juez fijó la fecha de la audiencia; los abogados se reunieron al día siguiente.|The judge [set] the date for the hearing; the lawyers [met] the next day.
-42|c|La universidad hizo la ceremonia de grado en el coliseo; comenzó a las diez.|The university [held] the graduation ceremony at the coliseum; it [began] at ten.
-42|t|Quise decir "reembolso", no "descuento"; lo escribí mal en el correo.|I [meant] "refund," not "discount"; I [wrote] it wrong in the email.
+42|c|La universidad hizo la fiesta de grado en el estadio; comenzó a las diez.|The university [held] the school party at the stadium; it [began] at ten.
+42|t|Quise decir "devolución del dinero", no "descuento"; lo escribí mal en el correo.|I [meant] "money back," not "discount"; I [wrote] it wrong in the email.
 
 # --- Regla 43 · Past Perfect ---
-43|t|Cuando llegué, la reunión ya había comenzado; me dejaron entrar en silencio.|When I arrived, the meeting had already [begun]; they [let] me in quietly.
+43|t|Cuando llegué, la reunión ya había comenzado; me dejaron entrar sin hacer ruido.|When I arrived, the meeting had already [begun]; they [let] me in without a sound.
 43|c|Nunca había conocido a alguien tan amable; me tomó de la mano todo el tiempo.|I had never [met] anyone so kind; she [held] my hand the whole time.
 43|t|Ya había escrito la carta cuando me llamó; igual la guardé.|I had already [written] the letter when he called; I [kept] it anyway.
-43|c|Me di cuenta de que no había oído la alarma; la había puesto para la tarde.|I realized I hadn't [heard] the alarm; I had [set] it for p.m.
+43|c|Vi que no había oído el reloj; lo había puesto para la tarde.|I saw I had not [heard] the clock; I had [set] it for p.m.
 43|t|Habían guardado el secreto por años antes de contarlo; significaba mucho para ellos.|They had [kept] the secret for years before they told it; it [meant] a lot to them.
 43|c|Ya habían fijado la fecha cuando nos conocimos.|They had already [set] the date when we [met].
-43|t|Nunca la habían dejado salir sola, así que se quedó de pie en la puerta, nerviosa.|They had never [let] her go out alone, so she [stood] at the door, nervous.
-43|c|Había estado de pie toda la noche y no había oído nada.|He had [stood] all night and hadn't [heard] a thing.
+43|t|Nunca la habían dejado salir sola, así que se quedó de pie en la puerta, nerviosa.|They had never [let] her go out alone, so she [stood] at the door, worried.
+43|c|Había estado de pie toda la noche y no había oído nada.|He had [stood] all night and had not [heard] a thing.
 43|t|Cuando lo leí, entendí lo que había querido decir; lo escribió para mí.|When I read it, I understood what he had [meant]; he [wrote] it for me.
-43|c|La ceremonia se había hecho antes de que llegáramos; conocimos a la pareja después.|The ceremony had been [held] before we arrived; we [met] the couple later.
+43|c|La fiesta se había hecho antes de que llegáramos; conocimos a la pareja después.|The party had been [held] before we arrived; we [met] the couple later.
 43|t|Ya había comenzado a llover cuando salimos; yo sostuve el paraguas.|It had already [begun] to rain when we left; I [held] the umbrella.
-43|c|Nunca había escrito un poema antes de conocerte.|I had never [written] a poem before I [met] you.
+43|c|Nunca había escrito una canción antes de conocerte.|I had never [written] a song before I [met] you.
 43|t|Habían mantenido la casa igual desde que murió su abuelo; significaba el mundo para ellos.|They had [kept] the house the same since their grandfather died; it [meant] the world to them.
 43|c|Me dijo que nunca había oído esa canción, así que la dejé escucharla.|She said she had never [heard] that song, so I [let] her listen to it.
 43|t|Ya habían puesto la mesa cuando llegué; me ofrecieron una silla.|They had already [set] the table when I arrived; they [held] out a chair for me.
@@ -704,25 +704,25 @@
 44|c|Cuando llegues, llevaremos una hora esperando; ya pusimos la mesa y aplazamos la cena.|When you arrive, we will have been waiting for an hour; we have already [set] the table and [held] dinner.
 44|t|En junio llevará diez años trabajando aquí; conoció a su esposo en esta oficina y ha conservado su trabajo.|In June, she will have been working here for ten years; she [met] her husband in this office and has [kept] her job.
 44|c|Para las diez llevaremos tres horas esperando; hemos estado de pie todo el tiempo y nadie nos ha dejado sentarnos.|By ten, we will have been waiting for three hours; we have [stood] the whole time, and nobody has [let] us sit.
-44|t|El próximo mes llevaré un año estudiando francés; ya escribí mi primer ensayo y conocí a mi tutor.|Next month, I will have been studying French for a year; I have already [written] my first essay and [met] my tutor.
-44|c|Cuando termine la reunión, llevarán seis horas discutiendo; oí que todavía no han fijado ningún plan.|When the meeting ends, they will have been arguing for six hours; I [heard] they have [set] no plan yet.
-44|t|Para entonces llevaré meses ahorrando; he guardado cada peso y me fijé una meta.|By then, I will have been saving for months; I have [kept] every peso and [set] a goal.
+44|t|El próximo mes llevaré un año estudiando francés; ya escribí mi primer ensayo y conocí a mi tutor.|Next month, I will have been studying French for a year; I have already [written] my first homework and [met] my teacher.
+44|c|Cuando termine la reunión, llevarán seis horas discutiendo; oí que todavía no han fijado ningún plan.|When the meeting ends, they will have been talking for six hours; I [heard] they have [set] no plan yet.
+44|t|Para entonces llevaré meses ahorrando; he guardado cada dólar y me fijé una meta.|By then, I will have been saving for months; I have [kept] every dollar and [set] a goal.
 44|c|En mayo llevaremos dos años saliendo; nos conocimos en un concierto y nos tomamos de la mano toda la noche.|In May, we will have been dating for two years; we [met] at a concert and [held] hands all night.
-44|t|Cuando se jubile, llevará treinta años enseñando; ha escrito tres libros y ha significado mucho para sus estudiantes.|When he retires, he will have been teaching for thirty years; he has [written] three books and has [meant] a lot to his students.
-44|c|Para las cinco llevará todo el día oyendo quejas; la dejaremos descansar, ya ha oído suficiente.|By five, she will have been listening to complaints all day; we will [let] her rest; she has [heard] enough.
-44|t|En agosto llevarán un año organizando la boda; ya lo han fijado todo y han respetado el presupuesto.|In August, they will have been planning the wedding for a year; they have [set] everything and have [kept] the budget.
+44|t|Cuando se jubile, llevará treinta años enseñando; ha escrito tres libros y ha significado mucho para sus estudiantes.|When he stops working, he will have been teaching for thirty years; he has [written] three books and has [meant] a lot to his students.
+44|c|Para las cinco llevará todo el día oyendo quejas; la dejaremos descansar, ya ha oído suficiente.|By five, she will have been listening to problems all day; we will [let] her rest; she has [heard] enough.
+44|t|En agosto llevarán un año organizando la fiesta; ya lo han fijado todo y han respetado el presupuesto.|In August, they will have been planning the party for a year; they have [set] everything and have [kept] the budget.
 44|c|Para cuando vuelvas, llevaré semanas escribiendo cartas; las he guardado para ti y cada palabra va en serio.|By the time you come back, I will have been writing letters for weeks; I have [kept] them for you, and I [meant] every word.
 44|t|Para fin de año llevarán seis meses haciendo reuniones; comenzaron en julio y han hecho una cada semana.|By the end of the year, they will have been having meetings for six months; they [began] in July and have [held] one every week.
 44|c|Mañana a esta hora llevaré dos horas en la fila; oí que es larga y habré estado de pie todo el tiempo.|At this time tomorrow, I will have been in line for two hours; I [heard] it's long, and I will have [stood] the whole time.
 44|t|Para marzo llevaré un año viviendo en esta ciudad; he conocido a mucha gente y sigo en contacto con todos.|By March, I will have been living in this city for a year; I have [met] so many people, and I have [kept] in touch with all of them.
 
 # --- Regla 45 · Voz pasiva ---
-45|t|La reunión se hará en el auditorio y comenzará a las nueve.|The meeting will be [held] in the auditorium and will [begin] at nine.
+45|t|La reunión se hará en el salón y comenzará a las nueve.|The meeting will be [held] in the hall and will [begin] at nine.
 45|c|Este libro fue escrito por mi abuelo; lo he guardado por años.|This book was [written] by my grandfather; I have [kept] it for years.
-45|t|Se oyeron disparos cerca del banco; la policía puso un cerco.|Shots were [heard] near the bank; the police [set] up a perimeter.
-45|c|Las reglas fueron fijadas por el director y todos las cumplen.|The rules were [set] by the director, and they are [kept] by everyone.
+45|t|Se oyeron sonidos fuertes cerca del banco; la policía puso una línea.|Loud sounds were [heard] near the bank; the police [set] up a line.
+45|c|Los planes fueron fijados por el director y todos los cumplen.|The plans were [set] by the director, and they are [kept] by everyone.
 45|t|Los papeles se guardan en una caja fuerte; nadie puede sacarlos.|The papers are [kept] in a safe; nobody is [let] near them.
-45|c|La boda se celebró en una iglesia antigua que ha resistido siglos.|The wedding was [held] in an old church that has [stood] for centuries.
+45|c|La fiesta se celebró en una iglesia antigua que ha resistido siglos.|The party was [held] in an old church that has [stood] for centuries.
 45|t|Se escriben miles de cartas cada año para ese programa; muchas se oyen en la radio.|Thousands of letters are [written] every year for that show; many are [heard] on the radio.
 45|c|Se fijó una nueva fecha para el examen; las clases comenzaron otra vez.|A new date was [set] for the exam; classes [began] again.
 45|t|Es muy querida por todos los que la han conocido; sus palabras han significado mucho para nosotros.|She is very loved by everyone who has [met] her; her words have [meant] a lot to us.
@@ -731,7 +731,7 @@
 45|c|La carta fue escrita a mano; quería decir mucho.|The letter was [written] by hand; it [meant] so much.
 45|t|El récord fue establecido en 1998 y se ha mantenido desde entonces.|The record was [set] in 1998 and has been [kept] since then.
 45|c|A los invitados los detuvieron en la puerta para una revisión; los conocimos uno por uno.|The guests were [held] at the door for a check; we [met] them one by one.
-45|t|La reunión se mantuvo en secreto; nadie la oyó mencionar.|The meeting was [kept] secret; nobody [heard] it mentioned.
+45|t|La reunión se mantuvo en secreto; nadie la oyó mencionar.|The meeting was [kept] secret; nobody [heard] it said.
 
 # --- Regla 46 · Modales de posibilidad / deducción ---
 46|t|Debe de estar en la reunión; comenzó a las nueve y mantuvo el teléfono apagado.|She must be in the meeting; it [began] at nine, and she [kept] her phone off.
@@ -742,29 +742,29 @@
 46|c|Debe de haber una razón; ella siempre ha cumplido su palabra y lo dice en serio.|There must be a reason; she has always [kept] her word, and she [meant] it.
 46|t|Puede que hayan fijado otra fecha; nadie me escribió.|They might have [set] another date; nobody [wrote] to me.
 46|c|Debe de conocer a mucha gente; ha conocido a todos los que trabajan aquí y recuerda sus nombres.|She must know a lot of people; she has [met] everyone who works here and [kept] their names.
-46|t|No puede ser el mismo hombre; el que conocí era más alto y llevaba un bastón.|It can't be the same man; the one I [met] was taller, and he [held] a cane.
-46|c|Debe de haber comenzado ya; oí aplausos.|It must have [begun] already; I [heard] applause.
-46|t|Puede que ella haya escrito la nota; guardé sus cartas viejas y la letra coincide.|She might have [written] the note; I [kept] her old letters, and the handwriting matches.
+46|t|No puede ser el mismo hombre; el que conocí era más alto y llevaba un bolso.|It can't be the same man; the one I [met] was taller, and he [held] a bag.
+46|c|Debe de haber comenzado ya; oí gritos.|It must have [begun] already; I [heard] shouting.
+46|t|Puede que ella haya escrito la nota; guardé sus cartas viejas y la letra coincide.|She might have [written] the note; I [kept] her old letters, and the writing matches.
 46|c|Debe de significar algo; lo guardó por años.|It must [mean] something; she [kept] it for years.
-46|t|Podría haber reglas nuevas; las fijaron ayer en la reunión que hicieron.|There might be new rules; they [set] them yesterday at the meeting they [held].
-46|c|No puede estar lejos; lo oí hace un minuto y dejó que la puerta se cerrara de golpe.|He can't be far; I [heard] him a minute ago, and he [let] the door slam.
-46|t|Debe de haber una fiesta; pusieron luces en el jardín e hicieron un ensayo.|There must be a party; they [set] up lights in the garden and [held] a rehearsal.
+46|t|Podría haber planes nuevos; las fijaron ayer en la reunión que hicieron.|There might be new plans; they [set] them yesterday at the meeting they [held].
+46|c|No puede estar lejos; lo oí hace un minuto y dejó que la puerta se cerrara de golpe.|He can't be far; I [heard] him a minute ago, and he [let] the door close.
+46|t|Debe de haber una fiesta; pusieron luces en el jardín e hicieron un ensayo.|There must be a party; they [set] up lights in the garden and [held] a practice.
 
 # --- Regla 47 · Half of ---
-47|t|Conocí a la mitad de los invitados en la boda.|I [met] half of the guests at the wedding; I [kept] forgetting names.
+47|t|Conocí a la mitad de los invitados en la fiesta.|I [met] half of the guests at the party; I [kept] forgetting names.
 47|c|Escribí la mitad del informe ayer; comencé temprano.|I [wrote] half of the report yesterday; I [began] early.
-47|t|La mitad de la gente no oyó la alarma.|Half of the people didn't [hear] the alarm; they [kept] sleeping.
-47|c|La mitad del público se puso de pie para aplaudir; la otra mitad levantó los teléfonos.|Half of the audience [stood] up to clap; the other half [held] their phones up.
+47|t|La mitad de la gente no oyó el reloj.|Half of the people didn't [hear] the clock; they [kept] sleeping.
+47|c|La mitad del público se puso de pie para gritar; la otra mitad levantó los teléfonos.|Half of the audience [stood] up to shout; the other half [held] their phones up.
 47|t|Me dejaron llevar la mitad de mis cosas; el resto lo guardé en casa.|They [let] me take half of my things; I [kept] the rest at home.
 47|c|La mitad de lo que dijo no significó nada.|Half of what he said [meant] nothing; I [heard] it all before.
 47|t|Pusimos la mitad de las sillas en el jardín; la fiesta comenzó a las seis.|We [set] half of the chairs in the garden; the party [began] at six.
 47|c|La mitad de las reuniones se hicieron en línea; vi a mi equipo solo dos veces.|Half of the meetings were [held] online; I [met] my team only twice.
 47|t|Guardé la mitad del pastel para mañana; mi mamá me dejó.|I [kept] half of the cake for tomorrow; my mom [let] me.
-47|c|La mitad de los estudiantes escribió el ensayo en inglés; el resto comenzó en español.|Half of the students [wrote] the essay in English; the rest [began] in Spanish.
+47|c|La mitad de los estudiantes escribió el ensayo en inglés; el resto comenzó en español.|Half of the students [wrote] the homework in English; the rest [began] in Spanish.
 47|t|Conocí a la mitad de su familia en Navidad; hicieron una gran cena.|I [met] half of her family at Christmas; they [held] a big dinner.
-47|c|La mitad de la ciudad oyó la explosión; la gente se quedó de pie en las calles.|Half of the city [heard] the explosion; people [stood] in the streets.
+47|c|La mitad de la ciudad oyó el ruido; la gente se quedó de pie en las calles.|Half of the city [heard] the noise; people [stood] in the streets.
 47|t|Ya hicimos la mitad del curso; he guardado todos mis apuntes.|We have already [begun] half of the course; I have [kept] all my notes.
-47|c|La mitad de las reglas que fijaron no tienen sentido; nadie tenía la intención de seguirlas.|Half of the rules they [set] make no sense; nobody [meant] to follow them.
+47|c|La mitad de los planes que fijaron no tienen sentido; nadie tenía la intención de seguirlos.|Half of the plans they [set] have no meaning; nobody [meant] to follow them.
 47|t|La mitad de los invitados se quedó de pie toda la noche; no los dejamos sentarse porque no había sillas.|Half of the guests [stood] all night; we didn't [let] them sit because there were no chairs.
 
 # --- Regla 48 · "By" para tiempo futuro ---
@@ -779,16 +779,16 @@
 48|t|Para junio ya habré escrito tres capítulos; he mantenido un horario.|By June, I will have [written] three chapters; I have [kept] a schedule.
 48|c|Para el fin de semana ya me habrán dejado volver al trabajo; el médico me oyó el corazón y dijo que está bien.|By the weekend, they will have [let] me go back to work; the doctor [heard] my heart and said it's fine.
 48|t|Para el próximo año habrá comenzado la construcción; ya fijaron el presupuesto.|By next year, construction will have [begun]; they [set] the budget already.
-48|c|Para las cinco ya habrás conocido a todos tus compañeros; hicieron un desayuno de bienvenida.|By five, you will have [met] all your coworkers; they [held] a welcome breakfast.
+48|c|Para las cinco ya habrás conocido a todos tus compañeros; hicieron un desayuno de bienvenida.|By five, you will have [met] all your colleagues; they [held] a welcome breakfast.
 48|t|Para entonces ya habremos oído los resultados; crucé los dedos.|By then, we will have [heard] the results; I [kept] my fingers crossed.
-48|c|Para el viernes ya habré puesto todo en orden; escribí una lista de tareas.|By Friday, I will have [set] everything in order; I [wrote] a checklist.
-48|t|Para fin de año esa canción habrá significado mucho para nosotros; la oímos en nuestra boda.|By the end of the year, that song will have [meant] a lot to us; we [heard] it at our wedding.
+48|c|Para el viernes ya habré puesto todo en orden; escribí una lista de tareas.|By Friday, I will have [set] everything in order; I [wrote] a list.
+48|t|Para fin de año esa canción habrá significado mucho para nosotros; la oímos en nuestra fiesta.|By the end of the year, that song will have [meant] a lot to us; we [heard] it at our party.
 
 # --- Regla 49 · because of / because ---
-49|t|No oí la alarma por el ruido; seguí durmiendo.|I didn't [hear] the alarm because of the noise; I [kept] sleeping.
+49|t|No oí el reloj por el ruido; seguí durmiendo.|I didn't [hear] the clock because of the noise; I [kept] sleeping.
 49|c|Nos conocimos porque trabajábamos en la misma oficina; después seguimos en contacto.|We [met] because we worked in the same office; we [kept] in touch after.
 49|t|La reunión comenzó tarde por el tráfico; igual nos dejaron entrar.|The meeting [began] late because of the traffic; they [let] us in anyway.
-49|c|Escribí la carta porque quería disculparme.|I [wrote] the letter because I [meant] to apologize.
+49|c|Escribí la carta porque quería decir que lo sentía.|I [wrote] the letter because I [meant] to say sorry.
 49|t|Se puso de pie por respeto; sostenía el sombrero en las manos.|He [stood] up because of respect; he [held] his hat in his hands.
 49|c|Fijaron una nueva fecha por la lluvia; el partido comenzó una semana después.|They [set] a new date because of the rain; the game [began] a week later.
 49|t|Lo guardé porque siempre ha significado mucho para mí.|I [kept] it because it has always [meant] a lot to me.
@@ -797,42 +797,42 @@
 49|c|Comencé a escribir porque leí mucho de niño; escribí mi primer cuento a los diez.|I [began] to write because I read a lot as a child; I [wrote] my first story at ten.
 49|t|Lo oí claramente porque estaba cerca; estaba de pie junto al conferencista.|I [heard] it clearly because I was close; I [stood] next to the speaker.
 49|c|Nos dejaron quedarnos por la tormenta; nos abrazamos toda la noche.|They [let] us stay because of the storm; we [held] each other all night.
-49|t|Gracias a su ayuda cumplí con la fecha de entrega; ella me mantuvo motivado.|Because of her help, I [met] the deadline; she [kept] me motivated.
-49|c|Puse la alarma temprano porque tengo un examen; escribí mis apuntes anoche.|I [set] the alarm early because I have an exam; I [wrote] my notes last night.
+49|t|Gracias a su ayuda cumplí con la fecha de entrega; ella me mantuvo motivado.|Because of her help, I [met] the date; she [kept] me happy.
+49|c|Puse el reloj temprano porque tengo un examen; escribí mis apuntes anoche.|I [set] the clock early because I have an exam; I [wrote] my notes last night.
 49|t|Lo que dijo significó mucho porque venía de mi papá; guardé sus palabras en mi corazón.|What he said [meant] a lot because it came from my dad; I [kept] his words in my heart.
 
 # --- Regla 50 · (put, try, get, take, lie) + (down, off, on) ---
-50|t|Me quité el abrigo y me paré junto a la chimenea; acerqué las manos al fuego.|I took off my coat and [stood] by the fireplace; I [held] my hands to the fire.
+50|t|Me quité el abrigo y me paré junto a la chimenea; acerqué las manos al fuego.|I took off my coat and [stood] by the fire; I [held] my hands to it.
 50|c|Se subió al bus y comenzó a leer el libro que escribí.|She got on the bus and [began] to read the book I [wrote].
-50|t|Me acosté temprano porque oí que mañana hará frío; puse dos alarmas.|I lay down early because I [heard] tomorrow will be cold; I [set] two alarms.
+50|t|Me acosté temprano porque oí que mañana hará frío; puse dos relojes.|I went to bed early because I [heard] tomorrow will be cold; I [set] two clocks.
 50|c|Bájate del bus aquí; la clase ya comenzó y el profesor no te dejará entrar tarde.|Get off the bus here; the class has [begun], and the teacher won't [let] you in late.
 50|t|Se puso los zapatos que le guardé; significaban mucho para ella.|She put on the shoes I [kept] for her; they [meant] a lot to her.
 50|c|Puse la caja en el suelo y me quedé ahí de pie; oí que alguien llamaba.|I put the box down and [stood] there; I [heard] someone calling.
-50|t|El avión despegó y comenzó a llover; contuve la respiración.|The plane took off, and it [began] to rain; I [held] my breath.
+50|t|El avión despegó y comenzó a llover; contuve la respiración.|The plane took off, and it [began] to rain; I [held] still.
 50|c|Se quitó los zapatos y los puso junto a la puerta; su mamá lo dejó entrar.|He took off his shoes and [set] them by the door; his mom [let] him in.
-50|t|Nos subimos al tren y conocimos a una pareja de Chile; hablamos por horas.|We got on the train and [met] a couple from Chile; we [kept] talking for hours.
+50|t|Nos subimos al tren y conocimos a una pareja de Brasil; hablamos por horas.|We got on the train and [met] a couple from Brazil; we [kept] talking for hours.
 50|c|Me probé el vestido que me guardaron; tenía la intención de comprarlo.|I tried on the dress they [kept] for me; I [meant] to buy it.
-50|t|Se acostó en el sofá y oyó la lluvia; tenía una taza de té en la mano.|She lay down on the sofa and [heard] the rain; she [held] a cup of tea.
+50|t|Se sentó en el sofá y oyó la lluvia; tenía una taza de té en la mano.|She sat down on the sofa and [heard] the rain; she [held] a cup of tea.
 50|c|Bájate en la próxima parada; allí nos encontramos, como te escribí en el mensaje.|Get off at the next stop; we will [meet] there, as I [wrote] in my message.
-50|t|Quítate la gorra; la ceremonia ya comenzó y todos se pusieron de pie.|Take off your cap; the ceremony has [begun], and everyone has [stood] up.
+50|t|Quítate la gorra; la fiesta ya comenzó y todos se pusieron de pie.|Take off your cap; the party has [begun], and everyone has [stood] up.
 50|c|Puse el teléfono en la mesa y lo dejé sonar; seguí leyendo.|I put my phone down on the table and [let] it ring; I [kept] reading.
 50|t|Se puso el uniforme y se paró frente al espejo; significaba mucho para él.|He put on his uniform and [stood] in front of the mirror; it [meant] so much to him.
 
 # --- Regla 51 · Sustantivos compuestos ---
-51|t|Conocí a mi compañero de cuarto en la fila de matrícula; seguimos en contacto por años.|I [met] my roommate in the registration line; we [kept] in touch for years.
-51|c|Escribí mi contraseña en una nota adhesiva y la guardé en mi billetera.|I [wrote] my password on a sticky note and [kept] it in my wallet.
-51|t|Oímos la alarma del carro toda la noche; nadie se levantó a apagarla.|We [heard] the car alarm all night; nobody [stood] up to turn it off.
-51|c|La ceremonia de premios se hizo en el centro de convenciones; comenzó a las siete.|The awards ceremony was [held] at the convention center; it [began] at seven.
-51|t|Puse la alarma del celular a las cinco, pero no la oí.|I [set] my phone alarm for five, but I didn't [hear] it.
+51|t|Conocí a mi compañero de cuarto en la fila de escuela; seguimos en contacto por años.|I [met] my roommate in the school line; we [kept] in touch for years.
+51|c|Escribí mi contraseña en una nota adhesiva y la guardé en mi billetera.|I [wrote] my password on a small note and [kept] it in my wallet.
+51|t|Oímos un sonido fuerte de un carro toda la noche; nadie se levantó a apagarlo.|We [heard] a loud sound from a car all night; nobody [stood] up to turn it off.
+51|c|La fiesta de premios se hizo en el lugar de reuniones; comenzó a las siete.|The awards party was [held] at the meeting center; it [began] at seven.
+51|t|Puse el reloj del celular a las cinco, pero no lo oí.|I [set] my phone clock for five, but I didn't [hear] it.
 51|c|El guardia de seguridad no nos dejó entrar; mantuvo la puerta cerrada.|The security guard didn't [let] us in; he [held] the door closed.
-51|t|Comenzó la temporada de lluvias y guardamos las sillas del patio adentro.|The rainy season [began], and we [kept] the patio chairs inside.
+51|t|Comenzó la temporada de lluvias y guardamos las sillas del patio adentro.|The wet season [began], and we [kept] the garden chairs inside.
 51|c|Esa tarjeta de cumpleaños significó mucho para mí; mi abuela la escribió a mano.|That birthday card [meant] a lot to me; my grandma [wrote] it by hand.
 51|t|Nos encontramos en la estación de bomberos; mi hermano hizo un recorrido para los niños.|We [met] at the fire station; my brother [held] a tour for the kids.
 51|c|Estuvimos de pie en la parada del bus media hora; oí que el bus venía tarde.|We [stood] at the bus stop for half an hour; I [heard] the bus was late.
-51|t|Fijaron el precio del boleto de avión; tenía la intención de comprarlo antes.|They [set] the airline ticket price; I [meant] to buy it earlier.
-51|c|Escribió la lista de invitados para la fiesta de grado; la mantuvo corta.|She [wrote] the guest list for the graduation party; she [kept] it short.
+51|t|Fijaron el precio del boleto de avión; tenía la intención de comprarlo antes.|They [set] the plane ticket price; I [meant] to buy it earlier.
+51|c|Escribió la lista de invitados para la fiesta de grado; la mantuvo corta.|She [wrote] the guest list for the school party; she [kept] it short.
 51|t|Dejé que mi hermano usara mi tarjeta de crédito; guardé los recibos.|I [let] my brother use my credit card; I [kept] the receipts.
-51|c|Oí el timbre de la puerta y me puse de pie.|I [heard] the doorbell and [stood] up.
+51|c|Oí el timbre de la puerta y me puse de pie.|I [heard] the bell and [stood] up.
 51|t|La reunión de padres comenzó tarde; conocimos al nuevo rector.|The parents' meeting [began] late; we [met] the new principal.
 
 # --- Regla 52 · Expresiones de tiempo con "over" ---
@@ -842,62 +842,62 @@
 52|c|Con los años he guardado todas tus cartas; escribiste muchísimas.|Over the years, I have [kept] all your letters; you [wrote] so many.
 52|t|Durante el verano comenzamos a construir la casa; pusimos los cimientos en julio.|Over the summer, we [began] building the house; we [set] the foundation in July.
 52|c|En los últimos meses nos hemos reunido cada semana; hicimos las reuniones en línea.|Over the last few months, we have [met] every week; we [held] the meetings online.
-52|t|Hablamos de eso tomando un café y me dejó explicar; no quería hacer daño.|We talked about it over coffee, and she [let] me explain; I [meant] no harm.
-52|c|Durante la noche oí ruidos extraños y me quedé de pie junto a la ventana.|Overnight, I [heard] strange noises and [stood] at the window.
+52|t|Hablamos de eso tomando un café y me dejó explicar; no quería hacer daño.|We talked about it over coffee, and she [let] me explain; I [meant] no hurt.
+52|c|Durante la noche oí ruidos extraños y me quedé de pie junto a la ventana.|During the night, I [heard] strange sounds and [stood] at the window.
 52|t|A lo largo de su carrera ha establecido varios récords y ha tenido tres títulos.|Over her career, she has [set] several records and has [held] three titles.
 52|c|Durante las vacaciones escribí un diario; lo llevaba en mi morral.|Over the holidays, I [wrote] a diary; I [kept] it in my backpack.
 52|t|En la última década la ciudad ha comenzado a cambiar; oí que ahora es más segura.|Over the last decade, the city has [begun] to change; I [heard] it's safer now.
 52|c|Durante el almuerzo me explicó lo que quería decir; me mordí la lengua.|Over lunch, he explained what he [meant]; I [held] my tongue.
-52|t|Con el tiempo el edificio ha resistido terremotos; lo han mantenido en buen estado.|Over time, the building has [stood] through earthquakes; they have [kept] it in good shape.
+52|t|Con el tiempo el edificio ha resistido tormentas; lo han mantenido en buen estado.|Over time, the building has [stood] through storms; they have [kept] it in good shape.
 52|c|En las últimas semanas me han dejado trabajar desde casa; armé una pequeña oficina.|Over the past few weeks, they have [let] me work from home; I [set] up a small office.
 52|t|A lo largo de los años he conocido gente maravillosa que ha significado mucho para mí.|Over the years, I have [met] wonderful people who have [meant] a lot to me.
 
 # --- Regla 53 · Future Continuous ---
 53|t|Mañana a esta hora estaré conociendo a sus padres; ya fijamos la hora y lo he mantenido en secreto.|This time tomorrow, I will be meeting her parents; we have [set] the time, and I have [kept] it a secret.
 53|c|No llames a las ocho; estaré en una reunión que organizaron de afán; oí que es importante.|Don't call at eight; I will be in a meeting they [set] up in a hurry; I [heard] it's important.
-53|t|El próximo mes estaré escribiendo mi tesis; ya comencé la investigación y conocí a mi asesor.|Next month, I will be writing my thesis; I have already [begun] the research and [met] my advisor.
-53|c|A las diez estaremos esperando en la fila; guárdame un puesto y avísame cuando llegues.|At ten, we will be waiting in line; [keep] me a spot, and [let] me know when you arrive.
-53|t|Esta noche estaré escuchando el concierto en la radio; un amigo escribió la música y oí el ensayo.|Tonight I will be listening to the concert on the radio; a friend [wrote] the music, and I [heard] the rehearsal.
+53|t|El próximo mes estaré escribiendo mi proyecto; ya comencé la investigación y conocí a mi profesor.|Next month, I will be writing my project; I have already [begun] the research and [met] my teacher.
+53|c|A las diez estaremos esperando en la fila; guárdame un puesto y avísame cuando llegues.|At ten, we will be waiting in line; [keep] me a place, and [let] me know when you arrive.
+53|t|Esta noche estaré escuchando el concierto en la radio; un amigo escribió la música y oí el ensayo.|Tonight I will be listening to the concert on the radio; a friend [wrote] the music, and I [heard] the practice.
 53|c|Mañana estaremos viajando a Bogotá; la empresa fijó la reunión allá y ya tengo mis notas listas.|Tomorrow we will be traveling to Bogotá; the company [set] the meeting there, and I have [kept] my notes ready.
-53|t|El próximo año estaremos viviendo en otra ciudad; ya nos dejaron arrendar un apartamento y conocimos al dueño.|Next year, we will be living in another city; they have [let] us rent an apartment, and we have [met] the landlord.
-53|c|Esta tarde estaré cuidando a mi sobrino; lo tuve en brazos toda la mañana y oí su primera palabra.|This afternoon I will be babysitting my nephew; I [held] him all morning and [heard] his first word.
-53|t|Mañana a esta hora estaré volando; ya puse la alarma y escribí una lista.|At this time tomorrow, I will be flying; I have already [set] my alarm and [written] a list.
+53|t|El próximo año estaremos viviendo en otra ciudad; ya nos dejaron arrendar un apartamento y conocimos al hombre.|Next year, we will be living in another city; they have [let] us rent an apartment, and we have [met] the man.
+53|c|Esta tarde estaré cuidando a mi hijo; lo tuve en brazos toda la mañana y oí su primera palabra.|This afternoon I will be looking after my son; I [held] him all morning and [heard] his first word.
+53|t|Mañana a esta hora estaré volando; ya puse el reloj y escribí una lista.|At this time tomorrow, I will be flying; I have already [set] my clock and [written] a list.
 53|c|Te estaré esperando en la entrada; quería llevar un letrero, pero se me olvidaba.|I will be waiting for you at the entrance; I [meant] to bring a sign, but I [kept] forgetting.
 53|t|El lunes estaré empezando mi nuevo trabajo; me dejaron escoger mi horario y ya conocí a mi jefe.|On Monday, I will be starting my new job; they [let] me choose my schedule, and I [met] my boss already.
-53|c|Esta noche estarán celebrando; oí que ganaron y levantaron el trofeo.|Tonight they will be celebrating; I [heard] they won and [held] the trophy.
+53|c|Esta noche estarán de fiesta; oí que ganaron y levantaron el premio.|Tonight they will be having a party; I [heard] they won and [held] the prize.
 53|t|En diciembre estaremos visitando a mi abuela; le escribí que vamos y nos tuvo el cuarto listo.|In December, we will be visiting my grandma; I [wrote] to her that we're coming, and she [kept] our room ready.
 53|c|Mañana estaré en ese escenario; nunca había querido algo tanto y me he parado allí en mis sueños.|Tomorrow I will be on that stage; I have never [meant] anything so much, and I have [stood] there in my dreams.
-53|t|A medianoche estaremos viendo los fuegos artificiales; el año pasado los oímos desde el techo y nos tomamos de la mano.|At midnight, we will be watching the fireworks; last year we [heard] them from the roof and [held] hands.
+53|t|A medianoche estaremos viendo los luces; el año pasado los oímos desde el techo y nos tomamos de la mano.|At midnight, we will be watching the lights; last year we [heard] them from the roof and [held] hands.
 
 # --- Regla 54 · Comparativos y superlativos ---
-54|t|Es la persona más amable que he conocido; me tomó la mano cuando tuve miedo.|She is the kindest person I have ever [met]; she [held] my hand when I was scared.
+54|t|Es la persona más amable que he conocido; me tomó la mano cuando tuve miedo.|She is the nicest person I have ever [met]; she [held] my hand when I was afraid.
 54|c|Es la mejor canción que he oído este año; la escribió mi amigo.|It's the best song I have [heard] this year; my friend [wrote] it.
 54|t|Este libro es más corto que el que escribiste; guardé los dos.|This book is shorter than the one you [wrote]; I [kept] both.
 54|c|La reunión comenzó más tarde que la de ayer; la hicieron en una sala más grande.|The meeting [began] later than yesterday's; they [held] it in a bigger room.
-54|t|Es el récord más alto que han establecido; todos se pusieron de pie para aplaudir.|It's the highest record they have ever [set]; everyone [stood] up to clap.
+54|t|Es el récord más alto que han establecido; todos se pusieron de pie para gritar.|It's the highest record they have ever [set]; everyone [stood] up to shout.
 54|c|Fue la peor noticia que he oído; me permití llorar.|It was the worst news I have ever [heard]; I [let] myself cry.
 54|t|Su regalo significó más que cualquier otro; lo he tenido en mi escritorio.|His gift [meant] more than any other; I have [kept] it on my desk.
 54|c|Me quedé de pie más tiempo que todos; sostuve la bandera durante una hora.|I [stood] longer than everyone; I [held] the flag for an hour.
 54|t|Este año comenzamos más temprano que nunca; nos fijamos una nueva meta.|This year we [began] earlier than ever; we [set] a new goal.
-54|c|Es la carta más bonita que me han escrito; la guardé en un marco.|It's the most beautiful letter anyone has ever [written] to me; I [kept] it in a frame.
-54|t|Nos conocimos en el peor momento de mi vida; me dejaste apoyarme en ti.|We [met] at the worst moment of my life; you [let] me lean on you.
-54|c|Fue la ceremonia más larga que han hecho; estuvimos de pie tres horas.|It was the longest ceremony they have ever [held]; we [stood] for three hours.
+54|c|Es la carta más bonita que me han escrito; la guardé en una caja.|It's the most beautiful letter anyone has ever [written] to me; I [kept] it in a box.
+54|t|Nos conocimos en el peor momento de mi vida; me dejaste estar contigo.|We [met] at the worst moment of my life; you [let] me stand with you.
+54|c|Fue la fiesta más larga que han hecho; estuvimos de pie tres horas.|It was the longest party they have ever [held]; we [stood] for three hours.
 54|t|Lo que dijiste significó más que mil regalos; lo escribí.|What you said [meant] more than a thousand gifts; I [wrote] it down.
 54|c|Me dejaron salir más temprano que de costumbre; me vi con mis amigos en el parque.|They [let] me leave earlier than usual; I [met] my friends at the park.
-54|t|Es el lugar más tranquilo del que he oído hablar; lo guardé como mi secreto.|It's the quietest place I have ever [heard] of; I [kept] it as my secret.
+54|t|Es el lugar más tranquilo del que he oído hablar; lo guardé como mi secreto.|It's the most quiet place I have ever [heard] of; I [kept] it as my secret.
 
 # --- Regla 55 · make/let/help + objeto + infinitivo ---
 55|t|Mis papás me dejaron conocer sola a la familia de mi novio.|My parents [let] me [meet] my boyfriend's family alone.
-55|c|El profesor nos hizo escribir el ensayo otra vez; tenía buenas intenciones.|The teacher made us [write] the essay again; he [meant] well.
+55|c|El profesor nos hizo escribir el ensayo otra vez; tenía buenas intenciones.|The teacher made us [write] the homework again; he [meant] well.
 55|t|Déjame sostener al bebé un momento.|[Let] me [hold] the baby for a moment.
-55|c|Me ayudó a mantener la calma cuando oí la noticia.|She helped me [keep] calm when I [heard] the news.
+55|c|Me ayudó a mantener la calma cuando oí la noticia.|She helped me [keep] quiet when I [heard] the news.
 55|t|Su jefe lo hizo quedarse de pie toda la reunión; la hicieron en una sala pequeña.|His boss made him [stand] for the whole meeting; they [held] it in a small room.
 55|c|Déjame oír esa canción otra vez.|[Let] me [hear] that song again.
 55|t|Me ayudó a comenzar mi negocio; me armó la página web.|He helped me [begin] my business; he [set] up my website.
 55|c|No me dejaron escribir el examen con lápiz.|They didn't [let] me [write] the exam in pencil.
 55|t|La película me ayudó a entender lo que quiso decir; me quedé pensando en eso.|The movie helped me understand what he [meant]; I [kept] thinking about it.
 55|c|Mi mamá me hizo guardar el dinero; me abrió una cuenta de ahorros.|My mom made me [keep] the money; she [set] up a savings account for me.
-55|t|Nos ayudaron a fijar la fecha de la boda; nos reunimos en su casa.|They helped us [set] the wedding date; we [met] at their house.
+55|t|Nos ayudaron a fijar la fecha de la fiesta; nos reunimos en su casa.|They helped us [set] the party date; we [met] at their house.
 55|c|Déjame conocer a tus amigos.|[Let] me [meet] your friends.
 55|t|El entrenador nos hizo comenzar a las cinco; hizo el entrenamiento bajo la lluvia.|The coach made us [begin] at five; he [held] practice in the rain.
 55|c|Me ayudaste a oír lo que mi corazón decía; significó todo.|You helped me [hear] what my heart was saying; it [meant] everything.
@@ -906,19 +906,19 @@
 # --- Regla 56 · Estilo indirecto ---
 56|t|Dijo que había conocido a mi hermano; no dejaba de sonreír.|She said she had [met] my brother; she [kept] smiling.
 56|c|Me dijo que había escrito una canción para mí; la oí al día siguiente.|He told me he had [written] a song for me; I [heard] it the next day.
-56|t|Dijeron que la reunión ya había comenzado y me dejaron entrar en silencio.|They said the meeting had already [begun] and [let] me in quietly.
-56|c|Me preguntó si había oído la noticia; me quedé ahí de pie en silencio.|She asked me if I had [heard] the news; I [stood] there in silence.
+56|t|Dijeron que la reunión ya había comenzado y me dejaron entrar sin hacer ruido.|They said the meeting had already [begun] and [let] me in without a sound.
+56|c|Me preguntó si había oído la noticia; me quedé ahí de pie en silencio.|She asked me if I had [heard] the news; I [stood] there in quiet.
 56|t|Dijo que guardaría el secreto; lo decía en serio.|He said he would [keep] the secret; he [meant] it.
-56|c|Me contó que habían fijado la fecha de la boda; hicieron una pequeña fiesta.|She told me they had [set] the wedding date; they [held] a small party.
-56|t|Dijo que no me dejaría ir sola; me tomó la mano.|He said he wouldn't [let] me go alone; he [held] my hand.
+56|c|Me contó que habían fijado la fecha de la fiesta; hicieron una pequeña fiesta.|She told me they had [set] the party date; they [held] a small party.
+56|t|Dijo que no me dejaría ir sola; me tomó la mano.|He said he would not [let] me go alone; he [held] my hand.
 56|c|Me dijo que había estado de pie toda la noche; estuvo vigilando.|He told me he had [stood] all night; he [kept] watch.
 56|t|Dijeron que el concierto se haría en el estadio; comenzó a las ocho.|They said the concert would be [held] at the stadium; it [began] at eight.
 56|c|Me preguntó qué había querido decir; lo escribí otra vez más claro.|She asked me what I had [meant]; I [wrote] it again more clearly.
-56|t|Dijo que nos encontraríamos a las seis; puse mi alarma.|He said we would [meet] at six; I [set] my alarm.
+56|t|Dijo que nos encontraríamos a las seis; puse mi reloj.|He said we would [meet] at six; I [set] my clock.
 56|c|Me contó que había guardado todas mis cartas; yo escribí muchísimas.|She told me she had [kept] all my letters; I [wrote] so many.
 56|t|Dijo que comenzaría a trabajar el lunes; conoció al equipo el viernes.|He said he would [begin] work on Monday; he [met] the team on Friday.
-56|c|Me dijeron que habían oído ruidos en el ático; nadie se levantó a revisar.|They told me they had [heard] noises in the attic; nobody [stood] up to check.
-56|t|Dijo que eso significaba mucho para él; contuvo las lágrimas.|He said it [meant] a lot to him; he [held] back tears.
+56|c|Me dijeron que habían oído ruidos en el cuarto; nadie se levantó a revisar.|They told me they had [heard] sounds in the room; nobody [stood] up to check.
+56|t|Dijo que eso significaba mucho para él; contuvo las lágrimas.|He said it [meant] a lot to him; he [held] back how he felt.
 
 # --- Regla 57 · Wish + pasado simple ---
 57|t|Ojalá nos viéramos más seguido; siempre nos desencontrábamos.|I wish we [met] more often; we [kept] missing each other.
@@ -928,45 +928,45 @@
 57|t|Ojalá la reunión comenzara a tiempo; estuvimos ahí de pie veinte minutos.|I wish the meeting [began] on time; we [stood] there for twenty minutes.
 57|c|Ojalá cuidaras mejor tus cosas; otra vez puse tus llaves en la mesa.|I wish you [kept] your things better; I [set] your keys on the table again.
 57|t|Ojalá significara menos para mí; me quedé pensando en eso toda la noche.|I wish it [meant] less to me; I [kept] thinking about it all night.
-57|c|Ojalá hicieran el festival aquí; le escribí a la alcaldía.|I wish they [held] the festival here; I [wrote] to the city.
+57|c|Ojalá hicieran la fiesta aquí; le escribí a la alcaldía.|I wish they [held] the party here; I [wrote] to the city.
 57|t|Ojalá me permitiera descansar más; hoy comencé a trabajar a las seis.|I wish I [let] myself rest more; I [began] working at six today.
-57|c|Ojalá conociera gente nueva aquí; oí que hay un club para recién llegados.|I wish I [met] new people here; I [heard] there's a club for newcomers.
-57|t|Ojalá escribiera tan bonito como tú; tu carta significó mucho.|I wish I [wrote] as beautifully as you; your letter [meant] so much.
+57|c|Ojalá conociera gente nueva aquí; oí que hay un club para la gente nueva.|I wish I [met] new people here; I [heard] there's a club for new people.
+57|t|Ojalá escribiera tan bonito como tú; tu carta significó mucho.|I wish I [wrote] as well as you; your letter [meant] so much.
 57|c|Ojalá me dejaras ayudarte; me contuve porque dijiste que no.|I wish you [let] me help you; I [held] back because you said no.
-57|t|Ojalá la clase comenzara más tarde; puse tres alarmas y aun así me desperté cansado.|I wish class [began] later; I [set] three alarms and still woke up tired.
-57|c|Ojalá oyeras lo que dicen de ti; no paraban de elogiarte.|I wish you [heard] what they say about you; they [kept] praising you.
-57|t|Ojalá guardara más fotos de mi niñez; mi mamá conservó solo unas pocas.|I wish I [kept] more photos from my childhood; my mom [held] onto only a few.
+57|t|Ojalá la clase comenzara más tarde; puse tres relojes y aun así me desperté cansado.|I wish class [began] later; I [set] three clocks and still woke up tired.
+57|c|Ojalá oyeras lo que dicen de ti; no paraban de decir cosas buenas de ti.|I wish you [heard] what they say about you; they [kept] saying good things about you.
+57|t|Ojalá guardara más fotos de cuando era niño; mi mamá conservó solo unas pocas.|I wish I [kept] more photos from when I was a child; my mom [held] on to only a few.
 
 # --- Regla 58 · Conectores formales ---
-58|t|Aunque la conocí hace poco, confío en ella; además, guardó mi secreto.|Although I [met] her recently, I trust her; moreover, she [kept] my secret.
-58|c|A pesar del ruido, oí todo; sin embargo, me quedé callado.|Despite the noise, I [heard] everything; however, I [kept] quiet.
-58|t|Escribió el informe; sin embargo, no cumplió con la fecha límite.|She [wrote] the report; however, she didn't [meet] the deadline.
-58|c|Aunque comenzó tarde, terminó primero; además, estableció un récord.|Although he [began] late, he finished first; moreover, he [set] a record.
-58|t|A pesar de lo que dijeron, nos dejaron entrar; sin embargo, nos quedamos de pie al fondo.|Despite what they said, they [let] us in; however, we [stood] at the back.
+58|t|Aunque la conocí hace poco, confío en ella; además, guardó mi secreto.|Though I [met] her recently, I trust her; also, she [kept] my secret.
+58|c|A pesar del ruido, oí todo; sin embargo, me quedé callado.|Though there was a lot of noise, I [heard] everything; however, I [kept] quiet.
+58|t|Escribió el informe; sin embargo, no cumplió con la fecha.|She [wrote] the report; however, she didn't [meet] the date.
+58|c|Aunque comenzó tarde, terminó primero; además, estableció un récord.|Though he [began] late, he finished first; also, he [set] a record.
+58|t|A pesar de lo que dijeron, nos dejaron entrar; sin embargo, nos quedamos de pie al fondo.|Though they said no, they [let] us in; however, we [stood] at the back.
 58|c|La reunión se hizo; sin embargo, nadie tenía la intención de decidir nada.|The meeting was [held]; however, nobody [meant] to decide anything.
-58|t|Aunque guardé el recibo, no me dejaron devolverlo.|Although I [kept] the receipt, they didn't [let] me return it.
-58|c|Además de escribir, ha comenzado a pintar; incluso hizo su primera exposición.|Besides writing, she has [begun] to paint; moreover, she [held] her first exhibition.
-58|t|A pesar de haber estado de pie todo el día, sonrió; sin embargo, pensaba descansar pronto.|Despite having [stood] all day, she smiled; however, she [meant] to rest soon.
-58|c|Aunque oí la alarma, no me levanté; sin embargo, la había puesto para las seis.|Although I [heard] the alarm, I didn't get up; however, I had [set] it for six.
+58|t|Aunque guardé el recibo, no me dejaron devolverlo.|Though I [kept] the receipt, they didn't [let] me return it.
+58|c|Además de escribir, ha comenzado a pintar; incluso hizo su primer espectáculo.|Also writing, she has [begun] to paint; also, she [held] her first show.
+58|t|A pesar de haber estado de pie todo el día, sonrió; sin embargo, pensaba descansar pronto.|Though she had [stood] all day, she smiled; however, she [meant] to rest soon.
+58|c|Aunque oí el reloj, no me levanté; sin embargo, lo había puesto para las seis.|Though I [heard] the clock, I didn't get up; however, I had [set] it for six.
 58|t|Fijamos la fecha; sin embargo, la cambiaron, así que nos reunimos una semana después.|We [set] the date; however, they changed it, so we [met] a week later.
-58|c|Aunque escribió muchas cartas, nunca las envió; las guardó en una caja.|Although he [wrote] many letters, he never sent them; he [kept] them in a box.
-58|t|A pesar de haberlo visto solo una vez, lo ayudé; además, lo dejé quedarse en mi casa.|Despite having [met] him only once, I helped him; moreover, I [let] him stay at my house.
-58|c|La película comenzó tarde; además, apenas oímos el sonido.|The movie [began] late; moreover, we barely [heard] the sound.
-58|t|Aunque significaba mucho para ella, lo regaló; sin embargo, guardó una foto.|Although it [meant] a lot to her, she gave it away; however, she [kept] a photo.
+58|c|Aunque escribió muchas cartas, nunca las envió; las guardó en una caja.|Though he [wrote] many letters, he never sent them; he [kept] them in a box.
+58|t|A pesar de haberlo visto solo una vez, lo ayudé; además, lo dejé quedarse en mi casa.|Though I had [met] him only once, I helped him; also, I [let] him stay at my house.
+58|c|La película comenzó tarde; además, apenas oímos el sonido.|The movie [began] late; also, we only [heard] the sound.
+58|t|Aunque significaba mucho para ella, lo regaló; sin embargo, guardó una foto.|Though it [meant] a lot to her, she gave it away; however, she [kept] a photo.
 
 # --- Regla 59 · Phrasal verbs B2 ---
 59|t|Me encontré con mi profesor y me contó que había escrito un libro; tenía la intención de comprarlo.|I ran into my teacher, and he told me he had [written] a book; I [meant] to buy it.
 59|c|Nos llevamos bien desde que nos conocimos; seguimos en contacto por años.|We have gotten along since we [met]; we [kept] in touch for years.
 59|t|Nunca te rindas; comienza otra vez y sigue adelante.|Never give up; [begin] again, and [keep] going.
-59|c|Espero con ansias tu nueva canción; oí un pedazo y significó mucho.|I'm looking forward to your new song; I [heard] a piece of it, and it [meant] a lot.
+59|c|Espero con ansias tu nueva canción; oí un pedazo y significó mucho.|I can't wait for your new song; I [heard] a piece of it, and it [meant] a lot.
 59|t|Se rindió después de haber estado horas de pie en la fila; nunca la dejaron entrar.|She gave up after she had [stood] in line for hours; they never [let] her in.
 59|c|Me topé con una vieja amiga en la reunión que hicieron; fijamos una fecha para almorzar.|I ran into an old friend at the meeting they [held]; we [set] a date for lunch.
 59|t|¿Te llevas bien con tu jefe? El mío me dejó salir temprano cuando supe que mi hijo estaba enfermo.|Do you get along with your boss? Mine [let] me leave early when I [heard] my son was sick.
 59|c|Casi me rindo, pero mantuve la esperanza; mi mamá me tomó la mano.|I almost gave up, but I [kept] hope; my mom [held] my hand.
-59|t|Espero con ansias la visita de tu familia; ya fijamos la fecha y la escribí en el calendario.|I'm looking forward to your family's visit; we have [set] the date, and I [wrote] it on the calendar.
+59|t|Espero con ansias la visita de tu familia; ya fijamos la fecha y la escribí en el calendario.|I can't wait for your family's visit; we have [set] the date, and I [wrote] it on the calendar.
 59|c|No se llevaban bien, así que guardaron distancia; nadie quería hacerle daño a nadie.|They didn't get along, so they [kept] their distance; nobody [meant] to hurt anyone.
 59|t|Me encontré con mi exnovia y comenzamos a hablar; estuvimos de pie en la calle una hora.|I ran into my ex, and we [began] to talk; we [stood] in the street for an hour.
 59|c|Se rindió porque nadie oía sus ideas; las escribió en un cuaderno.|He gave up because nobody [heard] his ideas; he [wrote] them in a notebook.
 59|t|Siempre me he llevado bien con mis vecinos; nos conocimos hace años e hicimos una fiesta juntos.|I have always gotten along with my neighbors; we [met] years ago and [held] a party together.
-59|c|Espero con ansias el fin de semana; dejaré descansar el teléfono y lo mantendré apagado.|I'm looking forward to the weekend; I will [let] my phone rest and [keep] it off.
+59|c|Espero con ansias el fin de semana; dejaré descansar el teléfono y lo mantendré apagado.|I can't wait for the weekend; I will [let] my phone rest and [keep] it off.
 59|t|Me encontré con un viejo amigo que significó mucho en mi vida; lo conocí en el colegio.|I ran into an old friend who [meant] a lot in my life; I [met] him in school.
