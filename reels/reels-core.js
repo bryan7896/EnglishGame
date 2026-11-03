@@ -211,6 +211,39 @@
     return por[reglaId] || por[String(reglaId)] || [];
   }
 
+  // ---------- Modo "solo ejercicios guardados de forma manual" ----------
+  // Interruptor en ⚙️ Configurar reels (rlModalConfigurarReels, en
+  // reels-sorpresas.js). Si está activo: no se ofrece la sorpresa "reglas"
+  // (ni la pantalla "Elige qué estudiar" ni "➕ Completar a X"), así que no
+  // entran más ejercicios del banco del sistema; el banco solo se rellena
+  // con lo que haya en la reserva manual (tandas de "📥 Agregar
+  // ejercicios"). El resto (informe manual, historias, %, espacio,
+  // temporizador, etc.) sigue exactamente igual. Si está apagado, Reels
+  // funciona como siempre. Se guarda por idioma, igual que la reserva y
+  // las tandas guardadas.
+  function rlSoloManualKey() { return "english_trainer_reels_solo_manual_v1_" + getTargetLanguage(); }
+  function rlSoloManualActivo() {
+    try { return localStorage.getItem(rlSoloManualKey()) === "1"; }
+    catch (e) { return false; }
+  }
+  function rlSoloManualGuardar(v) {
+    try { localStorage.setItem(rlSoloManualKey(), v ? "1" : "0"); } catch (e) { /* nada */ }
+  }
+
+  // Pasa ejercicios de la reserva manual al banco directamente (sin pasar
+  // por la pantalla "Elige qué estudiar"), hasta llenar RL_BANCO. La usa el
+  // modo "solo manual" en vez de pedir ejercicios del sistema. Devuelve
+  // cuántos se movieron.
+  function rlRellenarBancoManual() {
+    if (!RL.reserva.length) return 0;
+    const deficit = Math.max(0, RL_BANCO - rlContarBanco());
+    if (deficit <= 0) return 0;
+    const n = Math.min(RL.reserva.length, deficit);
+    rlMezclarEnBanco(RL.reserva.splice(0, n).map((e) => rlItemEx(e, "man")));
+    rlGuardar();
+    return n;
+  }
+
   // ---------- Reserva manual ----------
   function rlAgregarManual(parsed) {
     const lista = rawDataToExerciseList(parsed || {});
@@ -225,12 +258,20 @@
     rlEstado();
     if (ok.length) rlSumarDia("cargadosManual", ok.length);
     RL.reserva = RL.reserva.concat(shuffleArray(ok));
-    // Si el banco está vacío, se usa ya la parte manual (30 de 50).
+    // Si el banco está vacío, se usa ya la parte manual (30 de 50) — o, con
+    // "Solo ejercicios guardados" activo, se llena del todo con lo manual
+    // (no hay ejercicios del sistema con qué mezclar).
     if (!rlContarBanco() && RL.reserva.length) {
-      const n = Math.min(RL.reserva.length, Math.round(RL_BANCO * RL_PARTE_MANUAL));
+      const n = rlSoloManualActivo()
+        ? Math.min(RL.reserva.length, RL_BANCO)
+        : Math.min(RL.reserva.length, Math.round(RL_BANCO * RL_PARTE_MANUAL));
       rlMezclarEnBanco(RL.reserva.splice(0, n).map((e) => rlItemEx(e, "man")));
     }
     rlGuardar();
+    // Si Reels está abierto mostrando el aviso de "no hay nada guardado"
+    // (modo "solo manual" sin reserva), se refresca para mostrar lo recién
+    // cargado sin que el usuario tenga que tocar nada más.
+    if (RLV.abierto && RL.cur && RL.cur.tipo === "manualVacio") rlSiguiente();
     return { agregados: ok.length, descartados, reserva: RL.reserva.length };
   }
 
@@ -411,7 +452,14 @@
   // del informe (RL_REPORTE_MIN/MAX, RL.cont.reporte) sigue intacta.
   function rlDecidirSiguiente() {
     if (!rlContarBanco() && !RL.banco.length) {
-      return { k: "sorpresa", tipo: "reglas", uid: rlUid(), forzada: true };
+      if (rlSoloManualActivo()) {
+        rlRellenarBancoManual();
+        if (!rlContarBanco() && !RL.banco.length) {
+          return { k: "sorpresa", tipo: "manualVacio", uid: rlUid(), forzada: true };
+        }
+      } else {
+        return { k: "sorpresa", tipo: "reglas", uid: rlUid(), forzada: true };
+      }
     }
     // El informe (normal o manual) NO espera al sorteo general de sorpresas
     // de abajo (cada 2-15 ejercicios, RL.cont.sorpresa): en cuanto está listo

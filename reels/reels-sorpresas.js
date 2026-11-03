@@ -38,12 +38,20 @@
       RL.cont.proxReporte = RL.cont.reporte + 10;
     }
 
-    if (rlContarBanco() < RL_MIN_OBLIGATORIO && (rlReglasDisponibles().length || RL.reserva.length)) return "reglas";
+    // Con "Solo ejercicios guardados" activo, nunca se ofrece "reglas" (no
+    // se pide elegir reglas ni se cargan ejercicios del sistema): si el
+    // banco va bajo, se rellena en silencio con lo que haya en la reserva
+    // manual.
+    if (rlSoloManualActivo()) {
+      if (rlContarBanco() < RL_MIN_OBLIGATORIO) rlRellenarBancoManual();
+    } else if (rlContarBanco() < RL_MIN_OBLIGATORIO && (rlReglasDisponibles().length || RL.reserva.length)) {
+      return "reglas";
+    }
 
     const cands = [];
     if (rlHistoriaSiguiente()) cands.push("historia");
     if (AppRules.length) cands.push("pct");
-    if (rlContarBanco() < RL_BANCO && (rlReglasDisponibles().length || RL.reserva.length)) cands.push("reglas");
+    if (!rlSoloManualActivo() && rlContarBanco() < RL_BANCO && (rlReglasDisponibles().length || RL.reserva.length)) cands.push("reglas");
     let lista = cands.filter((t) => t !== RL.ultSorpresa);
     if (!lista.length) lista = cands;
     if (!lista.length) return null;
@@ -227,6 +235,24 @@
         </span>
       </div>` : "";
 
+    // Bloque aparte: "Solo ejercicios guardados de forma manual" — si está
+    // activo, Reels no muestra ejercicios del banco del sistema ni pide
+    // elegir reglas para cargar más; solo usa lo agregado a mano en "📥
+    // Agregar ejercicios". El resto (informes, historias, %, espacio,
+    // temporizador...) sigue funcionando igual. Apagado = como siempre.
+    const soloManual = rlSoloManualActivo();
+    const soloManualHTML = `
+      <div class="rule-card tier-${soloManual ? "good" : "bad"}" style="margin-bottom:14px;">
+        <span class="rule-card-body">
+          <label class="rule-config-info-toggle">
+            <input type="checkbox" id="rlSoloManualToggle" ${soloManual ? "checked" : ""}>
+            <span class="rule-config-switch"></span>
+            <span class="rule-select-text">✋ Solo ejercicios guardados de forma manual</span>
+          </label>
+          <p class="rl-sub" style="margin-top:6px;">Activa: no se mostrarán ejercicios del sistema ni se pedirá agregar más al banco — solo entran los que cargaste a mano. El resto sigue igual. Apagada: Reels funciona como ahora.</p>
+        </span>
+      </div>`;
+
     const modal = document.createElement("div");
     modal.className = "modal-overlay modal-active";
     modal.innerHTML = `
@@ -235,6 +261,7 @@
           <h3>⚙️ Configurar reels</h3>
           <button class="menu-modal-close" aria-label="Cerrar">✕</button>
         </div>
+        ${soloManualHTML}
         <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Cada tipo puede prenderse/apagarse y elegir en qué nivel(es) puede salir (los niveles van rotando 1→2→3→4→1… cada 2-5 ejercicios; en cada nivel se sortea 1 tipo al azar entre los que cumplan). Sin niveles marcados, ese tipo nunca sale aunque esté prendido.</p>
         <div class="rules-select-list">${RL_ESPACIO_TIPOS.map(filaTipo).join("")}</div>
         ${irrPctHTML}
@@ -243,6 +270,14 @@
     const close = () => modal.remove();
     modal.querySelector(".menu-modal-close").onclick = close;
     modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+    modal.querySelector("#rlSoloManualToggle")?.addEventListener("change", (e) => {
+      const activo = e.target.checked;
+      rlSoloManualGuardar(activo);
+      toast(activo ? "✋ Solo ejercicios guardados: activado" : "✋ Solo ejercicios guardados: desactivado");
+      // Si la tarjeta actual de Reels era "Elige qué estudiar" o el aviso de
+      // "no hay nada guardado", se recalcula ya mismo con el nuevo modo.
+      if (RLV.abierto && RL.cur && (RL.cur.tipo === "reglas" || RL.cur.tipo === "manualVacio")) rlSiguiente();
+    });
     modal.querySelectorAll(".rl-cfg-enabled").forEach((cb) => {
       cb.addEventListener("change", () => { cfg[cb.dataset.t].enabled = cb.checked; rlConfigGuardar(cfg); });
     });
@@ -282,6 +317,7 @@
       // se redirige sola a la pantalla de selección nueva.
       case "reporte": item.tipo = "reporteSeleccion"; item.fase = "elegir"; return rlRenderReporteSeleccion(item, body);
       case "reporteManual": return rlRenderReporteManual(item, body);
+      case "manualVacio": return rlRenderManualVacio(item, body);
       case "historia": return rlRenderHistoria(item, body);
       case "yt": return rlRenderYT(item, body);
       case "listening": return rlRenderListening(item, body);
@@ -291,6 +327,23 @@
       case "banco": return rlRenderBanco(item, body);
       default: setTimeout(rlSiguiente, 0);
     }
+  }
+
+  // ---------- "Solo ejercicios guardados" sin nada en la reserva ----------
+  // Pantalla que se muestra en vez de "Elige qué estudiar" cuando el
+  // interruptor de ⚙️ Configurar reels está activo y no queda nada cargado
+  // a mano (ni en la reserva ni en el banco). No carga nada del sistema:
+  // solo invita a agregar una tanda desde "📥 Agregar ejercicios".
+  function rlRenderManualVacio(item, body) {
+    body.innerHTML = rlCabecera(["✋ Solo ejercicios guardados"]) + `
+      <div class="rl-sorpresa rl-reglas">
+        <h2 class="rl-title">No tienes ejercicios guardados para jugar</h2>
+        <p class="rl-sub">La opción "✋ Solo ejercicios guardados de forma manual" está activada en ⚙️ Configurar reels, así que no se cargan ejercicios del banco del sistema. Agrega una tanda desde "📥 Agregar ejercicios" en el menú, márcala y toca "Cargar al juego" para seguir.</p>
+        <div class="rl-reglas-foot">
+          <button class="fun-btn primary-btn rl-manual-vacio-ir">📥 Agregar ejercicios</button>
+        </div>
+      </div>`;
+    body.querySelector(".rl-manual-vacio-ir").onclick = () => rlModalAgregarJSON();
   }
 
   // ---------- Reglas (para 2 y 3) ----------

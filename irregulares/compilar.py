@@ -15,7 +15,9 @@
 #
 #   Banco:    regla|t|Español|English with [form1] and [form2]
 #             regla|c|Español|English with [form1] and [form2]
-#             (en "c" los corchetes se vuelven huecos; en "t" solo se quitan)
+#             (en "c" los corchetes se vuelven huecos; en "t" solo se quitan;
+#              puede haber 2 o más [formas] en la misma frase, siempre que
+#              entre todas cubran al menos 2 verbos distintos del paquete)
 #
 # build.py llama a cargar_irregulares(); también se puede correr suelto para ver
 # el reporte de validación:  python3 irregulares/compilar.py
@@ -100,6 +102,10 @@ def cargar_irregulares(verbose=True):
             for fk in ("base", "past", "participle"):
                 for w in v["forms"][fk]["variants"]:
                     m.setdefault(_norm(w), set()).add(v["id"])
+            # También acepta la 3ª persona singular del presente (he blows, it sinks),
+            # que no está en las variantes de "base" pero es una forma válida del verbo.
+            for w in v["forms"]["base"]["variants"]:
+                m.setdefault(_norm(_tercera(w)), set()).add(v["id"])
         return m
 
     seccion = {}
@@ -187,8 +193,8 @@ def cargar_irregulares(verbose=True):
                 if "✗" in line or "..." in en or "…" in en or "[ " in en:
                     aviso(f"{donde}: texto incompleto o con notas"); continue
                 marcas = BRACKET.findall(en)
-                if len(marcas) != 2:
-                    aviso(f"{donde}: debe tener exactamente 2 [formas] ({len(marcas)})"); continue
+                if len(marcas) < 2:
+                    aviso(f"{donde}: debe tener al menos 2 [formas] ({len(marcas)})"); continue
                 vids = []
                 ok = True
                 for w in marcas:
@@ -198,16 +204,14 @@ def cargar_irregulares(verbose=True):
                     vids.append(sorted(cands))
                 if not ok:
                     continue
-                # Elige verbos distintos para las 2 marcas (por si una palabra es de 2 verbos)
-                elegido = None
-                for a in vids[0]:
-                    for b in vids[1]:
-                        if a != b:
-                            elegido = [a, b]; break
-                    if elegido:
-                        break
-                if not elegido:
-                    aviso(f"{donde}: las 2 formas son del mismo verbo"); continue
+                # Elige un verbo por marca (por si una palabra es de 2 verbos), tratando de
+                # cubrir la mayor variedad posible cuando una frase tiene más de 2 marcas.
+                elegido = []
+                for cands in vids:
+                    pick = next((c for c in cands if c not in elegido), cands[0])
+                    elegido.append(pick)
+                if len(set(elegido)) < 2:
+                    aviso(f"{donde}: las formas son todas del mismo verbo"); continue
                 clave = _norm(BRACKET.sub(lambda m: m.group(1), en))
                 if clave in vistos:
                     aviso(f"{donde}: frase repetida"); continue
