@@ -251,7 +251,6 @@
             <span class="rule-config-switch"></span>
             <span class="rule-select-text">✋ Solo ejercicios guardados de forma manual</span>
           </label>
-          <p class="rl-sub" style="margin-top:6px;">Activa: no se mostrarán ejercicios del sistema ni se pedirá agregar más al banco — solo entran los que cargaste a mano. El resto sigue igual. Apagada: Reels funciona como ahora.</p>
         </span>
       </div>`;
 
@@ -264,7 +263,6 @@
           <button class="menu-modal-close" aria-label="Cerrar">✕</button>
         </div>
         ${soloManualHTML}
-        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Cada tipo puede prenderse/apagarse y elegir en qué nivel(es) puede salir (los niveles van rotando 1→2→3→4→1… cada 2-5 ejercicios; en cada nivel se sortea 1 tipo al azar entre los que cumplan). Sin niveles marcados, ese tipo nunca sale aunque esté prendido.</p>
         <div class="rules-select-list">${RL_ESPACIO_TIPOS.map(filaTipo).join("")}</div>
         ${irrPctHTML}
       </div>`;
