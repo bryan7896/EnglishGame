@@ -85,7 +85,7 @@
   }
 
   // ==================== FEATURE 4: "espacio" (scheduler unificado) ====================
-  // 6 tipos configurables desde ⚙️ Configurar reels (menú): cada uno tiene un
+  // Tipos configurables desde ⚙️ Configurar reels (menú): cada uno tiene un
   // interruptor on/off y hasta 4 casillas de "nivel". Cada 2-5 ejercicios
   // principales se abre un "espacio" en el nivel actual (1→2→3→4→1…) y se
   // sortea, con probabilidad uniforme, UNO entre los tipos que estén
@@ -94,8 +94,8 @@
   // espacio no produce nada y se sigue de largo (como con cualquier banco
   // vacío) — exactamente igual que el caso "ordenamiento sin candidatas"
   // de Feature 3.
-  const RL_ESPACIO_TIPOS = ["listening", "azure", "irregulares", "ordenamiento", "youglish", "tatoeba", "banco"];
-  const RL_ESPACIO_TIPO_LABEL = { listening: "🎧 Listening", azure: "☁️ Azure", irregulares: "🔁 Irregulares", ordenamiento: "🔤 Ordenamiento", youglish: "🌎 YouGlish", tatoeba: "🐢 Tatoeba", banco: "📚 Banco de palabras" };
+  const RL_ESPACIO_TIPOS = ["listening", "azure", "irregulares", "ordenamiento", "youglish", "tatoeba", "banco", "cancion"];
+  const RL_ESPACIO_TIPO_LABEL = { listening: "🎧 Listening", azure: "☁️ Azure", irregulares: "🔁 Irregulares", ordenamiento: "🔤 Ordenamiento", youglish: "🌎 YouGlish", tatoeba: "🐢 Tatoeba", banco: "📚 Banco de palabras", cancion: "🎵 Practicar canción" };
   // tipo de config -> item.tipo que entiende rlRenderSorpresa (ordenamiento e
   // irregulares no usan esta tabla: se resuelven aparte, ver rlEspacioSiToca).
   const RL_ESPACIO_TIPO_RENDER = { listening: "listening", azure: "azure", youglish: "yt", tatoeba: "tatoeba", banco: "banco" };
@@ -150,6 +150,7 @@
       case "youglish": return !!rlPalabraParaYT();
       case "tatoeba": return typeof rlTatoebaDisponible === "function" ? rlTatoebaDisponible() : true;
       case "banco": return typeof BancoPalabrasData !== "undefined" && BancoPalabrasData.activas().length > 0;
+      case "cancion": return typeof cancionReelsDisponible === "function" && cancionReelsDisponible();
       default: return false;
     }
   }
@@ -188,6 +189,7 @@
     if (!ganador) return null;
     if (ganador === "ordenamiento") { rlConvertirTraduccionAOrdenamiento(); return null; }
     if (ganador === "irregulares") return irrDecidirSorpresa();
+    if (ganador === "cancion") return cancionDecidirSorpresa();
     return { k: "sorpresa", tipo: RL_ESPACIO_TIPO_RENDER[ganador], uid: rlUid() };
   }
 
@@ -325,6 +327,7 @@
       case "irr": return irrRenderSorpresaReels(item, body);
       case "tatoeba": return rlRenderTatoeba(item, body);
       case "banco": return rlRenderBanco(item, body);
+      case "cancion": return cancionRenderSorpresaReels(item, body);
       default: setTimeout(rlSiguiente, 0);
     }
   }

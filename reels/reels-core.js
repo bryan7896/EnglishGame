@@ -570,7 +570,7 @@
   }
 
   // ---------- Historia de estudio ----------
-  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", reporteSeleccion: "reporte (elegir)", reporteManual: "reporte manual", listening: "listening", irr: "irregulares", tatoeba: "tatoeba" };
+  const RL_NOMBRE_SORPRESA = { azure: "azure", yt: "youglish", historia: "historia", pct: "porcentajes", reglas: "elegir reglas (agregar ejercicios)", reporte: "reporte", reporteSeleccion: "reporte (elegir)", reporteManual: "reporte manual", listening: "listening", irr: "irregulares", tatoeba: "tatoeba", cancion: "practicar canción" };
   function rlAnotar(item, nota) {
     if (!RL) return;
     let tipo = "—";
@@ -594,7 +594,7 @@
       ingles: 0, listening: 0, azure: 0, youglish: 0,
       corregir: 0, traduccion: 0, completar: 0, informacion: 0, ordenar: 0, tatoeba: 0,
       irregularesCargados: 0, cargadosManual: 0, cargadosSistema: 0,
-      cancionEjercicios: 0, // "Aprender canción": cuenta cada ejercicio resuelto (ver rl2RegistrarCandado en reels2.js)
+      cancionEjercicios: 0, // "Practicar canción": cuenta cada ejercicio resuelto (ver rl2ResolverActual en reels2.js)
     };
   }
   function rlHoyStr() { return new Date().toLocaleDateString("en-CA"); }

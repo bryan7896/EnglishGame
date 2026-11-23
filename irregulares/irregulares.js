@@ -48,6 +48,48 @@
   function irrBancoDe(pkg) { return (irrData().banco || {})[String(pkg)] || []; }
   function irrHay() { return irrData().verbos.length > 0; }
 
+  // ---------- Selección de verbos a estudiar, por paquete ----------
+  // Guarda, por paquete, qué verbos quedaron EXCLUIDOS (desmarcados) — así
+  // por defecto (sin nada guardado) todos los verbos están activos. Un
+  // verbo excluido no entra a Reconocimiento, Seleccionar ni Completar de
+  // ese paquete, y por lo tanto tampoco cuenta para cerrar la sesión del
+  // día: la sesión simplemente queda más corta. Nunca se permite dejar un
+  // paquete sin ningún verbo activo (ver irrToggleVerbo).
+  const IRR_SELECCION_KEY = "english_trainer_irr_seleccion_v1";
+  function irrSeleccionLeer() {
+    try {
+      const d = JSON.parse(localStorage.getItem(IRR_SELECCION_KEY) || "{}");
+      return (d && typeof d === "object") ? d : {};
+    } catch (e) { return {}; }
+  }
+  function irrSeleccionGuardar(d) {
+    try { localStorage.setItem(IRR_SELECCION_KEY, JSON.stringify(d)); } catch (e) { /* nada */ }
+  }
+  function irrVerboExcluido(pkg, vid) {
+    const d = irrSeleccionLeer();
+    return (d[String(pkg)] || []).includes(vid);
+  }
+  function irrVerbosActivosDe(pkg) {
+    return irrVerbosDe(pkg).filter((v) => !irrVerboExcluido(pkg, v.id));
+  }
+  // Marca/desmarca un verbo de un paquete. Devuelve false (y no aplica el
+  // cambio) si intentaba desmarcar el último verbo activo del paquete.
+  function irrToggleVerbo(pkg, vid, activo) {
+    const d = irrSeleccionLeer();
+    const key = String(pkg);
+    const excl = new Set(d[key] || []);
+    if (!activo) {
+      const totalPkg = irrVerbosDe(pkg).length;
+      if (totalPkg - excl.size <= 1) return false; // no puede quedar el paquete vacío
+      excl.add(vid);
+    } else {
+      excl.delete(vid);
+    }
+    d[key] = Array.from(excl);
+    irrSeleccionGuardar(d);
+    return true;
+  }
+
   // Solo existe en inglés.
   function irrDisponible() { return irrHay() && typeof getTargetLanguage === "function" && getTargetLanguage() === "en"; }
 
@@ -95,7 +137,7 @@
     const sec = irrSeccionDe(pkg);
     const lista = sec.sel.filter((it) => {
       const f = irrForma(it.f), v = irrVerbo(it.v);
-      return f && v && (v.o + f.i + ciclo) % 2 === 0;
+      return f && v && !irrVerboExcluido(pkg, v.id) && (v.o + f.i + ciclo) % 2 === 0;
     });
     lista.sort((a, b) => (irrVerbo(a.v).o - irrVerbo(b.v).o) || (irrForma(a.f).i - irrForma(b.f).i));
     // Mezcla manteniendo el orden por tandas razonable: se baraja todo.
@@ -106,7 +148,7 @@
 
   // Grupos de completar: un grupo por verbo (sus 3 formas), en orden del paquete.
   function irrGruposComp(pkg) {
-    return irrVerbosDe(pkg).map((v) => v.f.map((f) => f.id).filter((fid) => irrCompItem(pkg, fid))).filter((g) => g.length);
+    return irrVerbosActivosDe(pkg).map((v) => v.f.map((f) => f.id).filter((fid) => irrCompItem(pkg, fid))).filter((g) => g.length);
   }
 
   // Lo que muestra el resumen ("Seleccionar 2/3", etc.)
@@ -268,7 +310,7 @@
     const s = irrEstado();
     const ses = s.ses;
     const pkg = ses ? ses.paquete : s.paquete;
-    irrVerbosDe(pkg).forEach((v) => { irrStat(v.id).veces += 1; });
+    irrVerbosActivosDe(pkg).forEach((v) => { irrStat(v.id).veces += 1; });
     s.sesiones = (s.sesiones || 0) + 1;
     s.hecha = irrHoy();
     s.log.push({ f: new Date().toISOString(), p: pkg, c: s.ciclo });
@@ -322,7 +364,7 @@
   // ---------- 1. Reconocimiento ----------
   function irrNuevaCola(pkg) {
     const ids = [];
-    irrVerbosDe(pkg).forEach((v) => v.f.forEach((f) => ids.push(f.id)));
+    irrVerbosActivosDe(pkg).forEach((v) => v.f.forEach((f) => ids.push(f.id)));
     // 2 vueltas barajadas por separado: así una forma no sale dos veces seguidas.
     let cola = [];
     for (let r = 0; r < IRR_REC_REPS; r++) cola = cola.concat(shuffleArray(ids));
@@ -809,12 +851,57 @@
            <button type="button" class="irr-btn irr-btn-alt irr-practicar">Practicar el paquete ${s.log.length ? s.log[s.log.length - 1].p : pkg} (no cuenta)</button>`
         : `<button type="button" class="irr-btn irr-btn-main irr-go">${ses && (ses.fase !== "rec" || ses.rec) ? "Continuar sesión" : "Empezar sesión"} →</button>
            <p class="irr-hint">${ses && proxReels ? "En Reels, la próxima parte sale en " + proxReels + " ejercicio" + (proxReels === 1 ? "" : "s") + ". Aquí la puedes hacer ya." : "Lo que hagas aquí cuenta igual que en Reels."}</p>`}
+      <button type="button" class="irr-btn irr-ghost irr-elegir-verbos">🗳️ Elegir verbos a estudiar</button>
       ${irrTablaHTML({ alta: true })}
     `);
     wrap.querySelector(".irr-go")?.addEventListener("click", () => { irrSesion(); irrJugarEnOverlay(ov); });
     wrap.querySelector(".irr-practicar")?.addEventListener("click", () => {
       const p = s.log.length ? s.log[s.log.length - 1].p : pkg;
       irrPracticaMenu(ov, p);
+    });
+    wrap.querySelector(".irr-elegir-verbos")?.addEventListener("click", () => irrPintarSeleccion(ov));
+  }
+
+  // ---------- Pantalla "Elegir verbos a estudiar" (por paquete) ----------
+  function irrSeleccionPaqueteHTML(pkg) {
+    const verbos = irrVerbosDe(pkg);
+    const activos = irrVerbosActivosDe(pkg).length;
+    return `
+      <details class="irr-seleccion-grupo">
+        <summary>Paquete ${pkg} <small>(${activos}/${verbos.length} activos)</small></summary>
+        <div class="irr-seleccion-lista">
+          ${verbos.map((v) => `
+            <label class="irr-seleccion-fila">
+              <input type="checkbox" class="irr-sel-verbo" data-pkg="${pkg}" data-vid="${irrEsc(v.id)}" ${irrVerboExcluido(pkg, v.id) ? "" : "checked"}>
+              <span><b>${irrEsc(v.f[0].en)}</b> · <i>${irrEsc(v.f[1].en)}</i> · <u>${irrEsc(v.f[2].en)}</u></span>
+            </label>`).join("")}
+        </div>
+      </details>`;
+  }
+
+  function irrPintarSeleccion(ov) {
+    const wrap = irrMarco(ov, `
+      ${irrCabecera("Elegir verbos", "qué estudiar en cada paquete")}
+      <p class="irr-lead">Desmarca los verbos que no quieres estudiar. Los que queden desmarcados no saldrán en Reconocimiento, Seleccionar ni Completar de su paquete. Cada paquete necesita al menos 1 verbo activo.</p>
+      <div class="irr-seleccion-paquetes">
+        ${Array.from({ length: 10 }, (_, i) => i + 1).map((pkg) => irrSeleccionPaqueteHTML(pkg)).join("")}
+      </div>
+      <button type="button" class="irr-btn irr-ghost irr-volver">← Volver</button>`);
+    wrap.querySelector(".irr-volver").onclick = () => irrPintarInicio(ov);
+    wrap.querySelectorAll(".irr-sel-verbo").forEach((cb) => {
+      cb.addEventListener("change", () => {
+        const pkg = parseInt(cb.dataset.pkg, 10);
+        const vid = cb.dataset.vid;
+        const ok = irrToggleVerbo(pkg, vid, cb.checked);
+        if (!ok) {
+          cb.checked = true;
+          toast("⚠️ Debe quedar al menos 1 verbo activo en este paquete");
+          return;
+        }
+        const grupo = cb.closest(".irr-seleccion-grupo");
+        const contador = grupo?.querySelector("summary small");
+        if (contador) contador.textContent = "(" + irrVerbosActivosDe(pkg).length + "/" + irrVerbosDe(pkg).length + " activos)";
+      });
     });
   }
 

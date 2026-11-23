@@ -1,19 +1,15 @@
-// canciones/canciones-audio-seleccion.js — "Aprender canción" (Parte 3)
+// canciones/canciones-audio-seleccion.js — "Practicar canción" (Niveles 4-5)
 //
-// Ejercicio nuevo que pidió Bryan: suena una frase en el idioma objetivo y
-// abajo aparecen 4 opciones en español — el usuario toca la traducción
-// correcta. Mismo contrato de evento que dictado.js (self-contained, dispara
-// un CustomEvent al terminar) para que reels2.js lo enchufe sin adaptador.
+// Suena una frase de la canción y abajo aparecen 4 opciones en español — el
+// usuario toca la traducción correcta. Mismo contrato de evento que
+// dictado.js (self-contained, dispara un CustomEvent al terminar) para que
+// reels2.js lo enchufe sin adaptador.
 //
-// Audio: en los Niveles 1-2 (antes de la pantalla de felicitaciones) se usa
-// la voz del dispositivo (speechSynthesis), igual que como ya se reproducen
-// los ejercicios de traducción al acertar — así lo pidió Bryan explícitamente
-// ("previo a las felicitaciones... los textos los leerá el propio
-// dispositivo"). Desde la Parte 4, si el ejercicio trae `exercise.audio`
-// ({lang, n, t0, t1} — ver canciones-generador.js Niveles 4/5 y canciones-
-// lrc.js) se reproduce el tramo real del mp3 en su lugar; si no lo trae (no
-// hay .lrc todavía, o el ejercicio es de los Niveles 1-2), cae solo a la voz
-// del dispositivo — mismo criterio permisivo del resto de la sección.
+// Audio: si el ejercicio trae `exercise.audio` ({lang, n, t0, t1} — ver
+// canciones-generador.js Niveles 4/5 y canciones-lrc.js) se reproduce el
+// tramo real del mp3; si no lo trae (todavía no hay .lrc para esa canción),
+// cae a la voz del dispositivo — mismo criterio permisivo del resto de la
+// sección.
 
 function casShuffle(arr) {
   const out = [...arr];

@@ -144,6 +144,18 @@ body.irr-open { overflow: hidden; }
 .irr-done-note { text-align: center; font: 700 1rem var(--irr-sans); color: var(--irr-mint); padding: 12px; border: 1px dashed rgba(52, 214, 168, .5); border-radius: 16px; }
 .irr-practica-ops { display: flex; flex-direction: column; gap: 10px; }
 
+/* ---------- Elegir verbos a estudiar ---------- */
+.irr-seleccion-paquetes { display: flex; flex-direction: column; gap: 8px; }
+.irr-seleccion-grupo { background: rgba(244, 239, 255, .06); border: 1px solid var(--irr-line); border-radius: 16px; padding: 4px 14px; }
+.irr-seleccion-grupo summary { cursor: pointer; padding: 10px 0; font: 700 .95rem var(--irr-sans); color: var(--irr-text); list-style: none; }
+.irr-seleccion-grupo summary small { color: var(--irr-dim); font-weight: 600; margin-left: 6px; }
+.irr-seleccion-lista { display: flex; flex-direction: column; gap: 2px; padding: 2px 0 10px; }
+.irr-seleccion-fila { display: flex; align-items: center; gap: 10px; padding: 6px 2px; font-size: .85rem; color: var(--irr-text); cursor: pointer; }
+.irr-seleccion-fila input { width: 18px; height: 18px; accent-color: var(--irr-mint); }
+.irr-seleccion-fila b { color: #34d6a8; }
+.irr-seleccion-fila i { font-style: normal; color: #ff8a7a; }
+.irr-seleccion-fila u { text-decoration: none; color: #ffc65c; }
+
 /* ---------- Reconocimiento ---------- */
 .irr-rec { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .irr-rec-col { display: flex; flex-direction: column; gap: 10px; }

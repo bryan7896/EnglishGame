@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "21.2 (28-10-2026)"
+VERSION = "21.3 (22-11-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -92,21 +92,19 @@ REELS_FILES = {
     "reels/reels-sorpresas.js": "__REELS_SORPRESAS_JS__",
     "reels/reels-youglish.js": "__REELS_YOUGLISH_JS__",
     "reels/reels-tatoeba.js": "__REELS_TATOEBA_JS__",
-    # Parte 2 de "Aprender canción": duplicado enfocado de reels-core.js,
-    # sin reglas gramaticales ni sorpresas, con banco propio por canción.
+    # Motor de "Practicar canción" (Niveles 4-8, audio real de la canción):
+    # se integra como un tipo más del sorteo de "espacio" en
+    # reels-sorpresas.js, sin pantalla ni overlay propios.
     "reels/reels2.js": "__REELS2_JS__",
 }
 REELS_STYLES_FILE = os.path.join("reels", "reels.css")
 
-# "Aprender canción": sección aparte, reutiliza reels (ver reels2.js arriba,
-# agregado en la Parte 2) pero con su propia pantalla de lista (este
-# archivo). Las canciones mismas (JSON/mp3/lrc) NO pasan por build.py: viven
-# en tracklist/ y la app las pide con fetch() en tiempo real (ver
+# "Aprender canción": ya no tiene pantalla propia, se practica integrada en
+# Reels (ver reels2.js arriba y ⚙️ Configurar reels en reels-sorpresas.js).
+# Las canciones mismas (JSON/mp3/lrc) NO pasan por build.py: viven en
+# tracklist/ y la app las pide con fetch() en tiempo real (ver
 # canciones/canciones-core.js y tracklist/NOTAS.md).
 CANCIONES_FILES = {
-    # El generador (Parte 2/3/4) va antes del core solo por orden de lectura
-    # — todos quedan en el mismo <script type="module">, así que el orden no
-    # afecta a las funciones (quedan "hoisted" en el mismo scope).
     "canciones/canciones-generador.js": "__CANCIONES_GENERADOR_JS__",
     # Ejercicio nuevo de la Parte 3 ("audio + selección", ver NOTAS.md).
     "canciones/canciones-audio-seleccion.js": "__CANCIONES_AUDIO_SEL_JS__",
@@ -629,10 +627,6 @@ def get_html_template():
           <span class="home-tile-ico">📚</span>
           <span><b>Banco de palabras</b><small>Guarda y repasa tus propias palabras</small></span>
         </button>
-        <button class="home-tile home-tile-cancion" id="homeCancionBtn">
-          <span class="home-tile-ico">🎵</span>
-          <span><b>Aprender canción</b><small>Domínala en español antes de descubrir cuál es</small></span>
-        </button>
         <button class="home-tile" id="homeJuegoBtn">
           <span class="home-tile-ico">🎮</span>
           <span><b>Juego</b><small>Aventura de conversaciones por audio</small></span>
@@ -645,17 +639,6 @@ def get_html_template():
           <span class="home-tile-ico">☁️</span>
           <span><b>Azure</b><small>Curso AI-901 (Azure AI Fundamentals)</small></span>
         </button>
-      </div>
-    </div>
-
-    <div id="cancionHomeScreen" class="screen">
-      <div class="magic-card">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-          <h2 style="margin:0;font-family:var(--font-display);color:var(--ink);font-size:1.05rem;">🎵 Aprender canción</h2>
-        </div>
-        <p class="sub-fun" style="text-align:left;margin-bottom:12px;">Domina todo el contenido en español antes de descubrir qué canción es. Tu avance se guarda por canción.</p>
-        <div id="cancionCandadoBanner"></div>
-        <div id="cancionListaContainer" class="cancion-list"></div>
       </div>
     </div>
 
@@ -774,21 +757,6 @@ def get_html_template():
   <button class="rl-float rl-close" id="rlCloseBtn" aria-label="Salir de Reels" title="Salir">✕</button>
   <button class="rl-timer" id="rlTimerBtn" aria-label="Temporizador">▶</button>
   <button class="rl-float rl-help" id="rlHelpBtn" aria-label="Ayuda de gramática" title="Ayuda">❓</button>
-</div>
-
-<!-- "Aprender canción" (Parte 2): reutiliza el mismo CSS de Reels
-     (.rl-overlay/.rl-stage/.rl-card), pero con su propio overlay — así los
-     dos motores (reels-core.js y reels2.js) nunca pisan el mismo DOM. -->
-<div id="reels2Overlay" class="rl-overlay" hidden>
-  <div id="rl2TopBadges" class="rl2-top-badges">
-    <div id="rl2CandadoBadge" class="rl2-candado-badge" hidden></div>
-    <div id="rl2SeleccionarProgress" class="rl2-seleccionar-progress" hidden>
-      <small id="rl2SeleccionarProgressText"></small>
-      <div class="rl2-seleccionar-progress-track"><div id="rl2SeleccionarProgressFill" class="rl2-seleccionar-progress-fill"></div></div>
-    </div>
-  </div>
-  <div id="rl2Stage" class="rl-stage"></div>
-  <button class="rl-float rl-close" id="rl2CloseBtn" aria-label="Salir de Aprender canción" title="Salir">✕</button>
 </div>
 
 <div id="irrOverlay" class="irr-overlay irr-theme" hidden></div>
@@ -1129,7 +1097,6 @@ def get_main_logic():
   
   const mainScreens = {
     home: document.getElementById("homeScreen"),
-    cancionHome: document.getElementById("cancionHomeScreen"),
     listeningHome: document.getElementById("listeningHomeScreen"),
     listeningN1Hub: document.getElementById("listeningN1HubScreen"),
     listeningN1Play: document.getElementById("listeningN1PlayScreen"),
@@ -1648,7 +1615,7 @@ def get_main_logic():
     showMainView("home");
     updateHelpBtnVisibility();
     // Al entrar a la app se va directo a Reels, con el ejercicio que toca.
-    setTimeout(() => { if (currentUser && typeof abrirReelsConCandado === "function") abrirReelsConCandado(); }, 50);
+    setTimeout(() => { if (currentUser && typeof openReels === "function") openReels(); }, 50);
     return true;
   }
 
@@ -1835,15 +1802,13 @@ def get_main_logic():
     document.getElementById("usernameInput")?.addEventListener("keypress", (e) => { if(e.key === "Enter") login(document.getElementById("usernameInput").value); });
     document.getElementById("toggleMenuBtn")?.addEventListener("click", showMenuModal);
     document.getElementById("toggleHomeBtn")?.addEventListener("click", () => showMainView("home"));
-    document.getElementById("homeReelsBtn")?.addEventListener("click", abrirReelsConCandado);
+    document.getElementById("homeReelsBtn")?.addEventListener("click", openReels);
     document.getElementById("homeJuegoBtn")?.addEventListener("click", openAventura);
     document.getElementById("homeAzureBtn")?.addEventListener("click", openAzure);
     document.getElementById("homeIrregularesBtn")?.addEventListener("click", openIrregulares);
     document.getElementById("homeBancoPalabrasBtn")?.addEventListener("click", BancoPalabrasScreen.abrir);
     window.addEventListener("message", onAzureMessage);
     wireReels();
-    wireCanciones();
-    wireReels2();
     window.addEventListener("message", onAventuraMessage);
     document.addEventListener("fullscreenchange", () => {
       // si el usuario sale de pantalla completa con el gesto del sistema, se cierra el juego

@@ -1,19 +1,18 @@
-// canciones/canciones-generador.js — "Aprender canción" (Parte 2: generador
-// de ejercicios; Parte 3: generador POR NIVELES)
+// canciones/canciones-generador.js — "Aprender canción": generador de
+// ejercicios de los Niveles 4 a 8 (audio real del mp3 + karaoke), que es lo
+// único que queda de esta sección: ahora se practica integrada dentro de
+// Reels (ver reels/reels2.js y ⚙️ Configurar reels en reels-sorpresas.js),
+// sin los antiguos Niveles 1-3 (voz del sistema + pantalla de
+// felicitaciones), que se eliminaron por completo.
 //
-// Transforma UNA canción (song_<lang>_N.json, ver tracklist/NOTAS.md) en
-// ejercicios reutilizando el MISMO formato de "exercise" que ya usan
-// exercises/*.js, para que reels2.js los pinte sin ningún adaptador:
-//   - seleccionar:    { pairs: [{ englishWord, spanishWord }] }
-//   - completar:      { spanishWord, englishSentence (con "___"), options: [...] }
-//   - traduccion:     { spanishWord, englishWord }
-//   - dictado:        { text }
-//   - audioSeleccion: { audioText, correct, distractors } (ejercicio nuevo
-//     de la Parte 3, ver canciones/canciones-audio-seleccion.js — suena
-//     `audioText` y el usuario elige `correct` entre 4 opciones en español)
+// Ejercicios que produce (mismo formato que ya usan exercises/*.js):
+//   - audioSeleccion:  { audioText, correct, distractors, audio? } (ver
+//     canciones/canciones-audio-seleccion.js)
+//   - completarCancion / dictadoCancion: ejercicios multilínea con audio
+//     real (ver canciones-completar-audio.js / canciones-dictado-audio.js)
 //
 // Este archivo NO toca localStorage: solo construye datos a partir del JSON
-// + lo ya dominado (progreso.frasesDominadas, ver canciones-core.js).
+// de la canción.
 
 const CANCIONES_DICTADO_MAX_PALABRAS = 6; // "frases cortas / de pocas palabras" (ver NOTAS.md)
 const CANCIONES_SELECCIONAR_BLOQUE = 5;   // "5 a la vez", como pidió Bryan
@@ -106,99 +105,6 @@ function cancionTrozosParaBlanquear(item, max) {
   return out;
 }
 
-// ---------- Generador principal (Parte 2 — banco PLANO, ya no lo usa el
-// flujo por niveles de la Parte 3, se deja tal cual por si sirve de
-// referencia / fallback) ----------
-// frasesDominadasPrevias: array de texto normalizado (progreso.frasesDominadas,
-// ver cancionProgresoLeer() en canciones-core.js) — lo que el usuario ya
-// dominó en sesiones anteriores de ESTA canción.
-//
-// Devuelve:
-//   ejercicios:   [{ ex, _frase }], donde _frase es el texto normalizado de
-//                 la originalPhrase o del learn[].phrase del que salió ese
-//                 ejercicio (string, array de varios para "seleccionar", o
-//                 null si no aplica), para que reels2.js sepa qué marcar
-//                 como dominado cuando se aprueba.
-//   totalPorFrase: { [fraseNormalizada]: cantidad de ejercicios generados
-//                 con esa frase } — una frase queda "dominada" solo cuando
-//                 se aprueban TODOS los ejercicios que la usan, no con el
-//                 primero (ver rl2MarcarFrasesAprobadas en reels2.js).
-export function cancionGenerarBanco(json, frasesDominadasPrevias) {
-  const vistos = new Set((frasesDominadasPrevias || []).map(cancionNormalizar));
-  const ejercicios = [];
-  const seleccionarPairs = []; // se agrupan de a 5 al final
-
-  function agregar(ex, frase) { ejercicios.push({ ex, _frase: frase || null }); }
-
-  (json.segments || []).forEach((seg) => {
-    (seg.content || []).forEach((item) => {
-      const originalPhrase = item.originalPhrase || "";
-      const fraseLinea = cancionNormalizar(originalPhrase);
-      const lineaEsNueva = !!fraseLinea && !vistos.has(fraseLinea);
-
-      if (lineaEsNueva) {
-        vistos.add(fraseLinea);
-
-        // Completar: originalPhrase quitando cada phrases[] (un ejercicio por phrase).
-        (item.phrases || []).forEach((p) => {
-          const conHueco = cancionQuitarTrozo(originalPhrase, p);
-          if (!conHueco) {
-            console.warn('⚠️ Aprender canción: "' + p + '" no aparece tal cual en "' + originalPhrase + '" — se omite ese hueco de completar');
-            return;
-          }
-          agregar({ type: "completar", spanishWord: item.translation || "", englishSentence: conHueco, options: [p] }, fraseLinea);
-        });
-
-        // Traducción de la línea completa.
-        if (item.translation) agregar({ type: "traduccion", spanishWord: item.translation, englishWord: originalPhrase }, fraseLinea);
-
-        // Dictado, solo si la línea es corta.
-        if (cancionEsCorta(originalPhrase)) agregar({ type: "dictado", text: originalPhrase }, fraseLinea);
-      }
-
-      // learn[]: cada phrase es su propia unidad de "frase repetida",
-      // independiente de si la línea (originalPhrase) ya se vio — así una
-      // expresión nueva dentro de una línea ya conocida no se pierde.
-      (item.learn || []).forEach((l) => {
-        const fraseLearn = cancionNormalizar(l.phrase);
-        if (!fraseLearn || vistos.has(fraseLearn)) return;
-        vistos.add(fraseLearn);
-
-        seleccionarPairs.push({ englishWord: l.phrase, spanishWord: l.translation || "", _frase: fraseLearn });
-
-        (l.exercises || []).forEach((ex) => {
-          if (ex.translation) agregar({ type: "traduccion", spanishWord: ex.translation, englishWord: ex.sentence }, fraseLearn);
-          const conHueco = cancionQuitarTrozo(ex.sentence, l.phrase);
-          if (conHueco) agregar({ type: "completar", spanishWord: ex.translation || item.translation || "", englishSentence: conHueco, options: [l.phrase] }, fraseLearn);
-          if (cancionEsCorta(ex.sentence)) agregar({ type: "dictado", text: ex.sentence }, fraseLearn);
-        });
-      });
-    });
-  });
-
-  // Seleccionar: bloques de 5 (si sobran menos al final, ese bloque queda
-  // incompleto en vez de descartarse). Un bloque reparte su aprobación entre
-  // TODAS las frases que contiene (ver totalPorFrase más abajo).
-  for (let i = 0; i < seleccionarPairs.length; i += CANCIONES_SELECCIONAR_BLOQUE) {
-    const bloque = seleccionarPairs.slice(i, i + CANCIONES_SELECCIONAR_BLOQUE);
-    agregar(
-      { type: "seleccionar", pairs: bloque.map((p) => ({ englishWord: p.englishWord, spanishWord: p.spanishWord })) },
-      bloque.map((p) => p._frase)
-    );
-  }
-
-  const totalPorFrase = {};
-  ejercicios.forEach((e) => {
-    const frases = Array.isArray(e._frase) ? e._frase : (e._frase ? [e._frase] : []);
-    frases.forEach((f) => { totalPorFrase[f] = (totalPorFrase[f] || 0) + 1; });
-  });
-
-  return { ejercicios, totalPorFrase };
-}
-
-// ======================================================================
-// Parte 3 — generador POR NIVELES (lo que usa reels2.js de acá en más)
-// ======================================================================
 // Distractores en español para "audioSeleccion", limpios de cualquiera que
 // por error del JSON a mano coincida con la propia traducción correcta
 // (mismo criterio permisivo que el resto del generador: si algo no calza,
@@ -208,161 +114,9 @@ function cancionDistractoresLimpios(item) {
   return (item.distractors || []).filter((d) => d && cancionNormalizar(d) !== correctaNorm);
 }
 
-// ---------- Nivel 1 — "Seleccionar" (ver flujo #3.1 de Bryan) ----------
-// TODOS los pares learn[].phrase/translation de la canción completa (no por
-// segmento), en bloques de 5. Es el mismo tipo de bloque que ya generaba
-// cancionGenerarBanco, aislado en su propio nivel: hasta que el usuario no
-// los pase todos sin que le quede ninguno pendiente en la cola (ver
-// "si falla una selección de ese bloque, ese bloque pasaría al final" —
-// implementado en reels2.js, no acá), no se avanza al Nivel 2.
-//
-// Devuelve { ejercicios, totalPorFrase } con el mismo formato que
-// cancionGenerarBanco.
-export function cancionGenerarNivel1(json, frasesDominadasPrevias) {
-  const vistos = new Set((frasesDominadasPrevias || []).map(cancionNormalizar));
-  const pares = [];
-
-  (json.segments || []).forEach((seg) => {
-    (seg.content || []).forEach((item) => {
-      (item.learn || []).forEach((l) => {
-        const fraseLearn = cancionNormalizar(l.phrase);
-        if (!fraseLearn || vistos.has(fraseLearn)) return;
-        vistos.add(fraseLearn);
-        pares.push({ englishWord: l.phrase, spanishWord: l.translation || "", _frase: fraseLearn });
-      });
-    });
-  });
-
-  const ejercicios = [];
-  for (let i = 0; i < pares.length; i += CANCIONES_SELECCIONAR_BLOQUE) {
-    const bloque = pares.slice(i, i + CANCIONES_SELECCIONAR_BLOQUE);
-    ejercicios.push({
-      ex: { type: "seleccionar", pairs: bloque.map((p) => ({ englishWord: p.englishWord, spanishWord: p.spanishWord })) },
-      _frase: bloque.map((p) => p._frase),
-    });
-  }
-
-  const totalPorFrase = {};
-  ejercicios.forEach((e) => (e._frase || []).forEach((f) => { totalPorFrase[f] = (totalPorFrase[f] || 0) + 1; }));
-  return { ejercicios, totalPorFrase };
-}
-
-// ---------- Nivel 2 — "Completar" + flujo por segmento (ver flujo #3.2) ----------
-// frasesDominadasPrevias se debe leer DESPUÉS de terminar el Nivel 1 (para
-// que ya incluya lo recién dominado ahí) — reels2.js se encarga de eso, acá
-// solo se recibe como parámetro.
-//
-// Por cada segments[n] (estrofa) se generan dos "tareas" en orden:
-//   1) "completar": los huecos de cada originalPhrase/learn[].exercises[].sentence.
-//      Se deben terminar al 100% antes de pasar a la tarea 2 (ver reels2.js).
-//   2) "resto": traducción + dictado + audioSeleccion + seleccionar (bloques
-//      de 5 con los pares learn[] nuevos DE ESE segmento), "en ese flujo"
-//      —decisión concreta: ese es el orden en que Bryan los escribió, así
-//      que se generan y se muestran en ese orden—.
-// Un segmento sin nada nuevo (todo ya dominado) no agrega tareas (se salta
-// solo en reels2.js). "audioSeleccion" sale de content[].distractors (ya
-// documentado en tracklist/NOTAS.md desde la Parte 1) y SOLO se genera si
-// la línea trae translation + al menos un distractor válido.
-//
-// Devuelve:
-//   tareas: [{ segIndex, sub: "completar"|"resto", banco: [{ex,_frase}] }]
-//           (solo tareas con al menos 1 ejercicio)
-//   totalPorFrase: igual criterio que el Nivel 1, pero mezclando completar+resto
-//           de TODOS los segmentos (las frases no se repiten entre segmentos,
-//           así que las llaves nunca chocan).
-export function cancionGenerarNivel2(json, frasesDominadasPrevias) {
-  const vistos = new Set((frasesDominadasPrevias || []).map(cancionNormalizar));
-  const tareas = [];
-  const totalPorFrase = {};
-
-  function sumarAlTotal(entrada) {
-    const frases = Array.isArray(entrada._frase) ? entrada._frase : (entrada._frase ? [entrada._frase] : []);
-    frases.forEach((f) => { totalPorFrase[f] = (totalPorFrase[f] || 0) + 1; });
-  }
-
-  (json.segments || []).forEach((seg, segIndex) => {
-    const completar = [];
-    const traducciones = [];
-    const dictados = [];
-    const audioSel = [];
-    const paresSeleccionar = [];
-
-    (seg.content || []).forEach((item) => {
-      const originalPhrase = item.originalPhrase || "";
-      const fraseLinea = cancionNormalizar(originalPhrase);
-      const lineaEsNueva = !!fraseLinea && !vistos.has(fraseLinea);
-
-      if (lineaEsNueva) {
-        vistos.add(fraseLinea);
-
-        (item.phrases || []).forEach((p) => {
-          const conHueco = cancionQuitarTrozo(originalPhrase, p);
-          if (!conHueco) {
-            console.warn('⚠️ Aprender canción (Nivel 2): "' + p + '" no aparece tal cual en "' + originalPhrase + '" — se omite ese hueco de completar');
-            return;
-          }
-          completar.push({ ex: { type: "completar", spanishWord: item.translation || "", englishSentence: conHueco, options: [p] }, _frase: fraseLinea });
-        });
-
-        if (item.translation) traducciones.push({ ex: { type: "traduccion", spanishWord: item.translation, englishWord: originalPhrase }, _frase: fraseLinea });
-        if (cancionEsCorta(originalPhrase)) dictados.push({ ex: { type: "dictado", text: originalPhrase }, _frase: fraseLinea });
-
-        const distractores = cancionDistractoresLimpios(item);
-        if (item.translation && distractores.length) {
-          audioSel.push({
-            ex: { type: "audioSeleccion", audioText: originalPhrase, correct: item.translation, distractors: distractores.slice(0, 3) },
-            _frase: fraseLinea,
-          });
-        }
-      }
-
-      (item.learn || []).forEach((l) => {
-        const fraseLearn = cancionNormalizar(l.phrase);
-        if (!fraseLearn || vistos.has(fraseLearn)) return;
-        vistos.add(fraseLearn);
-
-        paresSeleccionar.push({ englishWord: l.phrase, spanishWord: l.translation || "", _frase: fraseLearn });
-
-        (l.exercises || []).forEach((ex) => {
-          if (ex.translation) traducciones.push({ ex: { type: "traduccion", spanishWord: ex.translation, englishWord: ex.sentence }, _frase: fraseLearn });
-          const conHueco = cancionQuitarTrozo(ex.sentence, l.phrase);
-          if (conHueco) completar.push({ ex: { type: "completar", spanishWord: ex.translation || item.translation || "", englishSentence: conHueco, options: [l.phrase] }, _frase: fraseLearn });
-          if (cancionEsCorta(ex.sentence)) dictados.push({ ex: { type: "dictado", text: ex.sentence }, _frase: fraseLearn });
-        });
-      });
-    });
-
-    const seleccionarBloques = [];
-    for (let i = 0; i < paresSeleccionar.length; i += CANCIONES_SELECCIONAR_BLOQUE) {
-      const bloque = paresSeleccionar.slice(i, i + CANCIONES_SELECCIONAR_BLOQUE);
-      seleccionarBloques.push({
-        ex: { type: "seleccionar", pairs: bloque.map((p) => ({ englishWord: p.englishWord, spanishWord: p.spanishWord })) },
-        _frase: bloque.map((p) => p._frase),
-      });
-    }
-
-    // "en ese flujo": traducción, luego dictado, luego audioSeleccion,
-    // luego seleccionar (ver comentario de más arriba sobre esta decisión).
-    const resto = [...traducciones, ...dictados, ...audioSel, ...seleccionarBloques];
-
-    completar.forEach(sumarAlTotal);
-    resto.forEach(sumarAlTotal);
-
-    if (completar.length) tareas.push({ segIndex, sub: "completar", banco: completar });
-    if (resto.length) tareas.push({ segIndex, sub: "resto", banco: resto });
-  });
-
-  return { tareas, totalPorFrase };
-}
-
 // ======================================================================
-// Parte 4 — Niveles 4 a 8 (audio REAL del mp3 + karaoke, flujo #3.5-#3.8)
-// ======================================================================
-// A diferencia de los Niveles 1-2 (que solo enseñan contenido NUEVO, por
-// eso filtran con frasesDominadas), los Niveles 4-8 son "cantar la canción
-// completa": recorren TODAS las líneas, ya se hayan dominado antes o no —
-// no tiene sentido saltarse un verso de la canción real solo porque ya se
-// aprendió su vocabulario en el Nivel 1/2.
+// Niveles 4 a 8 (audio REAL del mp3 + karaoke) — recorren TODAS las líneas
+// de la canción, de principio a fin, sin ningún filtro de "ya dominado".
 //
 // `tiempos` es el resultado de cancionTiemposDesdeLrc() (ver canciones-lrc.js):
 // null si todavía no hay .lrc (o no calza) — en ese caso estas funciones
