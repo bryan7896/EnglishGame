@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "21.3 (22-11-2026)"
+VERSION = "21.4 (23-11-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -1339,6 +1339,17 @@ def get_main_logic():
               <li>"Desaparecieron" <i>(excepción 2)</i> <span class="help-arrow">→</span> <b>GONE</b></li>
               <li>"Se fue de vacaciones" <i>(expresión fija)</i> <span class="help-arrow">→</span> <b>GONE ON VACATION</b></li>
             </ul>
+          </div>
+
+          <div class="help-section">
+            <h4>6. Conectores formales</h4>
+            <table class="help-table">
+              <tr><th>Word</th><th>Traducción</th></tr>
+              <tr><td><b>however</b></td><td>sin embargo</td></tr>
+              <tr><td><b>although</b></td><td>aunque</td></tr>
+              <tr><td><b>despite</b></td><td>a pesar de</td></tr>
+              <tr><td><b>moreover</b></td><td>además</td></tr>
+            </table>
           </div>
 
         </div>
