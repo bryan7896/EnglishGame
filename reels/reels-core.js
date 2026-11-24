@@ -1,12 +1,15 @@
 // ==================== REELS (núcleo) ====================
   // Secuencia infinita de ejercicios a pantalla completa. Reemplaza al mapa:
-  // - Banco de estudio de RL_BANCO ejercicios (se rellena con la sorpresa
-  //   "elige reglas", nunca solo).
+  // - Ciclo cerrado de estudio (reels 20): "Elige qué estudiar" carga un
+  //   banco de RL_BANCO ejercicios → se juega TODO (incluidos los "Repasar
+  //   luego") → al quedar el banco vacío se entrega el informe → y luego
+  //   vuelve a salir "Elige qué estudiar". Ya no hay recargas a mitad de
+  //   banco ni informe cada 65-70 ejercicios.
   // - Cada 5-15 tarjetas aparece una sorpresa (reels-sorpresas.js).
   // - "Repasar luego" devuelve el ejercicio 3-8 tarjetas después.
   // - Estado propio por idioma en localStorage (rlKey()).
   const RL_BANCO = 70;
-  const RL_VERSION = "reels 19.0";
+  const RL_VERSION = "reels 20.0";
   const RL_MIN_OBLIGATORIO = 20;              // por debajo de esto, "elige reglas" es obligatoria
   const RL_SORPRESA_MIN = 2, RL_SORPRESA_MAX = 15;
   const RL_MAX_HISTORIAL = 600;
@@ -47,7 +50,10 @@
       // qué entra al informe" la última vez que salió sin generar el reporte
       // (⏭ Más tarde) — se restaura la próxima vez en vez de reiniciar todo
       // a "marcado" (ver rlRenderReporteSeleccion). Se borran al usarse.
-      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false, seleccion: null, completarPend: null },
+      // pospuesto / pospuestoManual: el usuario tocó "⏭ Más tarde" en el
+      // informe al terminar el banco; no se vuelve a mostrar hasta que se
+      // termine el SIGUIENTE banco (se limpian al cargar uno nuevo).
+      reporte: { entradas: [], mundo: [], ultimoTexto: "", pendiente: false, seleccion: null, completarPend: null, pospuesto: false, pospuestoManual: false },
       historias: { usadas: [], activa: null },
       yt: { usadas: [] },
       recientes: [],      // textos en el idioma objetivo de lo último que se hizo (para YouGlish)
@@ -106,7 +112,11 @@
   // ---------- Mezcla del banco ----------
   // Inserta tarjetas nuevas en posiciones al azar y luego corrige rachas de
   // más de 2 tarjetas seguidas con la misma regla o el mismo tipo.
-  function rlClaveRegla(it) { return it.k === "ex" ? ((it.ex.reglaIds || []).slice().sort((a, b) => a - b).join(",") || "-") : "info"; }
+  function rlClaveRegla(it) {
+    if (it.k !== "ex") return "info";
+    if (it.reglaSel != null) return String(it.reglaSel);
+    return (it.ex.reglaIds || []).slice().sort((a, b) => a - b).join(",") || "-";
+  }
   function rlTipo(it) { return it.k === "ex" ? it.ex.type : "info"; }
 
   function rlCorregirRachas(arr) {
@@ -148,7 +158,13 @@
     if (alFrente && alFrente.length) RL.banco = alFrente.concat(RL.banco);
   }
 
-  function rlItemEx(ex, src, motivo) { return { k: "ex", uid: rlUid(), ex, src: src || "sys", retry: false, motivo: motivo || null }; }
+  // reglaSel: la regla de "Elige qué estudiar" por la que se cargó este
+  // ejercicio. Aunque el ejercicio use varias reglas (reglaIds [X, Y]), en
+  // el informe cuenta SOLO para la regla que se eligió (ver rlRegistrar).
+  // null = sin regla elegida (manuales, bancos viejos): usa ex.reglaIds.
+  function rlItemEx(ex, src, motivo, reglaSel) {
+    return { k: "ex", uid: rlUid(), ex, src: src || "sys", retry: false, motivo: motivo || null, reglaSel: reglaSel != null ? reglaSel : null };
+  }
 
   // ---------- Ordenamiento (Feature 4: "espacio" lo activa, ver reels-sorpresas.js) ----------
   // Candidatas: cualquier tarjeta de traducción TODAVÍA en el banco (no
@@ -240,6 +256,7 @@
     if (deficit <= 0) return 0;
     const n = Math.min(RL.reserva.length, deficit);
     rlMezclarEnBanco(RL.reserva.splice(0, n).map((e) => rlItemEx(e, "man")));
+    rlNuevoBancoCargado();
     rlGuardar();
     return n;
   }
@@ -258,20 +275,22 @@
     rlEstado();
     if (ok.length) rlSumarDia("cargadosManual", ok.length);
     RL.reserva = RL.reserva.concat(shuffleArray(ok));
-    // Si el banco está vacío, se usa ya la parte manual (30 de 50) — o, con
-    // "Solo ejercicios guardados" activo, se llena del todo con lo manual
-    // (no hay ejercicios del sistema con qué mezclar).
-    if (!rlContarBanco() && RL.reserva.length) {
-      const n = rlSoloManualActivo()
-        ? Math.min(RL.reserva.length, RL_BANCO)
-        : Math.min(RL.reserva.length, Math.round(RL_BANCO * RL_PARTE_MANUAL));
+    // Con "Solo ejercicios guardados" activo y el banco vacío, se llena ya
+    // del todo con lo manual (no hay ejercicios del sistema con qué mezclar).
+    // En modo normal NO se mete nada directo al banco: lo manual entra en el
+    // próximo "Elige qué estudiar" (junto con lo del sistema), para que el
+    // ciclo banco → informe → elegir no se rompa.
+    if (rlSoloManualActivo() && !RL.banco.length && RL.reserva.length) {
+      const n = Math.min(RL.reserva.length, RL_BANCO);
       rlMezclarEnBanco(RL.reserva.splice(0, n).map((e) => rlItemEx(e, "man")));
+      rlNuevoBancoCargado();
     }
     rlGuardar();
     // Si Reels está abierto mostrando el aviso de "no hay nada guardado"
     // (modo "solo manual" sin reserva), se refresca para mostrar lo recién
-    // cargado sin que el usuario tenga que tocar nada más.
-    if (RLV.abierto && RL.cur && RL.cur.tipo === "manualVacio") rlSiguiente();
+    // cargado sin que el usuario tenga que tocar nada más. Igual si está en
+    // "Elige qué estudiar": se recalcula para incluir lo recién cargado.
+    if (RLV.abierto && RL.cur && (RL.cur.tipo === "manualVacio" || RL.cur.tipo === "reglas")) rlSiguiente();
     return { agregados: ok.length, descartados, reserva: RL.reserva.length };
   }
 
@@ -279,9 +298,12 @@
   function rlRegistrar(item, entrada, passed) {
       if (!entrada) return;
       if (item.ex && item.ex.type === "ordenamiento") return; // no entra al informe
+      // Si el ejercicio se cargó por una regla elegida (reglaSel), cuenta SOLO
+      // para esa regla, aunque el ejercicio use otras reglas también.
+      const reglaIds = item.reglaSel != null ? [item.reglaSel] : ((item.ex && item.ex.reglaIds) || []);
       RL.reporte.entradas.push(Object.assign({}, entrada, {
         rid: rlUid(),
-        reglaIds: (item.ex && item.ex.reglaIds) || [],
+        reglaIds,
         src: item.src || "sys",
         retry: !!item.retry,
         passed: !!passed,
@@ -387,6 +409,15 @@
     return { texto: lines.join("\n"), rids, grupos: seleccionados.length, total: rids.size };
   }
 
+  // Se llama cada vez que entra un banco nuevo (rlCargarBanco o el relleno
+  // del modo "solo manual"): un "⏭ Más tarde" del informe anterior deja de
+  // aplicar y el informe vuelve a salir al terminar ESTE banco.
+  function rlNuevoBancoCargado() {
+    RL.reporte.pospuesto = false;
+    RL.reporte.pospuestoManual = false;
+    RL.reporte.pendiente = false;
+  }
+
   function rlReporteConfirmado(rids, texto) {
     RL.reporte.entradas = RL.reporte.entradas.filter((e) => !rids.has(e.rid));
     RL.reporte.mundo = [];
@@ -446,30 +477,29 @@
   // esos 4 tipos (+ ordenamiento y tatoeba) ahora compiten entre sí en el
   // sorteo de "espacio" (rlEspacioSiToca, reels-sorpresas.js), configurable
   // desde ⚙️ Configurar reels. El ciclo general de abajo (reglas/historia/
-  // pct/reporte) es ORTOGONAL a Feature 4 y se deja exactamente como
-  // estaba (solo "listening" salió de su lista de candidatos, ver
-  // rlElegirSorpresa en reels-sorpresas.js) — en particular la cadencia
-  // del informe (RL_REPORTE_MIN/MAX, RL.cont.reporte) sigue intacta.
+  // pct) es ORTOGONAL a Feature 4.
+  //
+  // Reels 20 — ciclo cerrado: el informe ya NO sale cada 65-70 ejercicios
+  // sino cuando se TERMINA el banco (RL.banco vacío: no queda ningún
+  // ejercicio, lección ni "Repasar luego" pendiente). Orden al terminar:
+  //   1) informe manual (si hubo ejercicios cargados a mano),
+  //   2) informe por reglas gramaticales,
+  //   3) "Elige qué estudiar" para cargar el siguiente banco de RL_BANCO.
+  // "⏭ Más tarde" en un informe lo salta hasta el final del próximo banco
+  // (lo registrado no se pierde: entra en ese informe).
   function rlDecidirSiguiente() {
-    if (!rlContarBanco() && !RL.banco.length) {
+    if (!RL.banco.length) {
+      if (rlReporteManualListo() && !RL.reporte.pospuestoManual) return { k: "sorpresa", tipo: "reporteManual", uid: rlUid() };
+      if (rlGruposConDatos().length && !RL.reporte.pospuesto) return { k: "sorpresa", tipo: "reporteSeleccion", uid: rlUid() };
       if (rlSoloManualActivo()) {
         rlRellenarBancoManual();
-        if (!rlContarBanco() && !RL.banco.length) {
+        if (!RL.banco.length) {
           return { k: "sorpresa", tipo: "manualVacio", uid: rlUid(), forzada: true };
         }
       } else {
         return { k: "sorpresa", tipo: "reglas", uid: rlUid(), forzada: true };
       }
     }
-    // El informe (normal o manual) NO espera al sorteo general de sorpresas
-    // de abajo (cada 2-15 ejercicios, RL.cont.sorpresa): en cuanto está listo
-    // para mostrarse, se muestra en la tarjeta siguiente, sin importar en qué
-    // punto va ese sorteo. Antes "Faltan 0 para el reporte" en el Historial
-    // podía quedarse así varios ejercicios (hasta 15) porque la pantalla
-    // solo se evaluaba cuando le tocaba el turno a ese sorteo.
-    if (rlReporteManualListo()) return { k: "sorpresa", tipo: "reporteManual", uid: rlUid() };
-    const tocaInforme = RL.reporte.pendiente || RL.cont.reporte >= RL.cont.proxReporte;
-    if (tocaInforme && rlGruposConDatos().length) return { k: "sorpresa", tipo: "reporteSeleccion", uid: rlUid() };
     if (RL.cont.sorpresa >= RL.cont.proxSorpresa) {
       RL.cont.sorpresa = 0;
       RL.cont.proxSorpresa = rlRand(RL_SORPRESA_MIN, RL_SORPRESA_MAX);
@@ -526,7 +556,7 @@
     catch (e) { conv = JSON.parse(JSON.stringify(item.ex)); }
     conv.reglaIds = item.ex.reglaIds || [];
     conv.id = item.ex.id;
-    const nuevo = { k: "ex", uid: rlUid(), ex: conv, src: item.src, retry: true };
+    const nuevo = { k: "ex", uid: rlUid(), ex: conv, src: item.src, retry: true, motivo: item.motivo || null, reglaSel: item.reglaSel != null ? item.reglaSel : null };
     const pos = Math.min(RL.banco.length, rlRand(RL_REPASO_MIN, RL_REPASO_MAX) - 1);
     RL.banco.splice(pos, 0, nuevo);
     toast("🧠 Volverá en unos ejercicios");
@@ -799,7 +829,8 @@
   function rlMostrarHistorialModal() {
     document.querySelectorAll(".modal-overlay").forEach((m) => m.remove());
     rlEstado();
-    const faltan = Math.max(0, RL.cont.proxReporte - RL.cont.reporte);
+    // El informe sale al terminar el banco: lo que falta es lo que queda en él.
+    const faltan = rlContarBanco();
     const txtHoy = rlBloqueReporteDia(rlHoyStr());
     const txtAyer = rlBloqueReporteDia(rlAyerStr());
     const cs = rlCargadosSistemaResumen();
@@ -820,7 +851,7 @@
         </div>
         <pre class="rl-historial-bloque">${rlEsc(txtHoy)}</pre>
         <pre class="rl-historial-bloque">${rlEsc(txtAyer)}</pre>
-        <pre class="rl-historial-bloque rl-historial-live">${rlEsc("Banco de reels: " + rlContarBanco() + " ejercicios\nFaltan " + faltan + " para el reporte")}</pre>
+        <pre class="rl-historial-bloque rl-historial-live">${rlEsc("Banco de reels: " + rlContarBanco() + " ejercicios\nFaltan " + faltan + " para el reporte (sale al terminar el banco)")}</pre>
         <pre class="rl-historial-bloque rl-historial-live">${rlEsc(txtCargados)}</pre>
         <button class="fun-btn full-width rl-ver-sistema">👁 Ver cargados del sistema por regla</button>
         <button class="fun-btn full-width rl-borrar-cargados" style="color:var(--bad);margin-top:8px;">🗑️ Borrar ejercicios del sistema</button>
@@ -1025,7 +1056,7 @@
           <h3>📥 Agregar ejercicios</h3>
           <button class="menu-modal-close" aria-label="Cerrar">✕</button>
         </div>
-        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Mismo formato de siempre (traducciones, completar, seleccionar, corregir${getTargetLanguage() === "it" ? ", dictado" : ""}) con sus <b>reglaIds</b>. Guarda tandas con un título para reutilizarlas cuando quieras — solo entran a la reserva (30 tuyos por cada 20 del sistema) cuando las marcas y le das "Cargar al juego".</p>
+        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Mismo formato de siempre (traducciones, completar, seleccionar, corregir${getTargetLanguage() === "it" ? ", dictado" : ""}) con sus <b>reglaIds</b>. Guarda tandas con un título para reutilizarlas cuando quieras — solo entran a la reserva cuando las marcas y le das "Cargar al juego"; de ahí pasan al banco en el próximo "Elige qué estudiar" (hasta ${Math.round(RL_BANCO * RL_PARTE_MANUAL)} de los ${RL_BANCO}).</p>
 
         <label class="rl-lote-label" for="rlLoteTituloInput">Título de la tanda</label>
         <input type="text" id="rlLoteTituloInput" class="answer-input rl-lote-titulo-input" placeholder="Ej: Verbos modales — tanda 3">

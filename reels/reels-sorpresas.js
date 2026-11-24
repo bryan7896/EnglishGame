@@ -1,15 +1,13 @@
 // ==================== REELS (sorpresas) ====================
-  // Las de este ciclo general salen cada 2-15 tarjetas. "Elige reglas" es
-  // obligatoria solo con el banco por debajo de RL_MIN_OBLIGATORIO; si no,
-  // compite con peso bajo.
+  // Las de este ciclo general salen cada 2-15 tarjetas.
   // 2 pct      → todas las reglas con su % y botón de estadística, más la tabla de irregulares
-  // 3 reglas   → elige X reglas: rellena el banco hasta RL_BANCO
-  // 4 reporte  → cada 60-70 ejercicios (o si quedó "para más tarde"), PRIMERO
-  //              una lista con checkbox por regla (con cuántos ejercicios tiene
-  //              guardados cada una) para elegir qué entra al informe de esta
-  //              vez — el sistema ya no decide solo cargar más para completar
-  //              nada; eso es un botón aparte dentro de esa misma lista. Con lo
-  //              marcado se arma el texto a copiar.
+  // 3 reglas   → elige X reglas: carga un banco NUEVO de RL_BANCO ejercicios.
+  //              Desde reels 20 solo sale con el banco vacío (al entrar por
+  //              primera vez y después de cada informe), ya no a mitad de banco.
+  // 4 reporte  → al TERMINAR el banco (ver rlDecidirSiguiente en reels-core.js):
+  //              lista con checkbox por regla (con cuántos ejercicios tiene
+  //              guardados cada una) para elegir qué entra al informe, y con
+  //              lo marcado se arma el texto a copiar.
   // 5 historia → misma historia 4 veces (3 leyendo, la 4ª solo audio)
   // (Listening/Azure/Irregulares/Ordenamiento/YouGlish/Tatoeba salieron de
   // este ciclo: desde Feature 4 compiten entre sí en el sorteo de "espacio",
@@ -17,41 +15,16 @@
   const RL_PESOS = { historia: 30, pct: 20, reglas: 10 };
   const RL_LISTENING_N = 3;
   const RL_APORTE = { bad: 10, warn: 7, good: 5 };
-  const RL_MAX_VOTOS_REGLA = 3; // tope de casillas marcables por regla en "Elige qué estudiar"
+  const RL_MAX_VOTOS_REGLA = 4; // tope de casillas marcables por regla en "Elige qué estudiar"
 
   function rlElegirSorpresa() {
-    // El informe de ejercicios manuales manda primero: entrega única (todo
-    // junto, sin mínimo por regla) en cuanto ya no queda nada cargado a
-    // mano pendiente (ver rlReporteManualListo en reels-core.js).
-    if (rlReporteManualListo()) return "reporteManual";
-
-    // El informe de reglas gramaticales manda después: si ya toca (o quedó
-    // pendiente) y hay algo registrado, se muestra la pantalla de selección
-    // (📋 Elige qué entra al informe) para que el usuario decida qué reglas
-    // entran — el sistema YA NO decide por su cuenta cargar más ejercicios
-    // para "completar" nada; eso ahora es un botón explícito dentro de esa
-    // pantalla (➕ Completar a 5, ver rlCompletarAMinimo). Si todavía no hay
-    // nada registrado, simplemente se pospone sin tocar el banco.
-    const tocaInforme = RL.reporte.pendiente || RL.cont.reporte >= RL.cont.proxReporte;
-    if (tocaInforme) {
-      if (rlGruposConDatos().length) return "reporteSeleccion";
-      RL.cont.proxReporte = RL.cont.reporte + 10;
-    }
-
-    // Con "Solo ejercicios guardados" activo, nunca se ofrece "reglas" (no
-    // se pide elegir reglas ni se cargan ejercicios del sistema): si el
-    // banco va bajo, se rellena en silencio con lo que haya en la reserva
-    // manual.
-    if (rlSoloManualActivo()) {
-      if (rlContarBanco() < RL_MIN_OBLIGATORIO) rlRellenarBancoManual();
-    } else if (rlContarBanco() < RL_MIN_OBLIGATORIO && (rlReglasDisponibles().length || RL.reserva.length)) {
-      return "reglas";
-    }
-
+    // Reels 20: los informes (manual y por reglas) y "Elige qué estudiar"
+    // ya NO salen de este sorteo: solo aparecen al terminar el banco (ver
+    // rlDecidirSiguiente en reels-core.js). Aquí quedan las sorpresas que
+    // no tocan el banco.
     const cands = [];
     if (rlHistoriaSiguiente()) cands.push("historia");
     if (AppRules.length) cands.push("pct");
-    if (!rlSoloManualActivo() && rlContarBanco() < RL_BANCO && (rlReglasDisponibles().length || RL.reserva.length)) cands.push("reglas");
     let lista = cands.filter((t) => t !== RL.ultSorpresa);
     if (!lista.length) lista = cands;
     if (!lista.length) return null;
@@ -74,7 +47,7 @@
     const nuevas = [];
     g.reglaIds.forEach((id) => {
       const ejs = rlTomarDeRegla(id, faltan, elegidos);
-      ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys", "refuerzo")));
+      ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys", "refuerzo", id)));
       if (ejs.length && typeof rlSistemaRegistrar === "function") rlSistemaRegistrar(id, "refuerzo", ejs.length);
     });
     if (!nuevas.length) return 0;
@@ -586,6 +559,7 @@
       item.sistema ? `El sistema cargará <b>${item.sistema}</b> ejercicio${item.sistema === 1 ? "" : "s"} repartidos entre las que elijas${item.irr ? ` (<b>${item.irr}</b> con verbos irregulares del paquete ${irrEstado().paquete})` : ""}.` : "",
       item.manual ? `<b>${item.manual}</b> ejercicio${item.manual === 1 ? "" : "s"} de tu reserva manual entran también.` : "",
       item.x ? `Marca hasta ${RL_MAX_VOTOS_REGLA} casillas en una misma regla para que reciba más de esos ejercicios.` : "",
+      item.x || item.manual ? `El informe se entrega al terminar todo este banco.` : "",
       vacio ? (rlReglasDisponibles().length ? "No hace falta cargar nada por ahora." : "No hay ejercicios disponibles en el banco del sistema para este idioma. Agrega ejercicios desde el menú (📥).") : "",
     ].filter(Boolean).join(" ");
 
@@ -598,7 +572,7 @@
             const tier = r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad";
             return `<div class="rule-card rule-select-row tier-${tier}" data-id="${r.id}">
               <div class="rule-check-group" role="group" aria-label="Cantidad de ejercicios para ${rlEsc(r.regla)}">
-                ${[1, 2, 3].map((n) => `<label class="rule-check-item"><input type="checkbox" class="rule-select-checkbox" data-id="${r.id}" data-n="${n}"><span class="rule-check" aria-hidden="true">${n}</span></label>`).join("")}
+                ${Array.from({ length: RL_MAX_VOTOS_REGLA }, (_, i) => i + 1).map((n) => `<label class="rule-check-item"><input type="checkbox" class="rule-select-checkbox" data-id="${r.id}" data-n="${n}"><span class="rule-check" aria-hidden="true">${n}</span></label>`).join("")}
               </div>
               ${rlFilaRegla(r, `<span class="rule-card-bottom"><span class="rule-select-count">${r.porcentaje > 0 ? "" : "💡 Incluye lección de información · "}${rlEjerciciosDeRegla(r.id).length} ejercicios</span></span>${rlMiniGrafica(r.id)}`)}
             </div>`;
@@ -626,7 +600,7 @@
         const n = parseInt(cb.dataset.n, 10);
         const actual = sel.get(id) || 0;
         // Checkboxes tipo "rating": marcar la casilla N sube el nivel de esa regla a
-        // N; desmarcarla lo baja a N-1. Siempre se sincronizan las 3 casillas de la fila.
+        // N; desmarcarla lo baja a N-1. Siempre se sincronizan las casillas de la fila (1..RL_MAX_VOTOS_REGLA).
         const nuevo = cb.checked ? n : n - 1;
         const delta = nuevo - actual;
         if (delta > 0 && totalSel() + delta > item.x) {
@@ -652,8 +626,38 @@
     };
   }
 
-  // Reparte item.sistema entre las reglas elegidas según su color y la cantidad de
-  // casillas marcadas en cada una (1-3: más casillas = más peso), mínimo 5 c/u.
+  // Reparte `total` cupos entre las reglas según su peso (color × casillas
+  // marcadas) por mayor residuo — la suma da EXACTAMENTE `total` — y luego
+  // sube a `minimo` las que hayan quedado por debajo, quitándole uno a uno a
+  // la que más tenga (si alcanza para todas).
+  function rlRepartirCupos(total, pesos, minimo) {
+    const k = pesos.length;
+    if (!k || total <= 0) return pesos.map(() => 0);
+    const suma = pesos.reduce((s, p) => s + p, 0) || 1;
+    const exactos = pesos.map((p) => total * p / suma);
+    const cupos = exactos.map(Math.floor);
+    let sobra = total - cupos.reduce((s, c) => s + c, 0);
+    exactos.map((x, i) => ({ i, f: x - Math.floor(x) })).sort((a, b) => b.f - a.f)
+      .forEach(({ i }) => { if (sobra > 0) { cupos[i]++; sobra--; } });
+    const min = Math.min(minimo, Math.floor(total / k));
+    for (let i = 0; i < k; i++) {
+      while (cupos[i] < min) {
+        let j = -1;
+        cupos.forEach((c, x) => { if (x !== i && c > min && (j < 0 || c > cupos[j])) j = x; });
+        if (j < 0) break;
+        cupos[j]--; cupos[i]++;
+      }
+    }
+    return cupos;
+  }
+
+  // Carga un banco nuevo de RL_BANCO ejercicios: reparte item.sistema entre
+  // las reglas elegidas según su color y la cantidad de casillas marcadas
+  // en cada una (1-4: más casillas = más peso), mínimo RL_MIN_POR_REGLA c/u.
+  // Si una regla no tiene suficientes ejercicios, lo que le falta se
+  // completa con las otras reglas elegidas (nunca con reglas no elegidas).
+  // Cada ejercicio queda marcado con la regla por la que se cargó
+  // (reglaSel): en el informe cuenta SOLO para esa regla, aunque use otras.
   function rlCargarBanco(item, selecciones) {
     let total = 0;
     const nuevas = [];
@@ -664,9 +668,15 @@
     }
     const ids = selecciones.map((s) => s.id);
     let irrN = 0;
-    if (item.irr && typeof irrTomarParaRecarga === "function") {
-      const irrEjs = irrTomarParaRecarga(item.irr, ids);
-      irrEjs.forEach((e) => nuevas.push(rlItemEx(e, "irr", "reparto")));
+    if (item.irr && ids.length && typeof irrTomarParaRecarga === "function") {
+      // Solo de las reglas elegidas (true): si no alcanzan, lo que falte lo
+      // pone el banco del sistema de esas mismas reglas (ver `sistema` abajo).
+      const irrEjs = irrTomarParaRecarga(item.irr, ids, true);
+      irrEjs.forEach((e) => {
+        const rs = e.reglaIds || [];
+        const sel = rs.find((id) => ids.includes(id));
+        nuevas.push(rlItemEx(e, "irr", "reparto", sel != null ? sel : (rs[0] != null ? rs[0] : null)));
+      });
       irrN = irrEjs.length;
       total += irrN;
     }
@@ -674,13 +684,27 @@
     let sysN = 0;
     if (selecciones.length && sistema) {
       const entradas = selecciones.map(({ id, n }) => ({ r: findRegla(id), n: Math.max(1, n || 1) })).filter((e) => e.r);
-      const suma = entradas.reduce((s, e) => s + rlAporte(e.r) * e.n, 0) || 1;
+      const cupos = rlRepartirCupos(sistema, entradas.map((e) => rlAporte(e.r) * e.n), RL_MIN_POR_REGLA);
       const elegidos = new Set();
+      const tomados = entradas.map(({ r }, i) => rlTomarDeRegla(r.id, cupos[i], elegidos));
+      // Lo que no se pudo tomar (regla con pocos ejercicios) se reparte de a
+      // uno entre las reglas elegidas que todavía tengan ejercicios.
+      let falta = sistema - tomados.reduce((s, t) => s + t.length, 0);
+      let activos = entradas.map((_, i) => i).filter((i) => tomados[i].length >= cupos[i]);
+      while (falta > 0 && activos.length) {
+        activos = activos.filter((i) => {
+          if (falta <= 0) return true;
+          const extra = rlTomarDeRegla(entradas[i].r.id, 1, elegidos);
+          if (!extra.length) return false;
+          tomados[i].push(extra[0]);
+          falta--;
+          return true;
+        });
+      }
       const infoHecha = new Set();
-      entradas.forEach(({ r, n }) => {
-        const cant = Math.max(RL_MIN_POR_REGLA, Math.round(sistema * rlAporte(r) * n / suma));
-        const ejs = rlTomarDeRegla(r.id, cant, elegidos);
-        ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys", "reparto")));
+      entradas.forEach(({ r }, i) => {
+        const ejs = tomados[i];
+        ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys", "reparto", r.id)));
         total += ejs.length;
         sysN += ejs.length;
         if (ejs.length && typeof rlSistemaRegistrar === "function") rlSistemaRegistrar(r.id, "reparto", ejs.length);
@@ -689,6 +713,7 @@
     }
     if (sysN) rlSumarDia("cargadosSistema", sysN);
     rlMezclarEnBanco(nuevas, frente);
+    rlNuevoBancoCargado();
     rlGuardar();
     return total;
   }
@@ -732,7 +757,9 @@
       // / completarPend) en vez de reiniciar todo a "marcado".
       if (RL.reporte.seleccion) Object.assign(item.sel, RL.reporte.seleccion);
       else grupos.forEach((g) => { item.sel[g.key] = true; });
-      if (RL.reporte.completarPend) Object.assign(item.completarPend, RL.reporte.completarPend);
+      // "➕ Completar a X" ya no existe (reels 20): el informe sale con el
+      // banco terminado y lo siguiente es elegir un banco nuevo, así que no
+      // se restaura nada pendiente de completar de versiones anteriores.
       grupos.forEach((g) => { if (!(g.key in item.sel)) item.sel[g.key] = true; });
       RL.reporte.seleccion = null;
       RL.reporte.completarPend = null;
@@ -742,7 +769,6 @@
 
     const fila = (g) => {
       const falta = Math.max(0, RL_MIN_POR_REGLA - g.ej.length);
-      const pend = !!item.completarPend[g.key];
       return `
         <div class="rule-card rl-repsel-row tier-${falta ? "warn" : "good"}" data-k="${rlEsc(g.key)}">
           <label class="rule-card-body" style="display:flex;flex-direction:row;align-items:center;gap:10px;cursor:pointer;">
@@ -754,13 +780,12 @@
               </span>
             </span>
           </label>
-          ${falta ? `<button class="fun-btn rl-repsel-completar${pend ? " primary-btn" : ""}" data-k="${rlEsc(g.key)}">${pend ? "✅ Se agregarán " + falta + " (toca para cancelar)" : "➕ Completar a " + RL_MIN_POR_REGLA + " (faltan " + falta + ")"}</button>` : ""}
         </div>`;
     };
 
     body.innerHTML = rlCabecera(["📋 Elige qué entra al informe", grupos.length + " regla" + (grupos.length === 1 ? "" : "s") + " con datos"]) + `
       <div class="rl-sorpresa rl-reporte rl-repsel">
-        <p class="rl-sub">Marca las reglas que quieres incluir en este reporte. Lo recomendado es mínimo ${RL_MIN_POR_REGLA} por regla, pero puedes sacar el reporte de una sola, aunque tenga un único ejercicio.</p>
+        <p class="rl-sub">🏁 Terminaste el banco. Marca las reglas que quieres incluir en este reporte (cada ejercicio cuenta solo para la regla por la que lo elegiste). Al entregarlo podrás elegir qué estudiar en el siguiente banco.</p>
         <div class="rl-reglas-foot" style="margin-bottom:8px;gap:8px;">
           <button class="fun-btn rl-repsel-todo">☑️ Seleccionar todo</button>
           <button class="fun-btn rl-repsel-ninguno">⬜ Ninguno</button>
@@ -808,11 +833,12 @@
     body.querySelector(".rl-luego").onclick = () => {
       const n = rlAplicarCompletarPend(item, grupos);
       if (n) toast("➕ " + n + " ejercicio(s) agregados a tu banco");
-      // Lo marcado (qué reglas entran, qué quedó pendiente de completar) se
-      // conserva para la próxima vez que toque el informe.
+      // Lo marcado se conserva para la próxima vez que toque el informe, que
+      // será al terminar el SIGUIENTE banco (lo registrado no se pierde:
+      // entra en ese informe). Ahora sigue "Elige qué estudiar".
       RL.reporte.seleccion = Object.assign({}, item.sel);
-      RL.reporte.completarPend = Object.assign({}, item.completarPend);
-      RL.reporte.pendiente = true;
+      RL.reporte.completarPend = null;
+      RL.reporte.pospuesto = true;
       rlSorpresaHecha(item);
     };
     const copiarUltimo = (txt) => {
@@ -879,7 +905,8 @@
       toast("🧹 Informe manual entregado y borrado. ¡A seguir!");
       rlSorpresaHecha(item);
     };
-    body.querySelector(".rl-luego").onclick = () => rlSorpresaHecha(item);
+    // Igual que el informe por reglas: se salta hasta el final del próximo banco.
+    body.querySelector(".rl-luego").onclick = () => { RL.reporte.pospuestoManual = true; rlSorpresaHecha(item); };
   }
 
   function rlCopiaManual(body, txt) {

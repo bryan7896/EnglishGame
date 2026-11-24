@@ -227,7 +227,11 @@
 
   // Toma n ejercicios del banco de irregulares del paquete que toca, primero de
   // las reglas elegidas y, si no alcanzan, de las demás reglas del paquete.
-  function irrTomarParaRecarga(n, reglaIds) {
+  // Con soloElegidas = true (lo usa Reels desde la v20) NUNCA toma de reglas
+  // no elegidas: devuelve menos y el faltante lo completa el banco del
+  // sistema con las reglas elegidas, para que el informe no muestre reglas
+  // que el usuario no seleccionó.
+  function irrTomarParaRecarga(n, reglaIds, soloElegidas) {
     if (!irrDisponible() || n <= 0) return [];
     const s = irrEstado();
     const pkg = s.paquete;
@@ -247,7 +251,7 @@
       primero = shuffleArray(todos.filter((it) => elegidas.has(it[1]) && libre(it)));
     }
     let lista = primero.slice(0, n);
-    if (lista.length < n) {
+    if (lista.length < n && !soloElegidas) {
       const ya = new Set(lista.map((it) => it[0]));
       let resto = shuffleArray(todos.filter((it) => !elegidas.has(it[1]) && libre(it) && !ya.has(it[0])));
       if (resto.length < n - lista.length) {
