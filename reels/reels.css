@@ -57,6 +57,11 @@ body.rl-open { overflow: hidden; }
 .rl-sorpresa .rules-select-list { display: flex; flex-direction: column; gap: 10px; }
 .rl-reglas-foot { display: flex; align-items: center; gap: 12px; justify-content: flex-end; position: sticky; bottom: 0; padding: 10px 0; background: linear-gradient(to top, var(--bg) 70%, transparent); }
 .rl-contador { color: var(--ink-dim); font-weight: 800; }
+.rl-consol-list { margin-bottom: 12px; }
+.rl-consol-row { display: flex; align-items: center; gap: 10px; }
+.rl-consol-row .rule-card-body { flex: 1; min-width: 0; }
+.rl-consol-input { width: 64px; padding: 8px 4px; font-size: 1.1rem; font-weight: 800; text-align: center; border-radius: 10px; border: 1px solid var(--line, #ccc); background: var(--bg); color: inherit; }
+.rl-consol-guardar { min-width: 48px; }
 .rl-reglas-foot .rl-cargar[disabled] { opacity: .45; }
 .rl-rep-btns { display: flex; gap: 10px; }
 .rl-rep-btns > * { flex: 1; }

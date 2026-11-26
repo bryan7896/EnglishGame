@@ -502,13 +502,26 @@
     return !!f && f >= rlFechaMenosDias(2);
   }
   function rlReglasParaElegir() {
-    const disp = rlReglasDisponibles();
+    const disp = rlReglasDisponibles().filter((r) => !rlEsConsolidacion(r.id));
     const conPct = disp.filter((r) => r.porcentaje > 0).sort((a, b) => a.porcentaje - b.porcentaje);
     const rojas = conPct.filter((r) => pctTier(r.porcentaje) === "bad");
     const naranjas = conPct.filter((r) => pctTier(r.porcentaje) === "warn");
     const verdes = conPct.filter((r) => pctTier(r.porcentaje) === "good");
     const nuevas = disp.filter((r) => r.porcentaje <= 0);
     return [].concat(rojas, naranjas, verdes, nuevas);
+  }
+
+  // Reglas de consolidación: ids múltiplos de 100 (100, 200, 300…). En
+  // "Elige qué estudiar" no van con casillas sino con una cantidad fija
+  // (RL_CONSOL_MIN..RL_CONSOL_MAX) que se descuenta de la parte del sistema.
+  const RL_CONSOL_MIN = 1, RL_CONSOL_MAX = 20, RL_CONSOL_DEF = 5;
+  function rlEsConsolidacion(id) { return id >= 100 && id % 100 === 0; }
+  function rlReglasConsolidacion() {
+    return rlReglasDisponibles().filter((r) => rlEsConsolidacion(r.id)).sort((x, y) => x.id - y.id);
+  }
+  function rlConsolCantGuardada(id) {
+    const v = RL.consolCant && RL.consolCant[id];
+    return typeof v === "number" ? Math.min(RL_CONSOL_MAX, Math.max(RL_CONSOL_MIN, v)) : RL_CONSOL_DEF;
   }
 
   function rlAporte(r) { return RL_APORTE[r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad"]; }
@@ -530,10 +543,12 @@
       item.sistema = reglas.length ? Math.max(0, deficit - m) : 0;
       // Irregulares: el 25 % de lo que se carga sale del banco de irregulares del
       // paquete del día (de las reglas que elijas). Se descuenta de la parte del sistema.
-      item.irr = typeof irrCupoRecarga === "function" ? Math.min(item.sistema, irrCupoRecarga(item.manual + item.sistema)) : 0;
-      const xDeseado = item.sistema > 0 ? Math.max(1, Math.round(item.sistema / 8)) : 0;
+      item.irrBase = typeof irrCupoRecarga === "function" ? Math.min(item.sistema, irrCupoRecarga(item.manual + item.sistema)) : 0;
       item.reglas = rlReglasParaElegir().map((r) => r.id);
-      item.x = xDeseado ? Math.min(item.reglas.length * RL_MAX_VOTOS_REGLA, xDeseado) : 0;
+      item.consol = item.sistema ? rlReglasConsolidacion().map((r) => r.id) : [];
+      item.consolVal = {};
+      item.consolOk = {};
+      item.consol.forEach((id) => { item.consolVal[id] = rlConsolCantGuardada(id); });
       if (item.reglas.length) {
         const dia = rlReglasDia();
         dia.veces += 1;
@@ -547,26 +562,49 @@
       }
       rlGuardar();
     }
+    // Bancos viejos (antes de consolidaciones) no traen estos campos.
+    if (!item.consol) { item.consol = []; item.consolVal = {}; item.consolOk = {}; }
+    if (item.irrBase == null) item.irrBase = item.irr || 0;
+    const consolIds = item.consol.filter((id) => findRegla(id));
+    const consolListo = consolIds.every((id) => item.consolOk[id]);
+    const consolTotal = consolListo ? consolIds.reduce((s, id) => s + (item.consolVal[id] || 0), 0) : 0;
+    const restante = Math.max(0, item.sistema - consolTotal);
+    item.irr = consolListo ? Math.min(item.irrBase, restante) : 0;
+    const xDeseado = consolListo && restante > 0 ? Math.max(1, Math.round(restante / 8)) : 0;
+    item.x = xDeseado ? Math.min(item.reglas.length * RL_MAX_VOTOS_REGLA, xDeseado) : 0;
+
     const sel = new Map(); // reglaId -> casillas marcadas (1..RL_MAX_VOTOS_REGLA)
     const totalSel = () => { let t = 0; sel.forEach((n) => (t += n)); return t; };
     const reglas = item.reglas.map((id) => findRegla(id)).filter(Boolean);
     const vacio = !item.manual && !item.sistema;
 
-    const titulo = item.x
-      ? `Selecciona <b>${item.x}</b> regla${item.x === 1 ? "" : "s"}`
-      : (item.manual ? "Entran ejercicios tuyos" : "Tu banco está lleno");
+    const titulo = !consolListo
+      ? "🎯 Elige qué estudiar"
+      : item.x
+        ? `Selecciona <b>${item.x}</b> regla${item.x === 1 ? "" : "s"}`
+        : (item.manual || consolTotal ? "🎯 Elige qué estudiar" : "Tu banco está lleno");
     const subt = [
-      item.sistema ? `El sistema cargará <b>${item.sistema}</b> ejercicio${item.sistema === 1 ? "" : "s"} repartidos entre las que elijas${item.irr ? ` (<b>${item.irr}</b> con verbos irregulares del paquete ${irrEstado().paquete})` : ""}.` : "",
+      consolListo && restante ? `El sistema cargará <b>${restante}</b> ejercicio${restante === 1 ? "" : "s"} repartidos entre las que elijas${item.irr ? ` (<b>${item.irr}</b> con verbos irregulares del paquete ${irrEstado().paquete})` : ""}.` : "",
       item.manual ? `<b>${item.manual}</b> ejercicio${item.manual === 1 ? "" : "s"} de tu reserva manual entran también.` : "",
-      item.x ? `Marca hasta ${RL_MAX_VOTOS_REGLA} casillas en una misma regla para que reciba más de esos ejercicios.` : "",
-      item.x || item.manual ? `El informe se entrega al terminar todo este banco.` : "",
       vacio ? (rlReglasDisponibles().length ? "No hace falta cargar nada por ahora." : "No hay ejercicios disponibles en el banco del sistema para este idioma. Agrega ejercicios desde el menú (📥).") : "",
     ].filter(Boolean).join(" ");
 
     body.innerHTML = rlCabecera(["🎯 Elige qué estudiar"]) + `
       <div class="rl-sorpresa rl-reglas">
         <h2 class="rl-title">${titulo}</h2>
-        <p class="rl-sub">${subt}</p>
+        ${consolIds.length ? `<div class="rules-select-list rl-consol-list">
+          ${consolIds.map((id) => {
+            const r = findRegla(id);
+            const ok = !!item.consolOk[id];
+            const tier = r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad";
+            return `<div class="rule-card rl-consol-row tier-${tier}${ok ? " rule-row-checked" : ""}" data-id="${id}">
+              ${rlFilaRegla(r, `<span class="rule-card-bottom"><span class="rule-select-count">${rlEjerciciosDeRegla(id).length} ejercicios</span></span>`)}
+              <input type="number" class="rl-consol-input" data-id="${id}" min="${RL_CONSOL_MIN}" max="${RL_CONSOL_MAX}" step="1" inputmode="numeric" value="${item.consolVal[id]}">
+              <button class="fun-btn rl-consol-guardar${ok ? "" : " primary-btn"}" data-id="${id}">${ok ? "✅" : "💾"}</button>
+            </div>`;
+          }).join("")}
+        </div>` : ""}
+        ${subt ? `<p class="rl-sub">${subt}</p>` : ""}
         ${item.x ? `<div class="rules-select-list">
           ${reglas.map((r) => {
             const tier = r.porcentaje > 0 ? pctTier(r.porcentaje) : "bad";
@@ -580,9 +618,40 @@
         </div>` : ""}
         <div class="rl-reglas-foot">
           ${item.x ? `<span class="rl-contador"><b class="rl-sel-n">0</b>/${item.x}</span>` : ""}
-          <button class="fun-btn primary-btn rl-cargar" ${item.x ? "disabled" : ""}>${vacio ? "Continuar ⬆" : "➕ Cargar ejercicios"}</button>
+          <button class="fun-btn primary-btn rl-cargar" ${item.x || !consolListo ? "disabled" : ""}>${vacio ? "Continuar ⬆" : "➕ Cargar ejercicios"}</button>
         </div>
       </div>`;
+
+    // Consolidaciones: escribir la cantidad (1-20) y guardar con 💾. Hasta
+    // que todas estén guardadas no aparecen las casillas de las demás reglas;
+    // al guardar se recalcula cuántas hay que marcar con lo que queda.
+    body.querySelectorAll(".rl-consol-input").forEach((inp) => {
+      inp.addEventListener("input", () => {
+        const id = parseInt(inp.dataset.id, 10);
+        if (!item.consolOk[id]) return;
+        item.consolOk[id] = false;
+        rlRenderReglas(item, body);
+        const otro = body.querySelector(`.rl-consol-input[data-id="${id}"]`);
+        if (otro) { otro.value = inp.value; otro.focus(); }
+      });
+    });
+    body.querySelectorAll(".rl-consol-guardar").forEach((b) => {
+      b.onclick = () => {
+        const id = parseInt(b.dataset.id, 10);
+        const inp = body.querySelector(`.rl-consol-input[data-id="${id}"]`);
+        let v = parseInt(inp && inp.value, 10);
+        if (!Number.isFinite(v)) v = RL_CONSOL_DEF;
+        v = Math.min(RL_CONSOL_MAX, Math.max(RL_CONSOL_MIN, v));
+        const otras = consolIds.filter((o) => o !== id && item.consolOk[o]).reduce((s, o) => s + (item.consolVal[o] || 0), 0);
+        v = Math.max(0, Math.min(v, item.sistema - otras));
+        item.consolVal[id] = v;
+        item.consolOk[id] = true;
+        RL.consolCant = RL.consolCant || {};
+        if (v >= RL_CONSOL_MIN) RL.consolCant[id] = v;
+        rlGuardar();
+        rlRenderReglas(item, body);
+      };
+    });
 
     const btn = body.querySelector(".rl-cargar");
     const actualizarUI = () => {
@@ -591,7 +660,8 @@
         row.classList.toggle("rule-row-checked", (sel.get(id) || 0) > 0);
       });
       const t = totalSel();
-      body.querySelector(".rl-sel-n").textContent = t;
+      const cont = body.querySelector(".rl-sel-n");
+      if (cont) cont.textContent = t;
       btn.disabled = t !== item.x;
     };
     body.querySelectorAll(".rule-select-checkbox").forEach((cb) => {
@@ -616,7 +686,9 @@
       });
     });
     btn.onclick = () => {
+      if (!consolListo) return;
       if (item.x && totalSel() !== item.x) return;
+      item.consolSel = consolIds.map((id) => ({ id, n: item.consolVal[id] || 0 })).filter((c) => c.n > 0);
       const dia = rlReglasDia();
       RL.reglasEstudio = RL.reglasEstudio || {};
       sel.forEach((n, id) => { if (!dia.elegidas.includes(id)) dia.elegidas.push(id); RL.reglasEstudio[id] = rlReglasDia().fecha; });
@@ -667,11 +739,26 @@
       total += item.manual;
     }
     const ids = selecciones.map((s) => s.id);
+    const elegidos = new Set();
+    // Consolidaciones (100, 200…): cantidad fija, se descuenta de la parte
+    // del sistema. Si una no tiene tantos ejercicios, el faltante lo ponen
+    // las reglas elegidas con casillas.
+    let consolN = 0;
+    (item.consolSel || []).forEach(({ id, n }) => {
+      if (!findRegla(id) || !(n > 0)) return;
+      const ejs = rlTomarDeRegla(id, n, elegidos);
+      ejs.forEach((e) => nuevas.push(rlItemEx(e, "sys", "reparto", id)));
+      consolN += ejs.length;
+      if (ejs.length && typeof rlSistemaRegistrar === "function") rlSistemaRegistrar(id, "reparto", ejs.length);
+    });
+    total += consolN;
+    const regular = Math.max(0, (item.sistema || 0) - consolN);
     let irrN = 0;
-    if (item.irr && ids.length && typeof irrTomarParaRecarga === "function") {
+    const irrPedidos = Math.min(item.irr || 0, regular);
+    if (irrPedidos && ids.length && typeof irrTomarParaRecarga === "function") {
       // Solo de las reglas elegidas (true): si no alcanzan, lo que falte lo
       // pone el banco del sistema de esas mismas reglas (ver `sistema` abajo).
-      const irrEjs = irrTomarParaRecarga(item.irr, ids, true);
+      const irrEjs = irrTomarParaRecarga(irrPedidos, ids, true);
       irrEjs.forEach((e) => {
         const rs = e.reglaIds || [];
         const sel = rs.find((id) => ids.includes(id));
@@ -680,12 +767,11 @@
       irrN = irrEjs.length;
       total += irrN;
     }
-    const sistema = Math.max(0, (item.sistema || 0) - irrN);
-    let sysN = 0;
+    const sistema = Math.max(0, regular - irrN);
+    let sysN = consolN;
     if (selecciones.length && sistema) {
       const entradas = selecciones.map(({ id, n }) => ({ r: findRegla(id), n: Math.max(1, n || 1) })).filter((e) => e.r);
       const cupos = rlRepartirCupos(sistema, entradas.map((e) => rlAporte(e.r) * e.n), RL_MIN_POR_REGLA);
-      const elegidos = new Set();
       const tomados = entradas.map(({ r }, i) => rlTomarDeRegla(r.id, cupos[i], elegidos));
       // Lo que no se pudo tomar (regla con pocos ejercicios) se reparte de a
       // uno entre las reglas elegidas que todavía tengan ejercicios.
@@ -785,7 +871,7 @@
 
     body.innerHTML = rlCabecera(["📋 Elige qué entra al informe", grupos.length + " regla" + (grupos.length === 1 ? "" : "s") + " con datos"]) + `
       <div class="rl-sorpresa rl-reporte rl-repsel">
-        <p class="rl-sub">🏁 Terminaste el banco. Marca las reglas que quieres incluir en este reporte (cada ejercicio cuenta solo para la regla por la que lo elegiste). Al entregarlo podrás elegir qué estudiar en el siguiente banco.</p>
+        
         <div class="rl-reglas-foot" style="margin-bottom:8px;gap:8px;">
           <button class="fun-btn rl-repsel-todo">☑️ Seleccionar todo</button>
           <button class="fun-btn rl-repsel-ninguno">⬜ Ninguno</button>

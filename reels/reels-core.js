@@ -851,7 +851,7 @@
         </div>
         <pre class="rl-historial-bloque">${rlEsc(txtHoy)}</pre>
         <pre class="rl-historial-bloque">${rlEsc(txtAyer)}</pre>
-        <pre class="rl-historial-bloque rl-historial-live">${rlEsc("Banco de reels: " + rlContarBanco() + " ejercicios\nFaltan " + faltan + " para el reporte (sale al terminar el banco)")}</pre>
+        <pre class="rl-historial-bloque rl-historial-live">${rlEsc("Banco de reels: " + rlContarBanco() + " ejercicios\nFaltan " + faltan + " para el reporte")}</pre>
         <pre class="rl-historial-bloque rl-historial-live">${rlEsc(txtCargados)}</pre>
         <button class="fun-btn full-width rl-ver-sistema">👁 Ver cargados del sistema por regla</button>
         <button class="fun-btn full-width rl-borrar-cargados" style="color:var(--bad);margin-top:8px;">🗑️ Borrar ejercicios del sistema</button>
@@ -1056,7 +1056,7 @@
           <h3>📥 Agregar ejercicios</h3>
           <button class="menu-modal-close" aria-label="Cerrar">✕</button>
         </div>
-        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Mismo formato de siempre (traducciones, completar, seleccionar, corregir${getTargetLanguage() === "it" ? ", dictado" : ""}) con sus <b>reglaIds</b>. Guarda tandas con un título para reutilizarlas cuando quieras — solo entran a la reserva cuando las marcas y le das "Cargar al juego"; de ahí pasan al banco en el próximo "Elige qué estudiar" (hasta ${Math.round(RL_BANCO * RL_PARTE_MANUAL)} de los ${RL_BANCO}).</p>
+        <p class="sub-fun" style="text-align:left;margin-bottom:10px;">Mismo formato de siempre (traducciones, completar, seleccionar, corregir${getTargetLanguage() === "it" ? ", dictado" : ""}) con sus <b>reglaIds</b>. Guarda tandas con un título para reutilizarlas cuando quieras — solo entran a la reserva cuando las marcas y le das "Cargar al juego".</p>
 
         <label class="rl-lote-label" for="rlLoteTituloInput">Título de la tanda</label>
         <input type="text" id="rlLoteTituloInput" class="answer-input rl-lote-titulo-input" placeholder="Ej: Verbos modales — tanda 3">

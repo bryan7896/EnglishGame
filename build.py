@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 
 # ==================== CONFIGURACIÓN ====================
-VERSION = "21.5 (24-11-2026)"
+VERSION = "21.6 (26-11-2026)"
 LS_KEY = "english_trainer_v6"
 
 
@@ -292,6 +292,33 @@ def load_study_exercises(lang):
                 all_exercises.append(ex)
 
     return all_exercises
+
+
+def prune_exercises_to_rules(exercises, rules, lang):
+    """Quita de cada ejercicio los reglaIds que ya no existen en
+    reglas-gramaticales.json (reglas retiradas/consolidadas). Si un
+    ejercicio tenía reglas y se queda sin ninguna, sale del banco. Los que
+    nunca tuvieron reglaIds (p. ej. dictados sueltos) no se tocan. Si el
+    idioma no tiene reglas, no se toca nada."""
+    ids = {r["id"] for r in rules}
+    if not ids:
+        return exercises
+    out, quitados, retiradas = [], 0, set()
+    for ex in exercises:
+        orig = ex.get("reglaIds") or []
+        if not orig:
+            out.append(ex)
+            continue
+        quedan = [i for i in orig if i in ids]
+        retiradas.update(i for i in orig if i not in ids)
+        if not quedan:
+            quitados += 1
+            continue
+        ex["reglaIds"] = quedan
+        out.append(ex)
+    if retiradas:
+        print(f"  🧹 [{lang}] reglas retiradas en ejercicios: {sorted(retiradas)} — {quitados} ejercicio(s) quitados por quedar sin regla")
+    return out
 
 
 def load_informacion_por_regla(lang):
@@ -1905,7 +1932,7 @@ def build_html():
     informacion_por_regla_by_lang = {}
     for lang in DATA_LANGUAGES:
         grammar_rules_by_lang[lang] = load_grammar_rules(lang)
-        study_exercises_by_lang[lang] = load_study_exercises(lang)
+        study_exercises_by_lang[lang] = prune_exercises_to_rules(load_study_exercises(lang), grammar_rules_by_lang[lang], lang)
         informacion_por_regla_by_lang[lang] = load_informacion_por_regla(lang)
         total_lecciones = sum(len(v) for v in informacion_por_regla_by_lang[lang].values())
         print(f"  ✅ [{lang}] {len(grammar_rules_by_lang[lang])} reglas gramaticales ({grammar_rules_file(lang)})")
